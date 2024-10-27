@@ -1,0 +1,89 @@
+@use "variables" as vars
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    font-family: vars.$font-family
+    font-optical-sizing: auto
+    font-weight: vars.$font-weight
+    font-style: normal
+    font-variation-settings: "wdth" 100
+    background-color: vars.$background-color
+    font-size: vars.$font-size
+    line-height: 1.8
+
+#about-content, #projects-content, #experience-content, #contact-content, h3
+    color: white
+
+h1, h2, a
+    color: vars.$font-color
+
+h1
+    font-size: calc(vars.$font-size * 3) //50px
+    letter-spacing: vars.$letter-spacing //-5px
+    margin-bottom: vars.$padding
+
+h2
+    font-size: calc(vars.$font-size * 1.6) //36px
+    // letter-spacing: vars.$letter-spacing //-3px
+    // margin-bottom: calc(vars.$padding / 2) //10px
+
+h3
+    margin-bottom: calc(vars.$padding / 2) // 10px
+
+ul
+    list-style-type: none
+
+a
+    text-decoration: none
+
+p
+    margin: vars.$padding 0
+    font-size: vars.$font-size
+
+nav
+    width: vars.$nav-width
+    font-size: calc(vars.$font-size * 1.2)
+
+    ul
+        display: flex
+        justify-content: space-around
+        align-items: center
+
+        li
+            color: vars.$font-color
+            cursor: pointer
+
+.container
+   max-width: vars.$max-width
+   margin: auto
+   display: flex
+   flex-direction: column
+   height: vars.$height
+   justify-content: center
+   align-items: center
+
+   nav ul li // + li
+    margin-bottom: vars.$nav-margin-bottom
+    margin-left: 0 // calc(vars.$padding / -2)
+
+.wb-body
+    background-color: vars.$content-color
+    padding: vars.$padding
+
+.hidden
+    display: none
+
+.cursor
+    font-weight: vars.$title-weight
+    animation: vars.$cursor-blink blink step-end infinite
+
+@keyframes blink
+    from, to
+        color: transparent
+
+    50%
+        color: vars.$font-color
