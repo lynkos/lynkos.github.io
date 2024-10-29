@@ -1,89 +1,179 @@
 @use "variables" as vars
 
-*
-    box-sizing: border-box
-    margin: 0
-    padding: 0
+// RESET
+*, *::before, *::after
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+// BASIC
+html
+  font-size: vars.$font-size // 1rem=10px
 
 body
-    font-family: vars.$font-family
-    font-optical-sizing: auto
-    font-weight: vars.$font-weight
-    font-style: normal
-    font-variation-settings: "wdth" 100
-    background-color: vars.$background-color
-    font-size: vars.$font-size
-    line-height: 1.8
+  font-family: vars.$font-family
+  font-variation-settings: "wdth" 100
+  font-optical-sizing: auto
+  line-height: 1.8
+  color: vars.$font-color
+  background-color: vars.$background-color
+  background-image: radial-gradient(rgba(0, 150, 0, 0.95), black 150%)
+  height: 100vh
+  overflow: hidden
+  
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px)
+    pointer-events: none
 
-#about-content, #projects-content, #experience-content, #contact-content, h3
-    color: white
+canvas
+  display: block
+  vertical-align: bottom
 
-h1, h2, a
-    color: vars.$font-color
+::selection
+  background: vars.$selection-color
+  text-shadow: none
 
-h1
-    font-size: calc(vars.$font-size * 3) //50px
-    letter-spacing: vars.$letter-spacing //-5px
-    margin-bottom: vars.$padding
+// LAYOUT
+.box
+  position: fixed
+  inset: 0
+  width: fit-content
+  height: fit-content
+  margin: auto
+  padding: 0.75rem
 
-h2
-    font-size: calc(vars.$font-size * 1.6) //36px
-    // letter-spacing: vars.$letter-spacing //-3px
-    // margin-bottom: calc(vars.$padding / 2) //10px
+// COMPONENT
+.mac-terminal
+  background-color: vars.$terminal-color
+  border-radius: 1rem
+  width: vars.$width
+  height: vars.$height
+  overflow: auto
+  margin: 0 auto
+  box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56)
 
-h3
-    margin-bottom: calc(vars.$padding / 2) // 10px
+  .header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 4rem
+    padding: 0 1.4rem
 
-ul
-    list-style-type: none
+    &__title 
+      color: vars.$font-color
+      font-family: "Arial", sans-serif
+      font-size: 1.35rem
+      font-weight: bold
 
-a
-    text-decoration: none
+      img
+        width: 1.25rem
+        height: 1.25rem
+        margin-right: 0.6rem
+        vertical-align: middle
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
 
-p
-    margin: vars.$padding 0
-    font-size: vars.$font-size
+    &__op
+      display: flex
+      align-items: center
 
-nav
-    width: vars.$nav-width
-    font-size: calc(vars.$font-size * 1.2)
+      &-icon
+        width: 1.3rem
+        height: 1.3rem
+        border-radius: 50%
 
-    ul
-        display: flex
-        justify-content: space-around
-        align-items: center
+        &:not(:last-child)
+          margin-right: .7rem
+        
+        &--red
+          background-color: vars.$close-button
+          border: 1px solid vars.$close-button-border
+        
+        &--yellow
+          background-color: vars.$minimize-button
+          border: 1px solid vars.$minimize-button-border
+        
+        &--green
+          background-color: vars.$maximize-button
+          border: 1px solid vars.$maximize-button-border
 
-        li
-            color: vars.$font-color
-            cursor: pointer
+    &__empty
+      width: 5.6rem // 1.4rem * 3 + (.7rem * 2)
 
-.container
-   max-width: vars.$max-width
-   margin: auto
-   display: flex
-   flex-direction: column
-   height: vars.$height
-   justify-content: center
-   align-items: center
+  .body
+    font-size: 1.3rem
 
-   nav ul li // + li
-    margin-bottom: vars.$nav-margin-bottom
-    margin-left: 0 // calc(vars.$padding / -2)
+    &__row 
+      margin-top: 0.2rem
+      line-height: 1.79rem
+      padding: 0 2rem
+      display: flex
+      align-items: center
 
-.wb-body
-    background-color: vars.$content-color
-    padding: vars.$padding
-
-.hidden
-    display: none
-
-.cursor
-    font-weight: vars.$title-weight
-    animation: vars.$cursor-blink blink step-end infinite
-
-@keyframes blink
-    from, to
-        color: transparent
-
-    50%
+      a
         color: vars.$font-color
+        text-decoration: none
+        cursor: pointer
+
+      pre
+        padding: 0.6rem 0
+        margin-top: 0
+        // font-size MUST equal line-height for banner to format correctly
+        font-size: 0.7rem
+        line-height: 0.7rem
+      
+      &-arrow
+        width: 0.8rem
+        height: 0.6rem
+        background-color: vars.$arrow-color
+        clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
+        margin-right: 0.8rem
+
+      &-name
+        color: vars.$username-color
+
+      &-accent
+        color: vars.$secondary-font-color
+
+      &-git
+        &--label
+          color: #2D9CDB
+        &--branch
+          color: #EB5757
+        &--branch-detail
+          color: #F2C94C
+        &--branch-time
+          color: #27AE60
+        &--author
+          color: #2D9CDB
+      
+      &-result
+        margin-left: 1rem
+      
+      &-cursor
+        font-weight: bold
+        animation: vars.$cursor-blink blink step-end infinite
+
+      @keyframes blink
+        from, to
+          color: transparent
+
+        50%
+          color: vars.$font-color
+
+.ui-resizable-helper
+  border: 1px dotted gray
+
+// BACKGROUND PARTICLES
+#particles-js
+  position: absolute
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: 50% 50%

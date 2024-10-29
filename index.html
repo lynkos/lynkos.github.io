@@ -13,32 +13,173 @@
         <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
         <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
         <link rel="stylesheet" href="/assets/css/style.min.css" />
+        <link rel="stylesheet" href="/assets/css/dock.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
+
+        <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
     </head>
     <body>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li id="about">/about</li>
-                    <li id="projects">/projects</li>
-                    <li id="experience">/experience</li>
-                    <li id="contact">/contact</li>
-                </ul>
-            </nav>
-
-            <main>
-                <h1>lynkos:$ <span class="cursor">_</span></h1>
-                <div align="center">
-                <h3>Links:</h3>
-                <ul>
-                    <li><a alt="GitHub" href="https://github.com/lynkos" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    <li><a alt="LinkedIn" href="https://www.linkedin.com/in/kiran-brahmatewari/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
+        <div id="particles-js"></div>
+        
+        <header class="menu-bar">
+            <div class="left">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/1010px-Apple_logo_white.svg.png" class="apple-logo" alt="">
+                <span class="menus active">Finder</span>
+                <span class="menus">File</span>
+                <span class="menus">Edit</span>
+                <span class="menus">View</span>
+                <span class="menus">Go</span>
+                <span class="menus">Window</span>
+                <span class="menus">Help</span>
             </div>
-            </main>
-        </div>
+                <div class="right">
+                    <div class="menu-ico">
+                      <img src="https://freepngimg.com/download/united_states/76187-sound-information-united-business-states-address-email.png" alt="" class="vol">
+                    </div>
+                    <div class="menu-ico">
+                      <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="menu-ico">
+                      <i class="fas fa-search"></i>
+                    </div>
+                    <div class="menu-ico">
+                      <img src="https://eshop.macsales.com/blog/wp-content/uploads/2021/03/control-center-icon.png" alt="" class="control-center">
+                    </div>
+                    <div class="menu-time">
+                        <p id="menutime"></p>
+                    </div>
+                  </div>      
+        </header>
+          
+          <div class="dock">
+            <div class="dock-container">
+              <li class="li-1">
+                <div class="name">Finder</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853981255cc36b3a37af_finder.png" alt="">
+              </li>
+              <li class="li-2">
+                <div class="name">Projects</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853943597517f128b9b4_launchpad.png" alt="Projects">
+              </li>
+              <li class="li-3">
+                <div class="name">Contacts</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853743597518c528b9b3_contacts.png" alt="">
+              </li>
+              <li class="li-4">
+                <div class="name">Notes</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c849ec3735b52cef9_notes.png" alt="">
+              </li>
+              <li class="li-5">
+                <div class="name">Photos</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c55558a2e1192ee09_photos.png" alt="">
+              </li>
+              <li class="li-6">
+                <div class="name">Messages</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853a55558a68e192ee08_messages.png" alt="">
+              </li>
+              <li class="li-7">
+                <div class="name">Music</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853ba0782d6ff2aca6b3_music.png" alt="">
+              </li>
+              <li class="li-8">
+                <div class="name">App Store</div>
+                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853270b5e2ccfd795b49_appstore.png" alt="">
+              </li>
+              <li class="li-bin li-9">
+                <div class="name">Bin</div>
+                <img class="ico ico-bin" src="https://findicons.com/files/icons/569/longhorn_objects/128/trash.png" alt="">
+              </li>
+            </div>
+          </div>
 
-        <div class="hidden">
+        <div class="box">
+            <div class="mac-terminal">
+              <div class="header">
+                <div class="header__op">
+                  <span class="header__op-icon header__op-icon--red"></span>
+                  <span class="header__op-icon header__op-icon--yellow"></span class="header__op-icon header__op-icon--yellow">
+                  <span class="header__op-icon header__op-icon--green"></span>
+                </div>
+
+                <div class="header__title"><img src="assets/terminal.svg">-bash</div>
+                <div class="header__empty"></div>
+              </div>
+
+              <div class="body">
+                <div class="body__row"><p id="timestamp"></p></div>
+
+                <div class="body__row">
+                  <span class="body__row-arrow"></span>
+                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                  <span class="body__row-result">banner</span>
+                </div>
+
+                <div class="body__row">
+                    <pre>
+░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  ░▒▓███████▓▒░ 
+░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  
+░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+░▒▓████████▓▒░░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░ ░▒▓███████▓▒░  </pre>                                                                             
+                </div>
+
+                <div class="body__row">
+                    <span class="body__row-arrow"></span>
+                    <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                    <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                    <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                    <span class="body__row-result">git log</span>
+                  </div>  
+
+                <div class="body__row">
+                  <span class="body__row-git--branch">e23h217</span>
+                  <span>&nbsp;- (</span>
+                  <span class="body__row-git--branch-detail">HEAD -> main, origin/main</span>
+                  <span>)</span>
+                </div>
+
+                <div class="body__row">
+                  <span class="body__row-git--branch">g43e341</span>
+                  <span>&nbsp;- Update <a href="https://lynkos.dev">lynkos.dev</a></span>
+                  <span class="body__row-git--branch-time">&nbsp;(1 hour ago)&nbsp;</span> 
+                  <span class="body__row-git--author">&lt;lynkos&gt;</span>
+                </div>
+
+                <div class="body__row">
+                    <span class="body__row-arrow"></span>
+                    <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                    <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                    <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                    <span class="body__row-result">echo "This website is still a work in progress!"</span>
+                </div>
+
+                <div class="body__row">
+                    <span>This website is still a work in progress!</span>
+                </div>  
+
+                <div class="body__row">
+                  <span class="body__row-arrow"></span>
+                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                  <span class="body__row-result"></span>
+                  <span class="body__row-cursor">_</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: none;">
             <div id="about-content">
                 <h2>about-me:$ <span class="cursor">_</span></h2>
                 <p>My name is Kiran, and I like to create things</p>
@@ -56,8 +197,10 @@
                 <p>You can contact me via one of the links</p>
             </div>
         </div>
-        
-        <script defer src="js/winbox.bundle.js"></script>
+        <script src="js/terminal.js"></script>
+        <script src="js/dock.js"></script>
+        <script src="js/timestamp.js"></script>
+        <script src="js/particles.js"></script>
         <script defer src="js/script.js"></script>
     </body>
 </html>
