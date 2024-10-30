@@ -8,6 +8,7 @@ $(function() {
         .draggable({
             cursor: "move",
             handle: "div.header",
+            cancel: "div.header__op",
             //containment: "#mac-terminal"
         });
 });
