@@ -52,10 +52,14 @@ canvas
 .mac-terminal
   background-color: vars.$terminal-color
   font-family: vars.$terminal-font
+  inline-size: min-content
   border-radius: 1rem
   width: vars.$width
   height: vars.$height
-  overflow: auto
+  word-wrap: break-all
+  text-wrap: wrap
+  overflow-wrap: anywhere
+  overflow-y: auto
   margin: 0 auto
   box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56)
 
@@ -121,14 +125,13 @@ canvas
         color: vars.$font-color
         text-decoration: none
         cursor: pointer
-
-      pre
-        padding: 0.6rem 0
-        margin-top: 0
+      
+      &-banner
         // font-size MUST equal line-height for banner to format correctly
         font-size: 0.7rem
         line-height: 0.7rem
-      
+        padding: 0.6rem 0
+
       &-arrow
         width: 0.8rem
         height: 0.6rem
