@@ -8,76 +8,33 @@ const experienceContent = document.querySelector('#experience-content')
 const contactContent = document.querySelector('#contact-content')
 
 about.addEventListener('click', () => {
-    const aboutBox = new WinBox({
-      width: "350px",
-      height: "350px",
-      top: 50,
-      right: 70,
-      bottom: 50,
-      left: 50,
-      mount: aboutContent,
-      onfocus: function () {
-        this.setBackground("#00aa00");
-      },
-      onblur: function () {
-        this.setBackground("#777");
-      },
+    const aboutBox = new WinBox("About Me", {
+      modal: true,
+      class: "modern",
+      mount: aboutContent
     });
 })
 
 projects.addEventListener('click', () => {
-  const projectsBox = new WinBox({
-    background: "grey",
-    width: "350px",
-    height: "350px",
-    top: 50,
-    right: 70,
-    bottom: 50,
-    left: 100,
-    mount: projectsContent,
-    onfocus: function () {
-      this.setBackground("#00aa00");
-    },
-    onblur: function () {
-      this.setBackground("#777");
-    },
+  const projectsBox = new WinBox("Projects", {
+    class: "modern",
+    modal: true,
+    mount: projectsContent
   });
 })
 
 experience.addEventListener('click', () => {
-  const experienceBox = new WinBox({
-    background: "grey",
-    width: "350px",
-    height: "350px",
-    top: 50,
-    right: 70,
-    bottom: 50,
-    left: 150,
-    mount: experienceContent,
-    onfocus: function () {
-      this.setBackground("#00aa00");
-    },
-    onblur: function () {
-      this.setBackground("#777");
-    },
+  const experienceBox = new WinBox("Experience", {
+    class: "modern",
+    modal: true,
+    mount: experienceContent
   });
 })
 
 contact.addEventListener('click', () => {
-    const contactBox = new WinBox({
-      background: "grey",
-      width: "350px",
-      height: "350px",
-      top: 50,
-      right: 70,
-      bottom: 50,
-      left: 200,
+    const contactBox = new WinBox("Contact", {
+      class: "modern",
       mount: contactContent,
-      onfocus: function () {
-        this.setBackground("#00aa00");
-      },
-      onblur: function () {
-        this.setBackground("#777");
-      },
+      modal: true
     });
 })
