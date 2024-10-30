@@ -7,8 +7,7 @@ $(function() {
         
         .draggable({
             cursor: "move",
-            //containment: "#mac-terminal",
-            //cursorAt: { top: 8 },
-            //cancel: "p.ui-widget-header"
+            handle: "div.header",
+            //containment: "#mac-terminal"
         });
 });

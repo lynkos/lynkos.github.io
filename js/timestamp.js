@@ -1,6 +1,8 @@
 const days = [ "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat" ];
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
 
+setInterval(updateTimeStamp, 1000);
+
 function currentTimestamp() {
   const date = new Date();
   const weekDay = days[date.getDay()];
@@ -14,7 +16,7 @@ function updateTimeStamp() {
   document.querySelector("#menutime").textContent = currentTimestamp();
 }
 
-setInterval(updateTimeStamp, 1000);
+updateTimeStamp();
 
 function randomInt(min, max) {
   const minCeiled = Math.ceil(min);

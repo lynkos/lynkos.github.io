@@ -23,13 +23,14 @@
         <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+        <script src="js/particles.js"></script>
     </head>
     <body>
         <div id="particles-js"></div>
         
         <header class="menu-bar">
             <div class="left">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/1010px-Apple_logo_white.svg.png" class="apple-logo" alt="">
+                <img src="assets/icons/apple.png" class="apple-logo" alt="Apple logo">
                 <span class="menus active">Finder</span>
                 <span class="menus">File</span>
                 <span class="menus">Edit</span>
@@ -40,16 +41,16 @@
             </div>
                 <div class="right">
                     <div class="menu-ico">
-                      <img src="https://freepngimg.com/download/united_states/76187-sound-information-united-business-states-address-email.png" alt="" class="vol">
+                        <i class="fas fa-moon"></i>
                     </div>
                     <div class="menu-ico">
                       <i class="fas fa-wifi"></i>
                     </div>
                     <div class="menu-ico">
-                      <i class="fas fa-search"></i>
+                      <i class="fas fa-battery-full"></i>
                     </div>
                     <div class="menu-ico">
-                      <img src="https://eshop.macsales.com/blog/wp-content/uploads/2021/03/control-center-icon.png" alt="" class="control-center">
+                        <i class="fas fa-search"></i>
                     </div>
                     <div class="menu-time">
                         <p id="menutime"></p>
@@ -60,39 +61,35 @@
           <div class="dock">
             <div class="dock-container">
               <li class="li-1">
-                <div class="name">Finder</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853981255cc36b3a37af_finder.png" alt="">
+                <div class="name">Contacts</div>
+                <img class="ico" src="assets/icons/contacts.svg" alt="">
               </li>
               <li class="li-2">
-                <div class="name">Projects</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853943597517f128b9b4_launchpad.png" alt="Projects">
+                <div class="name">Notes</div>
+                <img class="ico" src="assets/icons/notes.png" alt="Notes">
               </li>
               <li class="li-3">
-                <div class="name">Contacts</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853743597518c528b9b3_contacts.png" alt="">
+                <div class="name">Mail</div>
+                <img class="ico" src="assets/icons/mail.png" alt="">
               </li>
               <li class="li-4">
-                <div class="name">Notes</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c849ec3735b52cef9_notes.png" alt="">
+                <div class="name">App Store</div>
+                <img class="ico" src="assets/icons/app_store.png" alt="">
               </li>
               <li class="li-5">
                 <div class="name">Photos</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853c55558a2e1192ee09_photos.png" alt="">
+                <img class="ico" src="assets/icons/photos.png" alt="">
               </li>
               <li class="li-6">
-                <div class="name">Messages</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853a55558a68e192ee08_messages.png" alt="">
+                <div class="name">GitHub</div>
+                <img class="ico" src="assets/icons/github.png" alt="">
               </li>
               <li class="li-7">
                 <div class="name">Music</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853ba0782d6ff2aca6b3_music.png" alt="">
+                <img class="ico" src="assets/icons/spotify.png" alt="Spotify Music">
               </li>
-              <li class="li-8">
-                <div class="name">App Store</div>
-                <img class="ico" src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853270b5e2ccfd795b49_appstore.png" alt="">
-              </li>
-              <li class="li-bin li-9">
-                <div class="name">Bin</div>
+              <li class="li-bin li-8">
+                <div class="name">Trash</div>
                 <img class="ico ico-bin" src="https://findicons.com/files/icons/569/longhorn_objects/128/trash.png" alt="">
               </li>
             </div>
@@ -107,7 +104,7 @@
                   <span class="header__op-icon header__op-icon--green"></span>
                 </div>
 
-                <div class="header__title"><img src="assets/terminal.svg">-bash</div>
+                <div class="header__title"><img src="assets/icons/terminal.svg">-bash</div>
                 <div class="header__empty"></div>
               </div>
 
@@ -197,10 +194,11 @@
                 <p>You can contact me via one of the links</p>
             </div>
         </div>
+  
+        <script id="rendered-js" src="js/particles.js"></script>
         <script src="js/terminal.js"></script>
         <script src="js/dock.js"></script>
         <script src="js/timestamp.js"></script>
-        <script src="js/particles.js"></script>
         <script defer src="js/script.js"></script>
     </body>
 </html>
