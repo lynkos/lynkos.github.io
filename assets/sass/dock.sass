@@ -1,76 +1,9 @@
 @use "variables" as vars
 
-.menu-bar
-  width: 100%
-  height: 25px
-  padding: 5px
-  position: absolute
-  font-size: 12px
-  top: 0
-  left: 0
-  display: flex
-  align-items: center
-  justify-content: space-between
-  background: rgba(83, 83, 83, 0.4)
-  backdrop-filter: blur(50px)
-  -webkit-backdrop-filter: blur(50px)
-
-  img
-    width: 1.2rem
-    height: 1.2rem
-
-  .left
-    display: flex
-    align-items: center
-    justify-content: space-evenly
-    width: auto
-    left: 0
-
-    .apple-logo
-      //transform: scale(1)
-      margin-left: 10px
-
-    .menus
-      height: 100%
-      display: flex
-      margin-left: 15px
-      color: rgba(255, 255, 255, 0.95)
-
-    .active
-      font-weight: bold
-      color: #fff !important
-
-  .right
-    display: flex
-    justify-content: space-evenly
-    width: auto //38px
-    margin-right: 10px
-
-    .menu-time
-      //height: 100%
-      width: auto
-      justify-content: center
-      color: #fff
-
-    .menu-ico
-      height: 100%
-      width: 10px
-      margin-top: 6px
-      display: flex
-      align-items: center
-      justify-content: center
-      margin-right: 15px
-      color: rgba(255, 255, 255, 0.95)
-
-      i
-        display: contents
-        font-size: 10.5px
-        color: #fff
-
 .dock
-  width: 60px
+  width: vars.$dock-width
   height: auto
-  border-radius: 16px
+  border-radius: vars.$dock-border-radius
   display: flex
   justify-content: center
   position: absolute
@@ -86,7 +19,7 @@
     display: flex
     align-items: center
     justify-content: center
-    border-radius: 16px
+    border-radius: vars.$dock-border-radius
     background: rgba(83, 83, 83, 0.25)
     backdrop-filter: blur(13px)
     -webkit-backdrop-filter: blur(13px)

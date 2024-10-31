@@ -31,6 +31,9 @@ body
     background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px)
     pointer-events: none
 
+a
+  text-decoration: none
+
 canvas
   display: block
   vertical-align: bottom
@@ -92,6 +95,15 @@ canvas
         width: 1.3rem
         height: 1.3rem
         border-radius: 50%
+        font-size: 10px
+        font-weight: bold
+        cursor: default
+
+        a
+          visibility: hidden
+
+        &:hover a
+          visibility: visible
 
         &:not(:last-child)
           margin-right: .7rem
@@ -99,14 +111,47 @@ canvas
         &--red
           background-color: vars.$close-button
           border: 1px solid vars.$close-button-border
+
+          .closebutton
+            color: #820005
+            margin-left: 2px
+
+          &:active
+            background: #c14645
+            border: 1px solid #b03537
+            
+            .closebutton
+              color: #4e0002
         
         &--yellow
           background-color: vars.$minimize-button
           border: 1px solid vars.$minimize-button-border
+
+          .minimizebutton
+            color: #9a5518
+            margin-left: 2.5px
+
+          &:active
+            background: #c08e38
+            border: 1px solid #af7c33
+            
+            .minimizebutton
+              color: #5a2607
         
         &--green
           background-color: vars.$maximize-button
           border: 1px solid vars.$maximize-button-border
+
+          .zoombutton
+            color: #006519
+            margin-left: 3px
+
+          &:active
+            background: #029740
+            border: 1px solid #128435
+            
+            .zoombutton
+              color: #003107
 
     &__empty
       width: 5.6rem // 1.4rem * 3 + (.7rem * 2)
@@ -185,9 +230,10 @@ canvas
 
 .winbox.modern
   &
-    background: #131820 //linear-gradient(90deg, #ff00f0, #0050ff)
-    border-radius: 12px 12px 0 0
+    background: vars.$terminal-color //linear-gradient(90deg, #ff00f0, #0050ff)
+    border-radius: vars.$popup-border-radius
     animation: popup 0.3s cubic-bezier(0.3, 1, 0.3, 1) forwards
+    font-size: vars.$popup-font-size
 
   //&.min:not(:hover),
   &:not(.min,.focus)
@@ -214,36 +260,20 @@ canvas
     border-radius: 0
 
   .wb-title
-    font-size: 13px
+    font-size: 16px
     font-weight: 600
     text-align: center
 
   .wb-body
-    &
-      /* width of window border: */
-      margin: 4px
-      color: #fff
-      background: #131820
-
-    &::-webkit-scrollbar
-      width: 12px
-      height: 12px
-
-    &::-webkit-scrollbar-track
-      background: transparent
-
-    &::-webkit-scrollbar-thumb
-      border-radius: 10px
-      background: #263040
-
-    &::-webkit-scrollbar-thumb:window-inactive
-      background: #181f2a
-
-    &::-webkit-scrollbar-corner
-      background: transparent
+    /* width of window border */
+    margin: 4px
+    color: #fff
+    padding: 5px
+    background: vars.$terminal-color
 
 @keyframes popup
   0%
     transform: scale(0.8)
+
   100%
     transform: scale(1)

@@ -1,4 +1,4 @@
-const days = [ "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat" ];
+const days = [ "Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat" ];
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
 
 function currentTimestamp() {
@@ -11,7 +11,9 @@ function currentTimestamp() {
 }
 
 function updateTimeStamp() {
-  document.querySelector("#menutime").textContent = currentTimestamp();
+  const date = new Date();
+  const time = date.toLocaleTimeString("en-us", { hour12: false });
+  document.querySelector("#menutime").textContent = time; //currentTimestamp();
 }
 
 setInterval(updateTimeStamp, 1000);
