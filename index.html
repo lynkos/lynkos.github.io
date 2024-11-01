@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/assets/css/style.min.css" />
         <link rel="stylesheet" href="/assets/css/menubar.min.css" />
         <link rel="stylesheet" href="/assets/css/dock.min.css" />
+        <link rel="stylesheet" href="/assets/css/form.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
 
@@ -59,34 +60,30 @@
           <div class="dock">
             <div class="dock-container">
               <li class="li-1">
-                <div class="name">Contacts</div>
-                <img class="ico" id="contact" src="assets/icons/contacts.svg" alt="Contacts">
+                <div class="name">Contact</div>
+                <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail">
               </li>
               <li class="li-2">
                 <div class="name">Notes</div>
                 <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes">
               </li>
               <li class="li-3">
-                <div class="name">Mail</div>
-                <img class="ico" src="assets/icons/mail.png" alt="Mail">
-              </li>
-              <li class="li-4">
                 <div class="name">App Store</div>
                 <img class="ico" id="projects" src="assets/icons/app_store.png" alt="">
               </li>
-              <li class="li-5">
+              <li class="li-4">
                 <div class="name">Photos</div>
                 <img class="ico" id="experience" src="assets/icons/photos.png" alt="">
               </li>
-              <li class="li-6">
+              <li class="li-5">
                 <div class="name">GitHub</div>
                 <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile"><img class="ico" src="assets/icons/github.png" alt="GitHub"></a>
               </li>
-              <li class="li-7">
+              <li class="li-6">
                 <div class="name">Music</div>
                 <a target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile"><img class="ico" src="assets/icons/spotify.png" alt="Spotify"></a>
               </li>
-              <li class="li-bin li-8">
+              <li class="li-bin li-7">
                 <div class="name">Trash</div>
                 <img class="ico ico-bin" src="assets/icons/trash.png" alt="Trash">
               </li>
@@ -198,11 +195,37 @@ help: help [-dms] [pattern ...]
                 <p>This section is still under construction...</p>
             </div>
             <div id="contact-content">
-                <p>You can contact me via one of the links</p>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" 
+                                name="name" 
+                                placeholder="Your Name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" 
+                                name="email"
+                                pattern=".+@example\.com"
+                                placeholder="Your Email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" 
+                                    name="message" 
+                                    placeholder="Your Message" 
+                                    rows="5" required></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+                    <button type="submit" value="Submit" class="submit-button">Submit</button>
+                </form>
             </div>
         </div>
   
         <script id="rendered-js" src="js/particles.js"></script>
+        <script src="js/form.js"></script>
         <script src="js/terminal.js"></script>
         <script src="js/dock.js"></script>
         <script src="js/timestamp.js"></script>
