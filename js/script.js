@@ -34,7 +34,6 @@ experience.addEventListener('click', () => {
 contact.addEventListener('click', () => {
     const contactBox = new WinBox("Contact", {
       class: "modern",
-      width: "55%",
       mount: contactContent,
       modal: true
     });
