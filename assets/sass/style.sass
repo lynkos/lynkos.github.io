@@ -111,10 +111,10 @@ canvas
 
         &:not(:last-child)
           margin-right: .7rem
-        
+
         &--red
-          background-color: vars.$close-button
-          border: 1px solid vars.$close-button-border
+          background-color: #FF544D
+          border: 1px solid #DA3C37
 
           .closebutton
             color: #820005
@@ -128,8 +128,8 @@ canvas
               color: #4e0002
         
         &--yellow
-          background-color: vars.$minimize-button
-          border: 1px solid vars.$minimize-button-border
+          background-color: #FFB429
+          border: 1px solid #F0A318
 
           .minimizebutton
             color: #9a5518
@@ -143,8 +143,8 @@ canvas
               color: #5a2607
         
         &--green
-          background-color: vars.$maximize-button
-          border: 1px solid vars.$maximize-button-border
+          background-color: #25C63A
+          border: 1px solid #12A025
 
           .zoombutton
             color: #006519
@@ -239,13 +239,12 @@ canvas
 
   //&.min:not(:hover),
   &:not(.min,.focus)
-    background: #666
+    background: vars.$terminal-color
 
   // hover fix for mobile devices which keeps the :hover state when touched
-
   @media (hover: hover)
     &.min:not(:hover)
-      background: #666
+      background: vars.$terminal-color
 
     .wb-control *
       opacity: 0.65
@@ -255,7 +254,7 @@ canvas
 
   @media (hover: none)
     &.min
-      background: #666
+      background: vars.$terminal-color
 
   //&.min,
   &.max
@@ -264,14 +263,21 @@ canvas
   .wb-title
     font-size: 16px
     font-weight: 600
-    text-align: center
+    float: right
+    //text-align: center
 
   .wb-body
     /* width of window border */
     margin: 4px
-    color: #fff
+    color: white
     padding: 5px
     background: vars.$terminal-color
+
+  .wb-control
+    float: left
+
+  .wb-drag
+    padding: 0 10px
 
 @keyframes popup
   0%
