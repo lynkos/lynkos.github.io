@@ -1,9 +1,14 @@
-@use "variables" as vars
+$dock-width: 60px
+$dock-icon-dim: 50px
+$dock-icon-hover: calc($dock-icon-dim * 1.05) // 75px
+$dock-border-radius: 16px
+$tooltip-color: rgba(0, 0, 0, 0.5)
+$num-apps: 7
 
 .dock
-  width: vars.$dock-width
+  width: $dock-width
   height: auto
-  border-radius: vars.$dock-border-radius
+  border-radius: $dock-border-radius
   display: flex
   justify-content: center
   position: absolute
@@ -13,20 +18,23 @@
   transform: translateX(-50%)
 
   .dock-container
-    padding: 5px
+    padding: 5px 1px 6px 5px
     width: auto
     height: 100%
     display: flex
     align-items: center
     justify-content: center
-    border-radius: vars.$dock-border-radius
+    border-radius: $dock-border-radius
     background: rgba(83, 83, 83, 0.25)
     backdrop-filter: blur(13px)
     -webkit-backdrop-filter: blur(13px)
     border: 1px solid rgba(255, 255, 255, 0.05)
 
+    a
+      cursor: default
+
     .li-bin
-      margin-left: 7px
+      margin-left: 5px
       border-left: 1.5px solid rgba(255, 255, 255, 0.15)
 
     .li-1
@@ -37,30 +45,26 @@
         border-radius: 50%
         background: rgba(255, 255, 255, 0.5)
         content: ""
-        bottom: 1px
-
-    a
-      cursor: default
+        bottom: 2px
     
     li
       list-style: none
       display: flex
       align-items: center
       justify-content: center
-      width: 50px
+      width: $dock-icon-dim
       padding: 3px
-      height: 50px
+      height: $dock-icon-dim
       vertical-align: bottom
-      transition: 0.2s
-      transform-origin: 50% 100%
-
-      &:hover
-        margin: 0px 13px 0px 13px
-
+      transition: 0.25s
+      transition-property: all
+      transition-timing-function: ease
+      transition-duration: 0.25s
+  
       .name
         position: absolute
-        top: -57px
-        background: rgba(96, 97, 96, 1)
+        top: -29px
+        background: $tooltip-color
         color: rgba(255, 255, 255, 0.9)
         //height: 10px
         font-size: 13px
@@ -74,14 +78,14 @@
         &::after
           content: ""
           position: absolute
-          bottom: -10px
+          bottom: -6px
           width: 0
           height: 0
           backdrop-filter: blur(13px)
           -webkit-backdrop-filter: blur(13px)
-          border-left: 10px solid transparent
-          border-right: 10px solid transparent
-          border-top: 10px solid rgba(96, 97, 96, 1)
+          border-left: 6px solid transparent
+          border-right: 6px solid transparent
+          border-top: 6px solid $tooltip-color
 
       .ico
         width: 100%
@@ -89,14 +93,7 @@
         object-fit: cover
         transition: 0.2s
         
-      .ico-bin
-        object-fit: cover
-        transition: 0.2s
-
-        &:hover
-          margin-left: 10px
-
-@for $i from 1 through vars.$num-apps
+@for $i from 1 through $num-apps
   .li-#{$i}:hover
     .name
       visibility: visible !important
