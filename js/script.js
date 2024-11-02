@@ -10,31 +10,39 @@ const contactContent = document.querySelector('#contact-content')
 about.addEventListener('click', () => {
     const aboutBox = new WinBox("About Me", {
       modal: true,
-      class: "modern",
-      mount: aboutContent
+      class: "modern no-full",
+      mount: aboutContent,
+      x: "center",
+      y: "center",
     });
 })
 
 projects.addEventListener('click', () => {
   const projectsBox = new WinBox("Projects", {
-    class: "modern",
+    class: "modern no-full",
     modal: true,
-    mount: projectsContent
+    mount: projectsContent,
+    x: "center",
+    y: "center"
   });
 })
 
 experience.addEventListener('click', () => {
   const experienceBox = new WinBox("Experience", {
-    class: "modern",
+    class: "modern no-full",
     modal: true,
-    mount: experienceContent
+    mount: experienceContent,
+    x: "center",
+    y: "center"
   });
 })
 
 contact.addEventListener('click', () => {
     const contactBox = new WinBox("Contact", {
-      class: "modern",
+      class: "modern no-full",
       mount: contactContent,
-      modal: true
+      modal: true,
+      x: "center",
+      y: "center",
     });
 })
