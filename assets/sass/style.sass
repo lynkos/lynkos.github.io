@@ -21,15 +21,17 @@ body
   height: 100vh
   overflow: hidden
   
-  &::after
-    content: ""
-    position: absolute
-    top: 0
-    left: 0
-    width: 100vw
-    height: 100vh
-    background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px)
-    pointer-events: none
+  // Adds a repeating grid pattern to the background
+  // to mimic the look of a real terminal
+  // &::after
+  //   content: ""
+  //   position: absolute
+  //   top: 0
+  //   left: 0
+  //   width: 100vw
+  //   height: 100vh
+  //   background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px)
+  //   pointer-events: none
 
 a
   text-decoration: none
