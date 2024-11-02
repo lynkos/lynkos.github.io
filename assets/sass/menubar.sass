@@ -1,8 +1,11 @@
-@use "variables" as vars
+$menubar-font-color: rgba(255, 255, 255, 0.95)
+$menubar-height: 30px // 25px
+$menubar-padding: 10px
+$menubar-icon-size: 10.5px
 
 .menu-bar
   width: 100%
-  height: vars.$menubar-height
+  height: $menubar-height
   padding: 5px
   position: absolute
   font-size: 12px
@@ -25,31 +28,32 @@
     justify-content: space-evenly
     width: auto
     left: 0
+    padding-left: $menubar-padding
 
     .apple-logo
       //transform: scale(1)
-      margin-left: vars.$menubar-padding
+      // margin-left: vars.$menubar-padding
 
     .menus
       height: 100%
       display: flex
-      margin-left: vars.$menubar-padding
-      color: vars.$menubar-font-color
+      margin-left: $menubar-padding
+      color: $menubar-font-color
 
     .active
       font-weight: bold
-      color: #fff !important
+      color: #FFF !important
 
   .right
     display: flex
     justify-content: space-evenly
     width: auto //38px
-    margin-right: vars.$menubar-padding
+    margin-right: $menubar-padding
 
     .menu-time
       //height: 100%
       justify-content: center
-      color: #fff
+      color: #FFF
 
     .menu-ico
       height: 100%
@@ -57,10 +61,10 @@
       display: flex
       align-items: center
       justify-content: center
-      margin-right: vars.$menubar-padding
-      color: vars.$menubar-font-color
+      padding-right: $menubar-padding
+      color: $menubar-font-color
 
       i
         display: contents
-        font-size: vars.$menubar-icon-size
-        color: #fff
+        font-size: $menubar-icon-size
+        color: #FFF
