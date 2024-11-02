@@ -4,27 +4,38 @@
         <title>Lynkos</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Personal website" />
-        <meta name="apple-mobile-web-app-title" content="Lynkos" />
-        <meta name="keywords" content="code, website, macos, terminal, apple" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta property="og:title" content="Lynkos" />
-        <meta property="og:description" content="Personal website" />
-        <meta property="og:url" content="https://lynkos.dev" />
-        <meta property="og:site_name" content="Lynkos" />
-        <meta property="og:image" content="/assets/favicon/favicon.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@0xLynkos" />
-        <meta name="twitter:creator" content="@0xLynkos" />
-        <meta name="twitter:title" content="Lynkos" />
-        <meta name="twitter:description" content="Personal website" />
-        <meta name="twitter:image" content="/assets/favicon/favicon.svg" />
+
+        <link rel="preload" as="image" href="assets/icons/apple.png" />
+        <link rel="preload" as="image" href="assets/icons/app_store.png" />
+        <link rel="preload" as="image" href="assets/icons/github.png" />
+        <link rel="preload" as="image" href="assets/icons/mail.png" />
+        <link rel="preload" as="image" href="assets/icons/notes.png" />
+        <link rel="preload" as="image" href="assets/icons/photos.png" />
+        <link rel="preload" as="image" href="assets/icons/spotify.png" />
+        <link rel="preload" as="image" href="assets/icons/trash.png" />
+        <link rel="preload" as="image" href="assets/icons/terminal.svg" />
 
         <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
         <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
         <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+        <meta name="description" content="Personal website" />
+        <meta name="apple-mobile-web-app-title" content="Lynkos" />
+        <meta name="keywords" content="code, lynkos, front-end, website, macos, terminal, apple" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+        <meta property="og:title" content="Lynkos" />
+        <meta property="og:description" content="Personal website" />
+        <meta property="og:url" content="https://lynkos.dev" />
+        <meta property="og:site_name" content="Lynkos" />
+        <meta property="og:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@0xLynkos" />
+        <meta name="twitter:creator" content="@0xLynkos" />
+        <meta name="twitter:title" content="Lynkos" />
+        <meta name="twitter:description" content="Personal website" />
+        <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
 
         <link rel="stylesheet" href="/assets/css/style.min.css" />
         <link rel="stylesheet" href="/assets/css/menubar.min.css" />
@@ -88,15 +99,15 @@
               </li>
               <li class="li-5">
                 <div class="name">GitHub</div>
-                <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile"><img class="ico" src="assets/icons/github.png" alt="GitHub"></a>
+                <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile"><img class="ico" src="assets/icons/github.png" alt="GitHub"></a>
               </li>
               <li class="li-6">
                 <div class="name">Spotify</div>
-                <a target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile"><img class="ico" src="assets/icons/spotify.png" alt="Spotify"></a>
+                <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile"><img class="ico" src="assets/icons/spotify.png" alt="Spotify"></a>
               </li>
               <li class="li-bin li-7">
                 <div class="name">Trash</div>
-                <img class="ico ico-bin" src="assets/icons/trash.png" alt="Trash">
+                <img class="ico" src="assets/icons/trash.png" alt="Trash">
               </li>
             </div>
           </div>
@@ -198,14 +209,17 @@ help: help [-dms] [pattern ...]
                 <p>I enjoy traveling, <a href="https://github.com/lynkos/lynkos/blob/master/PHOTOGRAPHY%20PORTFOLIO.pdf" target="_blank">photography</a> (Nikon D5100 DSLR), listening to music, reading, journaling/writing, doodling, daydreaming, creating, fashion, design, skincare, watching <a href="https://myanimelist.net/profile/lynkos" target="_blank">anime</a>, cooking, vibing with friends, programming/cybersecurity competitions (e.g. capture the flags (CTFs), hackathons, etc), and memes during my downtime. <a href="https://lynkos420.blogspot.com" target="_blank">This blog</a> contains some of my solutions to certain CTF puzzles/problems; it's a relic from the past as I created and contributed to it during my last 2 years of high school.</p><br />
                 <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
             </div>
+
             <div id="projects-content">
                 <p>This section is still under construction...</p><br />
                 <p>However, you can find <a target="_blank" href="https://github.com/lynkos?tab=repositories">my [public] repositories</a> at <a target="_blank" href="https://github.com/lynkos">my GitHub profile</a>!</p>
             </div>
+
             <div id="experience-content">
                 <p>This section is still under construction...</p>
                 <p>Refer to <a target="_blank" href="https://linkedin.com/in/kiran-brahmatewari">my LinkedIn profile</a> for further details.</p>
             </div>
+
             <div id="contact-content">
               <p align="center" style="font-weight: bold">This section is unusable since it's under construction!</p>
                 <form id="contact-form">
@@ -238,7 +252,6 @@ help: help [-dms] [pattern ...]
         <script id="rendered-js" src="js/particles.js"></script>
         <script src="js/form.js"></script>
         <script src="js/terminal.js"></script>
-        <script src="js/dock.js"></script>
         <script src="js/timestamp.js"></script>
         <script defer src="js/script.js"></script>
     </body>
