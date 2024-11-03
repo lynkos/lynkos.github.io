@@ -9,9 +9,11 @@ const contactContent = document.querySelector('#contact-content')
 
 about.addEventListener('click', () => {
     const aboutBox = new WinBox("About Me", {
-      modal: true,
       class: "modern no-full",
+      modal: true,
       mount: aboutContent,
+      width: "75%",
+      height: "75%",
       x: "center",
       y: "center",
     });
@@ -22,6 +24,8 @@ projects.addEventListener('click', () => {
     class: "modern no-full",
     modal: true,
     mount: projectsContent,
+    width: "75%",
+    height: "75%",
     x: "center",
     y: "center"
   });
@@ -32,6 +36,8 @@ experience.addEventListener('click', () => {
     class: "modern no-full",
     modal: true,
     mount: experienceContent,
+    width: "75%",
+    height: "75%",
     x: "center",
     y: "center"
   });
@@ -40,8 +46,10 @@ experience.addEventListener('click', () => {
 contact.addEventListener('click', () => {
     const contactBox = new WinBox("Contact", {
       class: "modern no-full",
-      mount: contactContent,
       modal: true,
+      mount: contactContent,
+      width: "75%",
+      height: "75%",
       x: "center",
       y: "center",
     });
