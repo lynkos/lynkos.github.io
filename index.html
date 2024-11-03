@@ -1,143 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Lynkos</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <title>Lynkos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-        <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
-        <link rel="preload" as="image" href="assets/icons/apple.png" />
-        <link rel="preload" as="image" href="assets/icons/app_store.png" />
-        <link rel="preload" as="image" href="assets/icons/github.png" />
-        <link rel="preload" as="image" href="assets/icons/mail.png" />
-        <link rel="preload" as="image" href="assets/icons/notes.png" />
-        <link rel="preload" as="image" href="assets/icons/photos.png" />
-        <link rel="preload" as="image" href="assets/icons/spotify.png" />
-        <link rel="preload" as="image" href="assets/icons/trash.png" />
-        <link rel="preload" as="image" href="assets/icons/terminal.svg" />
+    <link rel="preload" as="image" href="assets/icons/apple.png" />
+    <link rel="preload" as="image" href="assets/icons/app_store.png" />
+    <link rel="preload" as="image" href="assets/icons/github.png" />
+    <link rel="preload" as="image" href="assets/icons/mail.png" />
+    <link rel="preload" as="image" href="assets/icons/notes.png" />
+    <link rel="preload" as="image" href="assets/icons/photos.png" />
+    <link rel="preload" as="image" href="assets/icons/spotify.png" />
+    <link rel="preload" as="image" href="assets/icons/trash.png" />
+    <link rel="preload" as="image" href="assets/icons/terminal.svg" />
 
-        <meta name="description" content="Personal website" />
-        <meta name="apple-mobile-web-app-title" content="Lynkos" />
-        <meta name="keywords" content="code, lynkos, front-end, website, macos, terminal, apple" />
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
-        <meta property="og:title" content="Lynkos" />
-        <meta property="og:description" content="Personal website" />
-        <meta property="og:url" content="https://lynkos.dev" />
-        <meta property="og:site_name" content="Lynkos" />
-        <meta property="og:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@0xLynkos" />
-        <meta name="twitter:creator" content="@0xLynkos" />
-        <meta name="twitter:title" content="Lynkos" />
-        <meta name="twitter:description" content="Personal website" />
-        <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
+    <meta name="description" content="Personal website" />
+    <meta name="apple-mobile-web-app-title" content="Lynkos" />
+    <meta name="keywords" content="code, lynkos, front-end, website, macos, terminal, apple" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta property="og:title" content="Lynkos" />
+    <meta property="og:description" content="Personal website" />
+    <meta property="og:url" content="https://lynkos.dev" />
+    <meta property="og:site_name" content="Lynkos" />
+    <meta property="og:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@0xLynkos" />
+    <meta name="twitter:creator" content="@0xLynkos" />
+    <meta name="twitter:title" content="Lynkos" />
+    <meta name="twitter:description" content="Personal website" />
+    <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
 
-        <link rel="stylesheet" href="/assets/css/style.min.css" />
-        <link rel="stylesheet" href="/assets/css/menubar.min.css" />
-        <link rel="stylesheet" href="/assets/css/dock.min.css" />
-        <link rel="stylesheet" href="/assets/css/form.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+    <link rel="stylesheet" href="/assets/css/menubar.min.css" />
+    <link rel="stylesheet" href="/assets/css/dock.min.css" />
+    <link rel="stylesheet" href="/assets/css/form.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
 
-        <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    </head>
-    <body>
-        <div id="particles-js"></div>
+    <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <header class="menu-bar">
+      <div class="left">
+        <img src="assets/icons/apple.png" class="apple-logo" alt="Apple logo" draggable="false">
+        <span class="menus active">Finder</span>
+        <span class="menus">File</span>
+        <span class="menus">Edit</span>
+        <span class="menus">View</span>
+        <span class="menus">Window</span>
+        <span class="menus">Help</span>
+      </div>
+
+      <div class="right">
+        <div class="menu-ico"><i class="fas fa-moon"></i></div>
+        <div class="menu-ico"><i class="fas fa-wifi"></i></div>
+        <div class="menu-ico"><i class="fas fa-battery-full"></i></div>
+        <div class="menu-ico"><i class="fas fa-search"></i></div>
+        <div class="menu-time"><p id="menutime"></p></div>
+      </div>      
+    </header>
         
-        <header class="menu-bar">
-            <div class="left">
-                <img src="assets/icons/apple.png" class="apple-logo" alt="Apple logo">
-                <span class="menus active">Finder</span>
-                <span class="menus">File</span>
-                <span class="menus">Edit</span>
-                <span class="menus">View</span>
-                <span class="menus">Window</span>
-                <span class="menus">Help</span>
+    <footer class="dock">
+      <div class="dock-container">
+        <li class="li-1">
+          <div class="name">Contact</div>
+          <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail" draggable="false">
+        </li>
+
+        <li class="li-2">
+          <div class="name">About</div>
+          <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes" draggable="false">
+        </li>
+
+        <li class="li-3">
+          <div class="name">Projects</div>
+          <img class="ico" id="projects" src="assets/icons/photos.png" alt="Photos" draggable="false">
+        </li>
+
+        <li class="li-4">
+          <div class="name">Experience</div>
+          <img class="ico" id="experience" src="assets/icons/app_store.png" alt="App Store" draggable="false">
+        </li>
+
+        <li class="li-5">
+          <div class="name">GitHub</div>
+          <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img class="ico" src="assets/icons/github.png" alt="GitHub" draggable="false"></a>
+        </li>
+
+        <li class="li-6">
+          <div class="name">Spotify</div>
+          <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img class="ico" src="assets/icons/spotify.png" alt="Spotify" draggable="false"></a>
+        </li>
+
+        <li class="li-bin li-7">
+          <div class="name">Trash</div>
+          <img class="ico" src="assets/icons/trash.png" alt="Trash" draggable="false">
+        </li>
+      </div>
+    </footer>
+<main>
+    <div class="folder">
+      <button class="folder-button btn">
+        <div class="folder-button-item">
+          <img src="assets/icons/blue-folder.png" alt="Work" draggable="true">
+          <span>Work</span>
+        </div>
+      </button>
+      
+      <button class="folder-button btn">
+        <div class="folder-button-item">
+          <img src="assets/icons/blue-folder.png" alt="Media" draggable="true">
+          <span>Media</span>
+        </div>
+      </button>
+
+      <button class="folder-button btn">
+        <div class="folder-button-item">
+          <img src="assets/icons/blue-folder.png" alt="Playlists" draggable="true">
+          <span>Playlists</span>
+        </div>
+      </button>
+
+      <button class="folder-button btn">
+        <div class="folder-button-item">
+          <img src="assets/icons/blue-folder.png" alt="src" draggable="true">
+          <span>src</span>
+        </div>
+      </button>
+    </div>
+    
+      <div class="box">
+        <div class="mac-terminal">
+          <div class="header">
+            <div class="header__op">
+              <span class="header__op-icon header__op-icon--red"><a class="header__op-icon closebutton" href="#"></a></span>
+              <span class="header__op-icon header__op-icon--yellow"><a class="header__op-icon minimizebutton" href="#"></a></span>
+              <span class="header__op-icon header__op-icon--green"><a class="header__op-icon zoombutton" href="#"></a></span>
             </div>
-                <div class="right">
-                    <div class="menu-ico">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="menu-ico">
-                      <i class="fas fa-wifi"></i>
-                    </div>
-                    <div class="menu-ico">
-                      <i class="fas fa-battery-full"></i>
-                    </div>
-                    <div class="menu-ico">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="menu-time"><p id="menutime"></p></div>
-                  </div>      
-        </header>
-          
-          <div class="dock">
-            <div class="dock-container">
-              <li class="li-1">
-                <div class="name">Contact</div>
-                <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail">
-              </li>
-              <li class="li-2">
-                <div class="name">About</div>
-                <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes">
-              </li>
-              <li class="li-3">
-                <div class="name">Projects</div>
-                <img class="ico" id="projects" src="assets/icons/photos.png" alt="">
-              </li>
-              <li class="li-4">
-                <div class="name">Experience</div>
-                <img class="ico" id="experience" src="assets/icons/app_store.png" alt="">
-              </li>
-              <li class="li-5">
-                <div class="name">GitHub</div>
-                <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile"><img class="ico" src="assets/icons/github.png" alt="GitHub"></a>
-              </li>
-              <li class="li-6">
-                <div class="name">Spotify</div>
-                <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile"><img class="ico" src="assets/icons/spotify.png" alt="Spotify"></a>
-              </li>
-              <li class="li-bin li-7">
-                <div class="name">Trash</div>
-                <img class="ico" src="assets/icons/trash.png" alt="Trash">
-              </li>
-            </div>
+
+            <div class="header__title"><img src="assets/icons/terminal.svg" alt="iTerm icon" draggable="false">-bash</div>
+            <div class="header__empty"></div>
           </div>
 
-        <div class="box">
-            <div class="mac-terminal">
-              <div class="header">
-                <div class="header__op">
-                  <span class="header__op-icon header__op-icon--red"><a class="header__op-icon closebutton" href="#"></a></span>
-                  <span class="header__op-icon header__op-icon--yellow"><a class="header__op-icon minimizebutton" href="#"></a></span>
-                  <span class="header__op-icon header__op-icon--green"><a class="header__op-icon zoombutton" href="#"></a></span>
-                </div>
+          <div class="body">
+            <div class="body__row"><p id="timestamp"></p></div>
 
-                <div class="header__title"><img src="assets/icons/terminal.svg">-bash</div>
-                <div class="header__empty"></div>
-              </div>
+            <div class="body__row">
+              <span class="body__row-arrow"></span>
+              <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+              <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+              <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+              <span class="body__row-result">cat banner.txt</span>
+            </div>
 
-              <div class="body">
-                <div class="body__row"><p id="timestamp"></p></div>
-
-                <div class="body__row">
-                  <span class="body__row-arrow"></span>
-                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                  <span class="body__row-result">cat banner.txt</span>
-                </div>
-
-                <div class="body__row">
-                  <span class="body__row-banner"><pre>
+            <div class="body__row">
+              <span class="body__row-banner"><pre>
 ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  ░▒▓███████▓▒░ 
 ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
 ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
@@ -145,114 +173,116 @@
 ░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
 ░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
 ░▒▓████████▓▒░░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░ ░▒▓███████▓▒░  </pre></span>
-                </div>
+            </div>
 
-                <div class="body__row">
-                  <span class="body__row-arrow"></span>
-                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                  <span class="body__row-result">help</span>
-                </div>
+            <div class="body__row">
+              <span class="body__row-arrow"></span>
+              <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+              <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+              <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+              <span class="body__row-result">help</span>
+            </div>
 
-              <div class="body__row">
-                  <pre>
+            <div class="body__row">
+                <pre>
 help: help [-dms] [pattern ...]
-  This website is still under construction.
+This website is still under construction.
 
-  Options:
-    -d        output short description
-    -m        output usage in pseudo-manpage format
-    -s        output short usage synopsis
+Options:
+-d        output short description
+-m        output usage in pseudo-manpage format
+-s        output short usage synopsis
 
-  Arguments:
-    PATTERN   Pattern specifying a help topic</pre>
-              </div>  
+Arguments:
+PATTERN   Pattern specifying a help topic</pre>
+            </div>  
 
-              <div class="body__row">
-                <span class="body__row-arrow"></span>
-                <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-                <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-                <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                <span class="body__row-result">git log</span>
-              </div>  
+          <div class="body__row">
+            <span class="body__row-arrow"></span>
+            <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+            <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+            <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+            <span class="body__row-result">git log</span>
+          </div>  
 
-            <div class="body__row">
-              <span class="body__row-git--branch">e23h217</span>
-              <span>&nbsp;- (</span>
-              <span class="body__row-git--branch-detail">HEAD -> main, origin/main</span>
-              <span>)</span>
-            </div>
-
-            <div class="body__row">
-              <span class="body__row-git--branch">g43e341</span>
-              <span>&nbsp;- Update <a href="https://lynkos.dev">lynkos.dev</a></span>
-              <span class="body__row-git--branch-time">&nbsp;(1 hour ago)&nbsp;</span> 
-              <span class="body__row-git--author">&lt;lynkos&gt;</span>
-            </div>
-
-                <div class="body__row">
-                  <span class="body__row-arrow"></span>
-                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                  <span class="body__row-result"></span>
-                  <span class="body__row-cursor">_</span>
-                </div>
-              </div>
-            </div>
+          <div class="body__row">
+            <span class="body__row-git--branch">e23h217</span>
+            <span>&nbsp;- (</span>
+            <span class="body__row-git--branch-detail">HEAD -> main, origin/main</span>
+            <span>)</span>
           </div>
 
-          <div style="display: none;">
-            <div id="about-content">
-                <p>I'm Kiran: A quick-learning undergrad with a passion for creating and an interest in STEM research. My areas of focus are Computer Science, Mathematics, and Statistics. I'm a 4x Software Engineer Intern at Oracle Cloud during Summers 2021 – 2024. I'm currently a Research Assistant at <a href="https://acyd.fiu.edu" target="_blank">Analytics for Cyber Defense (ACyD) Lab</a>, where I'm investigating novel applications of post-quantum cybersecurity in order to ensure the resilience of Internet of Things (IoT) against quantum hacking.</p><br />
-                <p>I enjoy traveling, <a href="https://github.com/lynkos/lynkos/blob/master/PHOTOGRAPHY%20PORTFOLIO.pdf" target="_blank">photography</a> (Nikon D5100 DSLR), listening to music, reading, journaling/writing, doodling, daydreaming, creating, fashion, design, skincare, watching <a href="https://myanimelist.net/profile/lynkos" target="_blank">anime</a>, cooking, vibing with friends, programming/cybersecurity competitions (e.g. capture the flags (CTFs), hackathons, etc), and memes during my downtime. <a href="https://lynkos420.blogspot.com" target="_blank">This blog</a> contains some of my solutions to certain CTF puzzles/problems; it's a relic from the past as I created and contributed to it during my last 2 years of high school.</p><br />
-                <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
-            </div>
+          <div class="body__row">
+            <span class="body__row-git--branch">g43e341</span>
+            <span>&nbsp;- Update <a href="https://lynkos.dev">lynkos.dev</a></span>
+            <span class="body__row-git--branch-time">&nbsp;(1 hour ago)&nbsp;</span> 
+            <span class="body__row-git--author">&lt;lynkos&gt;</span>
+          </div>
 
-            <div id="projects-content">
-                <p>This section is still under construction...</p><br />
-                <p>However, you can find <a target="_blank" href="https://github.com/lynkos?tab=repositories">my [public] repositories</a> at <a target="_blank" href="https://github.com/lynkos">my GitHub profile</a>!</p>
-            </div>
+          <div class="body__row">
+            <span class="body__row-arrow"></span>
+            <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+            <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+            <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+            <span class="body__row-result"></span>
+            <span class="body__row-cursor">_</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <div id="experience-content">
-                <p>This section is still under construction...</p>
-                <p>Refer to <a target="_blank" href="https://linkedin.com/in/kiran-brahmatewari">my LinkedIn profile</a> for further details.</p>
-            </div>
+    <div style="display: none;">
+      <div id="about-content">
+          <p>I'm Kiran: A quick-learning undergrad with a passion for creating and an interest in STEM research. My areas of focus are Computer Science, Mathematics, and Statistics. I'm a 4x Software Engineer Intern at Oracle Cloud during Summers 2021 – 2024. I'm currently a Research Assistant at <a href="https://acyd.fiu.edu" target="_blank">Analytics for Cyber Defense (ACyD) Lab</a>, where I'm investigating novel applications of post-quantum cybersecurity in order to ensure the resilience of Internet of Things (IoT) against quantum hacking.</p><br />
+          <p>I enjoy traveling, <a href="https://github.com/lynkos/lynkos/blob/master/PHOTOGRAPHY%20PORTFOLIO.pdf" target="_blank">photography</a> (Nikon D5100 DSLR), listening to music, reading, journaling/writing, doodling, daydreaming, creating, fashion, design, skincare, watching <a href="https://myanimelist.net/profile/lynkos" target="_blank">anime</a>, cooking, vibing with friends, programming/cybersecurity competitions (e.g. capture the flags (CTFs), hackathons, etc), and memes during my downtime. <a href="https://lynkos420.blogspot.com" target="_blank">This blog</a> contains some of my solutions to certain CTF puzzles/problems; it's a relic from the past as I created and contributed to it during my last 2 years of high school.</p><br />
+          <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
+      </div>
 
-            <div id="contact-content">
-              <p align="center" style="font-weight: bold">This section is unusable since it's under construction!</p>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" 
-                                name="name" 
-                                placeholder="Your Name" required>
-                        <span class="error-message" id="name-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" 
-                                name="email"
-                                placeholder="Your Email" required>
-                        <span class="error-message" id="email-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" 
-                                    name="message" 
-                                    placeholder="Your Message" 
-                                    rows="5" required></textarea>
-                        <span class="error-message" id="message-error"></span>
-                    </div>
-                    <button type="submit" value="Submit" class="submit-button">Submit</button>
-                </form>
-            </div>
-        </div>  
-        <script id="rendered-js" src="js/particles.js"></script>
-        <script src="js/form.js"></script>
-        <script src="js/terminal.js"></script>
-        <script src="js/timestamp.js"></script>
-        <script defer src="js/script.js"></script>
-    </body>
+      <div id="projects-content">
+          <p>This section is still under construction...</p><br />
+          <p>However, you can find <a target="_blank" href="https://github.com/lynkos?tab=repositories">my [public] repositories</a> at <a target="_blank" href="https://github.com/lynkos">my GitHub profile</a>!</p>
+      </div>
+
+      <div id="experience-content">
+          <p>This section is still under construction...</p>
+          <p>Refer to <a target="_blank" href="https://linkedin.com/in/kiran-brahmatewari">my LinkedIn profile</a> for further details.</p>
+      </div>
+
+      <div id="contact-content">
+        <p align="center" style="font-weight: bold">This section is unusable since it's under construction!</p>
+          <form id="contact-form">
+              <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" 
+                          name="name" 
+                          placeholder="Your Name" required>
+                  <span class="error-message" id="name-error"></span>
+              </div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" 
+                          name="email"
+                          placeholder="Your Email" required>
+                  <span class="error-message" id="email-error"></span>
+              </div>
+              <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" 
+                              name="message" 
+                              placeholder="Your Message" 
+                              rows="5" required></textarea>
+                  <span class="error-message" id="message-error"></span>
+              </div>
+              <button type="submit" value="Submit" class="submit-button">Submit</button>
+          </form>
+      </div>
+  </div>
+
+    <script id="rendered-js" src="js/particles.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/timestamp.js"></script>
+    <script defer src="js/script.js"></script>
+  </main>
+  </body>
 </html>

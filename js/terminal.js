@@ -11,4 +11,11 @@ $(function() {
             cancel: "div.header__op",
             //containment: "#mac-terminal"
         });
+
+        $(".btn")        
+        .draggable({
+            //cursor: "default",
+            cancel: false,
+            //containment: "main"
+        });
 });

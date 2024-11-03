@@ -1,5 +1,7 @@
 @use "variables" as vars
 
+$folder-padding: 1rem
+
 // RESET
 *, *::before, *::after
   box-sizing: border-box
@@ -8,7 +10,7 @@
 
 // BASIC
 html
-  font-size: vars.$font-size // 1rem=10px
+  font-size: 60%
 
 body
   font-family: vars.$font-family
@@ -46,6 +48,44 @@ canvas
   background: vars.$selection-color
   text-shadow: none
 
+.folder
+  gap: $folder-padding
+  justify-content: flex-start
+  padding-top: calc(vars.$menubar-height + $folder-padding)
+  padding-right: $folder-padding
+  align-items: flex-end
+  flex-direction: column
+  display: flex
+
+  &-button
+    cursor: pointer
+    -webkit-appearance: button
+    background-color: transparent
+    background-image: none
+    border: none
+
+    &:active
+      filter: brightness(75%)
+
+    &-item
+      align-items: center
+
+      img
+        object-fit: contain
+        max-width: 100%
+        display: block
+        width: 6rem
+        height: 6rem
+
+      span
+        text-align: center
+        -webkit-line-clamp: 2
+        overflow: hidden
+        display: -webkit-box
+        user-select: none
+        color: vars.$menubar-font-color
+        -webkit-box-orient: vertical
+
 // LAYOUT
 .box
   position: fixed
@@ -53,7 +93,7 @@ canvas
   width: fit-content
   height: fit-content
   margin: auto
-  padding: 0.75rem
+  //padding: 0.75rem
 
 // COMPONENT
 .mac-terminal
@@ -83,6 +123,7 @@ canvas
       font-family: "Arial", sans-serif
       font-size: 1.35rem
       font-weight: bold
+      user-select: none
 
       img
         width: 1.25rem
@@ -263,8 +304,8 @@ canvas
   .wb-title
     font-size: 16px
     font-weight: 600
-    float: right
-    //text-align: center
+    //float: right
+    text-align: center
 
   .wb-body
     /* width of window border */
@@ -276,5 +317,5 @@ canvas
   .wb-control
     float: left
 
-  .wb-drag
-    padding: 0 10px
+  // .wb-drag
+  //   padding: 0 10px
