@@ -1,9 +1,10 @@
-$dock-width: 60px
-$dock-icon-dim: 50px
+$dock-width: 6rem
+$dock-icon-dim: 5.25rem
 $dock-icon-hover: calc($dock-icon-dim * 1.05) // 75px
-$dock-border-radius: 16px
+$dock-border-radius: 1.6rem
 $tooltip-color: rgba(0, 0, 0, 0.5)
 $num-apps: 7
+$padding: 0.5rem //5px
 
 .dock
   width: $dock-width
@@ -12,14 +13,14 @@ $num-apps: 7
   display: flex
   justify-content: center
   position: absolute
-  bottom: 10px
+  bottom: 1rem
   left: 50%
   z-index: 10
   transform: translateX(-50%)
   user-select: none
 
   .dock-container
-    padding: 5px 1px 6px 5px
+    padding: $padding 0.1px $padding $padding
     width: auto
     height: 100%
     display: flex
@@ -35,7 +36,7 @@ $num-apps: 7
       cursor: default
 
     .li-bin
-      margin-left: 5px
+      margin-left: $padding
       border-left: 1.5px solid rgba(255, 255, 255, 0.15)
 
     .li-1
@@ -68,7 +69,7 @@ $num-apps: 7
         background: $tooltip-color
         color: rgba(255, 255, 255, 0.9)
         //height: 10px
-        font-size: 13px
+        font-size: 1.3rem
         padding: 2px 11px
         display: flex
         align-items: center

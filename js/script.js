@@ -13,7 +13,7 @@ about.addEventListener('click', () => {
       modal: true,
       mount: aboutContent,
       width: "75%",
-      height: "75%",
+      //height: "75%",
       x: "center",
       y: "center",
     });
@@ -25,7 +25,7 @@ projects.addEventListener('click', () => {
     modal: true,
     mount: projectsContent,
     width: "75%",
-    height: "75%",
+    //height: "75%",
     x: "center",
     y: "center"
   });
@@ -37,7 +37,7 @@ experience.addEventListener('click', () => {
     modal: true,
     mount: experienceContent,
     width: "75%",
-    height: "75%",
+    //height: "75%",
     x: "center",
     y: "center"
   });
@@ -49,7 +49,7 @@ contact.addEventListener('click', () => {
       modal: true,
       mount: contactContent,
       width: "75%",
-      height: "75%",
+      //height: "75%",
       x: "center",
       y: "center",
     });
