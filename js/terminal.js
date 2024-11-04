@@ -14,8 +14,8 @@ $(function() {
 
         $(".btn")        
         .draggable({
-            //cursor: "default",
+            cursor: "default",
             cancel: false,
-            //containment: "main"
+            containment: "body"
         });
 });
