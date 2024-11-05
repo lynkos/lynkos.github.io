@@ -1,6 +1,8 @@
 @use "variables" as vars
 
 $folder-padding: 2rem
+$window-icons-dim: 1.3rem
+$windows-icons-spacing: 0.7rem
 
 // RESET
 *, *::before, *::after
@@ -11,8 +13,18 @@ $folder-padding: 2rem
 // BASIC
 html
   font-size: 60%
+  height: 100%
+
+html, body, header, footer
+  width: 100%
+
+main
+  flex: auto
+  overflow: auto
 
 body
+  display: flex //
+  flex-direction: column //
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
   font-optical-sizing: auto
@@ -21,7 +33,7 @@ body
   background-color: vars.$background-color
   background-image: vars.$background-gradient
   height: 100vh
-  overflow: hidden
+  //overflow: hidden
   
   // Adds a repeating grid pattern to the background
   // to mimic the look of a real terminal
@@ -101,6 +113,7 @@ canvas
   background-color: vars.$terminal-color
   font-family: vars.$terminal-font
   inline-size: min-content
+  inset: 0
   border-radius: 1rem
   max-width: 100%
   width: vars.$width
@@ -139,8 +152,8 @@ canvas
       align-items: center
 
       &-icon
-        width: 1.3rem
-        height: 1.3rem
+        width: $window-icons-dim // 1.3rem
+        height: $window-icons-dim // 1.3rem
         border-radius: 50%
         font-size: 1rem
         font-weight: bold
@@ -153,7 +166,7 @@ canvas
           visibility: visible
 
         &:not(:last-child)
-          margin-right: .7rem
+          margin-right: $windows-icons-spacing // 0.7rem
 
         &--red
           background-color: #FF544D
@@ -201,7 +214,7 @@ canvas
               color: #003107
 
     &__empty
-      width: 5.6rem // 1.4rem * 3 + (.7rem * 2)
+      width: calc(calc($window-icons-dim * 3) + calc($windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
   .body
     font-size: 1.3rem
