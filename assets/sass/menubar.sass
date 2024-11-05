@@ -1,12 +1,12 @@
 @use "variables" as vars
 
-$menubar-padding: 1rem
+$menubar-padding: 0.5rem
 $menubar-icon-size: 1rem
 
 .menu-bar
   width: 100%
   height: vars.$menubar-height
-  padding: 0.5rem
+  padding: 0.2rem
   position: absolute
   user-select: none
   font-size: 1.2rem
@@ -19,9 +19,9 @@ $menubar-icon-size: 1rem
   backdrop-filter: blur(50px)
   -webkit-backdrop-filter: blur(50px)
 
-  img
-    width: 1.2rem
-    height: 1.2rem
+  i
+    display: contents
+    color: #FFF
 
   .left
     display: flex
@@ -29,17 +29,20 @@ $menubar-icon-size: 1rem
     justify-content: space-evenly
     width: auto
     left: 0
-    padding-left: $menubar-padding
-
-    //.apple-logo
-      //transform: scale(1)
-      // margin-left: $menubar-padding
+    padding-left: calc($menubar-padding + 0.25rem)
 
     .menus
       height: 100%
       display: flex
-      margin-left: $menubar-padding
+      padding: 0 $menubar-padding
       color: vars.$menubar-font-color
+
+      i
+        font-size: calc($menubar-icon-size + 0.4rem)
+
+      &:active
+        border-radius: 0.5rem
+        background: rgba(255, 255, 255, 0.2)
 
     .active
       font-weight: bold
@@ -48,24 +51,23 @@ $menubar-icon-size: 1rem
   .right
     display: flex
     justify-content: space-evenly
-    width: auto //38px
-    margin-right: $menubar-padding
+    width: auto
+    margin-right: calc($menubar-padding + 0.25rem)
 
-    .menu-time
-      //height: 100%
+    .menu-time, .menu-ico
+      padding: $menubar-padding
+      height: 100%
       justify-content: center
-      color: #FFF
+      color: vars.$menubar-font-color
+      
+      &:active
+        border-radius: 0.5rem
+        background: rgba(255, 255, 255, 0.2)
 
     .menu-ico
-      height: 100%
-      margin-top: 0.6rem
+      margin-top: $menubar-padding
       display: flex
       align-items: center
-      justify-content: center
-      padding-right: $menubar-padding
-      color: vars.$menubar-font-color
-
+      
       i
-        display: contents
         font-size: $menubar-icon-size
-        color: #FFF
