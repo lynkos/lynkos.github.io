@@ -13,7 +13,7 @@ about.addEventListener('click', () => {
       modal: true,
       mount: aboutContent,
       width: "75%",
-      //height: "75%",
+      //height: "fit-content",
       x: "center",
       y: "center",
     });

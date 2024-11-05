@@ -49,6 +49,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
   </head>
+
   <body>
     <div id="particles-js"></div>
     <header class="menu-bar">
@@ -70,75 +71,37 @@
         <div class="menu-time"><p id="menutime"></p></div>
       </div>      
     </header>
+  
+    <main>
+      <div class="folder">
+        <button class="folder-button btn">
+          <div class="folder-button-item">
+            <img src="assets/icons/blue-folder.png" alt="Work" draggable="true">
+            <span>Work</span>
+          </div>
+        </button>
         
-    <footer class="dock">
-      <div class="dock-container">
-        <li class="li-1">
-          <div class="name">Contact</div>
-          <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail" draggable="false">
-        </li>
+        <button class="folder-button btn">
+          <div class="folder-button-item">
+            <img src="assets/icons/blue-folder.png" alt="Playlists" draggable="true">
+            <span>Playlists</span>
+          </div>
+        </button>
 
-        <li class="li-2">
-          <div class="name">About</div>
-          <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes" draggable="false">
-        </li>
+        <button class="folder-button btn">
+          <div class="folder-button-item">
+            <img src="assets/icons/blue-folder.png" alt="src" draggable="true">
+            <span>src</span>
+          </div>
+        </button>
 
-        <li class="li-3">
-          <div class="name">Projects</div>
-          <img class="ico" id="projects" src="assets/icons/photos.png" alt="Photos" draggable="false">
-        </li>
-
-        <li class="li-4">
-          <div class="name">Experience</div>
-          <img class="ico" id="experience" src="assets/icons/app_store.png" alt="App Store" draggable="false">
-        </li>
-
-        <li class="li-5">
-          <div class="name">GitHub</div>
-          <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img class="ico" src="assets/icons/github.png" alt="GitHub" draggable="false"></a>
-        </li>
-
-        <li class="li-6">
-          <div class="name">Spotify</div>
-          <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img class="ico" src="assets/icons/spotify.png" alt="Spotify" draggable="false"></a>
-        </li>
-
-        <li class="li-bin li-7">
-          <div class="name">Trash</div>
-          <img class="ico" src="assets/icons/trash.png" alt="Trash" draggable="false">
-        </li>
+        <button class="folder-button btn" style="padding-top: 1.45rem;">
+          <div class="folder-button-item">
+            <img src="assets/icons/text-file.png" alt="banner.txt" draggable="true">
+            <span>banner.txt</span>
+          </div>
+        </button>
       </div>
-    </footer>
-<main>
-    <div class="folder">
-      <button class="folder-button btn">
-        <div class="folder-button-item">
-          <img src="assets/icons/blue-folder.png" alt="Work" draggable="true">
-          <span>Work</span>
-        </div>
-      </button>
-      
-      <button class="folder-button btn">
-        <div class="folder-button-item">
-          <img src="assets/icons/blue-folder.png" alt="Media" draggable="true">
-          <span>Media</span>
-        </div>
-      </button>
-
-      <button class="folder-button btn">
-        <div class="folder-button-item">
-          <img src="assets/icons/blue-folder.png" alt="Playlists" draggable="true">
-          <span>Playlists</span>
-        </div>
-      </button>
-
-      <button class="folder-button btn">
-        <div class="folder-button-item">
-          <img src="assets/icons/blue-folder.png" alt="src" draggable="true">
-          <span>src</span>
-        </div>
-      </button>
-    </div>
     
       <div class="box">
         <div class="mac-terminal">
@@ -276,13 +239,52 @@ PATTERN   Pattern specifying a help topic</pre>
               <button type="submit" value="Submit" class="submit-button">Submit</button>
           </form>
       </div>
+    </div>
   </div>
+</main>
 
-    <script id="rendered-js" src="js/particles.js"></script>
-    <script src="js/form.js"></script>
-    <script src="js/terminal.js"></script>
-    <script src="js/timestamp.js"></script>
-    <script defer src="js/script.js"></script>
-  </main>
+  <footer class="dock">
+    <div class="dock-container">
+      <li class="li-1">
+        <div class="name">Contact</div>
+        <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail" draggable="false">
+      </li>
+
+      <li class="li-2">
+        <div class="name">About</div>
+        <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes" draggable="false">
+      </li>
+
+      <li class="li-3">
+        <div class="name">Projects</div>
+        <img class="ico" id="projects" src="assets/icons/photos.png" alt="Photos" draggable="false">
+      </li>
+
+      <li class="li-4">
+        <div class="name">Experience</div>
+        <img class="ico" id="experience" src="assets/icons/app_store.png" alt="App Store" draggable="false">
+      </li>
+
+      <li class="li-5">
+        <div class="name">GitHub</div>
+        <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img class="ico" src="assets/icons/github.png" alt="GitHub" draggable="false"></a>
+      </li>
+
+      <li class="li-6">
+        <div class="name">Spotify</div>
+        <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img class="ico" src="assets/icons/spotify.png" alt="Spotify" draggable="false"></a>
+      </li>
+
+      <li class="li-bin li-7">
+        <div class="name">Trash</div>
+        <img class="ico" src="assets/icons/trash.png" alt="Trash" draggable="false">
+      </li>
+    </div>
+  </footer>
+  <script id="rendered-js" src="js/particles.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/timestamp.js"></script>
+  <script defer src="js/script.js"></script>
   </body>
 </html>
