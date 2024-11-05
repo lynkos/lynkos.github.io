@@ -15,7 +15,7 @@ $menubar-icon-size: 1rem
   display: flex
   align-items: center
   justify-content: space-between
-  background: rgba(255, 255, 255, 0.1)
+  background: vars.$dock-menu-background
   backdrop-filter: blur(50px)
   -webkit-backdrop-filter: blur(50px)
 
@@ -38,7 +38,7 @@ $menubar-icon-size: 1rem
       color: vars.$menubar-font-color
 
       i
-        font-size: calc($menubar-icon-size + 0.25rem)
+        font-size: calc($menubar-icon-size + 0.5rem)
 
       &:active
         border-radius: 0.5rem
