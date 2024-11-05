@@ -1,3 +1,5 @@
+@use "variables" as vars
+
 $dock-width: 6rem
 $dock-icon-dim: 5.25rem
 $dock-icon-hover: calc($dock-icon-dim * 1.05) // 75px
@@ -27,7 +29,7 @@ $padding: 0.5rem //5px
     align-items: center
     justify-content: center
     border-radius: $dock-border-radius
-    background: rgba(83, 83, 83, 0.25)
+    background: vars.$dock-menu-background
     backdrop-filter: blur(13px)
     -webkit-backdrop-filter: blur(13px)
     border: 1px solid rgba(255, 255, 255, 0.05)
@@ -55,7 +57,7 @@ $padding: 0.5rem //5px
       align-items: center
       justify-content: center
       width: $dock-icon-dim
-      padding: 3px
+      padding: 0.4rem
       height: $dock-icon-dim
       vertical-align: bottom
       transition: 0.25s
@@ -65,16 +67,15 @@ $padding: 0.5rem //5px
   
       .name
         position: absolute
-        top: -29px
+        top: -2.75rem
         background: $tooltip-color
-        color: rgba(255, 255, 255, 0.9)
-        //height: 10px
+        color: vars.$menubar-font-color
         font-size: 1.3rem
-        padding: 2px 11px
+        padding: 0.25rem 0.75rem
         display: flex
         align-items: center
         justify-content: center
-        border-radius: 5px
+        border-radius: 0.5rem
         visibility: hidden
 
         &::after
