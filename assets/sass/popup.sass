@@ -1,0 +1,50 @@
+@use "variables" as vars
+
+.winbox.modern
+  &
+    background: vars.$terminal-color //linear-gradient(90deg, #ff00f0, #0050ff)
+    border-radius: vars.$popup-border-radius
+    animation: popup 0.3s cubic-bezier(0.3, 1, 0.3, 1) forwards
+    font-size: vars.$popup-font-size
+
+  //&.min:not(:hover),
+  &:not(.min,.focus)
+    background: vars.$terminal-color
+
+  // hover fix for mobile devices which keeps the :hover state when touched
+  @media (hover: hover)
+    &.min:not(:hover)
+      background: vars.$terminal-color
+
+    .wb-control *
+      opacity: 0.65
+
+    .wb-control *:hover
+      opacity: 1
+
+  @media (hover: none)
+    &.min
+      background: vars.$terminal-color
+
+  //&.min,
+  &.max
+    border-radius: 0
+
+  .wb-title
+    font-size: 1.5rem
+    font-weight: 600
+    //float: right
+    text-align: center
+
+  .wb-body
+    /* width of window border */
+    margin: 4px
+    color: white
+    padding: 0.5rem
+    background: vars.$terminal-color
+
+  .wb-control
+    float: left
+
+  // .wb-drag
+  //   padding: 0 10px
