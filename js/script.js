@@ -1,56 +1,18 @@
-const about = document.querySelector('#about')
-const projects = document.querySelector('#projects')
-const experience = document.querySelector('#experience')
-const contact = document.querySelector('#contact')
-const aboutContent = document.querySelector('#about-content');
-const projectsContent = document.querySelector('#projects-content')
-const experienceContent = document.querySelector('#experience-content')
-const contactContent = document.querySelector('#contact-content')
-
-about.addEventListener('click', () => {
-    const aboutBox = new WinBox("About Me", {
-      class: "modern no-full",
-      modal: true,
-      mount: aboutContent,
-      width: "75%",
-      //height: "fit-content",
-      x: "center",
-      y: "center",
+$(document).ready(function(){
+    $('.openModal').click(function(){
+      $('.mac-window').addClass('active');
     });
-})
-
-projects.addEventListener('click', () => {
-  const projectsBox = new WinBox("Projects", {
-    class: "modern no-full",
-    modal: true,
-    mount: projectsContent,
-    width: "75%",
-    //height: "75%",
-    x: "center",
-    y: "center"
-  });
-})
-
-experience.addEventListener('click', () => {
-  const experienceBox = new WinBox("Experience", {
-    class: "modern no-full",
-    modal: true,
-    mount: experienceContent,
-    width: "75%",
-    //height: "75%",
-    x: "center",
-    y: "center"
-  });
-})
-
-contact.addEventListener('click', () => {
-    const contactBox = new WinBox("Contact", {
-      class: "modern no-full",
-      modal: true,
-      mount: contactContent,
-      width: "75%",
-      //height: "75%",
-      x: "center",
-      y: "center",
+    $('.close').click(function(){
+      $('.mac-window').removeClass('active');
+      $('.mac-window').removeClass('maximize');
+      $('.mac-window').removeClass('minimize');
     });
-})
+    $('.minimize').click(function(){
+      $('.mac-window').toggleClass('minimize');
+      $('.mac-window').removeClass('maximize');
+    });
+    $('.maximize').click(function(){
+      $('.mac-window').toggleClass('maximize');
+      $('.mac-window').removeClass('minimize');
+    });
+  });
