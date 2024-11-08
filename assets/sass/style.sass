@@ -16,9 +16,12 @@ html
 html, body, header, footer
   width: 100%
 
+header, footer
+  flex: none
+
 main
   flex: auto
-  overflow: auto
+  overflow-y: auto
 
 body
   display: flex
@@ -26,7 +29,7 @@ body
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
   font-optical-sizing: auto
-  line-height: 1.8
+  //line-height: 1.8
   color: vars.$font-color
   background-color: vars.$background-color
   background-image: vars.$background-gradient
