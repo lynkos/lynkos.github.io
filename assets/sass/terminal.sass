@@ -3,15 +3,6 @@
 $window-icons-dim: 1.3rem
 $windows-icons-spacing: 0.7rem
 
-// LAYOUT
-.box
-  position: fixed
-  inset: 0
-  width: fit-content
-  height: fit-content
-  margin: auto
-  //padding: 0.75rem
-
 // COMPONENT
 .mac-terminal
   background-color: vars.$terminal-color
@@ -20,14 +11,37 @@ $windows-icons-spacing: 0.7rem
   inset: 0
   border-radius: 1rem
   max-width: 100%
+  min-width: 407px
+  min-height: 140px
   width: vars.$width
-  height: vars.$height
+  height: 100%
   word-wrap: break-all
   text-wrap: wrap
   overflow-wrap: anywhere
-  overflow-y: auto
+  overflow: hidden
   margin: 0 auto
+  transform: translateY(0%) translateX(0%) scale(0.95)
   box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.6), 0 2rem 6.5rem 0.4rem rgba(0, 0, 0, 0.56), 0 0 0 0.1rem rgba(0, 0, 0, 0.0) //box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56)
+
+  // FIXME Minimize button
+  &.minimize
+    // transform: translateY(82%) translateX(0%) scale(0.75)
+    // opacity: 1
+    // //top: 125%
+    // transition: all 0.25s
+
+    // &:hover
+    //   top: -4rem
+    //   transition: all 0.25s
+
+  // FIXME Maximize button
+  &.maximize
+    // height: 100%
+    // max-height: 100%
+    // width: 100%
+    // max-width: 100%
+    // transition: all 0.25s
+    // transform: translateY(0%) translateX(0%) scale(1)
 
   .header
     display: flex
@@ -122,6 +136,8 @@ $windows-icons-spacing: 0.7rem
 
   .body
     font-size: 1.3rem
+    height: vars.$height
+    overflow: scroll
 
     &__row 
       margin-top: 0.2rem
@@ -177,6 +193,3 @@ $windows-icons-spacing: 0.7rem
 
         50%
           color: vars.$font-color
-
-.ui-resizable-helper
-  border: 1px dotted gray

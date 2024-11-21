@@ -1,17 +1,21 @@
 @use "variables" as vars
 
 $folder-padding: 2rem
+$folder-dim: 6rem
+
+:root
+  background-attachment: fixed
 
 // RESET
 *, *::before, *::after
   box-sizing: border-box
+  outline: none
   margin: 0
   padding: 0
 
 // BASIC
 html
   font-size: 60%
-  height: 100%
 
 html, body, header, footer
   width: 100%
@@ -19,6 +23,17 @@ html, body, header, footer
 main
   flex: auto
   overflow: auto
+  height: 100vh
+
+// LAYOUT
+.box
+  position: fixed
+  inset: 0
+  width: fit-content
+  height: fit-content
+  margin: auto
+  //display: flex
+  //top: vars.$menubar-height
 
 body
   display: flex
@@ -32,8 +47,6 @@ body
   background-image: vars.$background-gradient
   background-repeat: no-repeat
   background-attachment: fixed
-  height: 100vh
-  //overflow: hidden
   
   // Adds a repeating grid pattern to the background
   // to mimic the look of a real terminal
@@ -68,9 +81,12 @@ canvas
   align-items: flex-end
   flex-direction: column
   display: flex
+  float: right
+  width: calc($folder-dim * 1.3)
+  user-select: none
 
   &-button
-    cursor: default //pointer
+    cursor: default
     -webkit-appearance: button
     background-color: transparent
     background-image: none
@@ -86,8 +102,8 @@ canvas
         object-fit: contain
         max-width: 100%
         display: block
-        width: 6rem
-        height: 6rem
+        width: $folder-dim
+        height: $folder-dim
 
       span
         text-align: center
@@ -101,9 +117,64 @@ canvas
 
 // BACKGROUND PARTICLES
 #particles-js
-  position: absolute
+  position: fixed
   width: 100%
   height: 100%
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 50%
+
+@media (max-width: 500px) // screen-width <= 500px
+  .box
+    width: 100%
+
+.dialogue
+  font-family: vars.$font-family
+  display: none
+  position: absolute
+  inline-size: min-content
+  width: 270px
+  border-radius: 10rem
+  background: rgba(45, 45, 45, 0.8)
+  backdrop-filter: blur(8px)
+  padding: 20px
+  top: 30%
+  left: 30%
+  border-radius: 1rem
+  color: white
+  box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.5)
+
+  .pp-body
+    text-align: center
+
+    img
+      width: 60px
+
+  .warning
+    font-weight: 700
+    font-size: 1.36rem
+
+  .hint
+    font-size: 1.25em
+
+  .actions
+    padding-top: 10px
+
+  .alert-btn
+    width: 10.5rem
+    padding: 6px 4px
+    margin: 0 5px
+    font-size: 1.35rem
+    border-width: 0
+    border-radius: 5.25px
+    color: white
+    background: rgb(115, 118, 115)
+
+    &:active
+      background: rgb(145, 148, 145)
+
+    &.confirm
+      background: linear-gradient(to bottom, #6cb3fa, #067dff)
+      
+      &:active
+        background: #067dff

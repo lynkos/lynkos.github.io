@@ -1,102 +1,53 @@
 @use "variables" as vars
 
-$dock-width: 6rem
-$dock-icon-dim: 5.25rem
-$dock-icon-hover: calc($dock-icon-dim * 1.05) // 75px
+$dock-icon-size: 4rem
 $dock-border-radius: 1.6rem
-$tooltip-color: rgba(0, 0, 0, 0.5)
-$num-apps: 7
-$padding: 0.5rem //5px
+$padding: 1rem //0.5rem
+
+footer
+  position: fixed
+  left: 0
+  bottom: 0.75rem
+  width: 100%
+  display: inline-flex
+  justify-content: center
 
 .dock
-  width: $dock-width
-  height: auto
+  background: vars.$dock-menu-background
+  backdrop-filter: blur(13px)
+  -webkit-backdrop-filter: blur(13px)
+  border: 1px solid rgba(255, 255, 255, 0.05)
+  padding: $padding
   border-radius: $dock-border-radius
-  display: flex
-  justify-content: center
-  position: absolute
-  bottom: 0.75rem
-  left: 50%
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
   z-index: 10
-  transform: translateX(-50%)
-  user-select: none
+  display: grid
+  grid-auto-flow: column
+  grid-template-columns: repeat(auto-fit, $dock-icon-size)
+  grid-gap: 1rem
 
-  .dock-container
-    padding: $padding 0.1px $padding $padding
-    width: auto
-    height: 100%
-    display: flex
-    align-items: center
-    justify-content: center
-    border-radius: $dock-border-radius
-    background: vars.$dock-menu-background
-    backdrop-filter: blur(13px)
-    -webkit-backdrop-filter: blur(13px)
-    border: 1px solid rgba(255, 255, 255, 0.05)
+  a
+    cursor: default
 
-    a
-      cursor: default
+  .trash
+    border-left: 1.5px solid rgba(255, 255, 255, 0.15)
 
-    .li-bin
-      margin-left: $padding
-      border-left: 1.5px solid rgba(255, 255, 255, 0.15)
+  .icon
+    height: $dock-icon-size
+    width: $dock-icon-size
+    display: grid
+    align-content: center
+    grid-template-columns: 1
+    grid-template-rows: 1
 
-    .li-1
-      &::after
-        position: absolute
-        width: 5px
-        height: 5px
-        border-radius: 50%
-        background: rgba(255, 255, 255, 0.5)
-        content: ""
-        bottom: 2px
-    
-    li
-      list-style: none
-      display: flex
-      align-items: center
-      justify-content: center
-      width: $dock-icon-dim
-      padding: 0.4rem
-      height: $dock-icon-dim
-      vertical-align: bottom
-      transition: 0.25s
-      transition-property: all
-      transition-timing-function: ease
-      transition-duration: 0.25s
-  
-      .name
-        position: absolute
-        top: -2.75rem
-        background: $tooltip-color
-        color: vars.$menubar-font-color
-        font-size: 1.3rem
-        padding: 0.25rem 0.75rem
-        display: flex
-        align-items: center
-        justify-content: center
-        border-radius: 0.5rem
-        visibility: hidden
+    img
+      grid-column: 1 / -1
+      grid-row: 1 / -1
+      width: 100%
+      height: 100%
+      object-fit: cover
+      //pointer-events: none
+      user-select: none
 
-        &::after
-          content: ""
-          position: absolute
-          bottom: -6px
-          width: 0
-          height: 0
-          backdrop-filter: blur(13px)
-          -webkit-backdrop-filter: blur(13px)
-          border-left: 6px solid transparent
-          border-right: 6px solid transparent
-          border-top: 6px solid $tooltip-color
-
-      .ico
-        width: 100%
-        height: 100%
-        object-fit: cover
-        transition: 0.2s
-        
-@for $i from 1 through $num-apps
-  .li-#{$i}:hover
-    .name
-      visibility: visible !important
+      &:active
+        filter: brightness(75%)
