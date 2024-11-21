@@ -11,16 +11,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
-    <link rel="preload" as="image" href="assets/icons/apple.png" />
-    <link rel="preload" as="image" href="assets/icons/app_store.png" />
     <link rel="preload" as="image" href="assets/icons/blue-folder.png" />
+    <link rel="preload" as="image" href="assets/icons/finder.png" />
     <link rel="preload" as="image" href="assets/icons/github.png" />
+    <link rel="preload" as="image" href="assets/icons/iterm.png" />
     <link rel="preload" as="image" href="assets/icons/mail.png" />
     <link rel="preload" as="image" href="assets/icons/notes.png" />
     <link rel="preload" as="image" href="assets/icons/photos.png" />
+    <link rel="preload" as="image" href="assets/icons/rtf_icon.png" />
     <link rel="preload" as="image" href="assets/icons/spotify.png" />
     <link rel="preload" as="image" href="assets/icons/trash.png" />
     <link rel="preload" as="image" href="assets/icons/terminal.svg" />
+    <!-- <link rel="preload" as="image" href="assets/icons/text_edit.png" /> -->
     <link rel="preload" as="image" href="assets/icons/text-file.png" />
 
     <meta name="description" content="Personal website" />
@@ -43,12 +45,12 @@
     <link rel="stylesheet" href="/assets/css/menubar.min.css" />
     <link rel="stylesheet" href="/assets/css/dock.min.css" />
     <link rel="stylesheet" href="/assets/css/terminal.min.css" />
-    <link rel="stylesheet" href="/assets/css/popup.min.css" />
-    <link rel="stylesheet" href="/assets/css/form.min.css" />
+    <link rel="stylesheet" href="/assets/css/microtip.css" />
+    <link rel="stylesheet" href="/assets/css/notes.min.css" />
+    <link rel="stylesheet" href="/assets/css/search.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
 
-    <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.82/dist/winbox.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
@@ -58,7 +60,7 @@
     <div id="particles-js"></div>
     <header class="menu-bar">
       <div class="left">
-        <span class="menus"><i alt="Apple logo" class="fab fa-apple"></i></span>
+        <span class="menus"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
         <span class="menus active">Finder</span>
         <span class="menus">File</span>
         <span class="menus">Edit</span>
@@ -69,10 +71,15 @@
       </div>
 
       <div class="right">
-        <div class="menu-ico"><i alt="Crescent moon icon" class="fas fa-moon"></i></div>
-        <div class="menu-ico"><i alt="WiFi icon" class="fas fa-wifi"></i></div>
-        <div class="menu-ico"><i alt="Battery icon" class="fas fa-battery-full"></i></div>
-        <div class="menu-ico"><i alt="Search icon" class="fas fa-search"></i></div>
+        <div class="menu-ico"><i alt="Crescent moon icon" class="fas fa-moon" aria-hidden="true"></i></div>
+        <div class="menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></div>
+        <div class="menu-ico"><i alt="Battery icon" class="fas fa-battery-full" aria-hidden="true"></i></div>
+        <div class="menu-ico">
+          <i alt="Search icon" class="fas fa-search" id="search-btn" aria-hidden="true"></i>
+          <div id="spotlight_wrapper">
+            <input type="text" id="spotlight" placeholder="Spotlight Search" />
+          </div>          
+        </div>
         <div class="menu-time"><p id="menutime"></p></div>
       </div>      
     </header>
@@ -93,10 +100,10 @@
           </div>
         </button>
 
-        <button class="folder-button btn">
+        <button class="folder-button btn" style="padding-top: 0.75rem;">
           <div class="folder-button-item">
-            <img src="assets/icons/blue-folder.png" alt="src" draggable="true">
-            <span>src</span>
+            <img src="assets/icons/rtf_icon.png" alt="about.rtf" draggable="true">
+            <span>about.rtf</span>
           </div>
         </button>
 
@@ -107,8 +114,8 @@
           </div>
         </button>
       </div>
-    
-      <div class="box">
+
+    <div class="box">
         <div class="mac-terminal">
           <div class="header">
             <div class="header__op">
@@ -153,15 +160,15 @@
 
             <div class="body__row">
               <pre>
-help: help [-rdcb]
+help: help [-bcde]
 This website is still under construction and has
 not yet been optimized for mobile devices.
 
 Options:
--r        resize terminal window
--d        drag folders, file, and terminal
--c        click icon in dock to open popup/link
--b        background is interactive: click anywhere</pre>
+-b        background is interactive: click anywhere
+-c        click icons in dock to open popup/link
+-d        drag folders, files, and windows
+-e        edit font style (such as color) in About</pre>
           </div>  
 
           <div class="body__row">
@@ -198,97 +205,117 @@ Options:
       </div>
     </div>
 
-    <div style="display: none;">
-      <div id="about-content">
-          <p>I'm Kiran: A quick-learning undergrad with a passion for creating and an interest in STEM research. My areas of focus are Computer Science, Mathematics, and Statistics. I'm a 4x Software Engineer Intern at Oracle Cloud during Summers 2021 – 2024. I'm currently a Research Assistant at <a href="https://acyd.fiu.edu" target="_blank">Analytics for Cyber Defense (ACyD) Lab</a>, where I'm investigating novel applications of post-quantum cybersecurity in order to ensure the resilience of Internet of Things (IoT) against quantum hacking.</p><br />
-          <p>I enjoy traveling, <a href="https://github.com/lynkos/lynkos/blob/master/PHOTOGRAPHY%20PORTFOLIO.pdf" target="_blank">photography</a> (Nikon D5100 DSLR), listening to music, reading, journaling/writing, doodling, daydreaming, creating, fashion, design, skincare, watching <a href="https://myanimelist.net/profile/lynkos" target="_blank">anime</a>, cooking, vibing with friends, programming/cybersecurity competitions (e.g. capture the flags (CTFs), hackathons, etc), and memes during my downtime. <a href="https://lynkos420.blogspot.com" target="_blank">This blog</a> contains some of my solutions to certain CTF puzzles/problems; it's a relic from the past as I created and contributed to it during my last 2 years of high school.</p><br />
-          <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
+    <div class="text-edit">
+      <div class="notes-header">
+        <div class="notes-header__op">
+          <span class="notes-header__op-icon notes-header__op-icon--red"><a class="notes-header__op-icon closebutton" href="#"></a></span>
+          <span class="notes-header__op-icon notes-header__op-icon--yellow"><a class="notes-header__op-icon minimizebutton" href="#"></a></span>
+          <span class="notes-header__op-icon notes-header__op-icon--green"><a class="notes-header__op-icon zoombutton" href="#"></a></span>
+        </div>
+        <div class="notes-header__title"><img src="assets/icons/rtf_icon.png" alt="RTF Icon" draggable="false">about.rtf</div>
+        <div class="notes-header__empty"></div>
       </div>
 
-      <div id="projects-content">
-          <p>This section is still under construction...</p><br />
-          <p>However, you can find <a target="_blank" href="https://github.com/lynkos?tab=repositories">my [public] repositories</a> at <a target="_blank" href="https://github.com/lynkos">my GitHub profile</a>!</p>
+      <div class="styles">
+        <div class="drops">
+          <select id="fontFamily" class="drop--styles drop--element">
+            <option selected>Helvetica</option>
+            <option>Arial</option>
+            <option>Verdana</option>
+            <option>Times New Roman</option>
+            <option>Courier New</option>
+            <option>Garamond</option>
+            <option>Tahoma</option>
+          </select>
+
+          <select id="fontSize" class="drop--styles drop--element">
+            <option>10</option>
+            <option selected>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>24</option>
+            <option>28</option>
+            <option>32</option>
+            <option>36</option>
+          </select>
+         
+         <input id="colorPicker" value="#FFFFFF" type="color" style="float: left; margin-left: 5px;">
+
+         <div class="drop--decorations drop--element">
+          <i alt="Bold button" id="bold-btn" class="fas fa-bold"></i>
+          <i alt="Italic button" id="italic-btn" class="fas fa-italic"></i>
+          <i alt="Underline button" id="underline-btn" class="fas fa-underline"></i>
+        </div>
+         
+         <div class="drop--alignments drop--element ">
+          <i alt="Align left button" id="left-btn" class="fa fa-align-left"></i>
+          <i alt="Align center button" id="center-btn" class="fa fa-align-center"></i>
+          <i alt="Align right button" id="right-btn" class="fa fa-align-right"></i>
+          <i alt="Align justify button" id="justify-btn" class="fa fa-align-justify"></i>
+        </div>
       </div>
 
-      <div id="experience-content">
-          <p>This section is still under construction...</p>
-          <p>Refer to <a target="_blank" href="https://linkedin.com/in/kiran-brahmatewari">my LinkedIn profile</a> for further details.</p>
+      <div class="rule">
+        <div class="inch">0<span class="half-inch"></span></div>
+        <div class="inch">1<span class="half-inch"></span></div>
+        <div class="inch">2<span class="half-inch"></span></div>
+        <div class="inch">3<span class="half-inch"></span></div>
+        <div class="inch">4<span class="half-inch"></span></div>
+        <div class="inch">5<span class="half-inch"></span></div>
+        <div class="inch">6<span class="half-inch"></span></div>
       </div>
+      </div>  
 
-      <div id="contact-content">
-        <p align="center" style="font-weight: bold">This section is unusable since it's under construction!</p>
-          <form id="contact-form">
-              <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" 
-                          name="name" 
-                          placeholder="Your Name" required>
-                  <span class="error-message" id="name-error"></span>
-              </div>
-              <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" 
-                          name="email"
-                          placeholder="Your Email" required>
-                  <span class="error-message" id="email-error"></span>
-              </div>
-              <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" 
-                              name="message" 
-                              placeholder="Your Message" 
-                              rows="5" required></textarea>
-                  <span class="error-message" id="message-error"></span>
-              </div>
-              <button type="submit" value="Submit" class="submit-button">Submit</button>
-          </form>
+      <div class="text-body">
+        <p>I'm Kiran: A quick-learning undergrad with a passion for creating and an interest in STEM research. My areas of focus are Computer Science, Mathematics, and Statistics. I'm a 4x Software Engineer Intern at Oracle Cloud during Summers 2021 – 2024. I'm currently a Research Assistant at <a href="https://acyd.fiu.edu" target="_blank">Analytics for Cyber Defense (ACyD) Lab</a>, where I'm investigating novel applications of post-quantum cybersecurity in order to ensure the resilience of Internet of Things (IoT) against quantum hacking.</p><br />
+        <p>I enjoy traveling, <a href="https://github.com/lynkos/lynkos/blob/master/PHOTOGRAPHY%20PORTFOLIO.pdf" target="_blank">photography</a> (Nikon D5100 DSLR), listening to music, reading, journaling/writing, doodling, daydreaming, creating, fashion, design, skincare, watching <a href="https://myanimelist.net/profile/lynkos" target="_blank">anime</a>, cooking, vibing with friends, programming/cybersecurity competitions (e.g. capture the flags (CTFs), hackathons, etc), and memes during my downtime. <a href="https://lynkos420.blogspot.com" target="_blank">This blog</a> contains some of my solutions to certain CTF puzzles/problems; it's a relic from the past as I created and contributed to it during my last 2 years of high school.</p><br />
+        <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
+<div class="dialogue">
+  <div class="pp-body">
+    <img src="assets/icons/trash.png" />
+    <div class="warning">Are you sure you want to permanantly erase the items in Trash?</div>
+    <div class="hint">You can't undo this action.</div>
+    <div class="actions">
+      <input class="alert-btn" type="button" value="Cancel" />
+      <input class="alert-btn confirm" type="button" value="Empty Trash" />
+    </div>
+  </div>
+</div>
+</div>
 </main>
 
-  <footer class="dock">
-    <div class="dock-container">
-      <li class="li-1">
-        <div class="name">Contact</div>
-        <img class="ico" id="contact" src="assets/icons/mail.png" alt="Mail" draggable="false">
-      </li>
-
-      <li class="li-2">
-        <div class="name">About</div>
-        <img class="ico" id="about" src="assets/icons/notes.png" alt="Notes" draggable="false">
-      </li>
-
-      <li class="li-3">
-        <div class="name">Projects</div>
-        <img class="ico" id="projects" src="assets/icons/photos.png" alt="Photos" draggable="false">
-      </li>
-
-      <li class="li-4">
-        <div class="name">Experience</div>
-        <img class="ico" id="experience" src="assets/icons/app_store.png" alt="App Store" draggable="false">
-      </li>
-
-      <li class="li-5">
-        <div class="name">GitHub</div>
-        <a class="ico" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img class="ico" src="assets/icons/github.png" alt="GitHub" draggable="false"></a>
-      </li>
-
-      <li class="li-6">
-        <div class="name">Spotify</div>
-        <a class="ico" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img class="ico" src="assets/icons/spotify.png" alt="Spotify" draggable="false"></a>
-      </li>
-
-      <li class="li-bin li-7">
-        <div class="name">Trash</div>
-        <img class="ico" src="assets/icons/trash.png" alt="Trash" draggable="false">
-      </li>
+  <footer>
+    <div class="dock">
+      <div class="icon" aria-label="Finder" data-microtip-position="top" role="tooltip">
+        <img src="assets/icons/finder.png" draggable="false" alt="Finder">
+      </div>
+      <a target="_blank" href="mailto:chronic.artisan-0i@icloud.com" target="_top" alt="Send me an email" draggable="false">
+        <div class="icon" aria-label="Contact" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
+      </a>
+      <div id="notes" class="icon" aria-label="About" data-microtip-position="top" role="tooltip"><img src="assets/icons/notes.png" draggable="false" alt="Notes"></div>
+      <div class="icon" aria-label="Projects" data-microtip-position="top" role="tooltip"><img src="assets/icons/photos.png" draggable="false" alt="Photos"></div>
+      <div id="iterm" class="icon" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="App Store"></div>
+      <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
+        <div class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="assets/icons/github.png" draggable="false" alt="GitHub"></div>
+      </a>
+      <a target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false">
+        <div class="icon" aria-label="Spotify" data-microtip-position="top" role="tooltip"><img src="assets/icons/spotify.png" draggable="false" alt="Spotify"></div>
+      </a>
+      <div class="icon trash" id="trash" aria-label="Trash" data-microtip-position="top" role="tooltip"><img src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
     </div>
   </footer>
+
   <script id="rendered-js" src="js/particles.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/terminal.js"></script>
+  <script src="js/windows.js"></script>
+  <script src="js/search.js"></script>
   <script src="js/timestamp.js"></script>
-  <script defer src="js/script.js"></script>
   </body>
 </html>
