@@ -60,45 +60,32 @@ function showSpotlight(){
   visible = true;
 }
 
-
 /* add listener for keydown to detect shortcut */
-$document.on('keydown',function(event){
-  //17 = CTRL
-  //32 = SPACE
+$document.on('keydown',function(event) {
+  // 17 = CTRL
+  // 32 = SPACE
   
-  //save char code in var if it is ctrl
-  if(event.which == 17){
+  // save char code in var if it is ctrl
+  if(event.which == 17) {
     firstChar = event.which;
   }
   
-  //if firstchar is ctrl and the current keydown event char is space, continue
-  if(firstChar == 17 && event.which == 32){
-
-    //check if spotlight is already visible
+  // if firstchar is ctrl and the current keydown event char is space, continue
+  if(firstChar == 17 && event.which == 32) {
+    // check if spotlight is already visible
     if(!visible){
-
-      //show spotlight
       showSpotlight();
-
     } else {
-
-      //hide spotlight
       hideSpotlight();
-
     }
-    
-    //delete firstchar var
+    // delete firstchar var
     firstChar = false;
-    
-  }  
-  
-  
-  if(event.which == 13 && !pissed){
-    alert('You really thought it would search anything? :-P');
-    alert('Possibly in upcoming versions... Who knows? :-)');
-    pissed = true;
   }
   
+  if(event.which == 13 && !pissed) {
+    alert('Search is not implemented yet!');
+    pissed = true;
+  }
 });
 
 // delete firstchar var on keyup to ensure "shortcut" behaviour and that ther spotlight doesn't show up if not wanted
@@ -119,9 +106,7 @@ $document.on('click',function(){
 });
 
 $(document).ready(function(){
-  // Open terminal
   $('#search-btn').click(function(){
-    //this
     showSpotlight();
   });
 });
