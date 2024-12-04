@@ -38,75 +38,6 @@
         // transition: all 0.25s
         // transform: translateY(0%) translateX(0%) scale(1)
 
-@mixin handle()
-    display: flex
-    align-items: center
-
-    &-icon
-        width: vars.$window-icons-dim
-        height: vars.$window-icons-dim
-        border-radius: 50%
-        font-size: 1rem
-        font-weight: bold
-        cursor: default
-
-        a
-            visibility: hidden
-
-        &:hover a
-            visibility: visible
-
-        &:not(:last-child)
-            margin-right: vars.$windows-icons-spacing
-
-        &--red
-            background-color: #FF544D
-            border: 1px solid #DA3C37
-
-            .closebutton
-                color: #820005
-                margin-left: 2px
-
-            &:active
-                background: #c14645
-                border: 1px solid #b03537
-            
-            .closebutton
-                color: #4e0002
-        
-        &--yellow
-            background-color: #FFB429
-            border: 1px solid #F0A318
-
-            .minimizebutton
-                color: #9a5518
-                margin-left: 2.5px
-
-            &:active
-                background: #c08e38
-                border: 1px solid #af7c33
-            
-            .minimizebutton
-                color: #5a2607
-        
-        &--green
-            background-color: #25C63A
-            border: 1px solid #12A025
-
-            .zoombutton
-                color: #006519
-                margin-left: 3px
-
-            &:active
-                background: #029740
-                border: 1px solid #128435
-            
-            .zoombutton
-                color: #003107
-    
-@mixin space()
-  width: calc(calc(vars.$window-icons-dim * 3) + calc(vars.$windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
-
 @mixin header($bg-color: none, $height: 3rem, $padding: 2rem 1.4rem 1.4rem 1.4rem)
     display: flex
     align-items: center
@@ -117,7 +48,70 @@
     padding: $padding
 
     &__op
-        @include handle()
+        display: flex
+        align-items: center
+
+        &-icon
+            width: vars.$window-icons-dim
+            height: vars.$window-icons-dim
+            border-radius: 50%
+            font-size: 1rem
+            font-weight: bold
+            cursor: default
+
+            a
+                visibility: hidden
+
+            &:hover a
+                visibility: visible
+
+            &:not(:last-child)
+                margin-right: vars.$windows-icons-spacing
+
+            &--red
+                background-color: #FF544D
+                border: 1px solid #DA3C37
+
+                .closebutton
+                    color: #820005
+                    margin-left: 2px
+
+                &:active
+                    background: #c14645
+                    border: 1px solid #b03537
+                
+                .closebutton
+                    color: #4e0002
+            
+            &--yellow
+                background-color: #FFB429
+                border: 1px solid #F0A318
+
+                .minimizebutton
+                    color: #9a5518
+                    margin-left: 2.5px
+
+                &:active
+                    background: #c08e38
+                    border: 1px solid #af7c33
+                
+                .minimizebutton
+                    color: #5a2607
+            
+            &--green
+                background-color: #25C63A
+                border: 1px solid #12A025
+
+                .zoombutton
+                    color: #006519
+                    margin-left: 3px
+
+                &:active
+                    background: #029740
+                    border: 1px solid #128435
+                
+                .zoombutton
+                    color: #003107  
 
     &__empty
-        @include space()
+        width: calc(calc(vars.$window-icons-dim * 3) + calc(vars.$windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
