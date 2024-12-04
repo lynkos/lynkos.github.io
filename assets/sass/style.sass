@@ -1,6 +1,6 @@
 @use "variables" as vars
 
-$folder-padding: 2rem
+$folder-padding: 1.5rem
 $folder-dim: 6rem
 
 :root
@@ -25,6 +25,12 @@ main
   overflow: auto
   height: 100vh
 
+#main-content
+  position: fixed
+  top: vars.$menubar-height
+  width: 100%
+  height: calc(100% - vars.$menubar-height)
+
 // LAYOUT
 .box
   position: fixed
@@ -46,6 +52,7 @@ body
   background-color: vars.$background-color
   background-image: vars.$background-gradient
   background-repeat: no-repeat
+  overflow: hidden
   background-attachment: fixed
   
   // Adds a repeating grid pattern to the background
@@ -76,7 +83,7 @@ canvas
 .folder
   gap: $folder-padding
   justify-content: flex-start
-  padding-top: calc(vars.$menubar-height + $folder-padding)
+  padding-top: $folder-padding
   padding-right: $folder-padding
   align-items: flex-end
   flex-direction: column
@@ -179,3 +186,5 @@ canvas
       
       &:active
         background: #067dff
+
+.draggable

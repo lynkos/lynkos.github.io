@@ -15,6 +15,7 @@
 
     <link rel="preload" as="image" href="assets/icons/blue-folder.png" />
     <link rel="preload" as="image" href="assets/icons/calc.png" />
+    <link rel="preload" as="image" href="assets/icons/empty_trash.png" />
     <link rel="preload" as="image" href="assets/icons/github.png" />
     <link rel="preload" as="image" href="assets/icons/iterm.png" />
     <link rel="preload" as="image" href="assets/icons/mail.png" />
@@ -63,7 +64,6 @@
   </head>
 
   <body>
-    <div id="particles-js"></div>
     <header class="menu-bar">
       <div class="left">
         <span class="menus"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
@@ -90,7 +90,9 @@
       </div>      
     </header>
   
-    <main>            
+    <div id="main-content">
+      <div id="particles-js"></div>
+    <main>
       <!-- <div class="device device-mail">
         <div class="device-mail__toolbar"></div>
         <div class="device-mail__folders"></div> 
@@ -126,8 +128,8 @@
         </button>
       </div>
 
-    <div class="box">
-        <div class="mac-terminal">
+    <!-- <div class="box"> -->
+        <div class="mac-terminal draggable windows">
           <div class="header">
             <div class="header__op">
               <span class="header__op-icon header__op-icon--red"><a class="header__op-icon closebutton" href="#"></a></span>
@@ -215,9 +217,9 @@ Options:
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
-    <div class="calc">
+    <div class="calc draggable windows">
       <div class="calc-header">
         <div class="calc-header__op">
           <span class="calc-header__op-icon calc-header__op-icon--red"><a class="calc-header__op-icon closebutton" href="#"></a></span>
@@ -258,7 +260,7 @@ Options:
       </div>
     </div>
 
-    <div class="text-edit">
+    <div class="text-edit draggable windows">
       <div class="notes-header">
         <div class="notes-header__op">
           <span class="notes-header__op-icon notes-header__op-icon--red"><a class="notes-header__op-icon closebutton" href="#"></a></span>
@@ -331,14 +333,14 @@ Options:
 </div>
 </div>
 </div>
-<div class="dialogue">
+<div class="dialogue draggable windows">
   <div class="pp-body">
     <img src="assets/icons/trash.png" />
     <div class="warning">Are you sure you want to permanantly erase the items in Trash?</div>
     <div class="hint">You can't undo this action.</div>
     <div class="actions">
       <input class="alert-btn" type="button" value="Cancel" />
-      <input class="alert-btn confirm" type="button" value="Empty Trash" />
+      <input onclick="changeImage()" class="alert-btn confirm" type="button" value="Empty Trash" />
     </div>
   </div>
 </div>
@@ -363,9 +365,10 @@ Options:
         <div class="icon" aria-label="Steam" data-microtip-position="top" role="tooltip"><img src="assets/icons/steam.svg" draggable="false" alt="Steam"></div>
       </a>
       <div class="divider"></div>
-      <div class="icon" id="trash" aria-label="Trash" data-microtip-position="top" role="tooltip"><img src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
+      <div class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
     </div>
   </footer>
+</div>
 
   <script id="rendered-js" src="js/particles.js"></script>
   <script src="js/windows.js"></script>

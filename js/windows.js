@@ -3,62 +3,83 @@ $(function() {
     .draggable({
       handle: "div.header",
       cancel: "div.header__op",
-      //zIndex: 999999,
-      //stack: ".box",
+      stack: ".windows",
+      containment: "#main-content",
+      distance: 0,
     });
 
   $(".text-edit")
     .draggable({
       handle: "div.notes-header",
       cancel: "div.notes-header__op",
-      //stack: ".box",
+      stack: ".windows",
+      containment: "#main-content",
+      distance: 0,
     });
 
   $(".calc")
     .draggable({
       handle: "div.calc-header",
       cancel: "div.calc-header__op",
+      stack: ".windows",
+      containment: "#main-content",
+      distance: 0,
     });
 
   $(".btn")        
     .draggable({
       cursor: "default",
       cancel: false,
-      containment: "body"
+      containment: "#main-content",
+      distance: 0,
     });
 
     $("#spotlight_wrapper")        
     .draggable({
       cursor: "default",
       cancel: false,
+      stack: ".windows",
+      // containment: "#main-content",
+      // distance: 0,
     });
 
     $(".dialogue")        
     .draggable({
       cursor: "default",
       cancel: ".alert-btn",
+      stack: ".windows",
+      containment: "#main-content",
+      distance: 0,
     });
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
+    // Center windows
+    $(".mac-terminal, .text-edit").position({
+      my: "center",
+      at: "center",
+      collision: "fit",
+      of: "#main-content"
+    });
+
     // Open terminal
     $('#iterm').click(function(){
-      $('.mac-terminal').css("display", "block");
+      $('.mac-terminal').css("display", "inline-block");
     });
 
     // Open about me
     $('#notes').click(function(){
-      $('.text-edit').css("display", "block");
+      $('.text-edit').css("display", "inline-block");
     });
 
     // Open calculator
     $('#calculator').click(function(){
-      $('.calc').css("display", "block");
+      $('.calc').css("display", "inline-block");
     });
     
     // Open trash dialogue
     $('#trash').click(function(){
-      $('.dialogue').css("display", "block");
+      $('.dialogue').css("display", "inline-block");
     });
 
     // Close trash dialogue
@@ -79,6 +100,13 @@ $(document).ready(function(){
     // Close calculator
     $('.calc-header__op-icon--red').click(function(){
       $('.calc').css("display", "none");
+    });
+
+    // Empty trash
+    $(".confirm").click(function (e) {
+      e.preventDefault();
+      $('#trash').attr('src', 'assets/icons/empty_trash.png');
+      $("#trash").off("click");
     });
     
     // Minimize terminal
@@ -150,3 +178,26 @@ const fontFamily = document.getElementById("fontFamily");
 fontFamily.addEventListener("change", function() {
   $('.text-body').css("font-family", this.value);
 });
+
+// $('.windows').each(function(){
+//   $(this).css({"left": Math.random() * (window.outerWidth - $(this).outerWidth()), "top": Math.random() * (window.outerHeight - $(this).outerHeight())}).textillate();
+// });
+
+// var windows = document.getElementsByClassName('windows');
+// var winWidth = window.innerWidth;
+// var winHeight = window.innerHeight;
+
+// // i stands for "index". you could also call this banana or haircut. it's a variable
+// for (var i = 0; i < windows.length; i++) {    
+//     // get random numbers for each element
+//     randomTop = getRandomNumber(0, winHeight);
+//     randomLeft = getRandomNumber(0, winWidth);
+    
+//     // update top and left position
+//     windows[i].style.margin = randomTop + "px";
+//     // windows[i].style.left = randomLeft + "px";
+// }
+
+// function getRandomNumber(min, max) {
+//   return Math.random() * (max - min) + min;
+// }
