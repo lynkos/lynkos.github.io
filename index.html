@@ -14,12 +14,11 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
     <link rel="preload" as="image" href="assets/icons/blue-folder.png" />
-    <link rel="preload" as="image" href="assets/icons/finder.png" />
+    <link rel="preload" as="image" href="assets/icons/calc.png" />
     <link rel="preload" as="image" href="assets/icons/github.png" />
     <link rel="preload" as="image" href="assets/icons/iterm.png" />
     <link rel="preload" as="image" href="assets/icons/mail.png" />
     <link rel="preload" as="image" href="assets/icons/notes.png" />
-    <link rel="preload" as="image" href="assets/icons/photos.png" />
     <link rel="preload" as="image" href="assets/icons/rtf_icon.png" />
     <link rel="preload" as="image" href="assets/icons/spotify.png" />
     <link rel="preload" as="image" href="assets/icons/steam.svg" />
@@ -47,6 +46,8 @@
 
     <link rel="stylesheet" href="/assets/css/style.min.css" />
     <link rel="stylesheet" href="/assets/css/menubar.min.css" />
+    <link rel="stylesheet" href="/assets/css/calculator.min.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/mail.min.css" /> -->
     <link rel="stylesheet" href="/assets/css/dock.min.css" />
     <link rel="stylesheet" href="/assets/css/terminal.min.css" />
     <link rel="stylesheet" href="/assets/css/microtip.css" />
@@ -54,10 +55,11 @@
     <link rel="stylesheet" href="/assets/css/search.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>    
   </head>
 
   <body>
@@ -88,7 +90,12 @@
       </div>      
     </header>
   
-    <main>
+    <main>            
+      <!-- <div class="device device-mail">
+        <div class="device-mail__toolbar"></div>
+        <div class="device-mail__folders"></div> 
+        <div class="device-mail__art" width="100%" height="100%">Huh?</div>
+      </div> -->
       <div class="folder">
         <button class="folder-button btn">
           <div class="folder-button-item">
@@ -104,14 +111,14 @@
           </div>
         </button>
 
-        <button class="folder-button btn" style="padding-top: 0.75rem;">
+        <button class="folder-button btn" style="padding-top: 0.25rem;">
           <div class="folder-button-item">
             <img src="assets/icons/rtf_icon.png" alt="about.rtf" draggable="true">
             <span>about.rtf</span>
           </div>
         </button>
 
-        <button class="folder-button btn" style="padding-top: 1rem;">
+        <button class="folder-button btn" style="padding-top: 0.5rem;">
           <div class="folder-button-item">
             <img src="assets/icons/text-file.png" alt="banner.txt" draggable="true">
             <span>banner.txt</span>
@@ -210,6 +217,47 @@ Options:
       </div>
     </div>
 
+    <div class="calc">
+      <div class="calc-header">
+        <div class="calc-header__op">
+          <span class="calc-header__op-icon calc-header__op-icon--red"><a class="calc-header__op-icon closebutton" href="#"></a></span>
+          <span class="calc-header__op-icon calc-header__op-icon--yellow"><a class="calc-header__op-icon minimizebutton" href="#"></a></span>
+          <span class="calc-header__op-icon calc-header__op-icon--green"><a class="calc-header__op-icon zoombutton" href="#"></a></span>
+        </div>
+        <div class="calc-header__empty"></div>
+      </div>
+      <div class="flex items-center justify-end leading-none">
+        <input readonly class="text-right block w-full px-4 text-6xl font-extralight text-white bg-transparent focus:outline-none" value="0" id="screen" />
+      </div>
+      <div class="mt-2 grid grid-cols-4 grid-rows-5 gap-px text-white text-center text-xl font-extralight">
+        <div class="button bg-gray-600"><button id="clear">AC</button></div>
+        <div class="button bg-gray-600">
+          <button id="invert" class="tracking-tighter text-sm">
+            <sup class="pointer-events-none relative left-0.5">+</sup>
+            <span class="pointer-events-none ">/</span>
+            <sub class="pointer-events-none relative right-0.5">-</sub>
+          </button>
+        </div>
+        <div class="button bg-gray-600"><button id="percent">%</button></div>
+        <div class="button bg-yellow-400"><button id="divide">÷</button></div>
+        <div class="button"><button id="7">7</button></div>
+        <div class="button"><button id="8">8</button></div>
+        <div class="button"><button id="9">9</button></div>
+        <div class="button bg-yellow-400"><button id="multiply">×</button></div>
+        <div class="button"><button id="4">4</button></div>
+        <div class="button"><button id="5">5</button></div>
+        <div class="button"><button id="6">6</button></div>
+        <div class="button bg-yellow-400"><button id="minus">−</button></div>
+        <div class="button"><button id="1">1</button></div>
+        <div class="button"><button id="2">2</button></div>
+        <div class="button"><button id="3">3</button></div>
+        <div class="button bg-yellow-400"><button id="add">+</button></div>
+        <div class="button col-span-2 rounded-bl"><button id="0">0</button></div>
+        <div class="button"><button id="decimal">.</button></div>
+        <div class="button bg-yellow-400 rounded-br"><button id="equals">=</button></div>
+      </div>
+    </div>
+
     <div class="text-edit">
       <div class="notes-header">
         <div class="notes-header__op">
@@ -299,15 +347,12 @@ Options:
 
   <footer>
     <div class="dock">
-      <div class="icon" aria-label="Finder" data-microtip-position="top" role="tooltip">
-        <img src="assets/icons/finder.png" draggable="false" alt="Finder">
-      </div>
       <a target="_blank" href="mailto:chronic.artisan-0i@icloud.com" target="_top" alt="Send me an email" draggable="false">
         <div class="icon" aria-label="Contact" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
       </a>
       <div id="notes" class="icon" aria-label="About" data-microtip-position="top" role="tooltip"><img src="assets/icons/notes.png" draggable="false" alt="Notes"></div>
-      <div class="icon" aria-label="Projects" data-microtip-position="top" role="tooltip"><img src="assets/icons/photos.png" draggable="false" alt="Photos"></div>
-      <div id="iterm" class="icon" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="App Store"></div>
+      <div id="iterm" class="icon" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
+      <div id="calculator" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"></div>
       <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
         <div class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="assets/icons/github.png" draggable="false" alt="GitHub"></div>
       </a>
@@ -326,5 +371,6 @@ Options:
   <script src="js/dock.js"></script>
   <script src="js/search.js"></script>
   <script src="js/timestamp.js"></script>
+  <script src="js/calculator.js"></script>
   </body>
 </html>

@@ -14,6 +14,12 @@ $(function() {
       //stack: ".box",
     });
 
+  $(".calc")
+    .draggable({
+      handle: "div.calc-header",
+      cancel: "div.calc-header__op",
+    });
+
   $(".btn")        
     .draggable({
       cursor: "default",
@@ -45,6 +51,11 @@ $(document).ready(function(){
       $('.text-edit').css("display", "block");
     });
 
+    // Open calculator
+    $('#calculator').click(function(){
+      $('.calc').css("display", "block");
+    });
+    
     // Open trash dialogue
     $('#trash').click(function(){
       $('.dialogue').css("display", "block");
@@ -63,6 +74,11 @@ $(document).ready(function(){
     // Close about me
     $('.notes-header__op-icon--red').click(function(){
       $('.text-edit').css("display", "none");
+    });
+
+    // Close calculator
+    $('.calc-header__op-icon--red').click(function(){
+      $('.calc').css("display", "none");
     });
     
     // Minimize terminal
