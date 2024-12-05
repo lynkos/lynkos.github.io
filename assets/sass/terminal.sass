@@ -1,7 +1,9 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-// COMPONENT
+pre
+  font-family: vars.$terminal-font
+
 .mac-terminal
   @include mix.window(vars.$terminal-color, vars.$width)
   display: inline-block
