@@ -76,7 +76,6 @@ a
 
 canvas
   display: block
-  vertical-align: bottom
 
 ::selection
   background: vars.$selection-color
@@ -101,6 +100,7 @@ canvas
 
   &-button
     cursor: default
+    appearance: button
     -webkit-appearance: button
     background-color: transparent
     background-image: none
@@ -122,6 +122,7 @@ canvas
       span
         text-align: center
         -webkit-line-clamp: 2
+        line-clamp: 2
         overflow: hidden
         display: -webkit-box
         font-size: 1.24rem
@@ -155,7 +156,7 @@ canvas
   left: 30%
   border-radius: 1rem
   color: white
-  box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.5)
+  box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
 
   .pp-body
     text-align: center
