@@ -127,8 +127,8 @@ $(document).ready(function() {
     // Make windows draggable and bring to front on drag
     function makeDraggable(selector) {
         $(selector).draggable({
-            handle: ".header, .notes-header, .mail-header, .calc-header, .dialogue-header, #spotlight_wrapper",
-            cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .dialogue-header__op, .send-btn",
+            handle: ".header, .notes-header, .mail-header, .calc-header", //, #spotlight_wrapper",
+            cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .send-btn",
             start: function(event, ui) {
                 bringToFront(this);
             },
@@ -206,7 +206,7 @@ $(document).ready(function() {
     $(".confirm").click(function (e) {
       e.preventDefault();
       $('#trash').attr('src', 'assets/icons/empty_trash.png');
-      $("#trash").off("click");
+      $("#trash-icon").off("click");
     });
     
     // Minimize terminal
