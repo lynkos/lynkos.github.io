@@ -1,4 +1,5 @@
 @use "variables" as vars
+@use "mixins" as mix
 
 $menubar-padding: 0.55rem
 $menubar-icon-size: 1.1rem
@@ -16,8 +17,7 @@ $menubar-icon-size: 1.1rem
   align-items: center
   justify-content: space-between
   background: vars.$dock-menu-background
-  backdrop-filter: blur(50px)
-  -webkit-backdrop-filter: blur(50px)
+  @include mix.blur(50px)
 
   i
     display: contents

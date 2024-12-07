@@ -1,4 +1,5 @@
 @use "variables" as vars
+@use "mixins" as mix
 
 #spotlight_wrapper
   position: absolute
@@ -18,8 +19,7 @@
   appearance: none
   box-shadow: 0 25px 60px 10px rgba(0, 0, 0, 0.3)
   outline: none
-  backdrop-filter: blur(13px)
-  -webkit-backdrop-filter: blur(13px)
+  @include mix.blur(13px)
   border: 1px solid rgba(255, 255, 255, 0.2)
   font-size: 2.75rem
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif

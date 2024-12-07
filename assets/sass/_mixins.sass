@@ -1,5 +1,14 @@
 @use "variables" as vars
 
+@mixin blur($blur-strength: 8px, $fallback-color: vars.$dock-menu-background)
+    @supports (backdrop-filter: $blur-strength) or (-webkit-backdrop-filter: $blur-strength)
+        backdrop-filter: blur($blur-strength)
+        -webkit-backdrop-filter: blur($blur-strength)
+
+    // Fallback for browsers that don't support backdrop-filter
+    @supports not ((backdrop-filter: $blur-strength) or (-webkit-backdrop-filter: $blur-strength))
+        background-color: $fallback-color
+
 @mixin window($body-color, $width, $height: min-content)
     background: $body-color
     display: none

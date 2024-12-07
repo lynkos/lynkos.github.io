@@ -1,4 +1,5 @@
 @use "variables" as vars
+@use "mixins" as mix
 
 $dock-icon-size: 4rem
 $dock-border-radius: 1.6rem
@@ -17,9 +18,8 @@ footer
   justify-content: center
 
 .dock
+  @include mix.blur(13px)
   background: vars.$dock-menu-background
-  backdrop-filter: blur(13px)
-  -webkit-backdrop-filter: blur(13px)
   border: 1px solid rgba(255, 255, 255, 0.05)
   padding: $padding
   border-radius: $dock-border-radius
