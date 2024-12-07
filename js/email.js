@@ -51,6 +51,7 @@
     }
   
     function handleFormSubmit(event) {  // handles form submit without any jquery
+      //document.body.style.cursor = "progress"; // Show spinner while sending email
       event.preventDefault();           // we are submitting via xhr below
       var form = event.target;
       var formData = getFormData(form);
@@ -74,10 +75,29 @@
             if (formElements) {
               formElements.style.display = "none"; // hide form
             }
-            // var thankYouMessage = form.querySelector(".thankyou_message");
-            // if (thankYouMessage) {
-            //   thankYouMessage.style.display = "block";
-            // }
+
+            // NOTIFICATION
+            Toastify({
+              text: "Message sent successfully!",
+              className: "info",
+              duration: 2500,
+              style: {
+                background: "rgba(45, 45, 45, 0.8)",
+                "box-shadow": "0px 15px 25px 0px rgba(0, 0, 0, 0.5)",
+                "backdrop-filter": "blur(8px)",
+                "-webkit-backdrop-filter": "blur(8px)",
+                padding: "2rem",
+                "border-radius": "1rem",
+                width: "25rem",
+                "font-size": "1.4rem",
+                border: "none",
+                cursor: "default",
+              },
+              offset: {
+                x: 0,
+                y: "3rem" // Height of menubar
+              },
+            }).showToast();
           }
       };
       // url encode form data for sending as post data
@@ -85,6 +105,7 @@
           return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
       }).join('&');
       xhr.send(encoded);
+      //document.body.style.cursor = "auto"; // Revert cursor to normal once sent
     }
     
     function loaded() {
@@ -102,4 +123,4 @@
         buttons[i].disabled = true;
       }
     }
-  })();
+})();
