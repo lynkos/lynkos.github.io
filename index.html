@@ -292,16 +292,16 @@ Options:
          <input id="colorPicker" value="#FFFFFF" type="color" style="float: left; margin-left: 5px;">
 
          <div class="drop--decorations drop--element">
-          <i alt="Bold button" id="bold-btn" class="fas fa-bold"></i>
-          <i alt="Italic button" id="italic-btn" class="fas fa-italic"></i>
-          <i alt="Underline button" id="underline-btn" class="fas fa-underline"></i>
+          <i alt="Bold button" id="bold-btn" class="fas fa-bold" aria-hidden="true"></i>
+          <i alt="Italic button" id="italic-btn" class="fas fa-italic" aria-hidden="true"></i>
+          <i alt="Underline button" id="underline-btn" class="fas fa-underline" aria-hidden="true"></i>
         </div>
          
          <div class="drop--alignments drop--element ">
-          <i alt="Align left button" id="left-btn" class="fa fa-align-left"></i>
-          <i alt="Align center button" id="center-btn" class="fa fa-align-center"></i>
-          <i alt="Align right button" id="right-btn" class="fa fa-align-right"></i>
-          <i alt="Align justify button" id="justify-btn" class="fa fa-align-justify"></i>
+          <i alt="Align left button" id="left-btn" class="fa fa-align-left" aria-hidden="true"></i>
+          <i alt="Align center button" id="center-btn" class="fa fa-align-center" aria-hidden="true"></i>
+          <i alt="Align right button" id="right-btn" class="fa fa-align-right" aria-hidden="true"></i>
+          <i alt="Align justify button" id="justify-btn" class="fa fa-align-justify" aria-hidden="true"></i>
         </div>
       </div>
 
@@ -343,13 +343,13 @@ Options:
       <span class="subject"><label for="from">From</label><span class="right"><input id="from" name="from" type="email" required></span></span>
       <span class="subject"><label for="subject">Subject</label><span class="right"><input id="subject" name="subject" type="text"></span></span>
       <span class="honeypot-field">
-        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <label for="honeypot">Honeypot technique with hidden text field to reduce spam. Must be empty to submit, else user is assumed to be a bot.</label>
         <input id="honeypot" type="text" name="honeypot" value="" />
       </span>
     </div>
     
     <div class="body">
-      <textarea name="message" placeholder="Compose your message here, then click the paper plane button in the upper-right corner to submit." required></textarea>
+      <textarea name="message" placeholder="Compose your message here, then click the paper plane button in the upper-right corner to send me your message." required></textarea>
     </div>
   </div>
 </form>

@@ -109,7 +109,7 @@ $(function() {
 
 $(document).ready(function() {
     // Center windows
-    $(".mac-terminal, .text-edit, .email, .calc, .dialogue").position({
+    $(".mac-terminal, .text-edit, .email, .calc").position({
       my: "center",
       at: "center",
       collision: "fit",
