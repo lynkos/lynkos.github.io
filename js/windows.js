@@ -158,7 +158,7 @@ $(document).ready(function() {
 
     // Open about me
     $('#notes').click(function(){
-      $('.text-edit').css("display", "inline-block").addClass('windows');
+      $('.text-edit').css("display", "flex").addClass('windows');
       bringToFront('.text-edit');
       makeDraggable('.text-edit');
     });
