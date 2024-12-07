@@ -1,4 +1,5 @@
 @use "variables" as vars
+@use "mixins" as mix
 
 $folder-padding: 1.5rem
 $folder-dim: 6rem
@@ -47,6 +48,8 @@ body
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
   font-optical-sizing: auto
+  // -webkit-font-smoothing: antialiased
+  // -moz-osx-font-smoothing: grayscale
   line-height: 1.8
   color: vars.$font-color
   background-color: vars.$background-color
@@ -55,8 +58,7 @@ body
   overflow: hidden
   background-attachment: fixed
   
-  // Adds a repeating grid pattern to the background
-  // to mimic the look of a real terminal
+  // Adds a repeating grid pattern to the background to mimic the look of a real terminal
   // &::after
   //   content: ""
   //   position: absolute
@@ -77,6 +79,11 @@ canvas
   vertical-align: bottom
 
 ::selection
+  background: vars.$selection-color
+  text-shadow: none
+
+// Must keep selection pseudo-elements separate, else it won't work
+::-moz-selection
   background: vars.$selection-color
   text-shadow: none
 
@@ -140,11 +147,11 @@ canvas
   display: none
   position: absolute
   inline-size: min-content
-  width: 270px
+  width: 27rem
   border-radius: 10rem
   background: rgba(45, 45, 45, 0.8)
-  backdrop-filter: blur(8px)
-  padding: 20px
+  @include mix.blur(8)
+  padding: 2rem
   top: 30%
   left: 30%
   border-radius: 1rem
@@ -156,7 +163,7 @@ canvas
 
     img
       display: inline
-      width: 60px
+      width: 6rem
 
   .warning
     font-weight: 700
@@ -166,10 +173,10 @@ canvas
     font-size: 1.25em
 
   .actions
-    padding-top: 10px
+    padding-top: 1rem
 
   .alert-btn
-    width: 10.5rem
+    width: 10rem
     padding: 3.5px 2px
     margin: 0 5px
     font-size: 1.35rem

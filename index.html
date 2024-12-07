@@ -53,13 +53,15 @@
     <link rel="stylesheet" href="/assets/css/microtip.css" />
     <link rel="stylesheet" href="/assets/css/notes.min.css" />
     <link rel="stylesheet" href="/assets/css/search.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>    
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   </head>
 
   <body>
@@ -166,16 +168,16 @@
             </div>
 
             <div class="body__row">
-              <pre>help: help [-bcdem]
-This website is still under construction and has
-not yet been optimized for mobile devices.
+              <pre>help: help [-bdimt]
+This website is still under construction and has not
+yet been optimized (especially for mobile devices).
 
 Options:
 -b        background is interactive: click anywhere
--c        click icons in dock to open popup/link
 -d        drag folders, files, and windows
--e        edit font style (such as color) in About
--m        send me a message via Contact</pre>
+-i        click icons in dock to open an app/link
+-m        contact me via the Mail app below
+-t        open the TextEdit app below for my about me</pre>
           </div>  
 
           <div class="body__row">
@@ -358,7 +360,7 @@ Options:
 <div class="dialogue windows">
   <div class="pp-body">
     <img src="assets/icons/trash.png" draggable="false" alt="Icon of a filled trash can" />
-    <div class="warning">Are you sure you want to permanantly erase the items in Trash?</div>
+    <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
     <div class="hint">You can't undo this action.</div>
     <div class="actions">
       <input class="alert-btn" type="button" value="Cancel" />
@@ -371,8 +373,8 @@ Options:
 
   <footer>
     <div class="dock">
-      <div id="notes" class="icon" aria-label="About" data-microtip-position="top" role="tooltip"><img src="assets/icons/text_edit.png" draggable="false" alt="Notes"></div>
-      <div id="mail" class="icon" aria-label="Contact" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
+      <div id="notes" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img src="assets/icons/text_edit.png" draggable="false" alt="Notes"></div>
+      <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
       <div id="iterm" class="icon" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
       <div id="calculator" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"></div>
       <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
