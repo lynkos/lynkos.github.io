@@ -80,18 +80,18 @@ $(function() {
       distance: 0,
     });
 
-    $("#spotlight_wrapper")        
-    .draggable({
-      cursor: "default",
-      cancel: false,
-      //stack: ".windows",
-      // containment: "#main-content",
-      // distance: 0,
-      start: function(event, ui) {
-        bringToFront(this);
-        makeDraggable(this);
-    },
-    });
+    // $("#spotlight_wrapper")        
+    // .draggable({
+    //   cursor: "default",
+    //   cancel: false,
+    //   //stack: ".windows",
+    //   // containment: "#main-content",
+    //   // distance: 0,
+    //   start: function(event, ui) {
+    //     bringToFront(this);
+    //     makeDraggable(this);
+    // },
+    // });
 
     $(".dialogue")        
     .draggable({
@@ -127,7 +127,7 @@ $(document).ready(function() {
     // Make windows draggable and bring to front on drag
     function makeDraggable(selector) {
         $(selector).draggable({
-            handle: ".header, .notes-header, .mail-header, .calc-header, .dialogue-header",
+            handle: ".header, .notes-header, .mail-header, .calc-header, .dialogue-header, #spotlight_wrapper",
             cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .dialogue-header__op, .send-btn",
             start: function(event, ui) {
                 bringToFront(this);
@@ -262,7 +262,6 @@ $(document).ready(function() {
       $('.text-body').removeClass("center");
       $('.text-body').removeClass("left");
    });
-
   });
 
 const colorPicker = document.getElementById("colorPicker");
@@ -279,29 +278,6 @@ const fontFamily = document.getElementById("fontFamily");
 fontFamily.addEventListener("change", function() {
   $('.text-body').css("font-family", this.value);
 });
-
-// $('.windows').each(function(){
-//   $(this).css({"left": Math.random() * (window.outerWidth - $(this).outerWidth()), "top": Math.random() * (window.outerHeight - $(this).outerHeight())}).textillate();
-// });
-
-// var windows = document.getElementsByClassName('windows');
-// var winWidth = window.innerWidth;
-// var winHeight = window.innerHeight;
-
-// // i stands for "index". you could also call this banana or haircut. it's a variable
-// for (var i = 0; i < windows.length; i++) {    
-//     // get random numbers for each element
-//     randomTop = getRandomNumber(0, winHeight);
-//     randomLeft = getRandomNumber(0, winWidth);
-    
-//     // update top and left position
-//     windows[i].style.margin = randomTop + "px";
-//     // windows[i].style.left = randomLeft + "px";
-// }
-
-// function getRandomNumber(min, max) {
-//   return Math.random() * (max - min) + min;
-// }
 
 // var closeWindow = function() {
 //   $('.window-close').bind('click', function(e) {
