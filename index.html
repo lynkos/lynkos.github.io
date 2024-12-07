@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css" />
     <link rel="stylesheet" href="/assets/css/menubar.min.css" />
     <link rel="stylesheet" href="/assets/css/calculator.min.css" />
-    <!-- <link rel="stylesheet" href="/assets/css/mail.min.css" /> -->
+    <link rel="stylesheet" href="/assets/css/mail.min.css" />
     <link rel="stylesheet" href="/assets/css/dock.min.css" />
     <link rel="stylesheet" href="/assets/css/terminal.min.css" />
     <link rel="stylesheet" href="/assets/css/microtip.css" />
@@ -93,11 +93,6 @@
     <div id="main-content">
       <div id="particles-js"></div>
     <main>
-      <!-- <div class="device device-mail">
-        <div class="device-mail__toolbar"></div>
-        <div class="device-mail__folders"></div> 
-        <div class="device-mail__art" width="100%" height="100%">Huh?</div>
-      </div> -->
       <div class="folder">
         <button class="folder-button btn">
           <div class="folder-button-item">
@@ -129,7 +124,7 @@
       </div>
 
     <!-- <div class="box"> -->
-        <div class="mac-terminal draggable windows">
+        <div class="mac-terminal windows current-window">
           <div class="header">
             <div class="header__op">
               <span class="header__op-icon header__op-icon--red"><a class="header__op-icon closebutton" href="#"></a></span>
@@ -219,7 +214,7 @@ Options:
       </div>
     <!-- </div> -->
 
-    <div class="calc draggable windows">
+    <div class="calc windows">
       <div class="calc-header">
         <div class="calc-header__op">
           <span class="calc-header__op-icon calc-header__op-icon--red"><a class="calc-header__op-icon closebutton" href="#"></a></span>
@@ -260,7 +255,7 @@ Options:
       </div>
     </div>
 
-    <div class="text-edit draggable windows">
+    <div class="text-edit windows">
       <div class="notes-header">
         <div class="notes-header__op">
           <span class="notes-header__op-icon notes-header__op-icon--red"><a class="notes-header__op-icon closebutton" href="#"></a></span>
@@ -329,11 +324,40 @@ Options:
         <p>I also enjoy reading research papers and watching YouTube channels (e.g. <a href="https://www.youtube.com/user/keeroyz" target="_blank">Two Minute Papers</a>, <a href="https://www.youtube.com/c/3blue1brown" target="_blank">3Blue1Brown</a>, etc). If I had to name a research paper that's currently piqued my interest, it'd have to be <a href="https://ieeexplore.ieee.org/document/8967098" target="_blank">Towards Post-Quantum Blockchain: A Review on Blockchain Cryptography Resistant to Quantum Computing Attacks</a> by Tiago M. Fernández-Caramès and Paula Fraga-Lamas.</p>
       </div>
     </div>
+  <!-- </div>
+</div>
+</div>
+</div> -->
+
+<form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbzkTWdIPz3s-mYO7b6_cdjYlSPxCVefnfHrZ9-hzGkr1d4Vz6QUGwo3fqSl7cYCMGSv/exec">
+  <div class="email windows">
+    <div class="mail-header">
+      <div class="mail-header__op">
+        <span class="mail-header__op-icon mail-header__op-icon--red"><a class="mail-header__op-icon closebutton" href="#"></a></span>
+        <span class="mail-header__op-icon mail-header__op-icon--yellow"><a class="mail-header__op-icon minimizebutton" href="#"></a></span>
+        <span class="mail-header__op-icon mail-header__op-icon--green"><a class="mail-header__op-icon zoombutton" href="#"></a></span>
+      </div>
+      <button class="send-btn"><i alt="Send message" class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </div>
+
+    <div class="middle">
+      <span class="subject">To: <span style="color: white; font-weight: normal">Kiran Brahmatewari</span></span>
+      <span class="subject"><label for="from">From</label><span class="right"><input id="from" name="from" type="email" required></span></span>
+      <span class="subject"><label for="subject">Subject</label><span class="right"><input id="subject" name="subject" type="text"></span></span>
+      <span class="honeypot-field">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </span>
+    </div>
+    
+    <div class="body">
+      <textarea name="message" placeholder="Compose your message here, then click the paper plane button in the upper-right corner to submit." required></textarea>
+    </div>
   </div>
-</div>
-</div>
-</div>
-<div class="dialogue draggable windows">
+</form>
+<!-- </div> -->
+
+<div class="dialogue windows">
   <div class="pp-body">
     <img src="assets/icons/trash.png" />
     <div class="warning">Are you sure you want to permanantly erase the items in Trash?</div>
@@ -350,9 +374,7 @@ Options:
   <footer>
     <div class="dock">
       <div id="notes" class="icon" aria-label="About" data-microtip-position="top" role="tooltip"><img src="assets/icons/notes.png" draggable="false" alt="Notes"></div>
-      <a target="_blank" href="mailto:chronic.artisan-0i@icloud.com" target="_top" alt="Send me an email" draggable="false">
-        <div class="icon" aria-label="Contact" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
-      </a>
+      <div id="mail" class="icon" aria-label="Contact" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
       <div id="iterm" class="icon" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
       <div id="calculator" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"></div>
       <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
@@ -365,7 +387,7 @@ Options:
         <div class="icon" aria-label="Steam" data-microtip-position="top" role="tooltip"><img src="assets/icons/steam.svg" draggable="false" alt="Steam"></div>
       </a>
       <div class="divider"></div>
-      <div class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
+      <div id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
     </div>
   </footer>
 </div>
@@ -376,5 +398,6 @@ Options:
   <script src="js/search.js"></script>
   <script src="js/timestamp.js"></script>
   <script src="js/calculator.js"></script>
+  <script type="text/javascript" data-cfasync="false" src="js/email.js"></script>
   </body>
 </html>

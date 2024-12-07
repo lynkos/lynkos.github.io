@@ -1,0 +1,76 @@
+@use "variables" as vars
+@use "mixins" as mix
+
+$email-body-color: rgb(32, 35, 32)
+$email-accent-color: rgb(54, 56, 54)
+$email-title-color: rgb(155, 156, 154)
+$email-tab-color: rgb(55, 56, 55)
+
+//linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
+
+.email
+  @include mix.window($email-tab-color, vars.$width, vars.$height)
+  display: hidden
+  min-width: 407px
+  min-height: 140px
+  font-size: 1.3rem
+
+  button
+    color: white
+    float: right
+
+  .mail-header
+    @include mix.header(none, 4rem, 0 1.4rem)
+  
+  .middle
+    padding: 0 1.5rem
+    background: $email-body-color
+    overflow: auto
+    color: $email-title-color
+    width: 100%
+
+    input
+      display: inline-block
+      background: none
+      color: white
+      width: 100%
+
+    .subject
+      width: 100%
+      border-bottom: 1px solid $email-accent-color
+      display: block
+      padding: 0.7rem 0.2rem
+      font-weight: 500
+
+      label
+        float: left
+
+        &:after
+          content: ": "
+
+      .right
+        overflow: hidden
+        display: block
+        padding-left: 3px
+          
+  .body
+    color: white
+    display: block
+    height: calc(100% - 138.6px) // Subtract height of rest of window // 100%
+    width: 100%
+    background: $email-body-color
+    overflow: auto
+
+    textarea
+      width: 100%
+      height: 99.5%
+      padding: 0.7rem 1.7rem
+      background: none
+      resize: none
+      outline: none
+
+      &::placeholder
+        color: white
+
+.honeypot-field
+  display: none

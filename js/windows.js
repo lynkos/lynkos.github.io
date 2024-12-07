@@ -1,29 +1,75 @@
+// Function to bring the clicked window to the front
+function bringToFront(element) {
+  let maxZIndex = Math.max(...$('.windows').map(function() {
+      return parseInt($(this).css("z-index")) || 0;
+  }).get());
+  $(element).css("z-index", maxZIndex + 1); // Set higher z-index for the clicked window
+}
+
+// Make windows draggable and bring to front on drag
+function makeDraggable(selector) {
+  $(selector).draggable({
+      start: function(event, ui) {
+          bringToFront(this);
+      },
+      containment: "#main-content",
+      distance: 0
+  }).on('click', function() {
+      bringToFront(this);
+  });
+}
+
 $(function() {
   $(".mac-terminal")
     .draggable({
       handle: "div.header",
       cancel: "div.header__op",
-      stack: ".windows",
+      //stack: ".windows",
       containment: "#main-content",
       distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
     });
 
   $(".text-edit")
     .draggable({
       handle: "div.notes-header",
       cancel: "div.notes-header__op",
-      stack: ".windows",
+      //stack: ".windows",
       containment: "#main-content",
       distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
+    });
+
+    $(".email")
+    .draggable({
+      handle: "div.mail-header",
+      cancel: "div.mail-header__op, .send-btn",
+      //stack: ".windows",
+      containment: "#main-content",
+      distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
     });
 
   $(".calc")
     .draggable({
       handle: "div.calc-header",
       cancel: "div.calc-header__op",
-      stack: ".windows",
+      //stack: ".windows",
       containment: "#main-content",
       distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
     });
 
   $(".btn")        
@@ -38,48 +84,97 @@ $(function() {
     .draggable({
       cursor: "default",
       cancel: false,
-      stack: ".windows",
+      //stack: ".windows",
       // containment: "#main-content",
       // distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
     });
 
     $(".dialogue")        
     .draggable({
       cursor: "default",
       cancel: ".alert-btn",
-      stack: ".windows",
+      //stack: ".windows",
       containment: "#main-content",
       distance: 0,
+      start: function(event, ui) {
+        bringToFront(this);
+        makeDraggable(this);
+    },
     });
 });
 
 $(document).ready(function() {
     // Center windows
-    $(".mac-terminal, .text-edit").position({
+    $(".mac-terminal, .text-edit, .email, .calc, .dialogue").position({
       my: "center",
       at: "center",
       collision: "fit",
       of: "#main-content"
     });
 
+    // Function to bring the clicked window to the front
+    function bringToFront(element) {
+        let maxZIndex = Math.max(...$('.windows').map(function() {
+            return parseInt($(this).css("z-index")) || 0;
+        }).get());
+        $(element).css("z-index", maxZIndex + 1); // Set higher z-index for the clicked window
+    }
+
+    // Make windows draggable and bring to front on drag
+    function makeDraggable(selector) {
+        $(selector).draggable({
+            handle: ".header, .notes-header, .mail-header, .calc-header, .dialogue-header",
+            cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .dialogue-header__op, .send-btn",
+            start: function(event, ui) {
+                bringToFront(this);
+            },
+            containment: "#main-content",
+            distance: 0
+        }).on('click', function() {
+            bringToFront(this);
+        });
+    }
+
+    // Apply draggable to all existing windows
+    makeDraggable('.windows');
+
     // Open terminal
     $('#iterm').click(function(){
-      $('.mac-terminal').css("display", "inline-block");
+      $('.mac-terminal').css("display", "inline-block").addClass('windows');
+      bringToFront('.mac-terminal');
+      makeDraggable('.mac-terminal');
     });
+
+    // Open mail
+    $('#mail').click(function(){
+      $('.email').css("display", "inline-block").addClass('windows');
+      bringToFront('.email');
+      makeDraggable('.email');
+    });    
 
     // Open about me
     $('#notes').click(function(){
-      $('.text-edit').css("display", "inline-block");
+      $('.text-edit').css("display", "inline-block").addClass('windows');
+      bringToFront('.text-edit');
+      makeDraggable('.text-edit');
     });
 
     // Open calculator
     $('#calculator').click(function(){
-      $('.calc').css("display", "inline-block");
+      $('.calc').css("display", "inline-block").addClass('windows');
+      bringToFront('.calc');
+      makeDraggable('.calc');
     });
-    
+
     // Open trash dialogue
-    $('#trash').click(function(){
-      $('.dialogue').css("display", "inline-block");
+    $('#trash-icon').click(function(){
+      $('.dialogue').css("display", "inline-block").addClass('windows');
+      bringToFront('.dialogue');
+      makeDraggable('.dialogue');
     });
 
     // Close trash dialogue
@@ -91,6 +186,11 @@ $(document).ready(function() {
     $('.header__op-icon--red').click(function(){
       $('.mac-terminal').css("display", "none");
     });
+
+    // Close mail
+    $('.mail-header__op-icon--red').click(function(){
+      $('.email').css("display", "none");
+    });  
 
     // Close about me
     $('.notes-header__op-icon--red').click(function(){
@@ -162,6 +262,7 @@ $(document).ready(function() {
       $('.text-body').removeClass("center");
       $('.text-body').removeClass("left");
    });
+
   });
 
 const colorPicker = document.getElementById("colorPicker");
@@ -201,3 +302,11 @@ fontFamily.addEventListener("change", function() {
 // function getRandomNumber(min, max) {
 //   return Math.random() * (max - min) + min;
 // }
+
+// var closeWindow = function() {
+//   $('.window-close').bind('click', function(e) {
+//     e.preventDefault();
+//     $(this).parents('.windows').removeClass('current-window window-opened').addClass('window-closed').hide();
+//   });
+// };
+// closeWindow();
