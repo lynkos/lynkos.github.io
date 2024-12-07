@@ -14,14 +14,19 @@ $email-tab-color: rgb(55, 56, 55)
   min-width: 407px
   min-height: 140px
   font-size: 1.3rem
-
-  button
-    color: white
-    float: right
+  flex-direction: column
+  align-content: stretch
 
   .mail-header
     @include mix.header(none, 4rem, 0 1.4rem)
-  
+
+    button
+      color: white
+      float: right
+
+      i
+        font-size: 1.7rem      
+
   .middle
     padding: 0 1.5rem
     background: $email-body-color
@@ -55,22 +60,21 @@ $email-tab-color: rgb(55, 56, 55)
           
   .body
     color: white
+    flex: 1
     display: block
-    height: calc(100% - 138.6px) // Subtract height of rest of window // 100%
     width: 100%
     background: $email-body-color
+    padding: 0.7rem 1.7rem
     overflow: auto
+    color: white
 
-    textarea
-      width: 100%
-      height: 99.5%
-      padding: 0.7rem 1.7rem
-      background: none
-      resize: none
-      outline: none
+  textarea
+    background: none
+    resize: none
+    outline: none
 
-      &::placeholder
-        color: white
+    &::placeholder
+      color: white
 
 .honeypot-field
   display: none

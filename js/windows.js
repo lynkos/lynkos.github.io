@@ -151,7 +151,7 @@ $(document).ready(function() {
 
     // Open mail
     $('#mail').click(function(){
-      $('.email').css("display", "inline-block").addClass('windows');
+      $('.email').css("display", "flex").addClass('windows');
       bringToFront('.email');
       makeDraggable('.email');
     });    
