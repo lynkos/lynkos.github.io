@@ -5,6 +5,7 @@ $menubar-padding: 0.55rem
 $menubar-icon-size: 1.1rem
 
 .menu-bar
+  @include mix.blur(50px, vars.$dock-menu-background)
   width: 100%
   height: vars.$menubar-height
   padding: 0.2rem
@@ -16,8 +17,6 @@ $menubar-icon-size: 1.1rem
   display: flex
   align-items: center
   justify-content: space-between
-  background: vars.$dock-menu-background
-  @include mix.blur(50px)
 
   i
     display: contents

@@ -143,14 +143,13 @@ canvas
     width: 100%
 
 .dialogue
+  @include mix.blur(8px, rgba(45, 45, 45, 0.6))
   font-family: vars.$font-family
   display: none
   position: absolute
   inline-size: min-content
   width: 27rem
   border-radius: 10rem
-  background: rgba(45, 45, 45, 0.8)
-  @include mix.blur(8)
   padding: 2rem
   top: 30%
   left: 30%
