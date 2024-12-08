@@ -116,6 +116,9 @@ $(document).ready(function() {
       of: "#main-content"
     });
 
+    // Show terminal on load
+    $('.mac-terminal').fadeIn(500); // .show(500);
+
     // Function to bring the clicked window to the front
     function bringToFront(element) {
         let maxZIndex = Math.max(...$('.windows').map(function() {
