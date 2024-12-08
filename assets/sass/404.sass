@@ -19,9 +19,17 @@ body
 a
     text-decoration: none
     cursor: pointer
+    color: white
 
-    &::before, &::after
-        color: white
+    &:hover
+        &::before
+            content: "[ "
+            color: white
+
+        &::after
+            content: " ]"
+            color: white
+        
 
 body, a
     color: rgba(128, 255, 128, 0.8)
@@ -113,24 +121,15 @@ body, a
         h1, h2
             margin: 0.5rem
 
-    .wrapper
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-flow: column
+    .container
+        .output
+            text-align: center
+            color: rgba(128, 255, 128, 0.8)
+            text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
 
-        .container
-            .output
-                color: rgba(128, 255, 128, 0.8)
-                text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
+        // .input
+        //     color: rgba(192, 255, 192, 0.8)
+        //     text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
 
-                &::before
-                    color: white
-                    content: "> "
-
-            // .input
-            //     color: rgba(192, 255, 192, 0.8)
-            //     text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
-
-            //     &::before
-            //         content: "$ "
+        //     &::before
+        //         content: "$ "
