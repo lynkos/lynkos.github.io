@@ -42,17 +42,12 @@ select
   .notes-header
     @include mix.header($header-color)
 
-    &__title 
+    &__title
+      @include mix.disable-select()
       color: vars.$font-color
       font-family: "Arial", sans-serif
       font-size: 1.35rem
       font-weight: bold
-      user-select: none
-      -webkit-user-select: none
-      -khtml-user-select: none
-      -moz-user-select: none
-      -ms-user-select: none
-
 
       img
         display: inline
