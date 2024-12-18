@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .dialogue").position({
+  $(".mac-terminal, .text-edit, .email, .calc").position({
     my: "center center-28.8", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -55,6 +55,14 @@ $(document).ready(function() {
 
   // Apply draggable to all existing windows
   makeDraggable('.windows');
+
+  // Make dialogue draggable
+  $(".dialogue").draggable({
+    cursor: "default",
+    cancel: "alert-btn",
+    containment: "#main-content",
+    distance: 0,
+  });  
 
   // Make folder and file icons draggable
   $(".btn").draggable({
