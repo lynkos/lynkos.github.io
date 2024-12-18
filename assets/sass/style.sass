@@ -9,6 +9,7 @@ $folder-dim: 6rem
 
 // RESET
 *, *::before, *::after
+  -webkit-box-sizing: border-box
   box-sizing: border-box
   outline: none
   margin: 0
@@ -22,6 +23,8 @@ html, body, header, footer
   width: 100%
 
 main
+  -webkit-box-flex: 1
+  -ms-flex: auto
   flex: auto
   overflow: auto
   height: 100vh
@@ -33,7 +36,12 @@ main
   height: calc(100% - vars.$menubar-height)
 
 body
+  display: -webkit-box
+  display: -ms-flexbox
   display: flex
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -ms-flex-direction: column
   flex-direction: column
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
@@ -44,6 +52,8 @@ body
   color: vars.$font-color
   background-color: vars.$background-color
   background-image: vars.$background-gradient
+  background-image: -o-radial-gradient(vars.$background-color, vars.$foreground-color, 225%) 
+  //background-image: -moz-radial-gradient(center, ellipse cover, vars.$background-color 0%, vars.$foreground-color 225%)
   background-repeat: no-repeat
   overflow: hidden
   background-attachment: fixed
@@ -79,11 +89,20 @@ canvas
 .folder
   @include mix.disable-select()
   gap: $folder-padding
+  -webkit-box-pack: start
+  -ms-flex-pack: start
   justify-content: flex-start
   padding-top: $folder-padding
   padding-right: $folder-padding
-  align-items: flex-end
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -ms-flex-direction: column
   flex-direction: column
+  -webkit-box-align: end
+  -ms-flex-align: end
+  align-items: flex-end
+  display: -webkit-box
+  display: -ms-flexbox
   display: flex
   float: right
   width: calc($folder-dim * 1.3)
@@ -92,17 +111,21 @@ canvas
     cursor: default
     appearance: button
     -webkit-appearance: button
+    -moz-appearance: button
     background-color: transparent
     background-image: none
     border: none
 
     &:active
+      -webkit-filter: brightness(75%)
+      -ms-filter: brightness(75%)
       filter: brightness(75%)
 
     &-item
       align-items: center
 
       img
+        -o-object-fit: contain
         object-fit: contain
         max-width: 100%
         display: block

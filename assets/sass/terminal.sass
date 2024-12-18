@@ -27,6 +27,8 @@ pre
         height: 1.3rem
         margin-right: 0.6rem
         vertical-align: middle
+        -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
+        -ms-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
   
   .body
@@ -38,7 +40,11 @@ pre
       margin-top: 0.2rem
       line-height: 1.79rem
       padding: 0 2rem
+      display: -webkit-box
+      display: -ms-flexbox
       display: flex
+      -webkit-box-align: center
+      -ms-flex-align: center
       align-items: center
 
       a
@@ -54,6 +60,7 @@ pre
         width: 0.8rem
         height: 0.6rem
         background-color: vars.$arrow-color
+        -webkit-clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         margin-right: 0.8rem
 
@@ -80,6 +87,7 @@ pre
       
       &-cursor
         font-weight: bold
+        -webkit-animation: vars.$cursor-blink blink step-end infinite
         animation: vars.$cursor-blink blink step-end infinite
 
       @keyframes blink

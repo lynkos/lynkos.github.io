@@ -1,18 +1,18 @@
 @use "variables" as vars
 
 @mixin disable-select()
-    user-select: none
     -webkit-user-select: none
     -khtml-user-select: none
     -moz-user-select: none
     -ms-user-select: none
+    user-select: none
 
 @mixin text-shadow($x: 0, $y: 0, $radius: 0.75rem, $color: rgba(0, 0, 0, 0.25))
     text-shadow: $x $y $radius $color
 
 @mixin blur($blur-strength: 8px, $background: vars.$dock-menu-background)
-    backdrop-filter: blur($blur-strength)
     -webkit-backdrop-filter: blur($blur-strength)
+    backdrop-filter: blur($blur-strength)
     background: $background
 
     // @supports (backdrop-filter: $blur-strength) or (-webkit-backdrop-filter: $blur-strength)
@@ -26,6 +26,8 @@
 @mixin window($body-color, $width, $height: min-content)
     background: $body-color
     display: none
+    inline-size: -webkit-min-content
+    inline-size: -moz-min-content
     inline-size: min-content
     position: absolute
     inset: 0
@@ -39,6 +41,7 @@
     overflow-x: auto
     text-wrap: wrap
     overflow-wrap: anywhere
+    -webkit-box-shadow: vars.$box-shadow
     box-shadow: vars.$box-shadow
 
     // FIXME Minimize button
@@ -62,16 +65,26 @@
         // transform: translateY(0%) translateX(0%) scale(1)
 
 @mixin header($bg-color: none, $height: 3rem, $padding: 2rem 1.4rem 1.4rem 1.4rem)
+    display: -webkit-box
+    display: -ms-flexbox
     display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
     align-items: center
     position: relative
+    -webkit-box-pack: justify
+    -ms-flex-pack: justify
     justify-content: space-between
     background: $bg-color
     height: $height
     padding: $padding
 
     &__op
+        display: -webkit-box
+        display: -ms-flexbox
         display: flex
+        -webkit-box-align: center
+        -ms-flex-align: center
         align-items: center
 
         &-icon
