@@ -59,7 +59,7 @@ $(document).ready(function() {
   // Make dialogue draggable
   $(".dialogue").draggable({
     cursor: "default",
-    cancel: "alert-btn",
+    cancel: ".alert-btn",
     containment: "#main-content",
     distance: 0,
   });  
