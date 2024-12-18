@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc").position({
-    my: "center",
+  $(".mac-terminal, .text-edit, .email, .calc, .dialogue").position({
+    my: "center center-28.8", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
     of: "#main-content"
@@ -63,15 +63,6 @@ $(document).ready(function() {
     containment: "#main-content",
     distance: 0,
   });
-
-  // $("#spotlight_wrapper")        
-  // .draggable({
-  //   cursor: "default",
-  //   cancel: false,
-  //   //stack: ".windows",
-  //   // containment: "#main-content",
-  //   // distance: 0,
-  // });
   
   // Open terminal
   $('#iterm').click(function(){
