@@ -8,8 +8,8 @@ pre
   @include mix.window(vars.$terminal-color, vars.$width)
   display: none
   font-family: vars.$terminal-font
-  min-width: 407px
-  min-height: 140px
+  min-width: vars.$min-width
+  min-height: vars.$min-height
 
   .header
     @include mix.header(none, 4rem, 0 1.4rem)

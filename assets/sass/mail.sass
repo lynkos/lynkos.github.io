@@ -10,8 +10,8 @@ $email-tab-color: rgb(55, 56, 55)
 
 .email
   @include mix.window($email-tab-color, vars.$width, vars.$height)
-  min-width: 407px
-  min-height: 140px
+  min-width: vars.$min-width
+  min-height: vars.$min-height
   font-size: 1.3rem
   -webkit-box-orient: vertical
   -webkit-box-direction: normal

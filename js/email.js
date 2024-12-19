@@ -83,9 +83,10 @@
               duration: 2500,
               style: {
                 background: "rgba(45, 45, 45, 0.8)",
-                "box-shadow": "0px 15px 25px 0px rgba(0, 0, 0, 0.5)",
-                "backdrop-filter": "blur(8px)",
-                "-webkit-backdrop-filter": "blur(8px)",
+                "-webkit-box-shadow": "0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)",
+                "box-shadow": "0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)",
+                "backdrop-filter": "blur(0.8rem)",
+                "-webkit-backdrop-filter": "blur(0.8rem)",
                 padding: "2rem",
                 "border-radius": "1rem",
                 width: "25rem",
