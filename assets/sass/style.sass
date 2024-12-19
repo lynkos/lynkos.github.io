@@ -3,6 +3,10 @@
 
 $folder-padding: 1.5rem
 $folder-dim: 6rem
+$scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
+$scrollbar-color-track: rgba(255, 255, 255, 0.075)
+$scrollbar-width: thin
+$scrollbar-width-legacy: 10px
 
 :root
   background-attachment: fixed
@@ -34,6 +38,27 @@ main
   top: vars.$menubar-height
   width: 100%
   height: calc(100% - vars.$menubar-height)
+
+// Modern browsers
+@supports (scrollbar-width: auto)
+  html
+    scrollbar-color: $scrollbar-color-thumb $scrollbar-color-track
+    scrollbar-width: $scrollbar-width
+    -ms-scrollbar-track-color: $scrollbar-color-track
+
+// Legacy browsers
+@supports selector(::-webkit-scrollbar)
+  ::-webkit-scrollbar-thumb
+    background: $scrollbar-color-thumb
+    border-radius: 1px
+
+  ::-webkit-scrollbar-track
+    background: $scrollbar-color-track
+    border-radius: 1px
+
+  ::-webkit-scrollbar
+    max-width: $scrollbar-width-legacy
+    max-height: $scrollbar-width-legacy
 
 body
   display: -webkit-box
@@ -175,6 +200,7 @@ canvas
   border: 1px solid rgba(255, 255, 255, 0.17)
   outline: 1px solid rgba(0, 0, 0, 0.75)
   color: white
+  -webkit-box-shadow: vars.$box-shadow
   box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
 
   .pp-body
