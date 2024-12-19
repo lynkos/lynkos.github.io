@@ -66,16 +66,16 @@ select
     overflow: hidden
 
     .drops
-      padding: 5px
+      padding: 0.5rem
 
       input[type='color']
         vertical-align: middle
-        margin-left: 3px
-        margin-top: 2.5px
-        width: 19px
-        height: 19px
+        margin-left: 0.3rem
+        margin-top: 0.25rem
+        width: 1.9rem
+        height: 1.9rem
         background: none
-        border-radius: 5px
+        border-radius: 0.5rem
         border: none
 
         &::-webkit-color-swatch-wrapper
@@ -83,11 +83,11 @@ select
 
         &::-webkit-color-swatch
           border: 0.5px solid $separator-color
-          border-radius: 5px
+          border-radius: 0.5rem
 
       i
-        width: 25px
-        font-size: 11px
+        width: 2.5rem
+        font-size: 1.1rem
         float: left
         border-right: 0.5px solid $separator-color
         text-align: center
@@ -96,13 +96,13 @@ select
           border-right: 0
 
       .drop--element
-        margin-right: 5px
-        border-radius: 5px
+        margin-right: 0.5rem
+        border-radius: 0.5rem
 
       .drop--styles
         position: relative
         overflow: hidden
-        padding: 4px 6px
+        padding: 0.4rem 0.6rem
         font-size: 1.2rem
         border: 0.5px solid $separator-color
         float: left
@@ -116,44 +116,44 @@ select
         float: left
 
         i
-          padding: 6.5px 9px
+          padding: 0.65rem 0.9rem
 
       .drop--alignments
         float: right
 
         i
-          padding: 5px 0
+          padding: 0.5rem 0
 
   .rule
     position: relative
-    height: 15px
+    height: 1.5rem
     width: 100%
     float: left
     background: $style-bar-color
     font-family: vars.$terminal-font
     border-top: 0.5px solid vars.$font-color
     border-bottom: 0.5px solid vars.$font-color
-    margin-top: 15px
-    padding-left: 5px
+    margin-top: 1.5rem
+    padding-left: 0.5rem
 
     &:before
       content: "\00a0|"
-      font-size: 10px
+      font-size: 1rem
       position: absolute
-      top: -10px
-      left: 2px
-      height: 2px
-      width: 8px
+      top: -1rem
+      left: 0.2rem
+      height: 0.2rem
+      width: 0.8rem
       background: vars.$font-color
 
     .inch, .half-inch
       display: block
       position: relative
-      width: 72.7px
+      width: 7.27rem
       float: left
-      font-size: 9px
+      font-size: 0.9rem
       border-left: 1px solid vars.$font-color
-      padding-left: 3px
+      padding-left: 0.3rem
 
       &:before
         content: ""
@@ -161,33 +161,33 @@ select
         position: absolute
         width: 0
         height: 0
-        border-top: 4px solid transparent
-        border-left: 5px solid vars.$font-color
-        border-bottom: 4px solid transparent
-        top: -9px
-        left: -1px
+        border-top: 0.4rem solid transparent
+        border-left: 0.5rem solid vars.$font-color
+        border-bottom: 0.4rem solid transparent
+        top: -0.9rem
+        left: -0.1rem
 
       &:after
         content: "\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0|"
-        font-size: 6px
+        font-size: 0.6rem
         font-weight: bold
         width: 100%
         position: absolute
-        top: -1px
-        left: 2px
-        height: 3px
+        top: -0.1rem
+        left: 0.2rem
+        height: 0.3rem
 
     .inch:first-child:before, .inch:last-child .half-inch:before
-      border-left: 4px solid transparent
-      border-top: 5px solid vars.$font-color
-      border-right: 4px solid transparent
-      top: -6px
-      left: -4px
+      border-left: 0.4rem solid transparent
+      border-top: 0.5rem solid vars.$font-color
+      border-right: 0.4rem solid transparent
+      top: -0.6rem
+      left: -0.4rem
 
     .half-inch
       display: inline-block
-      width: 36px
-      height: 4px
+      width: 3.6rem
+      height: 0.4rem
       float: right
 
   .text-body
@@ -196,7 +196,7 @@ select
     -ms-flex: 1
     flex: 1
     color: white
-    padding: 0 5px
+    padding: 0 0.5rem
     overflow: scroll
 
     a
