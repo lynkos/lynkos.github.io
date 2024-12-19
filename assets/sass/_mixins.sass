@@ -91,36 +91,81 @@
             width: vars.$window-icons-dim
             height: vars.$window-icons-dim
             border-radius: 50%
-            font-size: 1rem
-            font-weight: bold
+            position: relative
             cursor: default
+
+            &:before, &:after
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                margin: auto
+                opacity: 0
+                border-radius: 0.1rem
 
             a
                 visibility: hidden
 
-            &:hover a
-                visibility: visible
+            &:hover
+                &:before, &:after
+                    top: 0
+                    opacity: 1
+
+                a
+                    visibility: visible
 
             &:not(:last-child)
                 margin-right: vars.$windows-icons-spacing
 
             &--red
-                background-color: var(--red, #FF544D)
+                background: var(--red, #FF544D)
 
                 &:active
                     background: var(--red-active, #c14645)
+
+                &:before, &:after
+                    background: rgba(0, 0, 0, 0.5)
+                    width: 0.9rem
+                    height: 0.15rem
+
+                &:before
+                    transform: rotate(45deg)
+
+                &:after
+                    transform: rotate(-45deg)
                             
             &--yellow
-                background-color: var(--yellow, #FFB429)
+                background: var(--yellow, #FFB429)
 
                 &:active
                     background: var(--yellow-active, #c08e38)
-                            
+
+                &:before
+                    background: rgba(0, 0, 0, 0.5)
+                    width: 0.9rem
+                    height: 0.15rem
+
             &--green
-                background-color: var(--green, #25C63A)
+                background: var(--green, #25C63A)
 
                 &:active
                     background: var(--green-active, #029740)
-                
+
+                    &:after
+                        background: var(--green-active, #029740)
+                        
+                &:before
+                    width: 0.65rem
+                    height: 0.65rem
+                    background: rgba(0, 0, 0, 0.5)
+
+                &:after
+                    width: 1rem
+                    height: 0.2rem
+                    transform: rotate(-45deg)
+                    background: var(--green, #25C63A)                        
+
     &__empty
         width: calc(calc(vars.$window-icons-dim * 3) + calc(vars.$windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
