@@ -83,3 +83,84 @@ $email-tab-color: rgb(55, 56, 55)
 
 .honeypot-field
   display: none
+
+// cursor
+.loader
+  position: absolute
+  display: none
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 2.5rem
+  height: 2.5rem
+  border-radius: 50%
+  overflow: hidden
+  animation: animate 0.75s linear infinite
+
+  span
+    position: absolute
+    width: 100%
+    height: 100%
+    background: #f00
+    left: 50%
+    border-radius: 50%
+    transform-origin: left
+
+    &:nth-child(1)
+      background: #0fa503
+      transform: rotate(0deg)
+      z-index: 2
+
+    &:nth-child(2)
+      background: #ffd203
+      transform: rotate(60deg)
+      z-index: 3
+
+    &:nth-child(3)
+      background: #54cd28
+      transform: rotate(120deg)
+      z-index: 4
+
+    &:nth-child(4)
+      background: #129cf5
+      transform: rotate(180deg)
+      z-index: 5
+
+    &:nth-child(5)
+      background: #bb5ed3
+      transform: rotate(240deg)
+      z-index: 6
+
+    &:nth-child(6)
+      background: #ff4f45
+      transform: rotate(300deg)
+      z-index: 7
+      overflow: hidden
+
+      &:before
+        content: ''
+        position: absolute
+        top: 45px
+        left: -72px
+        width: 100%
+        height: 100%
+        background: #ffd203
+        border-radius: 50%
+        z-index: 2
+
+      &:after
+        content: ''
+        position: absolute
+        top: 42px
+        left: -23px
+        width: 100%
+        height: 100%
+        background: #fea503
+        border-radius: 50%
+
+@keyframes animate
+  0%
+    transform: translate(-50%, -50%) rotate(0deg)
+
+  100%
+    transform: translate(-50%, -50%) rotate(360deg)
