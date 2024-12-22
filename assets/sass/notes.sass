@@ -15,7 +15,7 @@ select
 
 .text-edit
   @include mix.window($body-color, $width, $height)
-  min-width: 43.65rem // vars.$min-width
+  min-width: 48.62rem // vars.$min-width
   min-height: vars.$min-height
   -webkit-box-orient: vertical
   -webkit-box-direction: normal
@@ -79,6 +79,7 @@ select
         background: none
         border-radius: 0.5rem
         border: none
+        outline: none
 
         &::-webkit-color-swatch-wrapper
           padding: 0
@@ -113,13 +114,13 @@ select
         position: relative
         display: block
         vertical-align: middle
-        float: left
         
       .drop--decorations
         i
           padding: 0.65rem 0.9rem
 
       .drop--alignments
+        margin: 0
         i
           padding: 0.65rem 0
 
