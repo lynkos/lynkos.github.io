@@ -71,35 +71,80 @@ $(document).ready(function() {
     containment: "#main-content",
     distance: 0,
   });
+
+  // Make GitHub, Spotify, and Steam icon bounce on click
+  $("#github, #spotify, #steam").click(function() {
+    $(this).effect("bounce", { times: 3 }, 600);
+  });
   
   // Open terminal
   $('#iterm').click(function(){
     $('.mac-terminal').css("display", "inline-block");
     bringToFront('.mac-terminal');
+
+    if (!$(this).hasClass("open")) {
+      // Bounce effect, if window is not already open
+      $(this).effect("bounce", { times: 3 }, 600);
+
+      // Mark clicked window as opened
+      $(this).addClass("open");
+    }
   });
 
   // Open mail
   $('#mail').click(function(){
     $('.email').css("display", "flex");
     bringToFront('.email');
+
+    if (!$(this).hasClass("open")) {
+      // Bounce effect, if window is not already open
+      $(this).effect("bounce", { times: 3 }, 600);
+
+      // Mark clicked window as opened
+      $(this).addClass("open");
+    }
   });    
 
   // Open about me
   $('#notes').click(function(){
     $('.text-edit').css("display", "flex");
     bringToFront('.text-edit');
+
+    if (!$(this).hasClass("open")) {
+      // Bounce effect, if window is not already open
+      $(this).effect("bounce", { times: 3 }, 600);
+
+      // Mark clicked window as opened
+      $(this).addClass("open");
+    }
   });
 
   // Open calculator
   $('#calculator').click(function(){
     $('.calc').css("display", "inline-block");
     bringToFront('.calc');
+
+    if (!$(this).hasClass("open")) {
+      // Bounce effect, if window is not already open
+      $(this).effect("bounce", { times: 3 }, 600);
+
+      // Mark clicked window as opened
+      $(this).addClass("open");
+    }
   });
 
   // Open trash dialogue
   $('#trash-icon').click(function(){
     $('.dialogue').css("display", "inline-block");
     bringToFront('.dialogue');
+
+    if (!$(this).hasClass("open")) {
+      // Bounce effect, if window is not already open
+      $(this).effect("bounce", { times: 3 }, 600);
+
+      // Mark clicked window as opened
+      $(this).addClass("open");
+    }
   });
 
   // Empty trash
@@ -110,26 +155,27 @@ $(document).ready(function() {
   });
 
   // Close window
-  function closeWindow(close, win) {
+  function closeWindow(close, win, parent) {
     $(close).on('click', function() {
       $(win).css("display", "none");
+      $(parent).removeClass("open");
     });
   }
   
   // Close terminal
-  closeWindow('.header__op-icon--red', '.mac-terminal');
+  closeWindow('.header__op-icon--red', '.mac-terminal', "#iterm");
 
   // Close mail
-  closeWindow('.mail-header__op-icon--red', '.email');
+  closeWindow('.mail-header__op-icon--red', '.email', "#mail");
 
   // Close about me
-  closeWindow('.notes-header__op-icon--red', '.text-edit');
+  closeWindow('.notes-header__op-icon--red', '.text-edit', "#notes");
 
   // Close calculator
-  closeWindow('.calc-header__op-icon--red', '.calc');
+  closeWindow('.calc-header__op-icon--red', '.calc', "#calculator");
 
   // Close trash dialogue
-  closeWindow('.alert-btn', '.dialogue');  
+  closeWindow('.alert-btn', '.dialogue', "#trash-icon");  
     
   // Minimize terminal
   $('.header__op-icon--yellow').click(function(){
