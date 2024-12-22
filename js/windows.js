@@ -246,3 +246,8 @@ const fontFamily = document.getElementById("fontFamily");
 fontFamily.addEventListener("change", function() {
   $('.text-body').css("font-family", this.value);
 });
+
+const lineHeight = document.getElementById("lineHeight");
+lineHeight.addEventListener("change", function() {
+  $('.text-body').css("line-height", this.value);
+});

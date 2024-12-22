@@ -5,6 +5,8 @@ $header-color: rgb(56, 58, 55)
 $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
+$width: 48.5rem
+$height: 45rem
 
 select
   background: $header-color
@@ -12,7 +14,7 @@ select
   border-radius: 5px
 
 .text-edit
-  @include mix.window($body-color, vars.$width, 45rem)
+  @include mix.window($body-color, $width, $height)
   min-width: 43.65rem // vars.$min-width
   min-height: vars.$min-height
   -webkit-box-orient: vertical
@@ -111,18 +113,15 @@ select
         position: relative
         display: block
         vertical-align: middle
+        float: left
         
       .drop--decorations
-        float: left
-
         i
           padding: 0.65rem 0.9rem
 
       .drop--alignments
-        float: right
-
         i
-          padding: 0.5rem 0
+          padding: 0.65rem 0
 
   .rule
     position: relative
