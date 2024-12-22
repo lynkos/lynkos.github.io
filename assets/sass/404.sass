@@ -1,43 +1,96 @@
 @use "variables" as vars
 
-$bg-img: url("../404.gif")
+$dark-water: #116359
+$light-water: #FFF6F7
+$width: 28rem
+$height: 8rem
+$accent: slategray
+$font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+$glass-gradient: linear-gradient(60deg, rgba(255, 255, 255, 0) 0%,rgba(180, 180, 180, 0.03) 5%,rgba(32, 32, 32, 0.04) 6%,rgba(109, 109, 109, 0.04) 7%,rgba(206, 206, 206, 0.04) 8%,rgba(31, 31, 31, 0.04) 9%,rgba(0, 0, 0, 0.02) 10%,rgba(0, 0, 0, 0) 11%,rgba(0, 0, 0, 0) 13%,rgba(0, 0, 0, 0.04) 15%,rgba(190, 190, 190, 0.06) 16%,rgba(255, 255, 255, 0.07) 17%,rgba(255, 255, 255, 0.08) 21%,rgba(18, 18, 18, 0.08) 22%,rgba(56, 56, 56, 0.08) 23%,rgba(157, 157, 157, 0.08) 24%,rgba(242, 242, 242, 0.08) 25%,rgba(30, 30, 30, 0.08) 26%,rgba(27, 27, 27, 0.08) 27%,rgba(120, 120, 120, 0.08) 28%,rgba(186, 186, 186, 0.08) 29%,rgba(253, 253, 253, 0.09) 30%,rgba(252, 252, 252, 0.09) 31%,rgba(248, 248, 248, 0.08) 34%,rgba(243, 243, 243, 0.04) 37%,rgba(0, 0, 0, 0.03) 38%,rgba(6, 6, 6, 0.02) 39%,rgba(30, 30, 30, 0.02) 43%,rgba(54, 54, 54, 0.06) 47%,rgba(254, 254, 254, 0.07) 48%,rgba(253, 253, 253, 0.08) 51%,rgba(11, 11, 11, 0.08) 52%,rgba(0, 0, 0, 0.07) 53%,rgba(0, 0, 0, 0.04) 55%,rgba(242, 242, 242, 0.03) 56%,rgba(255, 255, 255, 0.02) 57%,rgba(236, 236, 236, 0) 58%,rgba(217, 217, 217, 0.02) 59%,rgba(197, 197, 197, 0.09) 60%,rgba(158, 158, 158, 0.05) 62%,rgba(0, 0, 0, 0.03) 63%,rgba(51, 51, 51, 0.04) 64%,rgba(112, 112, 112, 0.04) 65%,rgba(189, 189, 189, 0.05) 66%,rgba(236, 236, 236, 0.06) 67%,rgba(254, 254, 254, 0.08) 68%,rgba(218, 218, 218, 0.09) 69%,rgba(182, 182, 182, 0.09) 70%,rgba(36, 36, 36, 0.06) 74%,rgba(19, 19, 19, 0.05) 75%,rgba(62, 62, 62, 0.05) 76%,rgba(114, 114, 114, 0.05) 77%,rgba(178, 178, 178, 0.04) 78%,rgba(218, 218, 218, 0.04) 79%,rgba(255, 255, 255, 0.03) 80%,rgba(154, 154, 154, 0.03) 81%,rgba(0, 0, 0, 0.02) 82%,rgba(48, 48, 48, 0.02) 83%,rgba(85, 85, 85, 0.01) 84%,rgba(161, 161, 161, 0.01) 85%,rgba(254, 254, 254, 0) 86%,rgba(0, 0, 0, 0) 89%,rgba(255, 255, 255, 0) 91%,rgba(191, 191, 191, 0.01) 92%,rgba(204, 204, 204, 0.02) 93%,rgba(112, 112, 112, 0.03) 94%,rgba(67, 67, 67, 0.04) 95%,rgba(25, 25, 25, 0.04) 96%,rgba(0, 0, 0, 0.03) 97%,rgba(0, 0, 0, 0) 100%)
+$glass-gradient2: linear-gradient(60deg,rgba(255, 255, 255, 0) 0%,rgba(180, 180, 180, 0.03) 5%,rgba(32, 32, 32, 0.04) 6%,rgba(109, 109, 109, 0.04) 7%,rgba(206, 206, 206, 0.16) 8%,rgba(31, 31, 31, 0.04) 9%,rgba(0, 0, 0, 0.04) 10%,rgba(0, 0, 0, 0) 11%,rgba(0, 0, 0, 0) 13%,rgba(0, 0, 0, 0.08) 15%,rgba(190, 190, 190, 0.12) 16%,rgba(255, 255, 255, 0.28) 17%,rgba(255, 255, 255, 0.32) 21%,rgba(18, 18, 18, 0.08) 22%,rgba(56, 56, 56, 0.08) 23%,rgba(157, 157, 157, 0.08) 24%,rgba(242, 242, 242, 0.32) 25%,rgba(30, 30, 30, 0.08) 26%,rgba(27, 27, 27, 0.08) 27%,rgba(120, 120, 120, 0.08) 28%,rgba(186, 186, 186, 0.16) 29%,rgba(253, 253, 253, 0.36) 30%,rgba(252, 252, 252, 0.32) 31%,rgba(248, 248, 248, 0.32) 34%,rgba(243, 243, 243, 0.08) 37%,rgba(0, 0, 0, 0.03) 38%,rgba(6, 6, 6, 0.02) 39%,rgba(30, 30, 30, 0.02) 43%,rgba(54, 54, 54, 0.06) 47%,rgba(254, 254, 254, 0.14) 48%,rgba(253, 253, 253, 0.16) 51%,rgba(11, 11, 11, 0.08) 52%,rgba(0, 0, 0, 0.07) 53%,rgba(0, 0, 0, 0.04) 55%,rgba(242, 242, 242, 0.06) 56%,rgba(255, 255, 255, 0.04) 57%,rgba(236, 236, 236, 0) 58%,rgba(217, 217, 217, 0.04) 59%,rgba(197, 197, 197, 0.18) 60%,rgba(158, 158, 158, 0.1) 62%,rgba(0, 0, 0, 0.03) 63%,rgba(51, 51, 51, 0.04) 64%,rgba(112, 112, 112, 0.02) 65%,rgba(189, 189, 189, 0.1) 66%,rgba(236, 236, 236, 0.12) 67%,rgba(254, 254, 254, 0.16) 68%,rgba(218, 218, 218, 0.18) 69%,rgba(182, 182, 182, 0.18) 70%,rgba(36, 36, 36, 0.03) 74%,rgba(19, 19, 19, 0.05) 75%,rgba(62, 62, 62, 0.05) 76%,rgba(114, 114, 114, 0.1) 77%,rgba(178, 178, 178, 0.08) 78%,rgba(218, 218, 218, 0.08) 79%,rgba(255, 255, 255, 0.06) 80%,rgba(154, 154, 154, 0.06) 81%,rgba(0, 0, 0, 0.04) 82%,rgba(48, 48, 48, 0.04) 83%,rgba(85, 85, 85, 0.02) 84%,rgba(161, 161, 161, 0.02) 85%,rgba(254, 254, 254, 0.04) 86%,rgba(0, 0, 0, 0) 89%,rgba(255, 255, 255, 0) 91%,rgba(191, 191, 191, 0.04) 92%,rgba(204, 204, 204, 0.08) 93%,rgba(112, 112, 112, 0.12) 94%,rgba(67, 67, 67, 0.16) 95%, rgba(25, 25, 25, 0.16) 96%, rgba(0, 0, 0, 0.12) 97%, rgba(0, 0, 0, 0.02) 100%)
+
+*
+  position: relative
 
 html
     min-height: 100%
+
+body, html
+    margin: 0
+    padding: 0
+    height: 100%
 
 body
     -webkit-box-sizing: border-box
     box-sizing: border-box
     height: 100%
-    background-color: #11581E
-    background-image: radial-gradient(#11581E, #041607), $bg-img
+    background-color: $dark-water
     background-repeat: no-repeat
+    background-position: center center
     background-size: cover
-    font-family: vars.$terminal-font
-    font-size: 1.425rem
-    text-shadow: 0 0 1ex rgba(51, 255, 51, 0.7), 0 0 2px rgba(255, 255, 255, 0.8)
+    font-family: $font-stack
+    font-size: 13px
+    color: black //$light-water
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
 a
     text-decoration: none
-    cursor: pointer
     color: white
 
-    &:hover
-        &::before
-            content: "[ "
-            color: white
+.section
+    width: 100%
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    color: $light-water
+    text-align: center
 
-        &::after
-            content: " ]"
-            color: white
-        
+    > div
+        width: 90%
 
-body, a
-    color: rgba(128, 255, 128, 0.8)
+    &:nth-child(1)
+        font-size: 20vh
 
-.errorcode
-    color: rgba(255, 128, 128, 0.8)
-    text-shadow: 0 0 1px rgba(255, 51, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
+    &:nth-child(2)
+        font-size: 10vh
+
+    &:nth-child(3)
+        font-size: 8vh
+
+    &:nth-child(2) > div
+        max-width: 800px
+
+    &:nth-child(3)
+        > div
+            max-width: 900px
+
+        a
+            padding: 0 .3em
+
+@media (max-width: 600px)
+    .section:nth-child(1)
+        font-size: 25vw
+
+@media (max-width: 350px)
+    .section:nth-child(1)
+        font-size: 30px
+
+@media (max-width: 750px)
+    .section
+        &:nth-child(2), &:nth-child(3)
+            font-size: 9vw
+
+canvas#neuro
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    pointer-events: none
+    opacity: .95
 
 ::selection
     background: vars.$selection-color
@@ -48,102 +101,313 @@ body, a
     background: vars.$selection-color
     text-shadow: none
 
-.noise
-    pointer-events: none
+input, button
+  font-family: $font-stack
+  font-size: 1.1rem
+
+button, input[type="submit"], .button
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  appearance: none
+  min-width: 80px
+  padding: 2px 8px
+  line-height: 1.5em
+  margin: 0
+  border-radius: 3px
+  border: 1px solid scale-color($accent, $lightness: 20%, $saturation: -90%)
+  background-color: scale-color($accent, $lightness: 85%, $saturation: -90%)
+  background-image: linear-gradient(rgba(#fff, 0.05) 50%,rgba(#fff, 0) 52%,rgba(#000, 0.05) 52.5%,rgba(#fff, 0.05))
+  box-shadow: 0 0 0 1px rgba(white, 0.65) inset
+
+  &:hover
+    box-shadow: 0 0 0 1px rgba(scale-color($accent, $lightness: 40%, $saturation: 50%), 0.65) inset
+    background-color: scale-color($accent, $lightness: 70%, $saturation: -30%)
+
+    &:focus
+      //box-shadow: 0 0 0 1px rgba($accent, 0.65) inset, 0 0 0 1px $accent
+
+  &:focus
+    outline: none
+    box-shadow: 0 0 0 1px rgba(white, 0.65) inset, 0 0 0 1px $accent
+
+.spacer
+  display: block
+
+.hbox, .vbox
+  display: flex
+
+  &.fill
+    flex: 1 1 auto
+
+.hbox
+  flex-direction: row
+
+.vbox
+  flex-direction: column
+
+#mount
+  min-height: 100%
+  width: 100%
+
+.window
+  position: absolute
+  top: calc(100vh - 50% - ($height / 2))
+  left: calc(100vw - 50% - ($width / 2))
+  width: $width
+  height: $height
+  font-family: $font-stack
+  vertical-align: middle
+  border: 1px solid rgba(#000, 0.725)
+  border-radius: 8px
+  display: flex
+  flex-direction: column
+  backdrop-filter: brightness(1.25)
+  box-shadow: 0 0 0 1px rgba(#fff, 0.5) inset, 0 0 10px rgba(black, 0.75)
+  background: $glass-gradient, $glass-gradient2, linear-gradient(rgba(#fff, 0.05), rgba(#fff, 0.05)), rgba($accent, 0.6)
+  background-blend-mode: overlay
+  background-attachment: fixed
+  background-repeat: no-repeat
+  transform: translateZ(0x)
+  background-size: 100vw 100vh
+  transition: background-color 125ms ease-in-out
+  will-change: backdrop-filter, background-color
+  z-index: 5
+  backdrop-filter: blur(7px) brightness(1.25)
+  backdrop-filter: none
+
+  &::before
+    display: block
+    content: ""
     position: absolute
-    width: 100%
-    height: 100%
-    background-image: $bg-img
-    background-repeat: no-repeat
-    background-size: cover
-    z-index: -1
-    opacity: 0.02
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 0
+    background: linear-gradient(rgba(white, 0) 15%, rgba(white, 0.7) 27%, rgba(white, 0) calc(27% + 4px))    
 
-.overlay
-    pointer-events: none
-    position: absolute
-    width: 100%
-    height: 100%
-    background: -o-repeating-linear-gradient(bottom, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px) //repeating-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%)
-    background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px) //repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%)
-    background-size: auto 4px
-    z-index: 1
+.window.basic
+  backdrop-filter: none
+  background: none
+  background-image: linear-gradient(scale-color($accent, $saturation: -40%, $lightness: 50%), scale-color($accent, $saturation: -30%, $lightness: 60%) 25px, scale-color($accent, $saturation: -40%, $lightness: 50%))
+  background-color: scale-color($accent, $saturation: -30%, $lightness: 60%)
+  background-attachment: scroll
+  box-shadow: 0 0 0 1px rgba(#fff, 0.4) inset, -1px -1px 0 0 scale-color($accent, $saturation: 50%) inset
+  border-radius: 8px 8px 0 0
 
-    &::before
-        content: ""
-        pointer-events: none
-        position: absolute
-        display: block
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        width: 100%
-        height: 100%
-        background-image: -webkit-gradient(linear, left bottom, left top, from(transparent), color-stop(2%, rgba(32, 128, 32, 0.2)), color-stop(3%, rgba(32, 128, 32, 0.3)), color-stop(3%, rgba(32, 128, 32, 0.2)), to(transparent))
-        background-image: -o-linear-gradient(bottom, transparent 0%, rgba(32, 128, 32, 0.2) 2%, rgba(32, 128, 32, 0.3) 3%, rgba(32, 128, 32, 0.2) 3%, transparent 100%)
-        background-image: linear-gradient(0deg, transparent 0%, rgba(32, 128, 32, 0.2) 2%, rgba(32, 128, 32, 0.3) 3%, rgba(32, 128, 32, 0.2) 3%, transparent 100%)
-        background-repeat: no-repeat
-        -webkit-animation: scan 7.5s linear 0s infinite
-        animation: scan 7.5s linear 0s infinite
+  ::before
+    background: none
+    background: linear-gradient(rgba(white, 0) 10%, rgba(white, 0.34) 27%, rgba(white, 0) calc(27% + 4px))
 
-@-webkit-keyframes scan
-    0%
-        background-position: 0 -100vh
-        
-    35%, 100%
-        background-position: 0 100vh
+  .titlebar .title .text
+    text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff
+    text-shadow: none
 
-@keyframes scan
-    0%
-        background-position: 0 -100vh
-        
-    35%, 100%
-        background-position: 0 100vh
+  .titlebar .controls
+    top: 0
+    border-radius: 5px
+    box-shadow: none
 
-.term
-    -webkit-box-sizing: inherit
-    box-sizing: inherit
-    position: absolute
-    height: 100%
-    width: 100%
-    max-width: 100%
-    padding: 4rem
-    text-transform: uppercase
-    display: -webkit-box
-    display: -ms-flexbox
-    display: flex
-    -webkit-box-pack: center
-    -ms-flex-pack: center
-    justify-content: center
-    -webkit-box-align: center
-    -ms-flex-align: center
+    button
+      margin-right: 4px
+      border-radius: 3px
+      border-color: rgba(black, 0.5)
+      box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
+      width: 32px
+
+      &:last-child
+        margin-right: 0
+
+  .viewport
+    box-shadow: none
+    border-color: scale-color($accent, $lightness: 0%, $saturation: -50%)
+
+.titlebar
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  margin: 6px 8px
+  align-items: center
+  user-select: none
+  cursor: default
+
+  .title
+    display: inline-flex
     align-items: center
-    -webkit-box-orient: vertical
-    -webkit-box-direction: normal
-    -ms-flex-flow: column
-    flex-flow: column
+    font-size: 13px
 
-    .title
-        text-align: center
-        color: white
-        text-shadow: 0 0 1px rgba(51, 255, 51, 1), 0 0 2px rgba(255, 255, 255, 0.8)
+  .title .icon
+    display: block
+    height: 16px
+    width: 16px
+    background: $accent
+    border: 1px solid scale-color($accent, $lightness: -20%)
+    border-radius: 16px
+    margin-right: 8px
 
-        h1
-            font-size: 3.9rem
+  .title .text
+    text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff
 
-        h1, h2
-            margin: 0.5rem
+.controls
+  position: relative
+  display: inline-flex
+  box-shadow: 0 0 0 1px rgba(white, 0.5)
+  border-radius: 0 0 5px 5px
+  top: -7px
+  user-select: all
 
-    .container
-        .output
-            text-align: center
-            color: rgba(128, 255, 128, 0.8)
-            text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
+  button
+    border-radius: 0
+    min-width: unset
+    min-height: unset
+    appearance: none
+    padding: 0
+    height: 20px
+    border: 1px solid rgba(black, 0.5)
+    box-shadow: 0 0 0 1px rgba(white, 0.5) inset
+    margin-right: -1px
+    color: #fff
+    color: transparent
+    background: linear-gradient(rgba(#fff, 0.4) 50%, rgba(#fff, 0) 52%, rgba(#000, 0.1) 52.5%, rgba(#fff, 0.25))
+    background-color: rgba($accent, 0.5)
+    width: 40px
+    transition: background-color 125ms ease-in-out, box-shadow 125ms ease-out
 
-        // .input
-        //     color: rgba(192, 255, 192, 0.8)
-        //     text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8)
+    &:hover, &:focus
+      outline: none
+      background-color: scale-color($accent, $lightness: 30%, $saturation: 100%)
+      box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 10px 2px scale-color($accent, $lightness: 20%, $saturation: 100%)
+      z-index: 1
 
-        //     &::before
-        //         content: "$ "
+    &:first-child
+      border-radius: 0 0 0 5px
+
+    &:last-child
+      border-radius: 0 0 5px 0
+      background: linear-gradient(rgba(#fff, 0.4) 50%, rgba(#fff, 0) 52%, rgba(#000, 0.1) 52.5%, rgba(#fff, 0.25)), linear-gradient(90deg, rgba(black, 0.25), rgba(black, 0) 35%, rgba(black, 0) 65%, rgba(black, 0.25))
+      background-color: hsl(7, 75%, 51%)
+      margin-right: 0
+      width: 55px
+
+      &:hover, &:focus
+        background-color: scale-color(hsl(7, 75%, 51%), $lightness: 20%, $saturation: 100%)
+        box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 10px 2px scale-color(hsl(7, 75%, 51%), $lightness: 20%, $saturation: 100%)
+
+    .control-icon
+      filter: drop-shadow(0 0 0.75px rgba(black, 0.75)) drop-shadow(0 0 0.5px black)
+
+    .control-icon::before
+      display: block
+      content: ''
+      background-color: white
+      background-image: linear-gradient(rgba(white, 0) 50%, rgba(black, 0.35))
+
+    &.minimize-button
+      width: 29px
+
+      .control-icon::before
+        height: 3px
+        width: 10px
+        margin-top: 4px
+
+    &.maximize-button
+      width: 28px
+
+      .control-icon::before
+        height: 8px
+        width: 10px
+        clip-path: url(#maximize-button)
+
+    &.close-button
+      width: 48px
+
+      .control-icon::before
+        clip-path: url(#close-icon)
+        width: 10px
+        height: 8px
+
+.viewport
+  display: flex
+  flex-direction: column
+  flex: 1 1 auto
+  border: 1px solid rgba(#000, 0.5)
+  box-shadow: 0 0 0 1px rgba(#fff, 0.5)
+  border-radius: 2px
+  margin: 0 8px 8px
+  background: #fcfcfc
+  overflow: hidden
+
+.icon
+  display: block
+  height: 16px
+  width: 16px
+  background: scale-color($accent, $lightness: 40%, $saturation: -20%)
+  border: 1px solid scale-color($accent, $lightness: 20%, $saturation: -20%)
+  border-radius: 4px
+
+.client-area
+  padding: 8px
+  text-align: center
+
+.sr
+  position: absolute
+  top: -9999px
+  left: -9999px
+
+.windows00
+  cursor: pointer
+  outline: none
+  -webkit-border-radius: 16px
+  -moz-border-radius: 16px
+  position: relative
+  font-weight: 600
+  color: #fff
+  margin: 15px
+  border-radius: 30px
+  text-shadow: #3d79be 1px 2px 2px
+  padding: 0.25rem 1rem
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  text-overflow: ellipsis
+  overflow: hidden
+  background-color: #3c83c6
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#1b5a9b), to(#6cbfff))
+  border: 1.5px solid #447dbc
+  -webkit-box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+  -moz-box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+  box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 5px
+    -webkit-border-radius: 8px
+    -moz-border-radius: 8px
+    border-radius: 8px
+    height: 1px
+    width: 205px
+    padding: 8px 0
+    background-color: rgba(255, 255, 255, 0.2)
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)))
+
+  &:hover
+    text-shadow: #3d79be 1px 2px 2px
+    background-color: #3c83c6
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#165698), to(#7ec7ff))
+    border: 1.5px solid #366dab
+    -webkit-box-shadow: rgba(66, 140, 240, 0.6) 0px 10px 20px
+    -moz-box-shadow: rgba(66, 140, 240, 0.6) 0px 10px 20px
+    box-shadow: rgba(66, 140, 240, 0.6) 0px 10px 20px
+
+  &:active
+    text-shadow: #3d79be 1px 2px 2px
+    background-color: #3c83c6
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#1b5a9b), to(#52abef))
+    border: 1.5px solid #447dbc
+    -webkit-box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+    -moz-box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+    box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px

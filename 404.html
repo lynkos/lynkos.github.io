@@ -30,22 +30,118 @@
     <meta name="twitter:description" content="404 page of Kiran Brahmatewari's macOS-inspired personal website." />
     <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" /> -->
     <link rel="stylesheet" href="assets/css/404.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggabilly/2.2.0/draggabilly.pkgd.min.js"></script>
   </head>
   <body>
-    <div class="noise"></div>
-    <div class="overlay"></div>
-    <div class="term">
-        <div class="title">
-            <h1>Error <span class="errorcode">404</span></h1>
-            <h2>Page not found</h2>
-        </div>
+    <div class="layer"></div>
+    <canvas id="neuro"></canvas>
 
-        <div class="container">
-            <p class="output"><a href="https://lynkos.dev" alt="Link to homepage">return to homepage</a></p>
-            <p class="output"><a onclick="history.back()">go back</a></p>
+    <div id="mount">
+      <div class="window" ref="window" :class="[{'basic': aero.basic, 'opaque': !aero.transparency, 'blurred': aero.blur, 'box-shadow': aero.css.boxShadow, 'drop-shadow': aero.css.dropShadowFilter}]">
+        <div class="titlebar">
+          <div class="title">
+            <span class="icon"></span>
+            <span class="text">Error 404: Page Not Found</span></div>
+          <div class="controls">
+            <button type="button" class="minimize-button"><span class="sr">Minimize</span><i class="control-icon"></i></button>
+            <button type="button" class="maximize-button"><span class="sr">Maximize</span><i class="control-icon"></i></button>
+            <button type="button" class="close-button"><span class="sr">Close</span><i class="control-icon"></i></button>
+          </div>
         </div>
+        <div class="viewport">
+          <div class="hbox fill">
+            <section class="client-area vbox fill">
+              <div>
+                <button class="windows00"><a href="https://lynkos.dev" alt="Link to homepage">Return to Homepage</a></button>
+                <button class="windows00"><a onclick="history.back()" alt="Link to go to previous page">Go Back</a></button>
+              </div>            
+          </section>
+        </div>
+      </div>
+    
+      <template>
+        <svg width="0" height="0">
+          <defs>
+            <clipPath id="close-icon"><polygon points="6.67,8 4.67,5.61 2.68,8 0,8 3.33,4 0,0 2.68,0 4.67,2.39 6.67,0 9.35,0 6.02,4 9.35,8 "/></clipPath>
+            <clipPath id="maximize-button"><path d="M10,8H0V0h10V8z M8,2H2v4h6V2z"/></clipPath>
+          </defs>
+        </svg>
+      </template>
     </div>
+
+    <script type="x-shader/x-fragment" id="vertShader">
+      precision mediump float;
+
+      varying vec2 vUv;
+      attribute vec2 a_position;
+
+      void main() {
+        vUv = .2 * (a_position + 1.);
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragShader">
+      precision mediump float;
+
+      varying vec2 vUv;
+      uniform float u_time;
+      uniform float u_ratio;
+      uniform vec2 u_pointer_position;
+      uniform float u_scroll_progress;
+
+      vec2 rotate(vec2 uv, float th) {
+        return mat2(cos(th), sin(th), -sin(th), cos(th)) * uv;
+      }
+
+      float neuro_shape(vec2 uv, float t, float p) {
+        vec2 sine_acc = vec2(0.);
+        vec2 res = vec2(0.);
+        float scale = 8.;
+
+        for (int j = 0; j < 200; j++) {
+          uv = rotate(uv, 1.);
+          sine_acc = rotate(sine_acc, 1.);
+          vec2 layer = uv * scale + float(j) + sine_acc - t;
+          sine_acc += sin(layer);
+          res += (.5 + .5 * cos(layer)) / scale;
+          scale *= ((j<5?1.2:j<45?1.3:1.35) - .07 * p);
+        }
+        return res.x + res.y;
+      }
+
+      void main() {
+        vec2 uv = 2.95 * vUv;
+        uv.x *= u_ratio;
+
+        vec2 pointer = vUv - u_pointer_position;
+        pointer.x *= u_ratio;
+        float p = clamp(length(pointer), 0., 1.);
+        p = .05 * pow(1. - p, 2.);
+
+        float t = .0009 * u_time;
+        vec3 color = vec3(0.);
+
+        float noise = neuro_shape(uv, t, p);
+
+        noise = 1.05 * pow(noise, 1.);
+        noise += pow(noise, 10.);
+        noise = max(.0, noise - .5);
+        noise *= (1. - length(vUv - .5));
+
+        color = normalize(vec3(0.4, .7 + .0 * cos(3. * u_scroll_progress), .6 + .9 * sin(3. * u_scroll_progress)));
+        color = color * noise;
+
+        gl_FragColor = vec4(color, noise);
+      }
+    </script>
+    
+    <script type="text/javascript" src="js/water.js"></script>
+    <script type="text/javascript" src="js/404.js"></script>
   </body>
 </html>
