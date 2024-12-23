@@ -30,7 +30,7 @@ body
   background-size: cover
   font-family: $font-stack
   font-size: 13px
-  color: black //$light-water
+  color: black
   display: flex
   flex-direction: column
   align-items: center
@@ -200,24 +200,25 @@ button, input[type="submit"], .button
     background: none
     background: linear-gradient(rgba(white, 0) 10%, rgba(white, 0.34) 27%, rgba(white, 0) calc(27% + 4px))
 
-  .titlebar .title .text
-    text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff
-    text-shadow: none
+  .titlebar
+    .title .text
+      text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff
+      text-shadow: none
 
-  .titlebar .controls
-    top: 0
-    border-radius: 5px
-    box-shadow: none
+    .controls
+      top: 0
+      border-radius: 5px
+      box-shadow: none
 
-    button
-      margin-right: 4px
-      border-radius: 3px
-      border-color: rgba(black, 0.5)
-      box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
-      width: 32px
+      button
+        margin-right: 4px
+        border-radius: 3px
+        border-color: rgba(black, 0.5)
+        box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
+        width: 32px
 
-      &:last-child
-        margin-right: 0
+        &:last-child
+          margin-right: 0
 
   .viewport
     box-shadow: none
@@ -238,17 +239,17 @@ button, input[type="submit"], .button
     align-items: center
     font-size: 13px
 
-  .title .icon
-    display: block
-    height: 16px
-    width: 16px
-    background: $accent
-    border: 1px solid scale-color($accent, $lightness: -20%)
-    border-radius: 16px
-    margin-right: 8px
+    .icon
+      display: block
+      height: 16px
+      width: 16px
+      background: $accent
+      border: 1px solid scale-color($accent, $lightness: -20%)
+      border-radius: 16px
+      margin-right: 8px
 
-  .title .text
-    text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff
+    .text
+      text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff
 
 .controls
   position: relative
@@ -297,11 +298,11 @@ button, input[type="submit"], .button
     .control-icon
       filter: drop-shadow(0 0 0.75px rgba(black, 0.75)) drop-shadow(0 0 0.5px black)
 
-    .control-icon::before
-      display: block
-      content: ''
-      background-color: white
-      background-image: linear-gradient(rgba(white, 0) 50%, rgba(black, 0.35))
+      &::before
+        display: block
+        content: ''
+        background-color: white
+        background-image: linear-gradient(rgba(white, 0) 50%, rgba(black, 0.35))
 
     &.minimize-button
       width: 29px
