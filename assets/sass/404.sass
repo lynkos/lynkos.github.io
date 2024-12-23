@@ -23,7 +23,6 @@ body, html
 body
   -webkit-box-sizing: border-box
   box-sizing: border-box
-  height: 100%
   background-color: $dark-water
   background-repeat: no-repeat
   background-position: center center
@@ -101,14 +100,12 @@ canvas#neuro
   background: vars.$selection-color
   text-shadow: none
 
-input, button
-  font-family: $font-stack
-  font-size: 1.1rem
-
-button, input[type="submit"], .button
+button
   display: inline-flex
   justify-content: center
   align-items: center
+  font-family: $font-stack
+  font-size: 1.1rem
   appearance: none
   min-width: 80px
   padding: 2px 8px
@@ -130,9 +127,6 @@ button, input[type="submit"], .button
   &:focus
     outline: none
     box-shadow: 0 0 0 1px rgba(white, 0.65) inset, 0 0 0 1px $accent
-
-.spacer
-  display: block
 
 .hbox, .vbox
   display: flex
@@ -187,41 +181,41 @@ button, input[type="submit"], .button
     z-index: 0
     background: linear-gradient(rgba(white, 0) 15%, rgba(white, 0.7) 27%, rgba(white, 0) calc(27% + 4px))    
 
-.window.basic
-  backdrop-filter: none
-  background: none
-  background-image: linear-gradient(scale-color($accent, $saturation: -40%, $lightness: 50%), scale-color($accent, $saturation: -30%, $lightness: 60%) 25px, scale-color($accent, $saturation: -40%, $lightness: 50%))
-  background-color: scale-color($accent, $saturation: -30%, $lightness: 60%)
-  background-attachment: scroll
-  box-shadow: 0 0 0 1px rgba(#fff, 0.4) inset, -1px -1px 0 0 scale-color($accent, $saturation: 50%) inset
-  border-radius: 8px 8px 0 0
-
-  ::before
+  .basic
+    backdrop-filter: none
     background: none
-    background: linear-gradient(rgba(white, 0) 10%, rgba(white, 0.34) 27%, rgba(white, 0) calc(27% + 4px))
+    background-image: linear-gradient(scale-color($accent, $saturation: -40%, $lightness: 50%), scale-color($accent, $saturation: -30%, $lightness: 60%) 25px, scale-color($accent, $saturation: -40%, $lightness: 50%))
+    background-color: scale-color($accent, $saturation: -30%, $lightness: 60%)
+    background-attachment: scroll
+    box-shadow: 0 0 0 1px rgba(#fff, 0.4) inset, -1px -1px 0 0 scale-color($accent, $saturation: 50%) inset
+    border-radius: 8px 8px 0 0
 
-  .titlebar
-    .title .text
-      text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff
+    ::before
+      background: none
+      background: linear-gradient(rgba(white, 0) 10%, rgba(white, 0.34) 27%, rgba(white, 0) calc(27% + 4px))
 
-    .controls
-      top: 0
-      border-radius: 5px
+    .titlebar
+      .title .text
+        text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff
+
+      .controls
+        top: 0
+        border-radius: 5px
+        box-shadow: none
+
+        button
+          margin-right: 4px
+          border-radius: 3px
+          border-color: rgba(black, 0.5)
+          box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
+          width: 32px
+
+          &:last-child
+            margin-right: 0
+
+    .viewport
       box-shadow: none
-
-      button
-        margin-right: 4px
-        border-radius: 3px
-        border-color: rgba(black, 0.5)
-        box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
-        width: 32px
-
-        &:last-child
-          margin-right: 0
-
-  .viewport
-    box-shadow: none
-    border-color: scale-color($accent, $lightness: 0%, $saturation: -50%)
+      border-color: scale-color($accent, $lightness: 0%, $saturation: -50%)
 
 .titlebar
   display: flex
