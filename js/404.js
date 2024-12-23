@@ -1,4 +1,5 @@
-var app = new Vue({
+$(document).ready(function() {
+  var app = new Vue({
     el: "#mount",
     data() {
       return {
@@ -17,15 +18,13 @@ var app = new Vue({
         showSidebar: false
       };
     },
-    mounted() {
-      this.wdo = new Draggabilly(this.$refs.window, {
-        containment: "#mount",
-        handle: ".titlebar"
-      });
-  
-      this.wdo.on("dragStart", event => {});
-    },
     beforeDestroy() {
       this.wdo.destroy();
     }
-  });  
+  });
+  
+  $(".window").draggable({
+    handle: ".titlebar",
+    containment: "#mount"
+  });
+});
