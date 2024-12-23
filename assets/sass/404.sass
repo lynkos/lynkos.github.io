@@ -13,93 +13,93 @@ $glass-gradient2: linear-gradient(60deg,rgba(255, 255, 255, 0) 0%,rgba(180, 180,
   position: relative
 
 html
-    min-height: 100%
+  min-height: 100%
 
 body, html
-    margin: 0
-    padding: 0
-    height: 100%
+  margin: 0
+  padding: 0
+  height: 100%
 
 body
-    -webkit-box-sizing: border-box
-    box-sizing: border-box
-    height: 100%
-    background-color: $dark-water
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: cover
-    font-family: $font-stack
-    font-size: 13px
-    color: black //$light-water
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  height: 100%
+  background-color: $dark-water
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  font-family: $font-stack
+  font-size: 13px
+  color: black //$light-water
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
 
 a
-    text-decoration: none
-    color: white
+  text-decoration: none
+  color: white
 
 .section
-    width: 100%
-    height: 100vh
-    display: flex
-    justify-content: center
-    align-items: center
-    color: $light-water
-    text-align: center
+  width: 100%
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $light-water
+  text-align: center
 
-    > div
-        width: 90%
+  > div
+    width: 90%
 
-    &:nth-child(1)
-        font-size: 20vh
+  &:nth-child(1)
+    font-size: 20vh
 
-    &:nth-child(2)
-        font-size: 10vh
+  &:nth-child(2)
+    font-size: 10vh
 
-    &:nth-child(3)
-        font-size: 8vh
+  &:nth-child(3)
+    font-size: 8vh
 
-    &:nth-child(2) > div
-        max-width: 800px
+  &:nth-child(2) > div
+    max-width: 800px
 
-    &:nth-child(3)
-        > div
-            max-width: 900px
+  &:nth-child(3)
+      > div
+        max-width: 900px
 
-        a
-            padding: 0 .3em
+      a
+        padding: 0 .3em
 
 @media (max-width: 600px)
-    .section:nth-child(1)
-        font-size: 25vw
+  .section:nth-child(1)
+    font-size: 25vw
 
 @media (max-width: 350px)
-    .section:nth-child(1)
-        font-size: 30px
+  .section:nth-child(1)
+    font-size: 30px
 
 @media (max-width: 750px)
-    .section
-        &:nth-child(2), &:nth-child(3)
-            font-size: 9vw
+  .section
+    &:nth-child(2), &:nth-child(3)
+      font-size: 9vw
 
 canvas#neuro
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    pointer-events: none
-    opacity: .95
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  pointer-events: none
+  opacity: .95
 
 ::selection
-    background: vars.$selection-color
-    text-shadow: none
+  background: vars.$selection-color
+  text-shadow: none
 
 // Must keep selection pseudo-elements separate, else it won't work
 ::-moz-selection
-    background: vars.$selection-color
-    text-shadow: none
+  background: vars.$selection-color
+  text-shadow: none
 
 input, button
   font-family: $font-stack
