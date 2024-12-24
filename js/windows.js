@@ -149,6 +149,7 @@ $(document).ready(function() {
 
   // Empty trash
   $(".confirm").click(function (e) {
+    new Audio('../assets/audio/empty_trash.mp3').play();
     e.preventDefault();
     $('#trash').attr('src', 'assets/icons/empty_trash.png');
     $("#trash-icon").off("click");
