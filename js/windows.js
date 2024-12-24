@@ -42,7 +42,7 @@ $(document).ready(function() {
     $(selector).draggable({
       handle: ".header, .notes-header, .mail-header, .calc-header", //, #spotlight_wrapper",
       cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .send-btn",
-      start: function(event, ui) {
+      start: function() {
         bringToFront(this);
       },
       containment: "#main-content",
@@ -76,76 +76,40 @@ $(document).ready(function() {
   $("#github, #spotify, #steam").click(function() {
     $(this).effect("bounce", { times: 3 }, 600);
   });
-  
-  // Open terminal
-  $('#iterm').click(function(){
-    $('.mac-terminal').css("display", "inline-block");
-    bringToFront('.mac-terminal');
 
-    if (!$(this).hasClass("open")) {
+  function bounceIcon(selector) {
+    if (!$(selector).hasClass("open")) {
       // Bounce effect, if window is not already open
-      $(this).effect("bounce", { times: 3 }, 600);
+      $(selector).effect("bounce", { times: 3 }, 600);
 
       // Mark clicked window as opened
-      $(this).addClass("open");
+      $(selector).addClass("open");
     }
-  });
+  }
+
+  // Open window
+  function openWindow(icon, win, displayType) {
+    $(icon).on('click', function() {    
+      $(win).css("display", displayType);
+      bringToFront(win);
+      bounceIcon(icon);
+    });
+  }
+
+  // Open terminal
+  openWindow("#iterm", ".mac-terminal", "inline-block");
 
   // Open mail
-  $('#mail').click(function(){
-    $('.email').css("display", "flex");
-    bringToFront('.email');
-
-    if (!$(this).hasClass("open")) {
-      // Bounce effect, if window is not already open
-      $(this).effect("bounce", { times: 3 }, 600);
-
-      // Mark clicked window as opened
-      $(this).addClass("open");
-    }
-  });    
+  openWindow("#mail", ".email", "flex");
 
   // Open about me
-  $('#notes').click(function(){
-    $('.text-edit').css("display", "flex");
-    bringToFront('.text-edit');
-
-    if (!$(this).hasClass("open")) {
-      // Bounce effect, if window is not already open
-      $(this).effect("bounce", { times: 3 }, 600);
-
-      // Mark clicked window as opened
-      $(this).addClass("open");
-    }
-  });
+  openWindow("#notes", ".text-edit", "flex");
 
   // Open calculator
-  $('#calculator').click(function(){
-    $('.calc').css("display", "inline-block");
-    bringToFront('.calc');
-
-    if (!$(this).hasClass("open")) {
-      // Bounce effect, if window is not already open
-      $(this).effect("bounce", { times: 3 }, 600);
-
-      // Mark clicked window as opened
-      $(this).addClass("open");
-    }
-  });
+  openWindow("#calculator", ".calc", "inline-block");
 
   // Open trash dialogue
-  $('#trash-icon').click(function(){
-    $('.dialogue').css("display", "inline-block");
-    bringToFront('.dialogue');
-
-    if (!$(this).hasClass("open")) {
-      // Bounce effect, if window is not already open
-      $(this).effect("bounce", { times: 3 }, 600);
-
-      // Mark clicked window as opened
-      $(this).addClass("open");
-    }
-  });
+  openWindow("#trash-icon", ".dialogue", "inline-block");
 
   // Empty trash
   $(".confirm").click(function (e) {
