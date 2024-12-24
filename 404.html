@@ -30,12 +30,10 @@
     <meta name="twitter:description" content="404 page of Kiran Brahmatewari's macOS-inspired personal website." />
     <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg" />
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
     <link rel="stylesheet" href="assets/css/404.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
@@ -49,7 +47,8 @@
         <div class="titlebar">
           <div class="title">
             <span class="icon"></span>
-            <span class="text">Error 404: Page Not Found</span></div>
+            <span class="text">Error 404: Page Not Found</span>
+          </div>
           <div class="controls">
             <button type="button" class="minimize-button"><span class="sr">Minimize</span><i class="control-icon"></i></button>
             <button type="button" class="maximize-button"><span class="sr">Maximize</span><i class="control-icon"></i></button>
@@ -57,15 +56,11 @@
           </div>
         </div>
         <div class="viewport">
-          <div class="hbox fill">
-            <section class="client-area vbox fill">
-              <div>
-                <button class="windows00"><a onclick="history.back()" alt="Link to go to previous page">Go Back</a></button>
-                <button class="windows00"><a href="https://lynkos.dev" alt="Link to homepage">Homepage</a></button>
-              </div>            
+          <section class="client-area">
+            <button class="windows00"><a onclick="history.back()" alt="Link to go to previous page">Go Back</a></button>
+            <button class="windows00"><a href="https://lynkos.dev" alt="Link to homepage">Homepage</a></button>
           </section>
         </div>
-      </div>
     
       <template>
         <svg width="0" height="0">
