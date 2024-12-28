@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Center windows
   $(".mac-terminal, .text-edit, .email, .calc, .photos").position({
-    my: "center center-35", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
+    my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
     of: "#main-content"
@@ -10,9 +10,39 @@ $(document).ready(function() {
   // Show terminal on load
   $('.mac-terminal').fadeIn(500); // .show(500);
 
+  // TODO Improve playlist toggle logic
+
+  // Show playlist when icon clicked
+  $("#play").click(function(e) {
+    $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 20);
+    //bringToFront("#playlist");
+
+    // Reset z-index for all windows
+    let maxZIndex = Math.max(...$('.windows, .btn').map(function() {
+      return parseInt($(this).css("z-index")) || 0;
+    }).get());
+
+    // Set higher z-index for the clicked window
+    $("#playlist").css("z-index", maxZIndex + 1);
+
+    // Show playlist
+    $("#playlist").show();
+    e.stopPropagation();
+  });
+  
+  // Prevent playlist from closing when clicking on it
+  $("#playlist").mousedown(function(e) {
+    e.stopPropagation();
+  });
+  
+  // Hide playlist when click outside
+  $(document).mousedown(function() {
+    $("#playlist").fadeOut(250);
+  });
+
   // Function to bring the clicked window to the front
   function bringToFront(element) {
-    let maxZIndex = Math.max(...$('.windows').map(function() {
+    let maxZIndex = Math.max(...$('.windows, .btn').map(function() {
       // Make buttons inactive
       $(this).css("--red", "rgba(255, 255, 255, 0.2)");
       $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
@@ -192,7 +222,7 @@ $(document).ready(function() {
   closeWindow('.alert-btn', '.dialogue', "#trash-icon");  
     
   // Minimize terminal
-  $('.header__op-icon--yellow').click(function(){
+  $('.header__op-icon--yellow').click(function() {
       // $('.mac-terminal').css("transform", "translateY(82%) translateX(0%) scale(0.75)");
       // $('.mac-terminal').css("transition", "all 0.25s");
     $('.mac-terminal').toggleClass('minimize');
@@ -200,45 +230,45 @@ $(document).ready(function() {
   });
 
   // Maximize terminal
-  $('.header__op-icon--green').click(function(){
+  $('.header__op-icon--green').click(function() {
     $('.mac-terminal').toggleClass('maximize');
     $('.mac-terminal').removeClass('minimize');
   });
 
-  $('#bold-btn').click(function(){
+  $('#bold-btn').click(function() {
     $('.text-body').toggleClass("bold");
   });
 
-  $('#italic-btn').click(function(){
+  $('#italic-btn').click(function() {
     $('.text-body').toggleClass("italic");
   });
 
-  $('#underline-btn').click(function(){
+  $('#underline-btn').click(function() {
     $('.text-body').toggleClass("underline");
   });
 
-  $('#left-btn').click(function(){
+  $('#left-btn').click(function() {
     $('.text-body').toggleClass("left");
     $('.text-body').removeClass("right");
     $('.text-body').removeClass("center");
     $('.text-body').removeClass("justify");
   });
 
-  $('#center-btn').click(function(){
+  $('#center-btn').click(function() {
     $('.text-body').toggleClass("center");
     $('.text-body').removeClass("right");
     $('.text-body').removeClass("left");
     $('.text-body').removeClass("justify");
   });
 
-  $('#right-btn').click(function(){
+  $('#right-btn').click(function() {
     $('.text-body').toggleClass("right");
     $('.text-body').removeClass("left");
     $('.text-body').removeClass("center");
     $('.text-body').removeClass("justify");
   });
 
-  $('#justify-btn').click(function(){
+  $('#justify-btn').click(function() {
     $('.text-body').toggleClass("justify");
     $('.text-body').removeClass("right");
     $('.text-body').removeClass("center");

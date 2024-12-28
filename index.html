@@ -27,6 +27,7 @@
     <link rel="preload" as="image" href="assets/icons/terminal.svg" />
     <link rel="preload" as="image" href="assets/icons/text_edit.png" />
     <link rel="preload" as="image" href="assets/icons/text_file.png" />
+    <link rel="preload" as="image" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" />
 
     <link rel="preload" as="script" href="js/calculator.js">
     <link rel="preload" as="script" href="js/email.js">
@@ -86,17 +87,18 @@
       </div>
 
       <div class="right">
-        <div class="menu-ico"><i alt="Crescent moon icon" style="font-size: 1.25rem;" class="fas fa-moon" aria-hidden="true"></i></div>
+        <div class="menu-ico"><i alt="Crescent moon icon" style="font-size: 1.2rem;" class="fas fa-moon" aria-hidden="true"></i></div>
+        <div id="play" class="menu-ico"><i alt="Play icon" style="font-size: 1.2rem;" class="far fa-circle-play" aria-hidden="true"></i></div>
         <div class="menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></div>
-        <div class="menu-ico"><i alt="Battery icon" class="fas fa-battery-full" aria-hidden="true"></i></div>
         <div class="menu-ico"><i alt="Search icon" class="fas fa-search" aria-hidden="true"></i></div>
         <div class="menu-time"><p id="menutime"></p></div>
-      </div>      
+      </div>
     </header>
   
     <div id="main-content">
       <div id="particles-js"></div>
     <main>
+      <a target="_blank" id="playlist" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true"><img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" alt="Spotify" /></a>
       <div class="folder">
         <button class="folder-button btn">
           <div class="folder-button-item">
@@ -170,17 +172,16 @@
             </div>
 
             <div class="body__row">
-              <pre>help: help [-bdimpt]
-This website is still under construction and has not
-yet been optimized (especially for mobile devices).
+              <pre>This website is still under construction.
 
 Options:
--b        background is interactive: click anywhere
--d        drag folders, files, and windows
--i        click icons in dock to open an app/link
--m        contact me via the Mail app below
--p        see my projects in the Photos app below
--t        open the TextEdit app below for my about me</pre>
+-b    background is interactive: click anywhere
+-d    drag folders, files, and windows
+-i    click icons in dock to open an app/link
+-m    contact me via the Mail app below
+-p    view my projects in the Photos app below
+-s    click the Play button to see what i'm listening to
+-t    open the TextEdit app below for my about me</pre>
           </div>  
 
           <div class="body__row">
