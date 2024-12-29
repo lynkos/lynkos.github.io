@@ -1,7 +1,6 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$header-height: 4rem
 $height: 44rem
 
 pre
@@ -15,7 +14,7 @@ pre
   min-height: vars.$min-height
 
   .header
-    @include mix.header(none, $header-height, 0 1.4rem)
+    @include mix.header(none, vars.$header-height, 0 1.4rem)
 
     &__title
       @include mix.disable-select()
@@ -36,7 +35,7 @@ pre
   
   .body
     font-size: 1.22rem
-    height: calc($height - $header-height)
+    height: calc($height - vars.$header-height)
     overflow: auto
 
     &__row 
