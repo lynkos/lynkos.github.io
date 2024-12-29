@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .photos").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .app-store").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -70,8 +70,8 @@ $(document).ready(function() {
   // Make windows draggable and bring to front on drag
   function makeDraggable(selector) {
     $(selector).draggable({
-      handle: ".header, .notes-header, .mail-header, .calc-header, .photos-header",
-      cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .photos-header__op, .send-btn, .search-bar",
+      handle: ".header, .notes-header, .mail-header, .calc-header, .app-store-header",
+      cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .app-store-header__op, .send-btn, .search-bar",
       start: function() {
         bringToFront(this);
       },
@@ -116,34 +116,11 @@ $(document).ready(function() {
   //   }
   // });  
 
-  // Resize Photos sidebar
-  $(".sidebar").resizable({
-    containment: ".photos",
-    handles: "e",
-    minWidth: 75,
-    maxWidth: 175,
-  });
-
-  // Show/hide sidebar nav items
-  $('.hide').on('click', function() {
-    $(this).parent().next('.child-nav').slideToggle(200);
-  });
-
   // Highlight clicked nav item
   $('.child-nav li', '.sidebar').on("click", function() {
     $('.child-nav li', '.sidebar').removeClass('active');
     $(this).addClass('active');
   });
-
-  // Make sidebar nav items sortable
-  $('.sidebar ul').sortable({
-    distance: 10,
-    axis: 'y',
-    revert: 150,
-    containment: ".sidebar",
-  });
-
-  $('.sidebar ul').disableSelection();
 
   // Make GitHub, Spotify, and Steam icon bounce on click
   $("#github, #spotify, #steam").click(function() {
@@ -179,7 +156,7 @@ $(document).ready(function() {
   openWindow("#notes", ".text-edit", "flex");
 
   // Open projects
-  openWindow("#photos", ".photos", "block");
+  openWindow("#app-store", ".app-store", "block");
 
   // Open calculator
   openWindow("#calculator", ".calc", "inline-block");
@@ -213,7 +190,7 @@ $(document).ready(function() {
   closeWindow('.notes-header__op-icon--red', '.text-edit', "#notes");
 
   // Close projects
-  closeWindow('.photos-header__op-icon--red', '.photos', "#photos");
+  closeWindow('.app-store-header__op-icon--red', '.app-store', "#app-store");
 
   // Close calculator
   closeWindow('.calc-header__op-icon--red', '.calc', "#calculator");

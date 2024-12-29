@@ -60,7 +60,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/terminal.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/notes.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/photos.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/app_store.min.css" />
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
@@ -178,7 +178,7 @@
 -d    drag folders, files, and windows
 -i    click icons in dock to open an app/link
 -m    contact me via Mail app below
--p    view my projects in Photos app below
+-p    view my projects in App Store below
 -s    click Play button to see what i am/was listening to
 -t    open TextEdit app below for my about me</pre>
           </div>  
@@ -371,23 +371,31 @@
 </form>
 <!-- </div> -->
 
-<div class="photos windows">
-  <div class="photos-header">
-    <div class="photos-header__op">
-      <span class="photos-header__op-icon photos-header__op-icon--red"><a class="photos-header__op-icon" href="#"></a></span>
-      <span class="photos-header__op-icon photos-header__op-icon--yellow"><a class="photos-header__op-icon" href="#"></a></span>
-      <span class="photos-header__op-icon photos-header__op-icon--green"><a class="photos-header__op-icon" href="#"></a></span>
+<div class="app-store windows">
+  <div class="app-store-header">
+    <div class="app-store-header__op">
+      <span class="app-store-header__op-icon app-store-header__op-icon--red"><a class="app-store-header__op-icon" href="#"></a></span>
+      <span class="app-store-header__op-icon app-store-header__op-icon--yellow"><a class="app-store-header__op-icon" href="#"></a></span>
+      <span class="app-store-header__op-icon app-store-header__op-icon--green"><a class="app-store-header__op-icon" href="#"></a></span>
     </div>
-    <div class="search-bar"><input type="text" placeholder="Search" /></div>
+    
   </div>
   <div class="body">
     <div class="sidebar">
-      <p class="title">Albums <span class="hide"><i alt="Dropdown icon" class="fas fa-chevron-down" aria-hidden="true"></i></span></p>
-      <ul class="child-nav photo-albums">
-        <li class="active"><a href="#"><i alt="Albums icon" class="fas fa-images" aria-hidden="true"></i> Project #1</a></li>
-        <li><a href="#"><i alt="Albums icon" class="fas fa-images" aria-hidden="true"></i> Project #2</a></li>
-        <li><a href="#"><i alt="Albums icon" class="fas fa-images" aria-hidden="true"></i> Project #3</a></li>
-      </ul>
+      <div>
+        <div class="search-bar"><input type="text" placeholder="Search" /></div>
+        <ul class="child-nav">
+          <li class="active"><a href="#"><i alt="Star icon" class="far fa-star" aria-hidden="true"></i> Project #1</a></li>
+          <li><a href="#"><i alt="Heart icon" class="far fa-heart" aria-hidden="true"></i> Project #2</a></li>
+          <li><a href="#"><i alt="Paper plane icon" class="far fa-paper-plane" aria-hidden="true"></i> Project #3</a></li>
+          <li><a href="#"><i alt="Album icon" class="far fa-image" aria-hidden="true"></i> Project #4</a></li>
+          <li><a href="#"><i alt="Smiley face icon" class="far fa-face-smile" aria-hidden="true"></i> Project #5</a></li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <img src="assets/icons/profile.jpg" draggable="false" alt="Profile picture" />
+        Lynkos
+      </div>
     </div>
     <div class="main">
       <p>This section is still a work in progress, so please check back later!</p><br>
@@ -414,9 +422,9 @@
     <div class="dock">
       <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
       <div id="notes" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="assets/icons/text_edit.png" draggable="false" alt="Notes"></div>
-      <div id="photos" class="icon" aria-label="Photos" data-microtip-position="top" role="tooltip"><img src="assets/icons/photos.png" draggable="false" alt="Photos"></div>
       <div id="iterm" class="icon open" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
       <div id="calculator" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"></div>
+      <div id="app-store" class="icon" aria-label="App Store" data-microtip-position="top" role="tooltip"><img src="assets/icons/app_store.png" draggable="false" alt="App Store"></div>
       <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
         <div id="github" class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="assets/icons/github.svg" draggable="false" alt="GitHub"></div>
       </a>
