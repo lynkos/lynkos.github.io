@@ -5,7 +5,7 @@ $header-color: rgb(56, 58, 55)
 $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
-$width: 48.5rem
+$width: 48.9rem
 $height: 45rem
 
 select
@@ -15,7 +15,7 @@ select
 
 .text-edit
   @include mix.window($body-color, $width, $height)
-  min-width: 48.62rem // vars.$min-width
+  min-width: $width
   min-height: vars.$min-height
   -webkit-box-orient: vertical
   -webkit-box-direction: normal
