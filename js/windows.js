@@ -272,3 +272,20 @@ const lineHeight = document.getElementById("lineHeight");
 lineHeight.addEventListener("change", function() {
   $('.text-body').css("line-height", this.value);
 });
+
+var selectProject = function(element) {
+  var projectInfo = document.getElementsByClassName("project");
+
+  for (j = 0; j < projectInfo.length; ++j) {
+    projectInfo[j].classList.remove("active");
+  }
+
+  project = document.querySelector("#" + element.dataset.id);
+  project.classList.add("active");
+}
+
+document.querySelectorAll(".project-name").forEach(function(el) {
+  el.addEventListener("click", function(e) {
+    selectProject(e.target)
+  });
+});
