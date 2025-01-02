@@ -99,6 +99,9 @@ $menubar-icon-size: 1.1rem
   position: fixed
   top: vars.$menubar-height
 
+  .wrapper
+    position: relative
+
   img
     @include mix.blur(5rem, rgba(45, 45, 45, 0.6))
     @include mix.disable-select()
@@ -107,9 +110,23 @@ $menubar-icon-size: 1.1rem
     outline: 1px solid rgba(0, 0, 0, 0.75)
     padding: 0.25rem
     width: 22rem
+    z-index: 99
+
+  .btns
+    position: absolute
+    top: 2.25rem
+
+  .pause
+    right: 4.7rem
+
+  .forward
+    right: 2.75rem
 
   i
     position: absolute
+    z-index: 100
+    color: white
+    font-size: 1.25rem
 
 // .dropdown
 //   position: relative
