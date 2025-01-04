@@ -1,4 +1,41 @@
 $(document).ready(function() {
+  var launchpad = $("#launchpad");
+    
+  // Open launchpad
+  function openLaunchpad() {
+    $(".openWindow").hide();
+    launchpad.addClass("shown start");
+    launchpad.find("nav").addClass("scale-down");
+  }
+
+  // Toggle launchpad
+  $(".open-menu").on("click", function() {
+    if (launchpad.hasClass("shown start")) {
+      closeLaunchpad();
+    } else openLaunchpad();
+  });
+
+  // Close launchpad
+  function closeLaunchpad() {
+    launchpad
+      .removeClass("start")
+      .addClass("end");
+    launchpad.find("nav")
+      .removeClass("scale-down")
+      .addClass("scale-up");
+    setTimeout(function() {
+      launchpad.removeClass("shown end");
+      launchpad.find("nav").removeClass("scale-up");
+    }, 350);
+    $(".openWindow").show();
+  }
+
+  // Close launchpad when clicking any launchpad icon
+  $(".launch").click(function() {
+    closeLaunchpad();
+  });
+  
+
   // Center windows
   $(".mac-terminal, .text-edit, .email, .calc, .app-store").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
@@ -11,7 +48,6 @@ $(document).ready(function() {
   $('.mac-terminal').fadeIn(500); // .show(500);
 
   // TODO Improve playlist toggle logic
-
   // Show playlist when icon clicked
   $("#play").click(function(e) {
     $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 20);
@@ -38,6 +74,15 @@ $(document).ready(function() {
   // Hide playlist when click outside
   $(document).mousedown(function() {
     $("#playlist").fadeOut(250);
+  });
+
+  // Close the launchpad when the content is clicked, only if the target is not a link
+  $(document).mouseup(function (e) {
+    var content = launchpad.find(".launch-content"),
+        nav = content.find("nav");
+    
+    if (content.is(e.target) || nav.is(e.target))
+      closeLaunchpad();
   });
 
   // Function to bring the clicked window to the front
@@ -122,8 +167,8 @@ $(document).ready(function() {
     $(this).addClass('active');
   });
 
-  // Make GitHub, Spotify, and Steam icon bounce on click
-  $("#github, #spotify, #steam").click(function() {
+  // Make GitHub icon bounce on click
+  $("#github").click(function() {
     $(this).effect("bounce", { times: 3 }, 600);
   });
 
@@ -139,9 +184,11 @@ $(document).ready(function() {
 
   // Open window
   function openWindow(icon, win, displayType) {
-    $(icon).on('click', function() {    
+    $(icon).on('click', function() {
+      closeLaunchpad();
       $(win).css("display", displayType);
       bringToFront(win);
+      $(win).addClass("openWindow");
       bounceIcon(icon);
     });
   }
@@ -164,6 +211,31 @@ $(document).ready(function() {
   // Open trash dialogue
   openWindow("#trash-icon", ".dialogue", "inline-block");
 
+  // Open app via launchpad
+  function launchApp(icon, win, displayType) {
+    $(icon).on('click', function() {    
+      closeLaunchpad();
+      bringToFront(win);
+      $(win).css("display", displayType);
+      $(win).addClass("openWindow");
+    });
+  }
+
+  // Open terminal
+  launchApp("#itermLaunch", ".mac-terminal", "inline-block");
+
+  // Open mail
+  launchApp("#mailLaunch", ".email", "flex");
+
+  // Open about me
+  launchApp("#notesLaunch", ".text-edit", "flex");
+
+  // Open projects
+  launchApp("#app-storeLaunch", ".app-store", "block");
+
+  // Open calculator
+  launchApp("#calculatorLaunch", ".calc", "inline-block");  
+
   // Empty trash
   $(".confirm").click(function (e) {
     new Audio('../assets/audio/empty_trash.mp3').play();
@@ -176,6 +248,7 @@ $(document).ready(function() {
   function closeWindow(close, win, parent) {
     $(close).on('click', function() {
       $(win).css("display", "none");
+      $(win).removeClass("openWindow");
       $(parent).removeClass("open");
     });
   }

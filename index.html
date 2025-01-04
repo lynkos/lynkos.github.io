@@ -18,6 +18,7 @@
     <link rel="preload" as="image" href="assets/icons/empty_trash.png" />
     <link rel="preload" as="image" href="assets/icons/github.svg" />
     <link rel="preload" as="image" href="assets/icons/iterm.png" />
+    <link rel="preload" as="image" href="assets/icons/launchpad.png" />
     <link rel="preload" as="image" href="assets/icons/mail.png" />
     <link rel="preload" as="image" href="assets/icons/rtf_icon.png" />
     <link rel="preload" as="image" href="assets/icons/spotify.png" />
@@ -60,6 +61,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/notes.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/app_store.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/launchpad.min.css" />
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
@@ -138,7 +140,7 @@
         </button>
       </div>
 
-        <div class="mac-terminal windows">
+        <div class="mac-terminal windows openWindow">
           <div class="header">
             <div class="header__op">
               <span class="header__op-icon header__op-icon--red"><a class="header__op-icon" href="#"></a></span>
@@ -186,8 +188,8 @@
 -b    background is interactive: click anywhere
 -d    drag folders, files, and windows
 -i    click icons in dock to open an app/link
+-l    open Launchpad to view more apps/links
 -m    contact me via Mail app below
--p    view my projects in App Store below
 -s    click Play button to see what i am/was listening to
 -t    open TextEdit app below for my about me</pre>
           </div>  
@@ -419,6 +421,22 @@
   </div>
 </div>
 
+<div id="launchpad">
+	<div class="launch-content">
+    <div class="search"><input type="text" placeholder="Search" /></div>
+		<nav>
+			<a class="icon-mail launch" id="mailLaunch"><img src="assets/icons/mail.png" draggable="false" alt="Mail"> Mail</a>
+			<a class="icon-textedit launch" id="notesLaunch"><img src="assets/icons/text_edit.png" draggable="false" alt="TextEdit"> TextEdit</a>
+			<a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="false" alt="iTerm"> iTerm</a>
+      <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"> Calculator</a>
+			<a class="icon-appstore launch" id="app-storeLaunch"><img src="assets/icons/app_store.png" draggable="false" alt="App Store"> App Store</a>
+			<a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="assets/icons/github.svg" draggable="false" alt="GitHub"> GitHub</a>
+			<a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="assets/icons/spotify.png" draggable="false" alt="Spotify"> Spotify</a>
+			<a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam account" draggable="false"><img src="assets/icons/steam.png" draggable="false" alt="Steam"> Steam</a>
+		</nav>
+	</div>
+</div>
+
 <div class="dialogue">
   <div class="pp-body">
     <img src="assets/icons/trash.png" draggable="false" alt="Icon of a filled trash can" />
@@ -435,6 +453,7 @@
 
   <footer>
     <div class="dock">
+      <div class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="assets/icons/launchpad.png" draggable="false" alt="Launchpad"></div>
       <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
       <div id="notes" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="assets/icons/text_edit.png" draggable="false" alt="Notes"></div>
       <div id="iterm" class="icon open" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
@@ -442,12 +461,6 @@
       <div id="app-store" class="icon" aria-label="App Store" data-microtip-position="top" role="tooltip"><img src="assets/icons/app_store.png" draggable="false" alt="App Store"></div>
       <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
         <div id="github" class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="assets/icons/github.svg" draggable="false" alt="GitHub"></div>
-      </a>
-      <a target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false">
-        <div id="spotify" class="icon" aria-label="Spotify" data-microtip-position="top" role="tooltip"><img src="assets/icons/spotify.png" draggable="false" alt="Spotify"></div>
-      </a>
-      <a target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam account" draggable="false">
-        <div id="steam" class="icon" aria-label="Steam" data-microtip-position="top" role="tooltip"><img src="assets/icons/steam.png" draggable="false" alt="Steam"></div>
       </a>
       <div class="divider" style="margin: 0 0.25rem 0 0.5rem;"></div>
       <div id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" style="width: 4.6rem !important; margin-top: 0.1rem; image-rendering: smooth;" src="assets/icons/trash.png" draggable="false" alt="Trash"></div>
@@ -465,6 +478,7 @@
 </div>
 
   <script id="rendered-js" src="js/particles.js"></script>
+  <script src="js/launchpad.js"></script>
   <script src="js/windows.js"></script>
   <script src="js/timestamp.js"></script>
   <script src="js/calculator.js"></script>

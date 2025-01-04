@@ -1,0 +1,132 @@
+@use "mixins" as mix
+@use "variables" as vars
+
+$duration: 0.4s
+$blur: 3rem
+$icon-margin: 2rem
+$icon-size: 10rem
+
+#launchpad
+  display: none
+  @include mix.disable-select()
+
+  &.shown
+    display: block
+
+    &.start
+      animation: show $duration 1
+
+    &.end
+      animation: hide $duration 1
+
+    .launch-content
+      background-color: vars.$background-color
+      background-image: vars.$background-gradient
+      background-image: -o-radial-gradient(vars.$background-color, vars.$foreground-color, 225%)
+      bottom: 0
+      left: 0
+      position: fixed
+      right: 0
+      top: 0
+
+      &:before
+        bottom: 0
+        content: ""
+        @include mix.blur($blur, none)
+        left: 0
+        position: absolute
+        right: 0
+        top: 0
+        z-index: -1
+
+      .search
+        @include mix.disable-select()
+        top: 2.25rem
+        color: white
+        margin: 0 auto
+        height: 3rem
+        width: 30rem
+        background: rgba(255, 255, 255, 0.1)
+        position: relative
+        border: 1px solid rgba(255, 255, 255, 0.15)
+        border-radius: 1rem
+        margin-bottom: 0.5rem
+
+        input
+          background: none
+          border: none
+          border-radius: 0.5rem
+          color: rgba(255, 255, 255, 0.8)
+          height: 100%
+          width: 100%
+          margin-left: 2.5rem
+          font-size: 1.5rem
+          padding: 0 0.5rem
+          outline: none
+
+          &::placeholder
+            color: rgba(255, 255, 255, 0.5)
+
+        &::before
+          content: "\f002"
+          position: absolute
+          font-family: "Font Awesome 5 Free"
+          font-weight: 600
+          font-size: 1.25rem
+          margin-top: 0.5rem
+          color: rgba(255, 255, 255, 0.5)
+          padding: 0 1rem
+
+      nav
+        margin: 2rem auto
+        width: 95%
+
+        a
+          color: white
+          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4))
+          font-size: 1.4rem
+          text-align: center
+          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
+
+          &:active
+            opacity: 0.6
+
+        &.scale-down
+          animation: scale-down $duration 1
+
+        &.scale-up
+          animation: scale-up $duration 1
+
+@keyframes show
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes hide
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@keyframes scale-up
+  0%
+    transform: scale(1)
+
+  100%
+    transform: scale(1.2)
+
+@keyframes scale-down
+  0%
+    transform: scale(1.2)
+
+  100%
+    transform: scale(1)
+
+a[class^="icon"]
+  display: inline-block
+  height: $icon-size
+  margin: $icon-margin
+  width: $icon-size
