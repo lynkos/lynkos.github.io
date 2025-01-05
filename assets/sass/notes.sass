@@ -201,3 +201,23 @@ select
 
     a
       @include mix.text-shadow(0, 0, 1rem, vars.$foreground-color)
+
+    table
+      width: 100%
+      max-width: -moz-fit-content
+      max-width: fit-content
+      overflow-x: auto
+      border: 1px solid white
+      border-collapse: collapse
+      background-color: black
+
+      td
+        padding: 0.5rem
+        border: 1px solid white
+    
+      tbody tr
+        &:nth-child(odd)
+          background-color: rgba(255, 255, 255, 0.1)
+        
+        &:nth-child(even)
+          background-color: rgba(255, 255, 255, 0.2)
