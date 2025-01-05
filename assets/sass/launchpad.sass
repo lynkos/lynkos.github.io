@@ -3,8 +3,8 @@
 
 $duration: 0.4s
 $blur: 3rem
-$icon-margin: 2rem
-$icon-size: 10rem
+$icon-margin: 2.5rem
+$icon-size: 8rem
 
 #launchpad
   display: none
@@ -49,8 +49,7 @@ $icon-size: 10rem
         background: rgba(255, 255, 255, 0.1)
         position: relative
         border: 1px solid rgba(255, 255, 255, 0.15)
-        border-radius: 1rem
-        margin-bottom: 0.5rem
+        border-radius: 0.5rem
 
         input
           background: none
@@ -59,13 +58,18 @@ $icon-size: 10rem
           color: rgba(255, 255, 255, 0.8)
           height: 100%
           width: 100%
-          margin-left: 2.5rem
+          margin-left: 2.05rem
           font-size: 1.5rem
-          padding: 0 0.5rem
+          padding: 0 0.25rem
           outline: none
 
           &::placeholder
             color: rgba(255, 255, 255, 0.5)
+
+          &::selection
+            background: rgba(255, 255, 255, 0.25)
+            color: rgba(255, 255, 255, 0.9)
+
 
         &::before
           content: "\f002"
@@ -74,19 +78,25 @@ $icon-size: 10rem
           font-weight: 600
           font-size: 1.25rem
           margin-top: 0.5rem
-          color: rgba(255, 255, 255, 0.5)
-          padding: 0 1rem
+          color: white
+          padding: 0 0.6rem
 
       nav
         margin: 4rem auto
-        width: 95%
+        padding: 0 1rem
+        //text-align: center
 
         a
           color: white
           filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4))
           font-size: 1.4rem
           text-align: center
+          float: left
           text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
+
+          img
+            width: $icon-size
+            height: $icon-size
 
           &:active
             opacity: 0.6

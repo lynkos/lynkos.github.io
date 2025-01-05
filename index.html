@@ -447,7 +447,7 @@
       </span>
     </div>
     
-      <textarea class="body" name="message" placeholder="Compose your message here, then click the paper plane button in the upper-right corner to send me your message. This window will automatically close once your message is sent, which may take a few seconds." required></textarea>
+    <textarea class="body" name="message" placeholder="Compose your message here, then click the paper plane button in the upper-right corner to send me your message. This window will automatically close once your message is sent, which may take a few seconds." required></textarea>
   </div>
 </form>
 
@@ -491,8 +491,8 @@
 
 <div id="launchpad">
 	<div class="launch-content">
-    <div class="search"><input type="text" placeholder="Search" /></div>
-		<nav>
+    <div class="search"><input type="text" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
+		<nav id="launchNav">
 			<a class="icon-mail launch" id="mailLaunch"><img src="assets/icons/mail.png" draggable="false" alt="Mail"> Mail</a>
 			<a class="icon-textedit launch" id="notesLaunch"><img src="assets/icons/text_edit.png" draggable="false" alt="TextEdit"> TextEdit</a>
 			<a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="false" alt="iTerm"> iTerm</a>
@@ -551,5 +551,21 @@
   <script src="js/timestamp.js"></script>
   <script src="js/calculator.js"></script>
   <script type="text/javascript" data-cfasync="false" src="js/email.js"></script>
+  <script type="text/javascript">
+    // Make launchpad searchable
+    function filterLaunchpad() {
+      var input = document.getElementById("launchInput"),
+          filter = input.value.toLowerCase(),
+          nav = document.getElementById("launchNav"),
+          apps = nav.getElementsByTagName("a");
+      var appName;
+      
+      for (i = 0; i < apps.length; i++) {
+        appName = apps[i].getElementsByTagName("img")[0].alt;
+        if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
+        else apps[i].style.display = "none";
+      }
+    }
+  </script>  
   </body>
 </html>

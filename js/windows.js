@@ -34,7 +34,10 @@ $(document).ready(function() {
   $(".launch").click(function() {
     closeLaunchpad();
   });
-  
+
+  // Make launchpad apps sortable
+  $("#launchNav").sortable();
+  $("#launchNav").disableSelection();
 
   // Center windows
   $(".mac-terminal, .text-edit, .email, .calc, .app-store").position({
