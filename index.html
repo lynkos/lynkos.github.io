@@ -34,6 +34,7 @@
     <link rel="preload" as="script" href="js/particles.js">
     <link rel="preload" as="script" href="js/timestamp.js">
     <link rel="preload" as="script" href="js/windows.js">
+    <link rel="preload" as="script" href="js/terminal.js">
 
     <meta name="description" content="Kiran Brahmatewari's macOS-inspired personal website." />
     <meta name="author" content="Kiran Brahmatewari" />
@@ -150,77 +151,83 @@
             <div class="header__empty"></div>
           </div>
 
-          <div class="body">
+          <div class="body" id="terminal-body">
             <div class="body__row"><p id="timestamp"></p></div>
 
+            <div id="clearable">
+              <div class="body__row">
+                <span class="body__row-arrow"></span>
+                <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                <span class="body__row-result">cat Desktop/banner.txt</span>
+              </div>
+
+              <div class="body__row">
+                <span class="body__row-banner"><pre>
+  ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  ░▒▓███████▓▒░ 
+  ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
+  ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
+  ░▒▓█▓▒░     ░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  
+  ░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+  ░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+  ░▒▓████████▓▒░░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░ ░▒▓███████▓▒░  </pre></span>
+              </div>
+
+              <div class="body__row">
+                <span class="body__row-arrow"></span>
+                <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                <span class="body__row-result">help</span>
+              </div>
+
+              <div class="body__row">
+                <pre>This website is still under construction.
+
+  -b    background is interactive: click anywhere
+  -d    drag folders, files, and windows
+  -i    click icons in dock to open an app/link
+  -l    open Launchpad to view more apps/links
+  -m    contact me via Mail app below
+  -s    click Play button to see what i am/was listening to
+  -t    open TextEdit app below for my about me</pre>
+            </div>  
+
             <div class="body__row">
               <span class="body__row-arrow"></span>
               <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
               <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
               <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-              <span class="body__row-result">cat Desktop/banner.txt</span>
+              <span class="body__row-result">git log</span>
+            </div>  
+
+            <div class="body__row">
+              <span class="body__row-git--branch">e23h217</span>
+              <span>&nbsp;- (</span>
+              <span class="body__row-git--branch-detail">HEAD -> main, origin/main</span>
+              <span>)</span>
             </div>
 
             <div class="body__row">
-              <span class="body__row-banner"><pre>
-░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  ░▒▓███████▓▒░ 
-░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
-░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░        
-░▒▓█▓▒░     ░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░  
-░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
-░▒▓█▓▒░       ░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
-░▒▓████████▓▒░░▒▓█▓▒░    ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░ ░▒▓███████▓▒░  </pre></span>
+              <span class="body__row-git--branch">g43e341</span>
+              <span>&nbsp;- Update <a href="https://lynkos.dev">lynkos.dev</a></span>
+              <span class="body__row-git--branch-time">&nbsp;(1 hour ago)&nbsp;</span> 
+              <span class="body__row-git--author">&lt;lynkos&gt;</span>
             </div>
+          </div>
 
+          <div class="body__row"><pre id="output"></pre></div>          
+
+          <div id="prompt">
             <div class="body__row">
               <span class="body__row-arrow"></span>
               <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
               <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
               <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-              <span class="body__row-result">help</span>
+              <span class="body__row-result"><span id="command-input"></span></span>
+              <span class="body__row-cursor">_</span>
             </div>
-
-            <div class="body__row">
-              <pre>This website is still under construction.
-
--b    background is interactive: click anywhere
--d    drag folders, files, and windows
--i    click icons in dock to open an app/link
--l    open Launchpad to view more apps/links
--m    contact me via Mail app below
--s    click Play button to see what i am/was listening to
--t    open TextEdit app below for my about me</pre>
-          </div>  
-
-          <div class="body__row">
-            <span class="body__row-arrow"></span>
-            <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-            <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-            <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-            <span class="body__row-result">git log</span>
-          </div>  
-
-          <div class="body__row">
-            <span class="body__row-git--branch">e23h217</span>
-            <span>&nbsp;- (</span>
-            <span class="body__row-git--branch-detail">HEAD -> main, origin/main</span>
-            <span>)</span>
-          </div>
-
-          <div class="body__row">
-            <span class="body__row-git--branch">g43e341</span>
-            <span>&nbsp;- Update <a href="https://lynkos.dev">lynkos.dev</a></span>
-            <span class="body__row-git--branch-time">&nbsp;(1 hour ago)&nbsp;</span> 
-            <span class="body__row-git--author">&lt;lynkos&gt;</span>
-          </div>
-
-          <div class="body__row">
-            <span class="body__row-arrow"></span>
-            <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-            <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-            <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-            <span class="body__row-result"></span>
-            <span class="body__row-cursor">_</span>
           </div>
         </div>
       </div>
@@ -493,15 +500,15 @@
 	<div class="launch-content">
     <div class="search"><input type="text" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 		<nav id="launchNav">
-			<a class="icon-mail launch" id="mailLaunch"><img src="assets/icons/mail.png" draggable="false" alt="Mail"> Mail</a>
-			<a class="icon-textedit launch" id="notesLaunch"><img src="assets/icons/text_edit.png" draggable="false" alt="TextEdit"> TextEdit</a>
-			<a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="false" alt="iTerm"> iTerm</a>
-      <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"> Calculator</a>
-			<a class="icon-appstore launch" id="app-storeLaunch"><img src="assets/icons/app_store.png" draggable="false" alt="App Store"> App Store</a>
-			<a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="assets/icons/github.svg" draggable="false" alt="GitHub"> GitHub</a>
-			<a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="assets/icons/spotify.png" draggable="false" alt="Spotify"> Spotify</a>
-			<a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img src="assets/icons/steam.png" draggable="false" alt="Steam"> Steam</a>
-      <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" alt="Link to my Discord profile" draggable="false"><img src="assets/icons/discord.png" draggable="false" alt="Discord"> Discord</a>
+			<a class="icon-mail launch" id="mailLaunch"><img src="assets/icons/mail.png" draggable="true" alt="Mail"> Mail</a>
+			<a class="icon-textedit launch" id="notesLaunch"><img src="assets/icons/text_edit.png" draggable="true" alt="TextEdit"> TextEdit</a>
+			<a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
+      <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="true" alt="Calculator"> Calculator</a>
+			<a class="icon-appstore launch" id="app-storeLaunch"><img src="assets/icons/app_store.png" draggable="true" alt="App Store"> App Store</a>
+			<a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="assets/icons/github.svg" draggable="true" alt="GitHub"> GitHub</a>
+			<a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="assets/icons/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
+			<a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img src="assets/icons/steam.png" draggable="true" alt="Steam"> Steam</a>
+      <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" alt="Link to my Discord profile" draggable="false"><img src="assets/icons/discord.png" draggable="true" alt="Discord"> Discord</a>
 		</nav>
 	</div>
 </div>
@@ -550,6 +557,7 @@
   <script src="js/windows.js"></script>
   <script src="js/timestamp.js"></script>
   <script src="js/calculator.js"></script>
+  <script src="js/terminal.js"></script>
   <script type="text/javascript" data-cfasync="false" src="js/email.js"></script>
   <script type="text/javascript">
     // Make launchpad searchable
@@ -559,7 +567,7 @@
           nav = document.getElementById("launchNav"),
           apps = nav.getElementsByTagName("a");
       var appName;
-      
+
       for (i = 0; i < apps.length; i++) {
         appName = apps[i].getElementsByTagName("img")[0].alt;
         if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
