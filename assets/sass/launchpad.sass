@@ -3,8 +3,10 @@
 
 $duration: 0.4s
 $blur: 3rem
-$icon-margin: 2.5rem
+$icon-margin: 2rem
 $icon-size: 8rem
+$dock-height: 6rem
+$search-height: 3rem
 
 #launchpad
   display: none
@@ -20,31 +22,31 @@ $icon-size: 8rem
       animation: hide $duration 1
 
     .launch-content
+      position: fixed
       background-color: vars.$background-color
       background-image: vars.$background-gradient
       background-image: -o-radial-gradient(vars.$background-color, vars.$foreground-color, 225%)
       bottom: 0
       left: 0
-      position: fixed
       right: 0
       top: 0
 
       &:before
-        bottom: 0
-        content: ""
-        @include mix.blur($blur, none)
-        left: 0
         position: absolute
+        @include mix.blur($blur, none)
+        content: ""
+        z-index: -1
+        bottom: 0
+        left: 0
         right: 0
         top: 0
-        z-index: -1
 
       .search
         @include mix.disable-select()
-        top: 3.3rem
+        top: calc((vars.$menubar-height + $dock-height + $icon-margin - $search-height) / 2)
         color: white
         margin: 0 auto
-        height: 3rem
+        height: $search-height
         width: 30rem
         background: rgba(255, 255, 255, 0.1)
         position: relative
@@ -82,8 +84,10 @@ $icon-size: 8rem
           padding: 0 0.6rem
 
       nav
-        margin: 4rem auto
+        margin: $dock-height auto
         padding: 0 1rem
+        height: calc(100vh - (2 * $dock-height) - vars.$menubar-height)
+        width: 100%
         //text-align: center
 
         a
