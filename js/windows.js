@@ -336,7 +336,7 @@ colorPicker.addEventListener("input", function() {
 
 const fontSize = document.getElementById("fontSize");
 fontSize.addEventListener("change", function() {
-  $('.text-body').css("font-size", this.value + "px");
+  $('.text-body').css("font-size", (this.value / 10) + "rem");
 });
 
 const fontFamily = document.getElementById("fontFamily");
