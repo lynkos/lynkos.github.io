@@ -24,19 +24,13 @@ function writeText(target, content) {
     }
   })
 }
-
 // Handle keypresses on the document, printing them to an
 // 'input' span. Input content will be interpreted as a
 // command and output will be written to an output element
 function handleKeypress(e, input, output) { 
   // Check if a certain type of element has focus that we do not
-  // want to do keypress handling on (such as form inputs)
-  function noInputHasFocus() {
-    const elements = [ 'input', 'TEXTAREA', 'BUTTON' ]
-    return elements.indexOf(document.activeElement.tagName) === -1
-  }
-  
-  if (noInputHasFocus) {
+  // want to do keypress handling on (such as form inputs)  
+  if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA" && e.target.tagName !== "BUTTON") {
     // Enter clears the input and executes the command
     if (e.key === 'Enter') {
       const command = input.innerText
