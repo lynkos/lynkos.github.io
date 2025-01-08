@@ -54,7 +54,6 @@ select
     @include mix.header($header-color, 3rem)
 
     &__title
-      @include mix.disable-select()
       color: vars.$font-color
       font-family: "Arial", sans-serif
       font-size: 1.35rem
@@ -67,6 +66,9 @@ select
         margin-right: 0.24rem
         vertical-align: middle
   
+  &-header__title, .styles, .rule
+    @include mix.disable-select()
+
   .styles
     background: $header-color
     width: 100%
