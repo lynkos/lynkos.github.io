@@ -1,9 +1,13 @@
 @use "mixins" as mix
+@use "variables" as vars
 
-$body-color: rgb(30, 30, 30)
+$body-color: rgba(30, 30, 30, 0.85)
+$button-size: 4.2rem
 
 .button
-  height: 4.75rem
+  height: $button-size
+  width: $button-size
+  margin: calc($button-size / 20)
   display: -webkit-box
   display: -ms-flexbox
   display: flex
@@ -13,15 +17,17 @@ $body-color: rgb(30, 30, 30)
   -webkit-box-pack: center
   -ms-flex-pack: center
   justify-content: center
+  border-radius: 50%
   background-color: rgb(107, 114, 128)
+  font-family: vars.$font-family
 
   button
     width: 100%
     height: 100%
-    font-size: 1.75rem
 
 .calc
-  @include mix.window($body-color, 25rem)
+  @include mix.window($body-color, 20rem)
+  @include mix.blur(1.3rem, $body-color)
 
   .calc-header
     @include mix.header(none, 3rem)

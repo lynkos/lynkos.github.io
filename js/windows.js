@@ -88,6 +88,10 @@ $(document).ready(function() {
       closeLaunchpad();
   });
 
+  // Grey out calculator's green button
+  $(".calc-header__op-icon--green").css("--green", "rgba(255, 255, 255, 0.2)");
+  $(".calc-header__op-icon--green").css("--green-active", "rgba(255, 255, 255, 0.1)");
+
   // Function to bring the clicked window to the front
   function bringToFront(element) {
     let maxZIndex = Math.max(...$('.windows, .btn').map(function() {
