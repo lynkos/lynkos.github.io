@@ -3,6 +3,7 @@ $(document).ready(function() {
     
   // Open launchpad
   function openLaunchpad() {
+    $(".menu-bar").hide();
     $(".openWindow").hide();
     launchpad.addClass("shown start");
     launchpad.find("nav").addClass("scale-down");
@@ -27,6 +28,7 @@ $(document).ready(function() {
       launchpad.removeClass("shown end");
       launchpad.find("nav").removeClass("scale-up");
     }, 350);
+    $(".menu-bar").show();
     $(".openWindow").show();
   }
 
