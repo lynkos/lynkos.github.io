@@ -7,6 +7,7 @@ $icon-margin: 2rem
 $icon-size: 8rem
 $dock-height: 6rem
 $search-height: 3rem
+$max-per-row: 7
 
 #launchpad
   display: none
@@ -50,7 +51,7 @@ $search-height: 3rem
         width: 30rem
         background: rgba(255, 255, 255, 0.1)
         position: relative
-        border: 1px solid rgba(255, 255, 255, 0.15)
+        border: 0.13rem solid rgba(255, 255, 255, 0.15)
         border-radius: 0.5rem
 
         input
@@ -72,7 +73,6 @@ $search-height: 3rem
             background: rgba(255, 255, 255, 0.25)
             color: rgba(255, 255, 255, 0.9)
 
-
         &::before
           content: "\f002"
           position: absolute
@@ -83,19 +83,21 @@ $search-height: 3rem
           color: white
           padding: 0 0.6rem
 
-      nav
-        margin: $dock-height auto
-        padding: 0 1rem
-        height: calc(100vh - (2 * $dock-height) - vars.$menubar-height)
-        width: 100%
-        //text-align: center
+      #launchNav // nav
+        max-width: calc($max-per-row * ((2 * $icon-margin) + $icon-size) + 0.25rem) // Up to $max-per-row icons per row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        gap: calc($icon-margin * 2)
+        margin: calc(3 * $icon-margin) auto $dock-height auto
+        max-height: calc(100vh - (2 * $dock-height) - vars.$menubar-height)
 
         a
           color: white
+          cursor: default
           filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4))
           font-size: 1.4rem
           text-align: center
-          float: left
           text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
 
           img
@@ -103,7 +105,7 @@ $search-height: 3rem
             height: $icon-size
 
           &:active
-            opacity: 0.6
+            @include mix.brightness()
 
         &.scale-down
           animation: scale-down $duration 1
@@ -140,7 +142,5 @@ $search-height: 3rem
     transform: scale(1)
 
 a[class^="icon"]
-  display: inline-block
   height: $icon-size
-  margin: $icon-margin
   width: $icon-size
