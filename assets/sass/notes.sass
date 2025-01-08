@@ -1,0 +1,213 @@
+@use "variables" as vars
+@use "mixins" as mix
+
+$sidebar-width: 19rem
+$window-width: 55rem
+$window-height: 40rem
+$header-height: 5rem
+$max-width: 60rem
+$max-height: 50rem
+$search-height: 2.25rem
+$search-width: 13rem
+$icon-size: 1.5rem
+$icon-dim: 2.5rem
+$primary-background: rgba(32, 36, 31, 0.9)
+$secondary-background: rgb(30, 30, 30)
+
+.notes
+  @include mix.window(none, $window-width, $window-height) //rgba(42, 45, 41, 0.6)
+  min-width: vars.$min-width
+  min-height: vars.$min-height
+  max-width: $max-width
+  max-height: $max-height
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -ms-flex-direction: column
+  flex-direction: column
+  -ms-flex-line-pack: stretch
+  align-content: stretch
+  font-family: vars.$font-family
+  //display: flex
+
+  .body
+    color: white
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+    display: flex
+
+    .icons
+        font-size: $icon-size
+        width: $icon-dim
+        height: $icon-dim
+        padding-top: calc(($icon-dim - $icon-size) / 2)
+        text-align: center
+        vertical-align: middle
+        border-radius: vars.$border-radius
+        color: rgb(151, 152, 151)
+
+        &:hover
+          transition: background 1s
+          transition: color 1s
+          background: rgba(255, 255, 255, 0.15)
+          color: white
+          
+    .sidebar
+        @include mix.disable-select()
+        width: $sidebar-width
+        min-width: $sidebar-width
+        height: 100%
+        overflow-x: hidden
+        border-right: 1px solid rgb(11, 11, 11)
+
+        &-header
+            @include mix.blur(2rem, $primary-background)
+            position: relative
+            display: -webkit-box
+            display: -ms-flexbox
+            display: flex
+            -webkit-box-align: center
+            -ms-flex-align: center
+            align-items: center
+            -webkit-box-pack: justify
+            -ms-flex-pack: justify
+            justify-content: space-between
+            padding: calc(vars.$padding * 2)
+            height: $header-height
+            // border-bottom: 1px solid rgb(11, 11, 11)
+
+            .buttons
+                @include mix.buttons()
+                padding: 0 calc(($header-height - (vars.$padding * 4) - vars.$window-icons-dim) / 2)
+
+        .content
+            background: rgb(32, 36, 31) // Primary background w/o blur + opacity
+            overflow-y: auto
+            height: calc(100% - $header-height)
+
+            .title
+                font-weight: 700
+                font-size: 0.9rem
+                color: rgb(147, 148, 146)
+
+            .year
+                @include mix.blur(5rem, $primary-background)
+                position: -webkit-sticky
+                position: sticky
+                top: 0
+                z-index: 1
+                font-weight: 700
+                font-size: 1.2rem
+                padding: vars.$padding 0 vars.$padding calc(vars.$padding * 2)
+                color: rgb(147, 148, 146)
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+                
+            .child-nav
+                text-overflow: ellipsis
+                white-space: nowrap
+                align-self: auto
+                padding: 0 calc(vars.$padding * 1.75)
+
+                li
+                    color: white
+                    padding: 0 calc(vars.$padding * 2.5)
+                    font-size: 1.3rem
+                    line-height: 1.75rem
+                    width: 100%
+                    position: relative
+                    cursor: default
+
+                    .text
+                        padding: calc(vars.$padding * 1.75) 0
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+
+                        .name
+                            font-weight: 700
+
+                        .day, .preview
+                            font-size: 1.2rem
+
+                        .preview
+                            color: rgb(147, 148, 146)
+
+                    &:last-child
+                        margin-bottom: calc(vars.$padding * 1.5)
+
+                        .text
+                            border-bottom: none
+                        
+                .active
+                    width: 100%
+                    border-radius: vars.$border-radius
+                    background-color: rgba(255, 255, 255, 0.15)
+
+    .main
+        -webkit-box-flex: 1
+        -ms-flex: 1
+        flex: 1
+
+        &-header
+            @include mix.blur(2rem, $primary-background)
+            height: $header-height
+            display: flex
+            align-items: center
+            justify-content: space-between
+            padding: 0 calc(vars.$padding * 2)
+            width: 100%
+
+            .search-bar
+                @include mix.disable-select()
+                width: $search-width
+                color: white
+                height: $search-height
+                background: none
+                position: relative
+                border: 1px solid rgba(255, 255, 255, 0.15)
+                border-radius: vars.$border-radius
+
+                input
+                    background: none
+                    border: none
+                    border-radius: vars.$border-radius
+                    height: 100%
+                    width: 100%
+                    margin-left: 1.5rem
+                    padding: 0 vars.$padding
+                    outline: none
+
+                &::before
+                    content: "\f002"
+                    position: absolute
+                    font-family: "Font Awesome 5 Free"
+                    font-weight: 600
+                    font-size: 1rem
+                    margin-top: 2.5px
+                    color: rgba(255, 255, 255, 0.5)
+                    padding: 0 vars.$padding
+
+        &-body
+            height: calc(100% - $header-height)
+            background: $secondary-background
+            width: 100%
+            padding: vars.$padding calc(vars.$padding * 4)
+            overflow: auto
+            font-size: 1.4rem
+
+            .date
+                @include mix.disable-select()
+                text-align: center
+                font-size: 1.1rem
+                color: rgba(255, 255, 255, 0.5)
+                padding: calc(vars.$padding / 2) 0
+
+            a
+                font-weight: 700
+                text-decoration: underline
+
+.project
+    display: none
+    font-size: 1.75rem
+    font-weight: 700
+
+.active
+    display: block

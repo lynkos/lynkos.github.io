@@ -42,7 +42,7 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .app-store").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .notes").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -124,8 +124,8 @@ $(document).ready(function() {
   // Make windows draggable and bring to front on drag
   function makeDraggable(selector) {
     $(selector).draggable({
-      handle: ".header, .text-edit-header, .mail-header, .calc-header, .app-store-header",
-      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .app-store-header__op, .send-btn, .search-bar",
+      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header",
+      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, .send-btn, .search-bar, .icons",
       start: function() {
         bringToFront(this);
       },
@@ -154,6 +154,14 @@ $(document).ready(function() {
     cancel: false,
     containment: "#main-content",
     distance: 0,
+  });
+
+  // Resize app store sidebar
+  $(".sidebar").resizable({
+    containment: ".notes",
+    handles: "e",
+    minWidth: 182, // 182px = 19rem (aka $sidebar-width)
+    maxWidth: 228,
   });
 
   // Dock Resizing
@@ -212,7 +220,7 @@ $(document).ready(function() {
   openWindow("#text-edit", ".text-edit", "flex");
 
   // Open projects
-  openWindow("#app-store", ".app-store", "flex");
+  openWindow("#notes", ".notes", "flex");
 
   // Open calculator
   openWindow("#calculator", ".calc", "inline-block");
@@ -240,7 +248,7 @@ $(document).ready(function() {
   launchApp("#notesLaunch", ".text-edit", "flex");
 
   // Open projects
-  launchApp("#app-storeLaunch", ".app-store", "block");
+  launchApp("#notesLaunch", ".notes", "block");
 
   // Open calculator
   launchApp("#calculatorLaunch", ".calc", "inline-block");  
@@ -272,7 +280,7 @@ $(document).ready(function() {
   closeWindow('.text-edit-header__op-icon--red', '.text-edit', "#text-edit");
 
   // Close projects
-  closeWindow('.app-store-header__op-icon--red', '.app-store', "#app-store");
+  closeWindow('.buttons-icon--red', '.notes', "#notes");
 
   // Close calculator
   closeWindow('.calc-header__op-icon--red', '.calc', "#calculator");
