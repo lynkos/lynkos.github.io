@@ -9,13 +9,11 @@ $width: 45.5rem
 $height: 45rem
 $inch-width: 7.27rem
 $inch-height: 1rem
-$window-padding: 0.5rem
-$border-radius: 0.5rem
 
 select
   background: $header-color
   color: vars.$font-color
-  border-radius: $border-radius
+  border-radius: vars.$border-radius
 
 .text-edit
   @include mix.window($style-bar-color, $width, $height)
@@ -75,7 +73,7 @@ select
     overflow: hidden
 
     .drops
-      padding: $window-padding
+      padding: vars.$padding
       display: flex
       justify-content: space-between
 
@@ -84,7 +82,7 @@ select
         width: 2rem
         height: 2rem
         background: none
-        border-radius: $border-radius
+        border-radius: vars.$border-radius
         border: none
         outline: none
 
@@ -93,7 +91,7 @@ select
 
         &::-webkit-color-swatch
           border: 0.05rem solid $separator-color
-          border-radius: $border-radius
+          border-radius: vars.$border-radius
 
       i
         width: 2.25rem
@@ -109,7 +107,7 @@ select
           color: white
 
       .drop--element
-        border-radius: $border-radius
+        border-radius: vars.$border-radius
 
         &:hover
           transition: background 1s
@@ -141,7 +139,7 @@ select
     border-top: 0.1rem solid vars.$font-color
     border-bottom: 0.01rem solid vars.$font-color
     margin-top: 1rem
-    padding-left: $window-padding
+    padding-left: vars.$padding
 
     // TOP OF INITIAL TRIANGLE
     &:before
@@ -217,7 +215,7 @@ select
     -ms-flex: 1
     flex: 1
     color: white
-    padding: 0 $window-padding
+    padding: 0 vars.$padding
     overflow: scroll
     background: $body-color
 
@@ -234,7 +232,7 @@ select
       background-color: black
 
       td
-        padding: $window-padding
+        padding: vars.$padding
         border: 0.1rem solid white
     
       tbody tr

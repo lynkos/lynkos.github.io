@@ -3,14 +3,13 @@
 
 $dock-icon-size: 4.5rem
 $dock-border-radius: 1.6rem
-$padding: 0.6rem
 
 .divider
   border-left: 0.14rem solid rgba(255, 255, 255, 0.15)
 
 footer
   position: fixed
-  bottom: $padding
+  bottom: vars.$padding
   width: 100%
   display: -webkit-inline-box
   display: -ms-inline-flexbox
@@ -22,7 +21,7 @@ footer
 .dock
   @include mix.blur(1.3rem, vars.$dock-menu-background)
   border: 0.125rem solid rgba(255, 255, 255, 0.05)
-  padding: $padding
+  padding: vars.$padding
   border-radius: $dock-border-radius
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
@@ -30,7 +29,7 @@ footer
   display: -ms-grid
   display: grid
   grid-auto-flow: column
-  grid-gap: calc($padding / 4) //0.3rem
+  grid-gap: calc(vars.$padding / 4) //0.3rem
 
   a
     cursor: default
