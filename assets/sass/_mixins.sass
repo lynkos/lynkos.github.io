@@ -12,6 +12,11 @@
 @mixin text-shadow($x: 0, $y: 0, $radius: 0.75rem, $color: rgba(0, 0, 0, 0.25))
     text-shadow: $x $y $radius $color
 
+@mixin brightness($percent: 75%)
+    -webkit-filter: brightness($percent)
+    -ms-filter: brightness($percent)
+    filter: brightness($percent)
+    
 @mixin blur($blur-strength: 0.8rem, $background: vars.$dock-menu-background)
     -webkit-backdrop-filter: blur($blur-strength)
     backdrop-filter: blur($blur-strength)

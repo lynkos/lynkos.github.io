@@ -66,6 +66,4 @@ footer
       image-rendering: smooth
 
       &:active
-        -webkit-filter: brightness(75%)
-        -ms-filter: brightness(75%)
-        filter: brightness(75%)
+        @include mix.brightness()
