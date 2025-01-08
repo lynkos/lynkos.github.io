@@ -5,16 +5,20 @@ $header-color: rgb(56, 58, 55)
 $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
-$width: 48.9rem
+$width: 48.5rem
 $height: 45rem
+$inch-width: 7.27rem
+$inch-height: 1rem
+$window-padding: 0.5rem
+$border-radius: 0.5rem
 
 select
   background: $header-color
   color: vars.$font-color
-  border-radius: 5px
+  border-radius: $border-radius
 
 .text-edit
-  @include mix.window($body-color, $width, $height)
+  @include mix.window($style-bar-color, $width, $height)
   min-width: vars.$width
   min-height: vars.$min-height
   -webkit-box-orient: vertical
@@ -23,6 +27,8 @@ select
   flex-direction: column
   -ms-flex-line-pack: stretch
   align-content: stretch
+  overflow-x: hidden
+  display: flex //
 
   .bold
     font-weight: bold
@@ -68,16 +74,16 @@ select
     overflow: hidden
 
     .drops
-      padding: 0.5rem
+      padding: $window-padding
+      display: flex
+      justify-content: space-between
 
       input[type='color']
-        vertical-align: middle
-        margin-left: 0.3rem
-        margin-top: 0.25rem
-        width: 1.9rem
-        height: 1.9rem
+        margin-top: 0.1rem
+        width: 2rem
+        height: 2rem
         background: none
-        border-radius: 0.5rem
+        border-radius: $border-radius
         border: none
         outline: none
 
@@ -85,76 +91,95 @@ select
           padding: 0
 
         &::-webkit-color-swatch
-          border: 0.5px solid $separator-color
-          border-radius: 0.5rem
+          border: 0.05rem solid $separator-color
+          border-radius: $border-radius
 
       i
-        width: 2.5rem
-        font-size: 1.1rem
-        float: left
-        border-right: 0.5px solid $separator-color
+        width: 2.25rem
+        height: 1rem
+        font-size: 1rem
+        border-right: 0.05rem solid $separator-color
         text-align: center
 
         &:last-child
           border-right: 0
 
+        &:hover
+          color: white
+
       .drop--element
-        margin-right: 0.5rem
-        border-radius: 0.5rem
+        border-radius: $border-radius
+
+        &:hover
+          transition: background 1s
+          background: rgba(255, 255, 255, 0.1)
 
       .drop--styles
+        border: unset
         position: relative
         overflow: hidden
-        padding: 0.4rem 0.6rem
-        font-size: 1.2rem
-        border: 0.5px solid $separator-color
-        float: left
+        padding: 0.4rem
+        font-size: 1rem
+        border: 0.05rem solid $separator-color
 
       .drop--decorations, .drop--alignments
         position: relative
-        display: block
-        
-      .drop--decorations
-        i
-          padding: 0.65rem 0.9rem
+        display: flex
+        padding-top: 0.59rem
 
-      .drop--alignments
-        margin: 0
-
-        i
-          padding: 0.65rem 0
-
+  // RULER
   .rule
     position: relative
     height: 1.5rem
-    width: 100%
+    width: 51.4rem
     float: left
     background: $style-bar-color
-    font-family: vars.$terminal-font
-    border-top: 0.5px solid vars.$font-color
-    border-bottom: 0.5px solid vars.$font-color
-    margin-top: 1.5rem
-    padding-left: 0.5rem
+    font-family: sans-serif
+    font-size: 1.4rem
+    line-height: 1.15
+    border-top: 0.1rem solid vars.$font-color
+    border-bottom: 0.01rem solid vars.$font-color
+    margin-top: 1rem
+    padding-left: $window-padding
 
+    // TOP OF INITIAL TRIANGLE
     &:before
       content: "\00a0|"
-      font-size: 1rem
+      font-size: 0.9rem
       position: absolute
-      top: -1rem
-      left: 0.2rem
-      height: 0.2rem
-      width: 0.8rem
+      top: -0.9rem
+      left: 0.15rem
+      height: 0.17rem
+      width: 0.71rem
       background: vars.$font-color
 
+    // EACH HALF-INCH BLOCK
+    .half-inch
+      width: calc($inch-width / 2)
+      height: calc(($inch-height * 3) / 5)
+      float: right
+
+    // EACH INCH BLOCK
+    .inch
+      float: left
+      height: $inch-height
+      width: $inch-width
+
+      // NUMBER UNDER EACH INCH
+      .num
+        color: white
+        line-height: 2.15
+        padding-left: calc($inch-width / 40)
+        font-family: vars.$font-family
+
+    // EACH INCH AND HALF-INCH BLOCK
     .inch, .half-inch
       display: block
       position: relative
-      width: 7.27rem
-      float: left
-      font-size: 0.9rem
-      border-left: 1px solid vars.$font-color
-      padding-left: 0.3rem
+      font-size: 0.8rem
+      border-left: 0.1rem solid vars.$font-color
 
+      // ALL TRIANGLES EXCEPT FIRST AND LAST
       &:before
         content: ""
         display: block
@@ -164,40 +189,36 @@ select
         border-top: 0.4rem solid transparent
         border-left: 0.5rem solid vars.$font-color
         border-bottom: 0.4rem solid transparent
-        top: -0.9rem
-        left: -0.1rem
+        top: -0.82rem
+        left: -0.05rem
 
+      // ALL MINI INCHES (i.e. 0.1 -- 0.4, 0.6 -- 0.9)
       &:after
-        content: "\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0|"
-        font-size: 0.6rem
+        content: "\00a0\00a0\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0\00a0\00a0|\00a0\00a0\00a0\00a0\00a0\00a0|"
+        font-size: calc($inch-width / 20)
         font-weight: bold
         width: 100%
         position: absolute
-        top: -0.1rem
-        left: 0.2rem
-        height: 0.3rem
+        top: -0.05rem
+        left: 0.1rem
 
+    // [BOTTOM OF FIRST AND] LAST TRIANGLE
     .inch:first-child:before, .inch:last-child .half-inch:before
       border-left: 0.4rem solid transparent
       border-top: 0.5rem solid vars.$font-color
       border-right: 0.4rem solid transparent
-      top: -0.6rem
-      left: -0.4rem
-
-    .half-inch
-      display: block
-      width: 3.6rem
-      height: 0.4rem
-      float: right
+      top: -0.58rem
+      left: -0.41rem
 
   .text-body
-    font-size: 1.3rem
+    font-size: 1.2rem
     -webkit-box-flex: 1
     -ms-flex: 1
     flex: 1
     color: white
-    padding: 0 0.5rem
+    padding: 0 $window-padding
     overflow: scroll
+    background: $body-color
 
     a
       @include mix.text-shadow(0, 0, 1rem, vars.$foreground-color)
@@ -207,13 +228,13 @@ select
       max-width: -moz-fit-content
       max-width: fit-content
       overflow-x: auto
-      border: 1px solid white
+      border: 0.1rem solid white
       border-collapse: collapse
       background-color: black
 
       td
-        padding: 0.5rem
-        border: 1px solid white
+        padding: $window-padding
+        border: 0.1rem solid white
     
       tbody tr
         &:nth-child(odd)
