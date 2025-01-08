@@ -6,6 +6,8 @@ $folder-dim: 6rem
 $scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
 $scrollbar-color-track: rgba(255, 255, 255, 0.075)
 $scrollbar-width-legacy: 1.5rem
+$width-threshold: 530px
+$threshold-diff: 43px // 35, 37, 40, 43
 
 :root
   background-attachment: fixed
@@ -179,10 +181,6 @@ canvas
   background-size: cover
   background-position: 50% 50%
 
-@media (max-width: vars.$max-width) // screen-width <= 500px
-  .box
-    width: 100%
-
 .dialogue
   @include mix.blur(2.25rem, rgba(45, 45, 45, 0.6))
   @include mix.disable-select()
@@ -241,49 +239,49 @@ canvas
   position: absolute
   z-index: 0
 
-@media screen and (max-width: 455px)
+@media screen and (max-width: $width-threshold)
   html
     font-size: 55%
 
   .dialogue .alert-btn
     width: 9.75rem
 
-@media screen and (max-width: 420px)
+@media screen and (max-width: calc($width-threshold - $threshold-diff))
   html
     font-size: 50%
 
   .dialogue .alert-btn
     width: 9.75rem
 
-@media screen and (max-width: 380px)
+@media screen and (max-width: calc($width-threshold - (2 * $threshold-diff)))
   html
     font-size: 45%
 
   .dialogue .alert-btn
     width: 9.75rem
 
-@media screen and (max-width: 345px)
+@media screen and (max-width: calc($width-threshold - (3 * $threshold-diff)))
   html
     font-size: 40%
 
   .dialogue .alert-btn
     width: 9.62rem
 
-@media screen and (max-width: 308px)
+@media screen and (max-width: calc($width-threshold - (4 * $threshold-diff)))
   html
     font-size: 35%
 
   .dialogue .alert-btn
     width: 9.36rem
 
-@media screen and (max-width: 265px)
+@media screen and (max-width: calc($width-threshold - (5 * $threshold-diff)))
   html
     font-size: 30%
 
   .dialogue .alert-btn
     width: 9rem
     
-@media screen and (max-width: 230px)
+@media screen and (max-width: calc($width-threshold - (6 * $threshold-diff)))
   html
     font-size: 25%
 
