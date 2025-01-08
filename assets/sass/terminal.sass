@@ -2,6 +2,7 @@
 @use "mixins" as mix
 
 $height: 43rem
+$cursor-blink: 1s
 
 pre
   font-family: vars.$terminal-font
@@ -89,8 +90,8 @@ pre
       
       &-cursor
         font-weight: bold
-        -webkit-animation: vars.$cursor-blink blink step-end infinite
-        animation: vars.$cursor-blink blink step-end infinite
+        -webkit-animation: $cursor-blink blink step-end infinite
+        animation: $cursor-blink blink step-end infinite
 
       @keyframes blink
         from, to
