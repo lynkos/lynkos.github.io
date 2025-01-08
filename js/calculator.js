@@ -12,17 +12,12 @@ const clearFocusedButtons = () => {
 const handleNumber = (number) => {
   clearFocusedButtons();
 
-  if (screen.value == "0") {
-    screen.value = "";
-  }
+  if (screen.value == "0") screen.value = "";
 
   if (number === "decimal") {
     if (screen.value.indexOf(".") === -1) {
-      if (!screen.value) {
-        number = "0.";
-      } else {
-        number = ".";
-      }
+      if (!screen.value) number = "0.";
+      else number = ".";
     } else return;
   }
 
@@ -36,15 +31,12 @@ const handleOperation = (operation) => {
     case "clear":
       params = [];
       return (screen.value = 0);
+
     case "invert":
-      if (screen.value != "0") {
-        return (screen.value = "-" + screen.value);
-      }
+      if (screen.value != "0") return (screen.value = "-" + screen.value);
   }
 
-  if (screen.value == "0") {
-    return;
-  }
+  if (screen.value == "0") return;
   
   if (operation === 'percent') {
     screen.value = eval(`${screen.value} / 100`)
@@ -57,12 +49,15 @@ const handleOperation = (operation) => {
     case "add":
       params.push("+");
       break;
+
     case "minus":
       params.push("-");
       break;
+
     case "divide":
       params.push("/");
       break;
+
     case "multiply":
       params.push("*");
       break;
@@ -70,9 +65,7 @@ const handleOperation = (operation) => {
 
   document.getElementById(operation).parentNode.classList.add("bg-opacity-40");
 
-  if (operation === "equals") {
-    return calculate();
-  }
+  if (operation === "equals") return calculate();
 
   screen.value = "0";
 };
@@ -80,21 +73,16 @@ const handleOperation = (operation) => {
 const calculate = () => {
   clearFocusedButtons();
   
-  const calculation = params.join(' ')
-  console.log(calculation)
+  const calculation = params.join(' ');
   const answer = eval(calculation);
 
-  screen.value = answer
-
+  screen.value = answer;
   params = [];
 };
 
 const handleButton = (action) => {
-  if (isNaN(action) && action !== "decimal") {
-    handleOperation(action);
-  } else {
-    handleNumber(action);
-  }
+  if (isNaN(action) && action !== "decimal") handleOperation(action);
+  else handleNumber(action);
 };
 
 buttons.forEach((button) => {
