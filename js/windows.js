@@ -122,8 +122,8 @@ $(document).ready(function() {
   // Make windows draggable and bring to front on drag
   function makeDraggable(selector) {
     $(selector).draggable({
-      handle: ".header, .notes-header, .mail-header, .calc-header, .app-store-header",
-      cancel: ".header__op, .notes-header__op, .mail-header__op, .calc-header__op, .app-store-header__op, .send-btn, .search-bar",
+      handle: ".header, .text-edit-header, .mail-header, .calc-header, .app-store-header",
+      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .app-store-header__op, .send-btn, .search-bar",
       start: function() {
         bringToFront(this);
       },
@@ -207,7 +207,7 @@ $(document).ready(function() {
   openWindow("#mail", ".email", "flex");
 
   // Open about me
-  openWindow("#notes", ".text-edit", "flex");
+  openWindow("#text-edit", ".text-edit", "flex");
 
   // Open projects
   openWindow("#app-store", ".app-store", "block");
@@ -267,7 +267,7 @@ $(document).ready(function() {
   closeWindow('.mail-header__op-icon--red', '.email', "#mail");
 
   // Close about me
-  closeWindow('.notes-header__op-icon--red', '.text-edit', "#notes");
+  closeWindow('.text-edit-header__op-icon--red', '.text-edit', "#text-edit");
 
   // Close projects
   closeWindow('.app-store-header__op-icon--red', '.app-store', "#app-store");
