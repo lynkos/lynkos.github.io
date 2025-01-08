@@ -212,7 +212,7 @@ $(document).ready(function() {
   openWindow("#text-edit", ".text-edit", "flex");
 
   // Open projects
-  openWindow("#app-store", ".app-store", "block");
+  openWindow("#app-store", ".app-store", "flex");
 
   // Open calculator
   openWindow("#calculator", ".calc", "inline-block");
