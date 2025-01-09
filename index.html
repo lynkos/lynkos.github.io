@@ -20,6 +20,7 @@
     <link rel="preload" as="image" href="assets/icons/iterm.png" />
     <link rel="preload" as="image" href="assets/icons/launchpad.png" />
     <link rel="preload" as="image" href="assets/icons/mail.png" />
+    <link rel="preload" as="image" href="assets/icons/mpc.jpg" />
     <link rel="preload" as="image" href="assets/icons/rtf_icon.png" />
     <link rel="preload" as="image" href="assets/icons/spotify.png" />
     <link rel="preload" as="image" href="assets/icons/steam.png" />
@@ -490,6 +491,14 @@
               </div>
             </div>
           </li>
+          <li class="project-name" data-id="project-14">
+            <div class="text" data-id="project-14">
+              <p class="name" data-id="project-14">Q-SECURE: Quantum-Secure Protocol</p>
+              <div class="bottom" data-id="project-14">
+                <span class="day" data-id="project-14">11/3/23</span>&nbsp;&nbsp;<span class="preview" data-id="project-14">Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</span>
+              </div>
+            </div>
+          </li>
           <li class="project-name" data-id="project-2">
             <div class="text" data-id="project-2">
               <p class="name" data-id="project-2">Quantum Search Algorithm</p>
@@ -745,6 +754,20 @@
             <ul>
               <li>Program I wrote in high school that converts a given integer to little-endian and/or big-endian</li>
             </ul>
+          </div>
+        </div>
+        <div id="project-14" class="project">
+          <div class="date">November 3, 2023 at 15:27</div>
+          <h1 class="project-title">Q-SECURE: Quantum-Secure Protocol</h1>
+          <div class="project-body">
+            <p>Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</p><br>
+            <img src="assets/icons/mpc.jpg" /><br>
+            <ol>
+              <li>Split each of <code>N</code> massive matrices into submatrices</li>
+              <li>Homomorphically encrypt the submatrices and disperse evenly among <code>M</code> Internet of Things (IoT) devices</li>
+              <li><code>M</code> IoT devices calculate the product of <code>N</code> homomorphically encrypted submatrices and send the result back upon completion</li>
+              <li>Received submatrices (i.e. results) are decrypted and concatenated into a single matrix, which is the final result</li>
+            </ol>
           </div>
         </div>
       </div>
