@@ -54,6 +54,16 @@ $max-per-row: 7
         border: 0.13rem solid rgba(255, 255, 255, 0.15)
         border-radius: vars.$border-radius
 
+        input[type=search]
+          &::-ms-clear, &::-ms-reveal
+            display: none
+            width: 0
+            height: 0
+
+        input[type="search"]
+          &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+            display: none
+
         input
           background: none
           border: none
