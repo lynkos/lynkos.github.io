@@ -4,7 +4,7 @@ $(document).ready(function() {
   // Open launchpad
   function openLaunchpad() {
     $(".menu-bar").fadeOut(400);
-    $(".open").fadeOut(400);
+    $(".open .window").fadeOut(400);
     launchpad.addClass("shown start");
     launchpad.find("nav").addClass("scale-down");
   }
@@ -29,7 +29,7 @@ $(document).ready(function() {
       launchpad.find("nav").removeClass("scale-up");
     }, 350);
     $(".menu-bar").fadeIn(400);
-    $(".open").fadeIn(400);
+    $(".open .window").fadeIn(400);
   }
 
   // Close launchpad when clicking any launchpad icon
