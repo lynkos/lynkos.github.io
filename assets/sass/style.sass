@@ -5,7 +5,7 @@ $folder-padding: 1.5rem
 $folder-dim: 6rem
 $scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
 $scrollbar-color-track: rgba(255, 255, 255, 0.075)
-$scrollbar-width: 1.5rem
+$scrollbar-width: 1rem
 $width-threshold: 530px
 $threshold-diff: 43px // 35, 37, 40, 43
 
@@ -58,7 +58,6 @@ main
     background: $scrollbar-color-track
 
   ::-webkit-scrollbar
-    z-index: 2 // Fixes the scrollbar being hidden behind notes sticky header
     max-width: $scrollbar-width
     max-height: $scrollbar-width
 
