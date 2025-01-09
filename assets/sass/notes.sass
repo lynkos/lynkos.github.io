@@ -120,14 +120,20 @@ $secondary-background: rgb(30, 30, 30)
                         padding: calc(vars.$padding * 1.75) 0
                         border-bottom: 1px solid rgba(255, 255, 255, 0.15)
 
+                        .name, .bottom
+                            overflow: hidden
+                            white-space: nowrap
+
                         .name
                             font-weight: 700
+                            text-overflow: ellipsis
 
-                        .day, .preview
-                            font-size: 1.2rem
+                        .bottom
+                            .day, .preview
+                                font-size: 1.2rem
 
-                        .preview
-                            color: rgb(147, 148, 146)
+                            .preview
+                                color: rgb(147, 148, 146)
 
                     &:last-child
                         margin-bottom: calc(vars.$padding * 1.5)
@@ -195,6 +201,7 @@ $secondary-background: rgb(30, 30, 30)
             .date
                 @include mix.disable-select()
                 text-align: center
+                font-weight: 500
                 font-size: 1.1rem
                 color: rgba(255, 255, 255, 0.5)
                 padding: calc(vars.$padding / 2) 0
@@ -205,8 +212,17 @@ $secondary-background: rgb(30, 30, 30)
 
 .project
     display: none
-    font-size: 1.75rem
-    font-weight: 700
+
+    &-title
+        font-weight: 700
+        font-size: 1.6rem
+
+    &-body
+        font-size: 1.3rem
+
+        ul
+            list-style-type: disc
+            padding-left: 1.75rem
 
 .active
     display: block

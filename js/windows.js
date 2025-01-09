@@ -245,7 +245,7 @@ $(document).ready(function() {
   launchApp("#mailLaunch", ".email", "flex");
 
   // Open about me
-  launchApp("#notesLaunch", ".text-edit", "flex");
+  launchApp("#textLaunch", ".text-edit", "flex");
 
   // Open projects
   launchApp("#notesLaunch", ".notes", "block");
