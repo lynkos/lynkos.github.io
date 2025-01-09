@@ -14,18 +14,12 @@ $cursor-blink: 1s
     @include mix.header(none, vars.$header-height, 0 1.4rem)
 
     &__title
-      @include mix.disable-select()
-      color: vars.$font-color
-      font-family: "Arial", sans-serif
       font-size: 1.3rem
-      font-weight: bold
 
       img
-        display: inline
         width: 1.3rem
         height: 1.3rem
         margin-right: 0.6rem
-        vertical-align: middle
         -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
         -ms-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)
         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(105%) contrast(105%)

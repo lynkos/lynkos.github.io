@@ -177,6 +177,17 @@
     height: $height
     padding: $padding
 
+    &__title
+      @include disable-select()
+      color: vars.$font-color
+      font-family: "Arial", sans-serif
+      font-weight: bold
+      vertical-align: middle
+
+      img
+        display: inline
+        vertical-align: middle
+
     &__op
         @include buttons()
 
