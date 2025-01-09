@@ -1,7 +1,7 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$sidebar-width: 19rem
+$sidebar-width: 16.9rem
 $window-width: 55rem
 $window-height: 40rem
 $header-height: 5rem
@@ -54,7 +54,6 @@ $secondary-background: rgb(30, 30, 30)
     .sidebar
         @include mix.disable-select()
         width: $sidebar-width
-        min-width: $sidebar-width
         height: 100%
         overflow-x: hidden
         border-right: 1px solid rgb(11, 11, 11)

@@ -160,8 +160,8 @@ $(document).ready(function() {
   $(".sidebar").resizable({
     containment: ".notes",
     handles: "e",
-    minWidth: 182, // 182px = 19rem (aka $sidebar-width)
-    maxWidth: 228,
+    minWidth: 161.25,
+    maxWidth: 240
   });
 
   // Dock Resizing
