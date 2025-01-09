@@ -229,14 +229,17 @@ $styles-height: 2.25rem
       border: 0.1rem solid white
       border-collapse: collapse
       background-color: black
-
-      td
-        padding: vars.$padding
-        border: 0.1rem solid white
     
-      tbody tr
-        &:nth-child(odd)
-          background-color: rgba(255, 255, 255, 0.1)
-        
-        &:nth-child(even)
-          background-color: rgba(255, 255, 255, 0.2)
+      tbody
+        td, tr
+          border: 0.1rem solid white
+
+        tr
+          &:nth-child(odd)
+            background-color: rgba(255, 255, 255, 0.1)
+          
+          &:nth-child(even)
+            background-color: rgba(255, 255, 255, 0.2)
+
+        td
+          padding: vars.$padding
