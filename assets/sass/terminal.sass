@@ -4,9 +4,6 @@
 $height: 43rem
 $cursor-blink: 1s
 
-pre
-  font-family: vars.$terminal-font
-
 .mac-terminal
   @include mix.window(vars.$terminal-color, vars.$width, $height)
   font-family: vars.$terminal-font
@@ -49,6 +46,9 @@ pre
       -webkit-box-align: center
       -ms-flex-align: center
       align-items: center
+
+      pre, code
+        font-family: vars.$terminal-font
 
       a
         color: vars.$font-color
