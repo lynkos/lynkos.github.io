@@ -159,9 +159,7 @@ $(document).ready(function() {
   // Resize app store sidebar
   $(".sidebar").resizable({
     containment: ".notes",
-    handles: "e",
-    minWidth: 161.25,
-    maxWidth: 240
+    handles: "e"
   });
 
   // Dock Resizing
