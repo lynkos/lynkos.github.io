@@ -59,7 +59,7 @@ $(document).ready(function() {
     //bringToFront("#playlist");
 
     // Reset z-index for all windows
-    let maxZIndex = Math.max(...$('.windows, .btn').map(function() {
+    let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
       return parseInt($(this).css("z-index")) || 0;
     }).get());
 
@@ -81,6 +81,9 @@ $(document).ready(function() {
     $("#playlist").fadeOut(250);
   });
 
+  // add class to launch while moving/dragging & remove when done
+  // so that the launchpad doesn't close when sorting
+
   // Close the launchpad when the content is clicked, only if the target is not a link
   $(document).mouseup(function (e) {
     var content = launchpad.find(".launch-content"),
@@ -96,7 +99,7 @@ $(document).ready(function() {
 
   // Function to bring the clicked window to the front
   function bringToFront(element) {
-    let maxZIndex = Math.max(...$('.windows, .btn').map(function() {
+    let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
       // Make buttons inactive
       $(this).css("--red", "rgba(255, 255, 255, 0.2)");
       $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
