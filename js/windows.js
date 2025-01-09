@@ -4,7 +4,7 @@ $(document).ready(function() {
   // Open launchpad
   function openLaunchpad() {
     $(".menu-bar").fadeOut(400);
-    $(".openWindow").fadeOut(400);
+    $(".open").fadeOut(400);
     launchpad.addClass("shown start");
     launchpad.find("nav").addClass("scale-down");
   }
@@ -29,7 +29,7 @@ $(document).ready(function() {
       launchpad.find("nav").removeClass("scale-up");
     }, 350);
     $(".menu-bar").fadeIn(400);
-    $(".openWindow").fadeIn(400);
+    $(".open").fadeIn(400);
   }
 
   // Close launchpad when clicking any launchpad icon
@@ -206,7 +206,7 @@ $(document).ready(function() {
       closeLaunchpad();
       $(win).css("display", displayType);
       bringToFront(win);
-      $(win).addClass("openWindow");
+      $(win).addClass("open");
       bounceIcon(icon);
     });
   }
@@ -235,7 +235,7 @@ $(document).ready(function() {
       closeLaunchpad();
       bringToFront(win);
       $(win).css("display", displayType);
-      $(win).addClass("openWindow");
+      $(win).addClass("open");
     });
   }
 
@@ -266,7 +266,7 @@ $(document).ready(function() {
   function closeWindow(close, win, parent) {
     $(close).on('click', function() {
       $(win).css("display", "none");
-      $(win).removeClass("openWindow");
+      $(win).removeClass("open");
       $(parent).removeClass("open");
     });
   }
