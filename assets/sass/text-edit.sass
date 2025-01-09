@@ -5,15 +5,11 @@ $header-color: rgb(56, 58, 55)
 $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
-$width: 45.5rem
+$width: 48.35rem
 $height: 45rem
 $inch-width: 7.27rem
 $inch-height: 1rem
-
-select
-  background: $header-color
-  color: vars.$font-color
-  border-radius: vars.$border-radius
+$styles-height: 2.25rem
 
 .text-edit
   @include mix.window($style-bar-color, $width, $height)
@@ -78,11 +74,10 @@ select
       justify-content: space-between
 
       input[type='color']
-        margin-top: 0.1rem
-        width: 2rem
-        height: 2rem
+        width: calc($styles-height * 0.9)
+        height: calc($styles-height * 0.9)
+        margin-top: calc($styles-height / 20) // margin-top + margin-bottom + $height = $styles-height
         background: none
-        border-radius: vars.$border-radius
         border: none
         outline: none
 
@@ -91,12 +86,22 @@ select
 
         &::-webkit-color-swatch
           border: 0.05rem solid $separator-color
-          border-radius: vars.$border-radius
+
+      select, select:hover
+        background-color: $header-color
+        background-image: url("../icons/angles-up-down.svg")
+        background-repeat: no-repeat
+        background-position: right 0.4rem top 50%
+        background-size: 0.8rem 0.8rem
+        color: vars.$font-color
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
 
       i
         width: 2.25rem
-        height: 1rem
-        font-size: 1rem
+        height: 1.1rem
+        font-size: 1.1rem
         border-right: 0.05rem solid $separator-color
         text-align: center
 
@@ -106,25 +111,28 @@ select
         &:hover
           color: white
 
-      .drop--element
+      select, .drop--element
+        height: $styles-height
+
+      select, select:hover, input[type='color'], input[type='color']::-webkit-color-swatch, .drop--element
         border-radius: vars.$border-radius
 
         &:hover
           transition: background 1s
-          background: rgba(255, 255, 255, 0.1)
+          background-color: rgba(255, 255, 255, 0.1)
 
       .drop--styles
         border: unset
         position: relative
         overflow: hidden
-        padding: 0.4rem
+        padding: 0.4rem 1.5rem 0.4rem 0.4rem
         font-size: 1rem
         border: 0.05rem solid $separator-color
 
       .drop--decorations, .drop--alignments
         position: relative
         display: flex
-        padding-top: 0.58rem
+        padding-top: calc(($styles-height - 1.1rem) / 2) // padding-top + padding-bottom + font-awesome-height-size = $styles-height
 
   // RULER
   .rule
