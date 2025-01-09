@@ -55,7 +55,6 @@ $secondary-background: rgb(30, 30, 30)
         min-width: $sidebar-width
         max-width: calc($window-width / 2.2)
         height: 100%
-        overflow-x: hidden
         border-right: 1px solid rgb(11, 11, 11)
 
         &-header
@@ -80,7 +79,7 @@ $secondary-background: rgb(30, 30, 30)
 
         .content
             background: rgb(32, 36, 31) // Primary background w/o blur + opacity
-            overflow-y: auto
+            overflow: auto
             height: calc(100% - $header-height)
 
             .title
