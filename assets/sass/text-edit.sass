@@ -48,12 +48,7 @@ $styles-height: 2.25rem
     @include mix.header($header-color, 3rem)
 
     &__title
-      font-size: 1.36rem
-
-      img
-        width: 1.5rem
-        height: 1.5rem
-        margin-right: 0.24rem
+      @include mix.header-title(1.5rem, 0.24rem)
   
   .styles, .rule
     @include mix.disable-select()

@@ -73,7 +73,7 @@
         // transition: all 0.25s
         // transform: translateY(0%) translateX(0%) scale(1)
 
-@mixin buttons()
+@mixin buttons($button-dim: vars.$window-icons-dim)
     display: -webkit-box
     display: -ms-flexbox
     display: flex
@@ -83,8 +83,8 @@
 
     &-icon
         @include disable-select()
-        width: vars.$window-icons-dim
-        height: vars.$window-icons-dim
+        width: $button-dim
+        height: $button-dim
         border-radius: 50%
         position: relative
         cursor: default
@@ -177,19 +177,23 @@
     height: $height
     padding: $padding
 
-    &__title
-      @include disable-select()
-      color: vars.$font-color
-      font-family: "Arial", sans-serif
-      font-weight: bold
-      vertical-align: middle
-
-      img
-        display: inline
-        vertical-align: middle
-
     &__op
         @include buttons()
 
     &__empty
         width: calc((vars.$window-icons-dim * 3) + (vars.$windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
+
+@mixin header-title($img-size, $spacing, $font-size: 1.36rem)
+    @include disable-select()
+    color: vars.$font-color
+    font-family: "Arial", sans-serif
+    font-size: $font-size
+    font-weight: bold
+    vertical-align: middle
+
+    img
+        display: inline
+        width: $img-size
+        height: $img-size
+        margin-right: $spacing
+        vertical-align: middle
