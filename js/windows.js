@@ -229,29 +229,30 @@ $(document).ready(function() {
   openWindow("#trash-icon", ".dialogue", "inline-block");
 
   // Open app via launchpad
-  function launchApp(icon, win, displayType) {
+  function launchApp(icon, win, displayType, dockIcon) {
     $(icon).on('click', function() {    
       closeLaunchpad();
       bringToFront(win);
       $(win).css("display", displayType);
       $(win).addClass("openWindow");
+      $(dockIcon).addClass("open");
     });
   }
 
   // Open terminal
-  launchApp("#itermLaunch", ".mac-terminal", "inline-block");
+  launchApp("#itermLaunch", ".mac-terminal", "inline-block", "#iterm");
 
   // Open mail
-  launchApp("#mailLaunch", ".email", "flex");
+  launchApp("#mailLaunch", ".email", "flex", "#mail");
 
   // Open about me
-  launchApp("#textLaunch", ".text-edit", "flex");
+  launchApp("#textLaunch", ".text-edit", "flex", "#text-edit");
 
   // Open projects
-  launchApp("#notesLaunch", ".notes", "block");
+  launchApp("#notesLaunch", ".notes", "block", "#notes");
 
   // Open calculator
-  launchApp("#calculatorLaunch", ".calc", "inline-block");  
+  launchApp("#calculatorLaunch", ".calc", "inline-block", "#calculator");  
 
   // Empty trash
   $(".confirm").click(function (e) {
