@@ -1,5 +1,8 @@
 @use "variables" as vars
 
+@mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
+    width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
+
 @mixin disable-select()
     -webkit-user-drag: none
     -webkit-app-region: no-drag
@@ -179,9 +182,6 @@
 
     &__op
         @include buttons()
-
-    &__empty
-        width: calc((vars.$window-icons-dim * 3) + (vars.$windows-icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
 @mixin header-title($img-size, $spacing, $font-size: 1.36rem)
     @include disable-select()
