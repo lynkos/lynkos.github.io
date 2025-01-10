@@ -4,16 +4,15 @@ $(document).ready(function() {
   // Open launchpad
   function openLaunchpad() {
     $(".menu-bar").fadeOut(400);
-    $(".open .window").fadeOut(400);
+    $(".openWindow").fadeOut(400);
     launchpad.addClass("shown start");
     launchpad.find("nav").addClass("scale-down");
   }
 
   // Toggle launchpad
   $(".open-menu").on("click", function() {
-    if (launchpad.hasClass("shown start")) {
-      closeLaunchpad();
-    } else openLaunchpad();
+    if (launchpad.hasClass("shown start")) closeLaunchpad();
+    else openLaunchpad();
   });
 
   // Close launchpad
@@ -29,7 +28,7 @@ $(document).ready(function() {
       launchpad.find("nav").removeClass("scale-up");
     }, 350);
     $(".menu-bar").fadeIn(400);
-    $(".open .window").fadeIn(400);
+    $(".openWindow").fadeIn(400);
   }
 
   // Close launchpad when clicking any launchpad icon
@@ -99,33 +98,29 @@ $(document).ready(function() {
 
   // Function to bring the clicked window to the front
   function bringToFront(element) {
-    // If there's more than one window open (to avoid incrementing z-index for no reason)
-    // > 2 since .open is added to both terminal and its respective icon in the dock
-    if (document.getElementsByClassName("open").length > 2) {
-      let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
-        // Make buttons inactive
-        $(this).css("--red", "rgba(255, 255, 255, 0.2)");
-        $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
-        $(this).css("--green", "rgba(255, 255, 255, 0.2)");
-        $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
-        $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
-        $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
+    let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
+      // Make buttons inactive
+      $(this).css("--red", "rgba(255, 255, 255, 0.2)");
+      $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
+      $(this).css("--green", "rgba(255, 255, 255, 0.2)");
+      $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
+      $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
+      $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
 
-        // Reset z-index for all windows
-        return parseInt($(this).css("z-index")) || 0;
-      }).get());
+      // Reset z-index for all windows
+      return parseInt($(this).css("z-index")) || 0;
+    }).get());
 
-      // Set higher z-index for the clicked window
-      $(element).css("z-index", maxZIndex + 1);
+    // Set higher z-index for the clicked window
+    $(element).css("z-index", maxZIndex + 1);
 
-      // Make buttons active for the clicked window
-      $(element).css("--red", "#FF544D");
-      $(element).css("--yellow", "#FFB429");
-      $(element).css("--green", "#25C63A");
-      $(element).css("--red-active", "#c14645");
-      $(element).css("--yellow-active", "#c08e38");
-      $(element).css("--green-active", "#029740");
-    }
+    // Make buttons active for the clicked window
+    $(element).css("--red", "#FF544D");
+    $(element).css("--yellow", "#FFB429");
+    $(element).css("--green", "#25C63A");
+    $(element).css("--red-active", "#c14645");
+    $(element).css("--yellow-active", "#c08e38");
+    $(element).css("--green-active", "#029740");
   }
 
   // Make windows draggable and bring to front on drag
@@ -210,7 +205,7 @@ $(document).ready(function() {
       closeLaunchpad();
       $(win).css("display", displayType);
       bringToFront(win);
-      $(win).addClass("open");
+      $(win).addClass("openWindow");
       bounceIcon(icon);
     });
   }
@@ -239,7 +234,7 @@ $(document).ready(function() {
       closeLaunchpad();
       bringToFront(win);
       $(win).css("display", displayType);
-      $(win).addClass("open");
+      $(win).addClass("openWindow");
     });
   }
 
@@ -270,7 +265,7 @@ $(document).ready(function() {
   function closeWindow(close, win, parent) {
     $(close).on('click', function() {
       $(win).css("display", "none");
-      $(win).removeClass("open");
+      $(win).removeClass("openWindow");
       $(parent).removeClass("open");
     });
   }
