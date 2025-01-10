@@ -5,6 +5,7 @@ $email-body-color: rgb(32, 35, 32)
 $email-accent-color: rgb(54, 56, 54)
 $email-title-color: rgb(155, 156, 154)
 $email-tab-color: rgb(55, 56, 55)
+$recaptcha-scale: 0.4
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
@@ -23,6 +24,14 @@ $email-tab-color: rgb(55, 56, 55)
   .mail-header
     @include mix.header(none, vars.$header-height, 0 1.4rem)
 
+    .g-recaptcha
+      -moz-transform: scale($recaptcha-scale)
+      -ms-transform: scale($recaptcha-scale)
+      -o-transform: scale($recaptcha-scale)
+      -webkit-transform: scale($recaptcha-scale)
+      transform: scale($recaptcha-scale)
+      filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
+
     button
       color: white
       float: right
@@ -40,6 +49,7 @@ $email-tab-color: rgb(55, 56, 55)
     input
       display: inline-block
       background: none
+      border: none
       color: white
       width: 100%
 

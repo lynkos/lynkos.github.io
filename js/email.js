@@ -45,6 +45,7 @@
     formData.formDataNameOrder = JSON.stringify(fields);
     formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
     formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+    formData.gRecaptchaResponse = document.getElementById("g-recaptcha-response").value;
 
     return {data: formData, honeypot: honeypot};
   }
