@@ -127,7 +127,7 @@ $(document).ready(function() {
   function makeDraggable(selector) {
     $(selector).draggable({
       handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header",
-      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, .send-btn, .search-bar, .icons",
+      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .icons",
       start: function() {
         bringToFront(this);
       },
