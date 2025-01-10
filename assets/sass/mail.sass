@@ -5,7 +5,7 @@ $email-body-color: rgb(32, 35, 32)
 $email-accent-color: rgb(54, 56, 54)
 $email-title-color: rgb(155, 156, 154)
 $email-tab-color: rgb(55, 56, 55)
-$recaptcha-scale: 0.4
+$recaptcha-scale: 0.45
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
@@ -25,16 +25,39 @@ $recaptcha-scale: 0.4
     @include mix.header(none, vars.$header-height, 0 1.4rem)
 
     .g-recaptcha
-      -moz-transform: scale($recaptcha-scale)
-      -ms-transform: scale($recaptcha-scale)
-      -o-transform: scale($recaptcha-scale)
-      -webkit-transform: scale($recaptcha-scale)
-      transform: scale($recaptcha-scale)
-      filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
+      @include mix.scale($recaptcha-scale)
+      filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.45,M12=0,M21=0,M22=0.45,SizingMethod='auto expand')
+
+      @media screen and (max-width: vars.$width-threshold)
+        @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
+        @include mix.scale(calc($recaptcha-scale - 0.1)) // 0.35
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.35,M12=0,M21=0,M22=0.35,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
+        @include mix.scale(calc($recaptcha-scale - 0.15)) // 0.3
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.3,M12=0,M21=0,M22=0.3,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
+        @include mix.scale(calc($recaptcha-scale - 0.2)) // 0.25
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.25,M12=0,M21=0,M22=0.25,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+        @include mix.scale(calc($recaptcha-scale - 0.25)) // 0.2
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.2,M12=0,M21=0,M22=0.2,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+        @include mix.scale(calc($recaptcha-scale - 0.3)) // 0.15
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.15,M12=0,M21=0,M22=0.15,SizingMethod='auto expand')
+
+      @media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
+        @include mix.scale(calc($recaptcha-scale - 0.35)) // 0.1
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.1,M12=0,M21=0,M22=0.1,SizingMethod='auto expand')
 
     button
       color: white
-      float: right
 
       i
         font-size: 1.7rem      
