@@ -6,13 +6,11 @@ $email-accent-color: rgb(54, 56, 54)
 $email-title-color: rgb(155, 156, 154)
 $email-tab-color: rgb(55, 56, 55)
 $recaptcha-scale: 0.45
-$window-width: 55rem
-$window-height: 45rem
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
 .email
-  @include mix.window($email-tab-color, $window-width, $window-height)
+  @include mix.window($email-tab-color, vars.$width, vars.$height)
   min-width: vars.$min-width
   min-height: vars.$min-height
   font-size: 1.3rem
@@ -28,6 +26,7 @@ $window-height: 45rem
 
     .g-recaptcha
       @include mix.scale($recaptcha-scale)
+      overflow: auto
       filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.45,M12=0,M21=0,M22=0.45,SizingMethod='auto expand')
 
       @media screen and (max-width: vars.$width-threshold)
