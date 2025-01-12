@@ -6,11 +6,13 @@ $email-accent-color: rgb(54, 56, 54)
 $email-title-color: rgb(155, 156, 154)
 $email-tab-color: rgb(55, 56, 55)
 $recaptcha-scale: 0.45
+$window-width: 55rem
+$window-height: 45rem
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
 .email
-  @include mix.window($email-tab-color, vars.$width, vars.$height)
+  @include mix.window($email-tab-color, $window-width, $window-height)
   min-width: vars.$min-width
   min-height: vars.$min-height
   font-size: 1.3rem
