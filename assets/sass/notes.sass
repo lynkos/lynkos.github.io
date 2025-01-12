@@ -163,15 +163,17 @@ $secondary-background: rgb(30, 30, 30)
                 width: $search-width
                 color: white
                 font-size: 1.2rem
+                line-height: 1.2rem
                 height: $search-height
                 background: none
                 position: relative
-                border: 1px solid rgba(255, 255, 255, 0.15)
+                border: 0.13rem solid rgba(255, 255, 255, 0.15)
                 border-radius: vars.$border-radius
 
                 input
                     background: none
                     border: none
+                    color: rgba(255, 255, 255, 0.8)
                     border-radius: vars.$border-radius
                     height: 100%
                     width: 100%
@@ -179,14 +181,31 @@ $secondary-background: rgb(30, 30, 30)
                     padding: 0 vars.$padding
                     outline: none
 
+                    &[type=search]
+                        &::-ms-clear, &::-ms-reveal
+                            display: none
+                            width: 0
+                            height: 0
+
+                    &[type="search"]
+                        &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+                            display: none
+
+                    &::placeholder
+                        color: rgba(255, 255, 255, 0.5)
+
+                    &::selection
+                        background: rgba(255, 255, 255, 0.25)
+                        color: rgba(255, 255, 255, 0.9)
+
                 &::before
                     content: "\f002"
                     position: absolute
                     font-family: "Font Awesome 5 Free"
                     font-weight: 600
                     font-size: 1.2rem
-                    margin-top: 2.5px
-                    color: rgba(255, 255, 255, 0.5)
+                    margin-top: calc(($search-height - 1.3rem) / 2)
+                    color: rgb(151, 152, 151)
                     padding: 0 vars.$padding
 
         &-body
