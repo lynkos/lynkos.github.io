@@ -15,7 +15,6 @@
 
     <link rel="preload" as="image" href="assets/icons/blue_folder.png" />
     <link rel="preload" as="image" href="assets/icons/notes.png" />
-    <link rel="preload" as="image" href="assets/icons/calc.png" />
     <link rel="preload" as="image" href="assets/icons/github.svg" />
     <link rel="preload" as="image" href="assets/icons/iterm.png" />
     <link rel="preload" as="image" href="assets/icons/launchpad.png" />
@@ -30,7 +29,6 @@
     <link rel="preload" as="image" href="assets/icons/text_file.png" />
     <link rel="preload" as="image" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" />
 
-    <link rel="preload" as="script" href="js/calculator.js">
     <link rel="preload" as="script" href="js/email.js">
     <link rel="preload" as="script" href="js/particles.js">
     <link rel="preload" as="script" href="js/timestamp.js">
@@ -56,7 +54,6 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/menubar.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/calculator.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/mail.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/dock.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/terminal.min.css" />
@@ -66,7 +63,6 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/launchpad.min.css" />
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -231,60 +227,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="calc windows">
-          <div class="calc-header">
-            <div class="calc-header__op">
-              <span class="calc-header__op-icon calc-header__op-icon--red"><a class="calc-header__op-icon" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--yellow"><a class="calc-header__op-icon" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--green"><a class="calc-header__op-icon" href="#"></a></span>
-            </div>
-            <div class="calc-header__empty"></div>
-          </div>
-
-          <div class="flex items-center justify-end leading-none">
-            <input readonly class="cursor-default text-right block w-full px-4 text-5xl text-white bg-transparent focus:outline-none" value="0" id="screen" />
-          </div>
-
-          <div class="mt-2 p-1.5 grid grid-cols-4 grid-rows-5 gap-px text-white text-center font-extralight">
-            <div class="button"><button id="clear" class="font-light cursor-default text-3xl">AC</button></div>
-
-            <div class="button">
-              <button id="invert" class="tracking-tighter cursor-default font-extralight text-2xl">
-                <sup class="pointer-events-none relative left-0.5">+</sup>
-                <span class="pointer-events-none">/</span>
-                <sub class="pointer-events-none relative right-0.5">−</sub>
-              </button>
-            </div>
-
-            <div class="button"><button id="percent" class="font-extralight cursor-default text-3xl">%</button></div>
-            <div class="button bg-yellow-500"><button id="divide" class="font-extralight cursor-default text-4xl">÷</button></div>
-
-            <div class="button bg-gray-600"><button id="7" class="cursor-default text-3xl">7</button></div>
-            <div class="button bg-gray-600"><button id="8" class="cursor-default text-3xl">8</button></div>
-            <div class="button bg-gray-600"><button id="9" class="cursor-default text-3xl">9</button></div>
-
-            <div class="button bg-yellow-500"><button id="multiply" class="font-extralight cursor-default text-4xl">×</button></div>
-
-            <div class="button bg-gray-600"><button id="4" class="cursor-default text-3xl">4</button></div>
-            <div class="button bg-gray-600"><button id="5" class="cursor-default text-3xl">5</button></div>
-            <div class="button bg-gray-600"><button id="6" class="cursor-default text-3xl">6</button></div>
-
-            <div class="button bg-yellow-500"><button id="minus" class="font-extralight cursor-default text-4xl">−</button></div>
-
-            <div class="button bg-gray-600"><button id="1" class="cursor-default text-3xl">1</button></div>
-            <div class="button bg-gray-600"><button id="2" class="cursor-default text-3xl">2</button></div>
-            <div class="button bg-gray-600"><button id="3" class="cursor-default text-3xl">3</button></div>
-
-            <div class="button bg-yellow-500"><button id="add" class="font-extralight cursor-default text-4xl">+</button></div>
-            <div class="button bg-gray-600"><button class="cursor-default text-3xl"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></button></div>
-
-            <div class="button bg-gray-600"><button id="0" class="cursor-default text-3xl">0</button></div>
-
-            <div class="button bg-gray-600"><button id="decimal" class="cursor-default text-3xl">.</button></div>
-            <div class="button bg-yellow-500"><button id="equals" class="font-extralight cursor-default text-4xl">=</button></div>
           </div>
         </div>
 
@@ -924,9 +866,8 @@
             <nav id="launchNav">
               <a class="icon-mail launch" id="mailLaunch"><img src="assets/icons/mail.png" draggable="true" alt="Mail"> Mail</a>
               <a class="icon-textedit launch" id="textLaunch"><img src="assets/icons/text_edit.png" draggable="true" alt="TextEdit"> TextEdit</a>
-              <a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
-              <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="true" alt="Calculator"> Calculator</a>
               <a class="icon-notes launch" id="notesLaunch"><img src="assets/icons/notes.png" draggable="true" alt="Notes"> Notes</a>
+              <a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
               <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="assets/icons/github.svg" draggable="true" alt="GitHub"> GitHub</a>
               <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="assets/icons/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
               <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img src="assets/icons/steam.png" draggable="true" alt="Steam"> Steam</a>
@@ -953,10 +894,9 @@
       <div class="dock">
         <div class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="assets/icons/launchpad.png" draggable="false" alt="Launchpad"></div>
         <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="assets/icons/mail.png" draggable="false" alt="Mail"></div>
-        <div id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="assets/icons/text_edit.png" draggable="false" alt="Notes"></div>
-        <div id="iterm" class="icon open" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
-        <div id="calculator" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="assets/icons/calc.png" draggable="false" alt="Calculator"></div>
+        <div id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="assets/icons/text_edit.png" draggable="false" alt="TextEdit"></div>
         <div id="notes" class="icon" aria-label="Notes" data-microtip-position="top" role="tooltip"><img src="assets/icons/notes.png" draggable="false" alt="Notes"></div>
+        <div id="iterm" class="icon open" aria-label="Terminal" data-microtip-position="top" role="tooltip"><img src="assets/icons/iterm.png" draggable="false" alt="Terminal"></div>
         <a target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false">
           <div id="github" class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="assets/icons/github.svg" draggable="false" alt="GitHub"></div>
         </a>
@@ -977,7 +917,6 @@
     <script id="rendered-js" src="js/particles.js"></script>
     <script src="js/windows.js"></script>
     <script src="js/timestamp.js"></script>
-    <script src="js/calculator.js"></script>
     <script src="js/terminal.js"></script>
     <script type="text/javascript" data-cfasync="false" src="js/email.js"></script>
     <script type="text/javascript">
