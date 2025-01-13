@@ -14,6 +14,8 @@ $recaptcha-scale: 0.45
   min-width: vars.$min-width
   min-height: vars.$min-height
   font-size: 1.3rem
+  line-height: 1.3
+  font-family: vars.$font-family
   -webkit-box-orient: vertical
   -webkit-box-direction: normal
   -ms-flex-direction: column
@@ -29,36 +31,39 @@ $recaptcha-scale: 0.45
       overflow: auto
       filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.45,M12=0,M21=0,M22=0.45,SizingMethod='auto expand')
 
-      @media screen and (max-width: vars.$width-threshold)
-        @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
+      // @media screen and (max-width: vars.$width-threshold)
+      //   @include mix.scale($recaptcha-scale) // 0.45
+      //   filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
-        @include mix.scale(calc($recaptcha-scale - 0.1)) // 0.35
+        @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.35,M12=0,M21=0,M22=0.35,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
-        @include mix.scale(calc($recaptcha-scale - 0.15)) // 0.3
+        @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.3,M12=0,M21=0,M22=0.3,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
-        @include mix.scale(calc($recaptcha-scale - 0.2)) // 0.25
+        @include mix.scale(calc($recaptcha-scale - 0.1)) // 0.35
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.25,M12=0,M21=0,M22=0.25,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
-        @include mix.scale(calc($recaptcha-scale - 0.25)) // 0.2
+        @include mix.scale(calc($recaptcha-scale - 0.15)) // 0.3
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.2,M12=0,M21=0,M22=0.2,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
-        @include mix.scale(calc($recaptcha-scale - 0.3)) // 0.15
+        @include mix.scale(calc($recaptcha-scale - 0.2)) // 0.25
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.15,M12=0,M21=0,M22=0.15,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
-        @include mix.scale(calc($recaptcha-scale - 0.35)) // 0.1
+        @include mix.scale(calc($recaptcha-scale - 0.25)) // 0.2
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.1,M12=0,M21=0,M22=0.1,SizingMethod='auto expand')
 
     button
       color: white
+      background: none
+      outline: none
+      border: none
 
       i
         font-size: 1.7rem      
@@ -67,6 +72,9 @@ $recaptcha-scale: 0.45
     padding: 0 1.5rem
     background: $email-body-color
     overflow: auto
+    font-size: 1.3rem
+    line-height: 1.3
+    font-family: vars.$font-family
     color: $email-title-color
     width: 100%
 
@@ -74,6 +82,9 @@ $recaptcha-scale: 0.45
       display: inline-block
       background: none
       border: none
+      font-size: 1.3rem
+      line-height: 1.3
+      font-family: vars.$font-family
       color: white
       width: 100%
 
@@ -106,11 +117,18 @@ $recaptcha-scale: 0.45
     padding: 0.7rem 1.7rem
     overflow: auto
     color: white
+    font-size: 1.3rem
+    line-height: 1.3
+    font-family: vars.$font-family
 
   textarea
     background: none
     resize: none
     outline: none
+    border: none
+    font-family: vars.$font-family
+    font-size: 1.3rem
+    line-height: 1.3
 
     &::placeholder
       color: white
