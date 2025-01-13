@@ -9,6 +9,7 @@ $menubar-icon-size: 1.1rem
   @include mix.disable-select()
   width: 100%
   height: vars.$menubar-height
+  font-family: vars.$font-family
   padding: 0.2rem
   position: fixed
   font-size: 1.24rem
@@ -84,7 +85,7 @@ $menubar-icon-size: 1.1rem
         background: rgba(255, 255, 255, 0.2)
 
     .menu-ico
-      margin-top: calc(($menubar-padding * 7) / 11) // initially * 0.2rem
+      margin-top: $menubar-padding // initially * 0.2rem
       display: -webkit-box
       display: -ms-flexbox
       display: flex
