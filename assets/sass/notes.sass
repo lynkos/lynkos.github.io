@@ -104,6 +104,7 @@ $secondary-background: rgb(30, 30, 30)
                 white-space: nowrap
                 align-self: auto
                 padding: 0 calc(vars.$padding * 1.75)
+                list-style-type: none
 
                 li
                     color: white
@@ -201,7 +202,7 @@ $secondary-background: rgb(30, 30, 30)
                 &::before
                     content: "\f002"
                     position: absolute
-                    font-family: "Font Awesome 5 Free"
+                    font-family: "Font Awesome 6 Free"
                     font-weight: 600
                     font-size: 1.2rem
                     margin-top: calc(($search-height - 1.3rem) / 2)
@@ -242,12 +243,18 @@ $secondary-background: rgb(30, 30, 30)
                     &:active
                         background: #993db3
 
+            img
+                width: 100%
+
 .project
     display: none
 
     &-title
         font-weight: 700
         font-size: 1.6rem
+
+        a
+            color: white
 
     &-body
         font-size: 1.3rem
