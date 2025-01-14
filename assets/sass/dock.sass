@@ -20,6 +20,7 @@ footer
 
 .dock
   @include mix.blur(1.3rem, vars.$dock-menu-background)
+  @include mix.disable-select()
   border: 0.125rem solid rgba(255, 255, 255, 0.05)
   padding: vars.$padding
   border-radius: $dock-border-radius
