@@ -86,7 +86,7 @@ $menubar-icon-size: 1.1rem
         background: rgba(255, 255, 255, 0.2)
 
     .menu-ico
-      margin-top: calc(((vars.$menubar-height - $menubar-icon-size) / 2) - $menubar-padding)
+      margin: calc(((vars.$menubar-height - $menubar-icon-size) / 2) - $menubar-padding) 0
       display: -webkit-box
       display: -ms-flexbox
       display: flex
@@ -101,6 +101,7 @@ $menubar-icon-size: 1.1rem
   display: none
   position: fixed
   top: vars.$menubar-height
+  z-index: 1
 
   .wrapper
     position: relative
@@ -113,7 +114,6 @@ $menubar-icon-size: 1.1rem
     outline: 1px solid rgba(0, 0, 0, 0.75)
     padding: 0.25rem
     width: 22rem
-    z-index: 99
 
   .btns
     position: absolute
