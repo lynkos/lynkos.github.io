@@ -218,25 +218,14 @@ canvas
     padding-top: 1rem
 
   .alert-btn
+    @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
     width: 10rem
-    padding: 0.4rem 0.2rem
-    font-family: vars.$font-family
-    margin: 0 0.5rem
-    font-size: 1.35rem
-    line-height: 1.35
-    border-width: 0
-    border-radius: 0.625rem
-    color: white
-    background: rgb(115, 118, 115)
-
-    &:active
-      background: rgb(145, 148, 145)
 
     &.confirm
-      background: linear-gradient(to bottom, #db6bfa, #993db3)
+      background: vars.$button-gradient
       
       &:active
-        background: #993db3
+        background: vars.$secondary-button-color
 
 .windows
   position: absolute

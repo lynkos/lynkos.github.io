@@ -184,18 +184,7 @@ $secondary-background: rgb(30, 30, 30)
                 justify-content: center
 
                 &-btn
-                    padding: 0.64rem 0.8rem
-                    margin: 0.5rem
-                    font-size: 1.3rem
-                    line-height: 1.3rem
-                    border-width: 0
-                    border-radius: 0.625rem
-                    color: white
-                    cursor: default
-                    background: linear-gradient(to bottom, #db6bfa, #993db3)
-
-                    &:active
-                        background: #993db3
+                    @include mix.button(0.6rem 0.8rem, 0.5rem, 1.3rem, vars.$button-gradient, vars.$secondary-button-color)
 
             img
                 width: 100%

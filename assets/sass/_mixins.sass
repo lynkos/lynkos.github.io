@@ -57,6 +57,21 @@
         color: $icon-color
         padding: calc($padding / 2) $padding
 
+@mixin button($padding, $margin, $font-size, $background, $active-background)
+    padding: $padding
+    font-family: vars.$font-family
+    margin: $margin
+    font-size: $font-size
+    line-height: $font-size
+    border-width: 0
+    border-radius: 0.625rem
+    color: white
+    cursor: default
+    background: $background
+
+    &:active
+      background: $active-background
+
 @mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
     width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
