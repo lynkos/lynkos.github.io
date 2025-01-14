@@ -189,11 +189,10 @@ canvas
   cursor: default
   position: absolute
   inline-size: min-content
+  z-index: 1
   width: 27rem
   border-radius: 1rem
   padding: 2rem
-  top: 30%
-  left: 30%
   border: 1px solid rgba(255, 255, 255, 0.17)
   outline: 1px solid rgba(0, 0, 0, 0.75)
   color: white
@@ -222,10 +221,10 @@ canvas
     width: 10rem
 
     &.confirm
-      background: vars.$button-gradient
+      background: var(--confirm, vars.$button-gradient)
       
       &:active
-        background: vars.$secondary-button-color
+        background: var(--confirm-active, vars.$primary-button-color)
 
 .windows
   position: absolute
