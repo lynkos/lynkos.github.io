@@ -7,6 +7,7 @@ $icon-margin: 2rem
 $icon-size: 8rem
 $dock-height: 6rem
 $search-height: 3rem
+$search-width: 30rem
 $max-per-row: 4
 
 #launchpad
@@ -43,55 +44,9 @@ $max-per-row: 4
         top: 0
 
       .search
-        @include mix.disable-select()
+        @include mix.searchbar($search-width, $search-height, rgba(255, 255, 255, 0.1), 1.5rem, 0.6rem, white)
         top: calc((vars.$menubar-height + $dock-height + $icon-margin - $search-height) / 2)
-        color: white
         margin: 0 auto
-        height: $search-height
-        width: 30rem
-        background: rgba(255, 255, 255, 0.1)
-        position: relative
-        border: 0.13rem solid rgba(255, 255, 255, 0.15)
-        border-radius: vars.$border-radius
-
-        input
-          background: none
-          border: none
-          border-radius: vars.$border-radius
-          color: rgba(255, 255, 255, 0.8)
-          height: 100%
-          width: 100%
-          margin-left: 2.05rem
-          font-size: 1.5rem
-          padding: 0 0.25rem
-          outline: none
-
-          &[type=search]
-            &::-ms-clear, &::-ms-reveal
-              display: none
-              width: 0
-              height: 0
-
-          &[type="search"]
-            &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
-              display: none
-
-          &::placeholder
-            color: rgba(255, 255, 255, 0.5)
-
-          &::selection
-            background: rgba(255, 255, 255, 0.25)
-            color: rgba(255, 255, 255, 0.9)
-
-        &::before
-          content: "\f002"
-          position: absolute
-          font-family: "Font Awesome 6 Free"
-          font-weight: 600
-          font-size: 1.25rem
-          margin-top: 0.25rem
-          color: white
-          padding: 0 0.6rem
 
       #launchNav // nav
         max-width: calc($max-per-row * ((2 * $icon-margin) + $icon-size) + 0.25rem) // Up to $max-per-row icons per row

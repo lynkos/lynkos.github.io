@@ -1,8 +1,5 @@
 @use "variables" as vars
 
-@mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
-    width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
-
 @mixin disable-select()
     -webkit-user-drag: none
     -webkit-app-region: no-drag
@@ -11,6 +8,57 @@
     -moz-user-select: none
     -ms-user-select: none
     user-select: none
+
+@mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
+    @include disable-select()
+    width: $width
+    height: $height
+    color: white
+    background: $background
+    position: relative
+    border: 0.13rem solid rgba(255, 255, 255, 0.15)
+    border-radius: vars.$border-radius
+
+    input
+        background: none
+        border: none
+        color: rgba(255, 255, 255, 0.8)
+        border-radius: vars.$border-radius
+        height: 100%
+        width: 100%
+        font-size: $font-size
+        line-height: normal
+        padding: 0 $padding 0 calc(($padding * 2) + $font-size)
+        outline: none
+
+        &[type=search]
+            &::-ms-clear, &::-ms-reveal
+                display: none
+                width: 0
+                height: 0
+
+        &[type="search"]
+            &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+                display: none
+
+        &::placeholder
+            color: rgba(255, 255, 255, 0.5)
+
+        &::selection
+            background: rgba(255, 255, 255, 0.25)
+            color: rgba(255, 255, 255, 0.9)
+
+    &::before
+        content: "\f002"
+        position: absolute
+        font-family: "Font Awesome 6 Free"
+        font-weight: 600
+        font-size: $font-size
+        color: $icon-color
+        padding: calc($padding / 2) $padding
+
+@mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
+    width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
 @mixin scale($scale)
     -moz-transform: scale($scale)
