@@ -41,7 +41,7 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .notes").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .notes").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -92,6 +92,10 @@ $(document).ready(function() {
       closeLaunchpad();
   });
 
+  // Grey out calculator's green button
+  $(".calc-header__op-icon--green").css("--green", "rgba(255, 255, 255, 0.2)");
+  $(".calc-header__op-icon--green").css("--green-active", "rgba(255, 255, 255, 0.1)");
+
   // Function to bring the clicked window to the front
   function bringToFront(element) {
     let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
@@ -122,8 +126,8 @@ $(document).ready(function() {
   // Make windows draggable and bring to front on drag
   function makeDraggable(selector) {
     $(selector).draggable({
-      handle: ".header, .text-edit-header, .mail-header, .sidebar-header, .main-header",
-      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .buttons-icon, #send-btn, .search-bar, .icons",
+      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header",
+      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .icons",
       start: function() {
         bringToFront(this);
       },
@@ -218,6 +222,9 @@ $(document).ready(function() {
   // Open projects
   openWindow("#notes", ".notes", "flex");
 
+  // Open calculator
+  openWindow("#calculator", ".calc", "inline-block");
+
   // Open trash dialogue
   openWindow("#trash-icon", ".dialogue", "inline-block");
 
@@ -243,6 +250,9 @@ $(document).ready(function() {
 
   // Open projects
   launchApp("#notesLaunch", ".notes", "block", "#notes");
+
+  // Open calculator
+  launchApp("#calculatorLaunch", ".calc", "inline-block", "#calculator");  
 
   // Empty trash
   $(".confirm").click(function (e) {
@@ -272,6 +282,9 @@ $(document).ready(function() {
 
   // Close projects
   closeWindow('.buttons-icon--red', '.notes', "#notes");
+
+  // Close calculator
+  closeWindow('.calc-header__op-icon--red', '.calc', "#calculator");
 
   // Close trash dialogue
   closeWindow('.alert-btn', '.dialogue', "#trash-icon");  
