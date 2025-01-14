@@ -41,7 +41,7 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .notes").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .notes, .dialogue").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -49,21 +49,15 @@ $(document).ready(function() {
   });
 
   // Show terminal on load
-  $('.mac-terminal').fadeIn(500); // .show(500);
+  $(".mac-terminal").fadeIn(500); // .show(500);
 
   // TODO Improve playlist toggle logic
   // Show playlist when icon clicked
   $("#play").click(function(e) {
     $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 20);
-    //bringToFront("#playlist");
 
-    // Reset z-index for all windows
-    let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
-      return parseInt($(this).css("z-index")) || 0;
-    }).get());
-
-    // Set higher z-index for the clicked window
-    $("#playlist").css("z-index", maxZIndex + 1);
+    // Bring playlist to front
+    bringToFront("#playlist", ".windows, .btn, .dialogue, #playlist");
 
     // Show playlist
     $("#playlist").show();
@@ -88,7 +82,7 @@ $(document).ready(function() {
     var content = launchpad.find(".launch-content"),
         nav = content.find("nav");
     
-    if (content.is(e.target) || nav.is(e.target))
+    if (content.is(e.target) || nav.is(e.target))
       closeLaunchpad();
   });
 
@@ -97,57 +91,95 @@ $(document).ready(function() {
   $(".calc-header__op-icon--green").css("--green-active", "rgba(255, 255, 255, 0.1)");
 
   // Function to bring the clicked window to the front
-  function bringToFront(element) {
-    let maxZIndex = Math.max(...$('.windows, .btn, .dialogue').map(function() {
-      // Make buttons inactive
-      $(this).css("--red", "rgba(255, 255, 255, 0.2)");
-      $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
-      $(this).css("--green", "rgba(255, 255, 255, 0.2)");
-      $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
-      $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
-      $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
+  function bringToFront(element, allElements) {
+    // Get the highest z-index
+    let maxZIndex = Math.max(...$(allElements).map(function() {
+      // If current element is open
+      if ($(this).hasClass("openWindow")) {
+        // If current element is a window
+        if ($(this).hasClass("windows")) {
+          // Make its buttons inactive
+          $(this).css("--red", "rgba(255, 255, 255, 0.2)");
+          $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
+          $(this).css("--green", "rgba(255, 255, 255, 0.2)");
+          $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
+          $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
+          $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
+        }
+        
+        // If current element is trash dialogue
+        else if ($(this).hasClass("dialogue")) {
+          // Make its confirm buttons inactive
+          $(this).css("--confirm", "rgb(115, 118, 115)");
+          $(this).css("--confirm-active", "rgb(145, 148, 145)");
+        }
+      }
 
-      // Reset z-index for all windows
       return parseInt($(this).css("z-index")) || 0;
     }).get());
 
-    // Set higher z-index for the clicked window
-    $(element).css("z-index", maxZIndex + 1);
+    // Set higher z-index for the given element
+    if ($(element).css("z-index") <= maxZIndex) {
+      $(element).css("z-index", maxZIndex + 1);
 
-    // Make buttons active for the clicked window
-    $(element).css("--red", "#FF544D");
-    $(element).css("--yellow", "#FFB429");
-    $(element).css("--green", "#25C63A");
-    $(element).css("--red-active", "#c14645");
-    $(element).css("--yellow-active", "#c08e38");
-    $(element).css("--green-active", "#029740");
+      // If not playlist (since it will never be on top of dock and/or launchpad)
+      if (!$(element).is($("#playlist"))) {
+        // Make sure dock and launchpad are always on top
+        $(".launch-content").css("z-index", maxZIndex + 2);
+        $(".dock").css("z-index", maxZIndex + 3);
+      }
+    }
+
+    // If given element is a window
+    if ($(element).hasClass("windows")) {
+      // Make its buttons active
+      $(element).css("--red", "#FF544D");
+      $(element).css("--yellow", "#FFB429");
+      $(element).css("--green", "#25C63A");
+      $(element).css("--red-active", "#C14645");
+      $(element).css("--yellow-active", "#c08E38");
+      $(element).css("--green-active", "#029740");
+    }
+
+    // If given element is trash dialogue
+    else if ($(element).hasClass("dialogue")) {
+      // Make its confirm buttons active
+      $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
+      $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
+    }
   }
 
   // Make windows draggable and bring to front on drag
   function makeDraggable(selector) {
     $(selector).draggable({
+      cursor: "default",
       handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header",
       cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .icons",
       start: function() {
-        bringToFront(this);
+        bringToFront(this, ".windows, .btn, .dialogue");
       },
       containment: "#main-content",
       distance: 0,
-      // stack: ".windows",
-    }).on('click', function() {
-      bringToFront(this);
+    }).on("click", function() {
+      bringToFront(this, ".windows, .btn, .dialogue");
     });
   }
 
   // Apply draggable to all existing windows
-  makeDraggable('.windows');
+  makeDraggable(".windows");
 
   // Make dialogue draggable
   $(".dialogue").draggable({
     cursor: "default",
     cancel: ".alert-btn",
+    start: function() {
+      bringToFront(this, ".windows, .btn, .dialogue");
+    },
+    // stack: ".windows, .btn, .dialogue",
     containment: "#main-content",
     distance: 0,
+  }).on("mousedown", function() {
+    bringToFront(this, ".windows, .btn, .dialogue");
   });  
 
   // Make folder and file icons draggable
@@ -165,23 +197,23 @@ $(document).ready(function() {
   });
 
   // Dock Resizing
-  // $('.divider').resizable({
-  //   handles: 'n',
+  // $(".divider").resizable({
+  //   handles: "n",
   //   maxHeight: 120,
   //   minHeight: 20,
   //   resize: function(event, ui) {
-  //     $('.icon').css({
+  //     $(".icon").css({
   //       width: ui.size.height,
   //       height: ui.size.height
   //     });
-  //     $('.dock').css('height', ui.size.height + 10);
+  //     $(".dock").css("height", ui.size.height + 10);
   //   }
   // });  
 
   // Highlight clicked nav item
-  $('.child-nav li', '.sidebar').on("click", function() {
-    $('.child-nav li', '.sidebar').removeClass('active');
-    $(this).addClass('active');
+  $(".child-nav li", ".sidebar").on("click", function() {
+    $(".child-nav li", ".sidebar").removeClass("active");
+    if (!$(this).hasClass("active")) $(this).addClass("active");
   });
 
   // Make GitHub icon bounce on click
@@ -201,11 +233,11 @@ $(document).ready(function() {
 
   // Open window
   function openWindow(icon, win, displayType) {
-    $(icon).on('click', function() {
+    $(icon).on("click", function() {
       closeLaunchpad();
       $(win).css("display", displayType);
-      bringToFront(win);
-      $(win).addClass("openWindow");
+      bringToFront(win, ".windows, .btn, .dialogue");
+      if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
       bounceIcon(icon);
     });
   }
@@ -230,12 +262,12 @@ $(document).ready(function() {
 
   // Open app via launchpad
   function launchApp(icon, win, displayType, dockIcon) {
-    $(icon).on('click', function() {    
+    $(icon).on("click", function() {    
       closeLaunchpad();
-      bringToFront(win);
+      bringToFront(win, ".windows, .btn, .dialogue");
       $(win).css("display", displayType);
-      $(win).addClass("openWindow");
-      $(dockIcon).addClass("open");
+      if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
+      if (!$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
     });
   }
 
@@ -256,114 +288,125 @@ $(document).ready(function() {
 
   // Empty trash
   $(".confirm").click(function (e) {
-    new Audio('../assets/audio/empty_trash.mp3').play();
+    new Audio("../assets/audio/empty_trash.mp3").play();
     e.preventDefault();
-    $('#trash').attr('src', 'assets/icons/empty_trash.png');
+    $("#trash").attr("src", "assets/icons/empty_trash.png");
     $("#trash-icon").off("click");
   });
 
   // Close window
-  function closeWindow(close, win, parent) {
-    $(close).on('click', function() {
+  function closeWindow(close, win, dockIcon) {
+    $(close).on("click", function() {
       $(win).css("display", "none");
-      $(win).removeClass("openWindow");
-      $(parent).removeClass("open");
+      if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
+      if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
     });
   }
   
   // Close terminal
-  closeWindow('.header__op-icon--red', '.mac-terminal', "#iterm");
+  closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm");
 
   // Close mail
-  closeWindow('.mail-header__op-icon--red', '.email', "#mail");
+  closeWindow(".mail-header__op-icon--red", ".email", "#mail");
 
   // Close about me
-  closeWindow('.text-edit-header__op-icon--red', '.text-edit', "#text-edit");
+  closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit");
 
   // Close projects
-  closeWindow('.buttons-icon--red', '.notes', "#notes");
+  closeWindow(".buttons-icon--red", ".notes", "#notes");
 
   // Close calculator
-  closeWindow('.calc-header__op-icon--red', '.calc', "#calculator");
+  closeWindow(".calc-header__op-icon--red", ".calc", "#calculator");
 
   // Close trash dialogue
-  closeWindow('.alert-btn', '.dialogue', "#trash-icon");  
+  closeWindow(".alert-btn", ".dialogue", "#trash-icon");  
     
   // Minimize terminal
-  $('.header__op-icon--yellow').click(function() {
-      // $('.mac-terminal').css("transform", "translateY(82%) translateX(0%) scale(0.75)");
-      // $('.mac-terminal').css("transition", "all 0.25s");
-    $('.mac-terminal').toggleClass('minimize');
-    $('.mac-terminal').removeClass('maximize');
+  $(".header__op-icon--yellow").click(function() {
+      // $(".mac-terminal").css("transform", "translateY(82%) translateX(0%) scale(0.75)");
+      // $(".mac-terminal").css("transition", "all 0.25s");
+    $(".mac-terminal").toggleClass("minimize");
+    if ($(".mac-terminal").hasClass("maximize")) $(".mac-terminal").removeClass("maximize");
   });
 
   // Maximize terminal
-  $('.header__op-icon--green').click(function() {
-    $('.mac-terminal').toggleClass('maximize');
-    $('.mac-terminal').removeClass('minimize');
+  $(".header__op-icon--green").click(function() {
+    $(".mac-terminal").toggleClass("maximize");
+    if ($(".mac-terminal").hasClass("minimize")) $(".mac-terminal").removeClass("minimize");
   });
 
-  $('#bold-btn').click(function() {
-    $('.text-body').toggleClass("bold");
+  // Toggle bold text in TextEdit
+  $("#bold-btn").click(function() {
+    $(".text-body").toggleClass("bold");
   });
 
-  $('#italic-btn').click(function() {
-    $('.text-body').toggleClass("italic");
+  // Toggle italic text in TextEdit
+  $("#italic-btn").click(function() {
+    $(".text-body").toggleClass("italic");
   });
 
-  $('#underline-btn').click(function() {
-    $('.text-body').toggleClass("underline");
+  // Toggle underlined text in TextEdit
+  $("#underline-btn").click(function() {
+    $(".text-body").toggleClass("underline");
   });
 
-  $('#left-btn').click(function() {
-    $('.text-body').toggleClass("left");
-    $('.text-body').removeClass("right");
-    $('.text-body').removeClass("center");
-    $('.text-body').removeClass("justify");
+  // Remove classes in element
+  function removeClasses(element, classes) {
+    for (let i = 0; i < classes.length; i++) {
+      if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
+    }
+  }
+
+  // Toggle left text alignment in TextEdit
+  $("#left-btn").click(function() {
+    $(".text-body").toggleClass("left");
+    removeClasses(".text-body", [ "right", "center", "justify" ]);
   });
 
-  $('#center-btn').click(function() {
-    $('.text-body').toggleClass("center");
-    $('.text-body').removeClass("right");
-    $('.text-body').removeClass("left");
-    $('.text-body').removeClass("justify");
+  // Toggle center text alignment in TextEdit
+  $("#center-btn").click(function() {
+    $(".text-body").toggleClass("center");
+    removeClasses(".text-body", [ "right", "left", "justify" ]);
   });
 
-  $('#right-btn').click(function() {
-    $('.text-body').toggleClass("right");
-    $('.text-body').removeClass("left");
-    $('.text-body').removeClass("center");
-    $('.text-body').removeClass("justify");
+  // Toggle right text alignment in TextEdit
+  $("#right-btn").click(function() {
+    $(".text-body").toggleClass("right");
+    removeClasses(".text-body", [ "center", "left", "justify" ]);
   });
 
-  $('#justify-btn').click(function() {
-    $('.text-body').toggleClass("justify");
-    $('.text-body').removeClass("right");
-    $('.text-body').removeClass("center");
-    $('.text-body').removeClass("left");
+  // Toggle justify text alignment in TextEdit
+  $("#justify-btn").click(function() {
+    $(".text-body").toggleClass("justify");
+    removeClasses(".text-body", [ "center", "left", "right" ]);
   });
 });
 
+// Update text color in TextEdit
 const colorPicker = document.getElementById("colorPicker");
 colorPicker.addEventListener("input", function() {
-  $('.text-body').css("color", this.value);
+  $(".text-body").css("color", this.value);
 });
 
+// Update font size in TextEdit
 const fontSize = document.getElementById("fontSize");
 fontSize.addEventListener("change", function() {
-  $('.text-body').css("font-size", (this.value / 10) + "rem");
+  $(".text-body").css("font-size", (this.value / 10) + "rem");
 });
 
+// Update font family in TextEdit
 const fontFamily = document.getElementById("fontFamily");
 fontFamily.addEventListener("change", function() {
-  $('.text-body').css("font-family", this.value);
+  $(".text-body").css("font-family", this.value);
 });
 
+// Update line height in TextEdit
 const lineHeight = document.getElementById("lineHeight");
 lineHeight.addEventListener("change", function() {
-  $('.text-body').css("line-height", this.value);
+  $(".text-body").css("line-height", this.value);
 });
 
+// Make selected project in Notes sidebar active and all others inactive
 var selectProject = function(element) {
   var projectInfo = document.getElementsByClassName("project");
 
@@ -375,8 +418,9 @@ var selectProject = function(element) {
   project.classList.add("active");
 }
 
-document.querySelectorAll(".project-name").forEach(function(el) {
-  el.addEventListener("click", function(e) {
+// Select project from projects in Notes sidebar
+document.querySelectorAll(".project-name").forEach(function(element) {
+  element.addEventListener("click", function(e) {
     selectProject(e.target)
   });
 });
