@@ -41,7 +41,7 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .notes, .dialogue").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -153,8 +153,8 @@ $(document).ready(function() {
   function makeDraggable(selector) {
     $(selector).draggable({
       cursor: "default",
-      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header",
-      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .icons",
+      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header, .top",
+      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address",
       start: function() {
         bringToFront(this, ".windows, .btn, .dialogue");
       },
@@ -254,8 +254,8 @@ $(document).ready(function() {
   // Open projects
   openWindow("#notes", ".notes", "flex");
 
-  // Open calculator
-  openWindow("#calculator", ".calc", "inline-block");
+  // Open safari
+  openWindow("#safari", ".browser", "flex");
 
   // Open trash dialogue
   openWindow("#trash-icon", ".dialogue", "inline-block");
@@ -267,7 +267,7 @@ $(document).ready(function() {
       bringToFront(win, ".windows, .btn, .dialogue");
       $(win).css("display", displayType);
       if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-      if (!$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
+      if (($(dockIcon) !== null) && !$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
     });
   }
 
@@ -283,8 +283,11 @@ $(document).ready(function() {
   // Open projects
   launchApp("#notesLaunch", ".notes", "block", "#notes");
 
+  // Open safari
+  launchApp("#safariLaunch", ".browser", "flex", "#safari");  
+
   // Open calculator
-  launchApp("#calculatorLaunch", ".calc", "inline-block", "#calculator");  
+  launchApp("#calculatorLaunch", ".calc", "inline-block", null);  
 
   // Empty trash
   $(".confirm").click(function (e) {
@@ -299,7 +302,7 @@ $(document).ready(function() {
     $(close).on("click", function() {
       $(win).css("display", "none");
       if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
-      if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
+      if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
     });
   }
   
@@ -315,8 +318,11 @@ $(document).ready(function() {
   // Close projects
   closeWindow(".buttons-icon--red", ".notes", "#notes");
 
+  // Close safari
+  closeWindow(".browser-buttons-icon--red", ".browser", "#safari");
+
   // Close calculator
-  closeWindow(".calc-header__op-icon--red", ".calc", "#calculator");
+  closeWindow(".calc-header__op-icon--red", ".calc", null);
 
   // Close trash dialogue
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  

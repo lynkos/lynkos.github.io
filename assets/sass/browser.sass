@@ -1,0 +1,131 @@
+@use "mixins" as mix
+@use "variables" as vars
+
+$window-width: 55rem
+$window-height: 40rem
+$header-height: 6rem
+$max-width: 60rem
+$max-height: 50rem
+$icon-size: 1.25rem
+$icon-dim: 2.25rem
+$border-radius: calc(vars.$border-radius * 0.9)
+$separator-color: rgba(255, 255, 255, 0.25)
+$header-color: rgb(56, 58, 55)
+$h1-size: 2rem
+
+.browser
+  @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
+  min-width: vars.$min-width
+  min-height: vars.$min-height
+  // max-width: $max-width
+  // max-height: $max-height
+  flex-direction: column
+  font-family: vars.$font-family
+
+  .top
+    @include mix.disable-select()
+    padding: calc(vars.$padding * 1.25) 0
+    display: flex
+    justify-content: space-around
+    position: relative
+    background: $header-color
+    overflow: hidden
+    cursor: default
+
+    .browser-buttons
+      @include mix.buttons()
+      padding-left: calc(vars.$padding * 2)
+
+    .icons
+      font-size: $icon-size
+      width: $icon-dim
+      height: $icon-dim
+      text-align: center
+      vertical-align: middle
+      border-radius: vars.$border-radius
+
+    .left, .right
+      align-items: center
+      padding: 0 vars.$padding
+      height: calc($icon-size * 2)
+
+      span
+        display: inline-block
+        -webkit-border-radius: $border-radius
+        -moz-border-radius: $border-radius
+        border-radius: $border-radius
+        color: vars.$font-color
+
+        &:hover
+          background-color: rgba(255, 255, 255, 0.1)
+
+        &.inactive
+          color: #707070
+
+          &:hover
+            background: none
+
+          &:active i
+            color: #707070
+
+        i
+          padding: vars.$padding 0
+          width: $icon-dim
+          height: $icon-dim
+          text-align: center
+
+          &:active
+            color: white
+
+    .address
+      background: none
+      line-height: $icon-size
+      border-radius: $border-radius
+      text-align: center
+      border: 0.05rem solid $separator-color
+      width: 27rem
+      font-size: 1.15rem
+
+      i
+        font-size: $icon-size
+        color: white
+        font-size: 1.15rem
+
+      .lock
+        padding: 0 calc(vars.$padding / 2)
+
+      .refresh, .translate
+        float: right
+        padding: vars.$padding vars.$padding 0 0
+
+      >
+        input
+          font-size: $icon-size
+          line-height: $icon-size
+          height: 100%
+          width: 6.5rem
+          font-size: 1.15rem
+          color: white
+          background: none
+          position: relative
+
+          &:focus
+            outline: none
+            width: 20.75rem
+
+  .inside
+    color: white
+    width: 100%
+    height: 100%
+    padding: calc(vars.$padding * 2)
+    overflow: auto
+
+    h1
+      font-size: $h1-size
+      text-align: center
+      font-family: vars.$font-family
+
+    img
+      width: auto
+      height: calc(100% - $h1-size - (vars.$padding * 2))
+      margin: 0 auto
