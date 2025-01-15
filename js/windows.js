@@ -154,7 +154,7 @@ $(document).ready(function() {
     $(selector).draggable({
       cursor: "default",
       handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header, .top",
-      cancel: ".header__op, .text-edit-header__op, .mail-header__op, .calc-header__op, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address",
+      cancel: ".header__op-icon, .text-edit-header__op-icon, .mail-header__op-icon, .calc-header__op-icon, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address",
       start: function() {
         bringToFront(this, ".windows, .btn, .dialogue");
       },
