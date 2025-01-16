@@ -131,15 +131,16 @@ canvas
   float: right
   width: calc($folder-dim * 1.3)
 
-  &-button
+  button, &-button
     cursor: default
-    appearance: button
-    -webkit-appearance: button
-    -moz-appearance: button
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
     background-color: transparent
     background-image: none
     border: none
 
+  &-button
     &:active
       -webkit-filter: brightness(75%)
       -ms-filter: brightness(75%)
@@ -155,6 +156,9 @@ canvas
         display: block
         width: $folder-dim
         height: $folder-dim
+
+      .image
+        border: 0.35rem solid white
 
       span
         @include mix.text-shadow(0, 0, 0.75rem, rgba(0, 0, 0, 0.25))

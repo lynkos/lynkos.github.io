@@ -119,29 +119,29 @@
         <div class="folder">
           <button class="folder-button btn">
             <div class="folder-button-item">
-              <img src="assets/icons/blue_folder.png" alt="Playlists" draggable="true">
-              <span>Playlists</span>
-            </div>
-          </button>
-          
-          <button class="folder-button btn">
-            <div class="folder-button-item">
               <img src="assets/icons/blue_folder.png" alt="src" draggable="true">
               <span>src</span>
             </div>
           </button>
 
-          <button class="folder-button btn" style="padding-top: 0.25rem;">
+          <button class="folder-button btn" id="aboutFile">
             <div class="folder-button-item">
               <img src="assets/icons/rtf_icon.png" alt="about.rtf" draggable="true">
               <span>about.rtf</span>
             </div>
           </button>
 
-          <button class="folder-button btn" style="padding-top: 0.5rem;">
+          <button class="folder-button btn">
             <div class="folder-button-item">
               <img src="assets/icons/text_file.png" alt="banner.txt" draggable="true">
               <span>banner.txt</span>
+            </div>
+          </button>
+
+          <button class="folder-button btn" id="profilePic">
+            <div class="folder-button-item">
+              <img src="assets/icons/profile.jpg" class="image" alt="profile.jpg" draggable="true">
+              <span>profile.jpg</span>
             </div>
           </button>
         </div>
@@ -931,14 +931,11 @@
             </div>
             <div class="left">
               <span class="icons" title="Show sidebar"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
-              <span class="icons" title="Show the previous page"><i class="fa fa-angle-left" alt="Back icon" aria-hidden="true"></i></span>
+              <span class="inactive icons" title="Show the previous page"><i class="fa fa-angle-left" alt="Back icon" aria-hidden="true"></i></span>
               <span class="inactive icons" title="Show the next page"><i class="fa fa-angle-right" alt="Forward icon" aria-hidden="true"></i></span>
             </div>
             <div class="address">
-              <i class="lock fas fa-lock" title="Show certificate" alt="Lock icon" aria-hidden="true"></i>
-              <input type="text" value="lynkos.dev" alt="Browser search bar" editable="true" spellcheck="false" autocomplete="off">
-              <i class="refresh fa fa-refresh" title="Reload this page" alt="Refresh icon" aria-hidden="true"></i>
-              <i class="translate fas fa-language" title="Translation Available" alt="Translation icon" aria-hidden="true"></i>
+              <input type="text" value="file:///Users/lynkos/Desktop/profile.jpg" alt="Browser search bar" editable="true" spellcheck="false" autocomplete="off">
             </div>
             <div class="right">
               <span class="icons" title="Share"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
@@ -948,7 +945,6 @@
           </div>
           <div class="inside">
             <img src="assets/icons/profile.jpg" draggable="false" alt="Profile picture" />
-            <h1>sup</h1>
           </div>
         </div>
 
@@ -962,11 +958,11 @@
               <a class="icon-notes launch" id="notesLaunch"><img src="assets/icons/notes.png" draggable="true" alt="Notes"> Notes</a>
               <a class="icon-textedit launch" id="textLaunch"><img src="assets/icons/text_edit.png" draggable="true" alt="TextEdit"> TextEdit</a>
               <a class="icon-iterm launch" id="itermLaunch"><img src="assets/icons/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
+              <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="true" alt="Calculator"> Calculator</a>
               <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="assets/icons/github.svg" draggable="true" alt="GitHub"> GitHub</a>
               <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="assets/icons/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
               <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img src="assets/icons/steam.png" draggable="true" alt="Steam"> Steam</a>
               <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" alt="Link to my Discord profile" draggable="false"><img src="assets/icons/discord.png" draggable="true" alt="Discord"> Discord</a>
-              <a class="icon-calculator launch" id="calculatorLaunch"><img src="assets/icons/calc.png" draggable="true" alt="Calculator"> Calculator</a>
             </nav>
           </div>
         </div>

@@ -260,6 +260,22 @@ $(document).ready(function() {
   // Open trash dialogue
   openWindow("#trash-icon", ".dialogue", "inline-block");
 
+  // Open about me when double-clicking "about.rtf"
+  $("#aboutFile").dblclick(function() {
+    if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
+    bringToFront(".text-edit", ".windows, .btn, .dialogue");
+    if (!$(".text-edit").hasClass("openWindow")) $(".text-edit").addClass("openWindow");
+    if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
+  });
+
+  // Open safari when double-clicking "profile.jpg"
+  $("#profilePic").dblclick(function() {
+    if ($(".browser").css("display") === "none") $(".browser").css("display", "flex");
+    bringToFront(".browser", ".windows, .btn, .dialogue");
+    if (!$(".browser").hasClass("openWindow")) $(".browser").addClass("openWindow");
+    if (!$("#safari").hasClass("open")) $("#safari").addClass("open");
+  });  
+
   // Open app via launchpad
   function launchApp(icon, win, displayType, dockIcon) {
     $(icon).on("click", function() {    
