@@ -31,7 +31,7 @@ $menubar-icon-size: 1.1rem
     display: contents
     color: #FFF
 
-  .left
+  .left, .right
     display: -webkit-box
     display: -ms-flexbox
     display: flex
@@ -42,60 +42,49 @@ $menubar-icon-size: 1.1rem
     -ms-flex-pack: space-evenly
     justify-content: space-evenly
     width: auto
-    left: 0
-    padding-left: calc($menubar-padding + 0.25rem)
 
     .menus
       height: 100%
       display: -webkit-box
       display: -ms-flexbox
       display: flex
-      padding: calc($menubar-padding / 2) $menubar-padding
+      -webkit-box-pack: center
+      -ms-flex-pack: center
+      justify-content: center
+      -webkit-box-align: center
+      -ms-flex-align: center
+      align-items: center
       color: vars.$menubar-font-color
+      border-radius: vars.$border-radius
+      padding: calc($menubar-padding / 2) $menubar-padding
 
       i
-        font-size: calc($menubar-icon-size + 0.4rem)
+        font-size: $menubar-icon-size
 
       &:active
-        border-radius: vars.$border-radius
         background: rgba(255, 255, 255, 0.2)
+
+  .left
+    padding-left: calc($menubar-padding + 0.25rem)
+
+    .apple i
+      font-size: calc($menubar-icon-size + 0.4rem)
 
     .active
       font-weight: bold
 
   .right
-    display: -webkit-box
-    display: -ms-flexbox
-    display: flex
-    -webkit-box-pack: space-evenly
-    -ms-flex-pack: space-evenly
-    justify-content: space-evenly
-    width: auto
-    margin-right: calc($menubar-padding + 0.25rem)
+    padding-right: calc($menubar-padding + 0.25rem)
 
-    .menu-time, .menu-ico
-      padding: $menubar-padding
-      height: 100%
-      -webkit-box-pack: center
-      -ms-flex-pack: center
-      justify-content: center
-      color: vars.$menubar-font-color
-      
-      &:active
-        border-radius: vars.$border-radius
-        background: rgba(255, 255, 255, 0.2)
+    .menu-time
+      width: 6.25rem
+      text-align: center
 
     .menu-ico
-      margin: calc(((vars.$menubar-height - $menubar-icon-size) / 2) - $menubar-padding) 0
-      display: -webkit-box
-      display: -ms-flexbox
-      display: flex
-      -webkit-box-align: center
-      -ms-flex-align: center
-      align-items: center
-      
-      i
-        font-size: $menubar-icon-size
+      padding: calc(((vars.$menubar-height - $menubar-icon-size + $menubar-padding) / 2) - $menubar-padding) $menubar-padding
+
+      img
+        height: calc($menubar-icon-size + 0.1rem)
 
 #playlist
   display: none
