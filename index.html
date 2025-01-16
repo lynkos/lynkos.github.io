@@ -25,6 +25,7 @@
     <link rel="preload" as="image" href="/assets/images/apps/steam.png">
     <link rel="preload" as="image" href="/assets/images/apps/text_edit.png">
     <link rel="preload" as="image" href="/assets/images/icons/angles-up-down.svg">
+    <link rel="preload" as="image" href="/assets/images/icons/control_center.svg">
     <link rel="preload" as="image" href="/assets/images/icons/terminal.svg">
     <link rel="preload" as="image" href="/assets/images/misc/mpc.jpg">
     <link rel="preload" as="image" href="/assets/images/misc/profile.jpg">
@@ -85,7 +86,7 @@
   <body>
     <header class="menu-bar">
       <div class="left">
-        <span class="menus"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
+        <span class="menus apple"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
         <span class="menus active">Finder</span>
         <span class="menus">File</span>
         <span class="menus">Edit</span>
@@ -96,9 +97,10 @@
       </div>
 
       <div class="right">
-        <div id="play" class="menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></div>
-        <div class="menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></div>
-        <div class="menu-time"><p id="menutime"></p></div>
+        <span id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
+        <span class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
+        <span class="menus menu-ico"><img alt="Control center icon" src="/assets/images/icons/control_center.svg" draggable="false"></span>
+        <span id="menutime" class="menus menu-time"></span>
       </div>
     </header>
   
