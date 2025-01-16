@@ -309,7 +309,7 @@ $(document).ready(function() {
   $(".confirm").click(function (e) {
     new Audio("../assets/audio/empty_trash.mp3").play();
     e.preventDefault();
-    $("#trash").attr("src", "assets/icons/empty_trash.png");
+    $("#trash").attr("src", "/assets/images/system/empty_trash.png");
     $("#trash-icon").off("click");
   });
 
