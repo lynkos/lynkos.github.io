@@ -1,0 +1,10 @@
+version: 1
+updates:
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  labels:
+  - "CI/CD"
+  commit-message:
+    prefix: ci
