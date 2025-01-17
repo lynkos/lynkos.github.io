@@ -20,7 +20,7 @@ jobs:
         id: setup-node
         uses: actions/setup-node@v4
         with:
-          node-version: '23'
+          node-version: 'latest'
           cache: 'npm'
           check-latest: true
       - name: Install dependencies
@@ -29,12 +29,6 @@ jobs:
       - name: Build
         id: build
         run: npm run build
-      # - name: Prepare deployment
-      #   run: |
-      #     cp -r dist .
-      #     cp -r assets .
-      #     cp 404.html .
-      #     cp index.html .
       - name: Verify build
         run: ls -l
       - name: Deploy
@@ -44,7 +38,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          exclude_assets: '.github/,.gitignore,docs/README.md,node_modules/,src/,package.json,package-lock.json'
-          publish_dir: . #/prod # ./public 
+          publish_branch: prod
+          exclude_assets: '.github/,.gitignore,docs/README.md,node_modules/,src/,package.json,package-lock.json,.nojekyll'
+          publish_dir: .
           cname: lynkos.dev
+          force_orphan: true
           full_commit_message: ${{ github.event.head_commit.message }}
