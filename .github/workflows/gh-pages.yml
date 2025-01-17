@@ -53,6 +53,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           exclude_assets: '.github,.gitignore,docs/README.md'
-          publish_branch: gh-pages # default: gh-pages
-          publish_dir: dist # ./public
+          publish_dir: ./dist # ./public
           cname: lynkos.dev
