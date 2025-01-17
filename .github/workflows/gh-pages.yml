@@ -29,8 +29,15 @@ jobs:
       - name: Build
         id: build
         run: npm run build
+      - name: Prepare deployment
+        run: |
+          mkdir -p prod
+          cp -r dist prod/
+          cp -r assets prod/
+          cp 404.html prod/
+          cp index.html prod/
       - name: Verify build
-        run: ls -l && ls -l dist
+        run: ls -l
       - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
@@ -39,5 +46,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           # exclude_assets: '.github,.gitignore,docs/README.md'
-          publish_dir: ./dist # ./public 
+          publish_dir: ./prod # ./public 
           cname: lynkos.dev
