@@ -1,0 +1,270 @@
+@use "variables" as vars
+
+@mixin disable-select()
+    -webkit-user-drag: none
+    -webkit-app-region: no-drag
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+@mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
+    @include disable-select()
+    width: $width
+    height: $height
+    color: white
+    background: $background
+    position: relative
+    border: 0.13rem solid rgba(255, 255, 255, 0.15)
+    border-radius: vars.$border-radius
+
+    input
+        background: none
+        border: none
+        color: rgba(255, 255, 255, 0.8)
+        border-radius: vars.$border-radius
+        height: 100%
+        width: 100%
+        font-size: $font-size
+        line-height: normal
+        padding: 0 $padding 0 calc(($padding * 2) + $font-size)
+        outline: none
+
+        &[type=search]
+            &::-ms-clear, &::-ms-reveal
+                display: none
+                width: 0
+                height: 0
+
+        &[type="search"]
+            &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+                display: none
+
+        &::placeholder
+            color: rgba(255, 255, 255, 0.5)
+
+        &::selection
+            background: rgba(255, 255, 255, 0.25)
+            color: rgba(255, 255, 255, 0.9)
+
+    &::before
+        content: "\f002"
+        position: absolute
+        font-family: "Font Awesome 6 Free"
+        font-weight: 600
+        font-size: $font-size
+        color: $icon-color
+        padding: calc($padding / 2) $padding
+
+@mixin button($padding, $margin, $font-size, $background, $active-background)
+    padding: $padding
+    font-family: vars.$font-family
+    margin: $margin
+    font-size: $font-size
+    line-height: $font-size
+    border-width: 0
+    border-radius: 0.625rem
+    color: white
+    cursor: default
+    background: $background
+
+    &:active
+      background: $active-background
+
+@mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
+    width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
+
+@mixin scale($scale)
+    -moz-transform: scale($scale)
+    -ms-transform: scale($scale)
+    -o-transform: scale($scale)
+    -webkit-transform: scale($scale)
+    transform: scale($scale)
+    transform-origin: center
+
+@mixin text-shadow($x: 0, $y: 0, $radius: 0.75rem, $color: rgba(0, 0, 0, 0.25))
+    text-shadow: $x $y $radius $color
+
+@mixin brightness($percent: 75%)
+    -webkit-filter: brightness($percent)
+    -ms-filter: brightness($percent)
+    filter: brightness($percent)
+    
+@mixin blur($blur-strength: 0.8rem, $background: vars.$dock-menu-background)
+    -webkit-backdrop-filter: blur($blur-strength)
+    backdrop-filter: blur($blur-strength)
+    background: $background
+
+    // @supports (backdrop-filter: $blur-strength) or (-webkit-backdrop-filter: $blur-strength)
+    //     backdrop-filter: blur($blur-strength)
+    //     -webkit-backdrop-filter: blur($blur-strength)
+
+    // // Fallback for browsers that don't support backdrop-filter
+    // @supports not ((backdrop-filter: $blur-strength) or (-webkit-backdrop-filter: $blur-strength))
+    //     background-color: $fallback-color
+
+@mixin window($body-color, $width, $height: min-content)
+    background: $body-color
+    display: none
+    inline-size: -webkit-min-content
+    inline-size: -moz-min-content
+    inline-size: min-content
+    position: absolute
+    inset: 0
+    border-radius: 1rem
+    width: $width
+    height: $height
+    max-width: 100%
+    max-height: 100%
+    word-wrap: break-all
+    overflow-y: hidden
+    overflow-x: auto
+    text-wrap: wrap
+    overflow-wrap: anywhere
+    -webkit-box-shadow: vars.$box-shadow
+    box-shadow: vars.$box-shadow
+    border: 1px solid rgba(255, 255, 255, 0.25)
+    outline: 1px solid rgba(0, 0, 0, 0.75)
+
+    // FIXME Minimize button
+    &.minimize
+        // transform: translateY(82%) translateX(0%) scale(0.75)
+        // opacity: 1
+        // //top: 125%
+        // transition: all 0.25s
+
+        // &:hover
+        //   top: -4rem
+        //   transition: all 0.25s
+
+    // FIXME Maximize button
+    &.maximize
+        // height: 100%
+        // max-height: 100%
+        // width: 100%
+        // max-width: 100%
+        // transition: all 0.25s
+        // transform: translateY(0%) translateX(0%) scale(1)
+
+@mixin buttons($button-dim: vars.$window-icons-dim)
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+
+    &-icon
+        @include disable-select()
+        width: $button-dim
+        height: $button-dim
+        border-radius: 50%
+        position: relative
+        cursor: default
+
+        &:before, &:after
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            margin: auto
+            opacity: 0
+            border-radius: 0.1rem
+
+        a
+            visibility: hidden
+
+        &:hover
+            &:before, &:after
+                top: 0
+                opacity: 1
+
+            a
+                visibility: visible
+
+        &:not(:last-child)
+            margin-right: vars.$windows-icons-spacing
+
+        &--red
+            background: var(--red, #FF544D)
+
+            &:active
+                background: var(--red-active, #c14645)
+
+            &:before, &:after
+                background: rgba(0, 0, 0, 0.5)
+                width: 0.9rem
+                height: 0.15rem
+
+            &:before
+                transform: rotate(45deg)
+
+            &:after
+                transform: rotate(-45deg)
+                        
+        &--yellow
+            background: var(--yellow, #FFB429)
+
+            &:active
+                background: var(--yellow-active, #c08e38)
+
+            &:before
+                background: rgba(0, 0, 0, 0.5)
+                width: 0.9rem
+                height: 0.15rem
+
+        &--green
+            background: var(--green, #25C63A)
+
+            &:active
+                background: var(--green-active, #029740)
+
+                &:after
+                    background: var(--green-active, #029740)
+                    
+            &:before
+                width: 0.65rem
+                height: 0.65rem
+                background: rgba(0, 0, 0, 0.5)
+
+            &:after
+                width: 1rem
+                height: 0.2rem
+                transform: rotate(-45deg)
+                background: var(--green, #25C63A)
+
+@mixin header($bg-color: none, $height: vars.$header-height, $padding: 2rem 1.4rem 1.4rem 1.4rem, $button-dim: vars.$window-icons-dim)
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+    position: relative
+    -webkit-box-pack: justify
+    -ms-flex-pack: justify
+    justify-content: space-between
+    background: $bg-color
+    height: $height
+    padding: $padding
+
+    &__op
+        @include buttons($button-dim)
+
+@mixin header-title($img-size, $spacing, $font-size: 1.36rem)
+    @include disable-select()
+    color: vars.$font-color
+    font-family: "Arial", sans-serif
+    font-size: $font-size
+    font-weight: bold
+    vertical-align: middle
+
+    img
+        display: inline
+        width: $img-size
+        height: $img-size
+        margin-right: $spacing
+        vertical-align: middle

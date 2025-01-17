@@ -1,0 +1,111 @@
+@use "mixins" as mix
+@use "variables" as vars
+
+$duration: 0.4s
+$blur: 3rem
+$icon-margin: 2rem
+$icon-size: 8rem
+$dock-height: 6rem
+$search-height: 3rem
+$search-width: 30rem
+$max-per-row: 5
+
+#launchpad
+  display: none
+  @include mix.disable-select()
+
+  &.shown
+    display: block
+
+    &.start
+      animation: show $duration 1
+
+    &.end
+      animation: hide $duration 1
+
+    .launch-content
+      position: fixed
+      background-color: vars.$background-color
+      background-image: vars.$background-gradient
+      background-image: -o-radial-gradient(vars.$background-color, vars.$foreground-color, 225%)
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+
+      &:before
+        position: absolute
+        @include mix.blur($blur, none)
+        content: ""
+        z-index: -1
+        bottom: 0
+        left: 0
+        right: 0
+        top: 0
+
+      .search
+        @include mix.searchbar($search-width, $search-height, rgba(255, 255, 255, 0.1), 1.5rem, 0.6rem, white)
+        top: calc((vars.$menubar-height + $dock-height + $icon-margin - $search-height) / 2)
+        margin: 0 auto
+
+      #launchNav // nav
+        max-width: calc($max-per-row * ((2 * $icon-margin) + $icon-size) + 0.25rem) // Up to $max-per-row icons per row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        gap: calc($icon-margin * 2)
+        margin: calc(3 * $icon-margin) auto $dock-height auto
+        max-height: calc(100vh - (2 * $dock-height) - vars.$menubar-height)
+
+        a
+          color: white
+          cursor: default
+          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4))
+          font-size: 1.4rem
+          text-align: center
+          text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
+
+          img
+            width: $icon-size
+            height: $icon-size
+
+          &:active
+            @include mix.brightness()
+
+        &.scale-down
+          animation: scale-down $duration 1
+
+        &.scale-up
+          animation: scale-up $duration 1
+
+@keyframes show
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes hide
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@keyframes scale-up
+  0%
+    transform: scale(1)
+
+  100%
+    transform: scale(1.2)
+
+@keyframes scale-down
+  0%
+    transform: scale(1.2)
+
+  100%
+    transform: scale(1)
+
+a[class^="icon"]
+  height: $icon-size
+  width: $icon-size
