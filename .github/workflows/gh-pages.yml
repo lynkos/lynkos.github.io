@@ -44,4 +44,5 @@ jobs:
           cname: lynkos.dev
           # force_orphan: true
           full_commit_message: ${{ github.event.head_commit.message }}
-          user_name: 'lynkos[bot]'
+          user_name: 'lynkos'
+          user_email: 'kiwi2mii@gmail.com'
