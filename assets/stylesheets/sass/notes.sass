@@ -10,7 +10,7 @@ $max-height: 50rem
 $search-height: 2.5rem
 $search-width: 13rem
 $icon-size: 1.5rem
-$icon-dim: 2.5rem
+$icon-dim: calc($icon-size + 1rem)
 $primary-background: rgba(32, 36, 31, 0.9)
 $secondary-background: rgb(30, 30, 30)
 
@@ -129,10 +129,10 @@ $secondary-background: rgb(30, 30, 30)
                             text-overflow: ellipsis
 
                         .bottom
-                            .day, .preview
+                            .day, .note-preview
                                 font-size: 1.2rem
 
-                            .preview
+                            .note-preview
                                 color: rgb(147, 148, 146)
 
                     &:last-child
