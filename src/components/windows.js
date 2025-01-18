@@ -432,11 +432,11 @@ lineHeight.addEventListener("change", function() {
 var selectProject = function(element) {
   var projectInfo = document.getElementsByClassName("project");
 
-  for (j = 0; j < projectInfo.length; ++j) {
+  for (let j = 0; j < projectInfo.length; ++j) {
     projectInfo[j].classList.remove("active");
   }
 
-  project = document.querySelector("#" + element.dataset.id);
+  var project = document.querySelector("#" + element.dataset.id);
   project.classList.add("active");
 }
 
