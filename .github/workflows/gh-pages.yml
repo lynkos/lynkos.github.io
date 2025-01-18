@@ -18,7 +18,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - name: Checkout `main`
+      - name: Checkout main
         id: checkout-main
         uses: actions/checkout@v4
         with:
@@ -43,7 +43,7 @@ jobs:
       - name: Install dependencies
         id: install
         run: npm install
-      - name: Build project
+      - name: Build
         id: build
         run: npm run build
 
@@ -56,12 +56,12 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - name: Checkout `prod`
+      - name: Checkout prod
         id: checkout-prod
         uses: actions/checkout@v4
         with:
           ref: prod
-      - name: Deploy to **lynkos.dev**
+      - name: Deployment
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
         if: github.ref == 'refs/heads/main'
