@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log("Temp test");
-  
   var launchpad = $("#launchpad");
     
   // Open launchpad
