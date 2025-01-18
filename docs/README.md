@@ -136,19 +136,19 @@ Includes (but not limited to):
 │   │       └── trash.png
 │   └── stylesheets/
 │       ├── css/
-│       │   ├── 404.min.css
-│       │   ├── browser.min.css
-│       │   ├── calculator.min.css
-│       │   ├── dock.min.css
-│       │   ├── launchpad.min.css
-│       │   ├── mail.min.css
-│       │   ├── menubar.min.css
-│       │   ├── notes.min.css
-│       │   ├── preview.min.css
-│       │   ├── style.min.css
-│       │   ├── terminal.min.css
-│       │   ├── text-edit.min.css
-│       │   └── tooltip.min.css
+│       │   ├── 404.css
+│       │   ├── browser.css
+│       │   ├── calculator.css
+│       │   ├── dock.css
+│       │   ├── launchpad.css
+│       │   ├── mail.css
+│       │   ├── menubar.css
+│       │   ├── notes.css
+│       │   ├── preview.css
+│       │   ├── style.css
+│       │   ├── terminal.css
+│       │   ├── text-edit.css
+│       │   └── tooltip.css
 │       └── sass/
 │           ├── _mixins.sass
 │           ├── _variables.sass
@@ -229,19 +229,19 @@ Includes (but not limited to):
 │   │       └── trash.png
 │   └── stylesheets/
 │       └── css/
-│           ├── 404.min.css
-│           ├── browser.min.css
-│           ├── calculator.min.css
-│           ├── dock.min.css
-│           ├── launchpad.min.css
-│           ├── mail.min.css
-│           ├── menubar.min.css
-│           ├── notes.min.css
-│           ├── preview.min.css
-│           ├── style.min.css
-│           ├── terminal.min.css
-│           ├── text-edit.min.css
-│           └── tooltip.min.css
+│           ├── 404.css
+│           ├── browser.css
+│           ├── calculator.css
+│           ├── dock.css
+│           ├── launchpad.css
+│           ├── mail.css
+│           ├── menubar.css
+│           ├── notes.css
+│           ├── preview.css
+│           ├── style.css
+│           ├── terminal.css
+│           ├── text-edit.css
+│           └── tooltip.css
 ├── dist/
 │   ├── components/
 │   │   ├── 404.js

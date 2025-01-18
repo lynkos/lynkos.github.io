@@ -2,12 +2,4 @@
   "terminal.integrated.env.osx": {
     "LOAD_SSH_KEY": "/usr/bin/ssh-add --apple-load-keychain -q"
   },
-  "liveSassCompile.settings.formats": [
-    { // Minified extension; reduces file size
-      "format": "compressed",
-      "extensionName": ".min.css",
-      "savePath": "/assets/stylesheets/css"
-    }
-  ],
-  "liveSassCompile.settings.forceBaseDirectory": "/assets/stylesheets/sass"
 }
