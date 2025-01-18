@@ -5,70 +5,40 @@ on:
     branches:
       - main
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
     steps:
-      - name: Checkout main
-        id: checkout-main
+      - name: Checkout
+        id: checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
       - name: Setup Node
-        id: setup
+        id: setup-node
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
           cache: 'npm'
           check-latest: true
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - name: Install dependencies
         id: install
         run: npm install
       - name: Build
         id: build
         run: npm run build
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: Checkout prod
-        id: checkout-prod
-        uses: actions/checkout@v4
-        with:
-          ref: prod
-      - name: Deployment
+      - name: Verify build
+        run: ls -l
+      - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
         if: github.ref == 'refs/heads/main'
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: prod
-          exclude_assets: '.github,.gitignore,.vscode,docs,node_modules,src,package.json,package-lock.json,.nojekyll,assets/stylesheets/sass,assets/images/misc/demo.png'
+          exclude_assets: '.github,.gitignore,.vscode,docs,node_modules,src,package.json,package-lock.json,.nojekyll,assets/stylesheets/sass,assets/stylesheets/images/misc/demo.png'
           publish_dir: .
           cname: lynkos.dev
           full_commit_message: ${{ github.event.head_commit.message }}
