@@ -41,7 +41,7 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue").position({
+  $(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview").position({
     my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
     at: "center",
     collision: "fit",
@@ -153,8 +153,8 @@ $(document).ready(function() {
   function makeDraggable(selector) {
     $(selector).draggable({
       cursor: "default",
-      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header, .top",
-      cancel: ".header__op-icon, .text-edit-header__op-icon, .mail-header__op-icon, .calc-header__op-icon, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address",
+      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header, .top, .preview-header",
+      cancel: ".header__op-icon, .text-edit-header__op-icon, .mail-header__op-icon, .calc-header__op-icon, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address, .preview-header__op-icon, .preview-header-icons",
       start: function() {
         bringToFront(this, ".windows, .btn, .dialogue");
       },
@@ -268,12 +268,12 @@ $(document).ready(function() {
     if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
   });
 
-  // Open safari when double-clicking "profile.jpg"
+  // Open preview when double-clicking "profile.jpg"
   $("#profilePic").dblclick(function() {
-    if ($(".browser").css("display") === "none") $(".browser").css("display", "flex");
-    bringToFront(".browser", ".windows, .btn, .dialogue");
-    if (!$(".browser").hasClass("openWindow")) $(".browser").addClass("openWindow");
-    if (!$("#safari").hasClass("open")) $("#safari").addClass("open");
+    if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
+    bringToFront(".preview", ".windows, .btn, .dialogue");
+    if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
+    if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
   });  
 
   // Open app via launchpad
@@ -304,6 +304,9 @@ $(document).ready(function() {
 
   // Open calculator
   launchApp("#calculatorLaunch", ".calc", "inline-block", null);  
+
+  // Open calculator
+  launchApp("#previewLaunch", ".preview", "flex", null);  
 
   // Empty trash
   $(".confirm").click(function (e) {
@@ -339,6 +342,9 @@ $(document).ready(function() {
 
   // Close calculator
   closeWindow(".calc-header__op-icon--red", ".calc", null);
+
+  // Close preview
+  closeWindow(".preview-header__op-icon--red", ".preview", null);
 
   // Close trash dialogue
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  

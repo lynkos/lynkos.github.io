@@ -1,0 +1,78 @@
+@use "mixins" as mix
+@use "variables" as vars
+
+$window-width: 55rem
+$window-height: 40rem
+$header-height: 5rem
+$icon-size: 1.5rem
+$icon-dim: calc($icon-size + 1rem)
+$header-color: rgb(56, 57, 56)
+
+.preview
+    @include mix.window(rgb(40, 40, 40), $window-width, $window-height)
+    flex-direction: column
+    font-family: vars.$font-family
+    min-width: vars.$min-width
+    min-height: vars.$min-height
+    align-content: stretch
+
+    &-header
+        @include mix.header($header-color, $header-height, calc(vars.$padding * 3.5))
+        @include mix.disable-select()
+        overflow: hidden
+        cursor: default
+        border-bottom: 1px solid rgb(15, 15, 15)
+
+        &-title, &-icons
+            font-family: vars.$font-family
+            vertical-align: middle
+            text-align: center
+            display: inline-block
+
+        &-title
+            font-size: 1.5rem
+            line-height: 1.5rem
+            color: white
+            font-weight: 600
+
+        &-icons
+            font-size: $icon-size
+            width: $icon-dim
+            height: $icon-dim
+            border-radius: vars.$border-radius
+            color: vars.$font-color
+            
+            &:hover
+                transition: background 1s
+                background-color: rgba(255, 255, 255, 0.1)
+            
+            &.inactive
+                color: #707070
+                
+                &:hover
+                    background: none
+                    
+                &:active i
+                    color: #707070
+
+            i
+                padding: vars.$padding 0
+                width: $icon-dim
+                height: $icon-dim
+                text-align: center
+
+                &:active
+                    color: white
+                
+    &-body
+        color: white
+        width: 100%
+        height: 100%
+        padding: 0
+        overflow: auto
+        cursor: crosshair
+
+        img
+            width: auto
+            height: 100%
+            margin: 0 auto
