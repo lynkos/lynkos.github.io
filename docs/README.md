@@ -89,8 +89,6 @@ Includes (but not limited to):
 │   ├── workflows/
 │   │   └── gh-pages.yml
 │   └── dependabot.yml
-├── .vscode/
-│   └── settings.json
 ├── assets/
 │   ├── audio/
 │   │   └── empty_trash.mp3
