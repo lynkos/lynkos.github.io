@@ -47,11 +47,8 @@ Includes (but not limited to):
 * Trash
 
 ## Requirements
-> [!TIP]
-> I use VSCode's [Live Sass Compiler extension](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass) to compile [SASS files](../assets/stylesheets/sass), but feel free to use any compiler
 - [x] <a target="_blank" href="https://nodejs.org" alt="Node.js">Node.js</a>
 - [x] <a target="_blank" href="https://www.npmjs.com" alt="npm">npm</a>
-- [x] <a target="_blank" href="https://sass-lang.com" alt="SASS">SASS</a> Compiler
 
 ## Installation
 1. Enter the the directory where you want the repository (`lynkos.github.io`) to be cloned
