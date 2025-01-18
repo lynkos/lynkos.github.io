@@ -1,7 +1,7 @@
 <div align="center">
    <h1><a target="_blank" href="https://lynkos.dev" alt="lynkos.dev">lynkos.github.io</a></h1>
     <img alt="HTML" src="https://img.shields.io/static/v1?label=Language&style=flat&message=HTML&logo=html5&color=E34F26&labelColor=393939&logoColor=E34F26">
-   <img alt="JavaScript" src="https://img.shields.io/static/v1?label=Language&style=flat&message=JavaScript&logo=javascript&color=F7DF1E&labelColor=393939&logoColor=F7DF1E">
+    <img alt="JavaScript" src="https://img.shields.io/static/v1?label=Language&style=flat&message=JavaScript&logo=javascript&color=F7DF1E&labelColor=393939&logoColor=F7DF1E">
     <img alt="jQuery" src="https://img.shields.io/static/v1?label=Language&style=flat&message=jQuery&logo=jquery&color=0769AD&labelColor=393939&logoColor=0769AD">
     <img alt="YAML" src="https://img.shields.io/static/v1?label=Language&style=flat&message=YAML&logo=yaml&color=CB171E&labelColor=393939&logoColor=CB171E">
     <img alt="CSS" src="https://img.shields.io/static/v1?label=Language&style=flat&message=CSS&logo=css&color=663399&labelColor=393939&logoColor=663399">
@@ -16,7 +16,14 @@
     <img alt="Code+Editor" src="https://img.shields.io/static/v1?label=Code+Editor&style=flat&message=Visual+Studio+Code&logo=visual+studio+code&color=007acc&labelColor=393939&logoColor=007acc">
     <br>
    <p>macOS Sequoia-inspired personal website.</p>
-   <img width="100%" src="../assets/images/misc/demo.png" alt="Screenshot of lynkos.github.io">
+    <figure>
+        <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture><br>
+        <figcaption style="font-size: 11px;">Home Page</figcaption>
+    </figure>
+    <figure>
+        <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.gif"></picture><br>
+        <figcaption style="font-size: 11px;">404: Error Not Found Page</figcaption>
+    </figure>
 </div>
 
 ## Features
@@ -72,3 +79,103 @@ Includes (but not limited to):
     ```sh
     npm run dev
     ```
+
+## Appendix
+### Repository Structure
+```
+.
+├── .github/
+│   ├── workflows/
+│   │   └── gh-pages.yml
+│   └── dependabot.yml
+├── .vscode/
+│   └── settings.json
+├── assets/
+│   ├── audio/
+│   │   └── empty_trash.mp3
+│   ├── favicon/
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-96x96.png
+│   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── site.webmanifest
+│   │   ├── web-app-manifest-192x192.png
+│   │   └── web-app-manifest-512x512.png
+│   ├── images/
+│   │   ├── apps/
+│   │   │   ├── calc.png
+│   │   │   ├── discord.png
+│   │   │   ├── github.svg
+│   │   │   ├── iterm.png
+│   │   │   ├── launchpad.png
+│   │   │   ├── mail.png
+│   │   │   ├── notes.png
+│   │   │   ├── preview.png
+│   │   │   ├── safari.png
+│   │   │   ├── spotify.png
+│   │   │   ├── steam.png
+│   │   │   └── text_edit.png
+│   │   ├── icons/
+│   │   │   ├── angles-up-down.svg
+│   │   │   ├── control_center.svg
+│   │   │   └── terminal.svg
+│   │   ├── misc/
+│   │   │   ├── 404.gif
+│   │   │   ├── demo.png
+│   │   │   ├── mpc.jpg
+│   │   │   └── profile.jpg
+│   │   └── system/
+│   │       ├── blue_folder.png
+│   │       ├── empty_trash.png
+│   │       ├── rtf_icon.png
+│   │       ├── text_file.png
+│   │       └── trash.png
+│   └── stylesheets/
+│       ├── css/
+│       │   ├── 404.min.css
+│       │   ├── browser.min.css
+│       │   ├── calculator.min.css
+│       │   ├── dock.min.css
+│       │   ├── launchpad.min.css
+│       │   ├── mail.min.css
+│       │   ├── menubar.min.css
+│       │   ├── notes.min.css
+│       │   ├── preview.min.css
+│       │   ├── style.min.css
+│       │   ├── terminal.min.css
+│       │   ├── text-edit.min.css
+│       │   └── tooltip.min.css
+│       └── sass/
+│           ├── _mixins.sass
+│           ├── _variables.sass
+│           ├── 404.sass
+│           ├── browser.sass
+│           ├── calculator.sass
+│           ├── dock.sass
+│           ├── launchpad.sass
+│           ├── mail.sass
+│           ├── menubar.sass
+│           ├── notes.sass
+│           ├── preview.sass
+│           ├── style.sass
+│           ├── terminal.sass
+│           ├── text-edit.sass
+│           └── tooltip.sass
+├── docs/
+│   └── README.md
+├── src/
+│   ├── components/
+│   │   ├── 404.js
+│   │   ├── calculator.js
+│   │   ├── email.js
+│   │   ├── terminal.js
+│   │   └── windows.js
+│   └── utilities/
+│       ├── particles.js
+│       └── timestamp.js
+├── .gitignore
+├── 404.html
+├── index.html
+├── package-lock.json
+└── package.json
+```
