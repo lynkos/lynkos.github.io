@@ -435,10 +435,10 @@ lineHeight.addEventListener("change", function () {
 // Make selected project in Notes sidebar active and all others inactive
 var selectProject = function selectProject(element) {
   var projectInfo = document.getElementsByClassName("project");
-  for (j = 0; j < projectInfo.length; ++j) {
+  for (var j = 0; j < projectInfo.length; ++j) {
     projectInfo[j].classList.remove("active");
   }
-  project = document.querySelector("#" + element.dataset.id);
+  var project = document.querySelector("#" + element.dataset.id);
   project.classList.add("active");
 };
 
