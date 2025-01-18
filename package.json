@@ -4,8 +4,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "babel src --out-dir dist",
-        "dev": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env & sass --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css"
+        "build": "sass --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css && babel src --out-dir dist",
+        "dev": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env & sass --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css"
     },
     "repository": {
         "type": "git",
