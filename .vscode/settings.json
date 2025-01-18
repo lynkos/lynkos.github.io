@@ -1,5 +1,0 @@
-{
-  "terminal.integrated.env.osx": {
-    "LOAD_SSH_KEY": "/usr/bin/ssh-add --apple-load-keychain -q"
-  },
-}
