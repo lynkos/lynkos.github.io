@@ -68,7 +68,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: prod
-          exclude_assets: '.github,.gitignore,docs,node_modules,src,package.json,package-lock.json,.nojekyll,assets/stylesheets/sass,assets/images/misc/demo.png'
+          exclude_assets: '.github,.gitignore,.vscode,docs,node_modules,src,package.json,package-lock.json,.nojekyll,assets/stylesheets/sass,assets/images/misc/demo.png'
           publish_dir: .
           cname: lynkos.dev
           full_commit_message: ${{ github.event.head_commit.message }}
