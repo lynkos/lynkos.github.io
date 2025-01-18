@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,14 +27,22 @@ jobs:
           node-version: 'latest'
           cache: 'npm'
           check-latest: true
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
         id: install
         run: npm install
       - name: Build
         id: build
         run: npm run build
-      - name: Verify build
-        run: ls -l
       - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
