@@ -24,11 +24,11 @@
    <p>macOS Sequoia-inspired personal website.</p>
     <figure>
         <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture><br>
-        <figcaption style="font-size: 11px;">Home Page</figcaption>
+        <figcaption>Home Page</figcaption>
     </figure>
     <figure>
         <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.gif"></picture><br>
-        <figcaption style="font-size: 11px;">404: Error Not Found Page</figcaption>
+        <figcaption>404: Error Not Found Page</figcaption>
     </figure>
 </div>
 
@@ -54,10 +54,6 @@ Includes (but not limited to):
 - [x] <a target="_blank" href="https://sass-lang.com" alt="SASS">SASS</a> Compiler
 
 ## Installation
-> [!NOTE]
-> `main` branch: Used for development
-> 
-> `prod` branch: Used for production
 1. Enter the the directory where you want the repository (`lynkos.github.io`) to be cloned
     * UNIX
         ```sh
@@ -86,8 +82,10 @@ Includes (but not limited to):
     npm run dev
     ```
 
-## Appendix
-### Repository Structure
+## Repository Structure
+### [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) branch
+> [!NOTE]
+> [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) is used for development
 ```
 .
 ├── .github/
@@ -184,4 +182,78 @@ Includes (but not limited to):
 ├── index.html
 ├── package-lock.json
 └── package.json
+```
+
+### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch
+> [!NOTE]
+> [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) is used for production
+```
+.
+├── assets/
+│   ├── audio/
+│   │   └── empty_trash.mp3
+│   ├── favicon/
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-96x96.png
+│   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── site.webmanifest
+│   │   ├── web-app-manifest-192x192.png
+│   │   └── web-app-manifest-512x512.png
+│   ├── images/
+│   │   ├── apps/
+│   │   │   ├── calc.png
+│   │   │   ├── discord.png
+│   │   │   ├── github.svg
+│   │   │   ├── iterm.png
+│   │   │   ├── launchpad.png
+│   │   │   ├── mail.png
+│   │   │   ├── notes.png
+│   │   │   ├── preview.png
+│   │   │   ├── safari.png
+│   │   │   ├── spotify.png
+│   │   │   ├── steam.png
+│   │   │   └── text_edit.png
+│   │   ├── icons/
+│   │   │   ├── angles-up-down.svg
+│   │   │   ├── control_center.svg
+│   │   │   └── terminal.svg
+│   │   ├── misc/
+│   │   │   ├── mpc.jpg
+│   │   │   └── profile.jpg
+│   │   └── system/
+│   │       ├── blue_folder.png
+│   │       ├── empty_trash.png
+│   │       ├── rtf_icon.png
+│   │       ├── text_file.png
+│   │       └── trash.png
+│   └── stylesheets/
+│       └── css/
+│           ├── 404.min.css
+│           ├── browser.min.css
+│           ├── calculator.min.css
+│           ├── dock.min.css
+│           ├── launchpad.min.css
+│           ├── mail.min.css
+│           ├── menubar.min.css
+│           ├── notes.min.css
+│           ├── preview.min.css
+│           ├── style.min.css
+│           ├── terminal.min.css
+│           ├── text-edit.min.css
+│           └── tooltip.min.css
+├── dist/
+│   ├── components/
+│   │   ├── 404.js
+│   │   ├── calculator.js
+│   │   ├── email.js
+│   │   ├── terminal.js
+│   │   └── windows.js
+│   └── utilities/
+│       ├── particles.js
+│       └── timestamp.js
+├── .nojekyll
+├── 404.html
+├── CNAME
+└── index.html
 ```
