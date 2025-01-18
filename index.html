@@ -13,35 +13,20 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
 
-    <link rel="preload" as="image" href="/assets/images/apps/calc.png">
-    <link rel="preload" as="image" href="/assets/images/apps/discord.png">
     <link rel="preload" as="image" href="/assets/images/apps/github.svg">
     <link rel="preload" as="image" href="/assets/images/apps/iterm.png">
     <link rel="preload" as="image" href="/assets/images/apps/launchpad.png">
     <link rel="preload" as="image" href="/assets/images/apps/mail.png">
     <link rel="preload" as="image" href="/assets/images/apps/notes.png">
-    <link rel="preload" as="image" href="/assets/images/apps/preview.png">
     <link rel="preload" as="image" href="/assets/images/apps/safari.png">
-    <link rel="preload" as="image" href="/assets/images/apps/spotify.png">
-    <link rel="preload" as="image" href="/assets/images/apps/steam.png">
     <link rel="preload" as="image" href="/assets/images/apps/text_edit.png">
-    <link rel="preload" as="image" href="/assets/images/icons/angles-up-down.svg">
     <link rel="preload" as="image" href="/assets/images/icons/control_center.svg">
     <link rel="preload" as="image" href="/assets/images/icons/terminal.svg">
-    <link rel="preload" as="image" href="/assets/images/misc/mpc.jpg">
     <link rel="preload" as="image" href="/assets/images/misc/profile.jpg">
     <link rel="preload" as="image" href="/assets/images/system/blue_folder.png">
     <link rel="preload" as="image" href="/assets/images/system/rtf_icon.png">
     <link rel="preload" as="image" href="/assets/images/system/text_file.png">
     <link rel="preload" as="image" href="/assets/images/system/trash.png">
-    <link rel="preload" as="image" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true">
-
-    <link rel="preload" as="script" href="/dist/components/calculator.js">
-    <link rel="preload" as="script" href="/dist/components/email.js">
-    <link rel="preload" as="script" href="/dist/components/terminal.js">
-    <link rel="preload" as="script" href="/dist/components/windows.js">
-    <link rel="preload" as="script" href="/dist/utilities/particles.js">
-    <link rel="preload" as="script" href="/dist/utilities/timestamp.js">
 
     <meta name="description" content="Kiran Brahmatewari's macOS-inspired personal website.">
     <meta name="author" content="Kiran Brahmatewari">
@@ -60,29 +45,47 @@
     <meta name="twitter:description" content="Kiran Brahmatewari's macOS-inspired personal website.">
     <meta name="twitter:image" content="https://lynkos.dev/assets/favicon/favicon.svg">
 
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/preview.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/style.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/menubar.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/calculator.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/mail.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/dock.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/terminal.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/tooltip.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/text-edit.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/notes.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/launchpad.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css/browser.min.css">
-    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preload" href="/assets/stylesheets/css/dock.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/stylesheets/css/menubar.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/stylesheets/css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/stylesheets/css/terminal.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" as="style" onload="this.rel='stylesheet'">
+
+    <!-- Fallback for preload if there's no JavaScript -->
+    <noscript>
+      <link rel="stylesheet" href="/assets/stylesheets/css/dock.min.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/menubar.min.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/style.min.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/terminal.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
+    </noscript>
+
+    <link rel="stylesheet" href="/assets/stylesheets/css/preview.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/calculator.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/mail.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/tooltip.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/text-edit.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/notes.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/browser.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+      <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+    <![endif]-->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" defer></script>
   </head>
 
   <body>
@@ -117,7 +120,7 @@
             <div class="btns pause">
               <i alt="Pause button" class="fas fa-pause" aria-hidden="true"></i>
             </div>
-            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" alt="Spotify">  
+            <img loading="lazy" src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" alt="Spotify">  
           </div>
         </a>
         <div class="folder">
@@ -898,7 +901,7 @@
                     </div>
 
                     <p>Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</p><br>
-                    <img src="/assets/images/misc/mpc.jpg"><br>
+                    <img loading="lazy" src="/assets/images/misc/mpc.jpg" alt="System design of MPC"><br>
                     <ol>
                       <li>Split each of <code>N</code> massive matrices into submatrices</li>
                       <li>Homomorphically encrypt the submatrices and disperse evenly among <code>M</code> Internet of Things (IoT) devices</li>
@@ -996,12 +999,12 @@
               <a class="icon-notes launch" id="notesLaunch"><img src="/assets/images/apps/notes.png" draggable="true" alt="Notes"> Notes</a>
               <a class="icon-textedit launch" id="textLaunch"><img src="/assets/images/apps/text_edit.png" draggable="true" alt="TextEdit"> TextEdit</a>
               <a class="icon-iterm launch" id="itermLaunch"><img src="/assets/images/apps/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
-              <a class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/images/apps/calc.png" draggable="true" alt="Calculator"> Calculator</a>
-              <a class="icon-preview launch" id="previewLaunch"><img src="/assets/images/apps/preview.png" draggable="true" alt="Preview"> Preview</a>
+              <a class="icon-calculator launch" id="calculatorLaunch"><img loading="lazy" src="/assets/images/apps/calc.png" draggable="true" alt="Calculator"> Calculator</a>
+              <a class="icon-preview launch" id="previewLaunch"><img loading="lazy" src="/assets/images/apps/preview.png" draggable="true" alt="Preview"> Preview</a>
               <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" alt="Link to my GitHub profile" draggable="false"><img src="/assets/images/apps/github.svg" draggable="true" alt="GitHub"> GitHub</a>
-              <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img src="/assets/images/apps/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
-              <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img src="/assets/images/apps/steam.png" draggable="true" alt="Steam"> Steam</a>
-              <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" alt="Link to my Discord profile" draggable="false"><img src="/assets/images/apps/discord.png" draggable="true" alt="Discord"> Discord</a>
+              <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" alt="Link to my Spotify profile" draggable="false"><img loading="lazy" src="/assets/images/apps/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
+              <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" alt="Link to my Steam profile" draggable="false"><img loading="lazy" src="/assets/images/apps/steam.png" draggable="true" alt="Steam"> Steam</a>
+              <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" alt="Link to my Discord profile" draggable="false"><img loading="lazy" src="/assets/images/apps/discord.png" draggable="true" alt="Discord"> Discord</a>
             </nav>
           </div>
         </div>
@@ -1045,13 +1048,43 @@
       <span></span>
     </div>
 
-    <script id="rendered-js" src="/dist/utilities/particles.js"></script>
-    <script src="/dist/components/windows.js"></script>
-    <script src="/dist/utilities/timestamp.js"></script>
-    <script src="/dist/components/calculator.js"></script>
-    <script src="/dist/components/terminal.js"></script>
-    <script type="text/javascript" data-cfasync="false" src="/dist/components/email.js"></script>
-    <script type="text/javascript">
+    <!--[if lt IE 9]>
+      <script type="text/javascript" id="rendered-js" src="/dist/utilities/particles.js"></script>
+      <script type="text/javascript" src="/dist/components/windows.js"></script>
+      <script type="text/javascript" src="/dist/utilities/timestamp.js"></script>
+      <script type="text/javascript" src="/dist/components/calculator.js"></script>
+      <script type="text/javascript" src="/dist/components/terminal.js"></script>
+      <script type="text/javascript" data-cfasync="false" src="/dist/components/email.js"></script>
+      <script type="text/javascript">
+        // Make launchpad searchable
+        function filterLaunchpad() {
+          var input = document.getElementById("launchInput"),
+              filter = input.value.toLowerCase(),
+              nav = document.getElementById("launchNav"),
+              apps = nav.getElementsByTagName("a");
+          var appName;
+
+          for (i = 0; i < apps.length; i++) {
+            appName = apps[i].getElementsByTagName("img")[0].alt;
+            if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
+            else apps[i].style.display = "none";
+          }
+        }
+
+        // Allow user to send me an email after completing reCAPTCHA
+        function callback() {
+          const sendButton = document.getElementById("send-btn");
+          sendButton.disabled = false;
+        }
+      </script>
+    <![endif]-->
+    <script id="rendered-js" src="/dist/utilities/particles.js" defer></script>
+    <script src="/dist/components/windows.js" defer></script>
+    <script src="/dist/utilities/timestamp.js" defer></script>
+    <script src="/dist/components/calculator.js" defer></script>
+    <script src="/dist/components/terminal.js" defer></script>
+    <script data-cfasync="false" src="/dist/components/email.js" defer></script>
+    <script defer>
       // Make launchpad searchable
       function filterLaunchpad() {
         var input = document.getElementById("launchInput"),
@@ -1072,6 +1105,6 @@
         const sendButton = document.getElementById("send-btn");
         sendButton.disabled = false;
       }
-    </script>  
+    </script>
   </body>
 </html>
