@@ -135,20 +135,6 @@ Includes (but not limited to):
 │   │       ├── text_file.png
 │   │       └── trash.png
 │   └── stylesheets/
-│       ├── css/
-│       │   ├── 404.css
-│       │   ├── browser.css
-│       │   ├── calculator.css
-│       │   ├── dock.css
-│       │   ├── launchpad.css
-│       │   ├── mail.css
-│       │   ├── menubar.css
-│       │   ├── notes.css
-│       │   ├── preview.css
-│       │   ├── style.css
-│       │   ├── terminal.css
-│       │   ├── text-edit.css
-│       │   └── tooltip.css
 │       └── sass/
 │           ├── _mixins.sass
 │           ├── _variables.sass
