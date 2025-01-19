@@ -15,12 +15,8 @@
     <img alt="GitHub Pages" src="https://img.shields.io/static/v1?label=Tool&style=flat&message=GitHub+Pages&logo=github+pages&color=222222&labelColor=393939&logoColor=222222">
     <img alt="Code+Editor" src="https://img.shields.io/static/v1?label=Code+Editor&style=flat&message=Visual+Studio+Code&logo=visual+studio+code&color=007acc&labelColor=393939&logoColor=007acc">
     <br>
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lynkos/lynkos.github.io?style=flat">
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lynkos/lynkos.github.io/.github%2Fworkflows%2Fgh-pages.yml?style=flat">
-    <img alt="GitHub prod branch check runs" src="https://img.shields.io/github/check-runs/lynkos/lynkos.github.io/prod?style=flat">
     <img alt="Website status" src="https://img.shields.io/website?url=https%3A%2F%2Flynkos.dev&up_message=online&up_color=green&down_message=offline&down_color=red&style=flat">
-    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/lynkos/lynkos.github.io?style=flat">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/lynkos/lynkos.github.io?style=flat">
    <p>macOS Sequoia-inspired personal website.</p>
     <figure>
         <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture><br>
