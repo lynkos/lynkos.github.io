@@ -23,7 +23,7 @@
         <figcaption>Home Page</figcaption>
     </figure>
     <figure>
-        <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.gif"></picture><br>
+        <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.png"></picture><br>
         <figcaption>404: Error Not Found Page</figcaption>
     </figure>
 </div>
@@ -115,7 +115,7 @@ Includes (but not limited to):
 │   │   │   ├── control_center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
-│   │   │   ├── 404.gif
+│   │   │   ├── 404.png
 │   │   │   ├── demo.png
 │   │   │   ├── mpc.jpg
 │   │   │   └── profile.jpg
