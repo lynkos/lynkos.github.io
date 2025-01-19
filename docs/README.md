@@ -22,6 +22,7 @@
         <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture><br>
         <figcaption>Home Page</figcaption>
     </figure>
+    <br>
     <figure>
         <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.png"></picture><br>
         <figcaption>404: Error Not Found Page</figcaption>
@@ -40,6 +41,7 @@ Includes (but not limited to):
 * Menubar
 * Dock
 * Desktop
+* Music Player
 * Trash
 
 ## Requirements
