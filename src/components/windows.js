@@ -54,7 +54,7 @@ $(document).ready(function() {
   // TODO Improve playlist toggle logic
   // Show playlist when icon clicked
   $("#play").click(function(e) {
-    $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 20);
+    $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 14);
 
     // Bring playlist to front
     bringToFront("#playlist", ".windows, .btn, .dialogue, #playlist");
