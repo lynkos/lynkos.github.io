@@ -11,9 +11,7 @@ function currentTimestamp() {
 }
 
 function updateTimeStamp() {
-  const date = new Date();
-  const time = date.toLocaleTimeString("en-us", { hour12: false });
-  document.querySelector("#menutime").textContent = time; //currentTimestamp();
+  document.querySelector("#menutime").textContent = currentTimestamp();
 }
 
 setInterval(updateTimeStamp, 1000);
