@@ -74,7 +74,7 @@ Includes (but not limited to):
     ```sh
     npm run build
     ```
-* Run the project
+* Start the development environment
     ```sh
     npm run dev
     ```
