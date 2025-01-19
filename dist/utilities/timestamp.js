@@ -13,11 +13,7 @@ function currentTimestamp() {
   return weekDay.concat(" ", month, " ", day, " ", time);
 }
 function updateTimeStamp() {
-  var date = new Date();
-  var time = date.toLocaleTimeString("en-us", {
-    hour12: false
-  });
-  document.querySelector("#menutime").textContent = time; //currentTimestamp();
+  document.querySelector("#menutime").textContent = currentTimestamp();
 }
 setInterval(updateTimeStamp, 1000);
 updateTimeStamp();
