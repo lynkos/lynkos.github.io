@@ -92,7 +92,7 @@ function render() {
 
     gl.uniform1f(uniforms.u_time, currentTime);
     gl.uniform2f(uniforms.u_pointer_position, pointer.x / window.innerWidth, 1 - pointer.y / window.innerHeight);
-    gl.uniform1f(uniforms.u_scroll_progress, window["pageYOffset"] / (2 * window.innerHeight));
+    gl.uniform1f(uniforms.u_scroll_progress, window["scrollY"] / (2 * window.innerHeight));
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     requestAnimationFrame(render);
