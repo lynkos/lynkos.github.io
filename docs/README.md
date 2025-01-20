@@ -1,5 +1,5 @@
 <div align="center">
-   <h1><a target="_blank" href="https://lynkos.dev" alt="lynkos.dev">lynkos.github.io</a></h1>
+   <a target="_blank" href="https://lynkos.dev" alt="lynkos.dev"><h1>lynkos.github.io</h1></a>
     <img alt="HTML" src="https://img.shields.io/static/v1?label=Language&style=flat&message=HTML&logo=html5&color=E34F26&labelColor=393939&logoColor=E34F26">
     <img alt="JavaScript" src="https://img.shields.io/static/v1?label=Language&style=flat&message=JavaScript&logo=javascript&color=F7DF1E&labelColor=393939&logoColor=F7DF1E">
     <img alt="jQuery" src="https://img.shields.io/static/v1?label=Language&style=flat&message=jQuery&logo=jquery&color=0769AD&labelColor=393939&logoColor=0769AD">
@@ -54,11 +54,10 @@ Includes (but not limited to):
 * Trash
 
 ## Requirements
-- [x] <a target="_blank" href="https://nodejs.org" alt="Node.js">Node.js</a>
-- [x] <a target="_blank" href="https://www.npmjs.com" alt="npm">npm</a>
+- [x] [Node.js](https://nodejs.org/en/download)
 
 ## Installation
-1. Enter the the directory where you want the repository (`lynkos.github.io`) to be cloned
+1. Enter directory where you want to clone repository (`lynkos.github.io`)
     * UNIX
         ```sh
         cd ~/path/to/directory
@@ -67,21 +66,21 @@ Includes (but not limited to):
         ```sh
         cd C:\path\to\directory
         ```
-2. Clone the repository, then enter its directory
+2. Clone and enter repository
     ```sh
     git clone https://github.com/lynkos/lynkos.github.io.git && cd lynkos.github.io
     ```
-3. Install the dependencies
+3. Install dependencies
     ```sh
     npm install
     ```
 
 ## Usage
-* Build the project
+* Build project
     ```sh
     npm run build
     ```
-* Start the development environment
+* Start development environment
     ```sh
     npm run dev
     ```
@@ -245,3 +244,12 @@ Includes (but not limited to):
 ├── CNAME
 └── index.html
 ```
+
+## Resources
+* [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
+* [GitHub Actions: Cache](https://github.com/actions/cache)
+* [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
+* [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+* [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+* [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
+* [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
