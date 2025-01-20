@@ -1,5 +1,5 @@
 <div align="center">
-   <a target="_blank" href="https://lynkos.dev" alt="lynkos.dev"><h1>lynkos.github.io</h1></a>
+   <h1><a target="_blank" href="https://lynkos.dev" alt="lynkos.dev">lynkos.github.io</a></h1>
     <img alt="HTML" src="https://img.shields.io/static/v1?label=Language&style=flat&message=HTML&logo=html5&color=E34F26&labelColor=393939&logoColor=E34F26">
     <img alt="JavaScript" src="https://img.shields.io/static/v1?label=Language&style=flat&message=JavaScript&logo=javascript&color=F7DF1E&labelColor=393939&logoColor=F7DF1E">
     <img alt="jQuery" src="https://img.shields.io/static/v1?label=Language&style=flat&message=jQuery&logo=jquery&color=0769AD&labelColor=393939&logoColor=0769AD">
