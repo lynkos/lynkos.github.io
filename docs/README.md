@@ -18,15 +18,25 @@
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lynkos/lynkos.github.io/.github%2Fworkflows%2Fgh-pages.yml?style=flat">
     <img alt="Website status" src="https://img.shields.io/website?url=https%3A%2F%2Flynkos.dev&up_message=online&up_color=green&down_message=offline&down_color=red&style=flat">
    <p>macOS Sequoia-inspired personal website.</p>
-    <figure>
-        <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture><br>
-        <figcaption>Home Page</figcaption>
-    </figure>
-    <figure>
-        <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.png"></picture><br>
-        <figcaption>404: Error Not Found Page</figcaption>
-    </figure>
 </div>
+
+<details open>
+    <summary>Home Page</summary>
+    <div align="center">
+        <figure>
+            <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture>
+        </figure>
+    </div>
+</details>
+
+<details open>
+    <summary>404: Error Not Found Page</summary>
+    <div align="center">
+        <figure>
+            <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.png"></picture>
+        </figure>
+    </div>
+</details>
 
 ## Features
 Includes (but not limited to):
