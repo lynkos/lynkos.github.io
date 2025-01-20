@@ -5,17 +5,17 @@ $window-width: 55rem
 $window-height: 40rem
 $icon-size: 1.25rem
 $icon-dim: 2.25rem
+$skills-bar-height: 3rem
 $border-radius: calc(vars.$border-radius * 0.9)
 $separator-color: rgba(255, 255, 255, 0.25)
 $header-color: rgb(56, 58, 55)
 
 .browser
-  @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
   flex-direction: column
   font-family: vars.$font-family
+  @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
 
   .top
-    @include mix.disable-select()
     padding: calc(vars.$padding * 1.25) 0
     display: flex
     justify-content: space-around
@@ -23,10 +23,11 @@ $header-color: rgb(56, 58, 55)
     background: $header-color
     overflow: hidden
     cursor: default
+    @include mix.disable-select()
 
     .browser-buttons
-      @include mix.buttons()
       padding-left: calc(vars.$padding * 2)
+      @include mix.buttons()
 
     .icons
       font-size: $icon-size
@@ -97,17 +98,132 @@ $header-color: rgb(56, 58, 55)
   .inside
     color: white
     width: 100%
-    padding: vars.$padding
+    padding: calc(vars.$padding * 2.5)
     height: 100%
-    padding: 0
     overflow: auto
 
-    h1, h2
-      text-align: center
+    h1, h2, h3
       font-weight: 600
 
+    h2, h3
+      padding-bottom: calc(vars.$padding / 2)
+
     h1
-      font-size: 1.75rem
+      text-align: center
+      font-size: 2rem
 
     h2
-      font-size: 1.5rem
+      font-size: 1.75rem
+
+    h3
+      font-size: 1.25rem
+      
+    .row
+      width: 100%
+      float: left
+      position: relative
+      display: inline-block
+
+      ul
+        li
+          //list-style: none !important
+
+          div
+            margin-bottom: calc(vars.$padding * 3)
+            border-radius: vars.$border-radius
+            -webkit-border-radius: vars.$border-radius
+            background: white
+            height: $skills-bar-height
+            overflow: hidden
+
+            span
+              height: 100%
+              display: block
+              border-radius: vars.$border-radius
+              -webkit-border-radius: vars.$border-radius
+
+          &.html div span
+            background: #E34F26
+            width: 95%
+
+          &.java div span
+            background: #f89820
+            width: 80%
+
+          &.python div span
+            background: #3776AB
+            width: 85%
+
+          &.css div span
+            background: #663399
+            width: 75%
+
+          &.qiskit div span
+            background: #6929C4
+            width: 75%
+
+          &.numpy div span
+            background: #013243
+            width: 80%
+
+          &.sass div span
+            background: #CC6699
+            width: 80%
+
+          &.opencv div span
+            background: #5C3EE8
+            width: 75%
+
+          &.yolo div span
+            background: #111F68
+            width: 75%
+
+          &.git div span
+            background: #F05032
+            width: 95%
+
+          &.github div span
+            background: #181717
+            width: 95%
+
+          &.jupyter div span
+            background: #F37626
+            width: 80%
+
+          &.conda div span
+            background: #44A833
+            width: 95%
+
+    .animated
+      -webkit-animation-duration: 1s
+      animation-duration: 1s
+      -webkit-animation-fill-mode: both
+      animation-fill-mode: both
+
+    .fadeInLeft
+      -webkit-animation-name: fadeInLeft
+      animation-name: fadeInLeft
+
+    @-webkit-keyframes fadeInLeft
+      0%
+        opacity: 0
+        -webkit-transform: translate3d(-100%, 0, 0)
+        transform: translate3d(-100%, 0, 0)
+
+      100%
+        opacity: 1
+        -webkit-transform: none
+        transform: none
+
+    @keyframes fadeInLeft
+      0%
+        opacity: 0
+        -webkit-transform: translate3d(-100%, 0, 0)
+        -ms-transform: translate3d(-100%, 0, 0)
+        transform: translate3d(-100%, 0, 0)
+
+      100%
+        opacity: 1
+        -webkit-transform: none
+        -ms-transform: none
+        transform: none
