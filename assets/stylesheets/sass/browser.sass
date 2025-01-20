@@ -5,9 +5,7 @@ $window-width: 55rem
 $window-height: 40rem
 $icon-size: 1.25rem
 $icon-dim: 2.25rem
-$skills-bar-height: 3rem
-$border-radius: calc(vars.$border-radius * 0.9)
-$separator-color: rgba(255, 255, 255, 0.25)
+$font-size: 1.15rem
 $header-color: rgb(56, 58, 55)
 
 .browser
@@ -15,8 +13,13 @@ $header-color: rgb(56, 58, 55)
   font-family: vars.$font-family
   @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
 
+  i
+    width: $icon-dim
+    height: $icon-dim
+    text-align: center
+
   .top
-    padding: calc(vars.$padding * 1.25) 0
+    padding: calc(vars.$padding * 2) 0
     display: flex
     justify-content: space-around
     position: relative
@@ -31,8 +34,6 @@ $header-color: rgb(56, 58, 55)
 
     .icons
       font-size: $icon-size
-      width: $icon-dim
-      height: $icon-dim
       text-align: center
       vertical-align: middle
       border-radius: vars.$border-radius
@@ -44,9 +45,9 @@ $header-color: rgb(56, 58, 55)
 
       span
         display: inline-block
-        -webkit-border-radius: $border-radius
-        -moz-border-radius: $border-radius
-        border-radius: $border-radius
+        -webkit-border-radius: calc(vars.$border-radius * 0.9)
+        -moz-border-radius: calc(vars.$border-radius * 0.9)
+        border-radius: calc(vars.$border-radius * 0.9)
         color: vars.$font-color
 
         &:hover
@@ -63,9 +64,6 @@ $header-color: rgb(56, 58, 55)
 
         i
           padding: vars.$padding 0
-          width: $icon-dim
-          height: $icon-dim
-          text-align: center
 
           &:active
             color: white
@@ -73,10 +71,10 @@ $header-color: rgb(56, 58, 55)
     .address
       background: none
       line-height: $icon-size
-      border-radius: $border-radius
-      border: 0.05rem solid $separator-color
+      border-radius: calc(vars.$border-radius * 0.9)
+      border: 0.05rem solid rgba(255, 255, 255, 0.25)
       width: 27rem
-      font-size: 1.15rem
+      font-size: $font-size
 
       >
         input
@@ -84,7 +82,7 @@ $header-color: rgb(56, 58, 55)
           line-height: $icon-size
           height: 100%
           width: 100%
-          font-size: 1.15rem
+          font-size: $font-size
           padding: 0 vars.$padding
           color: white
           background: none
@@ -98,132 +96,138 @@ $header-color: rgb(56, 58, 55)
   .inside
     color: white
     width: 100%
-    padding: calc(vars.$padding * 2.5)
     height: 100%
+    padding: calc(vars.$padding * 1.5) calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 2)
     overflow: auto
 
-    h1, h2, h3
-      font-weight: 600
-
-    h2, h3
-      padding-bottom: calc(vars.$padding / 2)
+    h1, h2, .fas
+      font-weight: 600 !important
 
     h1
       text-align: center
-      font-size: 2rem
+      font-size: calc($font-size + 1rem)
 
     h2
-      font-size: 1.75rem
+      font-size: calc($font-size + 0.6rem)
 
-    h3
-      font-size: 1.25rem
+    .section
+      padding-bottom: vars.$padding
+
+      &:last-of-type
+        padding-bottom: 0
       
-    .row
-      width: 100%
-      float: left
-      position: relative
-      display: inline-block
+      .arrow, .item-content, .stars, .row, .row .heading, .row .stars
+        display: flex
+        place-items: center
 
-      ul
-        li
-          //list-style: none !important
+      .row
+        flex-direction: row
+        justify-content: space-between
+        padding: calc(vars.$padding * 2)
+        border-radius: calc(vars.$border-radius * 1.5)
+        @include mix.disable-select()
 
-          div
-            margin-bottom: calc(vars.$padding * 3)
-            border-radius: vars.$border-radius
-            -webkit-border-radius: vars.$border-radius
-            background: white
-            height: $skills-bar-height
-            overflow: hidden
+        &:hover
+          background: rgba(255, 255, 255, 0.15)
+          cursor: pointer
+          transition: background .5s ease
 
-            span
-              height: 100%
-              display: block
-              border-radius: vars.$border-radius
-              -webkit-border-radius: vars.$border-radius
+        .beginning
+          display: flex
+          width: 9.75rem
+          gap: calc(vars.$padding * 1.5)
 
-          &.html div span
-            background: #E34F26
-            width: 95%
+        img
+          width: $icon-dim
+          height: $icon-dim
 
-          &.java div span
-            background: #f89820
-            width: 80%
+        i, .stars i
+          font-size: $icon-dim
+          font-weight: normal
+        
+        .heading
+          position: relative
+          color: white
+          font-size: calc($font-size + 0.1rem)
+          font-weight: 700
 
-          &.python div span
-            background: #3776AB
-            width: 85%
+        .stars
+          flex-direction: row
+          margin-left: -1.25rem
+          gap: calc(vars.$padding * 2)
+          //max-width: calc($window-width - (vars.$padding * 1.5 * 2 + 10.5rem + vars.$padding * 2 * 2)) 30rem
 
-          &.css div span
-            background: #663399
-            width: 75%
+          i
+            &:hover
+              transform: scale(1.2)
+              transition: transform .4s ease
 
-          &.qiskit div span
-            background: #6929C4
-            width: 75%
+        .arrow
+          justify-content: flex-end
 
-          &.numpy div span
-            background: #013243
-            width: 80%
+          i
+            color: vars.$font-color !important
 
-          &.sass div span
-            background: #CC6699
-            width: 80%
+      .rotate0, .rotate90, .item-content, .hidden-content
+        transition: all 0.5s ease
 
-          &.opencv div span
-            background: #5C3EE8
-            width: 75%
+      .item-content, .hidden-content
+        overflow: hidden
 
-          &.yolo div span
-            background: #111F68
-            width: 75%
+      .item-content
+        flex-direction: column
+        padding: vars.$padding
+        height: auto
+        font-size: $font-size
 
-          &.git div span
-            background: #F05032
-            width: 95%
+      .hidden-content
+        display: none
+        height: 0
 
-          &.github div span
-            background: #181717
-            width: 95%
+      .rotate0
+        transform: rotate(0deg)
 
-          &.jupyter div span
-            background: #F37626
-            width: 80%
+      .rotate90
+        transform: rotate(90deg)
 
-          &.conda div span
-            background: #44A833
-            width: 95%
+      #html
+        color: #E34F26
 
-    .animated
-      -webkit-animation-duration: 1s
-      animation-duration: 1s
-      -webkit-animation-fill-mode: both
-      animation-fill-mode: both
+      #java
+        color: #f89820
 
-    .fadeInLeft
-      -webkit-animation-name: fadeInLeft
-      animation-name: fadeInLeft
+      #python
+        color: #3776AB
 
-    @-webkit-keyframes fadeInLeft
-      0%
-        opacity: 0
-        -webkit-transform: translate3d(-100%, 0, 0)
-        transform: translate3d(-100%, 0, 0)
+      #css
+        color: #663399
 
-      100%
-        opacity: 1
-        -webkit-transform: none
-        transform: none
+      #jquery
+        color: #0769AD
 
-    @keyframes fadeInLeft
-      0%
-        opacity: 0
-        -webkit-transform: translate3d(-100%, 0, 0)
-        -ms-transform: translate3d(-100%, 0, 0)
-        transform: translate3d(-100%, 0, 0)
+      #javascript
+        color: #F7DF1E
 
-      100%
-        opacity: 1
-        -webkit-transform: none
-        -ms-transform: none
-        transform: none
+      #qiskit
+        color: #6929C4
+
+      #numpy
+        color: #013243
+
+      #sass
+        color: #CC6699
+
+      #opencv
+        color: #5C3EE8
+
+      #git
+        color: #F05032
+
+      #github
+        color: #181717
+
+      #jupyter
+        color: #F37626
+
+      #conda
+        color: #44A833

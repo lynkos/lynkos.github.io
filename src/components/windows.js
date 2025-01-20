@@ -217,7 +217,7 @@ $(document).ready(function() {
   });
 
   // Make GitHub icon bounce on click
-  $("#github").click(function() {
+  $("#github-dock").click(function() {
     $(this).effect("bounce", { times: 3 }, 600);
   });
 
