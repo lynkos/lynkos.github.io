@@ -1,4 +1,4 @@
-const days = [ "Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat" ];
+const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
 
 function currentTimestamp() {
