@@ -158,11 +158,6 @@ $header-color: rgb(56, 58, 55)
           gap: calc(vars.$padding * 2)
           //max-width: calc($window-width - (vars.$padding * 1.5 * 2 + 10.5rem + vars.$padding * 2 * 2)) 30rem
 
-          i
-            &:hover
-              transform: scale(1.2)
-              transition: transform .4s ease
-
         .arrow
           justify-content: flex-end
 
@@ -177,6 +172,7 @@ $header-color: rgb(56, 58, 55)
 
       .item-content
         flex-direction: column
+        color: vars.$font-color
         padding: vars.$padding
         height: auto
         font-size: $font-size
