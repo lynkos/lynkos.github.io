@@ -1,6 +1,8 @@
 {
   "name": "Lynkos",
   "short_name": "Lynkos",
+  "description": "Kiran Brahmatewari's macOS-inspired personal website.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/assets/favicon/web-app-manifest-192x192.png",
