@@ -172,11 +172,11 @@
         </div>
 
         <div class="mac-terminal windows openWindow">
-          <div class="header">
+          <div class="header handle">
             <div class="header__op">
-              <span class="header__op-icon header__op-icon--red"><a class="header__op-icon" href="#"></a></span>
-              <span class="header__op-icon header__op-icon--yellow"><a class="header__op-icon" href="#"></a></span>
-              <span class="header__op-icon header__op-icon--green"><a class="header__op-icon" href="#"></a></span>
+              <span class="header__op-icon header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
+              <span class="header__op-icon header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+              <span class="header__op-icon header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
 
             <div class="header__title"><img src="/assets/images/icons/terminal.svg" alt="iTerm icon" draggable="false">-bash</div>
@@ -266,11 +266,11 @@
         </div>
 
         <div class="calc windows">
-          <div class="calc-header">
+          <div class="calc-header handle">
             <div class="calc-header__op">
-              <span class="calc-header__op-icon calc-header__op-icon--red"><a class="calc-header__op-icon" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--yellow"><a class="calc-header__op-icon" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--green"><a class="calc-header__op-icon" href="#"></a></span>
+              <span class="calc-header__op-icon calc-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
+              <span class="calc-header__op-icon calc-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+              <span class="calc-header__op-icon calc-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
             <div class="calc-header__empty"></div>
           </div>
@@ -320,11 +320,11 @@
         </div>
 
         <div class="text-edit windows">
-          <div class="text-edit-header">
+          <div class="text-edit-header handle">
             <div class="text-edit-header__op">
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--red"><a class="text-edit-header__op-icon" href="#"></a></span>
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--yellow"><a class="text-edit-header__op-icon" href="#"></a></span>
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--green"><a class="text-edit-header__op-icon" href="#"></a></span>
+              <span class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
+              <span class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+              <span class="text-edit-header__op-icon text-edit-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
             <div class="text-edit-header__title"><img src="/assets/images/system/rtf_icon.png" alt="RTF Icon" draggable="false">about.rtf</div>
             <div class="text-edit-header__empty"></div>
@@ -501,14 +501,14 @@
 
         <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbwJ-PB4MwcD7Y3qCtHpAfz-3EVjmygJbLWi8orpLjh1aG3Vg-iotI2fgfam26qq4Cfh/exec">
           <div class="email windows">
-            <div class="mail-header">
+            <div class="mail-header handle">
               <div class="mail-header__op">
-                <span class="mail-header__op-icon mail-header__op-icon--red"><a class="mail-header__op-icon" href="#"></a></span>
-                <span class="mail-header__op-icon mail-header__op-icon--yellow"><a class="mail-header__op-icon" href="#"></a></span>
-                <span class="mail-header__op-icon mail-header__op-icon--green"><a class="mail-header__op-icon" href="#"></a></span>
+                <span class="mail-header__op-icon mail-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
+                <span class="mail-header__op-icon mail-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+                <span class="mail-header__op-icon mail-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
               </div>
               <div class="g-recaptcha" data-theme="dark" data-callback="callback" data-sitekey="6Lcd6rIqAAAAAOabj0rba6jICI-HqlQr8A1uNSBt"></div>
-              <button id="send-btn" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              <button id="send-btn" class="cancel" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
 
             <div class="middle">
@@ -528,11 +528,11 @@
         <div class="notes windows">
           <div class="body">
             <div class="sidebar">
-              <div class="sidebar-header">
+              <div class="sidebar-header handle">
                 <div class="buttons">
-                  <span class="buttons-icon buttons-icon--red"><a class="buttons-icon" href="#"></a></span>
-                  <span class="buttons-icon buttons-icon--yellow"><a class="buttons-icon" href="#"></a></span>
-                  <span class="buttons-icon buttons-icon--green"><a class="buttons-icon" href="#"></a></span>
+                  <span class="buttons-icon buttons-icon--red cancel"><a class="cancel" href="#"></a></span>
+                  <span class="buttons-icon buttons-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+                  <span class="buttons-icon buttons-icon--green cancel"><a class="cancel" href="#"></a></span>
                 </div>
 
                 <div><i class="fas fa-list icons" title="View notes as list" alt="List icon" aria-hidden="true"></i><i class="fas fa-border-all icons" title="View notes as gallery" alt="Gallery icon" aria-hidden="true"></i></div>
@@ -702,13 +702,13 @@
             </div>
 
             <div class="main">
-              <div class="main-header">
+              <div class="main-header handle">
                 <i class="fas fa-pen-to-square icons" title="Create a note" alt="Pen to square icon" aria-hidden="true"></i>
                 <i class="fas fa-a icons" alt="A" title="Choose a style to apply to text" aria-hidden="true"></i>
                 <i class="fas fa-list-check icons" alt="Checklist icon" title="Make a checklist" aria-hidden="true"></i>
                 <i class="fas fa-table icons" alt="Table icon" title="Add a table" aria-hidden="true"></i>
                 <i class="fas fa-arrow-up-from-bracket icons" alt="Share icon" title="Share this note" aria-hidden="true"></i>
-                <div class="search-bar" title="Quickly find notes and attachments"><input type="text" placeholder="Search" alt="Search bar"></div>
+                <div class="search-bar cancel" title="Quickly find notes and attachments"><input type="text" placeholder="Search" alt="Search bar"></div>
               </div>
 
               <div class="main-body">
@@ -979,18 +979,18 @@
         </div>
 
         <div class="browser windows">
-          <div class="top">
+          <div class="top handle">
             <div class="browser-buttons">
-              <span class="browser-buttons-icon browser-buttons-icon--red"><a class="browser-buttons-icon" href="#"></a></span>
-              <span class="browser-buttons-icon browser-buttons-icon--yellow"><a class="browser-buttons-icon" href="#"></a></span>
-              <span class="browser-buttons-icon browser-buttons-icon--green"><a class="browser-buttons-icon" href="#"></a></span>
+              <span class="browser-buttons-icon browser-buttons-icon--red cancel"><a class="cancel" href="#"></a></span>
+              <span class="browser-buttons-icon browser-buttons-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+              <span class="browser-buttons-icon browser-buttons-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
             <div class="left">
               <span class="icons" title="Show sidebar"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
               <span class="inactive icons" title="Show the previous page"><i class="fa fa-angle-left" alt="Back icon" aria-hidden="true"></i></span>
               <span class="inactive icons" title="Show the next page"><i class="fa fa-angle-right" alt="Forward icon" aria-hidden="true"></i></span>
             </div>
-            <div class="address">
+            <div class="address cancel">
               <input type="text" value="file:///Users/lynkos/Documents/skills.html" alt="Browser search bar" editable="true" spellcheck="false" autocomplete="off">
             </div>
             <div class="right">
@@ -2087,22 +2087,22 @@
         </div>
 
         <div class="preview windows">
-          <div class="preview-header">
+          <div class="preview-header handle">
             <div class="preview-header__op">
-              <span class="preview-header__op-icon preview-header__op-icon--red"><a class="preview-header__op-icon" href="#"></a></span>
-              <span class="preview-header__op-icon preview-header__op-icon--yellow"><a class="preview-header__op-icon" href="#"></a></span>
-              <span class="preview-header__op-icon preview-header__op-icon--green"><a class="preview-header__op-icon" href="#"></a></span>
+              <span class="preview-header__op-icon preview-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
+              <span class="preview-header__op-icon preview-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
+              <span class="preview-header__op-icon preview-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
-            <span class="preview-header-icons" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
             <span class="preview-header-title">profile.jpg</span>
-            <span class="preview-header-icons" title="Show the Inspector"><i class="fas fa-circle-info" alt="Info icon" aria-hidden="true"></i></span>
-            <span class="preview-header-icons" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
-            <span class="preview-header-icons" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
-            <span class="preview-header-icons" title="Share the document"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
-            <span class="inactive preview-header-icons" title="Highlights and notes"><i class="fas fa-highlighter" alt="Highlighter icon" aria-hidden="true"></i></span>
-            <span class="preview-header-icons" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
-            <span class="preview-header-icons" title="Show markup tool"><i class="fas fa-pen-nib" alt="Pen icon" aria-hidden="true"></i></span>
-            <span class="inactive preview-header-icons" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Show the Inspector"><i class="fas fa-circle-info" alt="Info icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Share the document"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
+            <span class="inactive preview-header-icons cancel" title="Highlights and notes"><i class="fas fa-highlighter" alt="Highlighter icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
+            <span class="preview-header-icons cancel" title="Show markup tool"><i class="fas fa-pen-nib" alt="Pen icon" aria-hidden="true"></i></span>
+            <span class="inactive preview-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
           <div class="preview-body">
             <img src="/assets/images/misc/profile.jpg" draggable="false" alt="Profile picture">

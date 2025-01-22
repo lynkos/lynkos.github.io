@@ -153,8 +153,8 @@ $(document).ready(function() {
   function makeDraggable(selector) {
     $(selector).draggable({
       cursor: "default",
-      handle: ".header, .text-edit-header, .mail-header, .calc-header, .sidebar-header, .main-header, .top, .preview-header",
-      cancel: ".header__op-icon, .text-edit-header__op-icon, .mail-header__op-icon, .calc-header__op-icon, .buttons-icon, #send-btn, .search-bar, .browser-buttons-icon, .icons, .address, .preview-header__op-icon, .preview-header-icons",
+      handle: ".handle",
+      cancel: ".cancel, .icons",
       start: function() {
         bringToFront(this, ".windows, .btn, .dialogue");
       },
