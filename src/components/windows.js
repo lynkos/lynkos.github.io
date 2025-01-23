@@ -373,11 +373,13 @@ $(document).ready(function() {
       $(win).toggleClass("maximize");
       if ($(win).hasClass("minimize")) $(win).removeClass("minimize");
       if ($(win).hasClass("maximize")) {
+        $("footer").hide();
         $(win).css("width", "100vw");
         $(win).css("height", "calc(100vh - 3rem)"); // Subtract menubar height
         $(win).css("top", "0");
-        $(win).css("left", "0");  
+        $(win).css("left", "0");
       } else {
+        $("footer").show();
         $(win).css("width", width);
         $(win).css("height", height);
         centerWindow(win, "center center");
