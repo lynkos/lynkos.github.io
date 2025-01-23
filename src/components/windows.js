@@ -1,35 +1,201 @@
-$(document).ready(function() {
-  var launchpad = $("#launchpad");
-    
-  // Open launchpad
-  function openLaunchpad() {
-    $(".menu-bar").fadeOut(400);
-    $(".openWindow").fadeOut(400);
-    launchpad.addClass("shown start");
-    launchpad.find("nav").addClass("scale-down");
+var launchpad = $("#launchpad");
+
+// Open launchpad
+function openLaunchpad() {
+  $(".menu-bar").fadeOut(400);
+  $(".openWindow").fadeOut(400);
+  launchpad.addClass("shown start");
+  launchpad.find("nav").addClass("scale-down");
+}
+
+// Close launchpad
+function closeLaunchpad() {
+  launchpad
+    .removeClass("start")
+    .addClass("end");
+  launchpad.find("nav")
+    .removeClass("scale-down")
+    .addClass("scale-up");
+  setTimeout(function() {
+    launchpad.removeClass("shown end");
+    launchpad.find("nav").removeClass("scale-up");
+  }, 350);
+  $(".menu-bar").fadeIn(400);
+  $(".openWindow").fadeIn(400);
+}
+
+// Center windows
+function centerWindow(win, pos) {
+  $(win).position({
+    my: pos, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
+    at: "center",
+    collision: "fit",
+    of: "#main-content"
+  });
+}
+
+// Function to bring the clicked window to the front
+function bringToFront(element, allElements) {
+  // No need to increase z-index if already in front
+  if (!$(element).hasClass("inFront")) {
+    // Get the highest z-index
+    let maxZIndex = Math.max(...$(allElements).map(function() {
+      // If current element is open
+      if ($(this).hasClass("openWindow")) {
+        // If current element is a window
+        if ($(this).hasClass("windows")) {
+          // Make its buttons inactive
+          $(this).css("--red", "rgba(255, 255, 255, 0.2)");
+          $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
+          $(this).css("--green", "rgba(255, 255, 255, 0.2)");
+        }
+        
+        // If current element is trash dialogue
+        else if ($(this).hasClass("dialogue")) {
+          // Make its confirm buttons inactive
+          $(this).css("--confirm", "rgb(115, 118, 115)");
+          $(this).css("--confirm-active", "rgb(145, 148, 145)");
+        }
+      }
+
+      if ($(this).hasClass("inFront")) $(this).removeClass("inFront");
+
+      return parseInt($(this).css("z-index")) || 0;
+    }).get());
+
+    // Set higher z-index for the given element
+    if ($(element).css("z-index") <= maxZIndex) {
+      $(element).css("z-index", maxZIndex + 1);
+
+      // If not playlist (since it will never be on top of dock and/or launchpad)
+      if (!$(element).is($("#playlist"))) {
+        // Make sure playlist, dock, and launchpad are always on top
+        $("#playlist").css("z-index", maxZIndex + 2);
+        $(".launch-content").css("z-index", maxZIndex + 3);
+        $(".dock").css("z-index", maxZIndex + 4);
+
+        // Mark element as in front
+        $(element).addClass("inFront");
+      }
+    }
+
+    // If given element is a window
+    if ($(element).hasClass("windows")) {
+      // Make its buttons active
+      $(element).css("--red", "#FF544D");
+      $(element).css("--yellow", "#FFB429");
+      $(element).css("--green", "#25C63A");
+    }
+
+    // If given element is trash dialogue
+    else if ($(element).hasClass("dialogue")) {
+      // Make its confirm buttons active
+      $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
+      $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
+    }
   }
+}
+  
+// Make windows draggable and bring to front on drag
+function makeDraggable(selector) {
+  $(selector).draggable({
+    cursor: "default",
+    handle: ".handle",
+    cancel: ".cancel, .icons",
+    start: function() {
+      bringToFront(this, ".windows, .btn, .dialogue");
+    },
+    containment: "#main-content",
+    distance: 0,
+  }).on("click", function() {
+    bringToFront(this, ".windows, .btn, .dialogue");
+  });
+}
+
+function bounceIcon(selector) {
+  if (!$(selector).hasClass("open")) {
+    // Bounce effect, if window is not already open
+    $(selector).effect("bounce", { times: 3 }, 600);
+
+    // Mark clicked window as opened
+    $(selector).addClass("open");
+  }
+}
+  
+// Open window
+function openWindow(icon, win, displayType) {
+  $(icon).on("click", function() {
+    closeLaunchpad();
+    $(win).css("display", displayType);
+    bringToFront(win, ".windows, .btn, .dialogue");
+    if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
+    bounceIcon(icon);
+  });
+}
+
+// Open app via launchpad
+function launchApp(icon, win, displayType, dockIcon) {
+  $(icon).on("click", function() {    
+    closeLaunchpad();
+    bringToFront(win, ".windows, .btn, .dialogue");
+    $(win).css("display", displayType);
+    if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
+    if (($(dockIcon) !== null) && !$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
+  });
+}
+
+// Remove classes in element
+function removeClasses(element, classes) {
+  for (let i = 0; i < classes.length; i++) {
+    if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
+  }
+}
+
+// Close window
+function closeWindow(close, win, dockIcon, width, height) {
+  $(close).on("click", function() {
+    $(win).css("display", "none");
+    if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
+    if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
+
+    // if ($(win).hasClass("maximize")) {
+    //   $(win).css("width", width);
+    //   $(win).css("height", height);
+    //   centerWindow(win, "center center");
+    //   $(win).removeClass("maximize");
+    //   $("footer").show();
+    // }
+  });
+}
+
+// Maximize window
+// function maximizeWindow(maximize, win, width, height) {
+//   $(maximize).on("click", function() {
+//     if (!$(win).hasClass("maximize")) {
+//       $("footer").hide();
+//       $(win).css("width", "100vw");
+//       $(win).css("height", "100%");
+//       $(win).css("top", "0");
+//       $(win).css("left", "0");
+//     } else {
+//       $("footer").show();
+//       $(win).css("width", width);
+//       $(win).css("height", height);
+//       centerWindow(win, "center center");
+//     }
+//     $(win).toggleClass("maximize");
+//   });
+// }
+
+$(document).ready(function() {
+  // Center windows
+  centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center");
 
   // Toggle launchpad
   $(".open-menu").on("click", function() {
     if (launchpad.hasClass("shown start")) closeLaunchpad();
     else openLaunchpad();
   });
-
-  // Close launchpad
-  function closeLaunchpad() {
-    launchpad
-      .removeClass("start")
-      .addClass("end");
-    launchpad.find("nav")
-      .removeClass("scale-down")
-      .addClass("scale-up");
-    setTimeout(function() {
-      launchpad.removeClass("shown end");
-      launchpad.find("nav").removeClass("scale-up");
-    }, 350);
-    $(".menu-bar").fadeIn(400);
-    $(".openWindow").fadeIn(400);
-  }
 
   // Close launchpad when clicking any launchpad icon
   $(".launch").click(function() {
@@ -39,18 +205,6 @@ $(document).ready(function() {
   // Make launchpad apps sortable
   $("#launchNav").sortable();
   $("#launchNav").disableSelection();
-
-  // Center windows
-  function centerWindow(win, pos) {
-    $(win).position({
-      my: pos, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
-      at: "center",
-      collision: "fit",
-      of: "#main-content"
-    });
-  }
-
-  centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center-36.5");
   
   // TODO Improve playlist toggle logic
   // Show playlist when icon clicked
@@ -86,84 +240,6 @@ $(document).ready(function() {
     if (content.is(e.target) || nav.is(e.target))
       closeLaunchpad();
   });
-
-  // Function to bring the clicked window to the front
-  function bringToFront(element, allElements) {
-    // No need to increase z-index if already in front
-    if (!$(element).hasClass("inFront")) {
-      // Get the highest z-index
-      let maxZIndex = Math.max(...$(allElements).map(function() {
-        // If current element is open
-        if ($(this).hasClass("openWindow")) {
-          // If current element is a window
-          if ($(this).hasClass("windows")) {
-            // Make its buttons inactive
-            $(this).css("--red", "rgba(255, 255, 255, 0.2)");
-            $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
-            $(this).css("--green", "rgba(255, 255, 255, 0.2)");
-          }
-          
-          // If current element is trash dialogue
-          else if ($(this).hasClass("dialogue")) {
-            // Make its confirm buttons inactive
-            $(this).css("--confirm", "rgb(115, 118, 115)");
-            $(this).css("--confirm-active", "rgb(145, 148, 145)");
-          }
-        }
-
-        if ($(this).hasClass("inFront")) $(this).removeClass("inFront");
-
-        return parseInt($(this).css("z-index")) || 0;
-      }).get());
-
-      // Set higher z-index for the given element
-      if ($(element).css("z-index") <= maxZIndex) {
-        $(element).css("z-index", maxZIndex + 1);
-
-        // If not playlist (since it will never be on top of dock and/or launchpad)
-        if (!$(element).is($("#playlist"))) {
-          // Make sure playlist, dock, and launchpad are always on top
-          $("#playlist").css("z-index", maxZIndex + 2);
-          $(".launch-content").css("z-index", maxZIndex + 3);
-          $(".dock").css("z-index", maxZIndex + 4);
-
-          // Mark element as in front
-          $(element).addClass("inFront");
-        }
-      }
-
-      // If given element is a window
-      if ($(element).hasClass("windows")) {
-        // Make its buttons active
-        $(element).css("--red", "#FF544D");
-        $(element).css("--yellow", "#FFB429");
-        $(element).css("--green", "#25C63A");
-      }
-
-      // If given element is trash dialogue
-      else if ($(element).hasClass("dialogue")) {
-        // Make its confirm buttons active
-        $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
-        $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
-      }
-    }
-  }
-
-  // Make windows draggable and bring to front on drag
-  function makeDraggable(selector) {
-    $(selector).draggable({
-      cursor: "default",
-      handle: ".handle",
-      cancel: ".cancel, .icons",
-      start: function() {
-        bringToFront(this, ".windows, .btn, .dialogue");
-      },
-      containment: "#main-content",
-      distance: 0,
-    }).on("click", function() {
-      bringToFront(this, ".windows, .btn, .dialogue");
-    });
-  }
 
   // Apply draggable to all existing windows
   makeDraggable(".windows");
@@ -221,27 +297,6 @@ $(document).ready(function() {
     $(this).effect("bounce", { times: 3 }, 600);
   });
 
-  function bounceIcon(selector) {
-    if (!$(selector).hasClass("open")) {
-      // Bounce effect, if window is not already open
-      $(selector).effect("bounce", { times: 3 }, 600);
-
-      // Mark clicked window as opened
-      $(selector).addClass("open");
-    }
-  }
-
-  // Open window
-  function openWindow(icon, win, displayType) {
-    $(icon).on("click", function() {
-      closeLaunchpad();
-      $(win).css("display", displayType);
-      bringToFront(win, ".windows, .btn, .dialogue");
-      if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-      bounceIcon(icon);
-    });
-  }
-
   // Open terminal
   openWindow("#iterm", ".mac-terminal", "inline-block");
 
@@ -276,17 +331,6 @@ $(document).ready(function() {
     if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
   });  
 
-  // Open app via launchpad
-  function launchApp(icon, win, displayType, dockIcon) {
-    $(icon).on("click", function() {    
-      closeLaunchpad();
-      bringToFront(win, ".windows, .btn, .dialogue");
-      $(win).css("display", displayType);
-      if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-      if (($(dockIcon) !== null) && !$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
-    });
-  }
-
   // Open terminal
   launchApp("#itermLaunch", ".mac-terminal", "inline-block", "#iterm");
 
@@ -315,23 +359,6 @@ $(document).ready(function() {
     $("#trash").attr("src", "/assets/images/system/empty_trash.png");
     $("#trash-icon").off("click");
   });
-
-  // Close window
-  function closeWindow(close, win, dockIcon, width, height) {
-    $(close).on("click", function() {
-      $(win).css("display", "none");
-      if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
-      if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
-
-      // if ($(win).hasClass("maximize")) {
-      //   $(win).css("width", width);
-      //   $(win).css("height", height);
-      //   centerWindow(win, "center center");
-      //   $(win).removeClass("maximize");
-      //   $("footer").show();
-      // }
-    });
-  }
   
   // Close terminal
   closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
@@ -356,26 +383,7 @@ $(document).ready(function() {
 
   // Close trash dialogue
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  
-    
-  // Maximize window
-  // function maximizeWindow(maximize, win, width, height) {
-  //   $(maximize).on("click", function() {
-  //     if (!$(win).hasClass("maximize")) {
-  //       $("footer").hide();
-  //       $(win).css("width", "100vw");
-  //       $(win).css("height", "100%");
-  //       $(win).css("top", "0");
-  //       $(win).css("left", "0");
-  //     } else {
-  //       $("footer").show();
-  //       $(win).css("width", width);
-  //       $(win).css("height", height);
-  //       centerWindow(win, "center center");
-  //     }
-  //     $(win).toggleClass("maximize");
-  //   });
-  // }
-  
+      
   // // Maximize terminal
   // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
 
@@ -408,13 +416,6 @@ $(document).ready(function() {
   $("#underline-btn").click(function() {
     $(".text-body").toggleClass("underline");
   });
-
-  // Remove classes in element
-  function removeClasses(element, classes) {
-    for (let i = 0; i < classes.length; i++) {
-      if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
-    }
-  }
 
   // Toggle left text alignment in TextEdit
   $("#left-btn").click(function() {
