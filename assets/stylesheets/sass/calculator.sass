@@ -3,6 +3,7 @@
 
 $body-color: rgba(30, 30, 30, 0.85)
 $button-size: 4.2rem
+$width: 20rem
 
 .button
   height: $button-size
@@ -27,8 +28,10 @@ $button-size: 4.2rem
     border-radius: 50%
 
 .calc
-  @include mix.window($body-color, 20rem)
+  @include mix.window($body-color, $width)
   @include mix.blur(1.3rem, $body-color)
+  max-width: $width
+  max-height: min-content
 
   .calc-header
     @include mix.header(none, 3rem)

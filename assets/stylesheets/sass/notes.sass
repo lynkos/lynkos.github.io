@@ -5,8 +5,6 @@ $sidebar-width: 17.1rem
 $window-width: 55rem
 $window-height: 45rem
 $header-height: 5rem
-$max-width: 60rem
-$max-height: 50rem
 $search-height: 2.5rem
 $search-width: 13rem
 $icon-size: 1.5rem
@@ -16,10 +14,6 @@ $secondary-background: rgb(30, 30, 30)
 
 .notes
   @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height)
-  min-width: vars.$min-width
-  min-height: vars.$min-height
-  max-width: $max-width
-  max-height: $max-height
   -webkit-box-orient: vertical
   -webkit-box-direction: normal
   -ms-flex-direction: column
@@ -54,7 +48,7 @@ $secondary-background: rgb(30, 30, 30)
         @include mix.disable-select()
         width: $sidebar-width
         min-width: $sidebar-width
-        max-width: calc($window-width / 2.2)
+        max-width: 35vw //calc($window-width / 2.2)
         height: 100%
         border-right: 1px solid rgb(11, 11, 11)
 
@@ -75,8 +69,8 @@ $secondary-background: rgb(30, 30, 30)
             // border-bottom: 1px solid rgb(11, 11, 11)
 
             .buttons
-                @include mix.buttons()
                 padding: 0 calc(($header-height - (vars.$padding * 4) - vars.$window-icons-dim) / 2)
+                @include mix.buttons()
 
         .content
             background: rgb(32, 36, 31) // Primary background w/o blur + opacity

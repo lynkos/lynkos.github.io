@@ -41,12 +41,16 @@ $(document).ready(function() {
   $("#launchNav").disableSelection();
 
   // Center windows
-  $(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview").position({
-    my: "center center-36.5", // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
-    at: "center",
-    collision: "fit",
-    of: "#main-content"
-  });
+  function centerWindow(win, pos) {
+    $(win).position({
+      my: pos, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
+      at: "center",
+      collision: "fit",
+      of: "#main-content"
+    });
+  }
+
+  centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center-36.5");
 
   // Show terminal on load
   $(".mac-terminal").fadeIn(500); // .show(500);
@@ -92,60 +96,69 @@ $(document).ready(function() {
 
   // Function to bring the clicked window to the front
   function bringToFront(element, allElements) {
-    // Get the highest z-index
-    let maxZIndex = Math.max(...$(allElements).map(function() {
-      // If current element is open
-      if ($(this).hasClass("openWindow")) {
-        // If current element is a window
-        if ($(this).hasClass("windows")) {
-          // Make its buttons inactive
-          $(this).css("--red", "rgba(255, 255, 255, 0.2)");
-          $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
-          $(this).css("--green", "rgba(255, 255, 255, 0.2)");
-          $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
-          $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
-          $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
+    // No need to increase z-index if already in front
+    if (!$(element).hasClass("inFront")) {
+      // Get the highest z-index
+      let maxZIndex = Math.max(...$(allElements).map(function() {
+        // If current element is open
+        if ($(this).hasClass("openWindow")) {
+          // If current element is a window
+          if ($(this).hasClass("windows")) {
+            // Make its buttons inactive
+            $(this).css("--red", "rgba(255, 255, 255, 0.2)");
+            $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
+            $(this).css("--green", "rgba(255, 255, 255, 0.2)");
+            $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
+            $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
+            $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
+          }
+          
+          // If current element is trash dialogue
+          else if ($(this).hasClass("dialogue")) {
+            // Make its confirm buttons inactive
+            $(this).css("--confirm", "rgb(115, 118, 115)");
+            $(this).css("--confirm-active", "rgb(145, 148, 145)");
+          }
         }
-        
-        // If current element is trash dialogue
-        else if ($(this).hasClass("dialogue")) {
-          // Make its confirm buttons inactive
-          $(this).css("--confirm", "rgb(115, 118, 115)");
-          $(this).css("--confirm-active", "rgb(145, 148, 145)");
+
+        if ($(this).hasClass("inFront")) $(this).removeClass("inFront");
+
+        return parseInt($(this).css("z-index")) || 0;
+      }).get());
+
+      // Set higher z-index for the given element
+      if ($(element).css("z-index") <= maxZIndex) {
+        $(element).css("z-index", maxZIndex + 1);
+
+        // If not playlist (since it will never be on top of dock and/or launchpad)
+        if (!$(element).is($("#playlist"))) {
+          // Make sure playlist, dock, and launchpad are always on top
+          $("#playlist").css("z-index", maxZIndex + 2);
+          $(".launch-content").css("z-index", maxZIndex + 3);
+          $(".dock").css("z-index", maxZIndex + 4);
+
+          // Mark element as in front
+          $(element).addClass("inFront");
         }
       }
 
-      return parseInt($(this).css("z-index")) || 0;
-    }).get());
-
-    // Set higher z-index for the given element
-    if ($(element).css("z-index") <= maxZIndex) {
-      $(element).css("z-index", maxZIndex + 1);
-
-      // If not playlist (since it will never be on top of dock and/or launchpad)
-      if (!$(element).is($("#playlist"))) {
-        // Make sure dock and launchpad are always on top
-        $(".launch-content").css("z-index", maxZIndex + 2);
-        $(".dock").css("z-index", maxZIndex + 3);
+      // If given element is a window
+      if ($(element).hasClass("windows")) {
+        // Make its buttons active
+        $(element).css("--red", "#FF544D");
+        $(element).css("--yellow", "#FFB429");
+        $(element).css("--green", "#25C63A");
+        $(element).css("--red-active", "#C14645");
+        $(element).css("--yellow-active", "#c08E38");
+        $(element).css("--green-active", "#029740");
       }
-    }
 
-    // If given element is a window
-    if ($(element).hasClass("windows")) {
-      // Make its buttons active
-      $(element).css("--red", "#FF544D");
-      $(element).css("--yellow", "#FFB429");
-      $(element).css("--green", "#25C63A");
-      $(element).css("--red-active", "#C14645");
-      $(element).css("--yellow-active", "#c08E38");
-      $(element).css("--green-active", "#029740");
-    }
-
-    // If given element is trash dialogue
-    else if ($(element).hasClass("dialogue")) {
-      // Make its confirm buttons active
-      $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
-      $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
+      // If given element is trash dialogue
+      else if ($(element).hasClass("dialogue")) {
+        // Make its confirm buttons active
+        $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
+        $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
+      }
     }
   }
 
@@ -357,12 +370,42 @@ $(document).ready(function() {
     if ($(".mac-terminal").hasClass("maximize")) $(".mac-terminal").removeClass("maximize");
   });
 
+  // Maximize window
+  function maximizeWindow(maximize, win, width, height) {
+    $(maximize).on("click", function() {
+      $(win).toggleClass("maximize");
+      if ($(win).hasClass("minimize")) $(win).removeClass("minimize");
+      if ($(win).hasClass("maximize")) {
+        $(win).css("width", "100vw");
+        $(win).css("height", "calc(100vh - 3rem)"); // Subtract menubar height
+        $(win).css("top", "0");
+        $(win).css("left", "0");  
+      } else {
+        $(win).css("width", width);
+        $(win).css("height", height);
+        centerWindow(win, "center center");
+      }
+    });
+  }
+  
   // Maximize terminal
-  $(".header__op-icon--green").click(function() {
-    $(".mac-terminal").toggleClass("maximize");
-    if ($(".mac-terminal").hasClass("minimize")) $(".mac-terminal").removeClass("minimize");
-  });
+  maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
 
+  // Maximize terminal
+  maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
+
+  // Maximize about me
+  maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
+
+  // Maximize projects
+  maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
+
+  // Maximize safari
+  maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
+
+  // Close preview
+  maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
+  
   // Toggle bold text in TextEdit
   $("#bold-btn").click(function() {
     $(".text-body").toggleClass("bold");
