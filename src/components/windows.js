@@ -331,6 +331,7 @@ $(document).ready(function() {
         $(win).css("height", height);
         centerWindow(win, "center center");
         $(win).removeClass("maximize");
+        $("footer").show();
       }
     });
   }
