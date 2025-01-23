@@ -34,6 +34,9 @@ function centerWindow(win, pos) {
   });
 }
 
+// Center windows
+centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center");
+
 // Function to bring the clicked window to the front
 function bringToFront(element, allElements) {
   // No need to increase z-index if already in front
@@ -188,9 +191,6 @@ function closeWindow(close, win, dockIcon, width, height) {
 // }
 
 $(document).ready(function() {
-  // Center windows
-  centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center");
-
   // Toggle launchpad
   $(".open-menu").on("click", function() {
     if (launchpad.hasClass("shown start")) closeLaunchpad();
