@@ -363,11 +363,10 @@ $(document).ready(function() {
   // Maximize window
   function maximizeWindow(maximize, win, width, height) {
     $(maximize).on("click", function() {
-      $(win).toggleClass("maximize");
-      if ($(win).hasClass("maximize")) {
+      if (!$(win).hasClass("maximize")) {
         $("footer").hide();
         $(win).css("width", "100vw");
-        $(win).css("height", "100vh"); // Subtract menubar height
+        $(win).css("height", "100%");
         $(win).css("top", "0");
         $(win).css("left", "0");
       } else {
@@ -376,6 +375,7 @@ $(document).ready(function() {
         $(win).css("height", height);
         centerWindow(win, "center center");
       }
+      $(win).toggleClass("maximize");
     });
   }
   
