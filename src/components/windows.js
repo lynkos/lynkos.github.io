@@ -376,7 +376,7 @@ $(document).ready(function() {
       if ($(win).hasClass("maximize")) {
         $("footer").hide();
         $(win).css("width", "100vw");
-        $(win).css("height", "calc(100vh - 3rem)"); // Subtract menubar height
+        $(win).css("height", "100vh"); // Subtract menubar height
         $(win).css("top", "0");
         $(win).css("left", "0");
       } else {
