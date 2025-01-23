@@ -90,10 +90,6 @@ $(document).ready(function() {
       closeLaunchpad();
   });
 
-  // Grey out calculator's green button
-  $(".calc-header__op-icon--green").css("--green", "rgba(255, 255, 255, 0.2)");
-  $(".calc-header__op-icon--green").css("--green-active", "rgba(255, 255, 255, 0.1)");
-
   // Function to bring the clicked window to the front
   function bringToFront(element, allElements) {
     // No need to increase z-index if already in front
@@ -108,9 +104,6 @@ $(document).ready(function() {
             $(this).css("--red", "rgba(255, 255, 255, 0.2)");
             $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
             $(this).css("--green", "rgba(255, 255, 255, 0.2)");
-            $(this).css("--red-active", "rgba(255, 255, 255, 0.1)");
-            $(this).css("--yellow-active", "rgba(255, 255, 255, 0.1)");
-            $(this).css("--green-active", "rgba(255, 255, 255, 0.1)");
           }
           
           // If current element is trash dialogue
@@ -148,9 +141,6 @@ $(document).ready(function() {
         $(element).css("--red", "#FF544D");
         $(element).css("--yellow", "#FFB429");
         $(element).css("--green", "#25C63A");
-        $(element).css("--red-active", "#C14645");
-        $(element).css("--yellow-active", "#c08E38");
-        $(element).css("--green-active", "#029740");
       }
 
       // If given element is trash dialogue
@@ -330,34 +320,41 @@ $(document).ready(function() {
   });
 
   // Close window
-  function closeWindow(close, win, dockIcon) {
+  function closeWindow(close, win, dockIcon, width, height) {
     $(close).on("click", function() {
       $(win).css("display", "none");
       if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
       if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
+
+      if ($(win).hasClass("maximize")) {
+        $(win).css("width", width);
+        $(win).css("height", height);
+        centerWindow(win, "center center");
+        $(win).removeClass("maximize");
+      }
     });
   }
   
   // Close terminal
-  closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm");
+  closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
 
   // Close mail
-  closeWindow(".mail-header__op-icon--red", ".email", "#mail");
+  closeWindow(".mail-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
 
   // Close about me
-  closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit");
+  closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
 
   // Close projects
-  closeWindow(".buttons-icon--red", ".notes", "#notes");
+  closeWindow(".buttons-icon--red", ".notes", "#notes", "55rem", "45rem");
 
   // Close safari
-  closeWindow(".browser-buttons-icon--red", ".browser", "#safari");
+  closeWindow(".browser-buttons-icon--red", ".browser", "#safari", "55rem", "45rem");
 
   // Close calculator
   closeWindow(".calc-header__op-icon--red", ".calc", null);
 
   // Close preview
-  closeWindow(".preview-header__op-icon--red", ".preview", null);
+  closeWindow(".preview-header__op-icon--red", ".preview", null, "55rem", "40rem");
 
   // Close trash dialogue
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  
