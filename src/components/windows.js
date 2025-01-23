@@ -326,13 +326,13 @@ $(document).ready(function() {
       if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
       if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
 
-      if ($(win).hasClass("maximize")) {
-        $(win).css("width", width);
-        $(win).css("height", height);
-        centerWindow(win, "center center");
-        $(win).removeClass("maximize");
-        $("footer").show();
-      }
+      // if ($(win).hasClass("maximize")) {
+      //   $(win).css("width", width);
+      //   $(win).css("height", height);
+      //   centerWindow(win, "center center");
+      //   $(win).removeClass("maximize");
+      //   $("footer").show();
+      // }
     });
   }
   
@@ -361,41 +361,41 @@ $(document).ready(function() {
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  
     
   // Maximize window
-  function maximizeWindow(maximize, win, width, height) {
-    $(maximize).on("click", function() {
-      if (!$(win).hasClass("maximize")) {
-        $("footer").hide();
-        $(win).css("width", "100vw");
-        $(win).css("height", "100%");
-        $(win).css("top", "0");
-        $(win).css("left", "0");
-      } else {
-        $("footer").show();
-        $(win).css("width", width);
-        $(win).css("height", height);
-        centerWindow(win, "center center");
-      }
-      $(win).toggleClass("maximize");
-    });
-  }
+  // function maximizeWindow(maximize, win, width, height) {
+  //   $(maximize).on("click", function() {
+  //     if (!$(win).hasClass("maximize")) {
+  //       $("footer").hide();
+  //       $(win).css("width", "100vw");
+  //       $(win).css("height", "100%");
+  //       $(win).css("top", "0");
+  //       $(win).css("left", "0");
+  //     } else {
+  //       $("footer").show();
+  //       $(win).css("width", width);
+  //       $(win).css("height", height);
+  //       centerWindow(win, "center center");
+  //     }
+  //     $(win).toggleClass("maximize");
+  //   });
+  // }
   
-  // Maximize terminal
-  maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
+  // // Maximize terminal
+  // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
 
-  // Maximize terminal
-  maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
+  // // Maximize terminal
+  // maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
 
-  // Maximize about me
-  maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
+  // // Maximize about me
+  // maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
 
-  // Maximize projects
-  maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
+  // // Maximize projects
+  // maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
 
-  // Maximize safari
-  maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
+  // // Maximize safari
+  // maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
 
-  // Close preview
-  maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
+  // // Maximize preview
+  // maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
   
   // Toggle bold text in TextEdit
   $("#bold-btn").click(function() {
