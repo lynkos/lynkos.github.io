@@ -360,14 +360,6 @@ $(document).ready(function() {
   // Close trash dialogue
   closeWindow(".alert-btn", ".dialogue", "#trash-icon");  
     
-  // Minimize terminal
-  $(".header__op-icon--yellow").click(function() {
-      // $(".mac-terminal").css("transform", "translateY(82%) translateX(0%) scale(0.75)");
-      // $(".mac-terminal").css("transition", "all 0.25s");
-    $(".mac-terminal").toggleClass("minimize");
-    if ($(".mac-terminal").hasClass("maximize")) $(".mac-terminal").removeClass("maximize");
-  });
-
   // Maximize window
   function maximizeWindow(maximize, win, width, height) {
     $(maximize).on("click", function() {
