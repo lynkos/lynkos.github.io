@@ -364,7 +364,6 @@ $(document).ready(function() {
   function maximizeWindow(maximize, win, width, height) {
     $(maximize).on("click", function() {
       $(win).toggleClass("maximize");
-      if ($(win).hasClass("minimize")) $(win).removeClass("minimize");
       if ($(win).hasClass("maximize")) {
         $("footer").hide();
         $(win).css("width", "100vw");
