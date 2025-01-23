@@ -53,8 +53,8 @@ $(document).ready(function() {
   centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center-36.5");
 
   // Show terminal on load
-  $(".mac-terminal").fadeIn(500); // .show(500);
-
+  $(".mac-terminal").show();
+  
   // TODO Improve playlist toggle logic
   // Show playlist when icon clicked
   $("#play").click(function(e) {

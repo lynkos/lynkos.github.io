@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Lynkos</title>
-    
+
     <link rel="preload" href="/assets/stylesheets/css/dock.css" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="/assets/stylesheets/css/menubar.css" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="/assets/stylesheets/css/style.css" as="style" onload="this.rel='stylesheet'">
@@ -93,7 +93,7 @@
     <script src="https://www.google.com/recaptcha/api.js" defer></script>
   </head>
 
-  <body>
+  <body style="opacity: 0">
     <header class="menu-bar">
       <div class="left">
         <span class="menus apple"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
@@ -2233,5 +2233,6 @@
         content.classList.toggle("hidden-content");
       }
     </script>
+    <style>body { opacity: 1 !important; transition: all 500ms ease-in; }</style>
   </body>
 </html>
