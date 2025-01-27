@@ -60,9 +60,9 @@ jobs:
       - name: Create robots.txt
         id: robots
         run: |
-          echo "User-agent: *" > robots.txt
-          echo "Allow: /" >> robots.txt
-          echo -n "Sitemap: https://lynkos.dev/sitemap.xml" >> robots.txt
+          echo 'User-agent: *' > robots.txt
+          echo 'Allow: /' >> robots.txt
+          echo -n 'Sitemap: https://lynkos.dev/sitemap.xml' >> robots.txt
       - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
@@ -70,9 +70,8 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: prod
-          exclude_assets: '.github,.gitignore,.vscode,docs,node_modules,src,package.json,package-lock.json,.nojekyll,assets/stylesheets/sass'
+          exclude_assets: '.github,.gitignore,docs,node_modules,src,package.json,package-lock.json,assets/stylesheets/sass'
           publish_dir: .
           cname: lynkos.dev
           full_commit_message: ${{ github.event.head_commit.message }}
-          user_name: 'lynkos'
-          user_email: 'kiwi2mii@gmail.com'
+          force_orphan: true
