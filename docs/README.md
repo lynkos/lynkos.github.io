@@ -206,6 +206,8 @@ Includes (but not limited to):
 │   │   │   ├── control_center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
+│   │   │   ├── 404.png
+│   │   │   ├── demo.png
 │   │   │   ├── mpc.jpg
 │   │   │   └── profile.jpg
 │   │   └── system/
