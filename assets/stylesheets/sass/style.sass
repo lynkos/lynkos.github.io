@@ -189,6 +189,7 @@ canvas
 .dialogue
   @include mix.blur(2.25rem, rgba(45, 45, 45, 0.6))
   @include mix.disable-select()
+  @include mix.windowBorder()
   font-family: vars.$font-family
   line-height: 1.5
   display: none
@@ -197,10 +198,8 @@ canvas
   inline-size: min-content
   z-index: 1
   width: 27rem
-  border-radius: 1rem
+  border-radius: calc(vars.$border-radius * 2)
   padding: 2rem
-  border: 1px solid rgba(255, 255, 255, 0.17)
-  outline: 1px solid rgba(0, 0, 0, 0.75)
   color: white
   -webkit-box-shadow: vars.$box-shadow
   box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)

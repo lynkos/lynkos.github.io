@@ -89,13 +89,12 @@ $menubar-icon-size: 1.1rem
 #playlist
   @include mix.blur(5rem, rgba(45, 45, 45, 0.6))
   @include mix.disable-select()
+  @include mix.windowBorder()
   display: none
   position: fixed
   top: vars.$menubar-height
   z-index: 1
   border-radius: 0.75rem
-  border: 1px solid rgba(255, 255, 255, 0.17)
-  outline: 1px solid rgba(0, 0, 0, 0.75)
   padding: calc($menubar-padding / 2)
   width: 22rem
   height: auto
