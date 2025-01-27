@@ -168,9 +168,7 @@ Includes (but not limited to):
 ├── 404.html
 ├── index.html
 ├── package-lock.json
-├── package.json
-├── robots.txt
-└── sitemap.xml
+└── package.json
 ```
 
 ### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch

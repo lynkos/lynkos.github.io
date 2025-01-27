@@ -43,6 +43,20 @@ jobs:
       - name: Build
         id: build
         run: npm run build
+      - name: Create sitemap.xml
+        id: sitemap
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          echo '  <url>' >> sitemap.xml
+          echo '    <loc>https://lynkos.dev/</loc>' >> sitemap.xml
+          echo -n '    <lastmod>' >> sitemap.xml
+          echo -n $(date '+%F') >> sitemap.xml
+          echo '</lastmod>' >> sitemap.xml
+          echo '    <changefreq>daily</changefreq>' >> sitemap.xml
+          echo '    <priority>1.00</priority>' >> sitemap.xml
+          echo '  </url>' >> sitemap.xml
+          echo -n '</urlset>' >> sitemap.xml
       - name: Create robots.txt
         id: robots
         run: |
