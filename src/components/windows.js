@@ -264,7 +264,8 @@ $(document).ready(function () {
     openWindow("#trash-icon", ".dialogue", "inline-block");
 
     // Open about me when double-clicking "about.rtf"
-    $("#aboutFile").dblclick(function () {
+    $("#aboutFile").on("dblclick touchstart", function(event) {
+        event.preventDefault();
         if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
         bringToFront(".text-edit", ".windows, .btn, .dialogue");
         if (!$(".text-edit").hasClass("openWindow")) $(".text-edit").addClass("openWindow");
@@ -272,7 +273,8 @@ $(document).ready(function () {
     });
 
     // Open preview when double-clicking "profile.jpg"
-    $("#profilePic").dblclick(function () {
+    $("#profilePic").on("dblclick touchstart", function(event) {
+        event.preventDefault();
         if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
         bringToFront(".preview", ".windows, .btn, .dialogue");
         if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
