@@ -1,4 +1,3 @@
-# robots.txt for https://lynkos.dev
 User-agent: *
 Disallow:
 Sitemap: https://lynkos.dev/sitemap.xml

@@ -13,79 +13,79 @@
   <url>
     <loc>https://lynkos.dev/zenkitty/</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/research.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/personas/persona1.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/personas/persona2.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/scenarios/scenario1.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/scenarios/scenario2.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/storyboard.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>never</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/moodboard.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/flowchart.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>never</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/wireframes.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>never</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/gui.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/prototype.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>never</changefreq>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://lynkos.dev/zenkitty/references.html</loc>
     <lastmod>2024-12-18T19:15:24+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.64</priority>
+    <changefreq>never</changefreq>
+    <priority>0.40</priority>
   </url>
 </urlset>
