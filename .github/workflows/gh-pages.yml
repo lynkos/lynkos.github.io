@@ -43,6 +43,12 @@ jobs:
       - name: Build
         id: build
         run: npm run build
+      - name: Create robots.txt
+        id: robots
+        run: |
+          echo "User-agent: *" > robots.txt
+          echo "Allow: /" >> robots.txt
+          echo -n "Sitemap: https://lynkos.dev/sitemap.xml" >> robots.txt
       - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
