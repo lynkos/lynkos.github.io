@@ -1,6 +1,10 @@
 $(document).ready(function() {
     var angle = 0;
+    var zoom = 1;
     var launchpad = $("#launchpad");
+    var fullProfilePic = $("#fullProfilePic");
+    var zoomIn = $("#zoomIn");
+    var zoomOut = $("#zoomOut");
 
     // Open launchpad
     function openLaunchpad() {
@@ -285,11 +289,39 @@ $(document).ready(function() {
     // Rotate picture in preview
     $("#rotate").on("click", function() {
         angle = (angle - 90) % 360;    
-        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg)");
-        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg)");
-        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg)");
-        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg)");
-        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg)");
+        fullProfilePic.css("transform", "rotate(" + angle + "deg)");
+        fullProfilePic.css("-moz-transform", "rotate(" + angle + "deg)");
+        fullProfilePic.css("-ms-transform", "rotate(" + angle + "deg)");
+        fullProfilePic.css("-o-transform", "rotate(" + angle + "deg)");
+        fullProfilePic.css("-webkit-transform", "rotate(" + angle + "deg)");
+    });
+
+    // Zoom into picture in preview
+    zoomIn.on("click", function() {
+        if (zoom < 2.1) {
+            if (zoomIn.hasClass("inactive")) zoomIn.removeClass("inactive");
+            if (zoomOut.hasClass("inactive")) zoomOut.removeClass("inactive");
+            zoom += 0.1;
+            fullProfilePic.css("transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-moz-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-ms-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-o-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-webkit-transform", "scale(" + zoom + ")");    
+        } else if (!zoomIn.hasClass("inactive")) zoomIn.addClass("inactive");
+    });
+
+    // Zoom out of picture in preview
+    zoomOut.on("click", function() {
+        if (zoom > 0.2) {
+            if (zoomOut.hasClass("inactive")) zoomOut.removeClass("inactive");
+            if (zoomIn.hasClass("inactive")) zoomIn.removeClass("inactive");
+            zoom -= 0.1;
+            fullProfilePic.css("transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-moz-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-ms-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-o-transform", "scale(" + zoom + ")");
+            fullProfilePic.css("-webkit-transform", "scale(" + zoom + ")");    
+        } else if (!zoomOut.hasClass("inactive")) zoomOut.addClass("inactive");
     });
 
     // Open app via launchpad
