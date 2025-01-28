@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
     </noscript>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Kiran Brahmatewari's macOS-inspired personal website.">
     <meta name="author" content="Kiran Brahmatewari">
     <meta name="apple-mobile-web-app-title" content="Lynkos">
@@ -89,9 +89,9 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
-    <script src="https://www.google.com/recaptcha/api.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer="defer"></script>
+    <script src="https://www.google.com/recaptcha/api.js" defer="defer"></script>
   </head>
 
   <body>
@@ -264,7 +264,7 @@
           </div>
 
           <div class="flex items-center justify-end leading-none">
-            <input readonly class="cursor-default text-right block w-full px-4 text-5xl text-white bg-transparent focus:outline-none" value="0" id="screen">
+            <input readonly="readonly" class="cursor-default text-right block w-full px-4 text-5xl text-white bg-transparent focus:outline-none" value="0" id="screen">
           </div>
 
           <div class="mt-2 p-1.5 grid grid-cols-4 grid-rows-5 gap-px text-white text-center font-extralight">
@@ -321,7 +321,7 @@
           <div class="styles">
             <div class="drops">
               <select id="fontFamily" title="Choose the typeface" class="drop--styles drop--element">
-                <option selected>Helvetica</option>
+                <option selected="selected">Helvetica</option>
                 <option>Arial</option>
                 <option>Verdana</option>
                 <option>Times New Roman</option>
@@ -332,7 +332,7 @@
 
               <select id="fontSize" title="Set the font size" class="drop--styles drop--element">
                 <option>10</option>
-                <option selected>12</option>
+                <option selected="selected">12</option>
                 <option>14</option>
                 <option>16</option>
                 <option>18</option>
@@ -364,7 +364,7 @@
                 <option>1.2</option>
                 <option>1.3</option>
                 <option>1.4</option>
-                <option selected>1.5</option>
+                <option selected="selected">1.5</option>
                 <option>1.6</option>
                 <option>1.7</option>
                 <option>1.8</option>
@@ -2200,10 +2200,10 @@
     <script id="rendered-js" src="/dist/utilities/particles.js"></script>
     <script src="/dist/components/windows.js"></script>
     <script src="/dist/utilities/timestamp.js"></script>
-    <script src="/dist/components/calculator.js" defer></script>
-    <script src="/dist/components/terminal.js" defer></script>
-    <script data-cfasync="false" src="/dist/components/email.js" defer></script>
-    <script defer>
+    <script src="/dist/components/calculator.js" defer="defer"></script>
+    <script src="/dist/components/terminal.js" defer="defer"></script>
+    <script data-cfasync="false" src="/dist/components/email.js" defer="defer"></script>
+    <script defer="defer">
       // Make launchpad searchable
       function filterLaunchpad() {
         var input = document.getElementById("launchInput"),
