@@ -4,11 +4,11 @@
     "scripts": {
         "test:build": "node --test",
         "test:dev": "node --test --watch",
-        "build:css": "sass --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
+        "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist",
         "build": "npm run build:css && npm run build:js",
         "dev:js": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env",
-        "dev:css": "sass --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
+        "dev:css": "sass --verbose --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "dev": "npm run dev:js & npm run dev:css"
     },
     "repository": {
