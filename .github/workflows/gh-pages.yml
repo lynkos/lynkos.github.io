@@ -72,6 +72,12 @@ jobs:
           echo 'User-agent: Mediapartners-Google' >> robots.txt
           echo 'Disallow: /' >> robots.txt
           echo '' >> robots.txt
+          echo 'User-agent: Google-Extended' >> robots.txt
+          echo 'Disallow: /' >> robots.txt
+          echo '' >> robots.txt
+          echo 'User-agent: Google-CloudVertexBot' >> robots.txt
+          echo 'Disallow: /' >> robots.txt
+          echo '' >> robots.txt
           echo -n 'Sitemap: https://lynkos.dev/sitemap.xml' >> robots.txt
       - name: Deploy
         id: deploy
@@ -86,4 +92,3 @@ jobs:
           full_commit_message: ${{ github.event.head_commit.message }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          force_orphan: true
