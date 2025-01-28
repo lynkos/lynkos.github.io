@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: AdsBot-Google-Mobile
+Disallow: /
+
+User-agent: Mediapartners-Google
+Disallow: /
+
+Sitemap: https://lynkos.dev/sitemap.xml
