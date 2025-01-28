@@ -79,6 +79,9 @@ $styles-height: 2.25rem
         &::-webkit-color-swatch
           border: 0.05rem solid $separator-color
 
+      select, .drop--element, input[type='color'], input[type='color']::-webkit-color-swatch-wrapper, input[type='color']::-webkit-color-swatch
+        border-radius: vars.$border-radius
+
       select, select:hover
         background-color: $header-color
         background-image: url("../../images/icons/angles-up-down.svg")
@@ -105,9 +108,6 @@ $styles-height: 2.25rem
 
       select, .drop--element
         height: $styles-height
-
-      select, select:hover, input[type='color'], input[type='color']::-webkit-color-swatch, .drop--element
-        border-radius: vars.$border-radius
 
         &:hover
           transition: background 1s
