@@ -1,4 +1,5 @@
 @use "variables" as vars
+@use "mixins" as mix
 
 $dark-water: #116359
 $light-water: #FFF6F7
@@ -133,6 +134,7 @@ button
   width: 100%
 
 .window
+  @include mix.transform(translateZ(0))
   position: absolute
   top: calc(100vh - 50% - ($height / 2))
   left: calc(100vw - 50% - ($width / 2))
@@ -150,7 +152,6 @@ button
   background-blend-mode: overlay
   background-attachment: fixed
   background-repeat: no-repeat
-  transform: translateZ(0x)
   background-size: 100vw 100vh
   transition: background-color 125ms ease-in-out
   will-change: backdrop-filter, background-color

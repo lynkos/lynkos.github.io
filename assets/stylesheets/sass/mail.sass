@@ -136,11 +136,11 @@ $recaptcha-scale: 0.45
 
 // cursor
 .loader
+  @include mix.transform(translate(-50%, -50%))
   position: absolute
   display: none
   top: 50%
   left: 50%
-  transform: translate(-50%, -50%)
   width: 2.5rem
   height: 2.5rem
   border-radius: 50%
@@ -157,33 +157,33 @@ $recaptcha-scale: 0.45
     transform-origin: left
 
     &:nth-child(1)
+      @include mix.transform(rotate(0deg))
       background: #0fa503
-      transform: rotate(0deg)
       z-index: 2
 
     &:nth-child(2)
+      @include mix.transform(rotate(60deg))
       background: #ffd203
-      transform: rotate(60deg)
       z-index: 3
 
     &:nth-child(3)
+      @include mix.transform(rotate(120deg))
       background: #54cd28
-      transform: rotate(120deg)
       z-index: 4
 
     &:nth-child(4)
+      @include mix.transform(rotate(180deg))
       background: #129cf5
-      transform: rotate(180deg)
       z-index: 5
 
     &:nth-child(5)
+      @include mix.transform(rotate(240deg))
       background: #bb5ed3
-      transform: rotate(240deg)
       z-index: 6
 
     &:nth-child(6)
+      @include mix.transform(rotate(300deg))
       background: #ff4f45
-      transform: rotate(300deg)
       z-index: 7
       overflow: hidden
 
@@ -210,7 +210,7 @@ $recaptcha-scale: 0.45
 
 @keyframes animate
   0%
-    transform: translate(-50%, -50%) rotate(0deg)
+    @include mix.transform(translate(-50%, -50%) rotate(0deg))
 
   100%
-    transform: translate(-50%, -50%) rotate(360deg)
+    @include mix.transform(translate(-50%, -50%) rotate(360deg))

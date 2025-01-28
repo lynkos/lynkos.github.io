@@ -1,4 +1,4 @@
-// Edit of Microtip package by Ghosh
+@use "mixins" as mix
 
 $microtip-font-size: 1.35rem
 $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually modify SVG fill as well
@@ -8,9 +8,7 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
     position: relative
 
     &::before, &::after
-        -webkit-transform: translate3d(0, 0, 0)
-        -ms-transform: translate3d(0, 0, 0)
-        transform: translate3d(0, 0, 0)
+        @include mix.transform(translate3d(0, 0, 0))
         -webkit-backface-visibility: hidden
         backface-visibility: hidden
         will-change: transform
@@ -53,9 +51,7 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
 // Position
 [role~="tooltip"][data-microtip-position|="top"]
     &::before, &::after
-        -webkit-transform: translate3d(-50%, 0, 0)
-        -ms-transform: translate3d(-50%, 0, 0)
-        transform: translate3d(-50%, 0, 0)
+        @include mix.transform(translate3d(-50%, 0, 0))
         bottom: 100%
         left: 50%
 
@@ -70,6 +66,4 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
 
     &:hover
         &::before, &::after
-            -webkit-transform: translate3d(-50%, -0.5rem, 0)
-            -ms-transform: translate3d(-50%, -0.5rem, 0)
-            transform: translate3d(-50%, -0.5rem, 0)
+            @include mix.transform(translate3d(-50%, -0.5rem, 0))

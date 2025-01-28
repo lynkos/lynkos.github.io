@@ -182,10 +182,10 @@ $header-color: rgb(56, 58, 55)
         height: 0
 
       .rotate0
-        transform: rotate(0deg)
+        @include mix.transform(rotate(0deg))
 
       .rotate90
-        transform: rotate(90deg)
+        @include mix.transform(rotate(90deg))
 
       #html
         color: #E34F26

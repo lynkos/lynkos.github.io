@@ -94,17 +94,17 @@ $max-per-row: 4
 
 @keyframes scale-up
   0%
-    transform: scale(1)
+    @include mix.transform(scale(1))
 
   100%
-    transform: scale(1.2)
+    @include mix.transform(scale(1.2))
 
 @keyframes scale-down
   0%
-    transform: scale(1.2)
+    @include mix.transform(scale(1.2))
 
   100%
-    transform: scale(1)
+    @include mix.transform(scale(1))
 
 a[class^="icon"]
   height: $icon-size

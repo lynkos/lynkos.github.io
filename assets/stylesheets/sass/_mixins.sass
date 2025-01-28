@@ -80,12 +80,17 @@
 @mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
     width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
+@mixin transform($transform)
+    -moz-transform: $transform
+    -ms-transform: $transform
+    -o-transform: $transform
+    -webkit-transform: $transform
+    transform: $transform
+
 @mixin scale($scale)
-    -moz-transform: scale($scale)
-    -ms-transform: scale($scale)
-    -o-transform: scale($scale)
-    -webkit-transform: scale($scale)
-    transform: scale($scale)
+    @include transform(scale($scale))
+    -webkit-transform-origin: center
+    -ms-transform-origin: center
     transform-origin: center
 
 @mixin text-shadow($x: 0, $y: 0, $radius: 0.75rem, $color: rgba(0, 0, 0, 0.25))
