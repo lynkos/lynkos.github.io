@@ -2,7 +2,6 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "test:build": "node --test",
         "test:dev": "node --test --watch",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist",
@@ -27,12 +26,14 @@
         "@babel/cli": "^7.26.4",
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
+        "babel-preset-minify": "^0.5.2",
         "nodemon": "^3.1.9",
         "sass": "^1.83.4"
     },
     "babel": {
         "presets": [
-            "@babel/preset-env"
+            "@babel/preset-env",
+            "minify"
         ]
     },
     "targets": {
