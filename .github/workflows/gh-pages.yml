@@ -39,10 +39,14 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         id: install
-        run: npm install
+        run: |
+          npm install
+          npm install html-minifier -g
       - name: Build
         id: build
-        run: npm run build
+        run: |
+          npm run build
+          for file in ./*.html; do html-minifier $file -o $file; done
       - name: Create sitemap.xml
         id: sitemap
         run: |
