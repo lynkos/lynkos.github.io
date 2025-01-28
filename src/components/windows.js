@@ -269,7 +269,7 @@ $(document).ready(function() {
     openWindow("#trash-icon", ".dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping "about.rtf"
-    $("#aboutFile").on("dblclick touchstart", function(event) {
+    $("#aboutFile").on("dblclick", function(event) {
         event.preventDefault();
         if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
         bringToFront(".text-edit", ".windows, .btn, .dialogue");
@@ -277,13 +277,45 @@ $(document).ready(function() {
         if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
     });
 
+    $("#aboutFile")
+    .on("touchstart", function() {
+        $(this).data("moved", false);
+    })
+    .on("touchmove", function() {
+        $(this).data("moved", true);
+    })
+    .on("touchend", function() {
+        if($(this).data("moved") === false) {
+            if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
+            bringToFront(".text-edit", ".windows, .btn, .dialogue");
+            if (!$(".text-edit").hasClass("openWindow")) $(".text-edit").addClass("openWindow");
+            if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");        
+        }
+    });
+
     // Open preview when double-clicking or tapping "profile.jpg"
-    $("#profilePic").on("dblclick touchstart", function(event) {
+    $("#profilePic").on("dblclick", function(event) {
         event.preventDefault();
         if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
         bringToFront(".preview", ".windows, .btn, .dialogue");
         if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
         if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
+    });
+
+    $("#profilePic")
+    .on("touchstart", function() {
+        $(this).data("moved", false);
+    })
+    .on("touchmove", function() {
+        $(this).data("moved", true);
+    })
+    .on("touchend", function() {
+        if($(this).data("moved") === false) {
+            if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
+            bringToFront(".preview", ".windows, .btn, .dialogue");
+            if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
+            if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
+        }
     });
 
     // Rotate picture in preview
