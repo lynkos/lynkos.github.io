@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    var angle = 0;
     var launchpad = $("#launchpad");
 
     // Open launchpad
@@ -10,7 +11,7 @@ $(document).ready(function () {
     }
 
     // Toggle launchpad
-    $(".open-menu").on("click", function () {
+    $(".open-menu").on("click", function() {
         if (launchpad.hasClass("shown start")) closeLaunchpad();
         else openLaunchpad();
     });
@@ -23,7 +24,7 @@ $(document).ready(function () {
         launchpad.find("nav")
             .removeClass("scale-down")
             .addClass("scale-up");
-        setTimeout(function () {
+        setTimeout(function() {
             launchpad.removeClass("shown end");
             launchpad.find("nav").removeClass("scale-up");
         }, 350);
@@ -32,7 +33,7 @@ $(document).ready(function () {
     }
 
     // Close launchpad when clicking any launchpad icon
-    $(".launch").click(function () {
+    $(".launch").click(function() {
         closeLaunchpad();
     });
 
@@ -57,7 +58,7 @@ $(document).ready(function () {
 
     // TODO Improve playlist toggle logic
     // Show playlist when icon clicked
-    $("#play").click(function (e) {
+    $("#play").click(function(e) {
         $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 10);
 
         // Bring playlist to front
@@ -69,12 +70,12 @@ $(document).ready(function () {
     });
 
     // Prevent playlist from closing when clicking on it
-    $("#playlist").mousedown(function (e) {
+    $("#playlist").mousedown(function(e) {
         e.stopPropagation();
     });
 
     // Hide playlist when click outside
-    $(document).mousedown(function () {
+    $(document).mousedown(function() {
         $("#playlist").fadeOut(250);
     });
 
@@ -82,7 +83,7 @@ $(document).ready(function () {
     // so that the launchpad doesn't close when sorting
 
     // Close the launchpad when the content is clicked, only if the target is not a link
-    $(document).mouseup(function (e) {
+    $(document).mouseup(function(e) {
         var content = launchpad.find(".launch-content"),
             nav = content.find("nav");
 
@@ -95,7 +96,7 @@ $(document).ready(function () {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get the highest z-index
-            let maxZIndex = Math.max(...$(allElements).map(function () {
+            let maxZIndex = Math.max(...$(allElements).map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -158,12 +159,12 @@ $(document).ready(function () {
             cursor: "default",
             handle: ".handle",
             cancel: ".cancel, .icons",
-            start: function () {
+            start: function() {
                 bringToFront(this, ".windows, .btn, .dialogue");
             },
             containment: "#main-content",
             distance: 0,
-        }).on("click", function () {
+        }).on("click", function() {
             bringToFront(this, ".windows, .btn, .dialogue");
         });
     }
@@ -175,13 +176,13 @@ $(document).ready(function () {
     $(".dialogue").draggable({
         cursor: "default",
         cancel: ".alert-btn",
-        start: function () {
+        start: function() {
             bringToFront(this, ".windows, .btn, .dialogue");
         },
         // stack: ".windows, .btn, .dialogue",
         containment: "#main-content",
         distance: 0,
-    }).on("mousedown", function () {
+    }).on("mousedown", function() {
         bringToFront(this, ".windows, .btn, .dialogue");
     });
 
@@ -214,13 +215,13 @@ $(document).ready(function () {
     // });  
 
     // Highlight clicked nav item
-    $(".child-nav li", ".sidebar").on("click", function () {
+    $(".child-nav li", ".sidebar").on("click", function() {
         $(".child-nav li", ".sidebar").removeClass("active");
         if (!$(this).hasClass("active")) $(this).addClass("active");
     });
 
     // Make GitHub icon bounce on click
-    $("#github-dock").click(function () {
+    $("#github-dock").click(function() {
         $(this).effect("bounce", { times: 3 }, 600);
     });
 
@@ -236,7 +237,7 @@ $(document).ready(function () {
 
     // Open window
     function openWindow(icon, win, displayType) {
-        $(icon).on("click", function () {
+        $(icon).on("click", function() {
             closeLaunchpad();
             $(win).css("display", displayType);
             bringToFront(win, ".windows, .btn, .dialogue");
@@ -263,7 +264,7 @@ $(document).ready(function () {
     // Open trash dialogue
     openWindow("#trash-icon", ".dialogue", "inline-block");
 
-    // Open about me when double-clicking "about.rtf"
+    // Open about me when double-clicking or tapping "about.rtf"
     $("#aboutFile").on("dblclick touchstart", function(event) {
         event.preventDefault();
         if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
@@ -272,7 +273,7 @@ $(document).ready(function () {
         if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
     });
 
-    // Open preview when double-clicking "profile.jpg"
+    // Open preview when double-clicking or tapping "profile.jpg"
     $("#profilePic").on("dblclick touchstart", function(event) {
         event.preventDefault();
         if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
@@ -281,9 +282,19 @@ $(document).ready(function () {
         if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
     });
 
+    // Rotate picture in preview
+    $("#rotate").on("click", function() {
+        angle = (angle - 90) % 360;    
+        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg)");
+        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg)");
+        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg)");
+        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg)");
+        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg)");
+    });
+
     // Open app via launchpad
     function launchApp(icon, win, displayType, dockIcon) {
-        $(icon).on("click", function () {
+        $(icon).on("click", function() {
             closeLaunchpad();
             bringToFront(win, ".windows, .btn, .dialogue");
             $(win).css("display", displayType);
@@ -314,7 +325,7 @@ $(document).ready(function () {
     launchApp("#previewLaunch", ".preview", "flex", null);
 
     // Empty trash
-    $(".confirm").click(function (e) {
+    $(".confirm").click(function(e) {
         new Audio("../assets/audio/empty_trash.mp3").play();
         e.preventDefault();
         $("#trash").attr("src", "/assets/images/system/empty_trash.png");
@@ -323,7 +334,7 @@ $(document).ready(function () {
 
     // Close window
     function closeWindow(close, win, dockIcon, width, height) {
-        $(close).on("click", function () {
+        $(close).on("click", function() {
             $(win).css("display", "none");
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
             if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
@@ -400,47 +411,47 @@ $(document).ready(function () {
     // maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
 
     // Toggle bold text in TextEdit
-    $("#bold-btn").click(function () {
+    $("#bold-btn").click(function() {
         $(".text-body").toggleClass("bold");
     });
 
     // Toggle italic text in TextEdit
-    $("#italic-btn").click(function () {
+    $("#italic-btn").click(function() {
         $(".text-body").toggleClass("italic");
     });
 
     // Toggle underlined text in TextEdit
-    $("#underline-btn").click(function () {
+    $("#underline-btn").click(function() {
         $(".text-body").toggleClass("underline");
     });
 
     // Remove classes in element
     function removeClasses(element, classes) {
         for (let i = 0; i < classes.length; i++) {
-            if ($(element).hasClass(classes[ i ])) $(element).removeClass(classes[ i ]);
+            if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
         }
     }
 
     // Toggle left text alignment in TextEdit
-    $("#left-btn").click(function () {
+    $("#left-btn").click(function() {
         $(".text-body").toggleClass("left");
         removeClasses(".text-body", [ "right", "center", "justify" ]);
     });
 
     // Toggle center text alignment in TextEdit
-    $("#center-btn").click(function () {
+    $("#center-btn").click(function() {
         $(".text-body").toggleClass("center");
         removeClasses(".text-body", [ "right", "left", "justify" ]);
     });
 
     // Toggle right text alignment in TextEdit
-    $("#right-btn").click(function () {
+    $("#right-btn").click(function() {
         $(".text-body").toggleClass("right");
         removeClasses(".text-body", [ "center", "left", "justify" ]);
     });
 
     // Toggle justify text alignment in TextEdit
-    $("#justify-btn").click(function () {
+    $("#justify-btn").click(function() {
         $(".text-body").toggleClass("justify");
         removeClasses(".text-body", [ "center", "left", "right" ]);
     });
@@ -448,34 +459,34 @@ $(document).ready(function () {
 
 // Update text color in TextEdit
 const colorPicker = document.getElementById("colorPicker");
-colorPicker.addEventListener("input", function () {
+colorPicker.addEventListener("input", function() {
     $(".text-body").css("color", this.value);
 });
 
 // Update font size in TextEdit
 const fontSize = document.getElementById("fontSize");
-fontSize.addEventListener("change", function () {
+fontSize.addEventListener("change", function() {
     $(".text-body").css("font-size", (this.value / 10) + "rem");
 });
 
 // Update font family in TextEdit
 const fontFamily = document.getElementById("fontFamily");
-fontFamily.addEventListener("change", function () {
+fontFamily.addEventListener("change", function() {
     $(".text-body").css("font-family", this.value);
 });
 
 // Update line height in TextEdit
 const lineHeight = document.getElementById("lineHeight");
-lineHeight.addEventListener("change", function () {
+lineHeight.addEventListener("change", function() {
     $(".text-body").css("line-height", this.value);
 });
 
 // Make selected project in Notes sidebar active and all others inactive
-var selectProject = function (element) {
+var selectProject = function(element) {
     var projectInfo = document.getElementsByClassName("project");
 
     for (let j = 0; j < projectInfo.length; ++j) {
-        projectInfo[ j ].classList.remove("active");
+        projectInfo[j].classList.remove("active");
     }
 
     var project = document.querySelector("#" + element.dataset.id);
@@ -483,8 +494,8 @@ var selectProject = function (element) {
 }
 
 // Select project from projects in Notes sidebar
-document.querySelectorAll(".project-name").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+document.querySelectorAll(".project-name").forEach(function(element) {
+    element.addEventListener("click", function(e) {
         selectProject(e.target)
     });
 });
