@@ -2,7 +2,7 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "test:dev": "node --test --watch",
+        "test": "node --test",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
         "build": "npm run build:css && npm run build:js",
