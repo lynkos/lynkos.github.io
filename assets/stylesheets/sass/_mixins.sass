@@ -133,7 +133,7 @@
     @include supports(-ms-flex-direction, $direction)
     @include supports(flex-direction, $direction)
 
-@mixin window-border($thickness: 0.15rem, $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
+@mixin window-border($thickness: calc(vars.$border-thickness * 2), $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
     border: $thickness solid $primary
     outline: $thickness solid $secondary
 
@@ -188,7 +188,7 @@
     color: white
     background: $background
     position: relative
-    border: 0.13rem solid rgba(255, 255, 255, 0.15)
+    border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.15)
     @include disable-select()
     @include border-radius(vars.$border-radius)
 

@@ -15,7 +15,7 @@ footer
   @include mix.justify-content(center)
 
 .dock
-  border: 0.125rem solid rgba(255, 255, 255, 0.05)
+  border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.05)
   padding: vars.$padding
   z-index: 10
   grid-auto-flow: column

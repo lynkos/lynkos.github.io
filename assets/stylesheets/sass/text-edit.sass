@@ -72,7 +72,7 @@ $min-width: 41rem
           padding: 0
 
         &::-webkit-color-swatch
-          border: 0.05rem solid $separator-color
+          border: vars.$border-thickness solid $separator-color
 
       select, .drop--element, input[type='color'], input[type='color']::-webkit-color-swatch-wrapper, input[type='color']::-webkit-color-swatch
         @include mix.border-radius(vars.$border-radius)
@@ -90,7 +90,7 @@ $min-width: 41rem
         width: 2.25rem
         height: 1.1rem
         font-size: 1.1rem
-        border-right: 0.05rem solid $separator-color
+        border-right: vars.$border-thickness solid $separator-color
         text-align: center
 
         &:last-child
@@ -113,7 +113,7 @@ $min-width: 41rem
         padding: 0.4rem 1.5rem 0.4rem 0.4rem
         font-size: 1rem
         line-height: 1rem
-        border: 0.05rem solid $separator-color
+        border: vars.$border-thickness solid $separator-color
 
       .drop--decorations, .drop--alignments
         position: relative
@@ -220,14 +220,14 @@ $min-width: 41rem
       max-width: -moz-fit-content
       max-width: fit-content
       overflow-x: auto
-      border: 0.1rem solid white
+      border: vars.$border-thickness solid white
       border-collapse: collapse
       background-color: black
       margin: 0 auto
     
       tbody
         td, tr
-          border: 0.1rem solid white
+          border: vars.$border-thickness solid white
           text-align: center
 
         tr
