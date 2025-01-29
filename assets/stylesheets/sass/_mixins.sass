@@ -27,7 +27,14 @@
     @include supports(-o-transition, $value)
     @include supports(transition, $value)
 
-@mixin flex()
+@mixin flex($value: 1)
+    @include supports(-webkit-box-flex, 1)
+    @include supports(-webkit-flex, $value)
+    @include supports(-moz-box-flex, $value)
+    @include supports(-ms-flex, $value)
+    @include supports(flex, $value)
+
+@mixin display-flex()
     @include supports(display, -moz-box)
     @include supports(display, -moz-flex)
     @include supports(display, -webkit-box)
@@ -274,7 +281,7 @@
     @include border-radius(1rem)
 
 @mixin buttons($button-dim: vars.$window-icons-dim)
-    @include flex()
+    @include display-flex()
     @include align-items(center)
 
     &-icon
@@ -350,7 +357,7 @@
     background: $bg-color
     height: $height
     padding: $padding
-    @include flex()
+    @include display-flex()
     @include align-items(center)
     @include justify-content(space-between)
 

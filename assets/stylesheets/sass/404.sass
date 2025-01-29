@@ -31,7 +31,7 @@ body
   font-size: 13px
   color: black
   @include mix.box-sizing()
-  @include mix.flex()
+  @include mix.display-flex()
   @include mix.flex-direction(column)
   @include mix.align-items(center)
   @include mix.justify-content(center)
@@ -45,7 +45,7 @@ a
   height: 100vh
   color: $light-water
   text-align: center
-  @include mix.flex()
+  @include mix.display-flex()
   @include mix.align-items(center)
   @include mix.justify-content(center)
 
@@ -154,7 +154,7 @@ button
   backdrop-filter: blur(7px) brightness(1.25)
   backdrop-filter: none
   @include mix.transform(translateZ(0))
-  @include mix.flex()
+  @include mix.display-flex()
   @include mix.flex-direction(column)
   @include mix.border-radius(8px)
   @include mix.transition(background-color 125ms ease-in-out)
@@ -209,7 +209,7 @@ button
 .titlebar
   margin: 6px 8px
   cursor: default
-  @include mix.flex()
+  @include mix.display-flex()
   @include mix.flex-direction(row)
   @include mix.align-items(center)
   @include mix.justify-content(space-between)
@@ -310,12 +310,12 @@ button
         height: 8px
 
 .viewport
-  flex: 1 1 auto
   border: 1px solid rgba(#000, 0.5)
   margin: 0 8px 8px
   background: #fcfcfc
   overflow: hidden
-  @include mix.flex()
+  @include mix.display-flex()
+  @include mix.flex(1 1 auto)
   @include mix.flex-direction(column)
   @include mix.border-radius(2px)
   @include mix.box-shadow(0 0 0 1px rgba(#fff, 0.5))

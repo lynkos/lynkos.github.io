@@ -24,7 +24,7 @@ $header-color: rgb(56, 58, 55)
     overflow: hidden
     cursor: default
     @include mix.disable-select()
-    @include mix.flex()
+    @include mix.display-flex()
     @include mix.justify-content(space-between)
 
     .browser-buttons
@@ -36,7 +36,7 @@ $header-color: rgb(56, 58, 55)
       @include mix.border-radius()
 
     .left, .right
-      @include mix.flex()
+      @include mix.display-flex()
       @include mix.align-items(center)
 
       span
@@ -112,7 +112,7 @@ $header-color: rgb(56, 58, 55)
       
       .row .arrow, .item-content, .row, .row .stars, .row .beginning
         place-items: center
-        @include mix.flex()
+        @include mix.display-flex()
 
       .row
         padding: calc(vars.$padding * 2)

@@ -57,7 +57,7 @@ $min-width: 41rem
 
     .drops
       padding: vars.$padding
-      @include mix.flex()
+      @include mix.display-flex()
       @include mix.justify-content(space-between)
 
       input[type='color']
@@ -118,7 +118,7 @@ $min-width: 41rem
       .drop--decorations, .drop--alignments
         position: relative
         padding-top: calc(($styles-height - 1.1rem) / 2) // padding-top + padding-bottom + font-awesome-height-size = $styles-height
-        @include mix.flex()
+        @include mix.display-flex()
 
   // RULER
   .rule
@@ -204,13 +204,11 @@ $min-width: 41rem
 
   .text-body
     font-size: 1.2rem
-    -webkit-box-flex: 1
-    -ms-flex: 1
-    flex: 1
     color: white
     padding: 0 vars.$padding
     overflow: auto
     background: $body-color
+    @include mix.flex(1)
 
     a
       @include mix.text-shadow(0, 0, 1rem, vars.$foreground-color)
