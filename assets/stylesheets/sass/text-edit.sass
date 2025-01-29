@@ -6,7 +6,6 @@ $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
 $width: 48.35rem
-$height: 45rem
 $inch-width: 7.27rem
 $inch-height: 1rem
 $styles-height: 2.25rem
@@ -14,7 +13,7 @@ $min-width: 41rem
 
 .text-edit
   overflow-x: hidden
-  @include mix.window($style-bar-color, $width, $height, $min-width)
+  @include mix.window($style-bar-color, $width, vars.$height, $min-width)
   @include mix.flex-direction(column)
   @include mix.align-content(stretch)
 

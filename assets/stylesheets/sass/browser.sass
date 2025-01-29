@@ -2,7 +2,6 @@
 @use "variables" as vars
 
 $window-width: 55rem
-$window-height: 45rem
 $icon-size: 1.25rem
 $icon-dim: 2.25rem
 $font-size: 1.15rem
@@ -10,7 +9,7 @@ $header-color: rgb(56, 58, 55)
 
 .browser
   font-family: vars.$font-family
-  @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
+  @include mix.window(rgb(30, 30, 30), $window-width, vars.$height)
   @include mix.flex-direction(column)
 
   i
@@ -19,7 +18,7 @@ $header-color: rgb(56, 58, 55)
     text-align: center
 
   .top
-    padding: calc(vars.$padding * 2) 0
+    padding: calc(vars.$padding * 2) 1.4rem
     position: relative
     background: $header-color
     overflow: hidden
@@ -29,18 +28,14 @@ $header-color: rgb(56, 58, 55)
     @include mix.justify-content(space-between)
 
     .browser-buttons
-      padding-left: calc(vars.$padding * 2)
       @include mix.buttons()
 
     .icons
       font-size: $icon-size
       text-align: center
-      vertical-align: middle
       @include mix.border-radius()
 
     .left, .right
-      padding: 0 vars.$padding
-      height: calc($icon-size * 2)
       @include mix.flex()
       @include mix.align-items(center)
 
@@ -51,6 +46,7 @@ $header-color: rgb(56, 58, 55)
 
         &:hover
           background-color: rgba(255, 255, 255, 0.1)
+          @include mix.transition(background .5s ease)
 
         &.inactive
           color: #707070
@@ -69,19 +65,18 @@ $header-color: rgb(56, 58, 55)
 
     .address
       background: none
-      line-height: $icon-size
+      line-height: $font-size
       border: 0.05rem solid rgba(255, 255, 255, 0.25)
-      width: 27rem
+      width: 29rem
       font-size: $font-size
       @include mix.border-radius(calc(vars.$border-radius * 0.9))
 
       >
         input
-          font-size: $icon-size
-          line-height: $icon-size
+          font-size: $font-size
+          line-height: $font-size
           height: 100%
           width: 100%
-          font-size: $font-size
           padding: 0 vars.$padding
           color: white
           background: none

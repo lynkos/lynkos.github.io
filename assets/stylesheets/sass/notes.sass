@@ -3,7 +3,6 @@
 
 $sidebar-width: 17.1rem
 $window-width: 55rem
-$window-height: 45rem
 $header-height: 5rem
 $search-height: 2.5rem
 $search-width: 13rem
@@ -15,7 +14,7 @@ $secondary-background: rgb(30, 30, 30)
 .notes
   font-family: vars.$font-family
   line-height: 1.5
-  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height)
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, vars.$height)
   @include mix.flex-direction(column)
   @include mix.align-content(stretch)
 
@@ -32,7 +31,6 @@ $secondary-background: rgb(30, 30, 30)
         height: $icon-dim
         padding-top: calc(($icon-dim - $icon-size) / 2)
         text-align: center
-        vertical-align: middle
         color: rgb(151, 152, 151)
         @include mix.border-radius(vars.$border-radius)
 
