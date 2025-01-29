@@ -139,9 +139,9 @@ $(document).ready(function() {
             // If given element is a window
             if ($(element).hasClass("windows")) {
                 // Make its buttons active
-                $(element).css("--red", "#FF544D");
-                $(element).css("--yellow", "#FFB429");
-                $(element).css("--green", "#25C63A");
+                $(element).css("--red", "#ed6a5e");
+                $(element).css("--yellow", "#f5bf4f");
+                $(element).css("--green", "#62c554");
             }
 
             // If given element is trash dialogue
