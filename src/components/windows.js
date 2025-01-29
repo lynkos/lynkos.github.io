@@ -1,34 +1,32 @@
 $(document).ready(function() {
     var angle = 0;
     var zoom = 1;
-    var launchpad = $("#launchpad");
-    var fullProfilePic = $("#fullProfilePic");
 
     // Open launchpad
     function openLaunchpad() {
         $(".menu-bar").fadeOut(400);
         $(".openWindow").fadeOut(400);
-        launchpad.addClass("shown start");
-        launchpad.find("nav").addClass("scale-down");
+        $("#launchpad").addClass("shown start");
+        $("#launchpad").find("nav").addClass("scale-down");
     }
 
     // Toggle launchpad
     $(".open-menu").on("click", function() {
-        if (launchpad.hasClass("shown start")) closeLaunchpad();
+        if ($("#launchpad").hasClass("shown start")) closeLaunchpad();
         else openLaunchpad();
     });
 
     // Close launchpad
     function closeLaunchpad() {
-        launchpad
+        $("#launchpad")
             .removeClass("start")
             .addClass("end");
-        launchpad.find("nav")
+        $("#launchpad").find("nav")
             .removeClass("scale-down")
             .addClass("scale-up");
         setTimeout(function() {
-            launchpad.removeClass("shown end");
-            launchpad.find("nav").removeClass("scale-up");
+            $("#launchpad").removeClass("shown end");
+            $("#launchpad").find("nav").removeClass("scale-up");
         }, 350);
         $(".menu-bar").fadeIn(400);
         $(".openWindow").fadeIn(400);
@@ -86,7 +84,7 @@ $(document).ready(function() {
 
     // Close the launchpad when the content is clicked, only if the target is not a link
     $(document).mouseup(function(e) {
-        var content = launchpad.find(".launch-content"),
+        var content = $("#launchpad").find(".launch-content"),
             nav = content.find("nav");
 
         if (content.is(e.target) || nav.is(e.target))
@@ -319,11 +317,6 @@ $(document).ready(function() {
     // Rotate picture in preview
     $("#rotate").on("click", function() {
         angle = (angle - 90) % 360;    
-        fullProfilePic.css("transform", "rotate(" + angle + "deg)");
-        fullProfilePic.css("-moz-transform", "rotate(" + angle + "deg)");
-        fullProfilePic.css("-ms-transform", "rotate(" + angle + "deg)");
-        fullProfilePic.css("-o-transform", "rotate(" + angle + "deg)");
-        fullProfilePic.css("-webkit-transform", "rotate(" + angle + "deg)");
     });
 
     // Zoom into picture in preview
@@ -332,11 +325,6 @@ $(document).ready(function() {
             if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
             if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
             zoom += 0.1;
-            fullProfilePic.css("transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-moz-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-ms-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-o-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-webkit-transform", "scale(" + zoom + ")");    
         } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
     });
 
@@ -346,12 +334,16 @@ $(document).ready(function() {
             if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
             if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
             zoom -= 0.1;
-            fullProfilePic.css("transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-moz-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-ms-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-o-transform", "scale(" + zoom + ")");
-            fullProfilePic.css("-webkit-transform", "scale(" + zoom + ")");    
         } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
+    });
+
+    // Apply both zoom and rotation to picture in preview
+    $("#zoomOut, #zoomIn, #rotate").on("click", function() {
+        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
     });
 
     // Open app via launchpad
