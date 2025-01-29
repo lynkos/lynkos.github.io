@@ -3,10 +3,13 @@
 
 $height: 44.5rem
 $cursor-blink: 1s
+$terminal-color: #0d2a34
+$arrow-color: #40E800
+$username-color: #56F2E6
 
 .mac-terminal
   font-family: vars.$terminal-font
-  @include mix.window(vars.$terminal-color, vars.$width, $height, vars.$width)
+  @include mix.window($terminal-color, vars.$width, $height, vars.$width)
 
   .header
     @include mix.header(none, vars.$header-height, 0 1.4rem)
@@ -45,13 +48,13 @@ $cursor-blink: 1s
       &-arrow
         width: 0.8rem
         height: 0.6rem
-        background-color: vars.$arrow-color
+        background-color: $arrow-color
         -webkit-clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         margin-right: 0.8rem
 
       &-name
-        color: vars.$username-color
+        color: $username-color
 
       &-accent
         color: vars.$secondary-font-color
