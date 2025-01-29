@@ -14,8 +14,6 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
         opacity: 0
         pointer-events: none
         position: absolute
-        -webkit-box-sizing: border-box
-        box-sizing: border-box
         z-index: 100
         -moz-transform-origin: top
         -ms-transform-origin: top
@@ -24,6 +22,7 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
         transform-origin: top
         bottom: 100%
         left: 50%
+        @include mix.box-sizing()
         @include mix.transform(translate3d(-50%, 0, 0))
         @include mix.transition(all var(--microtip-transition-duration, .18s) var(--microtip-transition-easing, ease-in-out) var(--microtip-transition-delay, 0s))
   
@@ -45,9 +44,8 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
         text-transform: none
         padding: 0.25em 0.75em
         white-space: nowrap
-        -webkit-box-sizing: content-box
-        box-sizing: content-box
         margin-bottom: 1.5rem
+        @include mix.box-sizing()
         @include mix.border-radius(0.4rem)
   
     &:hover, &:focus

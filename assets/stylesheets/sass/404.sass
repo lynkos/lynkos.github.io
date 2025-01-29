@@ -23,8 +23,6 @@ body, html
   height: 100%
 
 body
-  -webkit-box-sizing: border-box
-  box-sizing: border-box
   background-color: $dark-water
   background-repeat: no-repeat
   background-position: center center
@@ -32,6 +30,7 @@ body
   font-family: $font-stack
   font-size: 13px
   color: black
+  @include mix.box-sizing()
   @include mix.flex()
   @include mix.flex-direction(column)
   @include mix.align-items(center)

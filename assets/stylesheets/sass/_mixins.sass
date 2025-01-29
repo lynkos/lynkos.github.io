@@ -17,6 +17,11 @@
     @include supports(display, -ms-grid)
     @include supports(display, grid)
 
+@mixin box-sizing($value: border-box)
+    @include supports(-moz-box-sizing, $value)
+    @include supports(-webkit-box-sizing, $value)
+    @include supports(box-sizing, $value)
+
 @mixin transition($value)
     @include supports(-webkit-transition, $value)
     @include supports(-o-transition, $value)
