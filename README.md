@@ -24,7 +24,7 @@
     <summary>Home Page</summary>
     <div align="center">
         <figure>
-            <picture><img width="100%" alt="Home Page" src="../assets/images/misc/demo.png"></picture>
+            <picture><img width="100%" alt="Home Page" src="assets/images/misc/demo.png"></picture>
         </figure>
     </div>
 </details>
@@ -33,7 +33,7 @@
     <summary>404: Error Not Found Page</summary>
     <div align="center">
         <figure>
-            <picture><img width="100%" alt="404: Error Not Found Page" src="../assets/images/misc/404.png"></picture>
+            <picture><img width="100%" alt="404: Error Not Found Page" src="assets/images/misc/404.png"></picture>
         </figure>
     </div>
 </details>
@@ -152,8 +152,6 @@ Includes (but not limited to):
 │           ├── terminal.sass
 │           ├── text-edit.sass
 │           └── tooltip.sass
-├── docs/
-│   └── README.md
 ├── src/
 │   ├── components/
 │   │   ├── 404.js
@@ -167,8 +165,10 @@ Includes (but not limited to):
 ├── .gitignore
 ├── 404.html
 ├── index.html
+├── LICENSE.md
 ├── package-lock.json
-└── package.json
+├── package.json
+└── README.md
 ```
 
 ### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch
