@@ -23,8 +23,8 @@ $height: min-content
     @include mix.border-radius(50%)
 
 .calc
-  @include mix.blur(1.3rem, $body-color)
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
+  @include mix.blur(1.3rem)
 
   .calc-header
     @include mix.header(none, 3rem)

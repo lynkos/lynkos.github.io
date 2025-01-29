@@ -15,7 +15,8 @@ $menubar-icon-size: 1.1rem
   top: 0
   left: 0
   cursor: default
-  @include mix.blur(5rem, vars.$dock-menu-background)
+  background: vars.$dock-menu-background
+  @include mix.blur(5rem)
   @include mix.disable-select()
   @include mix.flex()
   @include mix.align-items(center)
@@ -76,8 +77,9 @@ $menubar-icon-size: 1.1rem
   padding: calc($menubar-padding / 2)
   width: 22rem
   height: auto
+  background: rgba(45, 45, 45, 0.6)
   @include mix.window-border()
-  @include mix.blur(5rem, rgba(45, 45, 45, 0.6))
+  @include mix.blur(5rem)
   @include mix.box-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25))
   @include mix.disable-select()
   @include mix.border-radius(0.75rem)
@@ -107,8 +109,9 @@ $menubar-icon-size: 1.1rem
 //   position: absolute
 //   min-width: 20rem
 //   overflow: auto
+//   background: rgba(45, 45, 45, 0.5)
 //   @include mix.box-shadow(vars.$box-shadow)
-//   @include mix.blur(2.25rem, rgba(45, 45, 45, 0.5))
+//   @include mix.blur(2.25rem)
 //   @include mix.border-radius(1rem)
 
 //   // @include mix.box-shadow(0px 8px 16px 0px rgba(0,0,0,0.2))

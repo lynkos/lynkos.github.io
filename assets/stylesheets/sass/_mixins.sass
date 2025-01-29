@@ -171,8 +171,7 @@
     @include supports(-ms-filter, brightness($percent))
     @include supports(filter, brightness($percent))
     
-@mixin blur($blur-strength: 0.8rem, $background: vars.$dock-menu-background)
-    background: $background
+@mixin blur($blur-strength: 0.8rem)
     @include supports(-webkit-backdrop-filter, blur($blur-strength))
     @include supports(-moz-backdrop-filter, blur($blur-strength))
     @include supports(-ms-backdrop-filter, blur($blur-strength))

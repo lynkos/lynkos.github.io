@@ -53,7 +53,8 @@ $secondary-background: rgb(30, 30, 30)
             padding: calc(vars.$padding * 2)
             height: $header-height
             // border-bottom: 1px solid rgb(11, 11, 11)
-            @include mix.blur(2rem, $primary-background)
+            background: $primary-background
+            @include mix.blur(2rem)
             @include mix.flex()
             @include mix.align-items(center)
             @include mix.justify-content(space-between)
@@ -82,7 +83,8 @@ $secondary-background: rgb(30, 30, 30)
                 padding: vars.$padding 0 vars.$padding calc(vars.$padding * 2)
                 color: rgb(147, 148, 146)
                 border-bottom: 1px solid rgba(255, 255, 255, 0.15)
-                @include mix.blur(5rem, $primary-background)
+                background: $primary-background
+                @include mix.blur(5rem)
 
             .child-nav
                 text-overflow: ellipsis
@@ -139,7 +141,8 @@ $secondary-background: rgb(30, 30, 30)
             height: $header-height
             padding: 0 calc(vars.$padding * 2)
             width: 100%
-            @include mix.blur(2rem, $primary-background)
+            background: $primary-background
+            @include mix.blur(2rem)
             @include mix.flex()
             @include mix.align-items(center)
             @include mix.justify-content(space-between)

@@ -163,8 +163,9 @@ canvas
   width: 27rem
   padding: 2rem
   color: white
+  background: rgba(45, 45, 45, 0.6)
   @include mix.window-border()
-  @include mix.blur(2.25rem, rgba(45, 45, 45, 0.6))
+  @include mix.blur(2.25rem)
   @include mix.border-radius(calc(vars.$border-radius * 2))
   @include mix.disable-select()
   @include mix.box-shadow() //0px 15px 25px 0px rgba(0, 0, 0, 0.5)

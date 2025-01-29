@@ -20,7 +20,8 @@ footer
   z-index: 10
   grid-auto-flow: column
   grid-gap: calc(vars.$padding / 4) //0.3rem
-  @include mix.blur(1.3rem, vars.$dock-menu-background)
+  background: vars.$dock-menu-background
+  @include mix.blur(1.3rem)
   @include mix.disable-select()
   @include mix.grid()
   @include mix.border-radius($dock-border-radius)
