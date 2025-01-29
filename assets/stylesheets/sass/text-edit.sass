@@ -12,15 +12,11 @@ $inch-height: 1rem
 $styles-height: 2.25rem
 
 .text-edit
-  @include mix.window($style-bar-color, $width, $height)
   min-width: 41rem
-  -webkit-box-orient: vertical
-  -webkit-box-direction: normal
-  -ms-flex-direction: column
-  flex-direction: column
-  -ms-flex-line-pack: stretch
-  align-content: stretch
   overflow-x: hidden
+  @include mix.window($style-bar-color, $width, $height)
+  @include mix.flex-direction(column)
+  @include mix.align-content(stretch)
 
   .bold
     font-weight: bold
@@ -62,8 +58,8 @@ $styles-height: 2.25rem
 
     .drops
       padding: vars.$padding
-      display: flex
-      justify-content: space-between
+      @include mix.flex()
+      @include mix.justify-content(space-between)
 
       input[type='color']
         width: calc($styles-height * 0.9)
@@ -80,7 +76,7 @@ $styles-height: 2.25rem
           border: 0.05rem solid $separator-color
 
       select, .drop--element, input[type='color'], input[type='color']::-webkit-color-swatch-wrapper, input[type='color']::-webkit-color-swatch
-        border-radius: vars.$border-radius
+        @include mix.border-radius(vars.$border-radius)
 
       select, select:hover
         background-color: $header-color
@@ -89,9 +85,7 @@ $styles-height: 2.25rem
         background-position: right 0.4rem top 50%
         background-size: 0.8rem 0.8rem
         color: vars.$font-color
-        -webkit-appearance: none
-        -moz-appearance: none
-        appearance: none
+        @include mix.appearance()
 
       i
         width: 2.25rem
@@ -110,8 +104,8 @@ $styles-height: 2.25rem
         height: $styles-height
 
         &:hover
-          transition: background 1s
           background-color: rgba(255, 255, 255, 0.1)
+          @include mix.transition(background 1s)
 
       .drop--styles
         border: unset
@@ -124,8 +118,8 @@ $styles-height: 2.25rem
 
       .drop--decorations, .drop--alignments
         position: relative
-        display: flex
         padding-top: calc(($styles-height - 1.1rem) / 2) // padding-top + padding-bottom + font-awesome-height-size = $styles-height
+        @include mix.flex()
 
   // RULER
   .rule

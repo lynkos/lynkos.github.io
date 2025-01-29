@@ -5,8 +5,6 @@ $menubar-padding: 0.55rem
 $menubar-icon-size: 1.1rem
 
 .menu-bar
-  @include mix.blur(5rem, vars.$dock-menu-background)
-  @include mix.disable-select()
   width: 100%
   height: vars.$menubar-height
   font-family: vars.$font-family
@@ -17,46 +15,30 @@ $menubar-icon-size: 1.1rem
   top: 0
   left: 0
   cursor: default
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
-  -webkit-box-align: center
-  -ms-flex-align: center
-  align-items: center
-  -webkit-box-pack: justify
-  -ms-flex-pack: justify
-  justify-content: space-between
+  @include mix.blur(5rem, vars.$dock-menu-background)
+  @include mix.disable-select()
+  @include mix.flex()
+  @include mix.align-items(center)
+  @include mix.justify-content(space-between)
 
   i
     display: contents
     color: #FFF
 
   .left, .right
-    display: -webkit-box
-    display: -ms-flexbox
-    display: flex
-    -webkit-box-align: center
-    -ms-flex-align: center
-    align-items: center
-    -webkit-box-pack: space-evenly
-    -ms-flex-pack: space-evenly
-    justify-content: space-evenly
     width: auto
+    @include mix.flex()
+    @include mix.align-items(center)
+    @include mix.justify-content(space-evenly)
 
     .menus
       height: 100%
-      display: -webkit-box
-      display: -ms-flexbox
-      display: flex
-      -webkit-box-pack: center
-      -ms-flex-pack: center
-      justify-content: center
-      -webkit-box-align: center
-      -ms-flex-align: center
-      align-items: center
       color: vars.$menubar-font-color
-      border-radius: vars.$border-radius
       padding: calc($menubar-padding / 2) $menubar-padding
+      @include mix.flex()
+      @include mix.align-items(center)
+      @include mix.justify-content(center)
+      @include mix.border-radius(vars.$border-radius)
 
       i
         font-size: $menubar-icon-size
@@ -87,25 +69,25 @@ $menubar-icon-size: 1.1rem
         height: calc($menubar-icon-size + 0.1rem)
 
 #playlist
-  @include mix.blur(5rem, rgba(45, 45, 45, 0.6))
-  @include mix.disable-select()
-  @include mix.windowBorder()
   display: none
   position: fixed
   top: vars.$menubar-height
   z-index: 1
-  border-radius: 0.75rem
   padding: calc($menubar-padding / 2)
   width: 22rem
   height: auto
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
+  @include mix.window-border()
+  @include mix.blur(5rem, rgba(45, 45, 45, 0.6))
+  @include mix.box-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25))
+  @include mix.disable-select()
+  @include mix.border-radius(0.75rem)
 
   .playlist-player, .playlist-buttons
-    display: flex
+    @include mix.flex()
   
   .playlist-buttons
-    justify-content: space-evenly
     padding: calc($menubar-padding / 2.25) $menubar-padding calc($menubar-padding * 1.5) $menubar-padding
+    @include mix.justify-content(space-evenly)
 
   i
     color: vars.$menubar-font-color
@@ -116,21 +98,20 @@ $menubar-icon-size: 1.1rem
 //   display: inline-block
 
 // .dropdown-content
-//   @include mix.blur(2.25rem, rgba(45, 45, 45, 0.5))
 //   font-family: vars.$font-family
 //   color: vars.$menubar-font-color
 //   inline-size: min-content
-//   border-radius: 1rem
 //   border: 1px solid rgba(255, 255, 255, 0.17)
 //   outline: 1px solid rgba(0, 0, 0, 0.75)
 //   display: none
 //   position: absolute
 //   min-width: 20rem
 //   overflow: auto
-//   -webkit-box-shadow: vars.$box-shadow
-//   box-shadow: vars.$box-shadow
+//   @include mix.box-shadow(vars.$box-shadow)
+//   @include mix.blur(2.25rem, rgba(45, 45, 45, 0.5))
+//   @include mix.border-radius(1rem)
 
-//   // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+//   // @include mix.box-shadow(0px 8px 16px 0px rgba(0,0,0,0.2))
   
 //   a
 //     padding: 5px 10px

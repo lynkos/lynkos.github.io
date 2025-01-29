@@ -9,9 +9,9 @@ $font-size: 1.15rem
 $header-color: rgb(56, 58, 55)
 
 .browser
-  flex-direction: column
   font-family: vars.$font-family
   @include mix.window(rgb(30, 30, 30), $window-width, $window-height)
+  @include mix.flex-direction(column)
 
   i
     width: $icon-dim
@@ -20,13 +20,13 @@ $header-color: rgb(56, 58, 55)
 
   .top
     padding: calc(vars.$padding * 2) 0
-    display: flex
-    justify-content: space-between
     position: relative
     background: $header-color
     overflow: hidden
     cursor: default
     @include mix.disable-select()
+    @include mix.flex()
+    @include mix.justify-content(space-between)
 
     .browser-buttons
       padding-left: calc(vars.$padding * 2)
@@ -36,19 +36,18 @@ $header-color: rgb(56, 58, 55)
       font-size: $icon-size
       text-align: center
       vertical-align: middle
-      border-radius: vars.$border-radius
+      @include mix.border-radius()
 
     .left, .right
-      align-items: center
       padding: 0 vars.$padding
       height: calc($icon-size * 2)
+      @include mix.flex()
+      @include mix.align-items(center)
 
       span
         display: inline-block
-        -webkit-border-radius: calc(vars.$border-radius * 0.9)
-        -moz-border-radius: calc(vars.$border-radius * 0.9)
-        border-radius: calc(vars.$border-radius * 0.9)
         color: vars.$font-color
+        @include mix.border-radius(calc(vars.$border-radius * 0.9))
 
         &:hover
           background-color: rgba(255, 255, 255, 0.1)
@@ -71,10 +70,10 @@ $header-color: rgb(56, 58, 55)
     .address
       background: none
       line-height: $icon-size
-      border-radius: calc(vars.$border-radius * 0.9)
       border: 0.05rem solid rgba(255, 255, 255, 0.25)
       width: 27rem
       font-size: $font-size
+      @include mix.border-radius(calc(vars.$border-radius * 0.9))
 
       >
         input
@@ -116,27 +115,26 @@ $header-color: rgb(56, 58, 55)
       &:last-of-type
         padding-bottom: 0
       
-      .arrow, .item-content, .stars, .row, .row .heading, .row .stars
-        display: flex
+      .row .arrow, .item-content, .row, .row .stars, .row .beginning
         place-items: center
+        @include mix.flex()
 
       .row
-        flex-direction: row
-        justify-content: space-between
         padding: calc(vars.$padding * 2)
-        border-radius: calc(vars.$border-radius * 1.5)
+        @include mix.flex-direction(row)
+        @include mix.justify-content(space-between)
+        @include mix.border-radius(calc(vars.$border-radius * 1.5))
         @include mix.disable-select()
 
         &:hover
           background: rgba(255, 255, 255, 0.15)
           cursor: pointer
-          transition: background .5s ease
+          @include mix.transition(background .5s ease)
 
         .beginning
-          display: flex
-          align-items: center
           width: 11rem
           gap: calc(vars.$padding * 1.5)
+          @include mix.align-items(center)
 
         img
           width: $icon-dim
@@ -153,29 +151,29 @@ $header-color: rgb(56, 58, 55)
           font-weight: 700
 
         .stars
-          flex-direction: row
           margin-left: -1.75rem
           gap: calc(vars.$padding * 2)
           //max-width: calc($window-width - (vars.$padding * 1.5 * 2 + 10.5rem + vars.$padding * 2 * 2)) 30rem
+          @include mix.flex-direction(row)
 
         .arrow
-          justify-content: flex-end
+          @include mix.justify-content(flex-end)
 
           i
             color: vars.$font-color !important
 
       .rotate0, .rotate90, .item-content, .hidden-content
-        transition: all 0.5s ease
+        @include mix.transition(all 0.5s ease)
 
       .item-content, .hidden-content
         overflow: hidden
 
       .item-content
-        flex-direction: column
         color: vars.$font-color
         padding: vars.$padding
         height: auto
         font-size: $font-size
+        @include mix.flex-direction(column)
 
       .hidden-content
         display: none

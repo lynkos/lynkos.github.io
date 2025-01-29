@@ -9,10 +9,10 @@ $icon-dim: calc($icon-size + 1rem)
 $header-color: rgb(56, 57, 56)
 
 .preview
-    flex-direction: column
     font-family: vars.$font-family
-    align-content: stretch
     @include mix.window(rgb(40, 40, 40), $window-width, $window-height)
+    @include mix.flex-direction(column)
+    @include mix.align-content(stretch)
 
     &-header
         overflow: hidden
@@ -37,13 +37,13 @@ $header-color: rgb(56, 57, 56)
             font-size: $icon-size
             width: $icon-dim
             height: $icon-dim
-            border-radius: vars.$border-radius
             color: vars.$font-color
+            @include mix.border-radius(vars.$border-radius)
             
             &:hover
-                transition: background 1s
                 background-color: rgba(255, 255, 255, 0.1)
-            
+                @include mix.transition(background 1s)
+
             &.inactive
                 color: #707070
                 

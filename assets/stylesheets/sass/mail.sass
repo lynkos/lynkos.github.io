@@ -10,52 +10,40 @@ $recaptcha-scale: 0.45
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
 .email
-  @include mix.window($email-tab-color, vars.$width, vars.$height)
   font-size: 1.3rem
   line-height: 1.3
   font-family: vars.$font-family
-  -webkit-box-orient: vertical
-  -webkit-box-direction: normal
-  -ms-flex-direction: column
-  flex-direction: column
-  -ms-flex-line-pack: stretch
-  align-content: stretch
+  @include mix.window($email-tab-color, vars.$width, vars.$height)
+  @include mix.flex-direction(column)
+  @include mix.align-content(stretch)
 
   .mail-header
     @include mix.header(none, vars.$header-height, 0 1.4rem)
 
     .g-recaptcha
-      @include mix.scale($recaptcha-scale)
       overflow: auto
-      filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.45,M12=0,M21=0,M22=0.45,SizingMethod='auto expand')
+      @include mix.scale($recaptcha-scale)
 
       // @media screen and (max-width: vars.$width-threshold)
       //   @include mix.scale($recaptcha-scale) // 0.45
-      //   filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.4,M12=0,M21=0,M22=0.4,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
         @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.35,M12=0,M21=0,M22=0.35,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
         @include mix.scale(calc($recaptcha-scale - 0.05)) // 0.4
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.3,M12=0,M21=0,M22=0.3,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
         @include mix.scale(calc($recaptcha-scale - 0.1)) // 0.35
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.25,M12=0,M21=0,M22=0.25,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
         @include mix.scale(calc($recaptcha-scale - 0.15)) // 0.3
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.2,M12=0,M21=0,M22=0.2,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
         @include mix.scale(calc($recaptcha-scale - 0.2)) // 0.25
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.15,M12=0,M21=0,M22=0.15,SizingMethod='auto expand')
 
       @media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
         @include mix.scale(calc($recaptcha-scale - 0.25)) // 0.2
-        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.1,M12=0,M21=0,M22=0.1,SizingMethod='auto expand')
 
     button
       color: white
@@ -136,16 +124,16 @@ $recaptcha-scale: 0.45
 
 // cursor
 .loader
-  @include mix.transform(translate(-50%, -50%))
   position: absolute
   display: none
   top: 50%
   left: 50%
   width: 2.5rem
   height: 2.5rem
-  border-radius: 50%
   overflow: hidden
   animation: animate 0.5s linear infinite
+  @include mix.transform(translate(-50%, -50%))
+  @include mix.border-radius(50%)
 
   span
     position: absolute
@@ -153,60 +141,61 @@ $recaptcha-scale: 0.45
     height: 100%
     background: #f00
     left: 50%
-    border-radius: 50%
+    -moz-transform-origin: left
+    -ms-transform-origin: left
+    -o-transform-origin: left
+    -webkit-transform-origin: left
     transform-origin: left
+    @include mix.border-radius(50%)
 
     &:nth-child(1)
-      @include mix.transform(rotate(0deg))
       background: #0fa503
       z-index: 2
+      @include mix.transform(rotate(0deg))
 
     &:nth-child(2)
-      @include mix.transform(rotate(60deg))
       background: #ffd203
       z-index: 3
+      @include mix.transform(rotate(60deg))
 
     &:nth-child(3)
-      @include mix.transform(rotate(120deg))
       background: #54cd28
       z-index: 4
+      @include mix.transform(rotate(120deg))
 
     &:nth-child(4)
-      @include mix.transform(rotate(180deg))
       background: #129cf5
       z-index: 5
+      @include mix.transform(rotate(180deg))
 
     &:nth-child(5)
-      @include mix.transform(rotate(240deg))
       background: #bb5ed3
       z-index: 6
+      @include mix.transform(rotate(240deg))
 
     &:nth-child(6)
-      @include mix.transform(rotate(300deg))
       background: #ff4f45
       z-index: 7
       overflow: hidden
+      @include mix.transform(rotate(300deg))
 
-      &:before
-        content: ''
+      &:before, &::after
+        content: ""
         position: absolute
-        top: 45px
-        left: -72px
         width: 100%
         height: 100%
+        @include mix.border-radius(50%)
+
+      &:before
+        top: 45px
+        left: -72px
         background: #ffd203
-        border-radius: 50%
         z-index: 2
 
       &:after
-        content: ''
-        position: absolute
         top: 42px
         left: -23px
-        width: 100%
-        height: 100%
         background: #fea503
-        border-radius: 50%
 
 @keyframes animate
   0%

@@ -11,26 +11,20 @@ footer
   position: fixed
   bottom: vars.$padding
   width: 100%
-  display: -webkit-inline-box
-  display: -ms-inline-flexbox
-  display: inline-flex
-  -webkit-box-pack: center
-  -ms-flex-pack: center
-  justify-content: center
+  @include mix.inline-flex()
+  @include mix.justify-content(center)
 
 .dock
-  @include mix.blur(1.3rem, vars.$dock-menu-background)
-  @include mix.disable-select()
   border: 0.125rem solid rgba(255, 255, 255, 0.05)
   padding: vars.$padding
-  border-radius: $dock-border-radius
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
   z-index: 10
-  display: -ms-grid
-  display: grid
   grid-auto-flow: column
   grid-gap: calc(vars.$padding / 4) //0.3rem
+  @include mix.blur(1.3rem, vars.$dock-menu-background)
+  @include mix.disable-select()
+  @include mix.grid()
+  @include mix.border-radius($dock-border-radius)
+  @include mix.box-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25))
 
   a
     cursor: default
@@ -38,15 +32,13 @@ footer
   .icon
     height: $dock-icon-size
     width: $dock-icon-size
-    display: -ms-grid
-    display: grid
-    -ms-flex-line-pack: center
-    align-content: center
     place-items: center
     -ms-grid-columns: 1
     grid-template-columns: 1
     -ms-grid-rows: 1
     grid-template-rows: 1
+    @include mix.grid()
+    @include mix.align-content(center)
 
     // Compatibility with IE
     > *:nth-child(1)
@@ -56,7 +48,6 @@ footer
       grid-column: 1
 
     img
-      @include mix.disable-select()
       grid-column: 1 / -1
       grid-row: 1 / -1
       width: 100%
@@ -67,6 +58,7 @@ footer
       object-fit: cover
       //pointer-events: none
       image-rendering: smooth
+      @include mix.disable-select()
 
       &:active
         @include mix.brightness()

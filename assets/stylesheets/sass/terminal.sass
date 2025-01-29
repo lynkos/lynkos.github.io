@@ -5,9 +5,9 @@ $height: 44.5rem
 $cursor-blink: 1s
 
 .mac-terminal
-  @include mix.window(vars.$terminal-color, vars.$width, $height)
   font-family: vars.$terminal-font
   min-width: vars.$width
+  @include mix.window(vars.$terminal-color, vars.$width, $height)
 
   .header
     @include mix.header(none, vars.$header-height, 0 1.4rem)
@@ -24,16 +24,12 @@ $cursor-blink: 1s
     overflow: auto
     padding-bottom: 1rem
 
-    &__row 
+    &__row
       margin-top: 0.2rem
       line-height: 1.79rem
       padding: 0 2rem
-      display: -webkit-box
-      display: -ms-flexbox
-      display: flex
-      -webkit-box-align: center
-      -ms-flex-align: center
-      align-items: center
+      @include mix.flex()
+      @include mix.align-items(center)
 
       pre, code
         font-family: vars.$terminal-font

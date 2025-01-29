@@ -50,7 +50,7 @@ main
 @supports selector(::-webkit-scrollbar)
   ::-webkit-scrollbar-thumb
     background: $scrollbar-color-thumb
-    border-radius: vars.$border-radius
+    @include mix.border-radius(vars.$border-radius)
 
   ::-webkit-scrollbar-track
     background: $scrollbar-color-track
@@ -60,13 +60,6 @@ main
     max-height: $scrollbar-width
 
 body
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
-  -webkit-box-orient: vertical
-  -webkit-box-direction: normal
-  -ms-flex-direction: column
-  flex-direction: column
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
   font-optical-sizing: auto
@@ -81,18 +74,9 @@ body
   background-repeat: no-repeat
   overflow: hidden
   background-attachment: fixed
+  @include mix.flex()
+  @include mix.flex-direction(column)
   
-  // Adds a repeating grid pattern to the background to mimic the look of a real terminal
-  // &::after
-  //   content: ""
-  //   position: absolute
-  //   top: 0
-  //   left: 0
-  //   width: 100vw
-  //   height: 100vh
-  //   background: repeating-linear-gradient(0deg, rgba(black, 0.15), rgba(black, 0.15) 1px, transparent 1px, transparent 2px)
-  //   pointer-events: none
-
 a
   text-decoration: none
   color: vars.$secondary-font-color
@@ -113,43 +97,30 @@ canvas
   text-shadow: none
 
 .folder
-  @include mix.disable-select()
-  gap: $folder-padding
-  -webkit-box-pack: start
-  -ms-flex-pack: start
-  justify-content: flex-start
-  padding-top: $folder-padding
-  padding-right: $folder-padding
-  -webkit-box-orient: vertical
-  -webkit-box-direction: normal
-  -ms-flex-direction: column
-  flex-direction: column
-  -webkit-box-align: end
-  -ms-flex-align: end
-  align-items: flex-end
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
   float: right
   width: calc($folder-dim * 1.3)
+  gap: $folder-padding
+  padding-top: $folder-padding
+  padding-right: $folder-padding
+  @include mix.flex()
+  @include mix.flex-direction(column)
+  @include mix.disable-select()
+  @include mix.align-items(flex-end)
+  @include mix.justify-content(flex-start)
 
   button, &-button
     cursor: default
-    appearance: none
-    -webkit-appearance: none
-    -moz-appearance: none
     background-color: transparent
     background-image: none
     border: none
+    @include mix.appearance()
 
   &-button
     &:active
-      -webkit-filter: brightness(75%)
-      -ms-filter: brightness(75%)
-      filter: brightness(75%)
+      @include mix.brightness()
 
     &-item
-      align-items: center
+      @include mix.align-items(center)
 
       img
         -o-object-fit: contain
@@ -163,19 +134,14 @@ canvas
         border: 0.35rem solid white
 
       span
-        @include mix.text-shadow(0, 0, 0.75rem, rgba(0, 0, 0, 0.25))
-        @include mix.disable-select()
         font-family: vars.$font-family
         text-align: center
-        -webkit-line-clamp: 2
-        line-clamp: 2
         overflow: hidden
-        display: -webkit-box
         font-size: 1.24rem
         font-weight: 500
         color: vars.$menubar-font-color
-        -webkit-box-orient: vertical
-        box-orient: vertical
+        @include mix.text-shadow(0, 0, 0.75rem, rgba(0, 0, 0, 0.25))
+        @include mix.disable-select()
 
 // BACKGROUND PARTICLES
 #particles-js
@@ -187,9 +153,6 @@ canvas
   background-position: 50% 50%
 
 .dialogue
-  @include mix.blur(2.25rem, rgba(45, 45, 45, 0.6))
-  @include mix.disable-select()
-  @include mix.windowBorder()
   font-family: vars.$font-family
   line-height: 1.5
   display: none
@@ -198,11 +161,13 @@ canvas
   inline-size: min-content
   z-index: 1
   width: 27rem
-  border-radius: calc(vars.$border-radius * 2)
   padding: 2rem
   color: white
-  -webkit-box-shadow: vars.$box-shadow
-  box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
+  @include mix.window-border()
+  @include mix.blur(2.25rem, rgba(45, 45, 45, 0.6))
+  @include mix.border-radius(calc(vars.$border-radius * 2))
+  @include mix.disable-select()
+  @include mix.box-shadow() //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
 
   .pp-body
     text-align: center
@@ -222,8 +187,8 @@ canvas
     padding-top: 1rem
 
   .alert-btn
-    @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
     width: 10rem
+    @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
 
     &.confirm
       background: var(--confirm, vars.$button-gradient)

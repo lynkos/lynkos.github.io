@@ -9,23 +9,17 @@ $width: 20rem
   height: $button-size
   width: $button-size
   margin: calc($button-size / 20)
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
-  -webkit-box-align: center
-  -ms-flex-align: center
-  align-items: center
-  -webkit-box-pack: center
-  -ms-flex-pack: center
-  justify-content: center
-  border-radius: 50%
   background-color: rgb(107, 114, 128)
   font-family: vars.$font-family
+  @include mix.flex()
+  @include mix.align-items(center)
+  @include mix.justify-content(center)
+  @include mix.border-radius(50%)
 
   button
     width: 100%
     height: 100%
-    border-radius: 50%
+    @include mix.border-radius(50%)
 
 .calc
   @include mix.window($body-color, $width)

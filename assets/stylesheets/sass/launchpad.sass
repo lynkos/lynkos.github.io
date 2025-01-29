@@ -35,27 +35,27 @@ $max-per-row: 4
 
       &:before
         position: absolute
-        @include mix.blur($blur, none)
         content: ""
         z-index: -1
         bottom: 0
         left: 0
         right: 0
         top: 0
+        @include mix.blur($blur, none)
 
       .search
-        @include mix.searchbar($search-width, $search-height, rgba(255, 255, 255, 0.1), 1.5rem, 0.6rem, white)
         top: calc((vars.$menubar-height + $dock-height + $icon-margin - $search-height) / 2)
         margin: 0 auto
+        @include mix.searchbar($search-width, $search-height, rgba(255, 255, 255, 0.1), 1.5rem, 0.6rem, white)
 
       #launchNav // nav
         max-width: calc($max-per-row * ((2 * $icon-margin) + $icon-size) + 0.25rem) // Up to $max-per-row icons per row
-        display: flex
-        flex-wrap: wrap
-        justify-content: center
         gap: calc($icon-margin * 2)
         margin: calc(3 * $icon-margin) auto $dock-height auto
         max-height: calc(100vh - (2 * $dock-height) - vars.$menubar-height)
+        @include mix.flex()
+        @include mix.justify-content(center)
+        @include mix.flex-wrap(wrap)
 
         a
           color: white
@@ -94,17 +94,17 @@ $max-per-row: 4
 
 @keyframes scale-up
   0%
-    @include mix.transform(scale(1))
+    @include mix.scale(1)
 
   100%
-    @include mix.transform(scale(1.2))
+    @include mix.scale(1.2)
 
 @keyframes scale-down
   0%
-    @include mix.transform(scale(1.2))
+    @include mix.scale(1.2)
 
   100%
-    @include mix.transform(scale(1))
+    @include mix.scale(1)
 
 a[class^="icon"]
   height: $icon-size
