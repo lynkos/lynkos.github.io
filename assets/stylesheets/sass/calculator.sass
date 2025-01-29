@@ -12,19 +12,19 @@ $height: min-content
   margin: calc($button-size / 20)
   background-color: rgb(107, 114, 128)
   font-family: vars.$font-family
-  @include mix.display-flex()
-  @include mix.align-items(center)
-  @include mix.justify-content(center)
-  @include mix.border-radius(50%)
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
 
   button
     width: 100%
     height: 100%
-    @include mix.border-radius(50%)
+    border-radius: 50%
 
 .calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
-  @include mix.blur(1.3rem)
+  backdrop-filter: blur(1.3rem)
 
   .calc-header
     @include mix.header(none, 3rem)

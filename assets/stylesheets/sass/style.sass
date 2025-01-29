@@ -14,7 +14,7 @@ $scrollbar-width: 0.75rem
   outline: none
   margin: 0
   padding: 0
-  @include mix.box-sizing()
+  box-sizing: border-box
 
 html
   font-size: 60%
@@ -25,7 +25,7 @@ html, body, header, footer
 main
   overflow: auto
   height: 100vh
-  @include mix.flex(auto)
+  flex: auto
 
 #main-content
   position: fixed
@@ -45,7 +45,7 @@ main
 @supports selector(::-webkit-scrollbar)
   ::-webkit-scrollbar-thumb
     background: $scrollbar-color-thumb
-    @include mix.border-radius(vars.$border-radius)
+    border-radius: vars.$border-radius
 
   ::-webkit-scrollbar-track
     background: $scrollbar-color-track
@@ -69,8 +69,8 @@ body
   background-repeat: no-repeat
   overflow: hidden
   background-attachment: fixed
-  @include mix.display-flex()
-  @include mix.flex-direction(column)
+  display: flex
+  flex-direction: column
   
 a
   text-decoration: none
@@ -97,25 +97,25 @@ canvas
   gap: $folder-padding
   padding-top: $folder-padding
   padding-right: $folder-padding
-  @include mix.display-flex()
-  @include mix.flex-direction(column)
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  justify-content: flex-start
   @include mix.disable-select()
-  @include mix.align-items(flex-end)
-  @include mix.justify-content(flex-start)
 
   button, &-button
     cursor: default
     background-color: transparent
     background-image: none
     border: none
-    @include mix.appearance()
+    appearance: none
 
   &-button
     &:active
-      @include mix.brightness()
+      filter: brightness(75%)
 
     &-item
-      @include mix.align-items(center)
+      align-items: center
 
       img
         -o-object-fit: contain
@@ -135,7 +135,7 @@ canvas
         font-size: 1.24rem
         font-weight: 500
         color: vars.$menubar-font-color
-        @include mix.text-shadow(0, 0, 0.75rem, rgba(0, 0, 0, 0.25))
+        text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25)
         @include mix.disable-select()
 
 // BACKGROUND PARTICLES
@@ -161,11 +161,11 @@ canvas
   padding: 2rem
   color: white
   background: rgba(45, 45, 45, 0.6)
+  border-radius: calc(vars.$border-radius * 2)
+  box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
+  backdrop-filter: blur(2.25rem)
   @include mix.window-border()
-  @include mix.blur(2.25rem)
-  @include mix.border-radius(calc(vars.$border-radius * 2))
   @include mix.disable-select()
-  @include mix.box-shadow() //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
 
   .pp-body
     text-align: center

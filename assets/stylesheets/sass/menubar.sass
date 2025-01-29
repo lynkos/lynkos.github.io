@@ -16,11 +16,11 @@ $menubar-icon-size: 1.1rem
   left: 0
   cursor: default
   background: vars.$dock-menu-background
-  @include mix.blur(5rem)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  backdrop-filter: blur(5rem)
   @include mix.disable-select()
-  @include mix.display-flex()
-  @include mix.align-items(center)
-  @include mix.justify-content(space-between)
 
   i
     display: contents
@@ -28,18 +28,18 @@ $menubar-icon-size: 1.1rem
 
   .left, .right
     width: auto
-    @include mix.display-flex()
-    @include mix.align-items(center)
-    @include mix.justify-content(space-evenly)
+    display: flex
+    align-items: center
+    justify-content: space-evenly
 
     .menus
       height: 100%
       color: vars.$menubar-font-color
       padding: calc($menubar-padding / 2) $menubar-padding
-      @include mix.display-flex()
-      @include mix.align-items(center)
-      @include mix.justify-content(center)
-      @include mix.border-radius(vars.$border-radius)
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: vars.$border-radius
 
       i
         font-size: $menubar-icon-size
@@ -78,18 +78,18 @@ $menubar-icon-size: 1.1rem
   width: 22rem
   height: auto
   background: rgba(45, 45, 45, 0.6)
-  @include mix.window-border()
-  @include mix.blur(5rem)
-  @include mix.box-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25))
+  border-radius: 0.75rem
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
+  backdrop-filter: blur(5rem)
   @include mix.disable-select()
-  @include mix.border-radius(0.75rem)
+  @include mix.window-border()
 
   .playlist-player, .playlist-buttons
-    @include mix.display-flex()
+    display: flex
   
   .playlist-buttons
+    justify-content: space-evenly
     padding: calc($menubar-padding / 2.25) $menubar-padding calc($menubar-padding * 1.5) $menubar-padding
-    @include mix.justify-content(space-evenly)
 
   i
     color: vars.$menubar-font-color
@@ -102,18 +102,20 @@ $menubar-icon-size: 1.1rem
 // .dropdown-content
 //   font-family: vars.$font-family
 //   color: vars.$menubar-font-color
+//   inline-size: -webkit-min-content
+//   inline-size: -moz-min-content
 //   inline-size: min-content
 //   display: none
 //   position: absolute
 //   min-width: 20rem
 //   overflow: auto
 //   background: rgba(45, 45, 45, 0.5)
+//   box-shadow: vars.$box-shadow
+//   border-radius: 1rem
+//   backdrop-filter: blur(2.25rem)
 //   @include mix.window-border()
-//   @include mix.box-shadow(vars.$box-shadow)
-//   @include mix.blur(2.25rem)
-//   @include mix.border-radius(1rem)
 
-//   // @include mix.box-shadow(0px 8px 16px 0px rgba(0,0,0,0.2))
+//   // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
   
 //   a
 //     padding: 5px 10px

@@ -11,8 +11,8 @@ footer
   position: fixed
   bottom: vars.$padding
   width: 100%
-  @include mix.inline-flex()
-  @include mix.justify-content(center)
+  display: inline-flex
+  justify-content: center
 
 .dock
   border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.05)
@@ -21,25 +21,25 @@ footer
   grid-auto-flow: column
   grid-gap: calc(vars.$padding / 4) //0.3rem
   background: vars.$dock-menu-background
-  @include mix.blur(1.3rem)
+  display: grid
+  border-radius: $dock-border-radius
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
+  backdrop-filter: blur(1.3rem)
   @include mix.disable-select()
-  @include mix.grid()
-  @include mix.border-radius($dock-border-radius)
-  @include mix.box-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.25))
-
+  
   a
     cursor: default
 
   .icon
     height: $dock-icon-size
     width: $dock-icon-size
+    display: grid
+    align-content: center
     place-items: center
     -ms-grid-columns: 1
     grid-template-columns: 1
     -ms-grid-rows: 1
     grid-template-rows: 1
-    @include mix.grid()
-    @include mix.align-content(center)
 
     // Compatibility with IE
     > *:nth-child(1)
@@ -62,4 +62,4 @@ footer
       @include mix.disable-select()
 
       &:active
-        @include mix.brightness()
+        filter: brightness(75%)

@@ -3,12 +3,13 @@
     "version": "1.0.0",
     "scripts": {
         "test": "node --test",
+        "prefix": "postcss assets/stylesheets/css/*.css --use autoprefixer --replace --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
-        "build": "npm run build:css && npm run build:js",
+        "build": "npm run build:css && npm run prefix && npm run build:js",
         "dev:js": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env",
         "dev:css": "sass --verbose --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
-        "dev": "npm run dev:js & npm run dev:css"
+        "dev": "npm run dev:css && npm run prefix & npm run dev:js"
     },
     "repository": {
         "type": "git",
@@ -26,8 +27,11 @@
         "@babel/cli": "^7.26.4",
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
+        "autoprefixer": "^10.4.20",
         "babel-preset-minify": "^0.5.2",
         "nodemon": "^3.1.9",
+        "postcss": "^8.5.1",
+        "postcss-cli": "^11.0.0",
         "sass": "^1.83.4"
     },
     "babel": {
@@ -38,5 +42,13 @@
     },
     "targets": {
         "node": "current"
-    }
+    },
+    "browserslist": [
+        "> 0.1%",
+        "not dead",
+        "not op_mini all",
+        "Android >= 11",
+        "iOS >= 15",
+        "ie >= 9"
+    ]
 }

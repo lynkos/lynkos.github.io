@@ -30,11 +30,11 @@ body
   font-family: $font-stack
   font-size: 13px
   color: black
-  @include mix.box-sizing()
-  @include mix.display-flex()
-  @include mix.flex-direction(column)
-  @include mix.align-items(center)
-  @include mix.justify-content(center)
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  box-sizing: border-box
 
 a
   text-decoration: none
@@ -45,9 +45,9 @@ a
   height: 100vh
   color: $light-water
   text-align: center
-  @include mix.display-flex()
-  @include mix.align-items(center)
-  @include mix.justify-content(center)
+  display: flex
+  align-items: center
+  justify-content: center
 
   > div
     width: 90%
@@ -107,20 +107,20 @@ button
   min-width: 80px
   padding: 2px 8px
   line-height: 1.5em
+  display: inline-flex
   margin: 0
   border: 1px solid color.scale($accent, $lightness: 20%, $saturation: -90%)
   background-color: color.scale($accent, $lightness: 85%, $saturation: -90%)
   background-image: linear-gradient(rgba(#fff, 0.05) 50%,rgba(#fff, 0) 52%,rgba(#000, 0.05) 52.5%,rgba(#fff, 0.05))
-  @include mix.inline-flex()
-  @include mix.align-items(center)
-  @include mix.justify-content(center)
-  @include mix.box-shadow(0 0 0 1px rgba(white, 0.65) inset)
-  @include mix.border-radius(3px)
-  @include mix.appearance()
+  align-items: center
+  justify-content: center
+  border-radius: 3px
+  appearance: none
+  box-shadow: 0 0 0 1px rgba(white, 0.65) inset
 
   &:hover
     background-color: color.scale($accent, $lightness: 70%, $saturation: -30%)
-    @include mix.box-shadow(0 0 0 1px rgba(color.scale($accent, $lightness: 40%, $saturation: 50%), 0.65) inset)
+    box-shadow: 0 0 0 1px rgba(color.scale($accent, $lightness: 40%, $saturation: 50%), 0.65) inset
 
     &:focus
       //box-shadow: 0 0 0 1px rgba($accent, 0.65) inset, 0 0 0 1px $accent
@@ -153,11 +153,11 @@ button
   z-index: 5
   backdrop-filter: blur(7px) brightness(1.25)
   backdrop-filter: none
-  @include mix.transform(translateZ(0))
-  @include mix.display-flex()
-  @include mix.flex-direction(column)
-  @include mix.border-radius(8px)
-  @include mix.transition(background-color 125ms ease-in-out)
+  display: flex
+  flex-direction: column
+  border-radius: 8px
+  transition: background-color 125ms ease-in-out
+  transform: translateZ(0)
 
   &::before
     display: block
@@ -177,7 +177,7 @@ button
     background-color: color.scale($accent, $saturation: -30%, $lightness: 60%)
     background-attachment: scroll
     box-shadow: 0 0 0 1px rgba(#fff, 0.4) inset, -1px -1px 0 0 color.scale($accent, $saturation: 50%) inset
-    @include mix.border-radius(8px 8px 0 0)
+    border-radius: 8px 8px 0 0
 
     ::before
       background: none
@@ -189,36 +189,36 @@ button
 
       .controls
         top: 0
-        @include mix.box-shadow(none)
-        @include mix.border-radius(5px)
+        box-shadow: none
+        border-radius: 5px
 
         button
           margin-right: 4px
           border-color: rgba(black, 0.5)
           box-shadow: 0 0 0 1px rgba(white, 0.5) inset, 0 0 0 1px rgba(white, 0.5)
           width: 32px
-          @include mix.border-radius(5px)
+          border-radius: 5px
 
           &:last-child
             margin-right: 0
 
     .viewport
       border-color: color.scale($accent, $lightness: 0%, $saturation: -50%)
-      @include mix.box-shadow(none)
+      box-shadow: none
 
 .titlebar
   margin: 6px 8px
   cursor: default
-  @include mix.display-flex()
-  @include mix.flex-direction(row)
-  @include mix.align-items(center)
-  @include mix.justify-content(space-between)
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
   @include mix.disable-select()
 
   .title
     font-size: 0.75rem
-    @include mix.inline-flex()
-    @include mix.align-items(center)
+    display: inline-flex
+    align-items: center
 
     .icon
       display: block
@@ -227,7 +227,7 @@ button
       background: $accent
       border: 1px solid color.scale($accent, $lightness: -20%)
       margin-right: 8px
-      @include mix.border-radius(16px)
+      border-radius: 16px
 
     .text
       text-shadow: 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff
@@ -236,8 +236,8 @@ button
   position: relative
   top: -7px
   user-select: all
-  @include mix.inline-flex()
-  @include mix.border-radius(0 0 5px 5px)
+  display: inline-flex
+  border-radius: 0 0 5px 5px
 
   button
     min-width: unset
@@ -251,10 +251,10 @@ button
     background: linear-gradient(rgba(#fff, 0.4) 50%, rgba(#fff, 0) 52%, rgba(#000, 0.1) 52.5%, rgba(#fff, 0.25))
     background-color: rgba($accent, 0.5)
     width: 40px
+    border-radius: 0
+    appearance: none
     transition: background-color 125ms ease-in-out, box-shadow 125ms ease-out
-    @include mix.border-radius(0)
-    @include mix.appearance()
-    @include mix.box-shadow(0 0 0 1px rgba(white, 0.5) inset)
+    box-shadow: 0 0 0 1px rgba(white, 0.5) inset
 
     &:hover, &:focus
       outline: none
@@ -263,14 +263,14 @@ button
       z-index: 1
 
     &:first-child
-      @include mix.border-radius(0 0 0 5px)
+      border-radius: 0 0 0 5px
 
     &:last-child
       background: linear-gradient(rgba(#fff, 0.4) 50%, rgba(#fff, 0) 52%, rgba(#000, 0.1) 52.5%, rgba(#fff, 0.25)), linear-gradient(90deg, rgba(black, 0.25), rgba(black, 0) 35%, rgba(black, 0) 65%, rgba(black, 0.25))
       background-color: hsl(7, 75%, 51%)
       margin-right: 0
       width: 55px
-      @include mix.border-radius(0 0 5px 0)
+      border-radius: 0 0 5px 0
 
       &:hover, &:focus
         background-color: color.scale(hsl(7, 75%, 51%), $lightness: 20%, $saturation: 100%)
@@ -314,11 +314,11 @@ button
   margin: 0 8px 8px
   background: #fcfcfc
   overflow: hidden
-  @include mix.display-flex()
-  @include mix.flex(1 1 auto)
-  @include mix.flex-direction(column)
-  @include mix.border-radius(2px)
-  @include mix.box-shadow(0 0 0 1px rgba(#fff, 0.5))
+  display: flex
+  flex: 1 1 auto
+  flex-direction: column
+  border-radius: 2px
+  box-shadow: 0 0 0 1px rgba(#fff, 0.5)
 
 .icon
   display: block
@@ -326,7 +326,7 @@ button
   width: 16px
   background: color.scale($accent, $lightness: 40%, $saturation: -20%)
   border: 1px solid color.scale($accent, $lightness: 20%, $saturation: -20%)
-  @include mix.border-radius(4px)
+  border-radius: 4px
 
 .client-area
   padding: 8px
@@ -353,10 +353,10 @@ button
   text-overflow: ellipsis
   overflow: hidden
   background-color: #3c83c6
+  border-radius: 30px
   background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#1b5a9b), to(#6cbfff))
   border: 1.5px solid #447dbc
-  @include mix.box-shadow(rgba(66, 140, 240, 0.4) 0px 10px 16px)
-  @include mix.border-radius(30px)
+  box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
 
   &::before
     content: ""
@@ -368,18 +368,18 @@ button
     padding: 8px 0
     background-color: rgba(255, 255, 255, 0.2)
     background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)))
-    @include mix.border-radius(8px)
+    border-radius: 8px
 
   &:hover
     text-shadow: #3d79be 1px 2px 2px
     background-color: #3c83c6
     background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#165698), to(#7ec7ff))
     border: 1.5px solid #366dab
-    @include mix.box-shadow(rgba(66, 140, 240, 0.6) 0px 10px 20px)
+    box-shadow: rgba(66, 140, 240, 0.6) 0px 10px 20px
 
   &:active
     text-shadow: #3d79be 1px 2px 2px
     background-color: #3c83c6
     background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(#1b5a9b), to(#52abef))
     border: 1.5px solid #447dbc
-    @include mix.box-shadow(rgba(66, 140, 240, 0.4) 0px 10px 16px)
+    box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px

@@ -22,9 +22,9 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
         transform-origin: top
         bottom: 100%
         left: 50%
-        @include mix.box-sizing()
-        @include mix.transform(translate3d(-50%, 0, 0))
-        @include mix.transition(all var(--microtip-transition-duration, .18s) var(--microtip-transition-easing, ease-in-out) var(--microtip-transition-delay, 0s))
+        box-sizing: border-box
+        transform: translate3d(-50%, 0, 0)
+        transition: all var(--microtip-transition-duration, .18s) var(--microtip-transition-easing, ease-in-out) var(--microtip-transition-delay, 0s)
   
     &::before
         background-size: 100% auto !important
@@ -45,8 +45,8 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
         padding: 0.25em 0.75em
         white-space: nowrap
         margin-bottom: 1.5rem
-        @include mix.box-sizing()
-        @include mix.border-radius(0.4rem)
+        box-sizing: border-box
+        border-radius: 0.4rem
   
     &:hover, &:focus
         &::before, &::after
@@ -55,4 +55,4 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
   
     &:hover
         &::before, &::after
-            @include mix.transform(translate3d(-50%, -0.5rem, 0))
+            transform: translate3d(-50%, -0.5rem, 0)

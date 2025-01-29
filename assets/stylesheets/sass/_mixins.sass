@@ -1,208 +1,39 @@
 @use "variables" as vars
 
-@mixin supports($property, $value)
-    @supports (#{$property}: #{$value})
-        #{$property}: #{$value}
-
 @mixin disable-select()
-    @include supports(-webkit-user-drag, none)
-    @include supports(-webkit-touch-callout, none)
-    @include supports(-webkit-user-select, none)
-    @include supports(-moz-user-select, none)
-    @include supports(-ms-user-select, none)
-    @include supports(-user-select, none)
-    @include supports(-webkit-app-region, no-drag)
-
-@mixin grid()
-    @include supports(display, -ms-grid)
-    @include supports(display, grid)
-
-@mixin box-sizing($value: border-box)
-    @include supports(-moz-box-sizing, $value)
-    @include supports(-webkit-box-sizing, $value)
-    @include supports(box-sizing, $value)
-
-@mixin transition($value)
-    @include supports(-webkit-transition, $value)
-    @include supports(-o-transition, $value)
-    @include supports(transition, $value)
-
-@mixin flex($value: 1)
-    @include supports(-webkit-box-flex, 1)
-    @include supports(-webkit-flex, $value)
-    @include supports(-moz-box-flex, $value)
-    @include supports(-ms-flex, $value)
-    @include supports(flex, $value)
-
-@mixin display-flex()
-    @include supports(display, -moz-box)
-    @include supports(display, -moz-flex)
-    @include supports(display, -webkit-box)
-    @include supports(display, -webkit-flex)
-    @include supports(display, -ms-flexbox)
-    @include supports(display, flex)
-
-@mixin border-radius($radius: vars.$border-radius)
-    @include supports(-webkit-border-radius, $radius)
-    @include supports(-moz-border-radius, $radius)
-    @include supports(-ms-border-radius, $radius)
-    @include supports(-o-border-radius, $radius)
-    @include supports(border-radius, $radius)
-
-@mixin inline-flex()
-    @include supports(display, -webkit-inline-box)
-    @include supports(display, -webkit-inline-flex)
-    @include supports(display, -moz-inline-flex)
-    @include supports(display, -moz-inline-box)
-    @include supports(display, -ms-inline-flexbox)
-    @include supports(display, inline-flex)
-
-@mixin flex-wrap($wrap)
-    @if ($wrap == nowrap)
-        @include supports(-ms-flex-wrap, nowrap)
-
-    @else 
-        @include supports(-ms-flex-wrap, $wrap)
-
-    @include supports(-webkit-box-lines, $wrap)
-    @include supports(-moz-box-lines, $wrap)
-    @include supports(-webkit-flex-wrap, $wrap)
-    @include supports(-moz-flex-wrap, $wrap)
-    @include supports(flex-wrap, $wrap)
-
-@mixin align-items($position)
-    @if ($position == flex-start)
-        @include supports(-webkit-box-align, start)
-        @include supports(-moz-box-align, start)
-        @include supports(-ms-grid-row-align, start)
-        @include supports(-ms-flex-align, start)
-
-    @else if ($position == flex-end)
-        @include supports(-webkit-box-align, end)
-        @include supports(-moz-box-align, end)
-        @include supports(-ms-grid-row-align, end)
-        @include supports(-ms-flex-align, end)
-    
-    @else
-        @include supports(-webkit-box-align, $position)
-        @include supports(-moz-box-align, $position)
-        @include supports(-ms-grid-row-align, $position)
-        @include supports(-ms-flex-align, $position)
-
-    @include supports(-webkit-align-items, $position)
-    @include supports(-moz-align-items, $position)
-    @include supports(align-items, $position)
-
-@mixin align-content($alignment)
-    @include supports(-webkit-align-content, $alignment)
-    @include supports(-moz-align-content, $alignment)
-    @include supports(-ms-flex-line-pack, $alignment)
-    @include supports(align-content, $alignment)
-
-@mixin align-self($alignment)
-    @include supports(-webkit-align-self, $alignment)
-    @include supports(-moz-align-self, $alignment)
-    @include supports(align-self, $alignment)
-
-@mixin justify-content($position)
-    @if ($position == flex-start)
-        @include supports(-webkit-box-pack, start)
-        @include supports(-ms-flex-pack, start)
-        @include supports(-moz-box-pack, start)
-
-    @else if ($position == flex-end)
-        @include supports(-webkit-box-pack, end)
-        @include supports(-ms-flex-pack, end)
-        @include supports(-moz-box-pack, end)
-    
-    @else if ($position == space-between)
-        @include supports(-webkit-box-pack, justify)
-        @include supports(-ms-flex-pack, justify)
-        @include supports(-moz-box-pack, justify)
-    
-    @else if ($position == space-around)
-        @include supports(-ms-flex-pack, center)
-    
-    @else
-        @include supports(-webkit-box-pack, $position)
-        @include supports(-ms-flex-pack, $position)
-        @include supports(-moz-box-pack, $position)
-
-    @include supports(-webkit-justify-content, $position)
-    @include supports(-moz-justify-content, $position)
-    @include supports(justify-content, $position)
-
-@mixin flex-direction($direction)
-    @if ($direction == column)
-        @include supports(-webkit-box-orient, vertical)
-        @include supports(-webkit-box-direction, normal)
-    
-    @else if ($direction == row)
-        @include supports(-webkit-box-orient, horizontal)
-        @include supports(-webkit-box-direction, normal)
-
-    @include supports(-webkit-flex-direction, $direction)
-    @include supports(-ms-flex-direction, $direction)
-    @include supports(flex-direction, $direction)
+    -webkit-user-drag: none
+    -webkit-touch-callout: none
+    // -webkit-user-select: none
+    // -moz-user-select: none
+    -user-select: none
+    -webkit-app-region: no-drag
 
 @mixin window-border($thickness: calc(vars.$border-thickness * 2), $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
     border: $thickness solid $primary
     outline: $thickness solid $secondary
 
-@mixin transform($transform)
-    @include supports(-moz-transform, $transform)
-    @include supports(-ms-transform, $transform)
-    @include supports(-o-transform, $transform)
-    @include supports(-webkit-transform, $transform)
-    @include supports(transform, $transform)
-
 @mixin scale($scale)
-    -moz-transform-origin: center
-    -ms-transform-origin: center
-    -o-transform-origin: center
-    -webkit-transform-origin: center
+    // -moz-transform-origin: center
+    // -ms-transform-origin: center
+    // -o-transform-origin: center
+    // -webkit-transform-origin: center
     transform-origin: center
-    filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{calc($scale - 0.1)}, M12=0, M21=0, M22=#{calc($scale - 0.1)}, SizingMethod="auto expand")
-    -moz-transform: scale($scale)
-    -ms-transform: scale($scale)
-    -o-transform: scale($scale)
-    -webkit-transform: scale($scale)
+    // filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{calc($scale - 0.1)}, M12=0, M21=0, M22=#{calc($scale - 0.1)}, SizingMethod="auto expand")
+    // -moz-transform: scale($scale)
+    // -ms-transform: scale($scale)
+    // -o-transform: scale($scale)
+    // -webkit-transform: scale($scale)
     transform: scale($scale)
-
-@mixin text-shadow($x: 0, $y: 0, $radius: 0.75rem, $color: rgba(0, 0, 0, 0.25))
-    text-shadow: $x $y $radius $color
-
-@mixin box-shadow($shadow: vars.$box-shadow)
-    @include supports(-webkit-box-shadow, $shadow)
-    @include supports(-moz-box-shadow, $shadow)
-    @include supports(box-shadow, $shadow)
-
-@mixin brightness($percent: 75%)
-    @include supports(-webkit-filter, brightness($percent))
-    @include supports(-moz-filter, brightness($percent))
-    @include supports(-ms-filter, brightness($percent))
-    @include supports(filter, brightness($percent))
-    
-@mixin blur($blur-strength: 0.8rem)
-    @include supports(-webkit-backdrop-filter, blur($blur-strength))
-    @include supports(-moz-backdrop-filter, blur($blur-strength))
-    @include supports(-ms-backdrop-filter, blur($blur-strength))
-    @include supports(backdrop-filter, blur($blur-strength))
-    
-@mixin appearance($value: none)
-    @include supports(-webkit-appearance, $value)
-    @include supports(-moz-appearance, $value)
-    @include supports(appearance, $value)
-
+        
 @mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
     width: $width
     height: $height
     color: white
     background: $background
     position: relative
+    border-radius: vars.$border-radius
     border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.15)
     @include disable-select()
-    @include border-radius(vars.$border-radius)
 
     input
         background: none
@@ -214,7 +45,7 @@
         line-height: normal
         padding: 0 $padding 0 calc(($padding * 2) + $font-size)
         outline: none
-        @include border-radius(vars.$border-radius)
+        border-radius: vars.$border-radius
 
         &[type=search]
             &::-ms-clear, &::-ms-reveal
@@ -252,7 +83,7 @@
     color: white
     cursor: default
     background: $background
-    @include border-radius(0.625rem)
+    border-radius: 0.625rem
 
     &:active
       background: $active-background
@@ -276,21 +107,21 @@
     overflow-x: auto
     text-wrap: wrap
     overflow-wrap: anywhere
+    border-radius: 1rem
+    box-shadow: vars.$box-shadow
     @include window-border()
-    @include box-shadow()
-    @include border-radius(1rem)
 
 @mixin buttons($button-dim: vars.$window-icons-dim)
-    @include display-flex()
-    @include align-items(center)
+    display: flex
+    align-items: center
 
     &-icon
         width: $button-dim
         height: $button-dim
         position: relative
         cursor: default
+        border-radius: 50%
         @include disable-select()
-        @include border-radius(50%)
 
         &:before, &:after
             content: ""
@@ -357,9 +188,9 @@
     background: $bg-color
     height: $height
     padding: $padding
-    @include display-flex()
-    @include align-items(center)
-    @include justify-content(space-between)
+    display: flex
+    align-items: center
+    justify-content: space-between
 
     &__op
         @include buttons($button-dim)

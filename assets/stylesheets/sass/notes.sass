@@ -14,16 +14,16 @@ $secondary-background: rgb(30, 30, 30)
 .notes
   font-family: vars.$font-family
   line-height: 1.5
+  flex-direction: column
+  align-content: stretch
   @include mix.window(rgba(42, 45, 41, 0.6), $window-width, vars.$height)
-  @include mix.flex-direction(column)
-  @include mix.align-content(stretch)
 
   .body
     color: white
     width: 100%
     height: 100%
     overflow-x: hidden
-    @include mix.display-flex()
+    display: flex
 
     .icons
         font-size: $icon-size
@@ -32,11 +32,11 @@ $secondary-background: rgb(30, 30, 30)
         padding-top: calc(($icon-dim - $icon-size) / 2)
         text-align: center
         color: rgb(151, 152, 151)
-        @include mix.border-radius(vars.$border-radius)
+        border-radius: vars.$border-radius
 
         &:hover
             background: rgba(255, 255, 255, 0.15)
-            @include mix.transition(background 1s)
+            transition: background 1s
 
     .sidebar
         width: $sidebar-width
@@ -52,10 +52,10 @@ $secondary-background: rgb(30, 30, 30)
             height: $header-height
             // border-bottom: 1px solid rgb(11, 11, 11)
             background: $primary-background
-            @include mix.blur(2rem)
-            @include mix.display-flex()
-            @include mix.align-items(center)
-            @include mix.justify-content(space-between)
+            display: flex
+            align-items: center
+            justify-content: space-between
+            backdrop-filter: blur(2rem)
 
             .buttons
                 @include mix.buttons()
@@ -81,14 +81,14 @@ $secondary-background: rgb(30, 30, 30)
                 color: rgb(147, 148, 146)
                 border-bottom: 1px solid rgba(255, 255, 255, 0.15)
                 background: $primary-background
-                @include mix.blur(5rem)
+                backdrop-filter: blur(5rem)
 
             .child-nav
                 text-overflow: ellipsis
                 white-space: nowrap
                 padding: 0 calc(vars.$padding * 1.75)
                 list-style-type: none
-                @include mix.align-self(auto)
+                align-self: auto
 
                 li
                     color: white
@@ -126,21 +126,21 @@ $secondary-background: rgb(30, 30, 30)
                         
                 .active
                     width: 100%
+                    border-radius: vars.$border-radius
                     background-color: rgba(255, 255, 255, 0.15)
-                    @include mix.border-radius(vars.$border-radius)
 
     .main
-        @include mix.flex(1)
+        flex: 1
 
         &-header
             height: $header-height
             padding: 0 calc(vars.$padding * 3) 0 calc(vars.$padding * 2)
             width: 100%
             background: $primary-background
-            @include mix.blur(2rem)
-            @include mix.display-flex()
-            @include mix.align-items(center)
-            @include mix.justify-content(space-between)
+            display: flex
+            align-items: center
+            justify-content: space-between
+            backdrop-filter: blur(2rem)
 
             .search-bar
                 @include mix.searchbar($search-width, $search-height, none, 1.2rem, vars.$padding, rgb(151, 152, 151))
@@ -162,10 +162,10 @@ $secondary-background: rgb(30, 30, 30)
                 @include mix.disable-select()
 
             .links
-                @include mix.display-flex()
-                @include mix.flex-direction(row)
-                @include mix.justify-content(center)
-                @include mix.flex-wrap(wrap)
+                display: flex
+                flex-direction: row
+                justify-content: center
+                flex-wrap: wrap
 
                 &-btn
                     @include mix.button(0.6rem 0.8rem, 0.5rem, 1.3rem, vars.$button-gradient, vars.$secondary-button-color)
