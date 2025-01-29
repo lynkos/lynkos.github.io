@@ -48,7 +48,7 @@ $secondary-background: rgb(30, 30, 30)
 
         &-header
             position: relative
-            padding: calc(vars.$padding * 2)
+            padding: calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 3)
             height: $header-height
             // border-bottom: 1px solid rgb(11, 11, 11)
             background: $primary-background
@@ -58,7 +58,6 @@ $secondary-background: rgb(30, 30, 30)
             @include mix.justify-content(space-between)
 
             .buttons
-                padding: 0 calc(($header-height - (vars.$padding * 4) - vars.$window-icons-dim) / 2)
                 @include mix.buttons()
 
         .content
@@ -137,7 +136,7 @@ $secondary-background: rgb(30, 30, 30)
 
         &-header
             height: $header-height
-            padding: 0 calc(vars.$padding * 2)
+            padding: 0 calc(vars.$padding * 3) 0 calc(vars.$padding * 2)
             width: 100%
             background: $primary-background
             @include mix.blur(2rem)
