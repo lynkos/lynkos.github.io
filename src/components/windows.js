@@ -5,6 +5,7 @@ $(document).ready(function() {
     var fullProfilePic = $("#fullProfilePic");
     var zoomIn = $("#zoomIn");
     var zoomOut = $("#zoomOut");
+    var textBody = $(".text-body");
 
     // Open launchpad
     function openLaunchpad() {
@@ -476,17 +477,17 @@ $(document).ready(function() {
 
     // Toggle bold text in TextEdit
     $("#bold-btn").click(function() {
-        $(".text-body").toggleClass("bold");
+        textBody.toggleClass("bold");
     });
 
     // Toggle italic text in TextEdit
     $("#italic-btn").click(function() {
-        $(".text-body").toggleClass("italic");
+        textBody.toggleClass("italic");
     });
 
     // Toggle underlined text in TextEdit
     $("#underline-btn").click(function() {
-        $(".text-body").toggleClass("underline");
+        textBody.toggleClass("underline");
     });
 
     // Remove classes in element
@@ -498,25 +499,25 @@ $(document).ready(function() {
 
     // Toggle left text alignment in TextEdit
     $("#left-btn").click(function() {
-        $(".text-body").toggleClass("left");
+        textBody.toggleClass("left");
         removeClasses(".text-body", [ "right", "center", "justify" ]);
     });
 
     // Toggle center text alignment in TextEdit
     $("#center-btn").click(function() {
-        $(".text-body").toggleClass("center");
+        textBody.toggleClass("center");
         removeClasses(".text-body", [ "right", "left", "justify" ]);
     });
 
     // Toggle right text alignment in TextEdit
     $("#right-btn").click(function() {
-        $(".text-body").toggleClass("right");
+        textBody.toggleClass("right");
         removeClasses(".text-body", [ "center", "left", "justify" ]);
     });
 
     // Toggle justify text alignment in TextEdit
     $("#justify-btn").click(function() {
-        $(".text-body").toggleClass("justify");
+        textBody.toggleClass("justify");
         removeClasses(".text-body", [ "center", "left", "right" ]);
     });
 });
@@ -524,25 +525,25 @@ $(document).ready(function() {
 // Update text color in TextEdit
 const colorPicker = document.getElementById("colorPicker");
 colorPicker.addEventListener("input", function() {
-    $(".text-body").css("color", this.value);
+    textBody.css("color", this.value);
 });
 
 // Update font size in TextEdit
 const fontSize = document.getElementById("fontSize");
 fontSize.addEventListener("change", function() {
-    $(".text-body").css("font-size", (this.value / 10) + "rem");
+    textBody.css("font-size", (this.value / 10) + "rem");
 });
 
 // Update font family in TextEdit
 const fontFamily = document.getElementById("fontFamily");
 fontFamily.addEventListener("change", function() {
-    $(".text-body").css("font-family", this.value);
+    textBody.css("font-family", this.value);
 });
 
 // Update line height in TextEdit
 const lineHeight = document.getElementById("lineHeight");
 lineHeight.addEventListener("change", function() {
-    $(".text-body").css("line-height", this.value);
+    textBody.css("line-height", this.value);
 });
 
 // Make selected project in Notes sidebar active and all others inactive
