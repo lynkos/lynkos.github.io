@@ -1,7 +1,7 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$height: 44.5rem
+$height: 42rem
 $cursor-blink: 1s
 $terminal-color: #0d2a34
 $arrow-color: #40E800
@@ -24,12 +24,11 @@ $username-color: #56F2E6
     font-size: 1.22rem
     height: calc(100% - vars.$header-height)
     overflow: auto
-    padding-bottom: 1rem
+    padding-bottom: calc(vars.$padding * 2)
 
     &__row
-      margin-top: 0.2rem
       line-height: 1.79rem
-      padding: 0 2rem
+      padding: 0 1.4rem
       @include mix.display-flex()
       @include mix.align-items(center)
 
@@ -43,7 +42,7 @@ $username-color: #56F2E6
         // font-size MUST equal line-height for banner to format correctly
         font-size: 0.7rem
         line-height: 0.7rem
-        padding: 0.6rem 0
+        padding: vars.$padding 0
 
       &-arrow
         width: 0.8rem
@@ -72,7 +71,7 @@ $username-color: #56F2E6
           color: #2D9CDB
       
       &-result
-        margin-left: 1rem
+        margin-left: calc(vars.$padding * 2)
       
       &-cursor
         font-weight: bold
