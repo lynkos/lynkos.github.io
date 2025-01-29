@@ -10,11 +10,11 @@ $height: 45rem
 $inch-width: 7.27rem
 $inch-height: 1rem
 $styles-height: 2.25rem
+$min-width: 41rem
 
 .text-edit
-  min-width: 41rem
   overflow-x: hidden
-  @include mix.window($style-bar-color, $width, $height)
+  @include mix.window($style-bar-color, $width, $height, $min-width)
   @include mix.flex-direction(column)
   @include mix.align-content(stretch)
 

@@ -249,17 +249,17 @@
 @mixin header-spacing($icons-dim: vars.$window-icons-dim, $icons-spacing: vars.$windows-icons-spacing)
     width: calc(($icons-dim * 3) + ($icons-spacing * 2)) // 5.6rem = 1.4rem * 3 + (.7rem * 2)
 
-@mixin window($body-color, $width, $height: min-content)
+@mixin window($body-color, $width, $height: min-content, $min-width: vars.$min-width, $min-height: vars.$min-height, $max-width: vars.$max-width, $max-height: vars.$max-height)
     background: $body-color
     display: none
     position: absolute
     inset: 0
     width: $width
     height: $height
-    max-width: vars.$max-width
-    max-height: vars.$max-height
-    min-width: vars.$min-width
-    min-height: vars.$min-height
+    max-width: $max-width
+    max-height: $max-height
+    min-width: $min-width
+    min-height: $min-height
     word-wrap: break-all
     overflow-y: hidden
     overflow-x: auto
