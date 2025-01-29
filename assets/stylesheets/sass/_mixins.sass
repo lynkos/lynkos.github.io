@@ -3,26 +3,15 @@
 @mixin disable-select()
     -webkit-user-drag: none
     -webkit-touch-callout: none
-    // -webkit-user-select: none
-    // -moz-user-select: none
-    -user-select: none
     -webkit-app-region: no-drag
-
+    -user-select: none
+    
 @mixin window-border($thickness: calc(vars.$border-thickness * 2), $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
     border: $thickness solid $primary
     outline: $thickness solid $secondary
 
 @mixin scale($scale)
-    // -moz-transform-origin: center
-    // -ms-transform-origin: center
-    // -o-transform-origin: center
-    // -webkit-transform-origin: center
     transform-origin: center
-    // filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{calc($scale - 0.1)}, M12=0, M21=0, M22=#{calc($scale - 0.1)}, SizingMethod="auto expand")
-    // -moz-transform: scale($scale)
-    // -ms-transform: scale($scale)
-    // -o-transform: scale($scale)
-    // -webkit-transform: scale($scale)
     transform: scale($scale)
         
 @mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
