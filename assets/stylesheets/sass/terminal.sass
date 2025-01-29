@@ -2,6 +2,7 @@
 @use "mixins" as mix
 
 $height: 42rem
+$width: 44.5rem
 $cursor-blink: 1s
 $terminal-color: #0d2a34
 $arrow-color: #40E800
@@ -9,7 +10,7 @@ $username-color: #56F2E6
 
 .mac-terminal
   font-family: vars.$terminal-font
-  @include mix.window($terminal-color, vars.$width, $height, vars.$width)
+  @include mix.window($terminal-color, $width, $height, $width)
 
   .header
     @include mix.header(none, vars.$header-height, 0 1.4rem)
