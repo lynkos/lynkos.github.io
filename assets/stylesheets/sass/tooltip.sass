@@ -6,17 +6,12 @@ $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually mo
     position: relative
 
     &::before, &::after
-        -webkit-backface-visibility: hidden
         backface-visibility: hidden
         will-change: transform
         opacity: 0
         pointer-events: none
         position: absolute
         z-index: 100
-        -moz-transform-origin: top
-        -ms-transform-origin: top
-        -o-transform-origin: top
-        -webkit-transform-origin: top
         transform-origin: top
         bottom: 100%
         left: 50%
