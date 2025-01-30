@@ -12,11 +12,11 @@ $styles-height: 2.25rem
 $min-width: 41rem
 
 .text-edit
+  @include mix.window($style-bar-color, $width, vars.$height, $min-width)
   overflow-x: hidden
   flex-direction: column
   align-content: stretch
-  @include mix.window($style-bar-color, $width, vars.$height, $min-width)
-
+  
   .bold
     font-weight: bold
 
@@ -124,7 +124,8 @@ $min-width: 41rem
   .rule
     position: relative
     height: 1.5rem
-    width: 100vw
+    width: 51.4rem
+    
     float: left
     background: $style-bar-color
     font-family: sans-serif
