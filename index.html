@@ -264,46 +264,47 @@
           </div>
 
           <div class="flex items-center justify-end leading-none">
-            <input readonly class="cursor-default text-right block w-full px-4 text-5xl text-white bg-transparent focus:outline-none" value="0" id="screen">
+            <input type="hidden" class="outcome" value="">
+            <div class="screen cursor-default text-right block w-full px-4 text-5xl text-white bg-transparent focus:outline-none"></div>
           </div>
 
           <div class="mt-2 p-1.5 grid grid-cols-4 grid-rows-5 gap-px text-white text-center font-extralight">
-            <div class="button"><button id="clear" class="font-light cursor-default text-3xl">AC</button></div>
+            <a class="clear button font-light cursor-default text-3xl">AC</a>
 
-            <div class="button">
-              <button id="invert" class="tracking-tighter cursor-default font-extralight text-2xl">
+            <a class="val button equal" href="*-1">
+              <button class="tracking-tighter cursor-default font-extralight text-2xl">
                 <sup class="pointer-events-none relative left-0.5">+</sup>
                 <span class="pointer-events-none">/</span>
                 <sub class="pointer-events-none relative right-0.5">−</sub>
               </button>
-            </div>
+            </a>
 
-            <div class="button"><button id="percent" class="font-extralight cursor-default text-3xl">%</button></div>
-            <div class="button bg-yellow-500"><button id="divide" class="font-extralight cursor-default text-4xl">÷</button></div>
+            <a class="val button font-extralight cursor-default text-3xl" href="%">%</a>
+            <a class="val button bg-yellow-500 font-extralight cursor-default text-4xl" href="/">÷</a>
 
-            <div class="button bg-gray-600"><button id="7" class="cursor-default text-3xl">7</button></div>
-            <div class="button bg-gray-600"><button id="8" class="cursor-default text-3xl">8</button></div>
-            <div class="button bg-gray-600"><button id="9" class="cursor-default text-3xl">9</button></div>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="7">7</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="8">8</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="9">9</a>
 
-            <div class="button bg-yellow-500"><button id="multiply" class="font-extralight cursor-default text-4xl">×</button></div>
+            <a class="val font-extralight button bg-yellow-500 cursor-default text-4xl" href="*">×</a>
 
-            <div class="button bg-gray-600"><button id="4" class="cursor-default text-3xl">4</button></div>
-            <div class="button bg-gray-600"><button id="5" class="cursor-default text-3xl">5</button></div>
-            <div class="button bg-gray-600"><button id="6" class="cursor-default text-3xl">6</button></div>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="4">4</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="5">5</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="6">6</a>
 
-            <div class="button bg-yellow-500"><button id="minus" class="font-extralight cursor-default text-4xl">−</button></div>
+            <a class="val button bg-yellow-500 font-extralight cursor-default text-4xl" href="-">−</a>
 
-            <div class="button bg-gray-600"><button id="1" class="cursor-default text-3xl">1</button></div>
-            <div class="button bg-gray-600"><button id="2" class="cursor-default text-3xl">2</button></div>
-            <div class="button bg-gray-600"><button id="3" class="cursor-default text-3xl">3</button></div>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="1">1</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="2">2</a>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="3">3</a>
 
-            <div class="button bg-yellow-500"><button id="add" class="font-extralight cursor-default text-4xl">+</button></div>
-            <div class="button bg-gray-600"><button class="cursor-default text-3xl"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></button></div>
+            <a class="val button bg-yellow-500 font-extralight cursor-default text-4xl" href="+">+</a>
+            <a class="button bg-gray-600 cursor-default text-3xl"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
 
-            <div class="button bg-gray-600"><button id="0" class="cursor-default text-3xl">0</button></div>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href="0">0</a>
 
-            <div class="button bg-gray-600"><button id="decimal" class="cursor-default text-3xl">.</button></div>
-            <div class="button bg-yellow-500"><button id="equals" class="font-extralight cursor-default text-4xl">=</button></div>
+            <a class="val button bg-gray-600 font-light cursor-default text-3xl" href=".">.</a>
+            <a class="equal button bg-yellow-500 font-extralight cursor-default text-4xl">=</a>
           </div>
         </div>
 
