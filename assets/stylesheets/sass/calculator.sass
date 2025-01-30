@@ -24,6 +24,7 @@ $height: min-content
 
 .calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
+  @include mix.disable-select()
   backdrop-filter: blur(1.5rem)
   padding: 0 calc(vars.$padding / 2) calc(vars.$padding / 2) calc(vars.$padding / 2)
 
