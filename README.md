@@ -39,6 +39,11 @@
 </details>
 
 ## Features
+> [!NOTE]
+> Additional features are still in development
+> 
+> Current features are actively being optimized and improved
+
 Includes (but is not limited to):
 * **Mail**
   * Send me an email directly, without leaving the site!
@@ -79,8 +84,6 @@ Includes (but is not limited to):
 * **Trash**
   * Clicking the trash icon in the dock opens the trash
   * Clicking "Empty Trash" will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
-
-Additional features are still in development, and current features are actively being optimized and improved!
 
 ## Requirements
 - [x] [npm](https://docs.npmjs.com/getting-started)
