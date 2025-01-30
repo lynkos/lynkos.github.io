@@ -82,8 +82,8 @@ Includes (but is not limited to):
   * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open
 * **Trash**
-  * Clicking the trash icon in the dock opens the trash
-  * Clicking "Empty Trash" will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
+  * Clicking the trash icon in the dock opens an "Empty Trash" dialog
+  * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
 
 ## Requirements
 - [x] [npm](https://docs.npmjs.com/getting-started)
