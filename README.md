@@ -39,21 +39,51 @@
 </details>
 
 ## Features
-Includes (but not limited to):
-* Mail
-* iTerm
-* Safari
-* Notes
-* TextEdit
-* Launchpad
-* Calculator
-* Menubar
-* Dock
-* Desktop
-* Music Player
-* Trash
+Includes (but is not limited to):
+* **Mail**
+  * Send me an email directly, without leaving the site!
+  * Includes reCAPTCHA to prevent spam
+  * Your email and message are required
+  * Subject is optional
+* **iTerm**
+  * `help`, `ls`, and `clear` commands are supported (doesn't work on mobile devices)
+  * Timestamp (i.e. displays date and time when site is loaded)
+* **Safari**
+  * Click on any skill to toggle its description
+  * Interactive address bar
+* **Notes**
+  * Sidebar is resizable
+* **TextEdit**
+  * Font family, size, color, and line-height can be changed
+  * Font alignment (i.e. left, center, right, justify) can be changed
+  * Font style (i.e. bold, italic, underline) can be changed
+* **Launchpad**
+  * Apps are draggable/reorderable
+  * Apps are searchable (i.e. type in searchbar to filter)
+* **Calculator**
+  * Fully functional calculator
+  * Supports basic arithmetic operations, including:
+    * Addition (**+**)
+    * Subtraction (**−**)
+    * Multiplication (**×**)
+    * Division (**÷**)
+    * Modulus (**%**)
+* **Menubar**
+  * Real-time **Clock** (i.e. displays date and time)
+  * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
+* **Dock**
+  * Clicking/opening and unopened any app produces a bouncing effect
+* **Desktop**
+  * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
+  * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open
+* **Trash**
+  * Clicking the trash icon in the dock opens the trash
+  * Clicking "Empty Trash" will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
+
+Additional features are still in development, and current features are actively being optimized and improved!
 
 ## Requirements
+- [x] [npm](https://docs.npmjs.com/getting-started)
 - [x] [Node.js](https://nodejs.org/en/download)
 
 ## Installation
