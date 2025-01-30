@@ -1,7 +1,7 @@
 @use "mixins" as mix
 @use "variables" as vars
 
-$body-color: rgba(30, 30, 30, 0.85)
+$body-color: rgba(30, 30, 30, 0.75)
 $button-size: 4.2rem
 $width: 20rem
 $height: min-content
@@ -9,8 +9,8 @@ $height: min-content
 .button
   height: $button-size
   width: $button-size
-  margin: calc($button-size / 20)
-  background-color: rgb(107, 114, 128)
+  margin: calc($button-size / 15)
+  background-color: rgba(107, 114, 128, 0.5)
   font-family: vars.$font-family
   display: flex
   align-items: center
@@ -24,7 +24,14 @@ $height: min-content
 
 .calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
-  backdrop-filter: blur(1.3rem)
+  backdrop-filter: blur(1.5rem)
+  padding: 0 calc(vars.$padding / 2) calc(vars.$padding / 2) calc(vars.$padding / 2)
+
+  .screen
+    height: 3.25rem
+    overflow: hidden
+    margin-top: calc(vars.$padding * 2)
+    margin-bottom: vars.$padding
 
   .calc-header
     @include mix.header(none, 3rem)

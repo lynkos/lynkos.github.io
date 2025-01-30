@@ -1,92 +1,31 @@
-const screen = document.getElementById("screen");
-const buttons = [...document.querySelectorAll("button")];
+$(".val").click(function(e) {
+  // prevent the link from acting like a link
+  e.preventDefault();
 
-let params = [];
+  //grab this link's href value
+  var a = $(this).attr("href");
 
-const clearFocusedButtons = () => {
-    buttons.forEach((button) => {
-      button.parentNode.classList.remove("bg-opacity-40");
-    });
-}
+  // append said value to the screen
+  var screenVal;
+  if (a == "*") screenVal = "×";
+  else if (a == "/") screenVal = "÷";
+  else if (a == "-") screenVal = "−";
+  else screenVal = a;
+  $(".screen").append(screenVal);
 
-const handleNumber = (number) => {
-  clearFocusedButtons();
+  // append same value to a hidden input
+  $(".outcome").val($(".outcome").val() + a);
+});
 
-  if (screen.value == "0") screen.value = "";
+$(".equal").click(function() {
+  // solve equation and put in hidden field
+  $(".outcome").val(eval($(".outcome").val()));
 
-  if (number === "decimal") {
-    if (screen.value.indexOf(".") === -1) {
-      if (!screen.value) number = "0.";
-      else number = ".";
-    } else return;
-  }
+  // take hidden field's value & put it on screen
+  $(".screen").html(eval($(".outcome").val()));
+});
 
-  screen.value = screen.value + number;
-};
-
-const handleOperation = (operation) => {
-  clearFocusedButtons();
-
-  switch (operation) {
-    case "clear":
-      params = [];
-      return (screen.value = 0);
-
-    case "invert":
-      if (screen.value != "0") return (screen.value = "-" + screen.value);
-  }
-
-  if (screen.value == "0") return;
-  
-  if (operation === 'percent') {
-    screen.value = eval(`${screen.value} / 100`)
-    return;
-  }
-
-  params.push(screen.value);
-
-  switch (operation) {
-    case "add":
-      params.push("+");
-      break;
-
-    case "minus":
-      params.push("-");
-      break;
-
-    case "divide":
-      params.push("/");
-      break;
-
-    case "multiply":
-      params.push("*");
-      break;
-  }
-
-  document.getElementById(operation).parentNode.classList.add("bg-opacity-40");
-
-  if (operation === "equals") return calculate();
-
-  screen.value = "0";
-};
-
-const calculate = () => {
-  clearFocusedButtons();
-  
-  const calculation = params.join(' ');
-  const answer = eval(calculation);
-
-  screen.value = answer;
-  params = [];
-};
-
-const handleButton = (action) => {
-  if (isNaN(action) && action !== "decimal") handleOperation(action);
-  else handleNumber(action);
-};
-
-buttons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    handleButton(event.target.id);
-  });
+$(".clear").click(function() {
+  $(".outcome").val("");
+  $(".screen").html("");
 });
