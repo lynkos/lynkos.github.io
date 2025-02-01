@@ -80,7 +80,7 @@ Includes (but is not limited to):
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
 * **Dock**
-  * Clicking/opening and unopened any app produces a bouncing effect
+  * Clicking/opening any unopened app produces a bouncing effect
 * **Desktop**
   * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open **TextEdit** or **Preview**, respectively
