@@ -6,13 +6,14 @@
     <img alt="YAML" src="https://img.shields.io/static/v1?label=Language&style=flat&message=YAML&logo=yaml&color=CB171E&labelColor=393939&logoColor=CB171E">
     <img alt="CSS" src="https://img.shields.io/static/v1?label=Language&style=flat&message=CSS&logo=css&color=663399&labelColor=393939&logoColor=663399">
     <img alt="JSON" src="https://img.shields.io/static/v1?label=Language&style=flat&message=JSON&logo=json&color=000000&labelColor=393939&logoColor=000000">
-    <img alt="Node.js" src="https://img.shields.io/static/v1?label=Runtime&style=flat&message=Node.js&logo=node.js&color=5FA04E&labelColor=393939&logoColor=5FA04E">
-    <img alt="SASS" src="https://img.shields.io/static/v1?label=Pre-processor&style=flat&message=SASS&logo=sass&color=CC6699&labelColor=393939&logoColor=CC6699">
-    <img alt="Babel" src="https://img.shields.io/static/v1?label=Compiler&style=flat&message=Babel&logo=babel&color=F9DC3E&labelColor=393939&logoColor=F9DC3E">
+    <img alt="Node.js" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Node.js&logo=node.js&color=5FA04E&labelColor=393939&logoColor=5FA04E">
+    <img alt="Babel" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Babel&logo=babel&color=F9DC3E&labelColor=393939&logoColor=F9DC3E">
+    <img alt="Nodemon" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Nodemon&logo=nodemon&color=76D04B&labelColor=393939&logoColor=76D04B">
+    <img alt="SASS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=SASS&logo=sass&color=CC6699&labelColor=393939&logoColor=CC6699">
+    <img alt="PostCSS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=PostCSS&logo=postcss&color=DD3A0A&labelColor=393939&logoColor=DD3A0A">
+    <img alt="Autoprefixer" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Autoprefixer&logo=autoprefixer&color=DD3735&labelColor=393939&logoColor=DD3735">
     <img alt="npm" src="https://img.shields.io/static/v1?label=Package+Manager&style=flat&message=npm&logo=npm&color=CB3837&labelColor=393939&logoColor=CB3837">
-    <img alt="Nodemon" src="https://img.shields.io/static/v1?label=Tool&style=flat&message=Nodemon&logo=nodemon&color=76D04B&labelColor=393939&logoColor=76D04B">
-    <img alt="GitHub Actions" src="https://img.shields.io/static/v1?label=Tool&style=flat&message=GitHub+Actions&logo=github+actions&color=2088FF&labelColor=393939&logoColor=2088FF">
-    <img alt="GitHub Pages" src="https://img.shields.io/static/v1?label=Tool&style=flat&message=GitHub+Pages&logo=github+pages&color=222222&labelColor=393939&logoColor=222222">
+    <img alt="GitHub Actions" src="https://img.shields.io/static/v1?label=CI/CD&style=flat&message=GitHub+Actions&logo=github+actions&color=2088FF&labelColor=393939&logoColor=2088FF">
     <img alt="Code+Editor" src="https://img.shields.io/static/v1?label=Code+Editor&style=flat&message=Visual+Studio+Code&logo=visual+studio+code&color=007acc&labelColor=393939&logoColor=007acc">
     <br>
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lynkos/lynkos.github.io/.github%2Fworkflows%2Fgh-pages.yml?style=flat">
@@ -73,6 +74,8 @@ Includes (but is not limited to):
     * Multiplication (**×**)
     * Division (**÷**)
     * Modulus (**%**)
+* **Preview**
+  * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Menubar**
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
@@ -80,7 +83,7 @@ Includes (but is not limited to):
   * Clicking/opening and unopened any app produces a bouncing effect
 * **Desktop**
   * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
-  * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open
+  * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open **TextEdit** or **Preview**, respectively
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
