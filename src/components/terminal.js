@@ -67,7 +67,15 @@ function handleKeypress(e, input, output) {
         return ''
 
       case 'clear':
-        document.getElementById("clearable").style.display = 'none'
+        document.getElementById("clearable").innerHTML = ''
+        document.getElementById("clearable").innerHTML += `<div class="body__row">
+                                                                      <span class="body__row-arrow"></span>
+                                                                      <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                                                                      <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                                                                      <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                                                                      <span class="body__row-result"><span id="command-input"></span></span>
+                                                                      <span class="body__row-cursor">_</span>
+                                                                      </div>`
         output.innerHTML = ''
         return ''
 
@@ -103,7 +111,7 @@ ls     display contents of current directory`
 }
 
 // Execute page loading asynchronously once content has loaded
-document.addEventListener('DOMContentLoaded', async () => {  
+document.addEventListener('DOMContentLoaded', async() => {  
   const input = document.getElementById('command-input')
   const output = document.getElementById('output')
   document.addEventListener('keydown', (e) => handleKeypress(e, input, output))
