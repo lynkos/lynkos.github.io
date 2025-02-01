@@ -7,7 +7,8 @@ $(".val").click(function(e) {
 
   // append said value to the screen
   var screenVal;
-  if (a == "*") screenVal = "×";
+  if (((a == "*-1") || (a == "%") || (a == "*") || (a == "/") || (a == "-") || (a == "+")) && ($(".outcome").val() == "")) return;
+  else if (a == "*") screenVal = "×";
   else if (a == "/") screenVal = "÷";
   else if (a == "-") screenVal = "−";
   else screenVal = a;
