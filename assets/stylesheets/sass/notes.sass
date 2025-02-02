@@ -43,14 +43,14 @@ $secondary-background: rgb(30, 30, 30)
         min-width: $sidebar-width
         max-width: 35vw //calc($window-width / 2.2)
         height: 100%
-        border-right: 1px solid rgb(11, 11, 11)
+        border-right: vars.$border-thickness solid rgb(11, 11, 11)
         @include mix.disable-select()
 
         &-header
             position: relative
             padding: calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 3)
             height: $header-height
-            // border-bottom: 1px solid rgb(11, 11, 11)
+            // border-bottom: vars.$border-thickness solid rgb(11, 11, 11)
             background: $primary-background
             display: flex
             align-items: center
@@ -79,7 +79,7 @@ $secondary-background: rgb(30, 30, 30)
                 font-size: 1.2rem
                 padding: vars.$padding 0 vars.$padding calc(vars.$padding * 2)
                 color: rgb(147, 148, 146)
-                border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+                border-bottom: vars.$border-thickness solid rgba(255, 255, 255, 0.15)
                 background: $primary-background
                 backdrop-filter: blur(5rem)
 
@@ -101,7 +101,7 @@ $secondary-background: rgb(30, 30, 30)
 
                     .text
                         padding: calc(vars.$padding * 1.75) 0
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+                        border-bottom: vars.$border-thickness solid rgba(255, 255, 255, 0.15)
 
                         .name, .bottom
                             overflow: hidden
