@@ -49,9 +49,17 @@ $height: min-content
 
   .screen
     height: 3.25rem
+    width: 100%
     overflow: hidden
+    cursor: default
+    text-align: right
+    color: white
+    background: transparent
     margin-top: calc(vars.$padding * 2)
     margin-bottom: vars.$padding
+
+    &:focus
+      outline: none
 
   .calc-header
     @include mix.header(none, 3rem)
