@@ -321,12 +321,13 @@ Includes (but is not limited to):
 </details>
 
 ## Resources
-* [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
 * [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
-* [GitHub Actions: Cache](https://github.com/actions/cache)
+* [Deploy keys (SSH)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
+* [Creating a branch within your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)
+* [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
 * [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
 * [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 * [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 * [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
 * [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
-* [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+* [GitHub Actions: Cache](https://github.com/actions/cache)
