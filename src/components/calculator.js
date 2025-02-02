@@ -5,6 +5,12 @@ $(".val").click(function(e) {
   var screenVal;
 
   if ((a == ".") && ($(".outcome").val().includes("."))) return;
+  else if ((a == "*") && ($(".outcome").val()[$(".outcome").val().length - 1] == "*")) return;
+  else if ((a == "/") && ($(".outcome").val()[$(".outcome").val().length - 1] == "/")) return;
+  else if ((a == "+") && ($(".outcome").val()[$(".outcome").val().length - 1] == "+")) return;
+  else if ((a == "-") && ($(".outcome").val()[$(".outcome").val().length - 1] == "-")) return;
+  else if ((a == "%") && ($(".outcome").val()[$(".outcome").val().length - 1] == "%")) return;
+  else if ((a == ".") && ($(".outcome").val().includes("."))) return;
   else if (((a == "*-1") || (a == "%") || (a == "*") || (a == "/") || (a == "-") || (a == "+")) && ($(".outcome").val() == "")) return;
   else if (a == "*") screenVal = "×";
   else if (a == "/") screenVal = "÷";
