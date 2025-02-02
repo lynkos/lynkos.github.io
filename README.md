@@ -17,26 +17,26 @@
     <br>
     <img alt="Website status" src="https://img.shields.io/website?url=https%3A%2F%2Flynkos.dev&up_message=online&up_color=green&down_message=offline&down_color=red&style=flat">
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lynkos/lynkos.github.io/.github%2Fworkflows%2Fgh-pages.yml?style=flat">
-    <img alt="GitHub License" src="https://img.shields.io/github/license/lynkos/lynkos.github.io?style=flat&link=LICENSE.md">
+    <a title="GitHub License" href="LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/lynkos/lynkos.github.io?style=flat"></a>
    <p>macOS Sequoia-inspired personal website.</p>
 </div>
 
 <details open>
-    <summary>Home Page</summary>
-    <div align="center">
-        <figure>
-            <picture><img width="100%" alt="Home Page" src="assets/images/misc/demo.png"></picture>
-        </figure>
-    </div>
+  <summary><a title="Home Page" href="https://lynkos.dev">Home Page</a></summary>
+  <div align="center">
+    <figure>
+      <picture><img width="100%" alt="Home Page" src="assets/images/misc/demo.png"></picture>
+    </figure>
+  </div>
 </details>
 
 <details open>
-    <summary>404: Error Not Found Page</summary>
-    <div align="center">
-        <figure>
-            <picture><img width="100%" alt="404: Error Not Found Page" src="assets/images/misc/404.png"></picture>
-        </figure>
-    </div>
+  <summary><a title="404 Error Page" href="https://lynkos.dev/404">404 Error Page</a></summary>
+  <div align="center">
+    <figure>
+      <picture><img width="100%" alt="404: Error Not Found Page" src="assets/images/misc/404.png"></picture>
+    </figure>
+  </div>
 </details>
 
 ## Features
@@ -122,18 +122,44 @@ Includes (but is not limited to):
     ```
 
 ## Miscellaneous
+### Initial Deployment Setup
+> [!IMPORTANT]
+> This section is **only applicable** if you are deploying to **GitHub Pages**
+
+1. Create `prod` branch (if you haven't already)
+2. Generate SSH key
+   ```sh
+   ssh-keygen -t ed25519 -C "$(git config user.email)" -f gh-pages -N ""
+   ```
+3. Go to your repository's "Deploy keys" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
+4. Click "Add deploy key"
+5. Paste `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
+6. Check "Allow write access"
+7. Click "Add key"
+8. Go to your repository's "Actions secrets and variables" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
+9. Click "New repository secret"
+10. Paste `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
+11. Click "Add secret"
+12. Go to your repository's "Pages" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
+13. Under "Build and deployment", select the following:
+    * **Source**: "Deploy from a branch"
+    * **Branch**: `prod` and `/ (root)`
+14. Click "Save"
+15. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
+
 ### Deployment Pipeline
-> [!TIP]
+> [!NOTE]
 > See [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
 
 <img alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
 
 ### Repository Structure
-#### [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) branch
 > [!NOTE]
 > [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) is used for development
-```
-.
+
+<details open>
+  <summary><a title="Main branch" href="https://github.com/lynkos/lynkos.github.io/tree/main"><code>main</code></a> branch</summary>
+  <pre>.
 ├── .github/
 │   ├── workflows/
 │   │   └── gh-pages.yml
@@ -212,14 +238,16 @@ Includes (but is not limited to):
 ├── LICENSE.md
 ├── package-lock.json
 ├── package.json
-└── README.md
-```
+└── README.md</pre>
+</details>
+<br>
 
-#### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch
 > [!NOTE]
 > [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) is used for production
-```
-.
+
+<details open>
+  <summary><a title="Prod branch" href="https://github.com/lynkos/lynkos.github.io/tree/prod"><code>prod</code></a> branch</summary>
+  <pre>.
 ├── assets/
 │   ├── audio/
 │   │   └── empty_trash.mp3
@@ -289,8 +317,8 @@ Includes (but is not limited to):
 ├── CNAME
 ├── index.html
 ├── robots.txt
-└── sitemap.xml
-```
+└── sitemap.xml</pre>
+</details>
 
 ## Resources
 * [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
