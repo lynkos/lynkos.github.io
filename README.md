@@ -121,8 +121,15 @@ Includes (but is not limited to):
     npm run dev
     ```
 
-## Repository Structure
-### [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) branch
+## Miscellaneous
+### Deployment Pipeline
+> [!TIP]
+> See [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
+
+<img alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
+
+### Repository Structure
+#### [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) branch
 > [!NOTE]
 > [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) is used for development
 ```
@@ -164,6 +171,7 @@ Includes (but is not limited to):
 │   │   │   ├── 404.png
 │   │   │   ├── demo.png
 │   │   │   ├── mpc.jpg
+│   │   │   ├── pipeline.png
 │   │   │   └── profile.jpg
 │   │   └── system/
 │   │       ├── blue_folder.png
@@ -207,7 +215,7 @@ Includes (but is not limited to):
 └── README.md
 ```
 
-### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch
+#### [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) branch
 > [!NOTE]
 > [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) is used for production
 ```
