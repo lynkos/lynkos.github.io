@@ -4,7 +4,8 @@ $(".val").click(function(e) {
   var a = $(this).attr("href");
   var screenVal;
 
-  if (((a == "*-1") || (a == "%") || (a == "*") || (a == "/") || (a == "-") || (a == "+")) && ($(".outcome").val() == "")) return;
+  if ((a == ".") && ($(".outcome").val().includes("."))) return;
+  else if (((a == "*-1") || (a == "%") || (a == "*") || (a == "/") || (a == "-") || (a == "+")) && ($(".outcome").val() == "")) return;
   else if (a == "*") screenVal = "×";
   else if (a == "/") screenVal = "÷";
   else if (a == "-") screenVal = "−";
