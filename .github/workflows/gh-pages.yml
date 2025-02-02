@@ -89,5 +89,6 @@ jobs:
           exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,pipeline.png,assets/stylesheets/sass'
           publish_dir: .
           cname: lynkos.dev
+          disable_nojekyll: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
