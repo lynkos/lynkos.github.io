@@ -10,12 +10,36 @@ $height: min-content
   height: $button-size
   width: $button-size
   margin: calc($button-size / 15)
-  background-color: rgba(107, 114, 128, 0.5)
   font-family: vars.$font-family
   display: flex
   align-items: center
   justify-content: center
   border-radius: 50%
+  color: white
+  text-align: center
+  cursor: default
+
+.yellow, .light-grey
+  font-weight: 200
+
+.yellow
+  background-color: rgb(241, 154, 55)
+
+  &:active
+    background-color: rgb(244, 201, 149)
+
+.dark-grey
+  background-color: rgb(81, 83, 81)
+  font-weight: 300
+
+  &:active
+    background-color: rgb(129, 131, 129)
+
+.light-grey
+  background-color: rgb(113, 111, 113)
+
+  &:active
+    background-color: rgb(142, 144, 142)
 
 .calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
