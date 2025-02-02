@@ -124,7 +124,7 @@ Includes (but is not limited to):
 ## Miscellaneous
 ### Initial Deployment Setup
 > [!IMPORTANT]
-> This section is **only applicable** if you are deploying to **GitHub Pages**
+> This subsection is **only applicable** if you are deploying to **GitHub Pages**
 
 1. Create `prod` branch (if you haven't already)
 2. Generate SSH key
@@ -133,12 +133,12 @@ Includes (but is not limited to):
    ```
 3. Go to your repository's "Deploy keys" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
 4. Click "Add deploy key"
-5. Paste `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
+5. Enter `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
 6. Check "Allow write access"
 7. Click "Add key"
 8. Go to your repository's "Actions secrets and variables" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
 9. Click "New repository secret"
-10. Paste `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
+10. Enter `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
 11. Click "Add secret"
 12. Go to your repository's "Pages" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
 13. Under "Build and deployment", select the following:
@@ -149,7 +149,7 @@ Includes (but is not limited to):
 
 ### Deployment Pipeline
 > [!NOTE]
-> See [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
+> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
 
 <img alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
 
@@ -322,6 +322,7 @@ Includes (but is not limited to):
 
 ## Resources
 * [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
+* [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
 * [GitHub Actions: Cache](https://github.com/actions/cache)
 * [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
 * [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
