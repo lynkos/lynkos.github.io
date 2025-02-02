@@ -329,3 +329,4 @@ Includes (but is not limited to):
 * [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 * [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
 * [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
+* [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
