@@ -43,7 +43,7 @@ jobs:
       - name: Build
         id: build
         run: npm run build
-      - name: Create sitemap.xml
+      - name: Generate sitemap.xml
         id: sitemap
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
@@ -57,7 +57,7 @@ jobs:
           echo '    <priority>1.00</priority>' >> sitemap.xml
           echo '  </url>' >> sitemap.xml
           echo -n '</urlset>' >> sitemap.xml
-      - name: Create robots.txt
+      - name: Generate robots.txt
         id: robots
         run: |
           echo 'User-agent: *' > robots.txt
