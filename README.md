@@ -328,6 +328,8 @@ Includes (but is not limited to):
 * [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
 * [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 * [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+* [Writing workflows](https://docs.github.com/en/actions/writing-workflows)
 * [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
 * [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
 * [GitHub Actions: Cache](https://github.com/actions/cache)
+* [Set up Sass in the best way](https://remybeumier.be/blog/set-up-sass-in-the-best-way)
