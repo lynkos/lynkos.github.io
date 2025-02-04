@@ -87,6 +87,7 @@ Includes (but is not limited to):
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
+* Resizable and movable windows
 
 ## Requirements
 - [x] [npm](https://docs.npmjs.com/getting-started)
@@ -151,7 +152,7 @@ Includes (but is not limited to):
 > [!NOTE]
 > Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
 
-<img alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
+<img width="100%" alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
 
 ### Repository Structure
 > [!NOTE]
