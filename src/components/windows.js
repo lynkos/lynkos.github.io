@@ -200,19 +200,12 @@ $(document).ready(function() {
         handles: "e"
     });
 
-    // Dock Resizing
-    // $(".divider").resizable({
-    //   handles: "n",
-    //   maxHeight: 120,
-    //   minHeight: 20,
-    //   resize: function(event, ui) {
-    //     $(".icon").css({
-    //       width: ui.size.height,
-    //       height: ui.size.height
-    //     });
-    //     $(".dock").css("height", ui.size.height + 10);
-    //   }
-    // });  
+    // Resize windows
+    $(".mac-terminal, .email, .text-edit, .notes, .browser, .preview").resizable({
+        containment: "#main-content",
+        handles: "n, e, s, w, ne, nw, se, sw",
+        animate: true
+    });
 
     // Highlight clicked nav item
     $(".child-nav li", ".sidebar").on("click", function() {
@@ -264,7 +257,7 @@ $(document).ready(function() {
     // Open trash dialogue
     openWindow("#trash-icon", ".dialogue", "inline-block");
 
-    // Open about me when double-clicking or tapping "about.rtf"
+    // Open about me when double-clicking "about.rtf"
     $("#aboutFile").on("dblclick", function(event) {
         event.preventDefault();
         if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
@@ -273,6 +266,7 @@ $(document).ready(function() {
         if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
     });
 
+    // Open about me when tapping "about.rtf"
     $("#aboutFile")
     .on("touchstart", function() {
         $(this).data("moved", false);
@@ -289,15 +283,19 @@ $(document).ready(function() {
         }
     });
 
-    // Open preview when double-clicking or tapping "profile.jpg"
+    // Open preview when double-clicking "profile.jpg"
     $("#profilePic").on("dblclick", function(event) {
         event.preventDefault();
         if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
         bringToFront(".preview");
         if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
-        if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
+        if (!$("#preview").hasClass("open")) {
+            $("#preview").addClass("open");
+            $("#preview").show();
+        }
     });
 
+    // Open preview when tapping "profile.jpg"
     $("#profilePic")
     .on("touchstart", function() {
         $(this).data("moved", false);
@@ -310,7 +308,10 @@ $(document).ready(function() {
             if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
             bringToFront(".preview");
             if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
-            if (!$("#preview").hasClass("open")) $("#preview").addClass("open");
+            if (!$("#preview").hasClass("open")) {
+                $("#preview").addClass("open");
+                $("#preview").show();
+            }
         }
     });
 
@@ -353,7 +354,8 @@ $(document).ready(function() {
             bringToFront(win);
             $(win).css("display", displayType);
             if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-            if (($(dockIcon) !== null) && !$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
+            if (!$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
+            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).show();
         });
     }
 
@@ -373,10 +375,10 @@ $(document).ready(function() {
     launchApp("#safariLaunch", ".browser", "flex", "#safari");
 
     // Open calculator
-    launchApp("#calculatorLaunch", ".calc", "inline-block", null);
+    launchApp("#calculatorLaunch", ".calc", "inline-block", "#calc");
 
     // Open calculator
-    launchApp("#previewLaunch", ".preview", "flex", null);
+    launchApp("#previewLaunch", ".preview", "flex", "#preview");
 
     // Empty trash
     $(".confirm").click(function(e) {
@@ -391,8 +393,8 @@ $(document).ready(function() {
         $(close).on("click", function() {
             $(win).css("display", "none");
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
-            if (($(dockIcon) !== null) && $(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
-
+            if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
+            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).hide();
             // if ($(win).hasClass("maximize")) {
             //   $(win).css("width", width);
             //   $(win).css("height", height);
@@ -419,10 +421,10 @@ $(document).ready(function() {
     closeWindow(".browser-buttons-icon--red", ".browser", "#safari", "55rem", "45rem");
 
     // Close calculator
-    closeWindow(".calc-header__op-icon--red", ".calc", null);
+    closeWindow(".calc-header__op-icon--red", ".calc", "#calc");
 
     // Close preview
-    closeWindow(".preview-header__op-icon--red", ".preview", null, "55rem", "40rem");
+    closeWindow(".preview-header__op-icon--red", ".preview", "#preview", "55rem", "40rem");
 
     // Close trash dialogue
     closeWindow(".alert-btn", ".dialogue", "#trash-icon");
