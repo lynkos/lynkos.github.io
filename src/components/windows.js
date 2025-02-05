@@ -254,6 +254,12 @@ $(document).ready(function() {
     // Open safari
     openWindow("#safari", ".browser", "flex");
 
+    // Open preview
+    openWindow("#preview", ".preview", "flex");
+
+    // Open calculator
+    openWindow("#calc", ".calc", "inline-block");
+
     // Open trash dialogue
     openWindow("#trash-icon", ".dialogue", "inline-block");
 
