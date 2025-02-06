@@ -51,7 +51,7 @@ $(document).ready(function() {
         });
     }
 
-    centerWindow(".mac-terminal, .text-edit, .email, .calc, .notes, .browser, .dialogue, .preview", "center center-36.5");
+    centerWindow(".windows, .dialogue", "center center-36.5");
 
     // Show terminal on load
     $(".mac-terminal").fadeIn(500);
@@ -59,7 +59,7 @@ $(document).ready(function() {
     // TODO Improve playlist toggle logic
     // Show playlist when icon clicked
     $("#play").click(function(e) {
-        $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 10);
+        $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 13);
 
         // Bring playlist to front
         bringToFront("#playlist");
@@ -200,7 +200,7 @@ $(document).ready(function() {
         handles: "e"
     });
 
-    // Resize windows
+    // Resize certain windows
     $(".mac-terminal, .email, .text-edit, .notes, .browser, .preview").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
@@ -400,7 +400,7 @@ $(document).ready(function() {
             $(win).css("display", "none");
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
             if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
-            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).hide();
+            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).fadeOut(150);
             // if ($(win).hasClass("maximize")) {
             //   $(win).css("width", width);
             //   $(win).css("height", height);
