@@ -123,6 +123,12 @@ Includes (but is not limited to):
     ```
 
 ## Miscellaneous
+### Deployment Pipeline
+> [!NOTE]
+> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
+
+<img width="100%" alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
+
 ### Initial Deployment Setup
 > [!IMPORTANT]
 > This subsection is **only applicable** if you are deploying to **GitHub Pages**
@@ -147,12 +153,6 @@ Includes (but is not limited to):
     * **Branch**: `prod` and `/ (root)`
 14. Click "Save"
 15. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
-
-### Deployment Pipeline
-> [!NOTE]
-> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
-
-<img width="100%" alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
 
 ### Repository Structure
 > [!NOTE]
