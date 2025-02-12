@@ -201,7 +201,7 @@ $(document).ready(function() {
     });
 
     // Resize certain windows
-    $(".mac-terminal, .email, .text-edit, .notes, .browser, .preview").resizable({
+    $(".mac-terminal, .email, .notes, .browser, .preview").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
