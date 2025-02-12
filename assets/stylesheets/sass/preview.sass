@@ -17,7 +17,7 @@ $header-color: rgb(56, 57, 56)
     &-header
         overflow: hidden
         cursor: default
-        border-bottom: 1px solid rgb(15, 15, 15)
+        border-bottom: calc(vars.$border-thickness * 2) solid rgb(15, 15, 15)
         @include mix.disable-select()
         @include mix.header($header-color, $header-height, calc(vars.$padding * 3.5))
 

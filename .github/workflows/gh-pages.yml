@@ -10,13 +10,15 @@ defaults:
   run:
     shell: bash
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  setup:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      contents: read
     steps:
       - name: Checkout
         id: checkout
@@ -41,6 +43,13 @@ jobs:
       - name: Install dependencies
         id: install
         run: npm install
+
+  build:
+    runs-on: ubuntu-latest
+    needs: setup
+    permissions:
+      contents: write
+    steps:
       - name: Build
         id: build
         run: npm run build
@@ -80,6 +89,13 @@ jobs:
           echo 'Disallow: /' >> robots.txt
           echo '' >> robots.txt
           echo -n 'Sitemap: https://lynkos.dev/sitemap.xml' >> robots.txt
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
+    steps:
       - name: Deploy
         id: deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # commit hash of v4.0.0
