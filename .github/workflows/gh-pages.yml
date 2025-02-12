@@ -14,11 +14,12 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Checkout
         id: checkout
@@ -43,13 +44,6 @@ jobs:
       - name: Install dependencies
         id: install
         run: npm install
-
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    permissions:
-      contents: write
-    steps:
       - name: Build
         id: build
         run: npm run build
@@ -93,8 +87,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      contents: write
     steps:
       - name: Deploy
         id: deploy
