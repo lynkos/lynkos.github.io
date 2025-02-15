@@ -194,12 +194,6 @@ $(document).ready(function() {
         distance: 0,
     });
 
-    // Resize app store sidebar
-    $(".sidebar").resizable({
-        containment: ".notes",
-        handles: "e"
-    });
-
     // Resize certain windows
     $(".mac-terminal, .email, .notes, .browser, .preview").resizable({
         containment: "#main-content",

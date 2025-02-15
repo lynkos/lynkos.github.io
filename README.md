@@ -58,7 +58,7 @@ Includes (but is not limited to):
   * Click on any skill to toggle its description
   * Interactive address bar
 * **Notes**
-  * Sidebar is resizable
+  * View various projects in sidebar
 * **TextEdit**
   * Font family, size, color, and line-height can be changed
   * Font alignment (i.e. left, center, right, justify) can be changed
