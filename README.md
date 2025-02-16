@@ -113,14 +113,15 @@ Includes (but is not limited to):
     ```
 
 ## Usage
-* Build project
-    ```sh
-    npm run build
-    ```
-* Start development environment
-    ```sh
-    npm run dev
-    ```
+### Start Development Environment
+ ```sh
+ npm run dev
+ ```
+
+### Build Project
+ ```sh
+ npm run build
+ ```
 
 ## Miscellaneous
 ### Deployment Pipeline
@@ -153,6 +154,12 @@ Includes (but is not limited to):
     * **Branch**: `prod` and `/ (root)`
 14. Click "Save"
 15. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
+
+### Custom Email Form
+Any message submitted via the Mail form will be sent to *my* email. In order to customize it so that it can be sent to your email, you will have to:
+
+1. [Follow the steps in this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
+2. Modify the code within [`<form class="gform">`](https://github.com/lynkos/lynkos.github.io/blob/a4893c3fd85cea5fb716dd63ae8d0e519bd2661e/index.html#L491) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Repository Structure
 > [!NOTE]
@@ -330,6 +337,7 @@ Includes (but is not limited to):
 * [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 * [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 * [Writing workflows](https://docs.github.com/en/actions/writing-workflows)
+* [Send Email from a *Static* HTML Form using Google Apps Mail!](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
 * [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
 * [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
 * [GitHub Actions: Cache](https://github.com/actions/cache)
