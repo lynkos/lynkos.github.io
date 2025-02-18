@@ -1,7 +1,9 @@
 $(document).ready(function() {
+    /* VARIABLES */
     var angle = 0;
     var zoom = 1;
 
+    /* JAVASCRIPT FUNCTIONS */
     // Open launchpad
     function openLaunchpad() {
         $(".menu-bar").fadeOut(400);
@@ -9,12 +11,6 @@ $(document).ready(function() {
         $("#launchpad").addClass("shown start");
         $("#launchpad").find("nav").addClass("scale-down");
     }
-
-    // Toggle launchpad
-    $(".open-menu").on("click", function() {
-        if ($("#launchpad").hasClass("shown start")) closeLaunchpad();
-        else openLaunchpad();
-    });
 
     // Close launchpad
     function closeLaunchpad() {
@@ -32,15 +28,6 @@ $(document).ready(function() {
         $(".openWindow").fadeIn(400);
     }
 
-    // Close launchpad when clicking any launchpad icon
-    $(".launch").click(function() {
-        closeLaunchpad();
-    });
-
-    // Make launchpad apps sortable
-    $("#launchNav").sortable();
-    $("#launchNav").disableSelection();
-
     // Center windows
     function centerWindow(win, pos) {
         $(win).position({
@@ -51,51 +38,11 @@ $(document).ready(function() {
         });
     }
 
-    centerWindow(".windows, .dialogue", "center center-36.5");
-
-    // Show terminal on load
-    $(".mac-terminal").fadeIn(500);
-
-    // TODO Improve playlist toggle logic
-    // Show playlist when icon clicked
-    $("#play").click(function(e) {
-        $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 13);
-
-        // Bring playlist to front
-        bringToFront("#playlist");
-
-        // Show playlist
-        $("#playlist").show();
-        e.stopPropagation();
-    });
-
-    // Prevent playlist from closing when clicking on it
-    $("#playlist").mousedown(function(e) {
-        e.stopPropagation();
-    });
-
-    // Hide playlist when click outside
-    $(document).mousedown(function() {
-        $("#playlist").fadeOut(250);
-    });
-
-    // add class to launch while moving/dragging & remove when done
-    // so that the launchpad doesn't close when sorting
-
-    // Close the launchpad when the content is clicked, only if the target is not a link
-    $(document).mouseup(function(e) {
-        var content = $("#launchpad").find(".launch-content"),
-            nav = content.find("nav");
-
-        if (content.is(e.target) || nav.is(e.target))
-            closeLaunchpad();
-    });
-
-    // Function to bring the clicked window to the front
+    // Bring clicked window to front
     function bringToFront(element) {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
-            // Get the highest z-index
+            // Get highest z-index
             let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, #playlist").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
@@ -115,6 +62,7 @@ $(document).ready(function() {
                     }
                 }
 
+                // Mark other [open] windows as not in front
                 if ($(this).hasClass("inFront")) $(this).removeClass("inFront");
 
                 return parseInt($(this).css("z-index")) || 0;
@@ -169,57 +117,9 @@ $(document).ready(function() {
         });
     }
 
-    // Apply draggable to all existing windows
-    makeDraggable(".windows");
-
-    // Make dialogue draggable
-    $(".dialogue").draggable({
-        cursor: "default",
-        cancel: ".alert-btn",
-        start: function() {
-            bringToFront(this);
-        },
-        // stack: ".windows, .btn, .dialogue",
-        containment: "#main-content",
-        distance: 0,
-    }).on("mousedown", function() {
-        bringToFront(this);
-    });
-
-    // Make folder and file icons draggable
-    $(".btn").draggable({
-        cursor: "default",
-        cancel: false,
-        containment: "#main-content",
-        distance: 0,
-    });
-
-    // Resize certain windows
-    $(".mac-terminal, .email, .notes, .browser, .preview").resizable({
-        containment: "#main-content",
-        handles: "n, e, s, w, ne, nw, se, sw",
-        animate: true
-    });
-
-    // Highlight clicked nav item
-    $(".child-nav li", ".sidebar").on("click", function() {
-        $(".child-nav li", ".sidebar").removeClass("active");
-        if (!$(this).hasClass("active")) $(this).addClass("active");
-    });
-
-    // Make GitHub icon bounce on click
-    $("#github-dock").click(function() {
-        $(this).effect("bounce", { times: 3 }, 600);
-    });
-
-    function bounceIcon(selector) {
-        if (!$(selector).hasClass("open")) {
-            // Bounce effect, if window is not already open
-            $(selector).effect("bounce", { times: 3 }, 600);
-
-            // Mark clicked window as opened
-            $(selector).addClass("open");
-        }
+    // Bounce effect
+    function bounce(selector) {
+        $(selector).effect("bounce", { times: 3 }, 600);
     }
 
     // Open window
@@ -229,123 +129,50 @@ $(document).ready(function() {
             $(win).css("display", displayType);
             bringToFront(win);
             if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-            bounceIcon(icon);
+
+            // Bounce effect for dock icons
+            if (!$(icon).hasClass("open")) {
+                // Bounce effect, if window is not already open
+                bounce(icon);
+
+                // Mark clicked window as opened
+                $(icon).addClass("open");
+            }
         });
     }
 
-    // Open terminal
-    openWindow("#iterm", ".mac-terminal", "inline-block");
-
-    // Open mail
-    openWindow("#mail", ".email", "flex");
-
-    // Open about me
-    openWindow("#text-edit", ".text-edit", "flex");
-
-    // Open projects
-    openWindow("#notes", ".notes", "flex");
-
-    // Open safari
-    openWindow("#safari", ".browser", "flex");
-
-    // Open preview
-    openWindow("#preview", ".preview", "flex");
-
-    // Open calculator
-    openWindow("#calc", ".calc", "inline-block");
-
-    // Open trash dialogue
-    openWindow("#trash-icon", ".dialogue", "inline-block");
-
-    // Open about me when double-clicking "about.rtf"
-    $("#aboutFile").on("dblclick", function(event) {
-        event.preventDefault();
-        if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
-        bringToFront(".text-edit");
-        if (!$(".text-edit").hasClass("openWindow")) $(".text-edit").addClass("openWindow");
-        if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");
-    });
-
-    // Open about me when tapping "about.rtf"
-    $("#aboutFile")
-    .on("touchstart", function() {
-        $(this).data("moved", false);
-    })
-    .on("touchmove", function() {
-        $(this).data("moved", true);
-    })
-    .on("touchend", function() {
-        if ($(this).data("moved") === false) {
-            if ($(".text-edit").css("display") === "none") $(".text-edit").css("display", "flex");
-            bringToFront(".text-edit");
-            if (!$(".text-edit").hasClass("openWindow")) $(".text-edit").addClass("openWindow");
-            if (!$("#text-edit").hasClass("open")) $("#text-edit").addClass("open");        
+    // Show file when clicking on desktop icon (i.e. icon that isn't in dock)
+    function showFile(icon, win, inDock) {
+        if ($(win).css("display") === "none") $(win).css("display", "flex");
+        bringToFront(win);
+        if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
+        if (!$(icon).hasClass("open")) {
+            $(icon).addClass("open");
+            if (inDock) $(icon).show();
         }
-    });
+    }
 
-    // Open preview when double-clicking "profile.jpg"
-    $("#profilePic").on("dblclick", function(event) {
-        event.preventDefault();
-        if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
-        bringToFront(".preview");
-        if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
-        if (!$("#preview").hasClass("open")) {
-            $("#preview").addClass("open");
-            $("#preview").show();
-        }
-    });
+    // Open file when double-clicking or tapping its icon
+    function openFile(file, icon, win, inDock) {
+        // Open file when double-clicking
+        $(file).on("dblclick", function(event) {
+            event.preventDefault();
+            showFile(icon, win, inDock);    
+        });
 
-    // Open preview when tapping "profile.jpg"
-    $("#profilePic")
-    .on("touchstart", function() {
-        $(this).data("moved", false);
-    })
-    .on("touchmove", function() {
-        $(this).data("moved", true);
-    })
-    .on("touchend", function() {
-        if ($(this).data("moved") === false) {
-            if ($(".preview").css("display") === "none") $(".preview").css("display", "flex");
-            bringToFront(".preview");
-            if (!$(".preview").hasClass("openWindow")) $(".preview").addClass("openWindow");
-            if (!$("#preview").hasClass("open")) {
-                $("#preview").addClass("open");
-                $("#preview").show();
-            }
-        }
-    });
-
-    // Rotate picture in preview
-    $("#rotate").on("click", function() {
-        angle = (angle - 90) % 360;    
-    });
-
-    // Zoom into picture in preview
-    $("#zoomIn").on("click", function() {
-        if (zoom < 2.1) {
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
-            zoom += 0.1;
-        } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
-    });
-
-    // Zoom out of picture in preview
-    $("#zoomOut").on("click", function() {
-        if (zoom > 0.2) {
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
-            zoom -= 0.1;
-        } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
-    });
-
-    // Apply both zoom and rotation to picture in preview
-    $("#zoomOut, #zoomIn, #rotate").on("click", function() {
-        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-    });
+        // Open file when tapping (mobile only)
+        $(file)
+        .on("touchstart", function() {
+            $(this).data("moved", false);
+        })
+        .on("touchmove", function() {
+            $(this).data("moved", true);
+        })
+        .on("touchend", function() {
+            // Only open file if icon wasn't moved
+            if ($(this).data("moved") === false) showFile(icon, win, inDock);
+        });
+    }
 
     // Open app via launchpad
     function launchApp(icon, win, displayType, dockIcon) {
@@ -359,42 +186,15 @@ $(document).ready(function() {
         });
     }
 
-    // Open terminal
-    launchApp("#itermLaunch", ".mac-terminal", "inline-block", "#iterm");
-
-    // Open mail
-    launchApp("#mailLaunch", ".email", "flex", "#mail");
-
-    // Open about me
-    launchApp("#textLaunch", ".text-edit", "flex", "#text-edit");
-
-    // Open projects
-    launchApp("#notesLaunch", ".notes", "block", "#notes");
-
-    // Open safari
-    launchApp("#safariLaunch", ".browser", "flex", "#safari");
-
-    // Open calculator
-    launchApp("#calculatorLaunch", ".calc", "inline-block", "#calc");
-
-    // Open calculator
-    launchApp("#previewLaunch", ".preview", "flex", "#preview");
-
-    // Empty trash
-    $(".confirm").click(function(e) {
-        new Audio("../assets/audio/empty_trash.mp3").play();
-        e.preventDefault();
-        $("#trash").attr("src", "/assets/images/system/empty_trash.png");
-        $("#trash-icon").off("click");
-    });
-
     // Close window
     function closeWindow(close, win, dockIcon, width, height) {
         $(close).on("click", function() {
             $(win).css("display", "none");
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
             if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
-            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).fadeOut(150);
+
+            // Make sure preview dock icon ONLY disappears if both `profile.jpg` and `resume.pdf` are closed
+            if ((dockIcon === "#preview" && (!$(".preview").hasClass("openWindow") && !$(".resume").hasClass("openWindow"))) || (dockIcon === "#calc")) $(dockIcon).fadeOut(150);
             // if ($(win).hasClass("maximize")) {
             //   $(win).css("width", width);
             //   $(win).css("height", height);
@@ -405,29 +205,12 @@ $(document).ready(function() {
         });
     }
 
-    // Close terminal
-    closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
-
-    // Close mail
-    closeWindow(".mail-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
-
-    // Close about me
-    closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
-
-    // Close projects
-    closeWindow(".buttons-icon--red", ".notes", "#notes", "55rem", "45rem");
-
-    // Close safari
-    closeWindow(".browser-buttons-icon--red", ".browser", "#safari", "55rem", "45rem");
-
-    // Close calculator
-    closeWindow(".calc-header__op-icon--red", ".calc", "#calc");
-
-    // Close preview
-    closeWindow(".preview-header__op-icon--red", ".preview", "#preview", "55rem", "40rem");
-
-    // Close trash dialogue
-    closeWindow(".alert-btn", ".dialogue", "#trash-icon");
+    // Remove classes in element
+    function removeClasses(element, classes) {
+        for (let i = 0; i < classes.length; i++) {
+            if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
+        }
+    }
 
     // Maximize window
     // function maximizeWindow(maximize, win, width, height) {
@@ -448,24 +231,103 @@ $(document).ready(function() {
     //   });
     // }
 
-    // // Maximize terminal
-    // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
+    /* JQUERY FUNCTIONS */
+    // Toggle launchpad
+    $(".open-menu").on("click", function() {
+        if ($("#launchpad").hasClass("shown start")) closeLaunchpad();
+        else openLaunchpad();
+    });
 
-    // // Maximize terminal
-    // maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
+    // Close launchpad when clicking any launchpad icon
+    $(".launch").click(function() {
+        closeLaunchpad();
+    });
 
-    // // Maximize about me
-    // maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
+    // TODO Improve playlist toggle logic
+    // Show playlist when icon clicked
+    $("#play").click(function(event) {
+        $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 13);
 
-    // // Maximize projects
-    // maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
+        // Bring playlist to front
+        bringToFront("#playlist");
 
-    // // Maximize safari
-    // maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
+        // Show playlist
+        $("#playlist").show();
+        event.stopPropagation();
+    });
 
-    // // Maximize preview
-    // maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
+    // Prevent playlist from closing when clicking on it
+    $("#playlist").mousedown(function(event) {
+        event.stopPropagation();
+    });
 
+    // Hide playlist when click outside
+    $(document).mousedown(function() {
+        $("#playlist").fadeOut(250);
+    });
+
+    // add class to launch while moving/dragging & remove when done
+    // so that the launchpad doesn't close when sorting
+
+    // Close the launchpad when the content is clicked, only if the target is not a link
+    $(document).mouseup(function(event) {
+        var content = $("#launchpad").find(".launch-content"),
+            nav = content.find("nav");
+
+        if (content.is(event.target) || nav.is(event.target)) closeLaunchpad();
+    });
+
+    // Highlight clicked nav item
+    $(".child-nav li", ".sidebar").on("click", function() {
+        $(".child-nav li", ".sidebar").removeClass("active");
+        if (!$(this).hasClass("active")) $(this).addClass("active");
+    });
+
+    // Make GitHub icon bounce on click/tap
+    $("#github-dock").click(function() {
+        bounce(this);
+    });
+
+    // Rotate picture in `profile.jpg` preview
+    $("#rotate").on("click", function() {
+        angle = (angle - 90) % 360;    
+    });
+
+    // Zoom into picture in `profile.jpg` preview
+    $("#zoomIn").on("click", function() {
+        if (zoom < 2.1) {
+            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
+            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
+            zoom += 0.1;
+        } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
+    });
+
+    // Zoom out of picture in `profile.jpg` preview
+    $("#zoomOut").on("click", function() {
+        if (zoom > 0.2) {
+            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
+            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
+            zoom -= 0.1;
+        } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
+    });
+
+    // Apply both zoom and rotation to picture in `profile.jpg` preview
+    $("#zoomOut, #zoomIn, #rotate").on("click", function() {
+        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+    });
+
+    // Empty trash
+    $(".confirm").click(function(event) {
+        new Audio("../assets/audio/empty_trash.mp3").play();
+        event.preventDefault();
+        $("#trash").attr("src", "/assets/images/system/empty_trash.png");
+        $("#trash-icon").off("click");
+    });
+    
     // Toggle bold text in TextEdit
     $("#bold-btn").click(function() {
         $(".text-body").toggleClass("bold");
@@ -480,13 +342,6 @@ $(document).ready(function() {
     $("#underline-btn").click(function() {
         $(".text-body").toggleClass("underline");
     });
-
-    // Remove classes in element
-    function removeClasses(element, classes) {
-        for (let i = 0; i < classes.length; i++) {
-            if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
-        }
-    }
 
     // Toggle left text alignment in TextEdit
     $("#left-btn").click(function() {
@@ -511,6 +366,150 @@ $(document).ready(function() {
         $(".text-body").toggleClass("justify");
         removeClasses(".text-body", [ "center", "left", "right" ]);
     });
+
+    // Center windows on load
+    centerWindow(".windows, .dialogue", "center center-36.5");
+
+    // Show terminal on load
+    $(".mac-terminal").fadeIn(500);
+
+    // Apply draggable to all existing windows
+    makeDraggable(".windows");
+
+    // Make launchpad apps sortable
+    $("#launchNav").sortable();
+    $("#launchNav").disableSelection();
+
+    // Make dialogue draggable
+    $(".dialogue").draggable({
+        cursor: "default",
+        cancel: ".alert-btn",
+        start: function() {
+            bringToFront(this);
+        },
+        // stack: ".windows, .btn, .dialogue",
+        containment: "#main-content",
+        distance: 0,
+    }).on("mousedown", function() {
+        bringToFront(this);
+    });
+
+    // Make folder and file icons draggable
+    $(".btn").draggable({
+        cursor: "default",
+        cancel: false,
+        containment: "#main-content",
+        distance: 0,
+    });
+
+    // Resize certain windows
+    $(".mac-terminal, .email, .notes, .browser, .preview, .resume").resizable({
+        containment: "#main-content",
+        handles: "n, e, s, w, ne, nw, se, sw",
+        animate: true
+    });
+
+    // Open terminal
+    openWindow("#iterm", ".mac-terminal", "inline-block");
+
+    // Open mail
+    openWindow("#mail", ".email", "flex");
+
+    // Open about me
+    openWindow("#text-edit", ".text-edit", "flex");
+
+    // Open projects
+    openWindow("#notes", ".notes", "flex");
+
+    // Open safari
+    openWindow("#safari", ".browser", "flex");
+
+    // Open preview
+    openWindow("#preview", ".preview", "flex");
+
+    // Open resume
+    openWindow("#preview", ".resume", "flex");
+
+    // Open calculator
+    openWindow("#calc", ".calc", "inline-block");
+
+    // Open trash dialogue
+    openWindow("#trash-icon", ".dialogue", "inline-block");
+
+    // Open about me when double-clicking or tapping `about.rtf`
+    openFile("#aboutFile", "#text-edit", ".text-edit", false);
+
+    // Open resume when double-clicking or tapping `resume.pdf`
+    openFile("#resumeFile", "#preview", ".resume", true);
+
+    // Open preview when double-clicking or tapping `profile.jpg`
+    openFile("#profilePic", "#preview", ".preview", true);
+
+    // Launch terminal
+    launchApp("#itermLaunch", ".mac-terminal", "inline-block", "#iterm");
+
+    // Launch mail
+    launchApp("#mailLaunch", ".email", "flex", "#mail");
+
+    // Launch about me
+    launchApp("#textLaunch", ".text-edit", "flex", "#text-edit");
+
+    // Launch projects
+    launchApp("#notesLaunch", ".notes", "block", "#notes");
+
+    // Launch safari
+    launchApp("#safariLaunch", ".browser", "flex", "#safari");
+
+    // Launch calculator
+    launchApp("#calculatorLaunch", ".calc", "inline-block", "#calc");
+
+    // Close terminal
+    closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
+
+    // Close mail
+    closeWindow(".mail-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
+
+    // Close about me
+    closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
+
+    // Close projects
+    closeWindow(".buttons-icon--red", ".notes", "#notes", "55rem", "45rem");
+
+    // Close safari
+    closeWindow(".browser-buttons-icon--red", ".browser", "#safari", "55rem", "45rem");
+
+    // Close calculator
+    closeWindow(".calc-header__op-icon--red", ".calc", "#calc");
+
+    // Close preview
+    closeWindow(".preview-header__op-icon--red", ".preview", "#preview", "55rem", "40rem");
+
+    // Close resume
+    closeWindow(".resume-header__op-icon--red", ".resume", "#preview", "55rem", "55rem");
+
+    // Close trash dialogue
+    closeWindow(".alert-btn", ".dialogue", "#trash-icon");
+
+    // // Maximize terminal
+    // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
+
+    // // Maximize terminal
+    // maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
+
+    // // Maximize about me
+    // maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
+
+    // // Maximize projects
+    // maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
+
+    // // Maximize safari
+    // maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
+
+    // // Maximize preview
+    // maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
+
+    // // Maximize resume
+    // maximizeWindow(".resume-header__op-icon--green", ".resume", "55rem", "55rem");
 });
 
 // Update text color in TextEdit
@@ -551,7 +550,7 @@ var selectProject = function(element) {
 
 // Select project from projects in Notes sidebar
 document.querySelectorAll(".project-name").forEach(function(element) {
-    element.addEventListener("click", function(e) {
-        selectProject(e.target)
+    element.addEventListener("click", function(event) {
+        selectProject(event.target)
     });
 });
