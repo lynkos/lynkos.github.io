@@ -2,7 +2,7 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "test": "node --test",
+        "test": "echo 'Error: no test specified' && exit 1",
         "prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer -b 'defaults' --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
