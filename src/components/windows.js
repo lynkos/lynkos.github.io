@@ -324,7 +324,7 @@ $(document).ready(function() {
     $(".confirm").click(function(event) {
         new Audio("../assets/audio/empty_trash.mp3").play();
         event.preventDefault();
-        $("#trash").attr("src", "/assets/images/system/empty_trash.png");
+        $("#trash").attr("src", "/assets/img/system/empty_trash.png");
         $("#trash-icon").off("click");
     });
     

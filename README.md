@@ -25,7 +25,7 @@
   <summary><a title="Home Page" href="https://lynkos.dev">Home Page</a></summary>
   <div align="center">
     <figure>
-      <picture><img width="100%" alt="Home Page" src="assets/images/misc/demo.png"></picture>
+      <picture><img width="100%" alt="Home Page" src="assets/img/misc/demo.png"></picture>
     </figure>
   </div>
 </details>
@@ -34,7 +34,7 @@
   <summary><a title="404 Error Page" href="https://lynkos.dev/404">404 Error Page</a></summary>
   <div align="center">
     <figure>
-      <picture><img width="100%" alt="404: Error Not Found Page" src="assets/images/misc/404.png"></picture>
+      <picture><img width="100%" alt="404: Error Not Found Page" src="assets/img/misc/404.png"></picture>
     </figure>
   </div>
 </details>
@@ -128,7 +128,7 @@ Includes (but is not limited to):
 > [!NOTE]
 > Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
 
-<img width="100%" alt="Deployment pipeline" src="assets/images/misc/pipeline.png">
+<img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.png">
 
 ### Initial Deployment Setup
 > [!IMPORTANT]
@@ -175,15 +175,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 ├── assets/
 │   ├── audio/
 │   │   └── empty_trash.mp3
-│   ├── favicon/
-│   │   ├── apple-touch-icon.png
-│   │   ├── favicon-96x96.png
-│   │   ├── favicon.ico
-│   │   ├── favicon.svg
-│   │   ├── site.webmanifest
-│   │   ├── web-app-manifest-192x192.png
-│   │   └── web-app-manifest-512x512.png
-│   ├── images/
+│   ├── img/
 │   │   ├── apps/
 │   │   │   ├── calc.png
 │   │   │   ├── discord.png
@@ -197,6 +189,14 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── spotify.png
 │   │   │   ├── steam.png
 │   │   │   └── text_edit.png
+│   │   ├── favicons/
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── favicon-96x96.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon.svg
+│   │   │   ├── site.webmanifest
+│   │   │   ├── web-app-manifest-192x192.png
+│   │   │   └── web-app-manifest-512x512.png
 │   │   ├── icons/
 │   │   │   ├── angles-up-down.svg
 │   │   │   ├── control_center.svg
@@ -259,15 +259,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 ├── assets/
 │   ├── audio/
 │   │   └── empty_trash.mp3
-│   ├── favicon/
-│   │   ├── apple-touch-icon.png
-│   │   ├── favicon-96x96.png
-│   │   ├── favicon.ico
-│   │   ├── favicon.svg
-│   │   ├── site.webmanifest
-│   │   ├── web-app-manifest-192x192.png
-│   │   └── web-app-manifest-512x512.png
-│   ├── images/
+│   ├── img/
 │   │   ├── apps/
 │   │   │   ├── calc.png
 │   │   │   ├── discord.png
@@ -281,6 +273,14 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── spotify.png
 │   │   │   ├── steam.png
 │   │   │   └── text_edit.png
+│   │   ├── favicons/
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── favicon-96x96.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon.svg
+│   │   │   ├── site.webmanifest
+│   │   │   ├── web-app-manifest-192x192.png
+│   │   │   └── web-app-manifest-512x512.png
 │   │   ├── icons/
 │   │   │   ├── angles-up-down.svg
 │   │   │   ├── control_center.svg
