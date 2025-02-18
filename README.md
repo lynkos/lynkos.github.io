@@ -67,7 +67,7 @@ Includes (but is not limited to):
   * Apps are draggable/reorderable
   * Apps are searchable (i.e. type in searchbar to filter)
 * **Calculator**
-  * Fully functional calculator
+  * Functional calculator
   * Supports basic arithmetic operations, including:
     * Addition (**+**)
     * Subtraction (**−**)
@@ -75,18 +75,21 @@ Includes (but is not limited to):
     * Division (**÷**)
     * Modulus (**%**)
 * **Preview**
+  * View my resume
+  * View my profile picture (i.e. `profile.jpg`)
   * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Menubar**
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
-* **Dock**
-  * Clicking/opening any unopened app produces a bouncing effect
 * **Desktop**
   * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
-  * Double-click (or tap, if on mobile) `about.rtf` or `profile.jpg` to open **TextEdit** or **Preview**, respectively
+  * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit**
+  * Double-click (or tap, if on mobile) `profile.jpg` or `resume.pdf` to open **Preview**
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
+* **Dock**
+  * Clicking/opening any unopened app produces a bouncing effect
 * Resizable and movable windows
 
 ## Requirements
