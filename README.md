@@ -162,7 +162,7 @@ Includes (but is not limited to):
 Any message submitted via the Mail form will be sent to *my* email. In order to customize it so that it can be sent to your email, you will have to:
 
 1. [Follow the steps in this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-2. Modify the code within [`<form class="gform">`](https://github.com/lynkos/lynkos.github.io/blob/a4893c3fd85cea5fb716dd63ae8d0e519bd2661e/index.html#L491) (inclusive) in [`index.html`](index.html) accordingly
+2. Modify the code within [`<form class="gform">`](https://github.com/lynkos/lynkos.github.io/blob/4b9c9caad3642f4a59776a62c5e88ddf5d966d84/index.html#L492) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Repository Structure
 > [!NOTE]
@@ -177,7 +177,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   └── dependabot.yml
 ├── assets/
 │   ├── audio/
-│   │   └── empty_trash.mp3
+│   │   └── empty-trash.mp3
 │   ├── img/
 │   │   ├── apps/
 │   │   │   ├── calc.png
@@ -191,7 +191,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── safari.png
 │   │   │   ├── spotify.png
 │   │   │   ├── steam.png
-│   │   │   └── text_edit.png
+│   │   │   └── text-edit.png
 │   │   ├── favicons/
 │   │   │   ├── apple-touch-icon.png
 │   │   │   ├── favicon-96x96.png
@@ -202,7 +202,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   └── web-app-manifest-512x512.png
 │   │   ├── icons/
 │   │   │   ├── angles-up-down.svg
-│   │   │   ├── control_center.svg
+│   │   │   ├── control-center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
 │   │   │   ├── 404.png
@@ -211,9 +211,9 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── pipeline.png
 │   │   │   └── profile.jpg
 │   │   └── system/
-│   │       ├── blue_folder.png
-│   │       ├── empty_trash.png
-│   │       ├── rtf_icon.png
+│   │       ├── blue-folder.png
+│   │       ├── empty-trash.png
+│   │       ├── rtf-icon.png
 │   │       ├── text_file.png
 │   │       └── trash.png
 │   └── stylesheets/
@@ -261,7 +261,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
   <pre>.
 ├── assets/
 │   ├── audio/
-│   │   └── empty_trash.mp3
+│   │   └── empty-trash.mp3
 │   ├── img/
 │   │   ├── apps/
 │   │   │   ├── calc.png
@@ -275,7 +275,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── safari.png
 │   │   │   ├── spotify.png
 │   │   │   ├── steam.png
-│   │   │   └── text_edit.png
+│   │   │   └── text-edit.png
 │   │   ├── favicons/
 │   │   │   ├── apple-touch-icon.png
 │   │   │   ├── favicon-96x96.png
@@ -286,7 +286,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   └── web-app-manifest-512x512.png
 │   │   ├── icons/
 │   │   │   ├── angles-up-down.svg
-│   │   │   ├── control_center.svg
+│   │   │   ├── control-center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
 │   │   │   ├── 404.png
@@ -294,9 +294,9 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── mpc.jpg
 │   │   │   └── profile.jpg
 │   │   └── system/
-│   │       ├── blue_folder.png
-│   │       ├── empty_trash.png
-│   │       ├── rtf_icon.png
+│   │       ├── blue-folder.png
+│   │       ├── empty-trash.png
+│   │       ├── rtf-icon.png
 │   │       ├── text_file.png
 │   │       └── trash.png
 │   └── stylesheets/
