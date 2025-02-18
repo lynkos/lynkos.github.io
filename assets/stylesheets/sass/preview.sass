@@ -2,17 +2,23 @@
 @use "variables" as vars
 
 $window-width: 55rem
-$window-height: 40rem
+$preview-height: 40rem
+$resume-height: 55rem
 $header-height: 5rem
 $icon-size: 1.5rem
 $icon-dim: calc($icon-size + 1rem)
 $header-color: rgb(56, 57, 56)
 
 .preview
+    @include mix.window(rgb(40, 40, 40), $window-width, $preview-height)
+
+.resume
+    @include mix.window(rgb(40, 40, 40), $window-width, $resume-height)
+
+.preview, .resume
     font-family: vars.$font-family
     flex-direction: column
     align-content: stretch
-    @include mix.window(rgb(40, 40, 40), $window-width, $window-height)
 
     &-header
         overflow: hidden
