@@ -81,6 +81,7 @@ Includes (but is not limited to):
 * **Menubar**
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
+  * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
 * **Desktop**
   * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit**

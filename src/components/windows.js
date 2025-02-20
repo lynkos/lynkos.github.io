@@ -43,7 +43,7 @@ $(document).ready(function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, #playlist").map(function() {
+            let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, #playlist, #wifi-menu").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -72,10 +72,10 @@ $(document).ready(function() {
             if ($(element).css("z-index") <= maxZIndex) {
                 $(element).css("z-index", maxZIndex + 1);
 
-                // If not playlist (since it will never be on top of dock and/or launchpad)
-                if (!$(element).is($("#playlist"))) {
-                    // Make sure playlist, dock, and launchpad are always on top
-                    $("#playlist").css("z-index", maxZIndex + 2);
+                // If not playlist or wifi menu (since it will never be on top of dock and/or launchpad)
+                if ((!$(element).is($("#playlist"))) || (!$(element).is($("#wifi-menu")))) {
+                    // Make sure playlist, wifi menu, dock, and launchpad are always on top
+                    $("#playlist, #wifi-menu").css("z-index", maxZIndex + 2);
                     $(".launch-content").css("z-index", maxZIndex + 3);
                     $(".dock").css("z-index", maxZIndex + 4);
 
@@ -212,6 +212,32 @@ $(document).ready(function() {
         }
     }
 
+    // Show menu when icon clicked
+    // TODO Improve toggle logic
+    function showMenu(btn, menu, offset) {
+        $(btn).click(function(event) {
+            // Position menu
+            $(menu).css("left", $(btn).offset().left - $(menu).width() + offset);
+    
+            // Bring menu to front
+            bringToFront(menu);
+    
+            // Show menu
+            $(menu).show();
+            event.stopPropagation();
+        });
+
+        // Prevent menu from closing when clicking on it
+        $(menu).mousedown(function(event) {
+            event.stopPropagation();
+        });
+
+        // Hide menu when click outside
+        $(document).mousedown(function() {
+            $(menu).fadeOut(250);
+        });
+    }
+    
     // Maximize window
     // function maximizeWindow(maximize, win, width, height) {
     //   $(maximize).on("click", function() {
@@ -241,29 +267,6 @@ $(document).ready(function() {
     // Close launchpad when clicking any launchpad icon
     $(".launch").click(function() {
         closeLaunchpad();
-    });
-
-    // TODO Improve playlist toggle logic
-    // Show playlist when icon clicked
-    $("#play").click(function(event) {
-        $("#playlist").css("left", $("#play").offset().left - $("#playlist").width() + 13);
-
-        // Bring playlist to front
-        bringToFront("#playlist");
-
-        // Show playlist
-        $("#playlist").show();
-        event.stopPropagation();
-    });
-
-    // Prevent playlist from closing when clicking on it
-    $("#playlist").mousedown(function(event) {
-        event.stopPropagation();
-    });
-
-    // Hide playlist when click outside
-    $(document).mousedown(function() {
-        $("#playlist").fadeOut(250);
     });
 
     // add class to launch while moving/dragging & remove when done
@@ -408,6 +411,12 @@ $(document).ready(function() {
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
     });
+
+    // Show playlist when icon clicked
+    showMenu("#play", "#playlist", 11);
+
+    // Show wifi menu when icon clicked
+    showMenu("#wifi", "#wifi-menu", 17);
 
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");
