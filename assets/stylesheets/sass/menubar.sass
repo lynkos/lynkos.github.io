@@ -68,70 +68,96 @@ $menubar-icon-size: 1.1rem
       img
         height: calc($menubar-icon-size + 0.1rem)
 
-#playlist, #wifi-menu
+#playlist, #wifi-menu, #apple-menu
   @include mix.menu-dropdown()
+
+#wifi-menu, #apple-menu, #apple-menu .mini-icon
+  font-size: 1.26rem
+
+.position-title
+  display: flex
+  justify-content: space-between
+  padding: 0 calc(vars.$padding * 2)
+
+.option
+  border-radius: vars.$border-radius
+  color: vars.$menubar-font-color
+
+.mini-icon
+  align-self: center
+  color: vars.$font-color
+
+.divider
+  margin: vars.$padding calc(vars.$padding * 2)
+  border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
+  color: vars.$font-color
+
+#apple-menu
+  .option
+    padding: calc(vars.$padding / 4) calc(vars.$padding * 2)
+
+    i
+      color: vars.$menubar-font-color
+      font-size: $menubar-icon-size
+
+    &:first-child
+      margin-top: calc(vars.$padding / 2)
+
+    &:last-child
+      margin-bottom: calc(vars.$padding / 2)
+
+    &:hover
+      background-color: vars.$secondary-button-color
+
+      .mini-icon
+        color: vars.$menubar-font-color
 
 #wifi-menu
   padding: vars.$padding
-  font-size: 1.26rem
 
-  .position-title
-    display: flex
-    justify-content: space-between
-
-  .subtitle, .position-title
-    padding: 0 calc(vars.$padding * 2)
-
-  .subtitle, .select-subtitle
-    font-size: 1.15rem
-    font-weight: 700
-
-  .option
+  .top, .option
     padding: vars.$padding calc(vars.$padding * 2)
 
-  .select-subtitle, .option:last-child
-    padding: calc(vars.$padding / 2) calc(vars.$padding * 2)
-
-  .select-subtitle, .option
-    border-radius: vars.$border-radius
-
-    &:hover
-      background-color: rgba(255, 255, 255, 0.1)
+  .title
+    color: vars.$menubar-font-color
+    font-size: 1.35rem
+    font-weight: 600    
 
   .option
     .icon, .icon-selected
-      background-color: vars.$font-color
       border-radius: 100%
       padding: calc(vars.$padding * 1.25)
 
     .icon-selected
       background-color: vars.$secondary-button-color
 
-  .divider, .subtitle, .mini-icon, .select-subtitle
-    color: vars.$font-color
+    .icon
+      background-color: vars.$font-color
 
-  .mini-icon
-    align-self: center
-    font-size: $menubar-icon-size
+    .mini-icon
+      font-size: $menubar-icon-size
 
-  .divider, .divider-last
-    border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
-
-  .divider
-    margin: vars.$padding calc(vars.$padding * 2)
+    &:hover
+      background-color: rgba(255, 255, 255, 0.1)
 
   .divider-last
     margin: vars.$padding 0
+    border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
 
-  .option, .title
-    color: vars.$menubar-font-color
+  .subtitle, .select-subtitle
+    font-size: 1.15rem
+    font-weight: 700
+    color: vars.$font-color
 
-  .top
-    padding: vars.$padding calc(vars.$padding * 2)
+  .subtitle
+    padding: 0 calc(vars.$padding * 2)
 
-  .title
-    font-size: 1.35rem
-    font-weight: 600    
+  .select-subtitle
+    padding: calc(vars.$padding / 2) calc(vars.$padding * 2)
+    border-radius: vars.$border-radius
+
+    &:hover
+      background-color: rgba(255, 255, 255, 0.1)
 
 #playlist
   .playlist-player, .playlist-buttons

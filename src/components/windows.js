@@ -214,11 +214,9 @@ $(document).ready(function() {
 
     // Show menu when icon clicked
     // TODO Improve toggle logic
-    function showMenu(btn, menu, offset) {
-        $(btn).click(function(event) {
-            // Position menu
-            $(menu).css("left", $(btn).offset().left - $(menu).width() + offset);
-    
+    function showMenu(btn, menu) {
+        // When button is clicked
+        $(btn).click(function(event) {    
             // Bring menu to front
             bringToFront(menu);
     
@@ -238,6 +236,28 @@ $(document).ready(function() {
         });
     }
     
+    function showRightMenu(btn, menu, offset) {
+        // When button is clicked
+        $(btn).click(function() {
+            // Position menu
+            $(menu).css("left", $(btn).offset().left - $(menu).width() + offset);    
+        });
+
+        // Show menu when icon clicked
+        showMenu(btn, menu);
+    }
+
+    function showLeftMenu(btn, menu, offset) {
+        // When button is clicked
+        $(btn).click(function() {
+            // Position menu
+            $(menu).css("left", offset);
+        });
+
+        // Show menu when icon clicked
+        showMenu(btn, menu);
+    }
+
     // Maximize window
     // function maximizeWindow(maximize, win, width, height) {
     //   $(maximize).on("click", function() {
@@ -412,11 +432,24 @@ $(document).ready(function() {
         animate: true
     });
 
-    // Show playlist when icon clicked
-    showMenu("#play", "#playlist", 13);
+    // Show playlist when play icon clicked
+    showRightMenu("#play", "#playlist", 13);
 
-    // Show wifi menu when icon clicked
-    showMenu("#wifi", "#wifi-menu", 13);
+    // Show wifi menu when wifi icon clicked
+    showRightMenu("#wifi", "#wifi-menu", 13);
+
+    // Show wifi menu when apple icon clicked
+    showLeftMenu("#apple", "#apple-menu", 10);
+
+    // Prevent menu from closing when clicking on it
+    $(menu).mousedown(function(event) {
+        event.stopPropagation();
+    });
+
+    // Hide menu when click outside
+    $(document).mousedown(function() {
+        $(menu).fadeOut(250);
+    });
 
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");
