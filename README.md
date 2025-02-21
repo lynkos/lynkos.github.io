@@ -12,6 +12,7 @@
     <img alt="SASS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=SASS&logo=sass&color=CC6699&labelColor=393939&logoColor=CC6699">
     <img alt="PostCSS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=PostCSS&logo=postcss&color=DD3A0A&labelColor=393939&logoColor=DD3A0A">
     <img alt="Autoprefixer" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Autoprefixer&logo=autoprefixer&color=DD3735&labelColor=393939&logoColor=DD3735">
+    <img alt="HTML Minifier" src="https://img.shields.io/static/v1?label=Package&style=flat&message=HTML+Minifier&logo=html5&color=F06529&labelColor=393939&logoColor=F06529">
     <img alt="npm" src="https://img.shields.io/static/v1?label=Package+Manager&style=flat&message=npm&logo=npm&color=CB3837&labelColor=393939&logoColor=CB3837">
     <img alt="GitHub Actions" src="https://img.shields.io/static/v1?label=CI/CD&style=flat&message=GitHub+Actions&logo=github+actions&color=2088FF&labelColor=393939&logoColor=2088FF">
     <br>
@@ -131,7 +132,7 @@ Includes (but is not limited to):
 ## Miscellaneous
 ### Deployment Pipeline
 > [!NOTE]
-> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow
+> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json#L10) for build script
 
 <img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.png">
 
