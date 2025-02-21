@@ -43,7 +43,7 @@ $(document).ready(function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, #playlist, #wifi-menu").map(function() {
+            let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, .menu-dropdown").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -72,10 +72,10 @@ $(document).ready(function() {
             if ($(element).css("z-index") <= maxZIndex) {
                 $(element).css("z-index", maxZIndex + 1);
 
-                // If not playlist or wifi menu (since it will never be on top of dock and/or launchpad)
-                if ((!$(element).is($("#playlist"))) || (!$(element).is($("#wifi-menu")))) {
-                    // Make sure playlist, wifi menu, dock, and launchpad are always on top
-                    $("#playlist, #wifi-menu").css("z-index", maxZIndex + 2);
+                // If not menu dropdown (since it will never be on top of dock and/or launchpad)
+                if (!$(element).hasClass("menu-dropdown")) {
+                    // Make sure menu dropdown, dock, and launchpad are always on top
+                    $(".menu-dropdown").css("z-index", maxZIndex + 2);
                     $(".launch-content").css("z-index", maxZIndex + 3);
                     $(".dock").css("z-index", maxZIndex + 4);
 
@@ -413,10 +413,10 @@ $(document).ready(function() {
     });
 
     // Show playlist when icon clicked
-    showMenu("#play", "#playlist", 11);
+    showMenu("#play", "#playlist", 13);
 
     // Show wifi menu when icon clicked
-    showMenu("#wifi", "#wifi-menu", 17);
+    showMenu("#wifi", "#wifi-menu", 13);
 
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");

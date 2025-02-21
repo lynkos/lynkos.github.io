@@ -13,7 +13,22 @@
 @mixin scale($scale)
     transform-origin: center
     transform: scale($scale)
-        
+
+@mixin menu-dropdown($width: 22rem, $height: auto)
+  display: none
+  position: fixed
+  top: vars.$menubar-height
+  z-index: 1
+  padding: calc(vars.$padding / 2)
+  width: $width
+  height: $height
+  background: rgba(45, 45, 45, 0.55)
+  border-radius: 0.75rem
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
+  backdrop-filter: blur(2.75rem)
+  @include disable-select()
+  @include window-border()
+
 @mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
     width: $width
     height: $height

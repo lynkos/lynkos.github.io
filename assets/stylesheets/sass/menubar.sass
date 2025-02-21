@@ -69,19 +69,7 @@ $menubar-icon-size: 1.1rem
         height: calc($menubar-icon-size + 0.1rem)
 
 #playlist, #wifi-menu
-  display: none
-  position: fixed
-  top: vars.$menubar-height
-  z-index: 1
-  padding: calc(vars.$padding / 2)
-  width: 22rem
-  height: auto
-  background: rgba(45, 45, 45, 0.55)
-  border-radius: 0.75rem
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
-  backdrop-filter: blur(2.75rem)
-  @include mix.disable-select()
-  @include mix.window-border()
+  @include mix.menu-dropdown()
 
 #wifi-menu
   padding: vars.$padding
@@ -156,36 +144,3 @@ $menubar-icon-size: 1.1rem
   i
     color: vars.$menubar-font-color
     font-size: 1.6rem
-
-// .dropdown
-//   position: relative
-//   display: inline-block
-
-// .dropdown-content
-//   font-family: vars.$font-family
-//   color: vars.$menubar-font-color
-//   inline-size: -webkit-min-content
-//   inline-size: -moz-min-content
-//   inline-size: min-content
-//   display: none
-//   position: absolute
-//   min-width: 20rem
-//   overflow: auto
-//   background: rgba(45, 45, 45, 0.5)
-//   box-shadow: vars.$box-shadow
-//   border-radius: 1rem
-//   backdrop-filter: blur(2.25rem)
-//   @include mix.window-border()
-
-//   // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
-  
-//   a
-//     padding: 5px 10px
-//     text-decoration: none
-//     display: block
-
-//     &:hover
-//       background-color: blue
-
-// .show
-//   display: block
