@@ -74,18 +74,18 @@ Includes (but is not limited to):
     * Multiplication (**×**)
     * Division (**÷**)
     * Modulus (**%**)
-* **Preview**
-  * View my resume
-  * View my profile picture (i.e. `profile.jpg`)
-  * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Menubar**
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
   * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
 * **Desktop**
-  * `src`, `about.rtf`, `banner.txt`, and `profile.jpg` are all draggable
-  * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit**
+  * `src`, `about.rtf`, `profile.jpg`, and `resume.pdf` are all draggable
+  * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit** (i.e. my about me)
   * Double-click (or tap, if on mobile) `profile.jpg` or `resume.pdf` to open **Preview**
+* **Preview**
+  * View my resume (i.e. `resume.pdf`)
+  * View my profile picture (i.e. `profile.jpg`)
+  * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
