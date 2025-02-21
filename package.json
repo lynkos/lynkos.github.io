@@ -6,7 +6,8 @@
         "prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer -b 'defaults' --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
-        "build": "npm run build:js & npm run build:css && npm run prefix",
+        "build:html": "html-minifier --input-dir . --output-dir . --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css true",
+        "build": "npm run build:js & npm run build:html & npm run build:css && npm run prefix",
         "dev:js": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env",
         "dev:css": "sass --verbose --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "dev": "npm run dev:js & npm run dev:css"
@@ -29,6 +30,7 @@
         "@babel/preset-env": "^7.26.0",
         "autoprefixer": "^10.4.20",
         "babel-preset-minify": "^0.5.2",
+        "html-minifier": "^4.0.0",
         "nodemon": "^3.1.9",
         "postcss": "^8.5.1",
         "postcss-cli": "^11.0.0",
