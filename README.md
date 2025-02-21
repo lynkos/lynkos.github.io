@@ -217,25 +217,26 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── blue-folder.png
 │   │       ├── empty-trash.png
 │   │       ├── rtf-icon.png
-│   │       ├── text_file.png
+│   │       ├── text-file.png
 │   │       └── trash.png
-│   └── stylesheets/
-│       └── sass/
-│           ├── _mixins.sass
-│           ├── _variables.sass
-│           ├── 404.sass
-│           ├── browser.sass
-│           ├── calculator.sass
-│           ├── dock.sass
-│           ├── launchpad.sass
-│           ├── mail.sass
-│           ├── menubar.sass
-│           ├── notes.sass
-│           ├── preview.sass
-│           ├── style.sass
-│           ├── terminal.sass
-│           ├── text-edit.sass
-│           └── tooltip.sass
+│   ├── stylesheets/
+│   │   └── sass/
+│   │       ├── _mixins.sass
+│   │       ├── _variables.sass
+│   │       ├── 404.sass
+│   │       ├── browser.sass
+│   │       ├── calculator.sass
+│   │       ├── dock.sass
+│   │       ├── launchpad.sass
+│   │       ├── mail.sass
+│   │       ├── menubar.sass
+│   │       ├── notes.sass
+│   │       ├── preview.sass
+│   │       ├── style.sass
+│   │       ├── terminal.sass
+│   │       ├── text-edit.sass
+│   │       └── tooltip.sass
+│   └── resume.pdf
 ├── src/
 │   ├── components/
 │   │   ├── 404.js
@@ -300,23 +301,24 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── blue-folder.png
 │   │       ├── empty-trash.png
 │   │       ├── rtf-icon.png
-│   │       ├── text_file.png
+│   │       ├── text-file.png
 │   │       └── trash.png
-│   └── stylesheets/
-│       └── css/
-│           ├── 404.css
-│           ├── browser.css
-│           ├── calculator.css
-│           ├── dock.css
-│           ├── launchpad.css
-│           ├── mail.css
-│           ├── menubar.css
-│           ├── notes.css
-│           ├── preview.css
-│           ├── style.css
-│           ├── terminal.css
-│           ├── text-edit.css
-│           └── tooltip.css
+│   ├── stylesheets/
+│   │   └── css/
+│   │       ├── 404.css
+│   │       ├── browser.css
+│   │       ├── calculator.css
+│   │       ├── dock.css
+│   │       ├── launchpad.css
+│   │       ├── mail.css
+│   │       ├── menubar.css
+│   │       ├── notes.css
+│   │       ├── preview.css
+│   │       ├── style.css
+│   │       ├── terminal.css
+│   │       ├── text-edit.css
+│   │       └── tooltip.css
+│   └── resume.pdf
 ├── dist/
 │   ├── components/
 │   │   ├── 404.js
