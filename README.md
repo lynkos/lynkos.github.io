@@ -124,19 +124,14 @@ Includes (but is not limited to):
  npm run dev
  ```
 
-### Build Project
- ```sh
- npm run build
- ```
-
-## Miscellaneous
-### Deployment Pipeline
+### Deploy Project
+#### Pipeline
 > [!NOTE]
 > Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json#L10) for build script
 
 <img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.png">
 
-### Initial Deployment Setup
+#### Initial Setup
 > [!IMPORTANT]
 > This subsection is **only applicable** if you are deploying to **GitHub Pages**
 
@@ -161,6 +156,7 @@ Includes (but is not limited to):
 14. Click "Save"
 15. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
 
+## Miscellaneous
 ### Custom Email Form
 Any message submitted via the Mail form will be sent to *my* email. In order to customize it so that it can be sent to your email, you will have to:
 
