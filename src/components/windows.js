@@ -441,16 +441,6 @@ $(document).ready(function() {
     // Show wifi menu when apple icon clicked
     showLeftMenu("#apple", "#apple-menu", 10);
 
-    // Prevent menu from closing when clicking on it
-    $(menu).mousedown(function(event) {
-        event.stopPropagation();
-    });
-
-    // Hide menu when click outside
-    $(document).mousedown(function() {
-        $(menu).fadeOut(250);
-    });
-
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");
 
