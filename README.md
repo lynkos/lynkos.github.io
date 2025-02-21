@@ -127,7 +127,7 @@ Includes (but is not limited to):
 ### Deploy Project
 #### Pipeline
 > [!NOTE]
-> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json#L10) for build script
+> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json) for [build script](package.json#L10) (i.e. `npm run build`)
 
 <img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.png">
 
