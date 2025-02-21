@@ -165,7 +165,11 @@ Includes (but is not limited to):
 Any message submitted via the Mail form will be sent to *my* email. In order to customize it so that it can be sent to your email, you will have to:
 
 1. [Follow the steps in this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-2. Modify the code within [`<form class="gform">`](https://github.com/lynkos/lynkos.github.io/blob/4b9c9caad3642f4a59776a62c5e88ddf5d966d84/index.html#L492) (inclusive) in [`index.html`](index.html) accordingly
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L556) in [`index.html`](index.html) with your own sitekey
+   * Users will not be able to send you messages if you do not complete this step
+   * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
+   * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
+4. Modify the code within [`<form class="gform">`](index.html#L548) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Repository Structure
 > [!NOTE]
@@ -348,3 +352,4 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 * [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
 * [GitHub Actions: Cache](https://github.com/actions/cache)
 * [Set up Sass in the best way](https://remybeumier.be/blog/set-up-sass-in-the-best-way)
+* [Automatically render reCAPTCHA v2 widget](https://developers.google.com/recaptcha/docs/display#auto_render)
