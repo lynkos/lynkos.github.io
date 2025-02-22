@@ -214,9 +214,15 @@ $(document).ready(function() {
 
     // Show menu when icon clicked
     // TODO Improve toggle logic
-    function showMenu(btn, menu) {
+    function showMenu(btn, menu, offset) {
         // When button is clicked
-        $(btn).click(function(event) {    
+        $(btn).click(function(event) {
+            // Select icon; same color as active menu item
+            $(btn).css("background", "rgba(255, 255, 255, 0.2)");
+
+            // Position menu
+            $(menu).css("left", $(btn).offset().left + offset);    
+
             // Bring menu to front
             bringToFront(menu);
     
@@ -233,29 +239,18 @@ $(document).ready(function() {
         // Hide menu when click outside
         $(document).mousedown(function() {
             $(menu).fadeOut(250);
+            $(btn).css("background", "transparent");
         });
     }
     
+    // Show right menu when icon clicked
     function showRightMenu(btn, menu, offset) {
-        // When button is clicked
-        $(btn).click(function() {
-            // Position menu
-            $(menu).css("left", $(btn).offset().left - $(menu).width() + offset);    
-        });
-
-        // Show menu when icon clicked
-        showMenu(btn, menu);
+        showMenu(btn, menu, offset - $(menu).width());
     }
 
-    function showLeftMenu(btn, menu, offset) {
-        // When button is clicked
-        $(btn).click(function() {
-            // Position menu
-            $(menu).css("left", offset);
-        });
-
-        // Show menu when icon clicked
-        showMenu(btn, menu);
+    // Show left menu when icon clicked
+    function showLeftMenu(btn, menu) {
+        showMenu(btn, menu, 0);
     }
 
     // Maximize window
@@ -438,8 +433,14 @@ $(document).ready(function() {
     // Show wifi menu when wifi icon clicked
     showRightMenu("#wifi", "#wifi-menu", 13);
 
-    // Show wifi menu when apple icon clicked
-    showLeftMenu("#apple", "#apple-menu", 10);
+    // Show apple menu when apple icon clicked
+    showLeftMenu("#apple", "#apple-menu");
+
+    // Show finder menu when finder clicked
+    showLeftMenu("#finder", "#finder-menu");
+
+    // Show file menu when file clicked
+    showLeftMenu("#file", "#file-menu");
 
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");

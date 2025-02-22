@@ -10,7 +10,7 @@ $menubar-icon-size: 1.1rem
   font-weight: 400
   padding: 0.2rem
   position: fixed
-  font-size: 1.24rem
+  font-size: vars.$menubar-font-size
   top: 0
   left: 0
   cursor: default
@@ -23,7 +23,7 @@ $menubar-icon-size: 1.1rem
 
   i
     display: contents
-    color: #FFF
+    color: vars.$menubar-font-color
 
   .left, .right
     width: auto
@@ -68,11 +68,8 @@ $menubar-icon-size: 1.1rem
       img
         height: calc($menubar-icon-size + 0.1rem)
 
-#playlist, #wifi-menu, #apple-menu
+#playlist, #wifi-menu, #apple-menu, #finder-menu, #file-menu
   @include mix.menu-dropdown()
-
-#wifi-menu, #apple-menu, #apple-menu .mini-icon
-  font-size: 1.26rem
 
 .position-title
   display: flex
@@ -83,22 +80,22 @@ $menubar-icon-size: 1.1rem
   border-radius: vars.$border-radius
   color: vars.$menubar-font-color
 
+.disabled, .mini-icon, .divider
+  color: vars.$font-color
+
 .mini-icon
   align-self: center
-  color: vars.$font-color
 
 .divider
   margin: vars.$padding calc(vars.$padding * 2)
   border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
-  color: vars.$font-color
 
-#apple-menu
-  .option
+#apple-menu, #finder-menu, #file-menu
+  i
+    font-size: $menubar-icon-size
+    
+  .option, .disabled
     padding: calc(vars.$padding / 4) calc(vars.$padding * 2)
-
-    i
-      color: vars.$menubar-font-color
-      font-size: $menubar-icon-size
 
     &:first-child
       margin-top: calc(vars.$padding / 2)
@@ -106,11 +103,25 @@ $menubar-icon-size: 1.1rem
     &:last-child
       margin-bottom: calc(vars.$padding / 2)
 
+  .option
+    i
+      color: vars.$menubar-font-color
+
     &:hover
       background-color: vars.$secondary-button-color
 
       .mini-icon
         color: vars.$menubar-font-color
+
+  .disabled
+    i
+      color: vars.$font-color
+
+    &:hover
+      background-color: transparent
+
+    .mini-icon
+      color: vars.$font-color
 
 #wifi-menu
   padding: vars.$padding
