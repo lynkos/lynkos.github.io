@@ -79,7 +79,7 @@ Includes (but is not limited to):
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
   * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
-  * Click the Apple icon in the upper-left corner of the menubar to open the Apple menu
+  * Click any of the tabs in the upper-left corner of the menubar to open its respective dropdown
 * **Desktop**
   * `src`, `about.rtf`, `profile.jpg`, and `resume.pdf` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit** (i.e. my about me)
