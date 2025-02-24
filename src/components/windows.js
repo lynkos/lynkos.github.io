@@ -445,6 +445,18 @@ $(document).ready(function() {
     // Show edit menu when edit clicked
     showLeftMenu("#edit", "#edit-menu");
 
+    // Show view menu when view clicked
+    showLeftMenu("#view", "#view-menu");
+
+    // Show go menu when go clicked
+    showLeftMenu("#go", "#go-menu");
+
+    // Show window menu when window clicked
+    showLeftMenu("#window", "#window-menu");
+
+    // Show help menu when help clicked
+    showLeftMenu("#help", "#help-menu");
+
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");
 
