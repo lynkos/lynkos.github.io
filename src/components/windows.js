@@ -442,6 +442,9 @@ $(document).ready(function() {
     // Show file menu when file clicked
     showLeftMenu("#file", "#file-menu");
 
+    // Show edit menu when edit clicked
+    showLeftMenu("#edit", "#edit-menu");
+
     // Open terminal
     openWindow("#iterm", ".mac-terminal", "inline-block");
 
