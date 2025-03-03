@@ -1,9 +1,10 @@
 @use "mixins" as mix
 @use "variables" as vars
 
-$window-width: 55rem
 $preview-height: 40rem
-$resume-height: 55rem
+$preview-width: 50rem
+$resume-height: 70vh // 55rem
+$resume-width: 75vw // 55rem
 $resume-min-width: 41rem
 $resume-min-height: 20rem
 $header-height: 5rem
@@ -12,10 +13,10 @@ $icon-dim: calc($icon-size + 1rem)
 $header-color: rgb(56, 57, 56)
 
 .preview
-    @include mix.window(rgb(40, 40, 40), $window-width, $preview-height)
+    @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height)
 
 .resume
-    @include mix.window(rgb(40, 40, 40), $window-width, $resume-height, $resume-min-width, $resume-min-height)
+    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height)
 
 .preview, .resume
     font-family: vars.$font-family
