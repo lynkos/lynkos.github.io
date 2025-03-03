@@ -141,7 +141,7 @@ $(document).ready(function() {
         });
     }
 
-    // Show file when clicking on desktop icon (i.e. icon that isn't in dock)
+    // Show file when clicking on desktop icon
     function showFile(icon, win, inDock) {
         if ($(win).css("display") === "none") $(win).css("display", "flex");
         bringToFront(win);
@@ -193,7 +193,7 @@ $(document).ready(function() {
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
             if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
 
-            // Make sure preview dock icon ONLY disappears if both `profile.jpg` and `resume.pdf` are closed
+            // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
             if ((dockIcon === "#preview" && (!$(".preview").hasClass("openWindow") && !$(".resume").hasClass("openWindow"))) || (dockIcon === "#calc")) $(dockIcon).fadeOut(150);
             // if ($(win).hasClass("maximize")) {
             //   $(win).css("width", width);
@@ -217,8 +217,21 @@ $(document).ready(function() {
     function showMenu(btn, menu, offset) {
         // When button is clicked
         $(btn).click(function(event) {
+            
             // Select icon; same color as active menu item
-            $(btn).css("background", "rgba(255, 255, 255, 0.2)");
+            // if ($(btn).hasClass("selected-menu")) {
+                
+            //     $(btn).css("background", "transparent");
+            // }
+            // else {
+            //     //$(btn).addClass("selected-menu");
+            //     $(btn).css("background", "rgba(255, 255, 255, 0.2)");
+            // }
+
+            $(btn).toggleClass("selected-menu");
+
+            // Change background color of icon
+            // $(btn).css("background", "rgba(255, 255, 255, 0.2)");
 
             // Position menu
             $(menu).css("left", $(btn).offset().left + offset);    
@@ -239,7 +252,8 @@ $(document).ready(function() {
         // Hide menu when click outside
         $(document).mousedown(function() {
             $(menu).fadeOut(250);
-            $(btn).css("background", "transparent");
+            $(btn).removeClass("selected-menu");
+            //$(btn).css("background", "transparent");
         });
     }
     
@@ -306,12 +320,12 @@ $(document).ready(function() {
         bounce(this);
     });
 
-    // Rotate picture in `profile.jpg` preview
+    // Rotate picture in `profile.webp` preview
     $("#rotate").on("click", function() {
         angle = (angle - 90) % 360;    
     });
 
-    // Zoom into picture in `profile.jpg` preview
+    // Zoom into picture in `profile.webp` preview
     $("#zoomIn").on("click", function() {
         if (zoom < 2.1) {
             if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
@@ -320,7 +334,7 @@ $(document).ready(function() {
         } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
     });
 
-    // Zoom out of picture in `profile.jpg` preview
+    // Zoom out of picture in `profile.webp` preview
     $("#zoomOut").on("click", function() {
         if (zoom > 0.2) {
             if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
@@ -329,7 +343,7 @@ $(document).ready(function() {
         } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
     });
 
-    // Apply both zoom and rotation to picture in `profile.jpg` preview
+    // Apply both zoom and rotation to picture in `profile.webp` preview
     $("#zoomOut, #zoomIn, #rotate").on("click", function() {
         $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
         $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
@@ -342,7 +356,7 @@ $(document).ready(function() {
     $(".confirm").click(function(event) {
         new Audio("../assets/audio/empty-trash.mp3").play();
         event.preventDefault();
-        $("#trash").attr("src", "/assets/img/system/empty-trash.png");
+        $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
         $("#trash-icon").off("click");
     });
     
@@ -490,7 +504,7 @@ $(document).ready(function() {
     // Open resume when double-clicking or tapping `resume.pdf`
     openFile("#resumeFile", "#preview", ".resume", true);
 
-    // Open preview when double-clicking or tapping `profile.jpg`
+    // Open preview when double-clicking or tapping `profile.webp`
     openFile("#profilePic", "#preview", ".preview", true);
 
     // Launch terminal
