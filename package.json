@@ -46,7 +46,7 @@
         "node": "current"
     },
     "browserslist": [
-        "> 0.1%",
+        ">= 1%",
         "not dead",
         "not op_mini all",
         "Android >= 11",
