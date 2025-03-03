@@ -75,13 +75,13 @@
     <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/browser.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.min.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" defer>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" defer></script>
   </head>
@@ -112,7 +112,7 @@
       <main>
         <a id="playlist" class="menu-dropdown" target="_blank" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true">
           <div class="playlist-player">
-            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" loading="lazy" alt="Spotify playlist">  
+            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" alt="Spotify playlist">  
           </div>
           <div class="playlist-buttons">
             <i alt="Previous button" class="fas fa-backward" aria-hidden="true"></i>
@@ -914,7 +914,6 @@
               <span class="subject"><label for="from">From</label><span class="right"><input id="from" name="from" type="email" required></span></span>
               <span class="subject"><label for="subject">Subject</label><span class="right"><input id="subject" name="subject" type="text"></span></span>
               <span class="honeypot-field">
-                <label for="honeypot">Honeypot technique with hidden text field to reduce spam. Must be empty to submit, else user is assumed to be a bot.</label>
                 <input id="honeypot" type="text" name="honeypot" value="">
               </span>
             </div>
