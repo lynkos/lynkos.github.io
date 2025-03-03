@@ -10,12 +10,6 @@ $scrollbar-width: 0.75rem
 :root
   background-attachment: fixed
 
-*, *::before, *::after
-  outline: none
-  margin: 0
-  padding: 0
-  box-sizing: border-box
-
 html
   font-size: 60%
 
@@ -60,7 +54,6 @@ body
   font-optical-sizing: auto
   // -webkit-font-smoothing: antialiased
   // -moz-osx-font-smoothing: grayscale
-  line-height: 1.8
   color: vars.$font-color
   background-color: vars.$background-color
   background-image: vars.$background-gradient
@@ -71,11 +64,6 @@ body
   background-attachment: fixed
   display: flex
   flex-direction: column
-  
-a
-  text-decoration: none
-  color: vars.$secondary-font-color
-  cursor: pointer
 
 canvas
   width: 100vw !important
@@ -119,7 +107,6 @@ canvas
     img
       -o-object-fit: contain
       object-fit: contain
-      max-width: 100%
       display: block
       width: $folder-dim
       height: $folder-dim

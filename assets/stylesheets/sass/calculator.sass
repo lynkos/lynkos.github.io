@@ -6,60 +6,103 @@ $button-size: 4.2rem
 $width: 20rem
 $height: min-content
 
-.button
-  height: $button-size
-  width: $button-size
-  margin: calc($button-size / 15)
-  font-family: vars.$font-family
-  display: flex
-  align-items: center
-  justify-content: center
-  border-radius: 50%
-  color: white
-  text-align: center
-  cursor: default
-
-.yellow, .light-grey
-  font-weight: 200
-
-.yellow
-  background-color: rgb(241, 154, 55)
-
-  &:active
-    background-color: rgb(244, 201, 149)
-
-.dark-grey
-  background-color: rgb(81, 83, 81)
-  font-weight: 300
-
-  &:active
-    background-color: rgb(129, 131, 129)
-
-.light-grey
-  background-color: rgb(113, 111, 113)
-
-  &:active
-    background-color: rgb(142, 144, 142)
-
 .calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
   @include mix.disable-select()
   backdrop-filter: blur(1.5rem)
   padding: 0 calc(vars.$padding / 2) calc(vars.$padding / 2) calc(vars.$padding / 2)
 
-  .screen
-    height: 3.25rem
-    width: 100%
-    overflow: hidden
-    cursor: default
-    text-align: right
-    color: white
-    background: transparent
-    margin-top: calc(vars.$padding * 2)
-    margin-bottom: vars.$padding
+  .screen-parent
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    line-height: 1
 
-    &:focus
-      outline: none
+    .screen
+      display: block
+      font-size: 3rem
+      min-height: 3.25rem
+      line-height: 1
+      padding-inline: calc(vars.$padding * 2)
+      height: 3.25rem
+      width: 100%
+      overflow: hidden
+      cursor: default
+      text-align: right
+      color: white
+      background: transparent
+      margin-top: calc(vars.$padding * 2)
+      margin-bottom: vars.$padding
+
+      &:focus
+        outline: none
+
+  &-buttons
+    display: grid
+    margin-top: 0.5rem
+    padding: 0.375rem
+    grid-template-columns: repeat(4, minmax(0, 1fr))
+    grid-template-rows: repeat(5, minmax(0, 1fr))
+    gap: 1px
+
+    .button
+      @include mix.disable-select()
+      height: $button-size
+      width: $button-size
+      margin: calc($button-size / 15)
+      font-family: vars.$font-family
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 50%
+      color: white
+      text-align: center
+      cursor: default
+
+    .dark-grey, .light-grey
+      font-size: 1.875rem
+      line-height: 2.25rem
+
+    .yellow, .light-grey
+      font-weight: 200
+
+    .yellow
+      background-color: rgb(241, 154, 55)
+      font-size: 2.25rem
+      line-height: 2.5rem
+
+      &:active
+        background-color: rgb(244, 201, 149)
+
+    .dark-grey
+      background-color: rgb(81, 83, 81)
+      font-weight: 300
+
+      &:active
+        background-color: rgb(129, 131, 129)
+
+    .light-grey
+      background-color: rgb(113, 111, 113)
+
+      &:active
+        background-color: rgb(142, 144, 142)
+
+    .invert-button
+      font-size: 1.5rem
+      line-height: 2rem
+      letter-spacing: -0.05em
+      cursor: default
+
+      sup, sub, span
+        pointer-events: none
+      
+      sup
+        position: relative
+        left: 0.125rem
+
+      sub
+        position: relative
+        right: 0.125rem
 
   .calc-header
     @include mix.header(none, 3rem)
