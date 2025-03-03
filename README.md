@@ -26,7 +26,7 @@
   <summary><a title="Home Page" href="https://lynkos.dev">Home Page</a></summary>
   <div align="center">
     <figure>
-      <picture><img width="100%" alt="Home Page" src="assets/img/misc/demo.png"></picture>
+      <picture><img width="100%" alt="Home Page" src="assets/img/misc/demo.webp"></picture>
     </figure>
   </div>
 </details>
@@ -35,7 +35,7 @@
   <summary><a title="404 Error Page" href="https://lynkos.dev/404">404 Error Page</a></summary>
   <div align="center">
     <figure>
-      <picture><img width="100%" alt="404: Error Not Found Page" src="assets/img/misc/404.png"></picture>
+      <picture><img width="100%" alt="404: Error Not Found Page" src="assets/img/misc/404.webp"></picture>
     </figure>
   </div>
 </details>
@@ -81,12 +81,12 @@ Includes (but is not limited to):
   * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
   * Click any of the tabs in the upper-left corner of the menubar to open its respective dropdown
 * **Desktop**
-  * `src`, `about.rtf`, `profile.jpg`, and `resume.pdf` are all draggable
+  * `src`, `about.rtf`, `profile.webp`, and `resume.pdf` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit** (i.e. my about me)
-  * Double-click (or tap, if on mobile) `profile.jpg` or `resume.pdf` to open **Preview**
+  * Double-click (or tap, if on mobile) `profile.webp` or `resume.pdf` to open **Preview**
 * **Preview**
   * View my resume (i.e. `resume.pdf`)
-  * View my profile picture (i.e. `profile.jpg`)
+  * View my profile picture (i.e. `profile.webp`)
   * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
@@ -129,7 +129,7 @@ Includes (but is not limited to):
 > [!NOTE]
 > Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json) for [build script](package.json#L10) (i.e. `npm run build`)
 
-<img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.png">
+<img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.webp">
 
 #### Initial Setup
 > [!IMPORTANT]
@@ -183,18 +183,18 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   └── empty-trash.mp3
 │   ├── img/
 │   │   ├── apps/
-│   │   │   ├── calc.png
-│   │   │   ├── discord.png
+│   │   │   ├── calc.webp
+│   │   │   ├── discord.webp
 │   │   │   ├── github.svg
-│   │   │   ├── iterm.png
-│   │   │   ├── launchpad.png
-│   │   │   ├── mail.png
-│   │   │   ├── notes.png
-│   │   │   ├── preview.png
-│   │   │   ├── safari.png
-│   │   │   ├── spotify.png
-│   │   │   ├── steam.png
-│   │   │   └── text-edit.png
+│   │   │   ├── iterm.webp
+│   │   │   ├── launchpad.webp
+│   │   │   ├── mail.webp
+│   │   │   ├── notes.webp
+│   │   │   ├── preview.webp
+│   │   │   ├── safari.webp
+│   │   │   ├── spotify.webp
+│   │   │   ├── steam.webp
+│   │   │   └── text-edit.webp
 │   │   ├── favicons/
 │   │   │   ├── apple-touch-icon.png
 │   │   │   ├── favicon-96x96.png
@@ -208,17 +208,17 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── control-center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
-│   │   │   ├── 404.png
-│   │   │   ├── demo.png
-│   │   │   ├── mpc.jpg
-│   │   │   ├── pipeline.png
-│   │   │   └── profile.jpg
+│   │   │   ├── 404.webp
+│   │   │   ├── demo.webp
+│   │   │   ├── mpc.webp
+│   │   │   ├── pipeline.webp
+│   │   │   └── profile.webp
 │   │   └── system/
-│   │       ├── blue-folder.png
-│   │       ├── empty-trash.png
-│   │       ├── rtf-icon.png
-│   │       ├── text-file.png
-│   │       └── trash.png
+│   │       ├── blue-folder.webp
+│   │       ├── empty-trash.webp
+│   │       ├── rtf-icon.webp
+│   │       ├── text-file.webp
+│   │       └── trash.webp
 │   ├── stylesheets/
 │   │   └── sass/
 │   │       ├── _mixins.sass
@@ -268,18 +268,18 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   └── empty-trash.mp3
 │   ├── img/
 │   │   ├── apps/
-│   │   │   ├── calc.png
-│   │   │   ├── discord.png
+│   │   │   ├── calc.webp
+│   │   │   ├── discord.webp
 │   │   │   ├── github.svg
-│   │   │   ├── iterm.png
-│   │   │   ├── launchpad.png
-│   │   │   ├── mail.png
-│   │   │   ├── notes.png
-│   │   │   ├── preview.png
-│   │   │   ├── safari.png
-│   │   │   ├── spotify.png
-│   │   │   ├── steam.png
-│   │   │   └── text-edit.png
+│   │   │   ├── iterm.webp
+│   │   │   ├── launchpad.webp
+│   │   │   ├── mail.webp
+│   │   │   ├── notes.webp
+│   │   │   ├── preview.webp
+│   │   │   ├── safari.webp
+│   │   │   ├── spotify.webp
+│   │   │   ├── steam.webp
+│   │   │   └── text-edit.webp
 │   │   ├── favicons/
 │   │   │   ├── apple-touch-icon.png
 │   │   │   ├── favicon-96x96.png
@@ -293,16 +293,16 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   │   ├── control-center.svg
 │   │   │   └── terminal.svg
 │   │   ├── misc/
-│   │   │   ├── 404.png
-│   │   │   ├── demo.png
-│   │   │   ├── mpc.jpg
-│   │   │   └── profile.jpg
+│   │   │   ├── 404.webp
+│   │   │   ├── demo.webp
+│   │   │   ├── mpc.webp
+│   │   │   └── profile.webp
 │   │   └── system/
-│   │       ├── blue-folder.png
-│   │       ├── empty-trash.png
-│   │       ├── rtf-icon.png
-│   │       ├── text-file.png
-│   │       └── trash.png
+│   │       ├── blue-folder.webp
+│   │       ├── empty-trash.webp
+│   │       ├── rtf-icon.webp
+│   │       ├── text-file.webp
+│   │       └── trash.webp
 │   ├── stylesheets/
 │   │   └── css/
 │   │       ├── 404.css

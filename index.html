@@ -46,23 +46,23 @@
     <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
     <link rel="preload" as="image" href="/assets/img/apps/github.svg">
-    <link rel="preload" as="image" href="/assets/img/apps/iterm.png">
-    <link rel="preload" as="image" href="/assets/img/apps/launchpad.png">
-    <link rel="preload" as="image" href="/assets/img/apps/mail.png">
-    <link rel="preload" as="image" href="/assets/img/apps/notes.png">
-    <link rel="preload" as="image" href="/assets/img/apps/safari.png">
-    <link rel="preload" as="image" href="/assets/img/apps/text-edit.png">
+    <link rel="preload" as="image" href="/assets/img/apps/iterm.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/launchpad.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/mail.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/notes.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/safari.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/text-edit.webp">
     <link rel="preload" as="image" href="/assets/img/icons/control-center.svg">
     <link rel="preload" as="image" href="/assets/img/icons/terminal.svg">
-    <link rel="preload" as="image" href="/assets/img/misc/profile.jpg">
-    <link rel="preload" as="image" href="/assets/img/system/blue-folder.png">
-    <link rel="preload" as="image" href="/assets/img/system/pdf.png">
-    <link rel="preload" as="image" href="/assets/img/system/rtf-icon.png">
-    <link rel="preload" as="image" href="/assets/img/system/trash.png">
+    <link rel="preload" as="image" href="/assets/img/misc/profile.webp">
+    <link rel="preload" as="image" href="/assets/img/system/blue-folder.webp">
+    <link rel="preload" as="image" href="/assets/img/system/pdf.webp">
+    <link rel="preload" as="image" href="/assets/img/system/rtf-icon.webp">
+    <link rel="preload" as="image" href="/assets/img/system/trash.webp">
 
     <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
     <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script">
-    <link rel="preload" href="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" as="script">
+    <!-- <link rel="preload" href="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" as="script"> -->
     <link rel="preload" href="/dist/components/windows.js" as="script">
     <link rel="preload" href="/dist/utilities/timestamp.js" as="script">
 
@@ -74,13 +74,13 @@
     <link rel="stylesheet" href="/assets/stylesheets/css/notes.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/browser.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.min.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.min.css" defer>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" defer>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" defer>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" defer></script>
@@ -112,7 +112,7 @@
       <main>
         <a id="playlist" class="menu-dropdown" target="_blank" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true">
           <div class="playlist-player">
-            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" alt="Spotify">  
+            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" loading="lazy" alt="Spotify playlist">  
           </div>
           <div class="playlist-buttons">
             <i alt="Previous button" class="fas fa-backward" aria-hidden="true"></i>
@@ -547,31 +547,23 @@
 
         <div class="folder">
           <button class="folder-button btn">
-            <div class="folder-button-item">
-              <img src="/assets/img/system/blue-folder.png" alt="src" draggable="true">
-              <span>src</span>
-            </div>
+            <img src="/assets/img/system/blue-folder.webp" alt="src" draggable="true">
+            <span>src</span>
           </button>
 
           <button class="folder-button btn" id="aboutFile">
-            <div class="folder-button-item">
-              <img src="/assets/img/system/rtf-icon.png" alt="about.rtf" draggable="true">
-              <span>about.rtf</span>
-            </div>
+            <img src="/assets/img/system/rtf-icon.webp" alt="about.rtf" draggable="true">
+            <span>about.rtf</span>
           </button>
 
           <button class="folder-button btn" id="profilePic">
-            <div class="folder-button-item">
-              <img src="/assets/img/misc/profile.jpg" class="image" alt="profile.jpg" draggable="true">
-              <span>profile.jpg</span>
-            </div>
+            <img src="/assets/img/misc/profile.webp" class="image" alt="profile.webp" draggable="true">
+            <span>profile.jpg</span>
           </button>
 
           <button class="folder-button btn" id="resumeFile">
-            <div class="folder-button-item">
-              <img src="/assets/img/system/pdf.png" alt="resume.pdf" draggable="true">
-              <span>resume.pdf</span>
-            </div>
+            <img src="/assets/img/system/pdf.webp" alt="resume.pdf" draggable="true">
+            <span>resume.pdf</span>
           </button>
         </div>
 
@@ -732,7 +724,7 @@
               <span class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
               <span class="text-edit-header__op-icon text-edit-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
             </div>
-            <div class="text-edit-header__title"><img src="/assets/img/system/rtf-icon.png" alt="RTF Icon" draggable="false">about.rtf</div>
+            <div class="text-edit-header__title"><img src="/assets/img/system/rtf-icon.webp" alt="RTF Icon" loading="lazy" draggable="false">about.rtf</div>
             <div class="text-edit-header__empty"></div>
           </div>
 
@@ -1174,8 +1166,8 @@
                       <a href="https://github.com/lynkos/lynkos.github.io" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>macOS Sequoia-inspired personal website</p><br>
-                    <img loading="lazy" src="/assets/img/misc/demo.png" alt="Screenshot of home page"><br>
-                    <img loading="lazy" src="/assets/img/misc/404.png" alt="Screenshot of 404 Page"><br>
+                    <img loading="lazy" src="/assets/img/misc/demo.webp" alt="Screenshot of home page"><br>
+                    <img loading="lazy" src="/assets/img/misc/404.webp" alt="Screenshot of 404 Page"><br>
                     <p>Includes (but not limited to) the following features:</p>
                     <ul>
                       <li>Mail</li>
@@ -1337,7 +1329,7 @@
                       <a href="https://github.com/lericemautech/Q-SECURE" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</p><br>
-                    <img loading="lazy" src="/assets/img/misc/mpc.jpg" alt="System design of MPC"><br>
+                    <img loading="lazy" src="/assets/img/misc/mpc.webp" alt="System design of MPC"><br>
                     <ol>
                       <li>Split each of <code>N</code> massive matrices into submatrices</li>
                       <li>Homomorphically encrypt the submatrices and disperse evenly among <code>M</code> Internet of Things (IoT) devices</li>
@@ -2512,7 +2504,7 @@
             <span class="inactive preview-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
           <div class="preview-body">
-            <img id="fullProfilePic" src="/assets/img/misc/profile.jpg" draggable="false" alt="Profile picture">
+            <img id="fullProfilePic" src="/assets/img/misc/profile.webp" draggable="false" alt="Profile picture">
           </div>
         </div>
 
@@ -2544,23 +2536,23 @@
             <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
-              <a class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.png" draggable="true" alt="Mail"> Mail</a>
-              <a class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.png" draggable="true" alt="Safari"> Safari</a>
-              <a class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.png" draggable="true" alt="Notes"> Notes</a>
-              <a class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.png" draggable="true" alt="TextEdit"> TextEdit</a>
-              <a class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.png" draggable="true" alt="iTerm"> iTerm</a>
-              <a class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.png" draggable="true" alt="Calculator"> Calculator</a>
-              <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" alt="GitHub"> GitHub</a>
-              <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.png" draggable="true" alt="Spotify"> Spotify</a>
-              <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.png" draggable="true" alt="Steam"> Steam</a>
-              <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.png" draggable="true" alt="Discord"> Discord</a>
+              <a class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" alt="Mail"> Mail</a>
+              <a class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" alt="Safari"> Safari</a>
+              <a class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" alt="Notes"> Notes</a>
+              <a class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" alt="TextEdit"> TextEdit</a>
+              <a class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" alt="iTerm"> iTerm</a>
+              <a class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" alt="Calculator"> Calculator</a>
+              <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" alt="GitHub"> GitHub</a>
+              <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" alt="Spotify"> Spotify</a>
+              <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" alt="Steam"> Steam</a>
+              <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" alt="Discord"> Discord</a>
             </nav>
           </div>
         </div>
 
         <div class="dialogue">
           <div class="pp-body">
-            <img src="/assets/img/system/trash.png" draggable="false" alt="Icon of a filled trash can">
+            <img src="/assets/img/system/trash.webp" draggable="false" alt="Icon of a filled trash can">
             <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
             <div class="hint">You can't undo this action.</div>
             <div class="actions">
@@ -2574,19 +2566,19 @@
 
     <footer>
       <div class="dock">
-        <div class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/launchpad.png" draggable="false" alt="Launchpad"></div>
-        <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/mail.png" draggable="false" alt="Mail"></div>
-        <div id="safari" class="icon" aria-label="Safari" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/safari.png" draggable="false" alt="Safari"></div>
-        <div id="notes" class="icon" aria-label="Notes" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/notes.png" draggable="false" alt="Notes"></div>
-        <div id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="/assets/img/apps/text-edit.png" draggable="false" alt="Notes"></div>
-        <div id="iterm" class="icon open" aria-label="iTerm" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/iterm.png" draggable="false" alt="iTerm"></div>
-        <div id="calc" style="display: none" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/calc.png" draggable="false" alt="Calculator"></div>
-        <div id="preview" style="display: none" class="icon" aria-label="Preview" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/preview.png" draggable="false" alt="Preview"></div>
+        <div class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/launchpad.webp" draggable="false" alt="Launchpad"></div>
+        <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/mail.webp" draggable="false" alt="Mail"></div>
+        <div id="safari" class="icon" aria-label="Safari" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/safari.webp" draggable="false" alt="Safari"></div>
+        <div id="notes" class="icon" aria-label="Notes" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/notes.webp" draggable="false" alt="Notes"></div>
+        <div id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="/assets/img/apps/text-edit.webp" draggable="false" alt="Notes"></div>
+        <div id="iterm" class="icon open" aria-label="iTerm" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/iterm.webp" draggable="false" alt="iTerm"></div>
+        <div id="calc" style="display: none" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" alt="Calculator"></div>
+        <div id="preview" style="display: none" class="icon" aria-label="Preview" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" alt="Preview"></div>
         <a target="_blank" href="https://github.com/lynkos" draggable="false">
           <div id="github-dock" class="icon" aria-label="GitHub" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/github.svg" draggable="false" alt="GitHub"></div>
         </a>
         <div class="divider" style="margin: 0 0.25rem 0 0.5rem;"></div>
-        <div id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" style="width: 4.6rem !important; margin-top: 0.1rem; image-rendering: smooth;" src="/assets/img/system/trash.png" draggable="false" alt="Trash"></div>
+        <div id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" style="width: 4.6rem !important; margin-top: 0.1rem; image-rendering: smooth;" src="/assets/img/system/trash.webp" draggable="false" alt="Trash"></div>
       </div>
     </footer>
 

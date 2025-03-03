@@ -87,7 +87,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: prod
-          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.png,assets/stylesheets/sass'
+          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.webp,assets/stylesheets/sass'
           publish_dir: .
           cname: lynkos.dev
           disable_nojekyll: true
