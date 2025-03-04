@@ -81,12 +81,12 @@ Includes (but is not limited to):
   * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
   * Click any of the tabs in the upper-left corner of the menubar to open its respective dropdown
 * **Desktop**
-  * `src`, `about.rtf`, `profile.webp`, and `resume.pdf` are all draggable
+  * `src`, `about.rtf`, `profile.jpg`, and `resume.pdf` are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit** (i.e. my about me)
-  * Double-click (or tap, if on mobile) `profile.webp` or `resume.pdf` to open **Preview**
+  * Double-click (or tap, if on mobile) `profile.jpg` or `resume.pdf` to open **Preview**
 * **Preview**
   * View my resume (i.e. `resume.pdf`)
-  * View my profile picture (i.e. `profile.webp`)
+  * View my profile picture (i.e. `profile.jpg`)
   * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
@@ -124,48 +124,59 @@ Includes (but is not limited to):
  npm run dev
  ```
 
-### Deploy Project
-#### Pipeline
+### Build Environment
+ ```sh
+ npm run build
+ ```
+
+### Deploy to Production
 > [!NOTE]
 > Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json) for [build script](package.json#L10) (i.e. `npm run build`)
 
 <img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.webp">
 
 #### Initial Setup
-> [!IMPORTANT]
-> This subsection is **only applicable** if you are deploying to **GitHub Pages**
-
-1. Create `prod` branch (if you haven't already)
-2. Generate SSH key
+1. Create `prod` branch
+    ```sh
+    git checkout -b prod
+    ```
+2. Push `prod` branch to remote (i.e. GitHub)
+    ```sh
+    git push -u origin prod
+    ```
+3. Generate SSH key
    ```sh
    ssh-keygen -t ed25519 -C "$(git config user.email)" -f gh-pages -N ""
    ```
-3. Go to your repository's "Deploy keys" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
-4. Click "Add deploy key"
-5. Enter `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
-6. Check "Allow write access"
-7. Click "Add key"
-8. Go to your repository's "Actions secrets and variables" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
-9. Click "New repository secret"
-10. Enter `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
-11. Click "Add secret"
-12. Go to your repository's "Pages" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
-13. Under "Build and deployment", select the following:
+4. Go to your repository's "Deploy keys" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
+5. Click "Add deploy key"
+6. Enter `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
+7. Check "Allow write access"
+8. Click "Add key"
+9. Go to your repository's "Actions secrets and variables" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
+10.  Click "New repository secret"
+11. Enter `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
+12. Click "Add secret"
+13. Go to your repository's "Pages" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
+14. Under "Build and deployment", select the following:
     * **Source**: "Deploy from a branch"
     * **Branch**: `prod` and `/ (root)`
-14. Click "Save"
-15. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
+15. Click "Save"
+16. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
 
-## Miscellaneous
+## Appendix
 ### Custom Email Form
-Any message submitted via the Mail form will be sent to *my* email. In order to customize it so that it can be sent to your email, you will have to:
+> [!NOTE]
+> Any message submitted via the Mail form will be sent to *my* email.
+>
+> Follow this section to use your email with the Mail form.
 
-1. [Follow the steps in this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L556) in [`index.html`](index.html) with your own sitekey
-   * Users will not be able to send you messages if you do not complete this step
+1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
+   * You will need to create a new Google Apps Script project and publish it as a web app
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L905) in [`index.html`](index.html) with your own sitekey
    * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
    * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
-4. Modify the code within [`<form class="gform">`](index.html#L548) (inclusive) in [`index.html`](index.html) accordingly
+3. Modify the code within [`<form class="gform">`](index.html#L897) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Repository Structure
 > [!NOTE]
@@ -233,6 +244,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── menubar.sass
 │   │       ├── notes.sass
 │   │       ├── notification.sass
+│   │       ├── preflight.sass
 │   │       ├── preview.sass
 │   │       ├── style.sass
 │   │       ├── terminal.sass
@@ -320,6 +332,7 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── menubar.css
 │   │       ├── notes.css
 │   │       ├── notification.css
+│   │       ├── preflight.css
 │   │       ├── preview.css
 │   │       ├── style.css
 │   │       ├── terminal.css
