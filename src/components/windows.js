@@ -14,15 +14,13 @@ $(function() {
     // Load Touch Punch if device is touchscreen
     function loadTouchPunch() {
         if (isTouchscreen()) {
-            $(document).on("touchstart", function() {
-                var script = document.createElement("script");
-                script.type = "text/javascript";
-                script.src = "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js";
-                script.integrity = "sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=";
-                script.crossorigin = "anonymous";
-                script.defer = true;
-                document.head.appendChild(script);            
-            });
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js";
+            script.integrity = "sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=";
+            script.crossorigin = "anonymous";
+            script.defer = true;
+            document.head.appendChild(script);            
         }
     }
 
