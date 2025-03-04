@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     /* VARIABLES */
     var angle = 0;
     var zoom = 1;
@@ -112,7 +112,7 @@ $(document).ready(function() {
                 bringToFront(this);
             },
             containment: "#main-content",
-            distance: 0,
+            distance: 0
         }).on("click", function() {
             bringToFront(this);
         });
@@ -217,7 +217,7 @@ $(document).ready(function() {
     // TODO Improve toggle logic
     function showMenu(btn, menu, offset) {
         // When button is clicked
-        $(btn).click(function(event) {
+        $(btn).on("click", function(event) {
             
             // Select icon; same color as active menu item
             // if ($(btn).hasClass("selected-menu")) {
@@ -246,12 +246,12 @@ $(document).ready(function() {
         });
 
         // Prevent menu from closing when clicking on it
-        $(menu).mousedown(function(event) {
+        $(menu).on("mousedown", function(event) {
             event.stopPropagation();
         });
 
         // Hide menu when click outside
-        $(document).mousedown(function() {
+        $(document).on("mousedown", function() {
             $(menu).fadeOut(250);
             $(btn).removeClass("selected-menu");
             //$(btn).css("background", "transparent");
@@ -295,7 +295,7 @@ $(document).ready(function() {
     });
 
     // Close launchpad when clicking any launchpad icon
-    $(".launch").click(function() {
+    $(".launch").on("click", function() {
         closeLaunchpad();
     });
 
@@ -303,7 +303,7 @@ $(document).ready(function() {
     // so that the launchpad doesn't close when sorting
 
     // Close the launchpad when the content is clicked, only if the target is not a link
-    $(document).mouseup(function(event) {
+    $(document).on("mouseup", function(event) {
         var content = $("#launchpad").find(".launch-content"),
             nav = content.find("nav");
 
@@ -349,48 +349,48 @@ $(document).ready(function() {
     });
 
     // Empty trash
-    $(".confirm").click(function(event) {
+    $(".confirm").on("click", function(event) {
         new Audio("../assets/audio/empty-trash.mp3").play();
         event.preventDefault();
         $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
         $("#trash-icon").off("click");
     });
-    
+
     // Toggle bold text in TextEdit
-    $("#bold-btn").click(function() {
+    $("#bold-btn").on("click", function() {
         $(".text-body").toggleClass("bold");
     });
 
     // Toggle italic text in TextEdit
-    $("#italic-btn").click(function() {
+    $("#italic-btn").on("click", function() {
         $(".text-body").toggleClass("italic");
     });
 
     // Toggle underlined text in TextEdit
-    $("#underline-btn").click(function() {
+    $("#underline-btn").on("click", function() {
         $(".text-body").toggleClass("underline");
     });
 
     // Toggle left text alignment in TextEdit
-    $("#left-btn").click(function() {
+    $("#left-btn").on("click", function() {
         $(".text-body").toggleClass("left");
         removeClasses(".text-body", [ "right", "center", "justify" ]);
     });
 
     // Toggle center text alignment in TextEdit
-    $("#center-btn").click(function() {
+    $("#center-btn").on("click", function() {
         $(".text-body").toggleClass("center");
         removeClasses(".text-body", [ "right", "left", "justify" ]);
     });
 
     // Toggle right text alignment in TextEdit
-    $("#right-btn").click(function() {
+    $("#right-btn").on("click", function() {
         $(".text-body").toggleClass("right");
         removeClasses(".text-body", [ "center", "left", "justify" ]);
     });
 
     // Toggle justify text alignment in TextEdit
-    $("#justify-btn").click(function() {
+    $("#justify-btn").on("click", function() {
         $(".text-body").toggleClass("justify");
         removeClasses(".text-body", [ "center", "left", "right" ]);
     });
@@ -415,9 +415,8 @@ $(document).ready(function() {
         start: function() {
             bringToFront(this);
         },
-        // stack: ".windows, .btn, .dialogue",
         containment: "#main-content",
-        distance: 0,
+        distance: 0
     }).on("mousedown", function() {
         bringToFront(this);
     });
@@ -427,7 +426,7 @@ $(document).ready(function() {
         cursor: "default",
         cancel: false,
         containment: "#main-content",
-        distance: 0,
+        distance: 0
     });
 
     // Resize certain windows
