@@ -93,7 +93,7 @@
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join("&");
     xhr.send(encoded);
   }
@@ -147,7 +147,7 @@
 
   // Load Toastify if not already loaded
   function loadToastify() {
-    loadScript("https://cdn.jsdelivr.net/npm/toastify-js", true);
+    loadScript("https://cdn.jsdelivr.net/npm/toastify-js");
   }
 
   // Load reCAPTCHA when mail form is opened (i.e. mail icon is clicked)
