@@ -129,3 +129,35 @@ canvas
 .windows
   position: absolute
   z-index: 0
+
+@media screen and (max-width: vars.$width-threshold)
+  html
+    font-size: 55%
+
+@media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
+  html
+    font-size: 50%
+
+@media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
+  html
+    font-size: 45%
+
+@media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
+  html
+    font-size: 40%
+
+@media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+  html
+    font-size: 35%
+
+@media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+  html
+    font-size: 30%
+    
+@media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
+  html
+    font-size: 25%
+
+@media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
+  html
+    font-size: 24%
