@@ -90,19 +90,19 @@
   <body>
     <header class="menu-bar">
       <div class="left">
-        <span id="apple" class="menus apple menu-ico"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
-        <span id="finder" class="menus active">Finder</span>
-        <span id="file" class="menus">File</span>
-        <span id="edit" class="menus">Edit</span>
-        <span id="view" class="menus">View</span>
-        <span id="go" class="menus">Go</span>
-        <span id="window" class="menus">Window</span>
-        <span id="help" class="menus">Help</span>
+        <span role="button" tabindex="0" id="apple" class="menus apple menu-ico"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" id="finder" class="menus active">Finder</span>
+        <span role="button" tabindex="0" id="file" class="menus">File</span>
+        <span role="button" tabindex="0" id="edit" class="menus">Edit</span>
+        <span role="button" tabindex="0" id="view" class="menus">View</span>
+        <span role="button" tabindex="0" id="go" class="menus">Go</span>
+        <span role="button" tabindex="0" id="window" class="menus">Window</span>
+        <span role="button" tabindex="0" id="help" class="menus">Help</span>
       </div>
 
       <div class="right">
-        <span id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
-        <span id="wifi" class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" id="wifi" class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
         <span class="menus menu-ico"><img alt="Control center icon" src="/assets/img/icons/control-center.svg" draggable="false" fetchpriority="high"></span>
         <span id="menutime" class="menus menu-time"></span>
       </div>
@@ -571,9 +571,9 @@
         <div class="mac-terminal windows openWindow inFront">
           <div class="header handle">
             <div class="header__op">
-              <span class="header__op-icon header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="header__op-icon header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="header__op-icon header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="header__op-icon header__op-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="header__op-icon header__op-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="header__op-icon header__op-icon--green cancel"></span>
             </div>
 
             <div class="header__title"><img src="/assets/img/icons/terminal.svg" draggable="false" fetchpriority="high" alt="iTerm icon">-bash</div>
@@ -655,7 +655,7 @@
                   <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
                   <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
                   <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                  <span class="body__row-result"><span id="command-input"></span></span>
+                  <span tabindex="0" class="body__row-result"><span id="command-input"></span></span>
                   <span class="body__row-cursor">_</span>
                 </div>
               </div>
@@ -666,9 +666,9 @@
         <div class="calc windows">
           <div class="calc-header handle">
             <div class="calc-header__op">
-              <span class="calc-header__op-icon calc-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="calc-header__op-icon calc-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--green cancel"></span>
             </div>
             <div class="calc-header__empty"></div>
           </div>
@@ -679,9 +679,9 @@
           </div>
         
           <div class="calc-buttons">
-            <a class="button clear light-grey">AC</a>
+            <a role="button" tabindex="0" class="button clear light-grey">AC</a>
         
-            <a class="button val equal light-grey" href="*-1">
+            <a role="button" tabindex="0" class="button val equal light-grey" href="*-1">
               <button class="invert-button">
                 <sup>+</sup>
                 <span>/</span>
@@ -689,37 +689,37 @@
               </button>
             </a>
         
-            <a class="button val light-grey" href="%">%</a>
-            <a class="button val yellow" href="/">÷</a>
+            <a role="button" tabindex="0" class="button val light-grey" href="%">%</a>
+            <a role="button" tabindex="0" class="button val yellow" href="/">÷</a>
         
-            <a class="button val dark-grey" href="7">7</a>
-            <a class="button val dark-grey" href="8">8</a>
-            <a class="button val dark-grey" href="9">9</a>
-            <a class="button val yellow" href="*">×</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="7">7</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="8">8</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="9">9</a>
+            <a role="button" tabindex="0" class="button val yellow" href="*">×</a>
         
-            <a class="button val dark-grey" href="4">4</a>
-            <a class="button val dark-grey" href="5">5</a>
-            <a class="button val dark-grey" href="6">6</a>
-            <a class="button val yellow" href="-">−</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="4">4</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="5">5</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="6">6</a>
+            <a role="button" tabindex="0" class="button val yellow" href="-">−</a>
         
-            <a class="button val dark-grey" href="1">1</a>
-            <a class="button val dark-grey" href="2">2</a>
-            <a class="button val dark-grey" href="3">3</a>
-            <a class="button val yellow" href="+">+</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="1">1</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="2">2</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="3">3</a>
+            <a role="button" tabindex="0" class="button val yellow" href="+">+</a>
         
-            <a class="button dark-grey"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
-            <a class="button val dark-grey" href="0">0</a>
-            <a class="button val dark-grey" href=".">.</a>
-            <a class="button equal yellow">=</a>
+            <a role="button" tabindex="0" class="button dark-grey"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
+            <a role="button" tabindex="0" class="button val dark-grey" href="0">0</a>
+            <a role="button" tabindex="0" class="button val dark-grey" href=".">.</a>
+            <a role="button" tabindex="0" class="button equal yellow">=</a>
           </div>
         </div>
 
         <div class="text-edit windows">
           <div class="text-edit-header handle">
             <div class="text-edit-header__op">
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="text-edit-header__op-icon text-edit-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--green cancel"></span>
             </div>
             <div class="text-edit-header__title"><img src="/assets/img/system/rtf-icon.webp" alt="RTF Icon" loading="lazy" fetchpriority="low" draggable="false">about.rtf</div>
             <div class="text-edit-header__empty"></div>
@@ -750,19 +750,19 @@
                 <option>36</option>
               </select>
             
-              <input id="colorPicker" value="#FFFFFF" type="color" title="Click to choose the text color">
+              <input tabindex="0" id="colorPicker" value="#FFFFFF" type="color" title="Click to choose the text color">
             
               <div class="drop--decorations drop--element">
-                <i alt="Bold button" title="Bold text" id="bold-btn" class="fas fa-bold" aria-hidden="true"></i>
-                <i alt="Italic button" title="Italicize text" id="italic-btn" class="fas fa-italic" aria-hidden="true"></i>
-                <i alt="Underline button" title="Underline text" id="underline-btn" class="fas fa-underline" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Bold button" title="Bold text" id="bold-btn" class="fas fa-bold" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Italic button" title="Italicize text" id="italic-btn" class="fas fa-italic" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Underline button" title="Underline text" id="underline-btn" class="fas fa-underline" aria-hidden="true"></i>
               </div>
 
               <div class="drop--alignments drop--element">
-                <i alt="Align left button" title="Align text to the left" id="left-btn" class="fa fa-align-left" aria-hidden="true"></i>
-                <i alt="Align center button" title="Center text" id="center-btn" class="fa fa-align-center" aria-hidden="true"></i>
-                <i alt="Align right button" title="Align text to the right" id="right-btn" class="fa fa-align-right" aria-hidden="true"></i>
-                <i alt="Align justify button" title="Justify text" id="justify-btn" class="fa fa-align-justify" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Align left button" title="Align text to the left" id="left-btn" class="fa fa-align-left" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Align center button" title="Center text" id="center-btn" class="fa fa-align-center" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Align right button" title="Align text to the right" id="right-btn" class="fa fa-align-right" aria-hidden="true"></i>
+                <i role="button" tabindex="0" alt="Align justify button" title="Justify text" id="justify-btn" class="fa fa-align-justify" aria-hidden="true"></i>
               </div>
 
               <select id="lineHeight" title="Line and paragraph spacing" class="drop--styles drop--element">
@@ -898,9 +898,9 @@
           <div class="email windows">
             <div class="mail-header handle">
               <div class="mail-header__op">
-                <span class="mail-header__op-icon mail-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-                <span class="mail-header__op-icon mail-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-                <span class="mail-header__op-icon mail-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+                <span role="button" tabindex="0" class="mail-header__op-icon mail-header__op-icon--red cancel"></span>
+                <span role="button" tabindex="0" class="mail-header__op-icon mail-header__op-icon--yellow cancel"></span>
+                <span role="button" tabindex="0" class="mail-header__op-icon mail-header__op-icon--green cancel"></span>
               </div>
               <div class="g-recaptcha" data-theme="dark" data-callback="callback" data-sitekey="6Lcd6rIqAAAAAOabj0rba6jICI-HqlQr8A1uNSBt"></div>
               <button id="send-btn" class="cancel" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
@@ -924,9 +924,9 @@
             <div class="sidebar">
               <div class="sidebar-header handle">
                 <div class="buttons">
-                  <span class="buttons-icon buttons-icon--red cancel"><a class="cancel" href="#"></a></span>
-                  <span class="buttons-icon buttons-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-                  <span class="buttons-icon buttons-icon--green cancel"><a class="cancel" href="#"></a></span>
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--red cancel"></span>
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--yellow cancel"></span>
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--green cancel"></span>
                 </div>
 
                 <div><i class="fas fa-list icons" title="View notes as list" alt="List icon" aria-hidden="true"></i><i class="fas fa-border-all icons" title="View notes as gallery" alt="Gallery icon" aria-hidden="true"></i></div>
@@ -937,7 +937,7 @@
                 <div class="year"><i class="fas fa-thumbtack" alt="Thumbtack icon" aria-hidden="true"></i>&nbsp;&nbsp;Pinned</div>
 
                 <ul class="child-nav">
-                  <li class="active project-name" data-id="project-1">
+                  <li role="button" tabindex="0" class="active project-name" data-id="project-1">
                     <div class="text" data-id="project-1">
                       <p class="name" data-id="project-1">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</p>
                       <div class="bottom" data-id="project-1">
@@ -946,7 +946,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-14">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-14">
                     <div class="text" data-id="project-14">
                       <p class="name" data-id="project-14">Q-SECURE: Quantum-Secure Protocol</p>
                       <div class="bottom" data-id="project-14">
@@ -955,7 +955,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-2">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-2">
                     <div class="text" data-id="project-2">
                       <p class="name" data-id="project-2">Quantum Search Algorithm</p>
                       <div class="bottom" data-id="project-2">
@@ -964,7 +964,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-4">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-4">
                     <div class="text" data-id="project-4">
                       <p class="name" data-id="project-4">lynkos.github.io</p>
                       <div class="bottom" data-id="project-4">
@@ -973,7 +973,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-7">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-7">
                     <div class="text" data-id="project-7">
                       <p class="name" data-id="project-7">Intelligent Building Information Modeling (BIM) Virtual Assistant</p>
                       <div class="bottom" data-id="project-7">
@@ -986,7 +986,7 @@
                 <div class="year">2024</div>
 
                 <ul class="child-nav">
-                  <li class="project-name" data-id="project-5">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-5">
                     <div class="text" data-id="project-5">
                       <p class="name" data-id="project-5">Slopify</p>
                       <div class="bottom" data-id="project-5">
@@ -995,7 +995,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-6">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-6">
                     <div class="text" data-id="project-6">
                       <p class="name" data-id="project-6">ZenKitty</p>
                       <div class="bottom" data-id="project-6">
@@ -1004,7 +1004,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-8">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-8">
                     <div class="text" data-id="project-8">
                       <p class="name" data-id="project-8">DNS Lookup</p>
                       <div class="bottom" data-id="project-8">
@@ -1013,7 +1013,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-9">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-9">
                     <div class="text" data-id="project-9">
                       <p class="name" data-id="project-9">Web Status Monitor</p>
                       <div class="bottom" data-id="project-9">
@@ -1022,7 +1022,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-16">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-16">
                     <div class="text" data-id="project-16">
                       <p class="name" data-id="project-16">Conda Shortcuts</p>
                       <div class="bottom" data-id="project-16">
@@ -1031,7 +1031,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-3">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-3">
                     <div class="text" data-id="project-3">
                       <p class="name" data-id="project-3">Web Scraper</p>
                       <div class="bottom" data-id="project-3">
@@ -1044,7 +1044,7 @@
                 <div class="year">2022</div>
 
                 <ul class="child-nav">
-                  <li class="project-name" data-id="project-12">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-12">
                     <div class="text" data-id="project-12">
                       <p class="name" data-id="project-12">Simple Shell</p>
                       <div class="bottom" data-id="project-12">
@@ -1053,7 +1053,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-10">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-10">
                     <div class="text" data-id="project-10">
                       <p class="name" data-id="project-10">Simple MPI</p>
                       <div class="bottom" data-id="project-10">
@@ -1062,7 +1062,7 @@
                     </div>
                   </li>
 
-                  <li class="project-name" data-id="project-11">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-11">
                     <div class="text" data-id="project-11">
                       <p class="name" data-id="project-11">BST</p>
                       <div class="bottom" data-id="project-11">
@@ -1075,7 +1075,7 @@
                 <div class="year">2014</div>
 
                 <ul class="child-nav">
-                  <li class="project-name" data-id="project-13">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-13">
                     <div class="text" data-id="project-13">
                       <p class="name" data-id="project-13">Endians</p>
                       <div class="bottom" data-id="project-13">
@@ -1083,7 +1083,7 @@
                       </div>
                     </div>
                   </li>
-                  <li class="project-name" data-id="project-15">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-15">
                     <div class="text" data-id="project-15">
                       <p class="name" data-id="project-15">Capture the Flag</p>
                       <div class="bottom" data-id="project-15">
@@ -1111,9 +1111,9 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/algae-detection" title="Link to AI project's repository on GitHub">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" target="_blank" title="Link to Google Colab notebook" class="links-btn"><i alt="Code icon" class="fas fa-code" aria-hidden="true"></i> Colab Notebook</a>
-                      <a href="https://github.com/lynkos/algae-detection" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" target="_blank" title="Link to Google Colab notebook" class="links-btn"><i alt="Code icon" class="fas fa-code" aria-hidden="true"></i> Colab Notebook</a>
+                      <a role="button" href="https://github.com/lynkos/algae-detection" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Designed and developed a system that uses custom AI (i.e. computer vision) and a camera to quickly detect and identify species of harmful algae in real-time (livestream/video); i.e. object detection using convolutional neural networks (CNNs)</li>
@@ -1129,7 +1129,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/grovers-algorithm" title="Link to Quantum Search Algorithm repository on GitHub">Quantum Search Algorithm</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/grovers-algorithm" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/grovers-algorithm" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Created <code>n</code>-qubit quantum program searching for <code>m</code> target(s) in an unsorted database</li>
@@ -1143,7 +1143,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/downloader" title="Link to web scraper's repository on GitHub">Web Scraper</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/downloader" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/downloader" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Simple web scraper to download media from websites</li>
@@ -1158,8 +1158,8 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/lynkos.github.io" title="Link to GitHub repository">lynkos.github.io</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://lynkos.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a href="https://github.com/lynkos/lynkos.github.io" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://lynkos.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://github.com/lynkos/lynkos.github.io" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>macOS Sequoia-inspired personal website</p><br>
                     <img loading="lazy" fetchpriority="low" src="/assets/img/misc/demo.webp" alt="Screenshot of home page"><br>
@@ -1187,8 +1187,8 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/DishpitDev/Slopify" title="Link to GitHub repository">Slopify</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://slopify.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a href="https://github.com/DishpitDev/Slopify" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://slopify.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://github.com/DishpitDev/Slopify" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>The ideomotor effect of software</li>
@@ -1201,8 +1201,8 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/zenkitty" title="Link to GitHub repository">ZenKitty</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://lynkos.dev/zenkitty" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a href="https://github.com/lynkos/zenkitty" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://lynkos.dev/zenkitty" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://github.com/lynkos/zenkitty" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Human-Computer Interaction project</li>
@@ -1215,7 +1215,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/hllywluis/bim-assistant" title="Link to GitHub repository">Intelligent Building Information Modeling (BIM) Virtual Assistant</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/hllywluis/bim-assistant" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/hllywluis/bim-assistant" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Developed front-end of web app for BIM models that allows users to search models for specific elements/properties, view and inspect models in 2D and 3D, and query models via virtual assistant (Siri or Alexa)</li>
@@ -1228,7 +1228,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/dns-lookup" title="Link to GitHub repository">DNS Lookup</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/dns-lookup" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/dns-lookup" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>The goal of this project is to practice UDP socket programing and understand binary packet structures by developing a simplified DNS lookup client</li>
@@ -1243,7 +1243,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/web-status-monitor" title="Link to GitHub repository">Web Status Monitor</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/web-status-monitor" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/web-status-monitor" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This project develops a web status monitor (simplified version of uptimerobot.com) to practice web programming and understand the web related protocols: HTTP and TLS/SSL</li>
@@ -1259,7 +1259,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/simple-mpi" title="Link to GitHub repository">Simple MPI</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/simple-mpi" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/simple-mpi" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This program counts the number of prime numbers between 1 to <code>MAX_CONST</code> inclusive using MPI (parallel programming)</li>
@@ -1275,7 +1275,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/BST" title="Link to GitHub repository">BST</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/BST" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/BST" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Sorts all words in an input file (or from standard input) and prints the sorted words to an output file (or standard output)</li>
@@ -1292,7 +1292,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/simple-shell" title="Link to GitHub repository">Simple Shell</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/simple-shell" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/simple-shell" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This program is an extension of <code>myshell.c</code> with pipelines + I/O redirection functionality</li>
@@ -1309,7 +1309,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/Endians" title="Link to GitHub repository">Endians</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lynkos/Endians" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lynkos/Endians" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Program I wrote in high school that converts a given integer to little-endian and/or big-endian</li>
@@ -1322,7 +1322,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lericemautech/Q-SECURE" title="Link to GitHub repository">Q-SECURE: Quantum-Secure Protocol</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://github.com/lericemautech/Q-SECURE" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://github.com/lericemautech/Q-SECURE" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</p><br>
                     <img loading="lazy" fetchpriority="low" src="/assets/img/misc/mpc.webp" alt="System design of MPC"><br>
@@ -1340,7 +1340,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://lynkos420.blogspot.com" title="Link to blog">Capture the Flag</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://lynkos420.blogspot.com" target="_blank" title="Link to blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://lynkos420.blogspot.com" target="_blank" title="Link to blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
                     </div>
                     <ul>
                       <li>Some of my solutions to certain CTF puzzles/problems</li>
@@ -1353,7 +1353,7 @@
                   <h1 class="project-title"><a target="_blank" href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" title="Link to GitHub Gist">Conda Shortcuts</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" target="_blank" title="Link to blog" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" target="_blank" title="Link to blog" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Shell script to automate the following:</p>
                     <ul>
@@ -1376,9 +1376,9 @@
         <div class="browser windows">
           <div class="top handle">
             <div class="browser-buttons">
-              <span class="browser-buttons-icon browser-buttons-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="browser-buttons-icon browser-buttons-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="browser-buttons-icon browser-buttons-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--green cancel"></span>
             </div>
             <div class="left">
               <span class="icons" title="Show sidebar"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
@@ -1398,7 +1398,7 @@
             <h1>Skills</h1>
             <h2>Languages</h2>
             <section class="section">
-              <div id="python" class="row" onclick="toggleContent('#python')">
+              <div role="button" tabindex="0" id="python" class="row" onclick="toggleContent('#python')">
                 <div class="beginning">
                   <img loading="lazy" fetchpriority="low" aria-hidden="true" alt="Python logo" src="https://cdn.simpleicons.org/python?viewbox=auto">
                   <h3 class="heading">Python</h3>
@@ -1423,7 +1423,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="java" class="row" onclick="toggleContent('#java')">
+              <div role="button" tabindex="0" id="java" class="row" onclick="toggleContent('#java')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Java logo" class="fab fa-java"></i> 
                   <h3 class="heading">Java</h3>
@@ -1448,7 +1448,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="html" class="row" onclick="toggleContent('#html')">
+              <div role="button" tabindex="0" id="html" class="row" onclick="toggleContent('#html')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="HTML logo" src="https://cdn.simpleicons.org/html5?viewbox=auto">
                   <h3 class="heading">HTML</h3>
@@ -1472,7 +1472,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="css" class="row" onclick="toggleContent('#css')">
+              <div role="button" tabindex="0" id="css" class="row" onclick="toggleContent('#css')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="CSS logo" src="https://cdn.simpleicons.org/css?viewbox=auto">
                   <h3 class="heading">CSS</h3>
@@ -1497,7 +1497,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="jquery" class="row" onclick="toggleContent('#jquery')">
+              <div role="button" tabindex="0" id="jquery" class="row" onclick="toggleContent('#jquery')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="jQuery logo" src="https://cdn.simpleicons.org/jquery?viewbox=auto">
                   <h3 class="heading">jQuery</h3>
@@ -1522,7 +1522,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="javascript" class="row" onclick="toggleContent('#javascript')">
+              <div role="button" tabindex="0" id="javascript" class="row" onclick="toggleContent('#javascript')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JavaScript logo" src="https://cdn.simpleicons.org/javascript?viewbox=auto">
                   <h3 class="heading">JavaScript</h3>
@@ -1547,7 +1547,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="c" class="row" onclick="toggleContent('#c')">
+              <div role="button" tabindex="0" id="c" class="row" onclick="toggleContent('#c')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C logo" src="https://cdn.simpleicons.org/c?viewbox=auto">
                   <h3 class="heading">C</h3>
@@ -1572,7 +1572,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="cpp" class="row" onclick="toggleContent('#cpp')">
+              <div role="button" tabindex="0" id="cpp" class="row" onclick="toggleContent('#cpp')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C++ logo" src="https://cdn.simpleicons.org/cplusplus?viewbox=auto">
                   <h3 class="heading">C++</h3>
@@ -1597,7 +1597,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="latex" class="row" onclick="toggleContent('#latex')">
+              <div role="button" tabindex="0" id="latex" class="row" onclick="toggleContent('#latex')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LaTeX logo" src="https://cdn.simpleicons.org/latex?viewbox=auto">
                   <h3 class="heading">LaTeX</h3>
@@ -1622,7 +1622,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="json" class="row" onclick="toggleContent('#json')">
+              <div role="button" tabindex="0" id="json" class="row" onclick="toggleContent('#json')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JSON logo" src="https://cdn.simpleicons.org/json?viewbox=auto">
                   <h3 class="heading">JSON</h3>
@@ -1647,7 +1647,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="yaml" class="row" onclick="toggleContent('#yaml')">
+              <div role="button" tabindex="0" id="yaml" class="row" onclick="toggleContent('#yaml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="YAML logo" src="https://cdn.simpleicons.org/yaml?viewbox=auto">
                   <h3 class="heading">YAML</h3>
@@ -1672,7 +1672,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="terraform" class="row" onclick="toggleContent('#terraform')">
+              <div role="button" tabindex="0" id="terraform" class="row" onclick="toggleContent('#terraform')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform?viewbox=auto">
                   <h3 class="heading">Terraform</h3>
@@ -1697,7 +1697,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="uml" class="row" onclick="toggleContent('#uml')">
+              <div role="button" tabindex="0" id="uml" class="row" onclick="toggleContent('#uml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="UML logo" src="https://cdn.simpleicons.org/uml?viewbox=auto">
                   <h3 class="heading">UML</h3>
@@ -1722,7 +1722,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="r" class="row" onclick="toggleContent('#r')">
+              <div role="button" tabindex="0" id="r" class="row" onclick="toggleContent('#r')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="R logo" src="https://cdn.simpleicons.org/r?viewbox=auto">
                   <h3 class="heading">R</h3>
@@ -1747,7 +1747,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="markdown" class="row" onclick="toggleContent('#markdown')">
+              <div role="button" tabindex="0" id="markdown" class="row" onclick="toggleContent('#markdown')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Markdown logo" src="https://cdn.simpleicons.org/markdown?viewbox=auto">
                   <h3 class="heading">Markdown</h3>
@@ -1772,7 +1772,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="jinja" class="row" onclick="toggleContent('#jinja')">
+              <div role="button" tabindex="0" id="jinja" class="row" onclick="toggleContent('#jinja')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jinja logo" src="https://cdn.simpleicons.org/jinja?viewbox=auto">
                   <h3 class="heading">Jinja</h3>
@@ -1797,7 +1797,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="mysql" class="row" onclick="toggleContent('#mysql')">
+              <div role="button" tabindex="0" id="mysql" class="row" onclick="toggleContent('#mysql')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql?viewbox=auto">
                   <h3 class="heading">MySQL</h3>
@@ -1825,7 +1825,7 @@
 
             <h2>Tools</h2>
             <section class="section">
-              <div id="git" class="row" onclick="toggleContent('#git')">
+              <div role="button" tabindex="0" id="git" class="row" onclick="toggleContent('#git')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Git logo" src="https://cdn.simpleicons.org/git?viewbox=auto">
                   <h3 class="heading">Git</h3>
@@ -1850,7 +1850,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="github" class="row" onclick="toggleContent('#github')">
+              <div role="button" tabindex="0" id="github" class="row" onclick="toggleContent('#github')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub logo" src="https://cdn.simpleicons.org/github?viewbox=auto">
                   <h3 class="heading">GitHub</h3>
@@ -1875,7 +1875,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="bash" class="row" onclick="toggleContent('#bash')">
+              <div role="button" tabindex="0" id="bash" class="row" onclick="toggleContent('#bash')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bash logo" src="https://cdn.simpleicons.org/gnubash?viewbox=auto">
                   <h3 class="heading">Bash</h3>
@@ -1900,7 +1900,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="confluence" class="row" onclick="toggleContent('#confluence')">
+              <div role="button" tabindex="0" id="confluence" class="row" onclick="toggleContent('#confluence')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Confluence logo" src="https://cdn.simpleicons.org/confluence?viewbox=auto">
                   <h3 class="heading">Confluence</h3>
@@ -1925,7 +1925,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="docker" class="row" onclick="toggleContent('#docker')">
+              <div role="button" tabindex="0" id="docker" class="row" onclick="toggleContent('#docker')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Docker logo" src="https://cdn.simpleicons.org/docker?viewbox=auto">
                   <h3 class="heading">Docker</h3>
@@ -1950,7 +1950,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="jira" class="row" onclick="toggleContent('#jira')">
+              <div role="button" tabindex="0" id="jira" class="row" onclick="toggleContent('#jira')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jira logo" src="https://cdn.simpleicons.org/jira?viewbox=auto">
                   <h3 class="heading">Jira</h3>
@@ -1975,7 +1975,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="vim" class="row" onclick="toggleContent('#vim')">
+              <div role="button" tabindex="0" id="vim" class="row" onclick="toggleContent('#vim')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Vim logo" src="https://cdn.simpleicons.org/vim?viewbox=auto">
                   <h3 class="heading">Vim</h3>
@@ -2000,7 +2000,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="jupyter" class="row" onclick="toggleContent('#jupyter')">
+              <div role="button" tabindex="0" id="jupyter" class="row" onclick="toggleContent('#jupyter')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jupyter logo" src="https://cdn.simpleicons.org/jupyter?viewbox=auto">
                   <h3 class="heading">Jupyter</h3>
@@ -2025,7 +2025,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="conda" class="row" onclick="toggleContent('#conda')">
+              <div role="button" tabindex="0" id="conda" class="row" onclick="toggleContent('#conda')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Anaconda logo" src="https://cdn.simpleicons.org/anaconda?viewbox=auto">
                   <h3 class="heading">Conda</h3>
@@ -2050,7 +2050,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="vmware" class="row" onclick="toggleContent('#vmware')">
+              <div role="button" tabindex="0" id="vmware" class="row" onclick="toggleContent('#vmware')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="VMWare logo" src="https://cdn.simpleicons.org/vmware?viewbox=auto">
                   <h3 class="heading">VMWare Fusion</h3>
@@ -2075,7 +2075,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="grafana" class="row" onclick="toggleContent('#grafana')">
+              <div role="button" tabindex="0" id="grafana" class="row" onclick="toggleContent('#grafana')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Grafana logo" src="https://cdn.simpleicons.org/grafana?viewbox=auto">
                   <h3 class="heading">Grafana</h3>
@@ -2103,7 +2103,7 @@
 
             <h2>Frameworks</h2>
             <section class="section">
-              <div id="qiskit" class="row" onclick="toggleContent('#qiskit')">
+              <div role="button" tabindex="0" id="qiskit" class="row" onclick="toggleContent('#qiskit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Qiskit logo" src="https://cdn.simpleicons.org/qiskit?viewbox=auto">
                   <h3 class="heading">Qiskit</h3>
@@ -2128,7 +2128,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="numpy" class="row" onclick="toggleContent('#numpy')">
+              <div role="button" tabindex="0" id="numpy" class="row" onclick="toggleContent('#numpy')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="NumPy logo" src="https://cdn.simpleicons.org/numpy?viewbox=auto">
                   <h3 class="heading">NumPy</h3>
@@ -2153,7 +2153,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="pytorch" class="row" onclick="toggleContent('#pytorch')">
+              <div role="button" tabindex="0" id="pytorch" class="row" onclick="toggleContent('#pytorch')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyTorch logo" src="https://cdn.simpleicons.org/pytorch?viewbox=auto">
                   <h3 class="heading">PyTorch</h3>
@@ -2178,7 +2178,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
+              <div role="button" tabindex="0" id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="TensorFlow logo" src="https://cdn.simpleicons.org/tensorflow?viewbox=auto">
                   <h3 class="heading">TensorFlow</h3>
@@ -2203,7 +2203,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="keras" class="row" onclick="toggleContent('#keras')">
+              <div role="button" tabindex="0" id="keras" class="row" onclick="toggleContent('#keras')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Keras logo" src="https://cdn.simpleicons.org/keras?viewbox=auto">
                   <h3 class="heading">Keras</h3>
@@ -2228,7 +2228,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="maven" class="row" onclick="toggleContent('#maven')">
+              <div role="button" tabindex="0" id="maven" class="row" onclick="toggleContent('#maven')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Maven logo" src="https://cdn.simpleicons.org/apachemaven?viewbox=auto">
                   <h3 class="heading">Maven</h3>
@@ -2253,7 +2253,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="junit" class="row" onclick="toggleContent('#junit')">
+              <div role="button" tabindex="0" id="junit" class="row" onclick="toggleContent('#junit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JUnit logo" src="https://cdn.simpleicons.org/junit5?viewbox=auto">
                   <h3 class="heading">JUnit</h3>
@@ -2278,7 +2278,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="sass" class="row" onclick="toggleContent('#sass')">
+              <div role="button" tabindex="0" id="sass" class="row" onclick="toggleContent('#sass')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SASS logo" src="https://cdn.simpleicons.org/sass?viewbox=auto">
                   <h3 class="heading">SASS</h3>
@@ -2303,7 +2303,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="roboflow" class="row" onclick="toggleContent('#roboflow')">
+              <div role="button" tabindex="0" id="roboflow" class="row" onclick="toggleContent('#roboflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Roboflow logo" src="https://cdn.simpleicons.org/roboflow?viewbox=auto">
                   <h3 class="heading">Roboflow</h3>
@@ -2328,7 +2328,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="arduino" class="row" onclick="toggleContent('#arduino')">
+              <div role="button" tabindex="0" id="arduino" class="row" onclick="toggleContent('#arduino')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Arduino logo" src="https://cdn.simpleicons.org/arduino?viewbox=auto">
                   <h3 class="heading">Arduino</h3>
@@ -2353,7 +2353,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="espressif" class="row" onclick="toggleContent('#espressif')">
+              <div role="button" tabindex="0" id="espressif" class="row" onclick="toggleContent('#espressif')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Espressif logo" src="https://cdn.simpleicons.org/espressif?viewbox=auto">
                   <h3 class="heading">Espressif</h3>
@@ -2378,7 +2378,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="platformio" class="row" onclick="toggleContent('#platformio')">
+              <div role="button" tabindex="0" id="platformio" class="row" onclick="toggleContent('#platformio')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PlatformIO logo" src="https://cdn.simpleicons.org/platformio?viewbox=auto">
                   <h3 class="heading">PlatformIO</h3>
@@ -2403,7 +2403,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="colab" class="row" onclick="toggleContent('#colab')">
+              <div role="button" tabindex="0" id="colab" class="row" onclick="toggleContent('#colab')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Colab logo" src="https://cdn.simpleicons.org/googlecolab?viewbox=auto">
                   <h3 class="heading">Google Colab</h3>
@@ -2428,7 +2428,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="copilot" class="row" onclick="toggleContent('#copilot')">
+              <div role="button" tabindex="0" id="copilot" class="row" onclick="toggleContent('#copilot')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Copilot logo" src="https://cdn.simpleicons.org/githubcopilot?viewbox=auto">
                   <h3 class="heading">GitHub Copilot</h3>
@@ -2453,7 +2453,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div id="opencv" class="row" onclick="toggleContent('#opencv')">
+              <div role="button" tabindex="0" id="opencv" class="row" onclick="toggleContent('#opencv')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenCV logo" src="https://cdn.simpleicons.org/opencv?viewbox=auto">
                   <h3 class="heading">OpenCV</h3>
@@ -2484,18 +2484,18 @@
         <div class="preview windows">
           <div class="preview-header handle">
             <div class="preview-header__op">
-              <span class="preview-header__op-icon preview-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="preview-header__op-icon preview-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="preview-header__op-icon preview-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--green cancel"></span>
             </div>
             <span class="preview-header-icons cancel" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
             <span class="preview-header-title">profile.jpg</span>
             <span class="preview-header-icons cancel" title="Show the Inspector"><i class="fas fa-circle-info" alt="Info icon" aria-hidden="true"></i></span>
-            <span id="zoomOut" class="preview-header-icons cancel" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
-            <span id="zoomIn" class="preview-header-icons cancel" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
+            <span role="button" tabindex="0" id="zoomOut" class="preview-header-icons cancel" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
+            <span role="button" tabindex="0" id="zoomIn" class="preview-header-icons cancel" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
             <span class="preview-header-icons cancel" title="Share the document"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
             <span class="inactive preview-header-icons cancel" title="Highlights and notes"><i class="fas fa-highlighter" alt="Highlighter icon" aria-hidden="true"></i></span>
-            <span id="rotate" class="preview-header-icons cancel" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
+            <span role="button" tabindex="0" id="rotate" class="preview-header-icons cancel" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
             <span class="preview-header-icons cancel" title="Show markup tool"><i class="fas fa-pen-nib" alt="Pen icon" aria-hidden="true"></i></span>
             <span class="inactive preview-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
@@ -2507,9 +2507,9 @@
         <div class="resume windows">
           <div class="resume-header handle">
             <div class="resume-header__op">
-              <span class="resume-header__op-icon resume-header__op-icon--red cancel"><a class="cancel" href="#"></a></span>
-              <span class="resume-header__op-icon resume-header__op-icon--yellow cancel"><a class="cancel" href="#"></a></span>
-              <span class="resume-header__op-icon resume-header__op-icon--green cancel"><a class="cancel" href="#"></a></span>
+              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--red cancel"></span>
+              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--yellow cancel"></span>
+              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--green cancel"></span>
             </div>
             <span class="resume-header-icons cancel" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
             <span class="resume-header-title">resume.pdf</span>
@@ -2532,16 +2532,16 @@
             <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
-              <a class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
-              <a class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
-              <a class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
-              <a class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
-              <a class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
-              <a class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
-              <a class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
-              <a class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
-              <a class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
-              <a class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
+              <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
+              <a role="button" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
+              <a role="button" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
+              <a role="button" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
+              <a role="button" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
+              <a role="button" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
+              <a role="button" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
+              <a role="button" tabindex="0" class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
+              <a role="button" tabindex="0" class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
+              <a role="button" tabindex="0" class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
             </nav>
           </div>
         </div>
@@ -2562,16 +2562,16 @@
 
     <footer>
       <div class="dock">
-        <div class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
-        <div id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div>
-        <div id="safari" class="icon" aria-label="Safari" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
-        <div id="notes" class="icon" aria-label="Notes" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
-        <div id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
-        <div id="iterm" class="icon open" aria-label="iTerm" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
-        <div id="calc" style="display: none" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
-        <div id="preview" style="display: none" class="icon" aria-label="Preview" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
+        <div role="button" tabindex="0" class="icon open-menu" aria-label="Launchpad" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
+        <div role="button" tabindex="0" id="mail" class="icon" aria-label="Mail" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div>
+        <div role="button" tabindex="0" id="safari" class="icon" aria-label="Safari" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
+        <div role="button" tabindex="0" id="notes" class="icon" aria-label="Notes" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="button" tabindex="0" id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top" role="tooltip"><img style="height: 4rem !important; image-rendering: smooth;" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="button" tabindex="0" id="iterm" class="icon open" aria-label="iTerm" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
+        <div role="button" tabindex="0" id="calc" style="display: none" class="icon" aria-label="Calculator" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
+        <div role="button" tabindex="0" id="preview" style="display: none" class="icon" aria-label="Preview" data-microtip-position="top" role="tooltip"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
         <div class="divider" style="margin: 0 0.25rem 0 0.5rem;"></div>
-        <div id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" style="width: 4.6rem !important; margin-top: 0.1rem; image-rendering: smooth;" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
+        <div role="button" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top" role="tooltip"><img id="trash" style="width: 4.6rem !important; margin-top: 0.1rem; image-rendering: smooth;" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
     </footer>
 
