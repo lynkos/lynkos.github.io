@@ -90,19 +90,19 @@
   <body>
     <header class="menu-bar">
       <div class="left">
-        <span role="button" tabindex="0" id="apple" class="menus apple menu-ico"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
-        <span role="button" tabindex="0" id="finder" class="menus active">Finder</span>
-        <span role="button" tabindex="0" id="file" class="menus">File</span>
-        <span role="button" tabindex="0" id="edit" class="menus">Edit</span>
-        <span role="button" tabindex="0" id="view" class="menus">View</span>
-        <span role="button" tabindex="0" id="go" class="menus">Go</span>
-        <span role="button" tabindex="0" id="window" class="menus">Window</span>
-        <span role="button" tabindex="0" id="help" class="menus">Help</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="apple" class="menus apple menu-ico"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" aria-expanded="false" id="finder" class="menus active">Finder</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="file" class="menus">File</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="edit" class="menus">Edit</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="view" class="menus">View</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="go" class="menus">Go</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="window" class="menus">Window</span>
+        <span role="button" tabindex="0" aria-expanded="false" id="help" class="menus">Help</span>
       </div>
 
       <div class="right">
-        <span role="button" tabindex="0" id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
-        <span role="button" tabindex="0" id="wifi" class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" aria-expanded="false" id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
+        <span role="button" tabindex="0" aria-expanded="false" id="wifi" class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
         <span class="menus menu-ico"><img alt="Control center icon" src="/assets/img/icons/control-center.svg" draggable="false" fetchpriority="high"></span>
         <span id="menutime" class="menus menu-time"></span>
       </div>
@@ -1398,7 +1398,7 @@
             <h1>Skills</h1>
             <h2>Languages</h2>
             <section class="section">
-              <div role="button" tabindex="0" id="python" class="row" onclick="toggleContent('#python')">
+              <div role="button" tabindex="0" aria-expanded="false" id="python" class="row" onclick="toggleContent('#python')">
                 <div class="beginning">
                   <img loading="lazy" fetchpriority="low" aria-hidden="true" alt="Python logo" src="https://cdn.simpleicons.org/python?viewbox=auto">
                   <h3 class="heading">Python</h3>
@@ -1423,7 +1423,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="java" class="row" onclick="toggleContent('#java')">
+              <div role="button" tabindex="0" aria-expanded="false" id="java" class="row" onclick="toggleContent('#java')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Java logo" class="fab fa-java"></i> 
                   <h3 class="heading">Java</h3>
@@ -1448,7 +1448,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="html" class="row" onclick="toggleContent('#html')">
+              <div role="button" tabindex="0" aria-expanded="false" id="html" class="row" onclick="toggleContent('#html')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="HTML logo" src="https://cdn.simpleicons.org/html5?viewbox=auto">
                   <h3 class="heading">HTML</h3>
@@ -1472,7 +1472,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="css" class="row" onclick="toggleContent('#css')">
+              <div role="button" tabindex="0" aria-expanded="false" id="css" class="row" onclick="toggleContent('#css')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="CSS logo" src="https://cdn.simpleicons.org/css?viewbox=auto">
                   <h3 class="heading">CSS</h3>
@@ -1497,7 +1497,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="jquery" class="row" onclick="toggleContent('#jquery')">
+              <div role="button" tabindex="0" aria-expanded="false" id="jquery" class="row" onclick="toggleContent('#jquery')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="jQuery logo" src="https://cdn.simpleicons.org/jquery?viewbox=auto">
                   <h3 class="heading">jQuery</h3>
@@ -1522,7 +1522,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="javascript" class="row" onclick="toggleContent('#javascript')">
+              <div role="button" tabindex="0" aria-expanded="false" id="javascript" class="row" onclick="toggleContent('#javascript')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JavaScript logo" src="https://cdn.simpleicons.org/javascript?viewbox=auto">
                   <h3 class="heading">JavaScript</h3>
@@ -1547,7 +1547,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="c" class="row" onclick="toggleContent('#c')">
+              <div role="button" tabindex="0" aria-expanded="false" id="c" class="row" onclick="toggleContent('#c')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C logo" src="https://cdn.simpleicons.org/c?viewbox=auto">
                   <h3 class="heading">C</h3>
@@ -1572,7 +1572,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="cpp" class="row" onclick="toggleContent('#cpp')">
+              <div role="button" tabindex="0" aria-expanded="false" id="cpp" class="row" onclick="toggleContent('#cpp')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C++ logo" src="https://cdn.simpleicons.org/cplusplus?viewbox=auto">
                   <h3 class="heading">C++</h3>
@@ -1597,7 +1597,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="latex" class="row" onclick="toggleContent('#latex')">
+              <div role="button" tabindex="0" aria-expanded="false" id="latex" class="row" onclick="toggleContent('#latex')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LaTeX logo" src="https://cdn.simpleicons.org/latex?viewbox=auto">
                   <h3 class="heading">LaTeX</h3>
@@ -1622,7 +1622,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="json" class="row" onclick="toggleContent('#json')">
+              <div role="button" tabindex="0" aria-expanded="false" id="json" class="row" onclick="toggleContent('#json')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JSON logo" src="https://cdn.simpleicons.org/json?viewbox=auto">
                   <h3 class="heading">JSON</h3>
@@ -1647,7 +1647,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="yaml" class="row" onclick="toggleContent('#yaml')">
+              <div role="button" tabindex="0" aria-expanded="false" id="yaml" class="row" onclick="toggleContent('#yaml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="YAML logo" src="https://cdn.simpleicons.org/yaml?viewbox=auto">
                   <h3 class="heading">YAML</h3>
@@ -1672,7 +1672,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="terraform" class="row" onclick="toggleContent('#terraform')">
+              <div role="button" tabindex="0" aria-expanded="false" id="terraform" class="row" onclick="toggleContent('#terraform')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform?viewbox=auto">
                   <h3 class="heading">Terraform</h3>
@@ -1697,7 +1697,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="uml" class="row" onclick="toggleContent('#uml')">
+              <div role="button" tabindex="0" aria-expanded="false" id="uml" class="row" onclick="toggleContent('#uml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="UML logo" src="https://cdn.simpleicons.org/uml?viewbox=auto">
                   <h3 class="heading">UML</h3>
@@ -1722,7 +1722,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="r" class="row" onclick="toggleContent('#r')">
+              <div role="button" tabindex="0" aria-expanded="false" id="r" class="row" onclick="toggleContent('#r')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="R logo" src="https://cdn.simpleicons.org/r?viewbox=auto">
                   <h3 class="heading">R</h3>
@@ -1747,7 +1747,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="markdown" class="row" onclick="toggleContent('#markdown')">
+              <div role="button" tabindex="0" aria-expanded="false" id="markdown" class="row" onclick="toggleContent('#markdown')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Markdown logo" src="https://cdn.simpleicons.org/markdown?viewbox=auto">
                   <h3 class="heading">Markdown</h3>
@@ -1772,7 +1772,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="jinja" class="row" onclick="toggleContent('#jinja')">
+              <div role="button" tabindex="0" aria-expanded="false" id="jinja" class="row" onclick="toggleContent('#jinja')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jinja logo" src="https://cdn.simpleicons.org/jinja?viewbox=auto">
                   <h3 class="heading">Jinja</h3>
@@ -1797,7 +1797,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="mysql" class="row" onclick="toggleContent('#mysql')">
+              <div role="button" tabindex="0" aria-expanded="false" id="mysql" class="row" onclick="toggleContent('#mysql')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql?viewbox=auto">
                   <h3 class="heading">MySQL</h3>
@@ -1825,7 +1825,7 @@
 
             <h2>Tools</h2>
             <section class="section">
-              <div role="button" tabindex="0" id="git" class="row" onclick="toggleContent('#git')">
+              <div role="button" tabindex="0" aria-expanded="false" id="git" class="row" onclick="toggleContent('#git')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Git logo" src="https://cdn.simpleicons.org/git?viewbox=auto">
                   <h3 class="heading">Git</h3>
@@ -1850,7 +1850,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="github" class="row" onclick="toggleContent('#github')">
+              <div role="button" tabindex="0" aria-expanded="false" id="github" class="row" onclick="toggleContent('#github')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub logo" src="https://cdn.simpleicons.org/github?viewbox=auto">
                   <h3 class="heading">GitHub</h3>
@@ -1875,7 +1875,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="bash" class="row" onclick="toggleContent('#bash')">
+              <div role="button" tabindex="0" aria-expanded="false" id="bash" class="row" onclick="toggleContent('#bash')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bash logo" src="https://cdn.simpleicons.org/gnubash?viewbox=auto">
                   <h3 class="heading">Bash</h3>
@@ -1900,7 +1900,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="confluence" class="row" onclick="toggleContent('#confluence')">
+              <div role="button" tabindex="0" aria-expanded="false" id="confluence" class="row" onclick="toggleContent('#confluence')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Confluence logo" src="https://cdn.simpleicons.org/confluence?viewbox=auto">
                   <h3 class="heading">Confluence</h3>
@@ -1925,7 +1925,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="docker" class="row" onclick="toggleContent('#docker')">
+              <div role="button" tabindex="0" aria-expanded="false" id="docker" class="row" onclick="toggleContent('#docker')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Docker logo" src="https://cdn.simpleicons.org/docker?viewbox=auto">
                   <h3 class="heading">Docker</h3>
@@ -1950,7 +1950,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="jira" class="row" onclick="toggleContent('#jira')">
+              <div role="button" tabindex="0" aria-expanded="false" id="jira" class="row" onclick="toggleContent('#jira')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jira logo" src="https://cdn.simpleicons.org/jira?viewbox=auto">
                   <h3 class="heading">Jira</h3>
@@ -1975,7 +1975,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="vim" class="row" onclick="toggleContent('#vim')">
+              <div role="button" tabindex="0" aria-expanded="false" id="vim" class="row" onclick="toggleContent('#vim')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Vim logo" src="https://cdn.simpleicons.org/vim?viewbox=auto">
                   <h3 class="heading">Vim</h3>
@@ -2000,7 +2000,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="jupyter" class="row" onclick="toggleContent('#jupyter')">
+              <div role="button" tabindex="0" aria-expanded="false" id="jupyter" class="row" onclick="toggleContent('#jupyter')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jupyter logo" src="https://cdn.simpleicons.org/jupyter?viewbox=auto">
                   <h3 class="heading">Jupyter</h3>
@@ -2025,7 +2025,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="conda" class="row" onclick="toggleContent('#conda')">
+              <div role="button" tabindex="0" aria-expanded="false" id="conda" class="row" onclick="toggleContent('#conda')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Anaconda logo" src="https://cdn.simpleicons.org/anaconda?viewbox=auto">
                   <h3 class="heading">Conda</h3>
@@ -2050,7 +2050,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="vmware" class="row" onclick="toggleContent('#vmware')">
+              <div role="button" tabindex="0" aria-expanded="false" id="vmware" class="row" onclick="toggleContent('#vmware')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="VMWare logo" src="https://cdn.simpleicons.org/vmware?viewbox=auto">
                   <h3 class="heading">VMWare Fusion</h3>
@@ -2075,7 +2075,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="grafana" class="row" onclick="toggleContent('#grafana')">
+              <div role="button" tabindex="0" aria-expanded="false" id="grafana" class="row" onclick="toggleContent('#grafana')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Grafana logo" src="https://cdn.simpleicons.org/grafana?viewbox=auto">
                   <h3 class="heading">Grafana</h3>
@@ -2103,7 +2103,7 @@
 
             <h2>Frameworks</h2>
             <section class="section">
-              <div role="button" tabindex="0" id="qiskit" class="row" onclick="toggleContent('#qiskit')">
+              <div role="button" tabindex="0" aria-expanded="false" id="qiskit" class="row" onclick="toggleContent('#qiskit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Qiskit logo" src="https://cdn.simpleicons.org/qiskit?viewbox=auto">
                   <h3 class="heading">Qiskit</h3>
@@ -2128,7 +2128,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="numpy" class="row" onclick="toggleContent('#numpy')">
+              <div role="button" tabindex="0" aria-expanded="false" id="numpy" class="row" onclick="toggleContent('#numpy')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="NumPy logo" src="https://cdn.simpleicons.org/numpy?viewbox=auto">
                   <h3 class="heading">NumPy</h3>
@@ -2153,7 +2153,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="pytorch" class="row" onclick="toggleContent('#pytorch')">
+              <div role="button" tabindex="0" aria-expanded="false" id="pytorch" class="row" onclick="toggleContent('#pytorch')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyTorch logo" src="https://cdn.simpleicons.org/pytorch?viewbox=auto">
                   <h3 class="heading">PyTorch</h3>
@@ -2178,7 +2178,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
+              <div role="button" tabindex="0" aria-expanded="false" id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="TensorFlow logo" src="https://cdn.simpleicons.org/tensorflow?viewbox=auto">
                   <h3 class="heading">TensorFlow</h3>
@@ -2203,7 +2203,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="keras" class="row" onclick="toggleContent('#keras')">
+              <div role="button" tabindex="0" aria-expanded="false" id="keras" class="row" onclick="toggleContent('#keras')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Keras logo" src="https://cdn.simpleicons.org/keras?viewbox=auto">
                   <h3 class="heading">Keras</h3>
@@ -2228,7 +2228,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="maven" class="row" onclick="toggleContent('#maven')">
+              <div role="button" tabindex="0" aria-expanded="false" id="maven" class="row" onclick="toggleContent('#maven')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Maven logo" src="https://cdn.simpleicons.org/apachemaven?viewbox=auto">
                   <h3 class="heading">Maven</h3>
@@ -2253,7 +2253,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="junit" class="row" onclick="toggleContent('#junit')">
+              <div role="button" tabindex="0" aria-expanded="false" id="junit" class="row" onclick="toggleContent('#junit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JUnit logo" src="https://cdn.simpleicons.org/junit5?viewbox=auto">
                   <h3 class="heading">JUnit</h3>
@@ -2278,7 +2278,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="sass" class="row" onclick="toggleContent('#sass')">
+              <div role="button" tabindex="0" aria-expanded="false" id="sass" class="row" onclick="toggleContent('#sass')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SASS logo" src="https://cdn.simpleicons.org/sass?viewbox=auto">
                   <h3 class="heading">SASS</h3>
@@ -2303,7 +2303,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="roboflow" class="row" onclick="toggleContent('#roboflow')">
+              <div role="button" tabindex="0" aria-expanded="false" id="roboflow" class="row" onclick="toggleContent('#roboflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Roboflow logo" src="https://cdn.simpleicons.org/roboflow?viewbox=auto">
                   <h3 class="heading">Roboflow</h3>
@@ -2328,7 +2328,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="arduino" class="row" onclick="toggleContent('#arduino')">
+              <div role="button" tabindex="0" aria-expanded="false" id="arduino" class="row" onclick="toggleContent('#arduino')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Arduino logo" src="https://cdn.simpleicons.org/arduino?viewbox=auto">
                   <h3 class="heading">Arduino</h3>
@@ -2353,7 +2353,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="espressif" class="row" onclick="toggleContent('#espressif')">
+              <div role="button" tabindex="0" aria-expanded="false" id="espressif" class="row" onclick="toggleContent('#espressif')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Espressif logo" src="https://cdn.simpleicons.org/espressif?viewbox=auto">
                   <h3 class="heading">Espressif</h3>
@@ -2378,7 +2378,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="platformio" class="row" onclick="toggleContent('#platformio')">
+              <div role="button" tabindex="0" aria-expanded="false" id="platformio" class="row" onclick="toggleContent('#platformio')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PlatformIO logo" src="https://cdn.simpleicons.org/platformio?viewbox=auto">
                   <h3 class="heading">PlatformIO</h3>
@@ -2403,7 +2403,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="colab" class="row" onclick="toggleContent('#colab')">
+              <div role="button" tabindex="0" aria-expanded="false" id="colab" class="row" onclick="toggleContent('#colab')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Colab logo" src="https://cdn.simpleicons.org/googlecolab?viewbox=auto">
                   <h3 class="heading">Google Colab</h3>
@@ -2428,7 +2428,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="copilot" class="row" onclick="toggleContent('#copilot')">
+              <div role="button" tabindex="0" aria-expanded="false" id="copilot" class="row" onclick="toggleContent('#copilot')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Copilot logo" src="https://cdn.simpleicons.org/githubcopilot?viewbox=auto">
                   <h3 class="heading">GitHub Copilot</h3>
@@ -2453,7 +2453,7 @@
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" id="opencv" class="row" onclick="toggleContent('#opencv')">
+              <div role="button" tabindex="0" aria-expanded="false" id="opencv" class="row" onclick="toggleContent('#opencv')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenCV logo" src="https://cdn.simpleicons.org/opencv?viewbox=auto">
                   <h3 class="heading">OpenCV</h3>
