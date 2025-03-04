@@ -2,7 +2,7 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer -b 'defaults' --no-map",
+        "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer -b '> 0.5%, cover 99%, not op_mini all, not dead' --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
         "build:html": "html-minifier --input-dir . --output-dir . --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css false",
@@ -46,9 +46,8 @@
     },
     "browserslist": [
         "> 0.5%",
-        "last 125 versions",
-        "not dead",
+        "cover 99%",
         "not op_mini all",
-        "Firefox ESR"
+        "not dead"
     ]
 }
