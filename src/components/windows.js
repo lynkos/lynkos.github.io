@@ -287,6 +287,25 @@ $(function() {
     //   });
     // }
 
+    // Check if device is touchscreen
+    function isTouchscreen() {
+        if (("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) || (window.DocumentTouch && document instanceof DocumentTouch)) return true;
+        return window.matchMedia("(pointer: coarse)").matches;
+    }
+
+    // Load Touch Punch if device is touchscreen
+    function loadTouchPunch() {
+        if (isTouchscreen()) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js";
+            script.integrity = "sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=";
+            script.crossorigin = "anonymous";
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+    }
+
     /* JQUERY FUNCTIONS */
     // Toggle launchpad
     $(".open-menu").on("click", function() {
@@ -436,6 +455,9 @@ $(function() {
         animate: true
     });
 
+    // Load Touch Punch if device is touchscreen
+    loadTouchPunch();
+
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);
 
@@ -570,26 +592,22 @@ $(function() {
 });
 
 // Update text color in TextEdit
-const colorPicker = document.getElementById("colorPicker");
-colorPicker.addEventListener("input", function() {
+document.getElementById("colorPicker").addEventListener("input", function() {
     $(".text-body").css("color", this.value);
 });
 
 // Update font size in TextEdit
-const fontSize = document.getElementById("fontSize");
-fontSize.addEventListener("change", function() {
+document.getElementById("fontSize").addEventListener("change", function() {
     $(".text-body").css("font-size", (this.value / 10) + "rem");
 });
 
 // Update font family in TextEdit
-const fontFamily = document.getElementById("fontFamily");
-fontFamily.addEventListener("change", function() {
+document.getElementById("fontFamily").addEventListener("change", function() {
     $(".text-body").css("font-family", this.value);
 });
 
 // Update line height in TextEdit
-const lineHeight = document.getElementById("lineHeight");
-lineHeight.addEventListener("change", function() {
+document.getElementById("lineHeight").addEventListener("change", function() {
     $(".text-body").css("line-height", this.value);
 });
 

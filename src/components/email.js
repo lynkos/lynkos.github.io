@@ -11,12 +11,10 @@
       }
       return true;
     }).map(function(k) {
-      if(elements[k].name !== undefined) {
-        return elements[k].name;
+      if (elements[k].name !== undefined) return elements[k].name;
+
       // special case for Edge's html collection
-      }else if(elements[k].length > 0){
-        return elements[k].item(0).name;
-      }
+      else if (elements[k].length > 0) return elements[k].item(0).name;
     }).filter(function(item, pos, self) {
       return self.indexOf(item) == pos && item;
     });
@@ -33,11 +31,9 @@
         var data = [];
         for (var i = 0; i < element.length; i++) {
           var item = element.item(i);
-          if (item.checked || item.selected) {
-            data.push(item.value);
-          }
+          if (item.checked || item.selected) data.push(item.value);
         }
-        formData[name] = data.join(', ');
+        formData[name] = data.join(", ");
       }
     });
 
@@ -47,38 +43,40 @@
     formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
     formData.gRecaptchaResponse = document.getElementById("g-recaptcha-response").value;
 
-    return {data: formData, honeypot: honeypot};
+    return { data: formData, honeypot: honeypot };
   }
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
     loadingCursor(); // Show spinner while sending email
-    event.preventDefault();           // we are submitting via xhr below
+    event.preventDefault(); // Submitting via xhr below
     var form = event.target;
     var formData = getFormData(form);
     var data = formData.data;
 
-    // If a honeypot field is filled, assume it was done so by a spam bot.
-    if (formData.honeypot) {
-      return false;
-    }
+    // If a honeypot field is filled, assume it was done so by a spam bot
+    if (formData.honeypot) return false;
 
     disableAllButtons(form);
     var url = form.action;
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
+    xhr.open("POST", url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".email")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
+          var formElements = form.querySelector(".email");
 
-          revertCursor(); // Revert cursor to normal once sent
+          // Hide email form
+          if (formElements) formElements.style.display = "none";
 
-          // NOTIFICATION
+          // Revert cursor to normal once sent
+          revertCursor();
+
+          // Only load Toastify once
+          if (typeof Toastify === "undefined") loadToastify();
+
+          // Show success message
           Toastify({
             text: "Message sent successfully!",
             duration: 2500,
@@ -96,35 +94,38 @@
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
         return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-    }).join('&');
+    }).join("&");
     xhr.send(encoded);
   }
 
+  // Show spinner while sending email
   function loadingCursor() {
     document.body.style.cursor = "none";
-    $('.loader').show();
-    document.addEventListener('mousemove', moveMouse);
+    $(".loader").show();
+    document.addEventListener("mousemove", moveMouse);
   };
 
+  // Revert cursor to normal once sent
   function revertCursor() {
     document.body.style.cursor = "auto";
-    $('.loader').hide();
-    document.removeEventListener('mousemove', moveMouse);
+    $(".loader").hide();
+    document.removeEventListener("mousemove", moveMouse);
   };
 
   function moveMouse(e) {
-    var cursor = document.querySelector('.loader');
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    var cursor = document.querySelector(".loader");
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
   }
   
+  // Bind to the submit event of our form
   function loaded() {
-    // bind to the submit event of our form
     var forms = document.querySelectorAll("form.gform");
     for (var i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
     }
   };
+
   document.addEventListener("DOMContentLoaded", loaded, false);
 
   function disableAllButtons(form) {
@@ -133,4 +134,34 @@
       buttons[i].disabled = true;
     }
   }
+
+  // Load script
+  function loadScript(url, integrity, crossorigin, async = false, defer = false) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    if (integrity !== undefined) script.integrity = integrity;
+    if (crossorigin !== undefined) script.crossorigin = crossorigin;
+    if (async) script.async = true;
+    if (defer) script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  // Load Toastify if not already loaded
+  function loadToastify() {
+    loadScript("https://cdn.jsdelivr.net/npm/toastify-js", "sha256-b6v+vkDiub4K6BYBnCxU8i3QkGgQ0YkR+MSLduPEQmw=", "anonymous");
+  }
+
+  // Load reCAPTCHA when mail form is opened (i.e. mail icon is clicked)
+  function loadRecaptcha() {
+    loadScript("https://www.google.com/recaptcha/api.js");
+
+    // Remove event listener to avoid js error
+    document.getElementById("mail").removeEventListener("click", loadRecaptcha);
+    document.getElementById("mailLaunch").removeEventListener("click", loadRecaptcha);
+  };
+  
+  // Add initial event listener to mail form
+  document.getElementById("mail").addEventListener("click", loadRecaptcha, false);
+  document.getElementById("mailLaunch").addEventListener("click", loadRecaptcha, false);
 })();
