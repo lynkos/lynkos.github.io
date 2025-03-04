@@ -15,11 +15,11 @@ footer
   justify-content: center
 
 .dock
-  border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.05)
+  border: vars.$border-thickness-2x solid rgba(255, 255, 255, 0.05)
   padding: vars.$padding
   z-index: 10
   grid-auto-flow: column
-  grid-gap: calc(vars.$padding / 4) //0.3rem
+  grid-gap: vars.$padding-quarter
   background: vars.$dock-menu-background
   display: grid
   border-radius: $dock-border-radius
@@ -36,16 +36,12 @@ footer
     display: grid
     align-content: center
     place-items: center
-    -ms-grid-columns: 1
     grid-template-columns: 1
-    -ms-grid-rows: 1
     grid-template-rows: 1
 
     // Compatibility with IE
     > *:nth-child(1)
-      -ms-grid-row: 1
       grid-row: 1
-      -ms-grid-column: 1
       grid-column: 1
 
     img
@@ -55,9 +51,7 @@ footer
       height: 100%
       max-width: 100%
       max-height: 100%
-      -o-object-fit: cover
       object-fit: cover
-      //pointer-events: none
       image-rendering: smooth
       @include mix.disable-select()
 

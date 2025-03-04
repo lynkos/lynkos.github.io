@@ -25,7 +25,7 @@ $username-color: #56F2E6
     font-size: 1.22rem
     height: calc(100% - vars.$header-height)
     overflow: auto
-    padding-bottom: calc(vars.$padding * 2)
+    padding-bottom: vars.$padding-2x
 
     &__row
       line-height: 1.79rem
@@ -46,7 +46,6 @@ $username-color: #56F2E6
         width: 0.8rem
         height: 0.6rem
         background-color: $arrow-color
-        -webkit-clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         clip-path: polygon(0% 30%, 60% 30%, 60% 0%, 100% 50%, 60% 100%, 60% 70%, 0% 70%)
         margin-right: 0.8rem
 
@@ -69,11 +68,10 @@ $username-color: #56F2E6
           color: #2D9CDB
       
       &-result
-        margin-left: calc(vars.$padding * 2)
+        margin-left: vars.$padding-2x
       
       &-cursor
         font-weight: bold
-        -webkit-animation: $cursor-blink blink step-end infinite
         animation: $cursor-blink blink step-end infinite
 
       @keyframes blink

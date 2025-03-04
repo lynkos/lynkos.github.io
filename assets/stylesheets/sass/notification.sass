@@ -1,9 +1,7 @@
 @use "variables" as vars
 
-$padding: calc(vars.$padding * 4)
-
 .toastify
-  padding: $padding
+  padding: vars.$padding-4x
   right: calc(vars.$menubar-height / 2) // 1.5rem
   top: calc(-10 * (vars.$menubar-height / 2)) // -15rem
   color: white
@@ -17,7 +15,7 @@ $padding: calc(vars.$padding * 4)
   border-radius: calc(vars.$border-radius * 2)
   cursor: default
   text-decoration: none
-  max-width: calc(50% - $padding)
+  max-width: calc(50% - vars.$padding-4x)
   z-index: 2147483647
   border: none
 

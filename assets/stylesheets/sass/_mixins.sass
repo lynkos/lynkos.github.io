@@ -6,7 +6,7 @@
     -webkit-app-region: no-drag
     user-select: none
     
-@mixin window-border($thickness: calc(vars.$border-thickness * 2), $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
+@mixin window-border($thickness: vars.$border-thickness-2x, $primary: rgba(255, 255, 255, 0.25), $secondary: rgba(0, 0, 0, 0.75))
     border: $thickness solid $primary
     outline: $thickness solid $secondary
 
@@ -17,18 +17,19 @@
 @mixin menu-dropdown($width: 22rem, $height: auto)
   display: none
   position: fixed
+  // font-weight: 500 // Uncomment when anti-aliasing enabled
   top: vars.$menubar-height
   font-size: vars.$menubar-font-size
   z-index: 1
-  padding: calc(vars.$padding / 2)
+  padding: vars.$padding-half
   width: $width
   height: $height
   background: rgba(45, 45, 45, 0.55)
   border-radius: 0.75rem
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25)
   backdrop-filter: blur(2.75rem)
-  @include disable-select()
   @include window-border()
+  @include disable-select()
 
 @mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
     width: $width
@@ -37,7 +38,7 @@
     background: $background
     position: relative
     border-radius: vars.$border-radius
-    border: calc(vars.$border-thickness * 2) solid rgba(255, 255, 255, 0.15)
+    border: vars.$border-thickness-2x solid rgba(255, 255, 255, 0.15)
     @include disable-select()
 
     input
@@ -52,15 +53,17 @@
         outline: none
         border-radius: vars.$border-radius
 
-        &[type=search]
-            &::-ms-clear, &::-ms-reveal
+        &[type=search]::-ms
+            &-clear, &-reveal
                 display: none
+                appearance: none
                 width: 0
                 height: 0
 
-        &[type="search"]
-            &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+        &[type="search"]::-webkit-search
+            &-decoration, &-cancel-button, &-results-button, &-results-decoration
                 display: none
+                appearance: none
 
         &::placeholder
             color: rgba(255, 255, 255, 0.5)

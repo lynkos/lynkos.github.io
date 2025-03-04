@@ -18,7 +18,7 @@ $header-color: rgb(56, 58, 55)
     text-align: center
 
   .top
-    padding: calc(vars.$padding * 2) 1.4rem
+    padding: vars.$padding-2x 1.4rem
     position: relative
     background: $header-color
     overflow: hidden
@@ -42,7 +42,7 @@ $header-color: rgb(56, 58, 55)
       span
         display: inline-block
         color: vars.$font-color
-        border-radius: calc(vars.$border-radius * 0.9)
+        border-radius: vars.$border-radius
 
         &:hover
           background-color: rgba(255, 255, 255, 0.1)
@@ -69,7 +69,7 @@ $header-color: rgb(56, 58, 55)
       border: vars.$border-thickness solid rgba(255, 255, 255, 0.25)
       width: 29rem
       font-size: $font-size
-      border-radius: calc(vars.$border-radius * 0.9)
+      border-radius: vars.$border-radius
 
       >
         input
@@ -91,7 +91,7 @@ $header-color: rgb(56, 58, 55)
     color: white
     width: 100%
     height: 100%
-    padding: calc(vars.$padding * 1.5) calc(vars.$padding * 2) calc(vars.$padding * 2) calc(vars.$padding * 2)
+    padding: vars.$padding-2x
     overflow: auto
 
     h1, h2, .fas
@@ -105,7 +105,7 @@ $header-color: rgb(56, 58, 55)
       font-size: calc($font-size + 0.6rem)
 
     .section
-      padding-bottom: calc(vars.$padding * 2)
+      padding-bottom: vars.$padding-2x
 
       &:last-of-type
         padding-bottom: 0
@@ -115,7 +115,7 @@ $header-color: rgb(56, 58, 55)
         display: flex
 
       .row
-        padding: calc(vars.$padding * 2)
+        padding: vars.$padding-2x
         flex-direction: row
         justify-content: space-between
         border-radius: calc(vars.$border-radius * 1.5)
@@ -128,7 +128,7 @@ $header-color: rgb(56, 58, 55)
 
         .beginning
           width: 11rem
-          gap: calc(vars.$padding * 1.5)
+          gap: vars.$padding-2x
           align-items: center
 
         img
@@ -147,7 +147,7 @@ $header-color: rgb(56, 58, 55)
 
         .stars
           margin-left: -1.75rem
-          gap: calc(vars.$padding * 2)
+          gap: vars.$padding-2x
           flex-direction: row
           //max-width: calc($window-width - (vars.$padding * 1.5 * 2 + 10.5rem + vars.$padding * 2 * 2)) 30rem
 

@@ -10,7 +10,7 @@ $height: min-content
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
   @include mix.disable-select()
   backdrop-filter: blur(1.5rem)
-  padding: 0 calc(vars.$padding / 2) calc(vars.$padding / 2) calc(vars.$padding / 2)
+  padding: 0 vars.$padding-half vars.$padding-half vars.$padding-half
 
   .screen-parent
     display: flex
@@ -23,7 +23,7 @@ $height: min-content
       font-size: 3rem
       min-height: 3.25rem
       line-height: 1
-      padding-inline: calc(vars.$padding * 2)
+      padding-inline: vars.$padding-2x
       height: 3.25rem
       width: 100%
       overflow: hidden
@@ -31,7 +31,7 @@ $height: min-content
       text-align: right
       color: white
       background: transparent
-      margin-top: calc(vars.$padding * 2)
+      margin-top: vars.$padding-2x
       margin-bottom: vars.$padding
 
       &:focus

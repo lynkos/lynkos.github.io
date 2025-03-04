@@ -7,7 +7,7 @@ $menubar-icon-size: 1.1rem
   width: 100%
   height: vars.$menubar-height
   font-family: vars.$font-family
-  font-weight: 400
+  // font-weight: 500 // Uncomment when anti-aliasing enabled
   padding: 0.2rem
   position: fixed
   font-size: vars.$menubar-font-size
@@ -34,7 +34,7 @@ $menubar-icon-size: 1.1rem
     .menus
       height: 100%
       color: vars.$menubar-font-color
-      padding: calc(vars.$padding / 2) vars.$padding
+      padding: vars.$padding-half vars.$padding
       display: flex
       align-items: center
       justify-content: center
@@ -47,7 +47,7 @@ $menubar-icon-size: 1.1rem
         background: rgba(255, 255, 255, 0.2)
 
   .left
-    padding-left: calc(vars.$padding + 0.25rem)
+    padding-left: vars.$padding
 
     .apple i
       font-size: calc($menubar-icon-size + 0.4rem)
@@ -56,7 +56,7 @@ $menubar-icon-size: 1.1rem
       font-weight: bold
 
   .right
-    padding-right: calc(vars.$padding + 0.25rem)
+    padding-right: vars.$padding
 
     .menu-time
       width: 6.5rem
@@ -77,7 +77,7 @@ $menubar-icon-size: 1.1rem
 .position-title
   display: flex
   justify-content: space-between
-  padding: 0 calc(vars.$padding * 2)
+  padding: 0 vars.$padding-2x
 
 .option
   border-radius: vars.$border-radius
@@ -90,21 +90,21 @@ $menubar-icon-size: 1.1rem
   align-self: center
 
 .divider
-  margin: vars.$padding calc(vars.$padding * 2)
-  border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
+  margin: vars.$padding vars.$padding-2x
+  border-bottom: vars.$border-thickness-half solid vars.$font-color
 
 #apple-menu, #finder-menu, #file-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
   i
     font-size: $menubar-icon-size
     
   .option, .disabled
-    padding: calc(vars.$padding / 4) calc(vars.$padding * 2)
+    padding: vars.$padding-quarter vars.$padding-2x
 
     &:first-child
-      margin-top: calc(vars.$padding / 2)
+      margin-top: vars.$padding-half
 
     &:last-child
-      margin-bottom: calc(vars.$padding / 2)
+      margin-bottom: vars.$padding-half
 
   .option
     i
@@ -124,7 +124,7 @@ $menubar-icon-size: 1.1rem
   padding: vars.$padding
 
   .top, .option
-    padding: vars.$padding calc(vars.$padding * 2)
+    padding: vars.$padding vars.$padding-2x
 
   .title
     color: vars.$menubar-font-color
@@ -134,7 +134,7 @@ $menubar-icon-size: 1.1rem
   .option
     .icon, .icon-selected
       border-radius: 100%
-      padding: calc(vars.$padding * 1.25)
+      padding: vars.$padding-one-and-half
 
     .icon-selected
       background-color: vars.$secondary-button-color
@@ -150,7 +150,7 @@ $menubar-icon-size: 1.1rem
 
   .divider-last
     margin: vars.$padding 0
-    border-bottom: calc(vars.$border-thickness / 2) solid vars.$font-color
+    border-bottom: vars.$border-thickness-half solid vars.$font-color
 
   .subtitle, .select-subtitle
     font-size: 1.15rem
@@ -158,10 +158,10 @@ $menubar-icon-size: 1.1rem
     color: vars.$font-color
 
   .subtitle
-    padding: 0 calc(vars.$padding * 2)
+    padding: 0 vars.$padding-2x
 
   .select-subtitle
-    padding: calc(vars.$padding / 2) calc(vars.$padding * 2)
+    padding: vars.$padding-half vars.$padding-2x
     border-radius: vars.$border-radius
 
     &:hover
@@ -173,7 +173,7 @@ $menubar-icon-size: 1.1rem
   
   .playlist-buttons
     justify-content: space-evenly
-    padding: calc(vars.$padding / 2.25) vars.$padding calc(vars.$padding * 1.5) vars.$padding
+    padding: calc(vars.$padding / 2.25) vars.$padding vars.$padding-one-and-half vars.$padding
 
   i
     color: vars.$menubar-font-color
@@ -181,8 +181,8 @@ $menubar-icon-size: 1.1rem
 
 #help-menu
   .searchbar
-    @include mix.searchbar(100%, 2rem, rgba(255, 255, 255, 0.1), 1.1rem, calc(vars.$padding / 2), rgba(255, 255, 255, 0.8))
     padding: vars.$padding
+    @include mix.searchbar(100%, 2rem, rgba(255, 255, 255, 0.1), 1.1rem, vars.$padding-half, rgba(255, 255, 255, 0.8))
 
 .selected-menu
   background-color: rgba(255, 255, 255, 0.2)
