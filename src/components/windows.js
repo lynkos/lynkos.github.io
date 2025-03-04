@@ -315,11 +315,6 @@ $(document).ready(function() {
         if (!$(this).hasClass("active")) $(this).addClass("active");
     });
 
-    // Make GitHub icon bounce on click/tap
-    $("#github-dock").click(function() {
-        bounce(this);
-    });
-
     // Rotate picture in `profile.webp` preview
     $("#rotate").on("click", function() {
         angle = (angle - 90) % 360;    
