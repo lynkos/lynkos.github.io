@@ -178,6 +178,22 @@ Includes (but is not limited to):
    * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
 3. Modify the code within [`<form class="gform">`](index.html#L897) (inclusive) in [`index.html`](index.html) accordingly
 
+## Resources
+* [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
+* [Deploy keys (SSH)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
+* [Creating a branch within your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)
+* [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
+* [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
+* [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+* [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+* [Writing workflows](https://docs.github.com/en/actions/writing-workflows)
+* [Send Email from a *Static* HTML Form using Google Apps Mail!](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
+* [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
+* [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
+* [GitHub Actions: Cache](https://github.com/actions/cache)
+* [Set up Sass in the best way](https://remybeumier.be/blog/set-up-sass-in-the-best-way)
+* [Automatically render reCAPTCHA v2 widget](https://developers.google.com/recaptcha/docs/display#auto_render)
+
 ### Repository Structure
 > [!NOTE]
 > [`main`](https://github.com/lynkos/lynkos.github.io/tree/main) is used for development
@@ -357,19 +373,3 @@ Includes (but is not limited to):
 ├── robots.txt
 └── sitemap.xml</pre>
 </details>
-
-## Resources
-* [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
-* [Deploy keys (SSH)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
-* [Creating a branch within your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)
-* [GitHub Pages Action](https://github.com/marketplace/actions/github-pages-action)
-* [GitHub Actions: Deploy Pages](https://github.com/actions/deploy-pages)
-* [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
-* [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-* [Writing workflows](https://docs.github.com/en/actions/writing-workflows)
-* [Send Email from a *Static* HTML Form using Google Apps Mail!](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-* [Deploy Nuxt on GitHub Pages](https://v2.nuxt.com/deployments/github-pages)
-* [Node Version Manager (NVM): GitHub Repository](https://github.com/nvm-sh/nvm)
-* [GitHub Actions: Cache](https://github.com/actions/cache)
-* [Set up Sass in the best way](https://remybeumier.be/blog/set-up-sass-in-the-best-way)
-* [Automatically render reCAPTCHA v2 widget](https://developers.google.com/recaptcha/docs/display#auto_render)
