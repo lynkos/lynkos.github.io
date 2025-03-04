@@ -268,7 +268,7 @@ Includes (but is not limited to):
 │   │       └── tooltip.sass
 │   └── resume.pdf
 ├── dist/
-│   └── libs/
+│   └── lib/
 │       └── jquery-ui.js
 ├── src/
 │   ├── components/
@@ -362,7 +362,7 @@ Includes (but is not limited to):
 │   │   ├── email.js
 │   │   ├── terminal.js
 │   │   └── windows.js
-│   ├── libs/
+│   ├── lib/
 │   │   └── jquery-ui.js
 │   └── utilities/
 │       ├── particles.js
