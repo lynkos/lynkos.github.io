@@ -40,7 +40,6 @@ hr
 
 // Add the correct text decoration in Chrome, Edge, and Safari.
 abbr:where([title])
-    -webkit-text-decoration: underline dotted
     text-decoration: underline dotted
 
 // Remove the default font size and weight for headings.
@@ -51,9 +50,8 @@ h1, h2, h3, h4, h5, h6
 // Reset links to optimize for opt-in styling instead of opt-out.
 a
     color: inherit // vars.$secondary-font-color
-    -webkit-text-decoration: inherit
     text-decoration: inherit
-    cursor: pointer //
+    cursor: pointer
 
 // Add the correct font weight in Edge and Safari.
 b, strong
@@ -159,7 +157,7 @@ textarea
 
 // Remove the inner padding in Chrome and Safari on macOS.
 ::-webkit-search-decoration
-    -webkit-appearance: none
+    appearance: none
 
 // 1. Ensure date/time inputs have the same height when empty in iOS Safari.
 // 2. Ensure text alignment can be changed on date/time inputs in iOS Safari.
