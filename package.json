@@ -48,6 +48,7 @@
         "> 0.5%",
         "last 125 versions",
         "not dead",
+        "not op_mini all",
         "Firefox ESR"
     ]
 }
