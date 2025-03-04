@@ -4,29 +4,7 @@ $(function() {
     var zoom = 1;
     var fadeMs = 350;
 
-    /* JAVASCRIPT FUNCTIONS */
-    // Check if device is touchscreen
-    function isTouchscreen() {
-        if (("ontouchstart" in document.documentElement) || !!("ontouchstart" in window) || (!!window.ontouchstart) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) || (window.DocumentTouch && document instanceof DocumentTouch)) return true;
-        return window.matchMedia("(pointer: coarse)").matches;
-    }
-
-    // Load Touch Punch if device is touchscreen
-    function loadTouchPunch() {
-        if (isTouchscreen()) {
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js";
-            script.integrity = "sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=";
-            script.crossorigin = "anonymous";
-            script.defer = true;
-            document.head.appendChild(script);            
-        }
-    }
-
-    // Load Touch Punch if device is touchscreen
-    loadTouchPunch();
-    
+    /* JAVASCRIPT FUNCTIONS */    
     // Open launchpad
     function openLaunchpad() {
         $(".menu-bar").fadeOut(fadeMs);
