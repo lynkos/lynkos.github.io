@@ -7,7 +7,7 @@ $scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
 $scrollbar-color-track: rgba(255, 255, 255, 0.075)
 $scrollbar-width: 0.75rem
 
-:root
+:root, body
   background-attachment: fixed
 
 html
@@ -27,7 +27,7 @@ main
   width: 100%
   height: calc(100% - vars.$menubar-height)
 
-// Modern browsers
+// Scrollbar for modern browsers
 @supports (scrollbar-width: auto)
   html
     scrollbar-color: $scrollbar-color-thumb $scrollbar-color-track
@@ -35,7 +35,7 @@ main
     -ms-scrollbar-track-color: $scrollbar-color-track
     scrollbar-track-color: $scrollbar-color-track
 
-// Legacy browsers
+// Scrollbar for legacy browsers
 @supports selector(::-webkit-scrollbar)
   ::-webkit-scrollbar-thumb
     background: $scrollbar-color-thumb
@@ -48,20 +48,23 @@ main
     max-width: $scrollbar-width
     max-height: $scrollbar-width
 
+// Selection (i.e. highlight) color
+::selection
+  background: vars.$selection-color
+  text-shadow: none
+
 body
   font-family: vars.$font-family
   font-variation-settings: "wdth" 100
   font-optical-sizing: auto
+  // font-weight: 500
   // -webkit-font-smoothing: antialiased
   // -moz-osx-font-smoothing: grayscale
   color: vars.$font-color
   background-color: vars.$background-color
   background-image: vars.$background-gradient
-  background-image: -o-radial-gradient(vars.$background-color, vars.$foreground-color, 225%) 
-  //background-image: -moz-radial-gradient(center, ellipse cover, vars.$background-color 0%, vars.$foreground-color 225%)
   background-repeat: no-repeat
   overflow: hidden
-  background-attachment: fixed
   display: flex
   flex-direction: column
 
@@ -70,21 +73,11 @@ canvas
   height: 100vh !important
   display: block
 
-::selection
-  background: vars.$selection-color
-  text-shadow: none
-
-// Must keep selection pseudo-elements separate, else it won't work
-::-moz-selection
-  background: vars.$selection-color
-  text-shadow: none
-
 .folder
   float: right
   width: calc($folder-dim * 1.3)
   gap: $folder-padding
-  padding-top: $folder-padding
-  padding-right: $folder-padding
+  padding: $folder-padding $folder-padding 0 0
   display: flex
   flex-direction: column
   align-items: flex-end
@@ -96,6 +89,7 @@ canvas
     background-color: transparent
     background-image: none
     border: none
+    outline: none
     appearance: none
 
   &-button
@@ -105,7 +99,6 @@ canvas
       filter: brightness(75%)
 
     img
-      -o-object-fit: contain
       object-fit: contain
       display: block
       width: $folder-dim
@@ -119,7 +112,7 @@ canvas
       text-align: center
       overflow: hidden
       font-size: 1.24rem
-      font-weight: 500
+      font-weight: 600
       color: vars.$menubar-font-color
       text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25)
       @include mix.disable-select()
@@ -127,115 +120,12 @@ canvas
 // BACKGROUND PARTICLES
 #particles-js
   position: fixed
-  width: 100vw
-  height: 100vh
+  width: 100vw !important
+  height: 100vh !important
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 50%
 
-.dialogue
-  font-family: vars.$font-family
-  line-height: 1.5
-  display: none
-  cursor: default
-  position: absolute
-  inline-size: -webkit-min-content
-  inline-size: -moz-min-content
-  inline-size: min-content
-  z-index: 1
-  width: 27rem
-  padding: 2rem
-  color: white
-  background: rgba(45, 45, 45, 0.6)
-  border-radius: calc(vars.$border-radius * 2)
-  box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
-  backdrop-filter: blur(2.25rem)
-  @include mix.window-border()
-  @include mix.disable-select()
-
-  .pp-body
-    text-align: center
-
-    img
-      display: inline
-      width: 6rem
-
-  .warning
-    font-weight: 700
-    font-size: 1.36rem
-
-  .hint
-    font-size: 1.25rem
-
-  .actions
-    padding-top: 1rem
-
-  .alert-btn
-    width: 10rem
-    @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
-
-    &.confirm
-      background: var(--confirm, vars.$button-gradient)
-      
-      &:active
-        background: var(--confirm-active, vars.$primary-button-color)
-
 .windows
   position: absolute
   z-index: 0
-
-@media screen and (max-width: vars.$width-threshold)
-  html
-    font-size: 55%
-
-  .dialogue .alert-btn
-    width: 9.75rem
-
-@media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
-  html
-    font-size: 50%
-
-  .dialogue .alert-btn
-    width: 9.75rem
-
-@media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
-  html
-    font-size: 45%
-
-  .dialogue .alert-btn
-    width: 9.75rem
-
-@media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
-  html
-    font-size: 40%
-
-  .dialogue .alert-btn
-    width: 9.75rem
-
-@media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
-  html
-    font-size: 35%
-
-  .dialogue .alert-btn
-    width: 9.75rem
-
-@media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
-  html
-    font-size: 30%
-
-  .dialogue .alert-btn
-    width: 10rem
-    
-@media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
-  html
-    font-size: 25%
-
-  .dialogue .alert-btn
-    width: 10rem
-
-@media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
-  html
-    font-size: 24%
-
-  .dialogue .alert-btn
-    width: 10rem

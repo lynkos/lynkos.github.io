@@ -1,0 +1,101 @@
+@use "variables" as vars
+@use "mixins" as mix
+
+.trash-dialogue
+  display: none
+  cursor: default
+  position: absolute
+  inline-size: min-content
+  z-index: 1
+  width: 27rem
+  padding: 2rem
+  color: white
+  background: rgba(45, 45, 45, 0.6)
+  border-radius: vars.$window-border-radius
+  box-shadow: vars.$box-shadow //0px 15px 25px 0px rgba(0, 0, 0, 0.5)
+  backdrop-filter: blur(2.25rem)
+  @include mix.window-border()
+  @include mix.disable-select()
+
+  .pp-body
+    text-align: center
+
+    img
+      display: inline
+      width: 6rem
+
+  .warning
+    font-weight: 700
+    font-size: 1.36rem
+
+  .hint
+    font-size: 1.25rem
+
+  .actions
+    padding-top: 1rem
+
+  .alert-btn
+    width: 10rem
+    @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
+
+    &.confirm
+      background: var(--confirm, vars.$button-gradient)
+      
+      &:active
+        background: var(--confirm-active, vars.$primary-button-color)
+
+@media screen and (max-width: vars.$width-threshold)
+  html
+    font-size: 55%
+
+  .trash-dialogue .alert-btn
+    width: 9.75rem
+
+@media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
+  html
+    font-size: 50%
+
+  .trash-dialogue .alert-btn
+    width: 9.75rem
+
+@media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
+  html
+    font-size: 45%
+
+  .trash-dialogue .alert-btn
+    width: 9.75rem
+
+@media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
+  html
+    font-size: 40%
+
+  .trash-dialogue .alert-btn
+    width: 9.75rem
+
+@media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+  html
+    font-size: 35%
+
+  .trash-dialogue .alert-btn
+    width: 9.75rem
+
+@media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+  html
+    font-size: 30%
+
+  .trash-dialogue .alert-btn
+    width: 10rem
+    
+@media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
+  html
+    font-size: 25%
+
+  .trash-dialogue .alert-btn
+    width: 10rem
+
+@media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
+  html
+    font-size: 24%
+
+  .trash-dialogue .alert-btn
+    width: 10rem

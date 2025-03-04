@@ -44,7 +44,7 @@ $(function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .btn, .dialogue, .menu-dropdown").map(function() {
+            let maxZIndex = Math.max(...$(".windows, .btn, .trash-dialogue, .menu-dropdown").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -56,7 +56,7 @@ $(function() {
                     }
 
                     // If current element is trash dialogue
-                    else if ($(this).hasClass("dialogue")) {
+                    else if ($(this).hasClass("trash-dialogue")) {
                         // Make its confirm buttons inactive
                         $(this).css("--confirm", "rgb(115, 118, 115)");
                         $(this).css("--confirm-active", "rgb(145, 148, 145)");
@@ -94,7 +94,7 @@ $(function() {
             }
 
             // If given element is trash dialogue
-            else if ($(element).hasClass("dialogue")) {
+            else if ($(element).hasClass("trash-dialogue")) {
                 // Make its confirm buttons active
                 $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
                 $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
@@ -396,7 +396,7 @@ $(function() {
     });
 
     // Center windows on load
-    centerWindow(".windows, .dialogue", "center center-36.5");
+    centerWindow(".windows, .trash-dialogue", "center center-36.5");
 
     // Show terminal on load
     $(".mac-terminal").fadeIn(fadeMs);
@@ -408,8 +408,8 @@ $(function() {
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
 
-    // Make dialogue draggable
-    $(".dialogue").draggable({
+    // Make trash dialogue draggable
+    $(".trash-dialogue").draggable({
         cursor: "default",
         cancel: ".alert-btn",
         start: function() {
@@ -491,7 +491,7 @@ $(function() {
     openWindow("#calc", ".calc", "inline-block");
 
     // Open trash dialogue
-    openWindow("#trash-icon", ".dialogue", "inline-block");
+    openWindow("#trash-icon", ".trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
     openFile("#aboutFile", "#text-edit", ".text-edit", false);
@@ -545,7 +545,7 @@ $(function() {
     closeWindow(".resume-header__op-icon--red", ".resume", "#preview", "55rem", "55rem");
 
     // Close trash dialogue
-    closeWindow(".alert-btn", ".dialogue", "#trash-icon");
+    closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
 
     // // Maximize terminal
     // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
