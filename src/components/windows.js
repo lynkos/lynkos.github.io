@@ -2,12 +2,13 @@ $(document).ready(function() {
     /* VARIABLES */
     var angle = 0;
     var zoom = 1;
+    var fadeMs = 350;
 
     /* JAVASCRIPT FUNCTIONS */
     // Open launchpad
     function openLaunchpad() {
-        $(".menu-bar").fadeOut(400);
-        $(".openWindow").fadeOut(400);
+        $(".menu-bar").fadeOut(fadeMs);
+        $(".openWindow").fadeOut(fadeMs);
         $("#launchpad").addClass("shown start");
         $("#launchpad").find("nav").addClass("scale-down");
     }
@@ -23,9 +24,9 @@ $(document).ready(function() {
         setTimeout(function() {
             $("#launchpad").removeClass("shown end");
             $("#launchpad").find("nav").removeClass("scale-up");
-        }, 350);
-        $(".menu-bar").fadeIn(400);
-        $(".openWindow").fadeIn(400);
+        }, fadeMs);
+        $(".menu-bar").fadeIn(fadeMs);
+        $(".openWindow").fadeIn(fadeMs);
     }
 
     // Center windows
@@ -398,7 +399,7 @@ $(document).ready(function() {
     centerWindow(".windows, .dialogue", "center center-36.5");
 
     // Show terminal on load
-    $(".mac-terminal").fadeIn(500);
+    $(".mac-terminal").fadeIn(fadeMs);
 
     // Apply draggable to all existing windows
     makeDraggable(".windows");
