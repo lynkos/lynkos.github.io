@@ -56,6 +56,9 @@
     // If a honeypot field is filled, assume it was done so by a spam bot
     if (formData.honeypot) return false;
 
+    // Only load Toastify once
+    if (typeof Toastify === "undefined") loadToastify();
+
     disableAllButtons(form);
     var url = form.action;
     var xhr = new XMLHttpRequest();
@@ -72,9 +75,6 @@
 
           // Revert cursor to normal once sent
           revertCursor();
-
-          // Only load Toastify once
-          if (typeof Toastify === "undefined") loadToastify();
 
           // Show success message
           Toastify({
@@ -136,20 +136,18 @@
   }
 
   // Load script
-  function loadScript(url, integrity, crossorigin, async = false, defer = false) {
+  function loadScript(url, defer = false, async = false) {
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = url;
-    if (integrity !== undefined) script.integrity = integrity;
-    if (crossorigin !== undefined) script.crossorigin = crossorigin;
-    if (async) script.async = true;
     if (defer) script.defer = true;
+    if (async) script.async = true;
     document.head.appendChild(script);
   }
 
   // Load Toastify if not already loaded
   function loadToastify() {
-    loadScript("https://cdn.jsdelivr.net/npm/toastify-js", "sha256-b6v+vkDiub4K6BYBnCxU8i3QkGgQ0YkR+MSLduPEQmw=", "anonymous");
+    loadScript("https://cdn.jsdelivr.net/npm/toastify-js", true);
   }
 
   // Load reCAPTCHA when mail form is opened (i.e. mail icon is clicked)
