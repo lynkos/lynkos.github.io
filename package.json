@@ -45,11 +45,9 @@
         "node": "current"
     },
     "browserslist": [
-        ">= 1%",
+        "> 0.5%",
+        "last 125 versions",
         "not dead",
-        "not op_mini all",
-        "Android >= 11",
-        "iOS >= 15",
-        "ie >= 9"
+        "Firefox ESR"
     ]
 }
