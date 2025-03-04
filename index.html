@@ -62,9 +62,9 @@
     <link rel="preload" as="image" href="/assets/img/system/rtf-icon.webp">
     <link rel="preload" as="image" href="/assets/img/system/trash.webp">
 
-    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
-    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script">
-    <link rel="preload" href="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script" integrity="sha256-+u54FaX9J+k40eAcg5K2YzICSQjrEYBI9gju5nE3HfY=" crossorigin="anonymous">
+    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    <link rel="preload" href="/dist/libs/jquery-ui.js" as="script">
     <link rel="preload" href="/dist/components/windows.js" as="script">
     <link rel="preload" href="/dist/utilities/timestamp.js" as="script">
 
@@ -77,15 +77,15 @@
     <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/browser.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/preflight.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/notification.css">
     
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
-    <script src="https://www.google.com/recaptcha/api.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/dist/libs/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha256-+u54FaX9J+k40eAcg5K2YzICSQjrEYBI9gju5nE3HfY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" integrity="sha256-b6v+vkDiub4K6BYBnCxU8i3QkGgQ0YkR+MSLduPEQmw=" crossorigin="anonymous" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" crossorigin="anonymous" defer></script>
   </head>
 
   <body>
@@ -2524,7 +2524,7 @@
             <span class="resume-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
           <div class="resume-body">
-            <iframe title=".pdf of my resume" src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://lynkos.dev/assets/resume.pdf#toolbar=0&scrollbar=0" frameborder="0" scrolling="auto" height="100%" width="100%"></iframe>
+            <iframe title=".pdf of my resume" src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://lynkos.dev/assets/resume.pdf#toolbar=0&scrollbar=0" frameborder="0" scrolling="auto" height="100%" width="100%" loading="lazy"></iframe>
           </div>
         </div>
 
@@ -2594,7 +2594,7 @@
     <script src="/dist/components/calculator.js" defer></script>
     <script src="/dist/components/terminal.js" defer></script>
     <script data-cfasync="false" src="/dist/components/email.js" defer></script>
-    <script defer>
+    <script>
       // Make launchpad searchable
       function filterLaunchpad() {
         var input = document.getElementById("launchInput"),

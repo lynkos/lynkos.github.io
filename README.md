@@ -227,16 +227,21 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── browser.sass
 │   │       ├── calculator.sass
 │   │       ├── dock.sass
+│   │       ├── jquery-ui.sass
 │   │       ├── launchpad.sass
 │   │       ├── mail.sass
 │   │       ├── menubar.sass
 │   │       ├── notes.sass
+│   │       ├── notification.sass
 │   │       ├── preview.sass
 │   │       ├── style.sass
 │   │       ├── terminal.sass
 │   │       ├── text-edit.sass
 │   │       └── tooltip.sass
 │   └── resume.pdf
+├── dist/
+│   └── libs/
+│       └── jquery-ui.js
 ├── src/
 │   ├── components/
 │   │   ├── 404.js
@@ -309,10 +314,12 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │       ├── browser.css
 │   │       ├── calculator.css
 │   │       ├── dock.css
+│   │       ├── jquery-ui.css
 │   │       ├── launchpad.css
 │   │       ├── mail.css
 │   │       ├── menubar.css
 │   │       ├── notes.css
+│   │       ├── notification.css
 │   │       ├── preview.css
 │   │       ├── style.css
 │   │       ├── terminal.css
@@ -326,6 +333,8 @@ Any message submitted via the Mail form will be sent to *my* email. In order to 
 │   │   ├── email.js
 │   │   ├── terminal.js
 │   │   └── windows.js
+│   ├── libs/
+│   │   └── jquery-ui.js
 │   └── utilities/
 │       ├── particles.js
 │       └── timestamp.js

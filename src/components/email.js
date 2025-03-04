@@ -81,21 +81,10 @@
           // NOTIFICATION
           Toastify({
             text: "Message sent successfully!",
-            className: "info",
             duration: 2500,
             style: {
-              background: "rgba(45, 45, 45, 0.8)",
-              "-webkit-box-shadow": "0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)",
-              "-moz-box-shadow": "0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)",
-              "box-shadow": "0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)",
-              "backdrop-filter": "blur(0.8rem)",
-              "-webkit-backdrop-filter": "blur(0.8rem)",
-              padding: "2rem",
-              "border-radius": "1rem",
               width: "25rem",
-              "font-size": "1.4rem",
-              border: "none",
-              cursor: "default",
+              "font-size": "1.4rem"
             },
             offset: {
               x: 0,
