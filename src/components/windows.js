@@ -260,7 +260,7 @@ $(function() {
     
     // Show right menu when icon clicked
     function showRightMenu(btn, menu, offset) {
-        showMenu(btn, menu, offset - $(menu).width());
+        showMenu(btn, menu, offset + $(btn).width() - $(menu).width());
     }
 
     // Show left menu when icon clicked
@@ -437,10 +437,10 @@ $(function() {
     });
 
     // Show playlist when play icon clicked
-    showRightMenu("#play", "#playlist", 13);
+    showRightMenu("#play", "#playlist", 4);
 
     // Show wifi menu when wifi icon clicked
-    showRightMenu("#wifi", "#wifi-menu", 13);
+    showRightMenu("#wifi", "#wifi-menu", 0);
 
     // Show apple menu when apple icon clicked
     showLeftMenu("#apple", "#apple-menu");
