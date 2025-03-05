@@ -4,35 +4,31 @@
     <meta charset="utf-8">
     <title>Lynkos</title>
 
-    <link rel="preload" as="image" href="/assets/img/apps/iterm.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/launchpad.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/mail.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/notes.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/safari.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/text-edit.webp">
-    <link rel="preload" as="image" href="/assets/img/icons/control-center.svg">
-    <link rel="preload" as="image" href="/assets/img/icons/terminal.svg">
-    <link rel="preload" as="image" href="/assets/img/misc/profile.webp">
-    <link rel="preload" as="image" href="/assets/img/system/blue-folder.webp">
-    <link rel="preload" as="image" href="/assets/img/system/pdf.webp">
-    <link rel="preload" as="image" href="/assets/img/system/rtf-icon.webp">
-    <link rel="preload" as="image" href="/assets/img/system/trash.webp">
-
-    <link rel="preload" as="style" href="/assets/stylesheets/css/preflight.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/style.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/dock.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/menubar.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/terminal.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/preview.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/calculator.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/mail.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/tooltip.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/text-edit.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/notes.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/launchpad.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/browser.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/jquery-ui.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/notification.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="/assets/stylesheets/css/trash.css" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- Fallback for preload if there's no JavaScript -->
     <noscript>
-      <link rel="stylesheet" href="/assets/stylesheets/css/preflight.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/style.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/dock.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/menubar.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/terminal.css">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/preview.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/calculator.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/mail.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/tooltip.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/text-edit.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/notes.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/browser.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/jquery-ui.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/notification.css">
+      <link rel="stylesheet" href="/assets/stylesheets/css/trash.css">
     </noscript>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,23 +58,32 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
     <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
+    <link rel="preload" as="image" href="/assets/img/apps/iterm.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/launchpad.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/mail.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/notes.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/safari.webp">
+    <link rel="preload" as="image" href="/assets/img/apps/text-edit.webp">
+    <link rel="preload" as="image" href="/assets/img/icons/control-center.svg">
+    <link rel="preload" as="image" href="/assets/img/icons/terminal.svg">
+    <link rel="preload" as="image" href="/assets/img/misc/profile.webp">
+    <link rel="preload" as="image" href="/assets/img/system/blue-folder.webp">
+    <link rel="preload" as="image" href="/assets/img/system/pdf.webp">
+    <link rel="preload" as="image" href="/assets/img/system/rtf-icon.webp">
+    <link rel="preload" as="image" href="/assets/img/system/trash.webp">
+
     <link rel="preload" as="script" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha256-+u54FaX9J+k40eAcg5K2YzICSQjrEYBI9gju5nE3HfY=" crossorigin="anonymous">
     <link rel="preload" as="script" href="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
     <link rel="preload" as="script" href="/dist/lib/jquery-ui.js">
     <link rel="preload" as="script" href="/dist/components/windows.js">
     <link rel="preload" as="script" href="/dist/utilities/timestamp.js">
 
-    <link rel="stylesheet" href="/assets/stylesheets/css/preview.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/calculator.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/mail.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/tooltip.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/text-edit.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/notes.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/browser.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/jquery-ui.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/notification.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/trash.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/preflight.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/style.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/terminal.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/dock.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/menubar.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/dist/lib/jquery-ui.js"></script>
