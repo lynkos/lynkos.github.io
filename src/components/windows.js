@@ -30,10 +30,10 @@ $(function() {
     }
 
     // Center windows
-    function centerWindow(win, pos) {
+    function centerWindow(win, my, at = "center") {
         $(win).position({
-            my: pos, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
-            at: "center",
+            my: my, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
+            at: at,
             collision: "fit",
             of: "#main-content"
         });
@@ -395,8 +395,8 @@ $(function() {
         removeClasses(".text-body", [ "center", "left", "right" ]);
     });
 
-    // Center windows on load
-    centerWindow(".windows, .trash-dialogue", "center center-36.5");
+    // Center all windows except resume on load
+    centerWindow(".windows:not(.resume), .trash-dialogue", "center center-36.5");
 
     // Show terminal on load
     $(".mac-terminal").fadeIn(fadeMs);
@@ -429,12 +429,25 @@ $(function() {
         distance: 0
     });
 
-    // Resize certain windows
+    // Make some windows resizeable
     $(".mac-terminal, .email, .notes, .browser, .preview, .resume").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
     });
+
+    // RESUME POSITIONING
+    // calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
+    var remToPx = 9 * parseFloat($("html").css("font-size")); // Convert 9rem to px
+    var errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
+    var maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
+    // No upper bound since we'd still place resume at top instead of center if it exceeds max height
+
+    // IF resume height >= max height, place at top (sub menubar height)
+    if ($(".resume").height() >= maxHeight) centerWindow(".resume", "top-36.5", "top");
+
+    // ELSE center
+    else centerWindow(".resume", "center center-36.5");
 
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);
