@@ -6,6 +6,7 @@ $preview-width: 50rem
 $resume-height: 50rem // 70vh
 $resume-width: 75vw // 55rem
 $resume-min-width: 41rem
+$resume-max-width: 75rem
 $resume-min-height: 20rem
 $header-height: 5rem
 $icon-size: 1.5rem
@@ -16,7 +17,7 @@ $header-color: rgb(56, 57, 56)
     @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height)
 
 .resume
-    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height)
+    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height, $resume-max-width)
 
 .preview, .resume
     font-family: vars.$font-family

@@ -1,7 +1,6 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$dock-icon-size: 4.5rem
 $dock-border-radius: 1.6rem
 
 .divider
@@ -31,8 +30,8 @@ footer
     cursor: default
 
   .icon
-    height: $dock-icon-size
-    width: $dock-icon-size
+    height: vars.$dock-icon-size
+    width: vars.$dock-icon-size
     display: grid
     align-content: center
     place-items: center
