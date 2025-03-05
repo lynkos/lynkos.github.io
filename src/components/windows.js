@@ -9,7 +9,7 @@ $(function() {
     const maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
     // No upper bound since oversized window should still be on top instead of center
 
-    /* JAVASCRIPT FUNCTIONS */    
+    /* FUNCTIONS */    
     // Open launchpad
     function openLaunchpad() {
         $(".menu-bar").fadeOut(fadeMs);
@@ -55,18 +55,21 @@ $(function() {
 
     // ONLY position window when first opened
     function initPosition(icon, win, eventType) {
-        $(icon).one(eventType, function() {
-            // Auto-position all windows except About
-            if (win !== ".text-edit") positionWindow(win);
+        // Ignore terminal since it's already positioned on load
+        if (win !== ".mac-terminal") {
+            $(icon).one(eventType, function() {
+                // Auto-position all windows except About
+                if (win !== ".text-edit") positionWindow(win);
 
-            // Since About is the only window/app that can be opened in
-            // multiple ways (i.e. clicking dock icon, double-clicking
-            // or tapping Desktop file), only position it if not yet opened
-            else if (!aboutOpened) {
-                positionWindow(win);
-                aboutOpened = true;
-            }
-        });
+                // Since About is the only window/app that can be opened in
+                // multiple ways (i.e. clicking dock icon, double-clicking
+                // or tapping Desktop file), only position it if not yet opened
+                else if (!aboutOpened) {
+                    positionWindow(win);
+                    aboutOpened = true;
+                }
+            });
+        }
     }
     
     // Bring clicked window to front
@@ -320,7 +323,6 @@ $(function() {
     //   });
     // }
 
-    /* JQUERY FUNCTIONS */
     // Toggle launchpad
     $(".open-menu").on("click", function() {
         if ($("#launchpad").hasClass("shown start")) closeLaunchpad();
@@ -351,10 +353,8 @@ $(function() {
         $("#trash-icon").off("click");
     });
 
-    // Position all windows
-    $(".mac-terminal").each(function() {
-        positionWindow(this);
-    });
+    // Position terminal
+    positionWindow(".mac-terminal");
     
     // Show terminal on load
     $(".mac-terminal").fadeIn(fadeMs);
@@ -365,9 +365,6 @@ $(function() {
     // Make launchpad apps sortable
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
-
-    // Position trash dialogue
-    positionWindow(".trash-dialogue");
 
     // Make trash dialogue draggable
     $(".trash-dialogue").draggable({
