@@ -3,9 +3,12 @@
 
 $preview-height: 40rem
 $preview-width: 50rem
-$resume-height: 50rem // 70vh
-$resume-width: 75vw // 55rem
-$resume-min-width: 41rem
+$preview-min-width: 45rem
+$preview-max-width: calc(vars.$max-height + vars.$padding-4x) // Max-height since `profile.jpg` is square + Buffer
+$preview-min-height: vars.$min-height
+$resume-height: 50rem
+$resume-width: 75vw
+$resume-min-width: 45rem
 $resume-max-width: 75rem
 $resume-min-height: 20rem
 $header-height: 5rem
@@ -14,10 +17,10 @@ $icon-dim: calc($icon-size + 1rem)
 $header-color: rgb(56, 57, 56)
 
 .preview
-    @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height)
+    @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height, $preview-min-width, $preview-min-height, $preview-max-width)
 
 .resume
-    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height, $resume-max-width)
+    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height, $resume-max-width, vars.$max-height)
 
 .preview, .resume
     font-family: vars.$font-family
