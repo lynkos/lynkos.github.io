@@ -1,8 +1,13 @@
 $(function() {
     /* VARIABLES */
-    var angle = 0;
-    var zoom = 1;
-    var fadeMs = 350;
+    var aboutOpened = false;
+    const fadeMs = 350;
+
+    // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
+    const remToPx = 9 * parseFloat($("html").css("font-size")); // Convert 9rem to px
+    const errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
+    const maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
+    // No upper bound since oversized window should still be on top instead of center
 
     /* JAVASCRIPT FUNCTIONS */    
     // Open launchpad
@@ -39,6 +44,31 @@ $(function() {
         });
     }
 
+    // Position window based off dims
+    function positionWindow(win) {
+        // IF window height >= max height, place at top (sub menubar height)
+        if ($(win).height() >= maxHeight) centerWindow(win, "top-36.5", "top");
+
+        // ELSE center
+        else centerWindow(win, "center center-36.5");
+    }
+
+    // ONLY position window when first opened
+    function initPosition(icon, win, eventType) {
+        $(icon).one(eventType, function() {
+            // Auto-position all windows except About
+            if (win !== ".text-edit") positionWindow(win);
+
+            // Since About is the only window/app that can be opened in
+            // multiple ways (i.e. clicking dock icon, double-clicking
+            // or tapping Desktop file), only position it if not yet opened
+            else if (!aboutOpened) {
+                positionWindow(win);
+                aboutOpened = true;
+            }
+        });
+    }
+    
     // Bring clicked window to front
     function bringToFront(element) {
         // No need to increase z-index if already in front
@@ -101,7 +131,7 @@ $(function() {
             }
         }
     }
-
+    
     // Make windows draggable and bring to front on drag
     function makeDraggable(selector) {
         $(selector).draggable({
@@ -123,8 +153,11 @@ $(function() {
         $(selector).effect("bounce", { times: 3 }, 600);
     }
 
-    // Open window
+    // Open window/app via dock
     function openWindow(icon, win, displayType) {
+        // Position window when first opened
+        initPosition(icon, win, "click");
+
         $(icon).on("click", function() {
             closeLaunchpad();
             $(win).css("display", displayType);
@@ -143,7 +176,7 @@ $(function() {
     }
 
     // Show file when clicking on desktop icon
-    function showFile(icon, win, inDock) {
+    function showFile(icon, win, inDock) {        
         if ($(win).css("display") === "none") $(win).css("display", "flex");
         bringToFront(win);
         if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
@@ -153,8 +186,12 @@ $(function() {
         }
     }
 
-    // Open file when double-clicking or tapping its icon
+    // Open Desktop file when double-clicking or tapping its icon
     function openFile(file, icon, win, inDock) {
+        // Only position window when first opened
+        initPosition(file, win, "dblclick");
+        initPosition(file, win, "touchend");
+                
         // Open file when double-clicking
         $(file).on("dblclick", function(event) {
             event.preventDefault();
@@ -177,6 +214,9 @@ $(function() {
 
     // Open app via launchpad
     function launchApp(icon, win, displayType, dockIcon) {
+        // Position window when first opened
+        initPosition(icon, win, "click");
+
         $(icon).on("click", function() {
             closeLaunchpad();
             bringToFront(win);
@@ -204,13 +244,6 @@ $(function() {
             //   $("footer").show();
             // }
         });
-    }
-
-    // Remove classes in element
-    function removeClasses(element, classes) {
-        for (let i = 0; i < classes.length; i++) {
-            if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
-        }
     }
 
     // Show menu when icon clicked
@@ -257,7 +290,7 @@ $(function() {
             //$(btn).css("background", "transparent");
         });
     }
-    
+        
     // Show right menu when icon clicked
     function showRightMenu(btn, menu, offset) {
         showMenu(btn, menu, offset + $(btn).width() - $(menu).width());
@@ -310,44 +343,6 @@ $(function() {
         if (content.is(event.target) || nav.is(event.target)) closeLaunchpad();
     });
 
-    // Highlight clicked nav item
-    $(".child-nav li", ".sidebar").on("click", function() {
-        $(".child-nav li", ".sidebar").removeClass("active");
-        if (!$(this).hasClass("active")) $(this).addClass("active");
-    });
-
-    // Rotate picture in `profile.webp` preview
-    $("#rotate").on("click", function() {
-        angle = (angle - 90) % 360;    
-    });
-
-    // Zoom into picture in `profile.webp` preview
-    $("#zoomIn").on("click", function() {
-        if (zoom < 2.1) {
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
-            zoom += 0.1;
-        } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
-    });
-
-    // Zoom out of picture in `profile.webp` preview
-    $("#zoomOut").on("click", function() {
-        if (zoom > 0.2) {
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
-            zoom -= 0.1;
-        } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
-    });
-
-    // Apply both zoom and rotation to picture in `profile.webp` preview
-    $("#zoomOut, #zoomIn, #rotate").on("click", function() {
-        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-    });
-
     // Empty trash
     $(".confirm").on("click", function(event) {
         new Audio("../assets/audio/empty-trash.mp3").play();
@@ -356,48 +351,11 @@ $(function() {
         $("#trash-icon").off("click");
     });
 
-    // Toggle bold text in TextEdit
-    $("#bold-btn").on("click", function() {
-        $(".text-body").toggleClass("bold");
+    // Position all windows
+    $(".mac-terminal").each(function() {
+        positionWindow(this);
     });
-
-    // Toggle italic text in TextEdit
-    $("#italic-btn").on("click", function() {
-        $(".text-body").toggleClass("italic");
-    });
-
-    // Toggle underlined text in TextEdit
-    $("#underline-btn").on("click", function() {
-        $(".text-body").toggleClass("underline");
-    });
-
-    // Toggle left text alignment in TextEdit
-    $("#left-btn").on("click", function() {
-        $(".text-body").toggleClass("left");
-        removeClasses(".text-body", [ "right", "center", "justify" ]);
-    });
-
-    // Toggle center text alignment in TextEdit
-    $("#center-btn").on("click", function() {
-        $(".text-body").toggleClass("center");
-        removeClasses(".text-body", [ "right", "left", "justify" ]);
-    });
-
-    // Toggle right text alignment in TextEdit
-    $("#right-btn").on("click", function() {
-        $(".text-body").toggleClass("right");
-        removeClasses(".text-body", [ "center", "left", "justify" ]);
-    });
-
-    // Toggle justify text alignment in TextEdit
-    $("#justify-btn").on("click", function() {
-        $(".text-body").toggleClass("justify");
-        removeClasses(".text-body", [ "center", "left", "right" ]);
-    });
-
-    // Center all windows except resume on load
-    centerWindow(".windows:not(.resume), .trash-dialogue", "center center-36.5");
-
+    
     // Show terminal on load
     $(".mac-terminal").fadeIn(fadeMs);
 
@@ -407,6 +365,9 @@ $(function() {
     // Make launchpad apps sortable
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
+
+    // Position trash dialogue
+    positionWindow(".trash-dialogue");
 
     // Make trash dialogue draggable
     $(".trash-dialogue").draggable({
@@ -435,19 +396,6 @@ $(function() {
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
     });
-
-    // RESUME POSITIONING
-    // calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
-    var remToPx = 9 * parseFloat($("html").css("font-size")); // Convert 9rem to px
-    var errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
-    var maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
-    // No upper bound since we'd still place resume at top instead of center if it exceeds max height
-
-    // IF resume height >= max height, place at top (sub menubar height)
-    if ($(".resume").height() >= maxHeight) centerWindow(".resume", "top-36.5", "top");
-
-    // ELSE center
-    else centerWindow(".resume", "center center-36.5");
 
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);
@@ -580,43 +528,4 @@ $(function() {
 
     // // Maximize resume
     // maximizeWindow(".resume-header__op-icon--green", ".resume", "55rem", "55rem");
-});
-
-// Update text color in TextEdit
-document.getElementById("colorPicker").addEventListener("input", function() {
-    $(".text-body").css("color", this.value);
-});
-
-// Update font size in TextEdit
-document.getElementById("fontSize").addEventListener("change", function() {
-    $(".text-body").css("font-size", (this.value / 10) + "rem");
-});
-
-// Update font family in TextEdit
-document.getElementById("fontFamily").addEventListener("change", function() {
-    $(".text-body").css("font-family", this.value);
-});
-
-// Update line height in TextEdit
-document.getElementById("lineHeight").addEventListener("change", function() {
-    $(".text-body").css("line-height", this.value);
-});
-
-// Make selected project in Notes sidebar active and all others inactive
-var selectProject = function(element) {
-    var projectInfo = document.getElementsByClassName("project");
-
-    for (let j = 0; j < projectInfo.length; ++j) {
-        projectInfo[j].classList.remove("active");
-    }
-
-    var project = document.querySelector("#" + element.dataset.id);
-    project.classList.add("active");
-}
-
-// Select project from projects in Notes sidebar
-document.querySelectorAll(".project-name").forEach(function(element) {
-    element.addEventListener("click", function(event) {
-        selectProject(event.target)
-    });
 });
