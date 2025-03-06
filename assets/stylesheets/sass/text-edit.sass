@@ -5,14 +5,15 @@ $header-color: rgb(56, 58, 55)
 $style-bar-color: rgb(32, 34, 31)
 $body-color: rgb(30, 30, 30)
 $separator-color: rgba(255, 255, 255, 0.25)
-$width: 48.35rem
+$width: 50rem
+$height: 47rem
 $inch-width: 7.27rem
 $inch-height: 1rem
-$styles-height: 2.25rem
-$min-width: 41rem
+$styles-height: 2.25rem // margin-top + margin-bottom + $height = $styles-height
+$min-width: 47rem
 
 .text-edit
-  @include mix.window($style-bar-color, $width, vars.$height, $min-width)
+  @include mix.window($style-bar-color, $width, $height, $min-width)
   overflow-x: hidden
   flex-direction: column
   align-content: stretch
@@ -55,7 +56,7 @@ $min-width: 41rem
     width: 100%
     overflow: hidden
 
-    .drops
+    .drop
       padding: vars.$padding
       display: flex
       justify-content: space-between
@@ -63,10 +64,10 @@ $min-width: 41rem
       input[type='color']
         width: calc($styles-height * 0.9)
         height: calc($styles-height * 0.9)
-        margin-top: calc($styles-height / 20) // margin-top + margin-bottom + $height = $styles-height
+        margin-top: calc($styles-height / 20)
         background: none
-        border: none
-        outline: none
+        border: 0
+        outline: 0
 
         &::-webkit-color-swatch-wrapper
           padding: 0
@@ -74,7 +75,7 @@ $min-width: 41rem
         &::-webkit-color-swatch
           border: vars.$border-thickness solid $separator-color
 
-      select, .drop--element, input[type='color'], input[type='color']::-webkit-color-swatch-wrapper, input[type='color']::-webkit-color-swatch
+      select, &--element, input[type='color'], input[type='color']::-webkit-color-swatch-wrapper, input[type='color']::-webkit-color-swatch
         border-radius: vars.$border-radius
 
       select, select:hover
@@ -99,14 +100,14 @@ $min-width: 41rem
         &:hover
           color: white
 
-      select, .drop--element
+      select, &--element
         height: $styles-height
 
         &:hover
           background-color: rgba(255, 255, 255, 0.1)
           transition: background 1s
 
-      .drop--styles
+      &--styles
         border: unset
         position: relative
         overflow: hidden
@@ -115,7 +116,7 @@ $min-width: 41rem
         line-height: 1rem
         border: vars.$border-thickness solid $separator-color
 
-      .drop--decorations, .drop--alignments
+      &--decorations, &--alignments
         position: relative
         display: flex
         padding-top: calc(($styles-height - 1.1rem) / 2) // padding-top + padding-bottom + font-awesome-height-size = $styles-height
@@ -124,7 +125,7 @@ $min-width: 41rem
   .rule
     position: relative
     height: 1.5rem
-    width: 51.4rem //110%
+    width: calc($width * 1.1) // 51.4rem
     
     float: left
     background: $style-bar-color
