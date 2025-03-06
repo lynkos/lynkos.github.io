@@ -164,7 +164,21 @@ Includes (but is not limited to):
 15. Click "Save"
 16. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
 
-## Resources
+## Appendix
+### Custom Email Form
+> [!NOTE]
+> Any message submitted via the Mail form will be sent to *my* email.
+>
+> Follow this section to use your email with the Mail form.
+
+1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
+   * You will need to create a new Google Apps Script project and publish it as a web app
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L910) in [`index.html`](index.html) with your own sitekey
+   * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
+   * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
+3. Modify the code within [`<form class="gform">`](index.html#L902) (inclusive) in [`index.html`](index.html) accordingly
+
+### Resources
 * [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
 * [Deploy keys (SSH)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 * [Creating a branch within your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)
@@ -180,20 +194,6 @@ Includes (but is not limited to):
 * [Set up Sass in the best way](https://remybeumier.be/blog/set-up-sass-in-the-best-way)
 * [Automatically render reCAPTCHA v2 widget](https://developers.google.com/recaptcha/docs/display#auto_render)
 * [Improve page performance lazy loading reCaptcha](https://dev.to/uf4no/improve-page-performance-lazy-loading-recaptcha-442o)
-
-## Appendix
-### Custom Email Form
-> [!NOTE]
-> Any message submitted via the Mail form will be sent to *my* email.
->
-> Follow this section to use your email with the Mail form.
-
-1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
-   * You will need to create a new Google Apps Script project and publish it as a web app
-2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L910) in [`index.html`](index.html) with your own sitekey
-   * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
-   * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
-3. Modify the code within [`<form class="gform">`](index.html#L902) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Repository Structure
 > [!NOTE]
