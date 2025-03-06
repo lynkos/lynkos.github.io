@@ -145,7 +145,7 @@ $recaptcha-scale: 0.45
 .honeypot-field, .loader
   display: none
 
-// cursor
+// Cursor during sending
 .loader
   position: absolute
   top: 50%
@@ -221,3 +221,35 @@ $recaptcha-scale: 0.45
 
   100%
     transform: translate(-50%, -50%) rotate(360deg)
+
+// Notification after email successfully sent
+.toastify
+  padding: vars.$padding-4x
+  right: calc(vars.$menubar-height / 2) // 1.5rem
+  top: calc(-10 * (vars.$menubar-height / 2)) // -15rem
+  color: white
+  display: inline-block
+  backdrop-filter: blur(0.8rem)
+  box-shadow: 0 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.5)
+  background: rgba(45, 45, 45, 0.8)
+  position: fixed
+  opacity: 0
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)
+  border-radius: calc(vars.$border-radius * 2)
+  cursor: default
+  text-decoration: none
+  max-width: calc(50% - vars.$padding-4x)
+  z-index: 2147483647
+  border: 0
+  outline: 0
+
+  &.on
+    opacity: 1
+
+@media only screen and (max-width: 360px)
+  .toastify
+    margin-left: auto
+    margin-right: auto
+    left: 0
+    right: 0
+    max-width: fit-content

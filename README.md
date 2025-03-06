@@ -260,7 +260,6 @@ Includes (but is not limited to):
 │   │       ├── mail.sass
 │   │       ├── menubar.sass
 │   │       ├── notes.sass
-│   │       ├── notification.sass
 │   │       ├── preflight.sass
 │   │       ├── preview.sass
 │   │       ├── style.sass
@@ -352,7 +351,6 @@ Includes (but is not limited to):
 │   │       ├── mail.css
 │   │       ├── menubar.css
 │   │       ├── notes.css
-│   │       ├── notification.css
 │   │       ├── preflight.css
 │   │       ├── preview.css
 │   │       ├── style.css
