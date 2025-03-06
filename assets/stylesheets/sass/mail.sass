@@ -1,5 +1,7 @@
 @use "variables" as vars
 @use "mixins" as mix
+@use "sass:list"
+@use "sass:math"
 
 $email-body-color: rgb(32, 35, 32)
 $email-accent-color: rgb(54, 56, 54)
@@ -9,6 +11,7 @@ $email-font-size: 1.3rem
 $email-line-height: 1.3
 $send-email-btn-dim: 1.7rem
 $recaptcha-scale: 0.45
+$loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%);
 
@@ -166,54 +169,32 @@ $recaptcha-scale: 0.45
     transform-origin: left
     border-radius: 50%
 
-    &:nth-child(1)
-      background: #0fa503
-      z-index: 2
-      transform: rotate(0deg)
+    @for $i from 1 through 6
+      &:nth-child(#{$i})
+        background: list.nth($loader-colors, $i)
+        z-index: calc($i + 1)
+        transform: rotate(calc(($i - 1) * 60deg))
 
-    &:nth-child(2)
-      background: #ffd203
-      z-index: 3
-      transform: rotate(60deg)
+        @if $i == 6
+          overflow: hidden
 
-    &:nth-child(3)
-      background: #54cd28
-      z-index: 4
-      transform: rotate(120deg)
+          &:before, &::after
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            border-radius: 50%
 
-    &:nth-child(4)
-      background: #129cf5
-      z-index: 5
-      transform: rotate(180deg)
+          &:before
+            top: 45px
+            left: -72px
+            background: #ffd203
+            z-index: 2
 
-    &:nth-child(5)
-      background: #bb5ed3
-      z-index: 6
-      transform: rotate(240deg)
-
-    &:nth-child(6)
-      background: #ff4f45
-      z-index: 7
-      overflow: hidden
-      transform: rotate(300deg)
-
-      &:before, &::after
-        content: ""
-        position: absolute
-        width: 100%
-        height: 100%
-        border-radius: 50%
-
-      &:before
-        top: 45px
-        left: -72px
-        background: #ffd203
-        z-index: 2
-
-      &:after
-        top: 42px
-        left: -23px
-        background: #fea503
+          &:after
+            top: 42px
+            left: -23px
+            background: #fea503
 
 @keyframes animate
   0%
