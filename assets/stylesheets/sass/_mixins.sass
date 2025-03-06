@@ -43,14 +43,14 @@
 
     input
         background: none
-        border: none
+        border: 0
+        outline: 0
         color: rgba(255, 255, 255, 0.8)
         height: 100%
         width: 100%
         font-size: $font-size
         line-height: normal
         padding: 0 $padding 0 calc(($padding * 2) + $font-size)
-        outline: none
         border-radius: vars.$border-radius
 
         &[type=search]::-ms
@@ -87,7 +87,8 @@
     margin: $margin
     font-size: $font-size
     line-height: $font-size
-    border-width: 0
+    border: 0
+    outline: 0
     color: white
     cursor: default
     background: $background
