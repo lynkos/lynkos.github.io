@@ -244,8 +244,8 @@ Includes (but is not limited to):
 │   │   └── system/
 │   │       ├── blue-folder.webp
 │   │       ├── empty-trash.webp
+│   │       ├── pdf.webp
 │   │       ├── rtf-icon.webp
-│   │       ├── text-file.webp
 │   │       └── trash.webp
 │   ├── stylesheets/
 │   │   └── sass/
@@ -266,7 +266,8 @@ Includes (but is not limited to):
 │   │       ├── style.sass
 │   │       ├── terminal.sass
 │   │       ├── text-edit.sass
-│   │       └── tooltip.sass
+│   │       ├── tooltip.sass
+│   │       └── trash.sass
 │   └── resume.pdf
 ├── dist/
 │   └── lib/
@@ -276,7 +277,10 @@ Includes (but is not limited to):
 │   │   ├── 404.js
 │   │   ├── calculator.js
 │   │   ├── email.js
+│   │   ├── notes.js
+│   │   ├── preview.js
 │   │   ├── terminal.js
+│   │   ├── text-edit.js
 │   │   └── windows.js
 │   └── utilities/
 │       ├── particles.js
@@ -334,8 +338,8 @@ Includes (but is not limited to):
 │   │   └── system/
 │   │       ├── blue-folder.webp
 │   │       ├── empty-trash.webp
+│   │       ├── pdf.webp
 │   │       ├── rtf-icon.webp
-│   │       ├── text-file.webp
 │   │       └── trash.webp
 │   ├── stylesheets/
 │   │   └── css/
@@ -354,14 +358,18 @@ Includes (but is not limited to):
 │   │       ├── style.css
 │   │       ├── terminal.css
 │   │       ├── text-edit.css
-│   │       └── tooltip.css
+│   │       ├── tooltip.css
+│   │       └── trash.css
 │   └── resume.pdf
 ├── dist/
 │   ├── components/
 │   │   ├── 404.js
 │   │   ├── calculator.js
 │   │   ├── email.js
+│   │   ├── notes.js
+│   │   ├── preview.js
 │   │   ├── terminal.js
+│   │   ├── text-edit.js
 │   │   └── windows.js
 │   ├── lib/
 │   │   └── jquery-ui.js
