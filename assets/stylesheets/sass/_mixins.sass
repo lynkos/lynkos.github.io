@@ -200,11 +200,43 @@
 
         &--red, &--yellow, &--green
             &:before
+                // Icon positioning in traffic light buttons
+                $traffic-btn-line-height: calc($button-dim * 1.05)
+                $traffic-btn-font-size: calc($button-dim * 0.8)
+
                 text-align: center
                 font-family: "Font Awesome 6 Free"
                 font-weight: 600
-                line-height: calc($button-dim * 1.05)
-                font-size: calc($button-dim * 0.8)
+                line-height: $traffic-btn-line-height
+                font-size: $traffic-btn-font-size
+
+                @media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
+                    line-height: calc($traffic-btn-line-height * 1.05)
+                    font-size: calc($traffic-btn-font-size * 1.05)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.1)
+                    font-size: calc($traffic-btn-font-size * 1.1)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.15)
+                    font-size: calc($traffic-btn-font-size * 1.15)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.2)
+                    font-size: calc($traffic-btn-font-size * 1.2)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.25)
+                    font-size: calc($traffic-btn-font-size * 1.25)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.35)
+                    font-size: calc($traffic-btn-font-size * 1.35)
+
+                @media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
+                    line-height: calc($traffic-btn-line-height * 1.4)
+                    font-size: calc($traffic-btn-font-size * 1.4)
 
         &--red
             background: var(--red, #ed6a5e)
