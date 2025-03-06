@@ -37,7 +37,7 @@ $(function() {
     // Center windows
     function centerWindow(win, my, at = "center") {
         $(win).position({
-            my: my, // Subtract menubar height (3rem = 28.8px when font-size is 9.6px = 60%) from vertical center
+            my: my,
             at: at,
             collision: "fit",
             of: "#main-content"
@@ -46,11 +46,16 @@ $(function() {
 
     // Position window based off dims
     function positionWindow(win) {
+        // Calculate menubar height (3rem) and convert to px
+        // Used to subtract from vertical position to take menubar height into account
+        const dockHeight = $(".dock").height();
+        const menubarHeight = 36.5; // 3 * parseFloat($("html").css("font-size"));
+
         // IF window height >= max height, place at top (sub menubar height)
-        if ($(win).height() >= maxHeight) centerWindow(win, "top-36.5", "top");
+        if ($(win).height() >= maxHeight) centerWindow(win, "top-" + menubarHeight, "top");
 
         // ELSE center
-        else centerWindow(win, "center center-36.5");
+        else centerWindow(win, "center center-" + menubarHeight);
     }
 
     // ONLY position window when first opened
@@ -157,7 +162,7 @@ $(function() {
     }
 
     // Open window/app via dock
-    function openWindow(icon, win, displayType) {
+    function openWindow(icon, win, displayType = "flex") {
         // Position window when first opened
         initPosition(icon, win, "click");
 
@@ -179,18 +184,18 @@ $(function() {
     }
 
     // Show file when clicking on desktop icon
-    function showFile(icon, win, inDock) {        
+    function showFile(dockIcon, win, inDock) {        
         if ($(win).css("display") === "none") $(win).css("display", "flex");
         bringToFront(win);
         if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-        if (!$(icon).hasClass("open")) {
-            $(icon).addClass("open");
-            if (inDock) $(icon).show();
+        if (!$(dockIcon).hasClass("open")) {
+            $(dockIcon).addClass("open");
+            if (!inDock) $(dockIcon).show();
         }
     }
 
     // Open Desktop file when double-clicking or tapping its icon
-    function openFile(file, icon, win, inDock) {
+    function openFile(file, dockIcon, win, inDock = false) {
         // Only position window when first opened
         initPosition(file, win, "dblclick");
         initPosition(file, win, "touchend");
@@ -198,7 +203,7 @@ $(function() {
         // Open file when double-clicking
         $(file).on("dblclick", function(event) {
             event.preventDefault();
-            showFile(icon, win, inDock);    
+            showFile(dockIcon, win, inDock);    
         });
 
         // Open file when tapping (mobile only)
@@ -211,16 +216,16 @@ $(function() {
         })
         .on("touchend", function() {
             // Only open file if icon wasn't moved
-            if ($(this).data("moved") === false) showFile(icon, win, inDock);
+            if ($(this).data("moved") === false) showFile(dockIcon, win, inDock);
         });
     }
 
     // Open app via launchpad
-    function launchApp(icon, win, displayType, dockIcon) {
+    function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
         // Position window when first opened
-        initPosition(icon, win, "click");
+        initPosition(launchIcon, win, "click");
 
-        $(icon).on("click", function() {
+        $(launchIcon).on("click", function() {
             closeLaunchpad();
             bringToFront(win);
             $(win).css("display", displayType);
@@ -231,8 +236,8 @@ $(function() {
     }
 
     // Close window
-    function closeWindow(close, win, dockIcon, width, height) {
-        $(close).on("click", function() {
+    function closeWindow(closeBtn, win, dockIcon, width, height) {
+        $(closeBtn).on("click", function() {
             $(win).css("display", "none");
             if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
             if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
@@ -251,27 +256,26 @@ $(function() {
 
     // Show menu when icon clicked
     // TODO Improve toggle logic
-    function showMenu(btn, menu, offset) {
+    function showMenu(menubarBtn, menu, offset) {
         // When button is clicked
-        $(btn).on("click", function(event) {
+        $(menubarBtn).on("click", function(event) {
             
             // Select icon; same color as active menu item
-            // if ($(btn).hasClass("selected-menu")) {
-                
-            //     $(btn).css("background", "transparent");
+            // if ($(menubarBtn).hasClass("selected-menu")) {
+            //     $(menubarBtn).css("background", "transparent");
             // }
             // else {
-            //     //$(btn).addClass("selected-menu");
-            //     $(btn).css("background", "rgba(255, 255, 255, 0.2)");
+            //     //$(menubarBtn).addClass("selected-menu");
+            //     $(menubarBtn).css("background", "rgba(255, 255, 255, 0.2)");
             // }
 
-            $(btn).toggleClass("selected-menu");
+            $(menubarBtn).toggleClass("selected-menu");
 
             // Change background color of icon
-            // $(btn).css("background", "rgba(255, 255, 255, 0.2)");
+            // $(menubarBtn).css("background", "rgba(255, 255, 255, 0.2)");
 
             // Position menu
-            $(menu).css("left", $(btn).offset().left + offset);    
+            $(menu).css("left", $(menubarBtn).offset().left + offset);    
 
             // Bring menu to front
             bringToFront(menu);
@@ -289,19 +293,19 @@ $(function() {
         // Hide menu when click outside
         $(document).on("mousedown", function() {
             $(menu).fadeOut(250);
-            $(btn).removeClass("selected-menu");
-            //$(btn).css("background", "transparent");
+            $(menubarBtn).removeClass("selected-menu");
+            //$(menubarBtn).css("background", "transparent");
         });
     }
         
     // Show right menu when icon clicked
-    function showRightMenu(btn, menu, offset) {
-        showMenu(btn, menu, offset + $(btn).width() - $(menu).width());
+    function showRightMenu(menubarBtn, menu, offset) {
+        showMenu(menubarBtn, menu, offset + $(menubarBtn).width() - $(menu).width());
     }
 
     // Show left menu when icon clicked
-    function showLeftMenu(btn, menu) {
-        showMenu(btn, menu, 0);
+    function showLeftMenu(menubarBtn, menu) {
+        showMenu(menubarBtn, menu, 0);
     }
 
     // Maximize window
@@ -428,22 +432,22 @@ $(function() {
     openWindow("#iterm", ".mac-terminal", "inline-block");
 
     // Open mail
-    openWindow("#mail", ".email", "flex");
+    openWindow("#mail", ".email");
 
     // Open about me
-    openWindow("#text-edit", ".text-edit", "flex");
+    openWindow("#text-edit", ".text-edit");
 
     // Open projects
-    openWindow("#notes", ".notes", "flex");
+    openWindow("#notes", ".notes");
 
     // Open safari
-    openWindow("#safari", ".browser", "flex");
+    openWindow("#safari", ".browser");
 
     // Open preview
-    openWindow("#preview", ".preview", "flex");
+    openWindow("#preview", ".preview");
 
     // Open resume
-    openWindow("#preview", ".resume", "flex");
+    openWindow("#preview", ".resume");
 
     // Open calculator
     openWindow("#calc", ".calc", "inline-block");
@@ -452,37 +456,37 @@ $(function() {
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
-    openFile("#aboutFile", "#text-edit", ".text-edit", false);
+    openFile("#aboutFile", "#text-edit", ".text-edit", true);
 
     // Open resume when double-clicking or tapping `resume.pdf`
-    openFile("#resumeFile", "#preview", ".resume", true);
+    openFile("#resumeFile", "#preview", ".resume");
 
     // Open preview when double-clicking or tapping `profile.webp`
-    openFile("#profilePic", "#preview", ".preview", true);
+    openFile("#profilePic", "#preview", ".preview");
 
     // Launch terminal
-    launchApp("#itermLaunch", ".mac-terminal", "inline-block", "#iterm");
+    launchApp("#itermLaunch", ".mac-terminal", "#iterm", "inline-block");
 
     // Launch mail
-    launchApp("#mailLaunch", ".email", "flex", "#mail");
+    launchApp("#mailLaunch", ".email", "#mail");
 
     // Launch about me
-    launchApp("#textLaunch", ".text-edit", "flex", "#text-edit");
+    launchApp("#textLaunch", ".text-edit", "#text-edit");
 
     // Launch projects
-    launchApp("#notesLaunch", ".notes", "block", "#notes");
+    launchApp("#notesLaunch", ".notes", "#notes", "block");
 
     // Launch safari
-    launchApp("#safariLaunch", ".browser", "flex", "#safari");
+    launchApp("#safariLaunch", ".browser", "#safari");
 
     // Launch calculator
-    launchApp("#calculatorLaunch", ".calc", "inline-block", "#calc");
+    launchApp("#calculatorLaunch", ".calc", "#calc", "inline-block");
 
     // Close terminal
     closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
 
     // Close mail
-    closeWindow(".mail-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
+    closeWindow(".email-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
 
     // Close about me
     closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
@@ -509,7 +513,7 @@ $(function() {
     // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
 
     // // Maximize terminal
-    // maximizeWindow(".mail-header__op-icon--green", ".email", "47rem", "42rem");
+    // maximizeWindow(".email-header__op-icon--green", ".email", "47rem", "42rem");
 
     // // Maximize about me
     // maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
