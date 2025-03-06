@@ -2,139 +2,140 @@
 
 $resize-dim: 7px
 
-.ui-front
-  z-index: 100
+.ui
+  &-front
+    z-index: 100
 
-.ui-state-disabled
-  cursor: default !important
-  pointer-events: none
+  &-state-disabled
+    cursor: default !important
+    pointer-events: none
 
-.ui-icon
-  display: inline-block
-  vertical-align: middle
-  margin-top: -0.25em
-  position: relative
-  text-indent: -99999px
-  overflow: hidden
-  background-repeat: no-repeat
-
-.ui-draggable-handle, .ui-sortable-handle, .ui-resizable-handle
-  touch-action: none
-
-.ui-helper-hidden, .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle
-  display: none
-
-.ui-helper-zfix, .ui-widget-overlay
-  width: 100%
-  height: 100%
-  top: 0
-  left: 0
-
-.ui-helper
-  &-reset, &-hidden-accessible
-    padding: 0
-    border: 0
-
-  &-hidden-accessible
-    clip: rect(0 0 0 0)
-    height: 1px
-    margin: -1px
+  &-icon
+    display: inline-block
+    vertical-align: middle
+    margin-top: -0.25em
+    position: relative
+    text-indent: -99999px
     overflow: hidden
-    position: absolute
-    width: 1px
+    background-repeat: no-repeat
 
-  &-reset
-    margin: 0
-    outline: 0
-    line-height: 1.3
-    text-decoration: none
-    font-size: 100%
-    list-style: none
+  &-draggable-handle, &-sortable-handle, &-resizable-handle
+    touch-action: none
 
-  &-clearfix
-    &:before, &:after
+  &-helper-hidden, &-resizable-disabled &-resizable-handle, &-resizable-autohide &-resizable-handle
+    display: none
+
+  &-helper-zfix, &-widget-overlay
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+
+  &-helper
+    &-reset, &-hidden-accessible
+      padding: 0
+      border: 0
+      outline: 0
+
+    &-hidden-accessible
+      clip: rect(0 0 0 0)
+      height: 1px
+      margin: -1px
+      overflow: hidden
+      position: absolute
+      width: 1px
+
+    &-reset
+      margin: 0
+      line-height: 1.3
+      text-decoration: none
+      font-size: 100%
+      list-style: none
+
+    &-clearfix
+      &:before, &:after
         content: ""
         display: table
         border-collapse: collapse
 
-    &:after
+      &:after
         clear: both
 
-  &-zfix
-    position: absolute
-    opacity: 0
+    &-zfix
+      position: absolute
+      opacity: 0
 
-.ui-widget
-  &-icon-block
-    left: 50%
-    margin-left: calc(-1 * ($resize-dim + 1px)) // -8px
-    display: block
+  &-widget
+    &-icon-block
+      left: 50%
+      margin-left: calc(-1 * ($resize-dim + 1px)) // -8px
+      display: block
 
-  &-overlay
-    position: fixed
+    &-overlay
+      position: fixed
 
-.ui-resizable
-  position: relative
-  
-  &-helper
-    border: vars.$border-thickness dotted gray
-    border-radius: vars.$window-border-radius
+  &-resizable
+    position: relative
+    
+    &-helper
+      border: vars.$border-thickness dotted gray
+      border-radius: vars.$window-border-radius
 
-  &-handle
-    position: absolute
-    font-size: 0.1px
-    display: block
+    &-handle
+      position: absolute
+      font-size: 0.1px
+      display: block
 
-  &-n, &-nw, &-ne
-    top: calc(2px - $resize-dim) // -5px
+    &-n, &-nw, &-ne
+      top: calc(2px - $resize-dim) // -5px
 
-  &-sw, &-nw, &-w
-    left: calc(2px - $resize-dim) // -5px
+    &-sw, &-nw, &-w
+      left: calc(2px - $resize-dim) // -5px
 
-  &-s, &-sw
-    bottom: calc(2px - $resize-dim) // -5px
+    &-s, &-sw
+      bottom: calc(2px - $resize-dim) // -5px
 
-  &-ne, &-e
-    right: calc(2px - $resize-dim) // -5px
+    &-ne, &-e
+      right: calc(2px - $resize-dim) // -5px
 
-  &-n
-    cursor: n-resize
+    &-n
+      cursor: n-resize
 
-  &-s
-    cursor: s-resize
+    &-s
+      cursor: s-resize
 
-  &-e
-    cursor: e-resize
+    &-e
+      cursor: e-resize
 
-  &-w
-    cursor: w-resize
+    &-w
+      cursor: w-resize
 
-  &-sw
-    cursor: sw-resize
-  
-  &-nw
-    cursor: nw-resize
+    &-sw
+      cursor: sw-resize
+    
+    &-nw
+      cursor: nw-resize
 
-  &-ne
-    cursor: ne-resize
+    &-ne
+      cursor: ne-resize
 
-  &-n, &-s
-    height: $resize-dim
-    width: 100%
-    left: 0
+    &-n, &-s
+      height: $resize-dim
+      width: 100%
+      left: 0
 
-  &-e, &-w
-    width: $resize-dim
-    height: 100%
-    top: 0
+    &-e, &-w
+      width: $resize-dim
+      height: 100%
+      top: 0
 
-  &-se
-    cursor: se-resize
-    width: calc(2 * ($resize-dim - 1px)) // 12px
-    height: calc(2 * ($resize-dim - 1px)) // 12px
-    right: 1px
-    bottom: 1px
+    &-se
+      cursor: se-resize
+      width: calc(2 * ($resize-dim - 1px)) // 12px
+      height: calc(2 * ($resize-dim - 1px)) // 12px
+      right: 1px
+      bottom: 1px
 
-  &-sw, &-ne, &-nw
-    width: calc($resize-dim + 2px) // 9px
-    height: calc($resize-dim + 2px) // 9px
+    &-sw, &-ne, &-nw
+      width: calc($resize-dim + 2px) // 9px
+      height: calc($resize-dim + 2px) // 9px
