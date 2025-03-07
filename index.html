@@ -2531,7 +2531,7 @@
         </div>
 
         <div id="launchpad">
-          <div class="launch-content">
+          <div id="launch-content">
             <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
@@ -2599,13 +2599,13 @@
     <script>
       // Make launchpad searchable
       function filterLaunchpad() {
-        var input = document.getElementById("launchInput"),
-            filter = input.value.toLowerCase(),
-            nav = document.getElementById("launchNav"),
-            apps = nav.getElementsByTagName("a");
-        var appName;
+        const input = document.getElementById("launchInput"),
+              filter = input.value.toLowerCase(),
+              nav = document.getElementById("launchNav");
 
-        for (i = 0; i < apps.length; i++) {
+        var apps = nav.getElementsByTagName("a"), appName;
+
+        for (let i = 0; i < apps.length; i++) {
           appName = apps[i].getElementsByTagName("img")[0].alt;
           if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
           else apps[i].style.display = "none";
