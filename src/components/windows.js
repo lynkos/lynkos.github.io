@@ -115,7 +115,7 @@ $(function() {
                 if (!$(element).hasClass("menu-dropdown")) {
                     // Make sure menu dropdown, dock, and launchpad are always on top
                     $(".menu-dropdown").css("z-index", maxZIndex + 2);
-                    $(".launch-content").css("z-index", maxZIndex + 3);
+                    $("#launch-content").css("z-index", maxZIndex + 3);
                     $(".dock").css("z-index", maxZIndex + 4);
 
                     // Mark element as in front
@@ -165,32 +165,45 @@ $(function() {
     function openWindow(icon, win, displayType = "flex") {
         // Position window when first opened
         initPosition(icon, win, "click");
-
-        $(icon).on("click", function() {
+    
+        document.querySelector(icon).addEventListener("click", function() {
             closeLaunchpad();
-            $(win).css("display", displayType);
+            document.querySelector(win).style.display = displayType;
             bringToFront(win);
-            if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
+            
+            if (!document.querySelector(win).classList.contains("openWindow")) document.querySelector(win).classList.add("openWindow");
 
             // Bounce effect for dock icons
-            if (!$(icon).hasClass("open")) {
+            if (!document.querySelector(icon).classList.contains("open")) {
                 // Bounce effect, if window is not already open
                 bounce(icon);
-
+    
                 // Mark clicked window as opened
-                $(icon).addClass("open");
+                document.querySelector(icon).classList.add("open");
             }
         });
     }
 
     // Show file when clicking on desktop icon
-    function showFile(dockIcon, win, inDock) {        
-        if ($(win).css("display") === "none") $(win).css("display", "flex");
+    function showFile(dockIcon, win, inDock) {
+        const windowElement = document.querySelector(win);
+        const dockIconElement = document.querySelector(dockIcon);
+        
+        // Check if window is hidden and unhide it if it is
+        if (getComputedStyle(windowElement).display === "none") windowElement.style.display = "flex";
+
+        // Bring window to front
         bringToFront(win);
-        if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-        if (!$(dockIcon).hasClass("open")) {
-            $(dockIcon).addClass("open");
-            if (!inDock) $(dockIcon).show();
+        
+        // Mark window as open, if not already done so
+        if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
+        
+        // Handle dock icon if not already opened
+        if (!dockIconElement.classList.contains("open")) {
+            dockIconElement.classList.add("open");
+            
+            // Show dock icon if not already in dock
+            if (!inDock) dockIconElement.style.display = "block";
         }
     }
 
@@ -199,28 +212,43 @@ $(function() {
         // Only position window when first opened
         initPosition(file, win, "dblclick");
         initPosition(file, win, "touchend");
-                
+
         // Open file when double-clicking
-        $(file).on("dblclick", function(event) {
+        document.querySelector(file).addEventListener("dblclick", function(event) {
             event.preventDefault();
             showFile(dockIcon, win, inDock);    
         });
 
         // Open file when tapping (mobile only)
-        $(file)
-        .on("touchstart", function() {
-            $(this).data("moved", false);
-        })
-        .on("touchmove", function() {
-            $(this).data("moved", true);
-        })
-        .on("touchend", function() {
+        const fileElement = document.querySelector(file);
+        let moved = false;
+
+        fileElement.addEventListener("touchstart", function() { moved = false; });
+        fileElement.addEventListener("touchmove", function() { moved = true; });
+        fileElement.addEventListener("touchend", function() {
             // Only open file if icon wasn't moved
-            if ($(this).data("moved") === false) showFile(dockIcon, win, inDock);
+            if (!moved) showFile(dockIcon, win, inDock);
         });
     }
 
     // Open app via launchpad
+    function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
+        // Position window when first opened
+        initPosition(launchIcon, win, "click");
+
+        const _window = document.querySelector(win);
+        const _dockIcon = document.querySelector(dockIcon);
+    
+        document.querySelector(launchIcon).addEventListener("click", function() {
+            closeLaunchpad();
+            bringToFront(win);
+            _window.style.display = displayType;
+            
+            if (!_window.classList.contains("openWindow")) _window.classList.add("openWindow");
+            if (!_dockIcon.classList.contains("open")) _dockIcon.classList.add("open");
+            if ((dockIcon === "#preview") || (dockIcon === "#calc")) _dockIcon.style.display = "block";
+        });
+    }
     function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
         // Position window when first opened
         initPosition(launchIcon, win, "click");
@@ -327,34 +355,44 @@ $(function() {
     //   });
     // }
 
-    // Toggle launchpad
-    $(".open-menu").on("click", function() {
-        if ($("#launchpad").hasClass("shown start")) closeLaunchpad();
+    // Toggle launchpad on click
+    document.getElementById("open-menu").addEventListener("click", function() {
+        const launchpad = document.getElementById("launchpad");
+        if (launchpad.classList.contains("shown") && launchpad.classList.contains("start")) closeLaunchpad();
         else openLaunchpad();
     });
 
     // Close launchpad when clicking any launchpad icon
-    $(".launch").on("click", function() {
-        closeLaunchpad();
+    document.querySelectorAll(".launch").forEach(launchElement => {
+        launchElement.addEventListener("click", function() {
+            closeLaunchpad();
+        });
     });
-
     // add class to launch while moving/dragging & remove when done
     // so that the launchpad doesn't close when sorting
 
-    // Close the launchpad when the content is clicked, only if the target is not a link
-    $(document).on("mouseup", function(event) {
-        var content = $("#launchpad").find(".launch-content"),
-            nav = content.find("nav");
-
-        if (content.is(event.target) || nav.is(event.target)) closeLaunchpad();
+    // Close the launchpad after the content is clicked, only if the target is not a link
+    document.addEventListener("mouseup", function(event) {
+        const launchpad = document.getElementById("launchpad");
+        const content = launchpad.querySelector("#launch-content");
+        const nav = content.querySelector("nav");
+    
+        if (event.target === content || event.target === nav) closeLaunchpad();
     });
-
-    // Empty trash
-    $(".confirm").on("click", function(event) {
+    
+    // Empty trash    
+    document.getElementById("confirm").addEventListener("click", function(event) {
+        // Play crumpling paper sound (aka macOS's trash emptying sound)
         new Audio("../assets/audio/empty-trash.mp3").play();
         event.preventDefault();
-        $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
-        $("#trash-icon").off("click");
+        
+        // Update trash icon in dock to be empty trash icon
+        document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
+        
+        // Only allow emptying trash once (i.e. full trash --> empty trash permanently)
+        const trashIcon = document.getElementById("trash-icon");
+        const newTrashIcon = trashIcon.cloneNode(true);
+        trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
     });
 
     // Position terminal
