@@ -249,19 +249,6 @@ $(function() {
             if ((dockIcon === "#preview") || (dockIcon === "#calc")) _dockIcon.style.display = "block";
         });
     }
-    function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
-        // Position window when first opened
-        initPosition(launchIcon, win, "click");
-
-        $(launchIcon).on("click", function() {
-            closeLaunchpad();
-            bringToFront(win);
-            $(win).css("display", displayType);
-            if (!$(win).hasClass("openWindow")) $(win).addClass("openWindow");
-            if (!$(dockIcon).hasClass("open")) $(dockIcon).addClass("open");
-            if ((dockIcon === "#preview") || (dockIcon === "#calc")) $(dockIcon).show();
-        });
-    }
 
     // Close window
     function closeWindow(closeBtn, win, dockIcon, width, height) {
