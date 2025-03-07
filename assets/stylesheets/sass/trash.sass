@@ -38,11 +38,11 @@
     width: 10rem
     @include mix.button(0.64rem 0.8rem, 0 0.5rem, 1.35rem, rgb(115, 118, 115), rgb(145, 148, 145))
 
-    &.confirm
-      background: var(--confirm, vars.$button-gradient)
-      
-      &:active
-        background: var(--confirm-active, vars.$primary-button-color)
+  #confirm
+    background: var(--confirm, vars.$button-gradient)
+    
+    &:active
+      background: var(--confirm-active, vars.$primary-button-color)
 
 @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
   .trash-dialogue .alert-btn
