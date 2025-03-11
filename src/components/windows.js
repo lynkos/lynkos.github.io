@@ -2,35 +2,47 @@ $(function() {
     /* VARIABLES */
     var aboutOpened = false;
     const fadeMs = 350;
+    const launchpad = document.getElementById("launchpad");
+    const launchpadNav = launchpad.querySelector("nav");
+    const trashDialogue = document.getElementById("trash-dialogue");
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
-    const remToPx = 9 * parseFloat($("html").css("font-size")); // Convert 9rem to px
+    const remToPx = 9 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert 9rem to px
     const errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
     const maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
     // No upper bound since oversized window should still be on top instead of center
 
-    /* FUNCTIONS */    
+    /* FUNCTIONS */
     // Open launchpad
-    function openLaunchpad() {
-        $(".menu-bar").fadeOut(fadeMs);
+    function openLaunchpad() {        
+        // Set up fade transition
+        $("#menu-bar").fadeOut(fadeMs);
         $(".openWindow").fadeOut(fadeMs);
-        $("#launchpad").addClass("shown start");
-        $("#launchpad").find("nav").addClass("scale-down");
+        
+        // Show launchpad with animation classes
+        launchpad.classList.add("shown", "start");
+        
+        // Find the nav element within launchpad and add class
+        launchpadNav.classList.add("scale-down");
     }
 
     // Close launchpad
-    function closeLaunchpad() {
-        $("#launchpad")
-            .removeClass("start")
-            .addClass("end");
-        $("#launchpad").find("nav")
-            .removeClass("scale-down")
-            .addClass("scale-up");
+    function closeLaunchpad() {        
+        // Remove start, add end
+        launchpad.classList.remove("start");
+        launchpad.classList.add("end");
+        
+        // Remove scale-down, add scale-up to nav
+        launchpadNav.classList.remove("scale-down");
+        launchpadNav.classList.add("scale-up");
+        
+        // After transition completes, remove shown & end classes
         setTimeout(function() {
-            $("#launchpad").removeClass("shown end");
-            $("#launchpad").find("nav").removeClass("scale-up");
+            launchpad.classList.remove("shown", "end");
+            launchpadNav.classList.remove("scale-up");
         }, fadeMs);
-        $(".menu-bar").fadeIn(fadeMs);
+        
+        $("#menu-bar").fadeIn(fadeMs);
         $(".openWindow").fadeIn(fadeMs);
     }
 
@@ -48,17 +60,17 @@ $(function() {
     function positionWindow(win) {
         // Calculate menubar height (3rem) and convert to px
         // Used to subtract from vertical position to take menubar height into account
-        const dockHeight = $(".dock").height();
-        const menubarHeight = 36.5; // 3 * parseFloat($("html").css("font-size"));
+        const dockHeight = document.querySelector(".dock").offsetHeight;
+        const menubarHeight = 36.5; // 3 * parseFloat(getComputedStyle(document.documentElement).fontSize); = 3rem --> px
 
         // IF window height >= max height, place at top (sub menubar height)
-        if ($(win).height() >= maxHeight) centerWindow(win, "top-" + menubarHeight, "top");
+        if (document.querySelector(win).offsetHeight >= maxHeight) centerWindow(win, "top-" + menubarHeight, "top");
 
         // ELSE center
         else centerWindow(win, "center center-" + menubarHeight);
     }
 
-    // ONLY position window when first opened
+    // ONLY auto-position window when first opened; this is to avoid calculating for windows that might never be opened
     function initPosition(icon, win, eventType) {
         // Ignore terminal since it's already positioned on load
         if (win !== ".mac-terminal") {
@@ -82,7 +94,7 @@ $(function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .btn, .trash-dialogue, .menu-dropdown").map(function() {
+            let maxZIndex = Math.max(...$(".windows, .btn, #trash-dialogue, .menu-dropdown").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -165,21 +177,24 @@ $(function() {
     function openWindow(icon, win, displayType = "flex") {
         // Position window when first opened
         initPosition(icon, win, "click");
+
+        const windowElement = document.querySelector(win);
+        const iconElement = document.querySelector(icon);
     
-        document.querySelector(icon).addEventListener("click", function() {
+        iconElement.addEventListener("click", function() {
             closeLaunchpad();
-            document.querySelector(win).style.display = displayType;
+            windowElement.style.display = displayType;
             bringToFront(win);
             
-            if (!document.querySelector(win).classList.contains("openWindow")) document.querySelector(win).classList.add("openWindow");
+            if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
 
             // Bounce effect for dock icons
-            if (!document.querySelector(icon).classList.contains("open")) {
+            if (!iconElement.classList.contains("open")) {
                 // Bounce effect, if window is not already open
                 bounce(icon);
     
                 // Mark clicked window as opened
-                document.querySelector(icon).classList.add("open");
+                iconElement.classList.add("open");
             }
         });
     }
@@ -213,16 +228,16 @@ $(function() {
         initPosition(file, win, "dblclick");
         initPosition(file, win, "touchend");
 
+        const fileElement = document.querySelector(file);
+
         // Open file when double-clicking
-        document.querySelector(file).addEventListener("dblclick", function(event) {
+        fileElement.addEventListener("dblclick", function(event) {
             event.preventDefault();
             showFile(dockIcon, win, inDock);    
         });
 
         // Open file when tapping (mobile only)
-        const fileElement = document.querySelector(file);
         let moved = false;
-
         fileElement.addEventListener("touchstart", function() { moved = false; });
         fileElement.addEventListener("touchmove", function() { moved = true; });
         fileElement.addEventListener("touchend", function() {
@@ -251,68 +266,63 @@ $(function() {
     }
 
     // Close window
-    function closeWindow(closeBtn, win, dockIcon, width, height) {
-        $(closeBtn).on("click", function() {
-            $(win).css("display", "none");
-            if ($(win).hasClass("openWindow")) $(win).removeClass("openWindow");
-            if ($(dockIcon).hasClass("open")) $(dockIcon).removeClass("open");
+    function closeWindow(closeBtn, win, dockIcon) {
+        document.querySelector(closeBtn).addEventListener("click", function() {
+            const _window = document.querySelector(win);
+            const _dockIcon = document.querySelector(dockIcon);
 
+            _window.style.display = "none";
+            
+            if (_window.classList.contains("openWindow")) _window.classList.remove("openWindow");
+            if (_dockIcon.classList.contains("open")) _dockIcon.classList.remove("open");
+    
             // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
-            if ((dockIcon === "#preview" && (!$(".preview").hasClass("openWindow") && !$(".resume").hasClass("openWindow"))) || (dockIcon === "#calc")) $(dockIcon).fadeOut(150);
-            // if ($(win).hasClass("maximize")) {
-            //   $(win).css("width", width);
-            //   $(win).css("height", height);
-            //   centerWindow(win, "center center");
-            //   $(win).removeClass("maximize");
-            //   $("footer").show();
-            // }
+            if ((dockIcon === "#preview" && 
+                (!document.querySelector(".preview").classList.contains("openWindow") && 
+                 !document.querySelector(".resume").classList.contains("openWindow"))) || 
+                (dockIcon === "#calc")) {
+                    $(dockIcon).fadeOut(150);
+            }
         });
     }
 
     // Show menu when icon clicked
     // TODO Improve toggle logic
     function showMenu(menubarBtn, menu, offset) {
+        const menubarElement = document.querySelector(menubarBtn);
+        const menuElement = document.querySelector(menu);
+
         // When button is clicked
-        $(menubarBtn).on("click", function(event) {
-            
-            // Select icon; same color as active menu item
-            // if ($(menubarBtn).hasClass("selected-menu")) {
-            //     $(menubarBtn).css("background", "transparent");
-            // }
-            // else {
-            //     //$(menubarBtn).addClass("selected-menu");
-            //     $(menubarBtn).css("background", "rgba(255, 255, 255, 0.2)");
-            // }
-
-            $(menubarBtn).toggleClass("selected-menu");
-
-            // Change background color of icon
-            // $(menubarBtn).css("background", "rgba(255, 255, 255, 0.2)");
+        menubarElement.addEventListener("click", function(event) {
+            // Toggle selected-menu class
+            menubarElement.classList.toggle("selected-menu");
 
             // Position menu
-            $(menu).css("left", $(menubarBtn).offset().left + offset);    
+            const buttonRect = menubarElement.getBoundingClientRect();
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const buttonLeftPosition = buttonRect.left + scrollLeft;
+            menuElement.style.left = `${buttonLeftPosition + offset}px`;
 
             // Bring menu to front
             bringToFront(menu);
-    
+            
             // Show menu
-            $(menu).show();
+            menuElement.style.display = "block";
             event.stopPropagation();
         });
 
         // Prevent menu from closing when clicking on it
-        $(menu).on("mousedown", function(event) {
+        menuElement.addEventListener("mousedown", function(event) {
             event.stopPropagation();
         });
 
         // Hide menu when click outside
-        $(document).on("mousedown", function() {
-            $(menu).fadeOut(250);
-            $(menubarBtn).removeClass("selected-menu");
-            //$(menubarBtn).css("background", "transparent");
+        document.addEventListener("mousedown", function() {
+            $(menu).fadeOut(150);
+            menubarElement.classList.remove("selected-menu");
         });
     }
-        
+    
     // Show right menu when icon clicked
     function showRightMenu(menubarBtn, menu, offset) {
         showMenu(menubarBtn, menu, offset + $(menubarBtn).width() - $(menu).width());
@@ -344,7 +354,6 @@ $(function() {
 
     // Toggle launchpad on click
     document.getElementById("open-menu").addEventListener("click", function() {
-        const launchpad = document.getElementById("launchpad");
         if (launchpad.classList.contains("shown") && launchpad.classList.contains("start")) closeLaunchpad();
         else openLaunchpad();
     });
@@ -360,7 +369,6 @@ $(function() {
 
     // Close the launchpad after the content is clicked, only if the target is not a link
     document.addEventListener("mouseup", function(event) {
-        const launchpad = document.getElementById("launchpad");
         const content = launchpad.querySelector("#launch-content");
         const nav = content.querySelector("nav");
     
@@ -395,18 +403,14 @@ $(function() {
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
 
-    // Make trash dialogue draggable
-    $(".trash-dialogue").draggable({
-        cursor: "default",
-        cancel: ".alert-btn",
-        start: function() {
-            bringToFront(this);
-        },
-        containment: "#main-content",
-        distance: 0
-    }).on("mousedown", function() {
-        bringToFront(this);
+    // Add mousedown event listener to bring to front when clicked
+    trashDialogue.addEventListener("mousedown", function(event) {
+        // Don't trigger dragging when clicking on alert button
+        if (!event.target.classList.contains("alert-btn")) bringToFront(this);
     });
+    
+    // Make the trash dialogue draggable
+    dragElement(trashDialogue);
 
     // Make folder and file icons draggable
     $(".btn").draggable({
@@ -415,6 +419,61 @@ $(function() {
         containment: "#main-content",
         distance: 0
     });
+
+    function dragElement(elem) {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        
+        elem.addEventListener("mousedown", dragMouseDown);
+        
+        function dragMouseDown(e) {
+            // Don't start drag if clicking on alert button
+            if (e.target.classList.contains("alert-btn")) return;
+            
+            e.preventDefault();
+            
+            // Get the mouse cursor position at startup
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            
+            // Add event listeners for drag and end drag
+            document.addEventListener("mouseup", closeDragElement);
+            document.addEventListener("mousemove", elementDrag);
+        }
+        
+        function elementDrag(e) {
+            e.preventDefault();
+            
+            // Calculate new cursor position
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            
+            // Set new position
+            const newTop = elem.offsetTop - pos2;
+            const newLeft = elem.offsetLeft - pos1;
+            
+            // Apply containment to #main-content
+            const container = document.getElementById("main-content");
+            const containerRect = container.getBoundingClientRect();
+            const elemRect = elem.getBoundingClientRect();
+            
+            // Ensure element stays within container boundaries
+            if (newTop >= 0 && newTop + elemRect.height <= containerRect.height) {
+                elem.style.top = newTop + "px";
+            }
+            
+            if (newLeft >= 0 && newLeft + elemRect.width <= containerRect.width) {
+                elem.style.left = newLeft + "px";
+            }
+        }
+        
+        // Stop moving when mouse button is released
+        function closeDragElement() {
+            document.removeEventListener("mouseup", closeDragElement);
+            document.removeEventListener("mousemove", elementDrag);
+        }
+    }
 
     // Make some windows resizeable
     $(".mac-terminal, .email, .notes, .browser, .preview, .resume").resizable({
@@ -478,7 +537,7 @@ $(function() {
     openWindow("#calc", ".calc", "inline-block");
 
     // Open trash dialogue
-    openWindow("#trash-icon", ".trash-dialogue", "inline-block");
+    openWindow("#trash-icon", "#trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
     openFile("#aboutFile", "#text-edit", ".text-edit", true);
@@ -508,50 +567,29 @@ $(function() {
     launchApp("#calculatorLaunch", ".calc", "#calc", "inline-block");
 
     // Close terminal
-    closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm", "40rem", "44.5rem");
+    closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm");
 
     // Close mail
-    closeWindow(".email-header__op-icon--red", ".email", "#mail", "47rem", "42rem");
+    closeWindow(".email-header__op-icon--red", ".email", "#mail");
 
     // Close about me
     closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
 
     // Close projects
-    closeWindow(".buttons-icon--red", ".notes", "#notes", "55rem", "45rem");
+    closeWindow(".buttons-icon--red", ".notes", "#notes");
 
     // Close safari
-    closeWindow(".browser-buttons-icon--red", ".browser", "#safari", "55rem", "45rem");
+    closeWindow(".browser-buttons-icon--red", ".browser", "#safari");
 
     // Close calculator
     closeWindow(".calc-header__op-icon--red", ".calc", "#calc");
 
     // Close preview
-    closeWindow(".preview-header__op-icon--red", ".preview", "#preview", "55rem", "40rem");
+    closeWindow(".preview-header__op-icon--red", ".preview", "#preview");
 
     // Close resume
-    closeWindow(".resume-header__op-icon--red", ".resume", "#preview", "55rem", "55rem");
+    closeWindow(".resume-header__op-icon--red", ".resume", "#preview");
 
     // Close trash dialogue
-    closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
-
-    // // Maximize terminal
-    // maximizeWindow(".header__op-icon--green", ".mac-terminal", "40rem", "44.5rem");
-
-    // // Maximize terminal
-    // maximizeWindow(".email-header__op-icon--green", ".email", "47rem", "42rem");
-
-    // // Maximize about me
-    // maximizeWindow(".text-edit-header__op-icon--green", ".text-edit", "48.35rem", "45rem");
-
-    // // Maximize projects
-    // maximizeWindow(".buttons-icon--green", ".notes", "55rem", "45rem");
-
-    // // Maximize safari
-    // maximizeWindow(".browser-buttons-icon--green", ".browser", "55rem", "45rem");
-
-    // // Maximize preview
-    // maximizeWindow(".preview-header__op-icon--green", ".preview", "55rem", "40rem");
-
-    // // Maximize resume
-    // maximizeWindow(".resume-header__op-icon--green", ".resume", "55rem", "55rem");
+    closeWindow(".alert-btn", "#trash-dialogue", "#trash-icon");
 });
