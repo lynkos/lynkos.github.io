@@ -1,7 +1,7 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-.trash-dialogue
+#trash-dialogue
   display: none
   cursor: default
   position: absolute
@@ -45,9 +45,9 @@
       background: var(--confirm-active, vars.$primary-button-color)
 
 @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
-  .trash-dialogue .alert-btn
+  #trash-dialogue .alert-btn
     width: 9.75rem
 
 @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
-  .trash-dialogue .alert-btn
+  #trash-dialogue .alert-btn
     width: 10rem
