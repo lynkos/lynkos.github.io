@@ -7,7 +7,6 @@
     <link rel="preload" as="style" href="/assets/stylesheets/css/preview.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/calculator.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/mail.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/tooltip.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/text-edit.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/notes.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/launchpad.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -21,7 +20,6 @@
       <link rel="stylesheet" href="/assets/stylesheets/css/preview.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/calculator.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/mail.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/tooltip.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/text-edit.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/notes.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
@@ -91,7 +89,7 @@
   </head>
 
   <body>
-    <header class="menu-bar">
+    <header id="menu-bar">
       <div class="left">
         <span role="button" tabindex="0" aria-expanded="false" id="apple" class="menus apple menu-ico"><i alt="Apple logo" class="fab fa-apple" aria-hidden="true"></i></span>
         <span role="button" tabindex="0" aria-expanded="false" id="finder" class="menus active">Finder</span>
@@ -940,6 +938,15 @@
                 <div class="year"><i class="fas fa-thumbtack" alt="Thumbtack icon" aria-hidden="true"></i>&nbsp;&nbsp;Pinned</div>
 
                 <ul class="child-nav">
+                  <li role="button" tabindex="0" class="project-name" data-id="project-17">
+                    <div class="text" data-id="project-17">
+                      <p class="name" data-id="project-17">Blog</p>
+                      <div class="bottom" data-id="project-17">
+                        <span class="day" data-id="project-17">2/3/25</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-17">My personal blog</span>
+                      </div>
+                    </div>
+                  </li>
+
                   <li role="button" tabindex="0" class="active project-name" data-id="project-1">
                     <div class="text" data-id="project-1">
                       <p class="name" data-id="project-1">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</p>
@@ -1195,6 +1202,7 @@
                     </div>
                     <ul>
                       <li>The ideomotor effect of software</li>
+                      <li>Open-source software project</li>
                     </ul>
                   </div>
                 </div>
@@ -1207,9 +1215,7 @@
                       <a role="button" href="https://lynkos.dev/zenkitty" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
                       <a role="button" href="https://github.com/lynkos/zenkitty" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
-                    <ul>
-                      <li>Human-Computer Interaction project</li>
-                    </ul>
+                    <p>Human-Computer Interaction project</p>
                   </div>
                 </div>
 
@@ -1220,8 +1226,11 @@
                     <div class="links">
                       <a role="button" href="https://github.com/hllywluis/bim-assistant" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
+                    <p>Developed front-end of web app for BIM models that allows users to:</p>
                     <ul>
-                      <li>Developed front-end of web app for BIM models that allows users to search models for specific elements/properties, view and inspect models in 2D and 3D, and query models via virtual assistant (Siri or Alexa)</li>
+                      <li>Search models for specific elements/properties</li>
+                      <li>View and inspect models in 2D and 3D</li>
+                      <li>Query models via virtual assistant (Siri or Alexa)</li>
                     </ul>
                   </div>
                 </div>
@@ -1314,9 +1323,7 @@
                     <div class="links">
                       <a role="button" href="https://github.com/lynkos/Endians" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
-                    <ul>
-                      <li>Program I wrote in high school that converts a given integer to little-endian and/or big-endian</li>
-                    </ul>
+                    <p>Program I wrote in high school that converts a given integer to little-endian and/or big-endian</p>
                   </div>
                 </div>
 
@@ -1345,9 +1352,7 @@
                     <div class="links">
                       <a role="button" href="https://lynkos420.blogspot.com" target="_blank" title="Link to blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
                     </div>
-                    <ul>
-                      <li>Some of my solutions to certain CTF puzzles/problems</li>
-                    </ul>
+                    <p>Some of my solutions to certain CTF puzzles/problems</p>
                   </div>
                 </div>
 
@@ -1369,6 +1374,18 @@
                       <li>Activate Conda environment</li>
                       <li>Deactivate Conda environment</li>
                     </ul>
+                  </div>
+                </div>
+
+                <div id="project-17" class="project">
+                  <div class="date">February 3, 2025 at 00:13</div>
+                  <h1 class="project-title"><a target="_blank" href="https://blog.lynkos.dev" title="Link to my blog">Blog</a></h1>
+                  <div class="project-body">
+                    <div class="links">
+                      <a role="button" href="https://blog.lynkos.dev" target="_blank" title="Link to my blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" href="https://github.com/lynkos/blog" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                    </div>
+                    <p>My personal blog</p>
                   </div>
                 </div>
               </div>
@@ -1419,7 +1436,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="fa fa-star"></i>
                 </div>
                 <div id="python-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="python-content" class="hidden-content item-content">
@@ -1444,7 +1461,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="java-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="java-content" class="hidden-content item-content">
@@ -1468,7 +1485,7 @@
                   <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>                </div>
                 <div id="html-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="html-content" class="hidden-content item-content">
@@ -1493,7 +1510,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="css-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="css-content" class="hidden-content item-content">
@@ -1518,7 +1535,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="jquery-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="jquery-content" class="hidden-content item-content">
@@ -1543,7 +1560,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="javascript-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="javascript-content" class="hidden-content item-content">
@@ -1568,7 +1585,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="c-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="c-content" class="hidden-content item-content">
@@ -1593,7 +1610,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="cpp-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="cpp-content" class="hidden-content item-content">
@@ -1618,7 +1635,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="latex-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="latex-content" class="hidden-content item-content">
@@ -1643,7 +1660,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="json-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="json-content" class="hidden-content item-content">
@@ -1668,7 +1685,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="yaml-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="yaml-content" class="hidden-content item-content">
@@ -1693,7 +1710,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="terraform-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="terraform-content" class="hidden-content item-content">
@@ -1718,7 +1735,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="uml-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="uml-content" class="hidden-content item-content">
@@ -1743,7 +1760,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="r-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="r-content" class="hidden-content item-content">
@@ -1768,7 +1785,7 @@
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
                 </div>
                 <div id="markdown-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="markdown-content" class="hidden-content item-content">
@@ -1793,7 +1810,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="jinja-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="jinja-content" class="hidden-content item-content">
@@ -1818,10 +1835,35 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="mysql-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="mysql-content" class="hidden-content item-content">
+                <p>This section is still a work in progress. Please check back later!</p>
+              </div>
+
+              <div role="button" tabindex="0" aria-expanded="false" id="swift" class="row" onclick="toggleContent('#swift')">
+                <div class="beginning">
+                  <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Swift logo" src="https://cdn.simpleicons.org/swift?viewbox=auto">
+                  <h3 class="heading">Swift</h3>
+                </div>
+                <div class="stars">
+                  <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
+                  <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
+                  <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
+                  <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
+                  <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
+                  <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
+                  <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
+                  <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
+                  <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
+                  <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
+                </div>
+                <div id="swift-trigger" class="arrow">
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
+                </div>
+              </div>
+              <div id="swift-content" class="hidden-content item-content">
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
             </section>
@@ -1846,7 +1888,7 @@
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
                 </div>
                 <div id="git-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="git-content" class="hidden-content item-content">
@@ -1871,7 +1913,7 @@
                   <i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>
                 </div>
                 <div id="github-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="github-content" class="hidden-content item-content">
@@ -1896,7 +1938,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="bash-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="bash-content" class="hidden-content item-content">
@@ -1921,7 +1963,7 @@
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
                 </div>
                 <div id="confluence-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="confluence-content" class="hidden-content item-content">
@@ -1946,7 +1988,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="docker-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="docker-content" class="hidden-content item-content">
@@ -1971,7 +2013,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="jira-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="jira-content" class="hidden-content item-content">
@@ -1996,7 +2038,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="vim-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="vim-content" class="hidden-content item-content">
@@ -2021,7 +2063,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="jupyter-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="jupyter-content" class="hidden-content item-content">
@@ -2046,7 +2088,7 @@
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
                 </div>
                 <div id="conda-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="conda-content" class="hidden-content item-content">
@@ -2071,7 +2113,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="vmware-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="vmware-content" class="hidden-content item-content">
@@ -2096,7 +2138,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="grafana-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="grafana-content" class="hidden-content item-content">
@@ -2124,7 +2166,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="qiskit-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="qiskit-content" class="hidden-content item-content">
@@ -2149,7 +2191,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="numpy-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="numpy-content" class="hidden-content item-content">
@@ -2174,7 +2216,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="pytorch-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="pytorch-content" class="hidden-content item-content">
@@ -2199,7 +2241,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="tensorflow-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="tensorflow-content" class="hidden-content item-content">
@@ -2224,7 +2266,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="keras-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="keras-content" class="hidden-content item-content">
@@ -2249,7 +2291,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="maven-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="maven-content" class="hidden-content item-content">
@@ -2274,7 +2316,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="junit-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="junit-content" class="hidden-content item-content">
@@ -2299,7 +2341,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="sass-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="sass-content" class="hidden-content item-content">
@@ -2324,7 +2366,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="roboflow-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="roboflow-content" class="hidden-content item-content">
@@ -2349,7 +2391,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="arduino-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="arduino-content" class="hidden-content item-content">
@@ -2374,7 +2416,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="espressif-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="espressif-content" class="hidden-content item-content">
@@ -2399,7 +2441,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="platformio-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="platformio-content" class="hidden-content item-content">
@@ -2424,7 +2466,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="colab-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="colab-content" class="hidden-content item-content">
@@ -2449,7 +2491,7 @@
                   <i aria-hidden="true" alt="Half-filled star icon" class="far fa-star-half-stroke"></i>
                 </div>
                 <div id="copilot-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="copilot-content" class="hidden-content item-content">
@@ -2474,7 +2516,7 @@
                   <i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>
                 </div>
                 <div id="opencv-trigger" class="arrow">
-                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-arrow-right rotate0"></i>
+                  <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
                 </div>
               </div>
               <div id="opencv-content" class="hidden-content item-content">
@@ -2549,7 +2591,7 @@
           </div>
         </div>
 
-        <div class="trash-dialogue">
+        <div id="trash-dialogue">
           <div class="pp-body">
             <img src="/assets/img/system/trash.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
             <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
