@@ -53,7 +53,7 @@ Includes (but is not limited to):
   * Your email and message are required
   * Subject is optional
 * **iTerm**
-  * `help`, `ls`, and `clear` commands are supported (doesn't work on mobile devices)
+  * Inspired by terminal (specifically iTerm)
   * Timestamp (i.e. displays date and time when site is loaded)
 * **Safari**
   * Click on any skill to toggle its description
@@ -277,7 +277,6 @@ Includes (but is not limited to):
 │   │   ├── email.js
 │   │   ├── notes.js
 │   │   ├── preview.js
-│   │   ├── terminal.js
 │   │   ├── text-edit.js
 │   │   └── windows.js
 │   └── utilities/
@@ -364,7 +363,6 @@ Includes (but is not limited to):
 │   │   ├── email.js
 │   │   ├── notes.js
 │   │   ├── preview.js
-│   │   ├── terminal.js
 │   │   ├── text-edit.js
 │   │   └── windows.js
 │   ├── lib/

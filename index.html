@@ -581,7 +581,7 @@
             <div class="header__empty"></div>
           </div>
 
-          <div class="body" id="terminal-body">
+          <div class="body">
             <div class="body__row"><p id="timestamp"></p></div>
 
             <div id="clearable">
@@ -648,17 +648,13 @@
                 <span class="body__row-git--author">&lt;lynkos&gt;</span>
               </div>
           
-              <div class="body__row"><pre id="output"></pre></div>          
-
-              <div id="prompt">
-                <div class="body__row">
-                  <span class="body__row-arrow"></span>
-                  <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
-                  <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
-                  <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
-                  <span tabindex="0" class="body__row-result"><span id="command-input"></span></span>
-                  <span class="body__row-cursor">_</span>
-                </div>
+              <div class="body__row">
+                <span class="body__row-arrow"></span>
+                <span class="body__row-name">lynkos</span><span class="body__row-accent">&commat;</span>
+                <span class="body__row-git--label">localhost</span><span class="body__row-accent">:</span>
+                <span class="body__row-git--branch">~</span><span class="body__row-accent">$</span>
+                <span class="body__row-result"></span>
+                <span class="body__row-cursor">_</span>
               </div>
             </div>
           </div>
@@ -2662,7 +2658,6 @@
     <script data-cfasync="false" src="/dist/components/email.js" defer></script>
     <script src="/dist/components/preview.js" defer></script>
     <script src="/dist/components/calculator.js" defer></script>
-    <script src="/dist/components/terminal.js" defer></script>
     <script>
       // Make launchpad searchable
       function filterLaunchpad() {
