@@ -29,7 +29,7 @@
       // when our element has multiple items, get their values
       if (element.length) {
         var data = [];
-        for (var i = 0; i < element.length; i++) {
+        for (let i = 0; i < element.length; i++) {
           var item = element.item(i);
           if (item.checked || item.selected) data.push(item.value);
         }
@@ -108,7 +108,7 @@
   // Revert cursor to normal once sent
   function revertCursor() {
     document.body.style.cursor = "auto";
-    $(".loader").hide();
+    $(".loader").hide(); // formElements.style.display = "none";
     document.removeEventListener("mousemove", moveMouse);
   };
 
@@ -121,7 +121,7 @@
   // Bind to the submit event of our form
   function loaded() {
     var forms = document.querySelectorAll("form.gform");
-    for (var i = 0; i < forms.length; i++) {
+    for (let i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
     }
   };
@@ -130,7 +130,7 @@
 
   function disableAllButtons(form) {
     var buttons = form.querySelectorAll("button");
-    for (var i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
   }
