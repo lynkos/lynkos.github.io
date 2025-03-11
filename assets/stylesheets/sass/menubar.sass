@@ -49,8 +49,9 @@ $menubar-icon-size: 1.1rem
   .left
     padding-left: vars.$padding
 
-    .apple i
-      font-size: calc($menubar-icon-size + 0.4rem)
+    .apple
+      font-size: calc($menubar-icon-size * 1.5)
+      line-height: 1.2
 
     .active
       font-weight: bold
@@ -65,7 +66,9 @@ $menubar-icon-size: 1.1rem
     .menu-ico
       padding: calc(((vars.$menubar-height - $menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
 
+    .menu-ico, .ctrl-ico
       img
+        width: auto
         height: calc($menubar-icon-size + 0.1rem)
 
 #playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
@@ -186,6 +189,13 @@ $menubar-icon-size: 1.1rem
   .searchbar
     padding: vars.$padding
     @include mix.searchbar(100%, 2rem, rgba(255, 255, 255, 0.1), 1.1rem, vars.$padding-half, rgba(255, 255, 255, 0.8))
+  
+  .option
+    &:nth-child(2)
+      margin-top: vars.$padding-half
+
+    &:last-child
+      margin-bottom: 0
 
 .selected-menu
   background-color: rgba(255, 255, 255, 0.2)
