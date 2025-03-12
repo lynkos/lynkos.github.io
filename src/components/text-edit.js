@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     align.forEach(element => {
         document.getElementById(`${element}-btn`).addEventListener("click", function() {
             textBody.classList.toggle(element);
-            let arr = align;
-            removeClasses(".text-body", arr.filter(item => item !== element));
+            removeClasses(".text-body", align.filter(item => item !== element));
         });
     });
 
