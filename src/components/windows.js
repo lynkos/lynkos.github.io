@@ -200,7 +200,7 @@ $(function() {
     }
 
     // Show file when clicking on desktop icon
-    function showFile(dockIcon, win, inDock) {
+    function showDesktopFile(dockIcon, win, inDock) {
         const windowElement = document.querySelector(win);
         const dockIconElement = document.querySelector(dockIcon);
         
@@ -223,7 +223,7 @@ $(function() {
     }
 
     // Open Desktop file when double-clicking or tapping its icon
-    function openFile(file, dockIcon, win, inDock = false) {
+    function openDesktopFile(file, dockIcon, win, inDock = false) {
         // Only position window when first opened
         initPosition(file, win, "dblclick");
         initPosition(file, win, "touchend");
@@ -233,7 +233,7 @@ $(function() {
         // Open file when double-clicking
         fileElement.addEventListener("dblclick", function(event) {
             event.preventDefault();
-            showFile(dockIcon, win, inDock);    
+            showDesktopFile(dockIcon, win, inDock);
         });
 
         // Open file when tapping (mobile only)
@@ -242,7 +242,7 @@ $(function() {
         fileElement.addEventListener("touchmove", function() { moved = true; });
         fileElement.addEventListener("touchend", function() {
             // Only open file if icon wasn't moved
-            if (!moved) showFile(dockIcon, win, inDock);
+            if (!moved) showDesktopFile(dockIcon, win, inDock);
         });
     }
 
@@ -540,13 +540,13 @@ $(function() {
     openWindow("#trash-icon", "#trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
-    openFile("#aboutFile", "#text-edit", ".text-edit", true);
+    openDesktopFile("#aboutFile", "#text-edit", ".text-edit", true);
 
     // Open resume when double-clicking or tapping `resume.pdf`
-    openFile("#resumeFile", "#preview", ".resume");
+    openDesktopFile("#resumeFile", "#preview", ".resume");
 
     // Open preview when double-clicking or tapping `profile.webp`
-    openFile("#profilePic", "#preview", ".preview");
+    openDesktopFile("#profilePic", "#preview", ".preview");
 
     // Launch terminal
     launchApp("#itermLaunch", ".mac-terminal", "#iterm", "inline-block");
