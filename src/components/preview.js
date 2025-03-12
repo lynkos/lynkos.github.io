@@ -1,36 +1,45 @@
-$(function() {
+document.addEventListener("DOMContentLoaded", function() {
+    const rotate = document.getElementById("rotate");
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomOut = document.getElementById("zoomOut");
+    const fullProfilePic = document.getElementById("fullProfilePic");
     var angle = 0;
     var zoom = 1;
-    
-    // Rotate picture in `profile.webp` preview
-    $("#rotate").on("click", function() {
-        angle = (angle - 90) % 360;    
-    });
 
+    // Rotate picture in `profile.webp` preview
+    rotate.addEventListener("click", function() {
+        angle = (angle - 90) % 360;
+    });
+    
     // Zoom into picture in `profile.webp` preview
-    $("#zoomIn").on("click", function() {
+    zoomIn.addEventListener("click", function() {
         if (zoom < 2.1) {
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
+            if (zoomIn.classList.contains("inactive")) zoomIn.classList.remove("inactive");
+            if (zoomOut.classList.contains("inactive")) zoomOut.classList.remove("inactive");
             zoom += 0.1;
-        } else if (!$("#zoomIn").hasClass("inactive")) $("#zoomIn").addClass("inactive");
+        } else if (!zoomIn.classList.contains("inactive")) zoomIn.classList.add("inactive");
+
     });
 
     // Zoom out of picture in `profile.webp` preview
-    $("#zoomOut").on("click", function() {
+    zoomOut.addEventListener("click", function() {
         if (zoom > 0.2) {
-            if ($("#zoomOut").hasClass("inactive")) $("#zoomOut").removeClass("inactive");
-            if ($("#zoomIn").hasClass("inactive")) $("#zoomIn").removeClass("inactive");
+            if (zoomIn.classList.contains("inactive")) zoomIn.classList.remove("inactive");
+            if (zoomOut.classList.contains("inactive")) zoomOut.classList.remove("inactive");
             zoom -= 0.1;
-        } else if (!$("#zoomOut").hasClass("inactive")) $("#zoomOut").addClass("inactive");
+        } else if (!zoomOut.classList.contains("inactive")) zoomOut.classList.add("inactive");
+
     });
 
     // Apply both zoom and rotation to picture in `profile.webp` preview
-    $("#zoomOut, #zoomIn, #rotate").on("click", function() {
-        $("#fullProfilePic").css("transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-moz-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-ms-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-o-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
-        $("#fullProfilePic").css("-webkit-transform", "rotate(" + angle + "deg) scale(" + zoom + ")");
+    [ zoomIn, zoomOut, rotate ].forEach(element => {
+        element.addEventListener("click", function() {
+            const transformValue = `rotate(${angle}deg) scale(${zoom})`;            
+            fullProfilePic.style.transform = transformValue;
+            fullProfilePic.style.mozTransform = transformValue;
+            fullProfilePic.style.msTransform = transformValue;
+            fullProfilePic.style.oTransform = transformValue;
+            fullProfilePic.style.webkitTransform = transformValue;
+        });
     });
 });
