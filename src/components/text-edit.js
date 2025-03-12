@@ -1,67 +1,50 @@
-$(function() {
+document.addEventListener("DOMContentLoaded", function() {
+    const align = [ "left", "center", "right", "justify" ];
+    const style = [ "bold", "italic", "underline" ];
+    const textBody = document.querySelector(".text-body");
+
     // Remove classes in element
-    function removeClasses(element, classes) {
+    function removeClasses(selector, classes) {
+        const element = document.querySelector(selector);
+
         for (let i = 0; i < classes.length; i++) {
-            if ($(element).hasClass(classes[i])) $(element).removeClass(classes[i]);
+            if (element.classList.contains(classes[i])) element.classList.remove(classes[i]);
         }
     }
-    
-    // Toggle bold text in TextEdit
-    $("#bold-btn").on("click", function() {
-        $(".text-body").toggleClass("bold");
+
+    // Toggle style in TextEdit
+    style.forEach(element => {
+        document.getElementById(`${element}-btn`).addEventListener("click", function() {
+            textBody.classList.toggle(element);
+        });
     });
 
-    // Toggle italic text in TextEdit
-    $("#italic-btn").on("click", function() {
-        $(".text-body").toggleClass("italic");
+    // Toggle alignment in TextEdit
+    align.forEach(element => {
+        document.getElementById(`${element}-btn`).addEventListener("click", function() {
+            textBody.classList.toggle(element);
+            let arr = align;
+            removeClasses(".text-body", arr.filter(item => item !== element));
+        });
     });
 
-    // Toggle underlined text in TextEdit
-    $("#underline-btn").on("click", function() {
-        $(".text-body").toggleClass("underline");
+    // Update text color in TextEdit
+    document.getElementById("colorPicker").addEventListener("input", function() {
+        textBody.style.color = this.value;
     });
 
-    // Toggle left text alignment in TextEdit
-    $("#left-btn").on("click", function() {
-        $(".text-body").toggleClass("left");
-        removeClasses(".text-body", [ "right", "center", "justify" ]);
+    // Update font size in TextEdit
+    document.getElementById("fontSize").addEventListener("change", function() {
+        textBody.style.fontSize = (this.value / 10) + "rem";
     });
 
-    // Toggle center text alignment in TextEdit
-    $("#center-btn").on("click", function() {
-        $(".text-body").toggleClass("center");
-        removeClasses(".text-body", [ "right", "left", "justify" ]);
+    // Update font family in TextEdit
+    document.getElementById("fontFamily").addEventListener("change", function() {
+        textBody.style.fontFamily = this.value;
     });
 
-    // Toggle right text alignment in TextEdit
-    $("#right-btn").on("click", function() {
-        $(".text-body").toggleClass("right");
-        removeClasses(".text-body", [ "center", "left", "justify" ]);
-    });
-
-    // Toggle justify text alignment in TextEdit
-    $("#justify-btn").on("click", function() {
-        $(".text-body").toggleClass("justify");
-        removeClasses(".text-body", [ "center", "left", "right" ]);
-    });
-});
-
-// Update text color in TextEdit
-document.getElementById("colorPicker").addEventListener("input", function() {
-    $(".text-body").css("color", this.value);
-});
-
-// Update font size in TextEdit
-document.getElementById("fontSize").addEventListener("change", function() {
-    $(".text-body").css("font-size", (this.value / 10) + "rem");
-});
-
-// Update font family in TextEdit
-document.getElementById("fontFamily").addEventListener("change", function() {
-    $(".text-body").css("font-family", this.value);
-});
-
-// Update line height in TextEdit
-document.getElementById("lineHeight").addEventListener("change", function() {
-    $(".text-body").css("line-height", this.value);
+    // Update line height in TextEdit
+    document.getElementById("lineHeight").addEventListener("change", function() {
+        textBody.style.lineHeight = this.value;
+    }); 
 });
