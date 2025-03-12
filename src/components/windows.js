@@ -1,4 +1,4 @@
-$(function() {
+document.addEventListener("DOMContentLoaded", function() {
     /* VARIABLES */
     var aboutOpened = false;
     const fadeMs = 350;
@@ -176,25 +176,32 @@ $(function() {
     // Open window/app via dock
     function openWindow(icon, win, displayType = "flex") {
         // Position window when first opened
-        initPosition(icon, win, "click");
+        // Ignore #preview since it can only initially be opened via desktop (not dock)
+        // and is already init positioned when first opened via desktop
+        if (icon !== "#preview") initPosition(icon, win, "click");
 
         const windowElement = document.querySelector(win);
         const iconElement = document.querySelector(icon);
     
         iconElement.addEventListener("click", function() {
             closeLaunchpad();
-            windowElement.style.display = displayType;
-            bringToFront(win);
-            
-            if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
+            if (windowElement.classList.contains("openWindow")) bringToFront(win);
 
-            // Bounce effect for dock icons
-            if (!iconElement.classList.contains("open")) {
-                // Bounce effect, if window is not already open
-                bounce(icon);
-    
-                // Mark clicked window as opened
-                iconElement.classList.add("open");
+            // Ignore preview and resume since they can only be opened via desktop (not dock)
+            if (win !== ".preview" && win !== ".resume") {
+                windowElement.style.display = displayType;
+            
+                if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
+
+                // Bounce effect for dock icons
+                if (!iconElement.classList.contains("open")) {
+                    // Bounce effect, if window is not already open
+                    // Ignore #preview since it can only initially be opened via desktop (not dock)
+                    if (icon !== "#preview") bounce(icon);
+        
+                    // Mark clicked window as opened
+                    iconElement.classList.add("open");
+                }
             }
         });
     }
@@ -364,6 +371,7 @@ $(function() {
             closeLaunchpad();
         });
     });
+    
     // add class to launch while moving/dragging & remove when done
     // so that the launchpad doesn't close when sorting
 
