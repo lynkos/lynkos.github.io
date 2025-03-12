@@ -573,7 +573,7 @@ $(function() {
     closeWindow(".email-header__op-icon--red", ".email", "#mail");
 
     // Close about me
-    closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit", "48.35rem", "45rem");
+    closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit");
 
     // Close projects
     closeWindow(".buttons-icon--red", ".notes", "#notes");
