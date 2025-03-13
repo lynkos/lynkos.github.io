@@ -2,11 +2,12 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer --use @fullhuman/postcss-purgecss --purgecss.content='./*.html,./dist/**/*.js' --no-map",
+        "build:purge": "purgecss --css assets/stylesheets/css/*.css --content *.html dist/**/*.js --output assets/stylesheets/css",
+        "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
         "build:html": "html-minifier --input-dir . --output-dir . --file-ext html --remove-comments --collapse-whitespace --minify-js false --minify-css false",
-        "build": "npm run build:js & npm run build:html & (npm run build:css && npm run build:prefix)",
+        "build": "npm run build:js & npm run build:html & (npm run build:css && npm run build:purge && npm run build:prefix)",
         "dev:js": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env",
         "dev:css": "sass --verbose --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "dev": "npm run dev:js & npm run dev:css"
@@ -15,7 +16,15 @@
         "type": "git",
         "url": "git+https://github.com/lynkos/lynkos.github.io.git"
     },
-    "keywords": [ "code", "lynkos", "front-end", "portfolio", "macos", "terminal", "apple" ],
+    "keywords": [
+        "code",
+        "lynkos",
+        "front-end",
+        "portfolio",
+        "macos",
+        "terminal",
+        "apple"
+    ],
     "author": "Kiran Brahmatewari",
     "license": "MIT",
     "bugs": {
@@ -27,13 +36,13 @@
         "@babel/cli": "^7.26.4",
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
-        "@fullhuman/postcss-purgecss": "^7.0.2",
         "autoprefixer": "^10.4.20",
         "babel-preset-minify": "^0.5.2",
         "html-minifier": "^4.0.0",
         "nodemon": "^3.1.9",
         "postcss": "^8.5.3",
         "postcss-cli": "^11.0.0",
+        "purgecss": "^7.0.2",
         "sass": "^1.83.4"
     },
     "babel": {
