@@ -89,7 +89,7 @@ canvas
     background-color: transparent
     background-image: none
     border: 0
-    outline: 0
+    outline: 0 none
     appearance: none
 
   &-button
@@ -129,6 +129,11 @@ canvas
 .windows
   position: absolute
   z-index: 0
+
+.divider
+  color: vars.$font-color
+  margin: vars.$padding vars.$padding-2x
+  border-bottom: vars.$border-thickness-half solid vars.$font-color
 
 @media screen and (max-width: vars.$width-threshold)
   html

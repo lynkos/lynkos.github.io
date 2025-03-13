@@ -1,0 +1,92 @@
+@use "mixins" as mix
+@use "variables" as vars
+
+$context-menu-width: 20rem
+
+.context-menu
+  pointer-events: none
+  display: block
+  position: absolute
+  opacity: 0
+  margin: 0
+  font-size: vars.$menubar-font-size
+  font-family: vars.$font-family
+  z-index: 1
+  width: $context-menu-width
+  height: auto
+  box-shadow: vars.$menu-shadow
+  cursor: default
+  transition: opacity 0.25s
+  @include mix.disable-select()
+
+  &:before, ul &-submenu:before
+    content: ""
+    padding: vars.$padding-quarter
+    background: vars.$menu-background
+    backdrop-filter: blur(2.75rem)
+    height: 100%
+    width: 100%
+    position: absolute
+    border-radius: vars.$menu-border-radius
+    @include mix.window-border()
+
+  &-item
+    position: relative
+    margin: 0
+    padding: 0 vars.$padding
+    white-space: nowrap
+
+    &:first-child
+      margin-top: calc(vars.$padding + vars.$padding-quarter)
+
+    &:last-child
+      margin-bottom: calc(vars.$padding + vars.$padding-quarter)
+
+    &:hover >
+      .context-menu
+        opacity: 1
+        pointer-events: auto
+        transition: opacity 0s
+        transition-delay: 100ms
+
+      .context-menu-btn
+        background-color: vars.$secondary-button-color
+
+    &-disabled
+      pointer-events: none
+      
+      &:hover
+        background-color: transparent
+
+  &-btn, i
+    color: vars.$menubar-font-color
+
+  i
+    font-size: vars.$menubar-icon-size
+
+  &-btn
+    display: flex
+    justify-content: space-between
+    white-space: nowrap
+    padding: vars.$padding-quarter vars.$padding-2x
+    border-radius: vars.$border-radius
+
+    &-disabled
+      color: vars.$font-color
+      
+    a
+      outline: 0 none
+      text-decoration: none
+
+  & .context-menu
+    top: calc(-1 * (vars.$padding + vars.$padding-quarter))
+    left: calc($context-menu-width - vars.$padding)
+
+  &-show
+    opacity: 1
+    transition: opacity 0s
+    pointer-events: auto
+  
+button.context-menu-btn
+  overflow: visible
+  width: 100%

@@ -1,8 +1,6 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$menubar-icon-size: 1.1rem
-
 #menu-bar
   width: 100%
   height: vars.$menubar-height
@@ -41,7 +39,7 @@ $menubar-icon-size: 1.1rem
       border-radius: vars.$border-radius
 
       i
-        font-size: $menubar-icon-size
+        font-size: vars.$menubar-icon-size
 
       &:active
         background: rgba(255, 255, 255, 0.2)
@@ -50,7 +48,7 @@ $menubar-icon-size: 1.1rem
     padding-left: vars.$padding
 
     .apple i
-      font-size: calc($menubar-icon-size * 1.4)
+      font-size: calc(vars.$menubar-icon-size * 1.4)
       line-height: 1.2
 
     .active
@@ -64,12 +62,12 @@ $menubar-icon-size: 1.1rem
       text-align: center
 
     .menu-ico
-      padding: calc(((vars.$menubar-height - $menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
+      padding: calc(((vars.$menubar-height - vars.$menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
 
     .menu-ico, .ctrl-ico
       img
         width: auto
-        height: calc($menubar-icon-size + 0.1rem)
+        height: calc(vars.$menubar-icon-size + 0.1rem)
 
 #playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
   @include mix.menu-dropdown()
@@ -86,19 +84,15 @@ $menubar-icon-size: 1.1rem
   border-radius: vars.$border-radius
   color: vars.$menubar-font-color
 
-.disabled, .mini-icon, .divider
+.disabled, .mini-icon
   color: vars.$font-color
 
 .mini-icon
   align-self: center
 
-.divider
-  margin: vars.$padding vars.$padding-2x
-  border-bottom: vars.$border-thickness-half solid vars.$font-color
-
 #apple-menu, #finder-menu, #file-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
   i
-    font-size: $menubar-icon-size
+    font-size: vars.$menubar-icon-size
     
   .option, .disabled
     padding: vars.$padding-quarter vars.$padding-2x
@@ -149,7 +143,7 @@ $menubar-icon-size: 1.1rem
       background-color: vars.$font-color
 
     .mini-icon
-      font-size: $menubar-icon-size
+      font-size: vars.$menubar-icon-size
 
     &:hover
       background-color: rgba(255, 255, 255, 0.1)

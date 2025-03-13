@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .btn, #trash-dialogue, .menu-dropdown").map(function() {
+            let maxZIndex = Math.max(...$(".windows, #trash-dialogue").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -125,10 +125,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // If not menu dropdown (since it will never be on top of dock and/or launchpad)
                 if (!$(element).hasClass("menu-dropdown")) {
-                    // Make sure menu dropdown, dock, and launchpad are always on top
+                    // Make sure menu dropdown, context menu, dock, and launchpad are always on top
                     $(".menu-dropdown").css("z-index", maxZIndex + 2);
                     $("#launch-content").css("z-index", maxZIndex + 3);
                     $(".dock").css("z-index", maxZIndex + 4);
+                    $(".context-menu").css("z-index", maxZIndex + 5);
 
                     // Mark element as in front
                     $(element).addClass("inFront");
@@ -185,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         iconElement.addEventListener("click", function() {
             closeLaunchpad();
-            if (windowElement.classList.contains("openWindow")) bringToFront(win);
+            bringToFront(win);
 
             // Ignore preview and resume since they can only be opened via desktop (not dock)
             if (win !== ".preview" && win !== ".resume") {
