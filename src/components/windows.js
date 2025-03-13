@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     /* VARIABLES */
+    // At the beginning of your main script
+    const originalAddEventListener = EventTarget.prototype.addEventListener;
+    EventTarget.prototype.addEventListener = function(type, listener, options) {
+        const passiveEvents = [ "touchstart", "touchmove", "touchend", "touchcancel", "wheel", "mousewheel" ];
+    
+    if (passiveEvents.includes(type)) {
+        const newOptions = options || {};
+        if (typeof newOptions === "object") newOptions.passive = true;
+        else options = { passive: true };
+        originalAddEventListener.call(this, type, listener, newOptions);
+    } else originalAddEventListener.call(this, type, listener, options);
+    };
     var aboutOpened = false;
     const fadeMs = 350;
     const launchpad = document.getElementById("launchpad");
