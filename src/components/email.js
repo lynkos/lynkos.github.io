@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
   // get all data in form and return object
   function getFormData(form) {
     var elements = form.elements;
@@ -91,6 +91,7 @@
           }).showToast();
         }
     };
+    
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
@@ -137,7 +138,7 @@
 
   // Load script
   function loadScript(url, defer = false, async = false) {
-    var script = document.createElement("script");
+    const script = document.createElement("script");
     script.type = "text/javascript";
     script.src = url;
     if (defer) script.defer = true;
@@ -162,4 +163,4 @@
   // Add initial event listener to mail form
   document.getElementById("mail").addEventListener("click", loadRecaptcha, false);
   document.getElementById("mailLaunch").addEventListener("click", loadRecaptcha, false);
-})();
+});
