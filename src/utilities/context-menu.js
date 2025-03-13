@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function onContextMenu(event) {
-        event.preventDefault();
-
-        if (!(event.target.id === "menu-bar" || event.target.classList.contains("menus"))) {
+        if (!(event.target.id === "menu-bar" || event.target.id.endsWith("-menu") || event.target.tagName === "HEADER" || event.target.classList.contains("menus") || event.target.classList.contains("menu-dropdown"))) {
+            event.preventDefault();
+            
             const clientX = event.pageX;
             const clientY = event.pageY;
     
@@ -83,10 +83,6 @@ document.addEventListener("DOMContentLoaded", function() {
         hideContextMenu();
         document.removeEventListener("mousedown", onMouseDown);
     }
-
-    contextMenu.addEventListener("mousedown", function(event) {
-        event.stopPropagation();
-    });
     
     document.addEventListener("contextmenu", onContextMenu, false);
 });
