@@ -93,6 +93,8 @@ Includes (but is not limited to):
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
 * **Dock**
   * Clicking/opening any unopened app produces a bouncing effect
+* **Context Menu**
+  * Right-click anywhere (except menubar) to open context menu
 * Resizable and movable windows
 
 ## Requirements
@@ -173,10 +175,10 @@ Includes (but is not limited to):
 
 1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
    * You will need to create a new Google Apps Script project and publish it as a web app
-2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L906) in [`index.html`](index.html) with your own sitekey
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L904) in [`index.html`](index.html) with your own sitekey
    * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
    * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
-3. Modify the code within [`<form class="gform">`](index.html#L898) (inclusive) in [`index.html`](index.html) accordingly
+3. Modify the code within [`<form class="gform">`](index.html#L896) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Resources
 * [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
@@ -254,6 +256,7 @@ Includes (but is not limited to):
 │   │       ├── 404.sass
 │   │       ├── browser.sass
 │   │       ├── calculator.sass
+│   │       ├── context-menu.sass
 │   │       ├── dock.sass
 │   │       ├── jquery-ui.sass
 │   │       ├── launchpad.sass
@@ -280,6 +283,7 @@ Includes (but is not limited to):
 │   │   ├── text-edit.js
 │   │   └── windows.js
 │   └── utilities/
+│       ├── context-menu.js
 │       ├── particles.js
 │       └── timestamp.js
 ├── .gitignore
@@ -343,6 +347,7 @@ Includes (but is not limited to):
 │   │       ├── 404.css
 │   │       ├── browser.css
 │   │       ├── calculator.css
+│   │       ├── context-menu.css
 │   │       ├── dock.css
 │   │       ├── jquery-ui.css
 │   │       ├── launchpad.css
@@ -368,6 +373,7 @@ Includes (but is not limited to):
 │   ├── lib/
 │   │   └── jquery-ui.js
 │   └── utilities/
+│       ├── context-menu.js
 │       ├── particles.js
 │       └── timestamp.js
 ├── 404.html
