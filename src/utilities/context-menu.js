@@ -83,6 +83,10 @@ document.addEventListener("DOMContentLoaded", function() {
         hideContextMenu();
         document.removeEventListener("mousedown", onMouseDown);
     }
+
+    contextMenu.addEventListener("mousedown", function(event) {
+        event.stopPropagation();
+    });
     
     document.addEventListener("contextmenu", onContextMenu, false);
 });
