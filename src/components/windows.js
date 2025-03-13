@@ -1,17 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     /* VARIABLES */
-    // At the beginning of your main script
-    const originalAddEventListener = EventTarget.prototype.addEventListener;
-    EventTarget.prototype.addEventListener = function(type, listener, options) {
-        const passiveEvents = [ "touchstart", "touchmove", "touchend", "touchcancel", "wheel", "mousewheel" ];
-    
-    if (passiveEvents.includes(type)) {
-        const newOptions = options || {};
-        if (typeof newOptions === "object") newOptions.passive = true;
-        else options = { passive: true };
-        originalAddEventListener.call(this, type, listener, newOptions);
-    } else originalAddEventListener.call(this, type, listener, options);
-    };
     var aboutOpened = false;
     const fadeMs = 350;
     const launchpad = document.getElementById("launchpad");
@@ -23,6 +11,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
     const maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
     // No upper bound since oversized window should still be on top instead of center
+    
+    const originalAddEventListener = EventTarget.prototype.addEventListener;
+    EventTarget.prototype.addEventListener = function(type, listener, options) {
+        const passiveEvents = [ "touchstart", "touchmove", "touchend", "touchcancel", "wheel", "mousewheel" ];
+        if (passiveEvents.includes(type)) {
+            const newOptions = options || {};
+            if (typeof newOptions === "object") newOptions.passive = true;
+            else options = { passive: true };
+            originalAddEventListener.call(this, type, listener, newOptions);
+        } else originalAddEventListener.call(this, type, listener, options);
+    };
 
     /* FUNCTIONS */
     // Open launchpad
