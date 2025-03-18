@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const fadeMs = 350;
     const launchpad = document.getElementById("launchpad");
     const launchpadNav = document.getElementById("launchNav");
-    const trashDialogue = document.getElementById("trash-dialogue");
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
     const remToPx = 9 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert 9rem to px
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // No need to increase z-index if already in front
         if (!$(element).hasClass("inFront")) {
             // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, #trash-dialogue").map(function() {
+            let maxZIndex = Math.max(...$(".windows, .trash-dialogue").map(function() {
                 // If current element is open
                 if ($(this).hasClass("openWindow")) {
                     // If current element is a window
@@ -275,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
         initPosition(launchIcon, win, "click");
 
         const _window = document.querySelector(win);
-        const _dockIcon = document.getElementById(dockIcon);
+        const _dockIcon = document.querySelector(dockIcon);
     
         document.querySelector(launchIcon).addEventListener("click", function() {
             closeLaunchpad();
@@ -292,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function closeWindow(closeBtn, win, dockIcon) {
         document.querySelector(closeBtn).addEventListener("click", function() {
             const _window = document.querySelector(win);
-            const _dockIcon = document.getElementById(dockIcon);
+            const _dockIcon = document.querySelector(dockIcon);
 
             _window.style.display = "none";
             
@@ -396,21 +395,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target === launchpadNav || event.target === document.getElementById("launch-content")) closeLaunchpad();
     });
     
-    // Empty trash    
-    document.getElementById("confirm").addEventListener("click", function(event) {
-        // Play crumpling paper sound (aka macOS's trash emptying sound)
-        new Audio("../assets/audio/empty-trash.mp3").play();
-        event.preventDefault();
-        
-        // Update trash icon in dock to be empty trash icon
-        document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
-        
-        // Only allow emptying trash once (i.e. full trash --> empty trash permanently)
-        const trashIcon = document.getElementById("trashDockIcon");
-        const newTrashIcon = trashIcon.cloneNode(true);
-        trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
-    });
-
     // Position terminal
     positionWindow("#mac-terminal");
     
@@ -424,14 +408,27 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
 
-    // Add mousedown event listener to bring to front when clicked
-    trashDialogue.addEventListener("mousedown", function(event) {
-        // Don't trigger dragging when clicking on alert button
-        if (!event.target.classList.contains("alert-btn")) bringToFront(this);
+    // Empty trash
+    $(".confirm").on("click", function(event) {
+        new Audio("../assets/audio/empty-trash.mp3").play();
+        event.preventDefault();
+        $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
+        $("#trash-icon").off("click");
+        $(".trash-dialogue").hide();
     });
-    
-    // Make the trash dialogue draggable
-    dragElement(trashDialogue);
+
+    // Make trash dialogue draggable
+    $(".trash-dialogue").draggable({
+        cursor: "default",
+        cancel: ".alert-btn",
+        start: function() {
+            bringToFront(this);
+        },
+        containment: "#main-content",
+        distance: 0
+    }).on("mousedown", function() {
+        bringToFront(this);
+    });
 
     // Make folder and file icons draggable
     $(".btn").draggable({
@@ -440,61 +437,6 @@ document.addEventListener("DOMContentLoaded", function() {
         containment: "#main-content",
         distance: 0
     });
-
-    function dragElement(elem) {
-        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        
-        elem.addEventListener("mousedown", dragMouseDown);
-        
-        function dragMouseDown(e) {
-            // Don't start drag if clicking on alert button
-            if (e.target.classList.contains("alert-btn")) return;
-            
-            e.preventDefault();
-            
-            // Get the mouse cursor position at startup
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            
-            // Add event listeners for drag and end drag
-            document.addEventListener("mouseup", closeDragElement);
-            document.addEventListener("mousemove", elementDrag);
-        }
-        
-        function elementDrag(e) {
-            e.preventDefault();
-            
-            // Calculate new cursor position
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            
-            // Set new position
-            const newTop = elem.offsetTop - pos2;
-            const newLeft = elem.offsetLeft - pos1;
-            
-            // Apply containment to #main-content
-            const container = document.getElementById("main-content");
-            const containerRect = container.getBoundingClientRect();
-            const elemRect = elem.getBoundingClientRect();
-            
-            // Ensure element stays within container boundaries
-            if (newTop >= 0 && newTop + elemRect.height <= containerRect.height) {
-                elem.style.top = newTop + "px";
-            }
-            
-            if (newLeft >= 0 && newLeft + elemRect.width <= containerRect.width) {
-                elem.style.left = newLeft + "px";
-            }
-        }
-        
-        // Stop moving when mouse button is released
-        function closeDragElement() {
-            document.removeEventListener("mouseup", closeDragElement);
-            document.removeEventListener("mousemove", elementDrag);
-        }
-    }
 
     // Make some windows resizeable
     $("#mac-terminal, #email, #notes, #browser, .preview, .resume").resizable({
@@ -558,7 +500,7 @@ document.addEventListener("DOMContentLoaded", function() {
     openWindow("#calcDockIcon", "#calc", "inline-block");
 
     // Open trash dialogue
-    openWindow("#trashDockIcon", "#trash-dialogue", "inline-block");
+    openWindow("#trash-icon", ".trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
     openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
@@ -612,5 +554,5 @@ document.addEventListener("DOMContentLoaded", function() {
     closeWindow(".resume-header__op-icon--red", ".resume", "#previewDockIcon");
 
     // Close trash dialogue
-    closeWindow(".alert-btn", "#trash-dialogue", "#trashDockIcon");
+    closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
 });
