@@ -6,7 +6,7 @@ $button-size: 4.2rem
 $width: 20rem
 $height: min-content
 
-.calc
+#calc
   @include mix.window($body-color, $width, $height, $width, $height, $width, $height)
   @include mix.disable-select()
   backdrop-filter: blur(1.5rem)
@@ -37,7 +37,7 @@ $height: min-content
       &:focus
         outline: 0 none
 
-  &-buttons
+  .calc-buttons
     display: grid
     margin-top: 0.5rem
     padding: 0.375rem

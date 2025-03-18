@@ -571,7 +571,7 @@
           </button>
         </div>
 
-        <div class="mac-terminal windows openWindow inFront">
+        <div id="mac-terminal" class="windows openWindow inFront">
           <div class="header handle">
             <div class="header__op">
               <span role="button" tabindex="0" class="header__op-icon header__op-icon--red cancel"></span>
@@ -617,15 +617,17 @@
               <div class="body__row">
                 <pre>This website is still under construction.
 
--b   background is interactive: click anywhere
--d   drag folders, files, and windows
+-b   background is interactive: click/tap anywhere
+-c   right click to view context menu
+-d   folders, files, and windows are draggable
 -l   open Launchpad to view more apps/links
 -m   contact me via Mail app below
--n   open Notes app below to see some of my projects
--o   double-click/tap any of the files to open
--p   click Play button to see what i am/was listening to
--s   open Safari app below to see some of my skills
--t   open TextEdit app below for my about me</pre>
+-n   open Notes app to see some of my projects
+-o   double-click/tap any desktop file to open
+-p   menubar is interactive: click/tap any menu
+-r   windows are resizable
+-s   open Safari app to see some of my skills
+-t   open TextEdit app for my about me</pre>
               </div>  
 
               <div class="body__row">
@@ -662,7 +664,7 @@
           </div>
         </div>
 
-        <div class="calc windows">
+        <div id="calc" class="windows">
           <div class="calc-header handle">
             <div class="calc-header__op">
               <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
@@ -713,7 +715,7 @@
           </div>
         </div>
 
-        <div class="text-edit windows">
+        <div id="text-edit" class="windows">
           <div class="text-edit-header handle">
             <div class="text-edit-header__op">
               <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"></span>
@@ -894,7 +896,7 @@
         </div>
 
         <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbwJ-PB4MwcD7Y3qCtHpAfz-3EVjmygJbLWi8orpLjh1aG3Vg-iotI2fgfam26qq4Cfh/exec">
-          <div class="email windows">
+          <div id="email" class="windows">
             <div class="email-header handle">
               <div class="email-header__op">
                 <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--red cancel"></span>
@@ -918,7 +920,7 @@
           </div>
         </form>
 
-        <div class="notes windows">
+        <div id="notes" class="windows">
           <div class="body">
             <div class="sidebar">
               <div class="sidebar-header handle">
@@ -1391,7 +1393,7 @@
           </div>
         </div>
 
-        <div class="browser windows">
+        <div id="browser" class="windows">
           <div class="top handle">
             <div class="browser-buttons">
               <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--red cancel"></span>
@@ -2629,17 +2631,17 @@
     </div>
 
     <footer>
-      <div class="dock">
+      <div id="dock">
         <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
-        <div role="tooltip" tabindex="0" id="mail" class="icon" aria-label="Mail" data-microtip-position="top"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div>
-        <div role="tooltip" tabindex="0" id="safari" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
-        <div role="tooltip" tabindex="0" id="notes" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
-        <div role="tooltip" tabindex="0" id="text-edit" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
-        <div role="tooltip" tabindex="0" id="iterm" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
-        <div role="tooltip" tabindex="0" id="calc" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
-        <div role="tooltip" tabindex="0" id="preview" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
+        <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail" data-microtip-position="top"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div>
+        <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
+        <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
+        <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
+        <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
         <div class="divider" style="margin:0 0.25rem 0 0.5rem"></div>
-        <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" style="width:4.6rem !important;margin-top:0.1rem;image-rendering:smooth" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
+        <div role="tooltip" tabindex="0" id="trashDockIcon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" style="width:4.6rem !important;margin-top:0.1rem;image-rendering:smooth" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
     </footer>
 

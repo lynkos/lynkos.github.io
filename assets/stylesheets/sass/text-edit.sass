@@ -12,7 +12,7 @@ $inch-height: 1rem
 $styles-height: 2.25rem // margin-top + margin-bottom + $height = $styles-height
 $min-width: 47rem
 
-.text-edit
+#text-edit
   @include mix.window($style-bar-color, $width, $height, $min-width)
   overflow-x: hidden
   flex-direction: column
@@ -39,7 +39,7 @@ $min-width: 47rem
   .justify
     text-align: justify
 
-  &-header
+  .text-edit-header
     @include mix.header($header-color, 3rem)
 
     &__title

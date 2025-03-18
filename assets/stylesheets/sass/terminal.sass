@@ -1,17 +1,19 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$height: 43.75rem
-$width: 44.5rem
+$height: 47rem
+$width: 43rem
+$min-width: 40rem
+$min-height: 14rem
 $window-padding: 1.4rem
 $cursor-blink: 1s
 $terminal-color: #0d2a34
 $arrow-color: #40E800
 $username-color: #56F2E6
 
-.mac-terminal
+#mac-terminal
   font-family: vars.$terminal-font
-  @include mix.window($terminal-color, $width, $height)
+  @include mix.window($terminal-color, $width, $height, $min-width, $min-height)
 
   .header
     @include mix.header(none, vars.$header-height, 0 $window-padding)

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".email");
+          var formElements = form.querySelector("#email");
 
           // Hide email form
           if (formElements) formElements.style.display = "none";
@@ -156,11 +156,11 @@ document.addEventListener("DOMContentLoaded", function() {
     loadScript("https://www.google.com/recaptcha/api.js");
 
     // Remove event listener to avoid js error
-    document.getElementById("mail").removeEventListener("click", loadRecaptcha);
+    document.getElementById("mailDockIcon").removeEventListener("click", loadRecaptcha);
     document.getElementById("mailLaunch").removeEventListener("click", loadRecaptcha);
   };
   
   // Add initial event listener to mail form
-  document.getElementById("mail").addEventListener("click", loadRecaptcha, false);
+  document.getElementById("mailDockIcon").addEventListener("click", loadRecaptcha, false);
   document.getElementById("mailLaunch").addEventListener("click", loadRecaptcha, false);
 });

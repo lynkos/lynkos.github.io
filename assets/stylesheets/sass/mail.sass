@@ -15,7 +15,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
 
 //linear-gradient(to bottom, #C7C6C7 0%, #C2C0C2 100%)
 
-.email
+#email
   font-size: $email-font-size
   line-height: $email-line-height
   font-family: vars.$font-family
@@ -23,7 +23,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
   align-content: stretch
   @include mix.window($email-tab-color, vars.$width, vars.$height)
 
-  &-header
+  .email-header
     border-bottom: 0.15rem solid rgb(12, 13, 12)
     @include mix.header(none, vars.$header-height, 0 1.4rem)
 

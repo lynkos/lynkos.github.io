@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var aboutOpened = false;
     const fadeMs = 350;
     const launchpad = document.getElementById("launchpad");
-    const launchpadNav = launchpad.querySelector("nav");
+    const launchpadNav = document.getElementById("launchNav");
     const trashDialogue = document.getElementById("trash-dialogue");
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
         } else originalAddEventListener.call(this, type, listener, options);
     };
 
+    // If your JavaScript uses general query selectors such as document.querySelectorAll('li'),
+    // you may be unknowingly storing references to a very large number of nodes,
+    // which can overwhelm the memory capabilities of your users' devices.
+    
     /* FUNCTIONS */
     // Open launchpad
     function openLaunchpad() {        
@@ -71,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function positionWindow(win) {
         // Calculate menubar height (3rem) and convert to px
         // Used to subtract from vertical position to take menubar height into account
-        const dockHeight = document.querySelector(".dock").offsetHeight;
+        //const dockHeight = document.getElementById("dock").offsetHeight;
         const menubarHeight = 36.5; // 3 * parseFloat(getComputedStyle(document.documentElement).fontSize); = 3rem --> px
 
         // IF window height >= max height, place at top (sub menubar height)
@@ -84,10 +88,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // ONLY auto-position window when first opened; this is to avoid calculating for windows that might never be opened
     function initPosition(icon, win, eventType) {
         // Ignore terminal since it's already positioned on load
-        if (win !== ".mac-terminal") {
+        if (win !== "#mac-terminal") {
             $(icon).one(eventType, function() {
                 // Auto-position all windows except About
-                if (win !== ".text-edit") positionWindow(win);
+                if (win !== "#text-edit") positionWindow(win);
 
                 // Since About is the only window/app that can be opened in
                 // multiple ways (i.e. clicking dock icon, double-clicking
@@ -139,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Make sure menu dropdown, context menu, dock, and launchpad are always on top
                     $(".menu-dropdown").css("z-index", maxZIndex + 2);
                     $("#launch-content").css("z-index", maxZIndex + 3);
-                    $(".dock").css("z-index", maxZIndex + 4);
+                    $("#dock").css("z-index", maxZIndex + 4);
                     $(".context-menu").css("z-index", maxZIndex + 5);
 
                     // Mark element as in front
@@ -188,9 +192,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open window/app via dock
     function openWindow(icon, win, displayType = "flex") {
         // Position window when first opened
-        // Ignore #preview since it can only initially be opened via desktop (not dock)
+        // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
         // and is already init positioned when first opened via desktop
-        if (icon !== "#preview") initPosition(icon, win, "click");
+        if (icon !== "#previewDockIcon") initPosition(icon, win, "click");
 
         const windowElement = document.querySelector(win);
         const iconElement = document.querySelector(icon);
@@ -208,8 +212,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Bounce effect for dock icons
                 if (!iconElement.classList.contains("open")) {
                     // Bounce effect, if window is not already open
-                    // Ignore #preview since it can only initially be opened via desktop (not dock)
-                    if (icon !== "#preview") bounce(icon);
+                    // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
+                    if (icon !== "#previewDockIcon") bounce(icon);
         
                     // Mark clicked window as opened
                     iconElement.classList.add("open");
@@ -221,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show file when clicking on desktop icon
     function showDesktopFile(dockIcon, win, inDock) {
         const windowElement = document.querySelector(win);
-        const dockIconElement = document.querySelector(dockIcon);
+        const dockIconElement = document.getElementById(dockIcon);
         
         // Check if window is hidden and unhide it if it is
         if (getComputedStyle(windowElement).display === "none") windowElement.style.display = "flex";
@@ -271,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
         initPosition(launchIcon, win, "click");
 
         const _window = document.querySelector(win);
-        const _dockIcon = document.querySelector(dockIcon);
+        const _dockIcon = document.getElementById(dockIcon);
     
         document.querySelector(launchIcon).addEventListener("click", function() {
             closeLaunchpad();
@@ -280,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             if (!_window.classList.contains("openWindow")) _window.classList.add("openWindow");
             if (!_dockIcon.classList.contains("open")) _dockIcon.classList.add("open");
-            if ((dockIcon === "#preview") || (dockIcon === "#calc")) _dockIcon.style.display = "block";
+            if ((dockIcon === "#previewDockIcon") || (dockIcon === "#calcDockIcon")) _dockIcon.style.display = "block";
         });
     }
 
@@ -288,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function closeWindow(closeBtn, win, dockIcon) {
         document.querySelector(closeBtn).addEventListener("click", function() {
             const _window = document.querySelector(win);
-            const _dockIcon = document.querySelector(dockIcon);
+            const _dockIcon = document.getElementById(dockIcon);
 
             _window.style.display = "none";
             
@@ -296,10 +300,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (_dockIcon.classList.contains("open")) _dockIcon.classList.remove("open");
     
             // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
-            if ((dockIcon === "#preview" && 
+            if ((dockIcon === "#previewDockIcon" && 
                 (!document.querySelector(".preview").classList.contains("openWindow") && 
                  !document.querySelector(".resume").classList.contains("openWindow"))) || 
-                (dockIcon === "#calc")) {
+                (dockIcon === "#calcDockIcon")) {
                     $(dockIcon).fadeOut(150);
             }
         });
@@ -388,11 +392,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // so that the launchpad doesn't close when sorting
 
     // Close the launchpad after the content is clicked, only if the target is not a link
-    document.addEventListener("mouseup", function(event) {
-        const content = launchpad.querySelector("#launch-content");
-        const nav = content.querySelector("nav");
-    
-        if (event.target === content || event.target === nav) closeLaunchpad();
+    document.addEventListener("mouseup", function(event) {    
+        if (event.target === launchpadNav || event.target === document.getElementById("launch-content")) closeLaunchpad();
     });
     
     // Empty trash    
@@ -405,16 +406,16 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
         
         // Only allow emptying trash once (i.e. full trash --> empty trash permanently)
-        const trashIcon = document.getElementById("trash-icon");
+        const trashIcon = document.getElementById("trashDockIcon");
         const newTrashIcon = trashIcon.cloneNode(true);
         trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
     });
 
     // Position terminal
-    positionWindow(".mac-terminal");
+    positionWindow("#mac-terminal");
     
     // Show terminal on load
-    $(".mac-terminal").fadeIn(fadeMs);
+    $("#mac-terminal").fadeIn(fadeMs);
 
     // Apply draggable to all existing windows
     makeDraggable(".windows");
@@ -496,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Make some windows resizeable
-    $(".mac-terminal, .email, .notes, .browser, .preview, .resume").resizable({
+    $("#mac-terminal, #email, #notes, #browser, .preview, .resume").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
@@ -533,83 +534,83 @@ document.addEventListener("DOMContentLoaded", function() {
     showLeftMenu("#help", "#help-menu");
 
     // Open terminal
-    openWindow("#iterm", ".mac-terminal", "inline-block");
+    openWindow("#iTermDockIcon", "#mac-terminal", "inline-block");
 
     // Open mail
-    openWindow("#mail", ".email");
+    openWindow("#mailDockIcon", "#email");
 
     // Open about me
-    openWindow("#text-edit", ".text-edit");
+    openWindow("#textEditDockIcon", "#text-edit");
 
     // Open projects
-    openWindow("#notes", ".notes");
+    openWindow("#notesDockIcon", "#notes");
 
     // Open safari
-    openWindow("#safari", ".browser");
+    openWindow("#safariDockIcon", "#browser");
 
     // Open preview
-    openWindow("#preview", ".preview");
+    openWindow("#previewDockIcon", ".preview");
 
     // Open resume
-    openWindow("#preview", ".resume");
+    openWindow("#previewDockIcon", ".resume");
 
     // Open calculator
-    openWindow("#calc", ".calc", "inline-block");
+    openWindow("#calcDockIcon", "#calc", "inline-block");
 
     // Open trash dialogue
-    openWindow("#trash-icon", "#trash-dialogue", "inline-block");
+    openWindow("#trashDockIcon", "#trash-dialogue", "inline-block");
 
     // Open about me when double-clicking or tapping `about.rtf`
-    openDesktopFile("#aboutFile", "#text-edit", ".text-edit", true);
+    openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
 
     // Open resume when double-clicking or tapping `resume.pdf`
-    openDesktopFile("#resumeFile", "#preview", ".resume");
+    openDesktopFile("#resumeFile", "#previewDockIcon", ".resume");
 
     // Open preview when double-clicking or tapping `profile.webp`
-    openDesktopFile("#profilePic", "#preview", ".preview");
+    openDesktopFile("#profilePic", "#previewDockIcon", ".preview");
 
     // Launch terminal
-    launchApp("#itermLaunch", ".mac-terminal", "#iterm", "inline-block");
+    launchApp("#itermLaunch", "#mac-terminal", "#iTermDockIcon", "inline-block");
 
     // Launch mail
-    launchApp("#mailLaunch", ".email", "#mail");
+    launchApp("#mailLaunch", "#email", "#mailDockIcon");
 
     // Launch about me
-    launchApp("#textLaunch", ".text-edit", "#text-edit");
+    launchApp("#textLaunch", "#text-edit", "#textEditDockIcon");
 
     // Launch projects
-    launchApp("#notesLaunch", ".notes", "#notes", "block");
+    launchApp("#notesLaunch", "#notes", "#notesDockIcon", "block");
 
     // Launch safari
-    launchApp("#safariLaunch", ".browser", "#safari");
+    launchApp("#safariLaunch", "#browser", "#safariDockIcon");
 
     // Launch calculator
-    launchApp("#calculatorLaunch", ".calc", "#calc", "inline-block");
+    launchApp("#calculatorLaunch", "#calc", "#calcDockIcon", "inline-block");
 
     // Close terminal
-    closeWindow(".header__op-icon--red", ".mac-terminal", "#iterm");
+    closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
 
     // Close mail
-    closeWindow(".email-header__op-icon--red", ".email", "#mail");
+    closeWindow(".email-header__op-icon--red", "#email", "#mailDockIcon");
 
     // Close about me
-    closeWindow(".text-edit-header__op-icon--red", ".text-edit", "#text-edit");
+    closeWindow(".text-edit-header__op-icon--red", "#text-edit", "#textEditDockIcon");
 
     // Close projects
-    closeWindow(".buttons-icon--red", ".notes", "#notes");
+    closeWindow(".buttons-icon--red", "#notes", "#notesDockIcon");
 
     // Close safari
-    closeWindow(".browser-buttons-icon--red", ".browser", "#safari");
+    closeWindow(".browser-buttons-icon--red", "#browser", "#safariDockIcon");
 
     // Close calculator
-    closeWindow(".calc-header__op-icon--red", ".calc", "#calc");
+    closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
 
     // Close preview
-    closeWindow(".preview-header__op-icon--red", ".preview", "#preview");
+    closeWindow(".preview-header__op-icon--red", ".preview", "#previewDockIcon");
 
     // Close resume
-    closeWindow(".resume-header__op-icon--red", ".resume", "#preview");
+    closeWindow(".resume-header__op-icon--red", ".resume", "#previewDockIcon");
 
     // Close trash dialogue
-    closeWindow(".alert-btn", "#trash-dialogue", "#trash-icon");
+    closeWindow(".alert-btn", "#trash-dialogue", "#trashDockIcon");
 });
