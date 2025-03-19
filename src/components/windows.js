@@ -139,14 +139,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // If not menu dropdown (since it will never be on top of dock and/or launchpad)
                 if (!$(element).hasClass("menu-dropdown")) {
+                    // Mark element as in front
+                    $(element).addClass("inFront");
+
                     // Make sure menu dropdown, context menu, dock, and launchpad are always on top
                     $(".menu-dropdown").css("z-index", maxZIndex + 2);
                     $("#launch-content").css("z-index", maxZIndex + 3);
                     $("#dock").css("z-index", maxZIndex + 4);
                     $(".context-menu").css("z-index", maxZIndex + 5);
-
-                    // Mark element as in front
-                    $(element).addClass("inFront");
                 }
             }
 
@@ -409,12 +409,23 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#launchNav").disableSelection();
 
     // Empty trash
-    $(".confirm").on("click", function(event) {
+    document.querySelector(".confirm").addEventListener("click", function(event) {
+        // Play empty trash sound
         new Audio("../assets/audio/empty-trash.mp3").play();
+        
+        // Prevent default action
         event.preventDefault();
-        $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
-        $("#trash-icon").off("click");
-        $(".trash-dialogue").css("display", "none");
+        
+        // Change trash icon to empty trash
+        document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
+        
+        // Hide trash dialogue
+        document.querySelector(".trash-dialogue").style.display = "none";
+        
+        // Remove click event from trash icon (by cloning and replacing it)
+        const trashIcon = document.getElementById("trash-icon");
+        const newTrashIcon = trashIcon.cloneNode(true);
+        trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
     });
 
     // Make trash dialogue draggable
