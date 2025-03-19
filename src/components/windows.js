@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show file when clicking on desktop icon
     function showDesktopFile(dockIcon, win, inDock) {
         const windowElement = document.querySelector(win);
-        const dockIconElement = document.getElementById(dockIcon);
+        const dockIconElement = document.querySelector(dockIcon);
         
         // Check if window is hidden and unhide it if it is
         if (getComputedStyle(windowElement).display === "none") windowElement.style.display = "flex";
@@ -273,30 +273,30 @@ document.addEventListener("DOMContentLoaded", function() {
         // Position window when first opened
         initPosition(launchIcon, win, "click");
 
-        const _window = document.querySelector(win);
-        const _dockIcon = document.querySelector(dockIcon);
+        const windowElement = document.querySelector(win);
+        const dockIconElement = document.querySelector(dockIcon);
     
         document.querySelector(launchIcon).addEventListener("click", function() {
             closeLaunchpad();
             bringToFront(win);
-            _window.style.display = displayType;
+            windowElement.style.display = displayType;
             
-            if (!_window.classList.contains("openWindow")) _window.classList.add("openWindow");
-            if (!_dockIcon.classList.contains("open")) _dockIcon.classList.add("open");
-            if ((dockIcon === "#previewDockIcon") || (dockIcon === "#calcDockIcon")) _dockIcon.style.display = "block";
+            if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
+            if (!dockIconElement.classList.contains("open")) dockIconElement.classList.add("open");
+            if ((dockIcon === "#previewDockIcon") || (dockIcon === "#calcDockIcon")) dockIconElement.style.display = "block";
         });
     }
 
     // Close window
     function closeWindow(closeBtn, win, dockIcon) {
         document.querySelector(closeBtn).addEventListener("click", function() {
-            const _window = document.querySelector(win);
-            const _dockIcon = document.querySelector(dockIcon);
+            const windowElement = document.querySelector(win);
+            const dockIconElement = document.querySelector(dockIcon);
 
-            _window.style.display = "none";
+            windowElement.style.display = "none";
             
-            if (_window.classList.contains("openWindow")) _window.classList.remove("openWindow");
-            if (_dockIcon.classList.contains("open")) _dockIcon.classList.remove("open");
+            if (windowElement.classList.contains("openWindow")) windowElement.classList.remove("openWindow");
+            if (dockIconElement.classList.contains("open")) dockIconElement.classList.remove("open");
     
             // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
             if ((dockIcon === "#previewDockIcon" && 
@@ -414,7 +414,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         $("#trash").attr("src", "/assets/img/system/empty-trash.webp");
         $("#trash-icon").off("click");
-        $(".trash-dialogue").hide();
+        $(".trash-dialogue").css("display", "none");
     });
 
     // Make trash dialogue draggable
