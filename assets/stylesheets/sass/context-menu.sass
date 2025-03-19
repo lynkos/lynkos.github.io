@@ -2,6 +2,7 @@
 @use "variables" as vars
 
 $context-menu-width: 20rem
+$margin-edge: calc(vars.$padding + vars.$padding-quarter)
 
 .context-menu
   pointer-events: none
@@ -37,10 +38,10 @@ $context-menu-width: 20rem
     white-space: nowrap
 
     &:first-child
-      margin-top: calc(vars.$padding + vars.$padding-quarter)
+      margin-top: $margin-edge
 
     &:last-child
-      margin-bottom: calc(vars.$padding + vars.$padding-quarter)
+      margin-bottom: $margin-edge
 
     &:hover >
       .context-menu
@@ -79,7 +80,7 @@ $context-menu-width: 20rem
       text-decoration: none
 
   & .context-menu
-    top: calc(-1 * (vars.$padding + vars.$padding-quarter))
+    top: calc($margin-edge * -1)
     left: calc($context-menu-width - vars.$padding)
 
   &-show
