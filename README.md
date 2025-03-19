@@ -48,6 +48,8 @@
 > Current features are actively being optimized and improved
 
 Includes (but is not limited to):
+* Resizable and movable windows
+  * Supported on both desktop and mobile
 * **Mail**
   * Send me an email directly, without leaving the site!
   * Includes reCAPTCHA to prevent spam
@@ -82,12 +84,12 @@ Includes (but is not limited to):
   * Click the WiFi icon in the upper-right corner of the menubar to open WiFi menu
   * Click any of the tabs in the upper-left corner of the menubar to open its respective dropdown
 * **Desktop**
-  * `src`, `about.rtf`, `profile.jpg`, and `resume.pdf` are all draggable
+  * `src`, `about.rtf`, [`profile.jpg`](assets/img/misc/profile.webp), and [`resume.pdf`](assets/resume.pdf) icons are all draggable
   * Double-click (or tap, if on mobile) `about.rtf` to open **TextEdit** (i.e. my about me)
-  * Double-click (or tap, if on mobile) `profile.jpg` or `resume.pdf` to open **Preview**
+  * Double-click (or tap, if on mobile) [`profile.jpg`](assets/img/misc/profile.webp) or [`resume.pdf`](assets/resume.pdf) to open **Preview**
 * **Preview**
-  * View my resume (i.e. `resume.pdf`)
-  * View my profile picture (i.e. `profile.jpg`)
+  * View my resume (i.e. [`resume.pdf`](assets/resume.pdf))
+  * View my profile picture (i.e. [`profile.jpg`](assets/img/misc/profile.webp))
   * Previewed image can be rotated, zoomed into, and zoomed out of
 * **Trash**
   * Clicking the trash icon in the dock opens an "Empty Trash" dialog
@@ -96,7 +98,7 @@ Includes (but is not limited to):
   * Clicking/opening any unopened app produces a bouncing effect
 * **Context Menu**
   * Right-click anywhere (except menubar) to open context menu
-* Resizable and movable windows
+  * Desktop only; not supported on mobile
 
 ## Requirements
 - [x] [npm](https://docs.npmjs.com/getting-started)
