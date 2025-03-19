@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const fadeMs = 350;
     const launchpad = document.getElementById("launchpad");
     const launchpadNav = document.getElementById("launchNav");
+    const launchContent = document.getElementById("launch-content");
+    const dock = document.getElementById("dock");
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
     const remToPx = 9 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert 9rem to px
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function positionWindow(win) {
         // Calculate menubar height (3rem) and convert to px
         // Used to subtract from vertical position to take menubar height into account
-        //const dockHeight = document.getElementById("dock").offsetHeight;
+        //const dockHeight = dock.offsetHeight;
         const menubarHeight = 36.5; // 3 * parseFloat(getComputedStyle(document.documentElement).fontSize); = 3rem --> px
 
         // IF window height >= max height, place at top (sub menubar height)
@@ -105,64 +107,87 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Bring clicked window to front
     function bringToFront(element) {
+        // Convert selector string to element if needed
+        const elementObj = typeof element === "string" ? document.querySelector(element) : element;
+        
         // No need to increase z-index if already in front
-        if (!$(element).hasClass("inFront")) {
-            // Get highest z-index
-            let maxZIndex = Math.max(...$(".windows, .trash-dialogue").map(function() {
+        if (!elementObj.classList.contains("inFront")) {
+            // Get all windows and trash dialogue
+            const allWindows = [...document.querySelectorAll(".windows, .trash-dialogue")];
+            
+            // Process each window and get z-indices
+            const zIndices = allWindows.map(function(win) {
                 // If current element is open
-                if ($(this).hasClass("openWindow")) {
+                if (win.classList.contains("openWindow")) {
                     // If current element is a window
-                    if ($(this).hasClass("windows")) {
+                    if (win.classList.contains("windows")) {
                         // Make its buttons inactive
-                        $(this).css("--red", "rgba(255, 255, 255, 0.2)");
-                        $(this).css("--yellow", "rgba(255, 255, 255, 0.2)");
-                        $(this).css("--green", "rgba(255, 255, 255, 0.2)");
+                        win.style.setProperty("--red", "rgba(255, 255, 255, 0.2)");
+                        win.style.setProperty("--yellow", "rgba(255, 255, 255, 0.2)");
+                        win.style.setProperty("--green", "rgba(255, 255, 255, 0.2)");
                     }
 
                     // If current element is trash dialogue
-                    else if ($(this).hasClass("trash-dialogue")) {
+                    else if (win.classList.contains("trash-dialogue")) {
                         // Make its confirm buttons inactive
-                        $(this).css("--confirm", "rgb(115, 118, 115)");
-                        $(this).css("--confirm-active", "rgb(145, 148, 145)");
+                        win.style.setProperty("--confirm", "rgb(115, 118, 115)");
+                        win.style.setProperty("--confirm-active", "rgb(145, 148, 145)");
                     }
                 }
-
+                
                 // Mark other [open] windows as not in front
-                if ($(this).hasClass("inFront")) $(this).removeClass("inFront");
-
-                return parseInt($(this).css("z-index")) || 0;
-            }).get());
-
+                if (win.classList.contains("inFront")) win.classList.remove("inFront");
+                
+                // Get z-index value
+                return parseInt(getComputedStyle(win).zIndex) || 0;
+            });
+            
+            // Get highest z-index
+            const maxZIndex = Math.max(...zIndices);
+            
+            // Get current element's z-index
+            const currentZIndex = parseInt(getComputedStyle(elementObj).zIndex) || 0;
+            
             // Set higher z-index for the given element
-            if ($(element).css("z-index") <= maxZIndex) {
-                $(element).css("z-index", maxZIndex + 1);
-
+            if (currentZIndex <= maxZIndex) {
+                elementObj.style.zIndex = (maxZIndex + 1).toString();
+                
                 // If not menu dropdown (since it will never be on top of dock and/or launchpad)
-                if (!$(element).hasClass("menu-dropdown")) {
+                if (!elementObj.classList.contains("menu-dropdown")) {
                     // Mark element as in front
-                    $(element).addClass("inFront");
+                    elementObj.classList.add("inFront");
+                    
+                    // Make sure menu dropdown is always on top
+                    document.querySelectorAll(".menu-dropdown").forEach(el => {
+                        el.style.zIndex = (maxZIndex + 2).toString();
+                    });
+                    
+                    // Make sure launchpad is always on top
+                    if (launchContent) launchContent.style.zIndex = (maxZIndex + 3).toString();
 
-                    // Make sure menu dropdown, context menu, dock, and launchpad are always on top
-                    $(".menu-dropdown").css("z-index", maxZIndex + 2);
-                    $("#launch-content").css("z-index", maxZIndex + 3);
-                    $("#dock").css("z-index", maxZIndex + 4);
-                    $(".context-menu").css("z-index", maxZIndex + 5);
+                    // Make sure dock is always on top
+                    if (dock) dock.style.zIndex = (maxZIndex + 4).toString();
+                    
+                    // Make sure context menu is always on top
+                    document.querySelectorAll(".context-menu").forEach(el => {
+                        el.style.zIndex = (maxZIndex + 5).toString();
+                    });
                 }
             }
-
+            
             // If given element is a window
-            if ($(element).hasClass("windows")) {
+            if (elementObj.classList.contains("windows")) {
                 // Make its buttons active
-                $(element).css("--red", "#ed6a5e");
-                $(element).css("--yellow", "#f5bf4f");
-                $(element).css("--green", "#62c554");
+                elementObj.style.setProperty("--red", "#ed6a5e");
+                elementObj.style.setProperty("--yellow", "#f5bf4f");
+                elementObj.style.setProperty("--green", "#62c554");
             }
-
+            
             // If given element is trash dialogue
-            else if ($(element).hasClass("trash-dialogue")) {
+            else if (elementObj.classList.contains("trash-dialogue")) {
                 // Make its confirm buttons active
-                $(element).css("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
-                $(element).css("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
+                elementObj.style.setProperty("--confirm", "linear-gradient(to bottom, #DB6BFA, #993DB3)"); // vars.$button-gradient
+                elementObj.style.setProperty("--confirm-active", "#DB6BFA"); // vars.$primary-button-color
             }
         }
     }
@@ -181,11 +206,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }).on("click", function() {
             bringToFront(this);
         });
-    }
-
-    // Bounce effect
-    function bounce(selector) {
-        $(selector).effect("bounce", { times: 3 }, 600);
     }
 
     // Open window/app via dock
@@ -212,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!iconElement.classList.contains("open")) {
                     // Bounce effect, if window is not already open
                     // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
-                    if (icon !== "#previewDockIcon") bounce(icon);
+                    if (icon !== "#previewDockIcon") $(icon).effect("bounce", { times: 3 }, 600);
         
                     // Mark clicked window as opened
                     iconElement.classList.add("open");
@@ -392,7 +412,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Close the launchpad after the content is clicked, only if the target is not a link
     document.addEventListener("mouseup", function(event) {    
-        if (event.target === launchpadNav || event.target === document.getElementById("launch-content")) closeLaunchpad();
+        if (event.target === launchpadNav || event.target === launchContent) closeLaunchpad();
     });
     
     // Position terminal
