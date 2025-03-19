@@ -212,14 +212,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Open window/app via dock
-    function openWindow(icon, win, displayType = "flex") {
+    function openWindow(dockIcon, win, displayType = "flex") {
         // Position window when first opened
         // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
         // and is already init positioned when first opened via desktop
-        if (icon !== "#previewDockIcon") initPosition(icon, win, "click");
+        if (dockIcon !== "#previewDockIcon") initPosition(dockIcon, win, "click");
 
         const windowElement = document.querySelector(win);
-        const iconElement = document.querySelector(icon);
+        const iconElement = document.querySelector(dockIcon);
     
         iconElement.addEventListener("click", function() {
             closeLaunchpad();
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!iconElement.classList.contains("open")) {
                     // Bounce effect, if window is not already open
                     // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
-                    if (icon !== "#previewDockIcon") $(icon).effect("bounce", { times: 3 }, 600);
+                    if (dockIcon !== "#previewDockIcon") $(dockIcon).effect("bounce", { times: 3 }, 600);
         
                     // Mark clicked window as opened
                     iconElement.classList.add("open");
