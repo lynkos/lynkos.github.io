@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
             if (zoomOut.classList.contains("inactive")) zoomOut.classList.remove("inactive");
             zoom += 0.1;
         } else if (!zoomIn.classList.contains("inactive")) zoomIn.classList.add("inactive");
-
     });
 
     // Zoom out of picture in `profile.webp` preview
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
             if (zoomOut.classList.contains("inactive")) zoomOut.classList.remove("inactive");
             zoom -= 0.1;
         } else if (!zoomOut.classList.contains("inactive")) zoomOut.classList.add("inactive");
-
     });
 
     // Apply both zoom and rotation to picture in `profile.webp` preview
