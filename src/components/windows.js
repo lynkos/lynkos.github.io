@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const launchContent = document.getElementById("launch-content");
     const dock = document.getElementById("dock");
 
+    // Initialize with mac-terminal, since it's auto-positioned on load
+    const windowDims = { };
+
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
     const remToPx = 9 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert 9rem to px
     const errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
@@ -43,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Close launchpad
-    function closeLaunchpad() {        
+    function closeLaunchpad() {
         // Remove start, add end
         launchpad.classList.remove("start");
         launchpad.classList.add("end");
@@ -376,23 +379,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Maximize window
-    // function maximizeWindow(maximize, win, width, height) {
-    //   $(maximize).on("click", function() {
-    //     if (!$(win).hasClass("maximize")) {
-    //       $("footer").hide();
-    //       $(win).css("width", "100vw");
-    //       $(win).css("height", "100%");
-    //       $(win).css("top", "0");
-    //       $(win).css("left", "0");
-    //     } else {
-    //       $("footer").show();
-    //       $(win).css("width", width);
-    //       $(win).css("height", height);
-    //       centerWindow(win, "center center");
-    //     }
-    //     $(win).toggleClass("maximize");
-    //   });
-    // }
+    function maximizeWindow(maximizeBtn, win) {
+        document.querySelector(maximizeBtn).addEventListener("click", function() {
+            const windowElement = document.querySelector(win);
+
+            if (windowElement.classList.contains("openWindow")) {
+                // Get initial window dimensions
+                if (!(win in windowDims)) {
+                    windowDims[win] = {
+                        width: document.querySelector(win).offsetWidth,
+                        height: document.querySelector(win).offsetHeight
+                    };
+                }
+            
+                // Maximize window
+                if (!windowElement.classList.contains("maximize")) {
+                    windowElement.style.width = "100vw";
+                    windowElement.style.height = "100%";
+                    windowElement.style.top = "0";
+                    windowElement.style.left = "0";
+                } else { // Restore window
+                    windowElement.style.width = windowDims[win].width + "px";
+                    windowElement.style.height = windowDims[win].height + "px";
+                    centerWindow(win, "center center");
+                }
+                
+                // Toggle maximize class
+                windowElement.classList.toggle("maximize");
+            }
+        });
+    }
 
     // Toggle launchpad on click
     document.getElementById("open-menu").addEventListener("click", function() {
@@ -420,6 +436,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Show terminal on load
     $("#mac-terminal").fadeIn(fadeMs);
+
+    windowDims["#mac-terminal"] = {
+        width: document.getElementById("mac-terminal").offsetWidth,
+        height: document.getElementById("mac-terminal").offsetHeight
+    };
 
     // Apply draggable to all existing windows
     makeDraggable(".windows");
@@ -586,4 +607,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Close trash dialogue
     closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
+
+    // Maximize terminal
+    maximizeWindow(".header__op-icon--green", "#mac-terminal");
+
+    // Maximize Safari browser
+    maximizeWindow(".browser-buttons-icon--green", "#browser");
+
+    // Maximize mail
+    maximizeWindow(".email-header__op-icon--green", "#email");
+
+    // Maximize projects
+    maximizeWindow(".buttons-icon--green", "#notes");
+
+    // Maximize preview
+    maximizeWindow(".preview-header__op-icon--green", ".preview");
+
+    // Maximize resume
+    maximizeWindow(".resume-header__op-icon--green", ".resume");
+
+    // Maximize about me
+    //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
 });

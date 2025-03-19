@@ -50,6 +50,8 @@
 Includes (but is not limited to):
 * Resizable and movable windows
   * Supported on both desktop and mobile
+  * Click red button in upper-left corner to close window
+  * Click green button in upper-left corner to maximize window
 * **Mail**
   * Send me an email directly, without leaving the site!
   * Includes reCAPTCHA to prevent spam
