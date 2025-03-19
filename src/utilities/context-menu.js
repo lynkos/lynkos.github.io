@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const positionX = clientX + contextMenu.offsetWidth >= window.innerWidth ? window.innerWidth - contextMenu.offsetWidth : clientX;
     
             showContextMenu(positionX, positionY);
-            document.addEventListener("mousedown", onMouseDown, false);
+            document.addEventListener("click", onClick, false);
         }
     }
 
-    function onMouseDown(event) {
+    function onClick(event) {
         event.preventDefault();
         hideContextMenu();
-        document.removeEventListener("mousedown", onMouseDown);
+        document.removeEventListener("click", onClick);
     }
     
     document.addEventListener("contextmenu", onContextMenu, false);
