@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const launchpadNav = document.getElementById("launchNav");
     const launchContent = document.getElementById("launch-content");
     const dock = document.getElementById("dock");
-
-    // Initialize with mac-terminal, since it's auto-positioned on load
+    const macTerminal = document.getElementById("mac-terminal");
     const windowDims = { };
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
@@ -127,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         // Make its buttons inactive
                         win.style.setProperty("--red", "rgba(255, 255, 255, 0.2)");
                         win.style.setProperty("--yellow", "rgba(255, 255, 255, 0.2)");
-                        win.style.setProperty("--green", "rgba(255, 255, 255, 0.2)");
+                        if (!(win.id === "text-edit" || win.id === "calc")) win.style.setProperty("--green", "rgba(255, 255, 255, 0.2)");
                     }
 
                     // If current element is trash dialogue
@@ -183,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Make its buttons active
                 elementObj.style.setProperty("--red", "#ed6a5e");
                 elementObj.style.setProperty("--yellow", "#f5bf4f");
-                elementObj.style.setProperty("--green", "#62c554");
+                if (!(elementObj.id === "text-edit" || elementObj.id === "calc")) elementObj.style.setProperty("--green", "#62c554");
             }
             
             // If given element is trash dialogue
@@ -322,10 +321,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (dockIconElement.classList.contains("open")) dockIconElement.classList.remove("open");
     
             // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
-            if ((dockIcon === "#previewDockIcon" && 
-                (!document.querySelector(".preview").classList.contains("openWindow") && 
-                 !document.querySelector(".resume").classList.contains("openWindow"))) || 
-                (dockIcon === "#calcDockIcon")) {
+            if ((dockIcon === "#calcDockIcon") || (dockIcon === "#previewDockIcon" && 
+                !(document.querySelector(".preview").classList.contains("openWindow") || 
+                 document.querySelector(".resume").classList.contains("openWindow")))) {
                     $(dockIcon).fadeOut(150);
             }
         });
@@ -383,12 +381,13 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(maximizeBtn).addEventListener("click", function() {
             const windowElement = document.querySelector(win);
 
+            // Only maximize if window is open
             if (windowElement.classList.contains("openWindow")) {
                 // Get initial window dimensions
                 if (!(win in windowDims)) {
                     windowDims[win] = {
-                        width: document.querySelector(win).offsetWidth,
-                        height: document.querySelector(win).offsetHeight
+                        width: windowElement.offsetWidth,
+                        height: windowElement.offsetHeight
                     };
                 }
             
@@ -437,9 +436,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show terminal on load
     $("#mac-terminal").fadeIn(fadeMs);
 
+    // Store initial window dimensions
     windowDims["#mac-terminal"] = {
-        width: document.getElementById("mac-terminal").offsetWidth,
-        height: document.getElementById("mac-terminal").offsetHeight
+        width: macTerminal.offsetWidth,
+        height: macTerminal.offsetHeight
     };
 
     // Apply draggable to all existing windows
