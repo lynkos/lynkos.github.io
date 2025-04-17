@@ -22,7 +22,6 @@
   i
     display: contents
     color: vars.$menubar-font-color
-    font-size: vars.$menubar-icon-size
 
   .left, .right
     width: auto
@@ -39,19 +38,18 @@
       justify-content: center
       border-radius: vars.$border-radius
 
+      i
+        font-size: vars.$menubar-icon-size
+
       &:active
         background: rgba(255, 255, 255, 0.2)
 
-  .left .apple-ico, .right .menu-ico, .left .menu-ico
-    padding: calc(((vars.$menubar-height - vars.$menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
-
-  .left .apple-ico, .right .menu-ico
-    svg
-      width: auto
-      height: calc(vars.$menubar-icon-size + 0.2rem)
-  
   .left
     padding-left: vars.$padding
+
+    .apple i
+      font-size: calc(vars.$menubar-icon-size * 1.4)
+      line-height: 1.2
 
     .active
       font-weight: bold
@@ -62,6 +60,14 @@
     .menu-time
       width: 6.5rem
       text-align: center
+
+    .menu-ico
+      padding: calc(((vars.$menubar-height - vars.$menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
+
+    .menu-ico, .ctrl-ico
+      img
+        width: auto
+        height: calc(vars.$menubar-icon-size + 0.1rem)
 
 #playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
   @include mix.menu-dropdown()
