@@ -158,22 +158,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!elementObj.classList.contains("menu-dropdown")) {
                     // Mark element as in front
                     elementObj.classList.add("inFront");
+
+                    // Make sure context menu is always on top
+                    document.querySelectorAll(".context-menu").forEach(el => {
+                        el.style.zIndex = (maxZIndex + 2).toString();
+                    });                    
                     
                     // Make sure menu dropdown is always on top
                     document.querySelectorAll(".menu-dropdown").forEach(el => {
-                        el.style.zIndex = (maxZIndex + 2).toString();
+                        el.style.zIndex = (maxZIndex + 3).toString();
                     });
                     
                     // Make sure launchpad is always on top
-                    if (launchContent) launchContent.style.zIndex = (maxZIndex + 3).toString();
+                    if (launchContent) launchContent.style.zIndex = (maxZIndex + 4).toString();
 
                     // Make sure dock is always on top
-                    if (dock) dock.style.zIndex = (maxZIndex + 4).toString();
-                    
-                    // Make sure context menu is always on top
-                    document.querySelectorAll(".context-menu").forEach(el => {
-                        el.style.zIndex = (maxZIndex + 5).toString();
-                    });
+                    if (dock) dock.style.zIndex = (maxZIndex + 5).toString();                    
                 }
             }
             
@@ -449,39 +449,6 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#launchNav").sortable();
     $("#launchNav").disableSelection();
 
-    // Empty trash
-    document.querySelector(".confirm").addEventListener("click", function(event) {
-        // Play empty trash sound
-        new Audio("../assets/audio/empty-trash.mp3").play();
-        
-        // Prevent default action
-        event.preventDefault();
-        
-        // Change trash icon to empty trash
-        document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
-        
-        // Hide trash dialogue
-        document.querySelector(".trash-dialogue").style.display = "none";
-        
-        // Remove click event from trash icon (by cloning and replacing it)
-        const trashIcon = document.getElementById("trash-icon");
-        const newTrashIcon = trashIcon.cloneNode(true);
-        trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
-    });
-
-    // Make trash dialogue draggable
-    $(".trash-dialogue").draggable({
-        cursor: "default",
-        cancel: ".alert-btn",
-        start: function() {
-            bringToFront(this);
-        },
-        containment: "#main-content",
-        distance: 0
-    }).on("mousedown", function() {
-        bringToFront(this);
-    });
-
     // Make folder and file icons draggable
     $(".btn").draggable({
         cursor: "default",
@@ -496,6 +463,93 @@ document.addEventListener("DOMContentLoaded", function() {
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
     });
+
+    function initTrashDialog() {
+        const trashIcon = document.getElementById("trash-icon");
+        const main = document.querySelector("main");
+        const dockIcon = $("#trash-icon"); // For bounce
+        let trashEmptiedFlag = false;
+    
+        trashIcon.addEventListener("click", function () {
+            // Check if dialog already exists
+            let existingDialog = document.querySelector(".trash-dialogue");
+    
+            // If trash is already emptied, do nothing
+            if (trashEmptiedFlag) return;
+    
+            // If no dialog exists, create it
+            if (!existingDialog) {
+                const dialogHtml = `<div class="trash-dialogue">
+                        <div class="pp-body">
+                            <img src="/assets/img/system/trash.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
+                            <div class="warning">Are you sure you want to permanently erase the items in the Trash?</div>
+                            <div class="hint">You can't undo this action.</div>
+                            <div class="actions">
+                                <input class="alert-btn" type="button" value="Cancel">
+                                <input class="alert-btn confirm" type="button" value="Empty Trash">
+                            </div>
+                        </div>
+                    </div>`;
+    
+                // Insert and reference the new dialog
+                main.insertAdjacentHTML("beforeend", dialogHtml);
+                const dialog = document.querySelector(".trash-dialogue");
+                dialog.classList.add("openWindow");
+    
+                // Position + draggable
+                positionWindow(".trash-dialogue");
+    
+                $(dialog).draggable({
+                    cursor: "default",
+                    cancel: ".alert-btn",
+                    start: function () {
+                        bringToFront(this);
+                    },
+                    containment: "#main-content",
+                    distance: 0
+                }).on("mousedown", function () {
+                    bringToFront(this);
+                });
+    
+                // Cancel handler
+                document.querySelector(".alert-btn[value='Cancel']").addEventListener("click", function () {
+                    const dlg = document.querySelector(".trash-dialogue");
+                    if (dlg) dlg.classList.remove("openWindow");
+                    dlg?.remove();
+                });
+    
+                // Empty Trash handler
+                document.querySelector(".confirm").addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const dlg = document.querySelector(".trash-dialogue");
+                    dlg?.classList.remove("openWindow");
+                    dlg?.remove();
+    
+                    // Play sound
+                    new Audio("../assets/audio/empty-trash.mp3").play();
+    
+                    // Change icon to empty
+                    document.getElementById("trash").setAttribute("src", "/assets/img/system/empty-trash.webp");
+    
+                    // Mark trash as emptied
+                    trashEmptiedFlag = true;
+                });
+    
+                // Bounce (because it's being opened now)
+                dockIcon.effect("bounce", { times: 3 }, 600);
+            } else {
+                // Dialog already exists
+                if (!existingDialog.classList.contains("openWindow")) {
+                    existingDialog.classList.add("openWindow");
+                    $(existingDialog).show(); // Or set display: inline-block
+                    dockIcon.effect("bounce", { times: 3 }, 600);
+                }
+                bringToFront(existingDialog);
+            }
+    
+            closeLaunchpad();
+        });
+    }
 
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);
@@ -551,9 +605,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open calculator
     openWindow("#calcDockIcon", "#calc", "inline-block");
 
-    // Open trash dialogue
-    openWindow("#trash-icon", ".trash-dialogue", "inline-block");
-
     // Open about me when double-clicking or tapping `about.rtf`
     openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
 
@@ -605,9 +656,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close resume
     closeWindow(".resume-header__op-icon--red", ".resume", "#previewDockIcon");
 
-    // Close trash dialogue
-    closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
-
     // Maximize terminal
     maximizeWindow(".header__op-icon--green", "#mac-terminal");
 
@@ -628,4 +676,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Maximize about me
     //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
+
+    initTrashDialog();
 });
