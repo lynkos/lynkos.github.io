@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open app via launchpad
     function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
         // Position window when first opened
-        initPosition(launchIcon, win, "click");
+        if (dockIcon !== "#calcDockIcon") initPosition(launchIcon, win, "click");
 
         const windowElement = document.querySelector(win);
         const dockIconElement = document.querySelector(dockIcon);
@@ -554,6 +554,82 @@ document.addEventListener("DOMContentLoaded", function() {
         animate: true
     });
 
+    function initCalculatorDialog() {
+        const main = document.querySelector("main");
+    
+        if (!document.getElementById("calc")) {
+            const calculatorHtml = `
+            <div id="calc" class="windows">
+              <div class="calc-header handle">
+                <div class="calc-header__op">
+                  <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
+                  <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--yellow cancel"></span>
+                  <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--grey cancel"></span>
+                </div>
+                <div class="calc-header__empty"></div>
+              </div>
+    
+              <div class="screen-parent">
+                <input type="hidden" class="outcome" value="">
+                <div class="screen"></div>
+              </div>
+            
+              <div class="calc-buttons">
+                <a role="button" tabindex="0" class="button clear light-grey">AC</a>
+                <a role="button" tabindex="0" class="button val equal light-grey" href="*-1">
+                  <button class="invert-button">
+                    <sup>+</sup>
+                    <span>/</span>
+                    <sub>−</sub>
+                  </button>
+                </a>
+                <a role="button" tabindex="0" class="button val light-grey" href="%">%</a>
+                <a role="button" tabindex="0" class="button val yellow" href="/">÷</a>
+    
+                <a role="button" tabindex="0" class="button val dark-grey" href="7">7</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="8">8</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="9">9</a>
+                <a role="button" tabindex="0" class="button val yellow" href="*">×</a>
+    
+                <a role="button" tabindex="0" class="button val dark-grey" href="4">4</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="5">5</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="6">6</a>
+                <a role="button" tabindex="0" class="button val yellow" href="-">−</a>
+    
+                <a role="button" tabindex="0" class="button val dark-grey" href="1">1</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="2">2</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="3">3</a>
+                <a role="button" tabindex="0" class="button val yellow" href="+">+</a>
+    
+                <a role="button" tabindex="0" class="button dark-grey"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
+                <a role="button" tabindex="0" class="button val dark-grey" href="0">0</a>
+                <a role="button" tabindex="0" class="button val dark-grey" href=".">.</a>
+                <a role="button" tabindex="0" class="button equal yellow">=</a>
+              </div>
+            </div>`;
+    
+            main.insertAdjacentHTML("beforeend", calculatorHtml);
+    
+            // Position + make draggable
+            positionWindow("#calc");
+
+            $("#calc").draggable({
+                handle: ".handle",
+                containment: "#main-content",
+                cursor: "default",
+                distance: 0,
+                start: function () {
+                    bringToFront(this);
+                }
+            }).on("mousedown", function () {
+                bringToFront(this);
+            });
+
+            // Close calculator
+            closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
+        }
+    }    
+
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);
 
@@ -633,7 +709,15 @@ document.addEventListener("DOMContentLoaded", function() {
     launchApp("#safariLaunch", "#browser", "#safariDockIcon");
 
     // Launch calculator
-    launchApp("#calculatorLaunch", "#calc", "#calcDockIcon", "inline-block");
+    document.querySelector("#calculatorLaunch").addEventListener("click", function () {
+        if (!document.getElementById("calc")) {
+            initCalculatorDialog();
+            launchApp("#calculatorLaunch", "#calc", "#calcDockIcon", "inline-block");
+        } else if (!document.querySelector(".calc-header__op-icon--red").dataset.bound) {
+            document.querySelector(".calc-header__op-icon--red").dataset.bound = "true";
+            closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
+        }
+    });
 
     // Close terminal
     closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
@@ -649,9 +733,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Close safari
     closeWindow(".browser-buttons-icon--red", "#browser", "#safariDockIcon");
-
-    // Close calculator
-    closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
 
     // Close preview
     closeWindow(".preview-header__op-icon--red", ".preview", "#previewDockIcon");
