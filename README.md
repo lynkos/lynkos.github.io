@@ -180,10 +180,10 @@ Includes (but is not limited to):
 
 1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
    * You will need to create a new Google Apps Script project and publish it as a web app
-2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L906) in [`index.html`](index.html) with your own sitekey
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L923) in [`index.html`](index.html) with your own sitekey
    * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
    * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
-3. Modify the code within [`<form class="gform">`](index.html#L898) (inclusive) in [`index.html`](index.html) accordingly
+3. Modify the code within [`<form class="gform">`](index.html#L915) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Resources
 * [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
@@ -238,10 +238,6 @@ Includes (but is not limited to):
 │   │   │   ├── site.webmanifest
 │   │   │   ├── web-app-manifest-192x192.png
 │   │   │   └── web-app-manifest-512x512.png
-│   │   ├── icons/
-│   │   │   ├── angles-up-down.svg
-│   │   │   ├── control-center.svg
-│   │   │   └── terminal.svg
 │   │   ├── misc/
 │   │   │   ├── 404.webp
 │   │   │   ├── demo.webp
@@ -332,10 +328,6 @@ Includes (but is not limited to):
 │   │   │   ├── site.webmanifest
 │   │   │   ├── web-app-manifest-192x192.png
 │   │   │   └── web-app-manifest-512x512.png
-│   │   ├── icons/
-│   │   │   ├── angles-up-down.svg
-│   │   │   ├── control-center.svg
-│   │   │   └── terminal.svg
 │   │   ├── misc/
 │   │   │   ├── 404.webp
 │   │   │   ├── demo.webp
