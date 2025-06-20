@@ -2,7 +2,6 @@
     "name": "lynkos.github.io",
     "version": "1.0.0",
     "scripts": {
-        "build:purge": "purgecss --css assets/stylesheets/css/*.css --content *.html dist/**/*.js --output assets/stylesheets/css",
         "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
@@ -42,7 +41,6 @@
         "nodemon": "^3.1.9",
         "postcss": "^8.5.3",
         "postcss-cli": "^11.0.0",
-        "purgecss": "^7.0.2",
         "sass": "^1.83.4"
     },
     "babel": {

@@ -11,7 +11,6 @@
     <img alt="Nodemon" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Nodemon&logo=nodemon&color=76D04B&labelColor=393939&logoColor=76D04B">
     <img alt="SASS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=SASS&logo=sass&color=CC6699&labelColor=393939&logoColor=CC6699">
     <img alt="PostCSS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=PostCSS&logo=postcss&color=DD3A0A&labelColor=393939&logoColor=DD3A0A">
-    <img alt="PurgeCSS" src="https://img.shields.io/static/v1?label=Package&style=flat&message=PurgeCSS&logo=purgecss&color=14161A&labelColor=393939&logoColor=14161A">
     <img alt="Autoprefixer" src="https://img.shields.io/static/v1?label=Package&style=flat&message=Autoprefixer&logo=autoprefixer&color=DD3735&labelColor=393939&logoColor=DD3735">
     <img alt="HTML Minifier" src="https://img.shields.io/static/v1?label=Package&style=flat&message=HTML+Minifier&logo=html5&color=F06529&labelColor=393939&logoColor=F06529">
     <img alt="npm" src="https://img.shields.io/static/v1?label=Package+Manager&style=flat&message=npm&logo=npm&color=CB3837&labelColor=393939&logoColor=CB3837">
@@ -139,7 +138,7 @@ Includes (but is not limited to):
 
 ### Deploy to Production
 > [!NOTE]
-> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json) for [build script](package.json#L10) (i.e. `npm run build`)
+> Refer to [`gh-pages.yml`](.github/workflows/gh-pages.yml) for full workflow and [`package.json`](package.json) for [build script](package.json#L9) (i.e. `npm run build`)
 
 <img width="100%" alt="Deployment pipeline" src="assets/img/misc/pipeline.webp">
 
@@ -181,10 +180,10 @@ Includes (but is not limited to):
 
 1. Complete the steps in [this GitHub repo](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)'s [`README` doc](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/README.md)
    * You will need to create a new Google Apps Script project and publish it as a web app
-2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L906) in [`index.html`](index.html) with your own sitekey
+2. Use your own [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display#auto_render) widget and replace [`data-sitekey`](index.html#L913) in [`index.html`](index.html) with your own sitekey
    * You can opt out of and remove reCAPTCHA v2 by making some changes to both [`index.html`](index.html) and [`email.js`](src/components/email.js)
    * Note that removing reCAPTCHA v2 widget **WILL** result in a daily influx of bot/spam messages (assuming you've successfully completed Step #1)
-3. Modify the code within [`<form class="gform">`](index.html#L898) (inclusive) in [`index.html`](index.html) accordingly
+3. Modify the code within [`<form class="gform">`](index.html#L905) (inclusive) in [`index.html`](index.html) accordingly
 
 ### Resources
 * [`actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)
