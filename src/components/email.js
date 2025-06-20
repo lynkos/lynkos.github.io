@@ -1,3 +1,20 @@
+/**
+ * @license MIT
+ * Copyright © 2024 – 2025 Kiran Brahmatewari.
+ * 
+ * Modification of original work `form-submission-handler.js`.
+ * (https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/form-submission-handler.js)
+ * 
+ * Modification of original work by alex.
+ * (https://codepen.io/alexd257/pen/bjGvbG)
+ * 
+ * Modification of original work by apvarun.
+ * (https://github.com/apvarun/toastify-js)
+ * 
+ * This work is licensed under the terms of the MIT license.
+ * Refer to https://opensource.org/licenses/MIT for a copy.
+ */
+
 document.addEventListener("DOMContentLoaded", function() {
   // get all data in form and return object
   function getFormData(form) {

@@ -1,3 +1,11 @@
+/**
+ * @license MIT
+ * Copyright © 2024 – 2025 Kiran Brahmatewari. All rights reserved.
+ * 
+ * This work is licensed under the terms of the MIT license.
+ * Refer to https://opensource.org/licenses/MIT for a copy.
+ */
+
 document.addEventListener("DOMContentLoaded", function() {
     const contextMenuContainer = document.createElement("div");
     

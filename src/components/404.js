@@ -1,3 +1,15 @@
+/**
+ * @license MIT
+ * Copyright © 2025 by Siddharth Nalwaya.
+ * (https://codepen.io/siddharth-nalwaya/pen/MWMJrMO)
+ * 
+ * Fork of an original work Neuro Noise (GLSL Shader).
+ * (https://codepen.io/ksenia-k/pen/vYwgrWv)
+ * 
+ * This work is licensed under the terms of the MIT license.
+ * Refer to https://opensource.org/licenses/MIT for a copy.
+ */
+
 const containerEl = document.querySelector(".container");
 const canvasEl = document.querySelector("canvas#neuro");
 const devicePixelRatio = Math.min(window.devicePixelRatio, 2);

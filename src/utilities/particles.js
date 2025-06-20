@@ -1,3 +1,12 @@
+/**
+ * @license MIT
+ * Copyright © 2015 – 2025 by Vincent Garreau.
+ * (https://codepen.io/VincentGarreau/pen/bGxvQd)
+ * 
+ * This work is licensed under the terms of the MIT license.
+ * Refer to https://opensource.org/licenses/MIT for a copy.
+ */
+
 particlesJS("particles-js", {
 	"particles": {
 		"number": {
