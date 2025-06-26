@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths-ignore:
-      - '.gitignore'
-      - 'README.md'
-      - 'LICENSE.md'
+      - .gitignore
+      - README.md
+      - LICENSE.md
   workflow_dispatch: # allows manual execution of workflow
 
 defaults:
