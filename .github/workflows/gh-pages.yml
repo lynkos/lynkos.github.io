@@ -8,19 +8,22 @@ on:
       - .gitignore
       - README.md
       - LICENSE.md
+      - .github/dependabot.yml
   workflow_dispatch: # allows manual execution of workflow
 
 defaults:
   run:
     shell: bash
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout
         id: checkout
