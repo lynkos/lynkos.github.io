@@ -20,7 +20,7 @@
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lynkos/lynkos.github.io/.github%2Fworkflows%2Fgh-pages.yml?style=flat">
     <a title="GitHub License" href="LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/lynkos/lynkos.github.io?style=flat"></a>
     <a target="_blank" href="https://deepwiki.com/lynkos/lynkos.github.io" title="DeepWiki for lynkos/lynkos.github.io repository"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
-   <p>macOS Sequoia-inspired personal website.</p>
+   <p>Personal website inspired by macOS Sequoia and macOS Sonoma.</p>
 </div>
 
 <details open>
