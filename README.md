@@ -118,7 +118,7 @@ Includes (but is not limited to):
         ```
 2. Clone and enter repository
     ```sh
-    git clone https://github.com/lynkos/lynkos.github.io.git && cd lynkos.github.io
+    git clone --single-branch --branch main https://github.com/lynkos/lynkos.github.io.git && cd lynkos.github.io
     ```
 3. Install dependencies
     ```sh
