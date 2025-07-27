@@ -116,11 +116,15 @@ Includes (but is not limited to):
         ```sh
         cd C:\path\to\directory
         ```
-2. Clone and enter repository
+2. Only clone `main` branch (to avoid cloning unneeded branches) from repository
     ```sh
-    git clone --single-branch --branch main https://github.com/lynkos/lynkos.github.io.git && cd lynkos.github.io
+    git clone --single-branch -b main https://github.com/lynkos/lynkos.github.io.git
     ```
-3. Install dependencies
+3. Enter repository
+    ```sh
+    cd lynkos.github.io
+    ```
+4. Install dependencies
     ```sh
     npm install
     ```
