@@ -164,21 +164,21 @@ Includes (but is not limited to):
    ```sh
    ssh-keygen -t ed25519 -C "$(git config user.email)" -f gh-pages -N ""
    ```
-4. Go to your repository's "Deploy keys" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
-5. Click "Add deploy key"
-6. Enter `ACTIONS_DEPLOY_KEY` in "Title" field and paste contents of generated public key (i.e. `gh-pages.pub`) in "Key" field
-7. Check "Allow write access"
-8. Click "Add key"
-9. Go to your repository's "Actions secrets and variables" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
-10.  Click "New repository secret"
-11. Enter `ACTIONS_DEPLOY_KEY` in "Name" field and paste contents of generated private key (i.e. `gh-pages`) in "Secret" field
-12. Click "Add secret"
-13. Go to your repository's "Pages" settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
-14. Under "Build and deployment", select the following:
-    * **Source**: "Deploy from a branch"
+4. Go to your repository's **Deploy keys** settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/keys)
+5. Click **Add deploy key**
+6. Enter `ACTIONS_DEPLOY_KEY` in **Title** field and paste contents of generated public key (i.e. `gh-pages.pub`) in **Key** field
+7. Check **Allow write access**
+8. Click **Add key**
+9. Go to your repository's **Actions secrets and variables** settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/secrets/actions)
+10. Click **New repository secret**
+11. Enter `ACTIONS_DEPLOY_KEY` in **Name** field and paste contents of generated private key (i.e. `gh-pages`) in **Secret** field
+12. Click **Add secret**
+13. Go to your repository's **Pages** settings (i.e. https://github.com/YOUR_USERNAME/REPOSITORY_NAME/settings/pages)
+14. Under **Build and deployment**, select the following:
+    * **Source**: Deploy from a branch
     * **Branch**: `prod` and `/ (root)`
-15. Click "Save"
-16. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under "Branch"
+15. Click **Save**
+16. Make sure that it now says "Your GitHub Pages site is currently being built from the `prod` branch" under **Branch**
 
 ## Appendix
 ### Custom Email Form
