@@ -27,7 +27,6 @@ $height: min-content
       height: 3.25rem
       width: 100%
       overflow: hidden
-      cursor: default
       text-align: right
       color: white
       background: transparent
@@ -45,6 +44,9 @@ $height: min-content
     grid-template-rows: repeat(5, minmax(0, 1fr))
     gap: 1px
 
+    .button, .invert-button
+      cursor: vars.$default-cursor
+
     .button
       @include mix.disable-select()
       height: $button-size
@@ -57,7 +59,6 @@ $height: min-content
       border-radius: 50%
       color: white
       text-align: center
-      cursor: default
 
     .dark-grey, .light-grey
       font-size: 1.875rem
@@ -91,7 +92,6 @@ $height: min-content
       font-size: 1.5rem
       line-height: 2rem
       letter-spacing: -0.05em
-      cursor: default
 
       sup, sub, span
         pointer-events: none

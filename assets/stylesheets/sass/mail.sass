@@ -55,6 +55,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
       background: none
       outline: 0 none
       border: 0
+      cursor: vars.$default-cursor
 
       i
         font-size: $send-email-btn-dim
@@ -71,6 +72,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
     line-height: $email-line-height
     font-family: vars.$font-family
     color: $email-title-color
+    cursor: vars.$text-cursor
     width: 100%
 
     input
@@ -109,6 +111,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
     padding: 0.7rem 1.7rem
     overflow: auto
     color: white
+    cursor: vars.$text-cursor
     font-size: $email-font-size
     line-height: $email-line-height
     font-family: vars.$font-family
@@ -198,7 +201,6 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
   opacity: 0
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)
   border-radius: calc(vars.$border-radius * 2)
-  cursor: default
   text-decoration: none
   max-width: calc(50% - vars.$padding-4x)
   z-index: 2147483647

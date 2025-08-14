@@ -26,6 +26,15 @@ main
   height: 100vh
   flex: auto
 
+:root, .folder button, .folder-button
+  cursor: vars.$default-cursor
+
+input
+  cursor: vars.$text-cursor
+
+a
+  cursor: vars.$pointer-cursor
+
 #main-content
   position: fixed
   top: vars.$menubar-height
@@ -90,7 +99,6 @@ canvas
   @include mix.disable-select()
 
   button, &-button
-    cursor: default
     background-color: transparent
     background-image: none
     border: 0

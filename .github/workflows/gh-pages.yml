@@ -2,7 +2,9 @@ name: Build and deploy lynkos.dev
 
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - main
+      - master
     paths-ignore:
       - .gitignore
       - README.md

@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Make windows draggable and bring to front on drag
     function makeDraggable(selector) {
         $(selector).draggable({
-            cursor: "default",
+            //cursor: "default",
             handle: ".handle",
             cancel: ".cancel, .icons",
             start: function() {
@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 positionWindow(".trash-dialogue");
     
                 $(dialog).draggable({
-                    cursor: "default",
+                    //cursor: "default",
                     cancel: ".alert-btn",
                     start: function () {
                         bringToFront(this);
@@ -549,7 +549,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Make folder and file icons draggable
     $(".btn").draggable({
-        cursor: "default",
+        //cursor: "default",
         cancel: false,
         containment: "#main-content",
         distance: 0
