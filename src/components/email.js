@@ -125,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Revert cursor to normal once sent
   function revertCursor() {
-    document.body.style.cursor = "auto";
+    // Manually set cursor to custom SASS var $default-cursor in _variables.sass
+    document.body.style.cursor = "url('data:image/svg+xml,%3Csvg%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate%2810%207%29%22%3E%3Cpath%20d%3D%22m6.148%2018.473%201.863-1.003%201.615-.839-2.568-4.816h4.332l-11.379-11.408v16.015l3.316-3.221z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22m6.431%2017%201.765-.941-2.775-5.202h3.604l-8.025-8.043v11.188l2.53-2.442z%22%20fill%3D%22%23000%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') 8 8, url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAzklEQVR42u3Urw6BYRTH8TNFsCmYILyCCXhVReEa/ImCqlDNPXADNm5BUlzDW2iC5iWR/Hv2Nf9GfZ6nmPmVX/vs7GzniPzzq8G1BXzydoA6b62mQFWwIlBClfOGnAVgRTwAoWZKvIAbcdmQtQCEOhdfm/gEjIg3ECFFih74ZLSBNEIRYI6Hx5SIFtBhTwxhAi2DJXZhxbCP4KLWhLQBljiED1sHYQw9XWBB4t7tEUKS446oHhB/dlCtygw4QdP0KhrAjIL5XQYo/T/09+cKvoKuaQOYhRoAAAAASUVORK5CYII=') 8 8, default"; // = auto;
     $(".loader").hide(); // formElements.style.display = "none";
     document.removeEventListener("mousemove", moveMouse);
   };

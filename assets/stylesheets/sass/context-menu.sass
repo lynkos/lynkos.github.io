@@ -16,7 +16,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
   width: $context-menu-width
   height: auto
   box-shadow: vars.$menu-shadow
-  cursor: default
+  cursor: vars.$default-cursor
   transition: opacity 0.25s
   @include mix.disable-select()
 
@@ -69,6 +69,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
     display: flex
     justify-content: space-between
     white-space: nowrap
+    cursor: vars.$default-cursor
     padding: vars.$padding-quarter vars.$padding-2x
     border-radius: vars.$border-radius
 

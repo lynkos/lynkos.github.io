@@ -11,7 +11,6 @@
   font-size: vars.$menubar-font-size
   top: 0
   left: 0
-  cursor: default
   background: vars.$dock-menu-background
   display: flex
   justify-content: space-between
@@ -168,6 +167,8 @@
       background-color: rgba(255, 255, 255, 0.1)
 
 #playlist
+  cursor: vars.$pointer-cursor
+
   .playlist-player, .playlist-buttons
     display: flex
   
@@ -182,6 +183,7 @@
 #help-menu
   .searchbar
     padding: vars.$padding
+    cursor: vars.$text-cursor
     @include mix.searchbar(100%, 2rem, rgba(255, 255, 255, 0.1), 1.1rem, vars.$padding-half, rgba(255, 255, 255, 0.8))
   
   .option

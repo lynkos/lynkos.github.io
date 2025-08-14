@@ -34,7 +34,6 @@
   border-radius: vars.$menu-border-radius
   box-shadow: vars.$menu-shadow
   backdrop-filter: blur(2.75rem)
-  cursor: default
   @include window-border()
   @include disable-select()
 
@@ -45,8 +44,12 @@
     background: $background
     position: relative
     border-radius: vars.$border-radius
+    cursor: vars.$text-cursor
     border: vars.$border-thickness-2x solid rgba(255, 255, 255, 0.15)
     @include disable-select()
+
+    input, &::before
+        font-size: $font-size
 
     input
         background: none
@@ -55,7 +58,6 @@
         color: rgba(255, 255, 255, 0.8)
         height: 100%
         width: 100%
-        font-size: $font-size
         line-height: normal
         padding: 0 $padding 0 calc(($padding * 2) + $font-size)
         border-radius: vars.$border-radius
@@ -84,9 +86,9 @@
         position: absolute
         font-family: "Font Awesome 6 Free"
         font-weight: 600
-        font-size: $font-size
         color: $icon-color
         padding: calc($padding / 2) $padding
+        cursor: vars.$text-cursor
 
 @mixin button($padding, $margin, $font-size, $background, $active-background)
     padding: $padding
@@ -97,7 +99,7 @@
     border: 0
     outline: 0 none
     color: white
-    cursor: default
+    cursor: vars.$default-cursor
     background: $background
     border-radius: 0.625rem
     @include disable-select()
@@ -135,7 +137,6 @@
         width: $button-dim
         height: $button-dim
         position: relative
-        cursor: default
         border-radius: 50%
         @include disable-select()
 
@@ -229,6 +230,7 @@
     display: flex
     align-items: center
     justify-content: space-between
+    cursor: vars.$default-cursor
 
     &__op
         @include buttons($button-dim)
