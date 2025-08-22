@@ -12,6 +12,19 @@ $scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
 $scrollbar-color-track: rgba(255, 255, 255, 0.075)
 $scrollbar-width: 0.75rem
 
+// Default (dark mode) colors for 'Not by AI' badge
+:root
+  --badge-fill: #FFF
+  --badge-background: #000
+  --badge-stroke: #ACACAC
+
+// Light mode colors for 'Not by AI' badge
+@media (prefers-color-scheme: light)
+  :root
+    --badge-fill: #000
+    --badge-background: #FFF
+    --badge-stroke: #000
+
 :root, body
   background-attachment: fixed
 
