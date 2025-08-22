@@ -39,15 +39,19 @@ main
   height: 100vh
   flex: auto
 
+// Default cursor for most elements
 :root, .folder button, .folder-button
   cursor: vars.$default-cursor
 
+// Text cursor for text inputs
 input
   cursor: vars.$text-cursor
 
+// Link cursor
 a
   cursor: vars.$pointer-cursor
 
+// Everything that isn't header (aka menubar) or footer (aka dock and 'Not by AI' badge)
 #main-content
   position: fixed
   top: vars.$menubar-height
@@ -139,6 +143,7 @@ body
       text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25)
       @include mix.disable-select()
 
+// Not by AI badge
 #not-ai
   position: fixed
   bottom: vars.$padding
@@ -155,10 +160,12 @@ body
   background-size: cover
   background-position: 50% 50%
 
+// Used in JavaScript logic
 .windows
   position: absolute
   z-index: 0
 
+// Used in context menu
 .divider
   color: vars.$font-color
   margin: vars.$padding vars.$padding-2x
