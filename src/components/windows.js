@@ -596,7 +596,7 @@ document.addEventListener("DOMContentLoaded", function() {
     openWindow("#iTermDockIcon", "#mac-terminal", "inline-block");
 
     // Open mail
-    openWindow("#mailDockIcon", "#email");
+    //openWindow("#mailDockIcon", "#email");
 
     // Open about me
     openWindow("#textEditDockIcon", "#text-edit");
@@ -629,7 +629,7 @@ document.addEventListener("DOMContentLoaded", function() {
     launchApp("#itermLaunch", "#mac-terminal", "#iTermDockIcon", "inline-block");
 
     // Launch mail
-    launchApp("#mailLaunch", "#email", "#mailDockIcon");
+    //launchApp("#mailLaunch", "#email", "#mailDockIcon");
 
     // Launch about me
     launchApp("#textLaunch", "#text-edit", "#textEditDockIcon");
