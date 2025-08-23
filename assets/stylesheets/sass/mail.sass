@@ -141,7 +141,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
   height: 2.5rem
   overflow: hidden
   border-radius: 50%
-  animation: animate 0.5s linear infinite
+  animation: animate vars.$transition linear infinite
   transform: translate(-50%, -50%)
 
   span
@@ -199,7 +199,7 @@ $loader-colors: #0fa503, #ffd203, #54cd28, #129cf5, #bb5ed3, #ff4f45
   background: rgba(45, 45, 45, 0.8)
   position: fixed
   opacity: 0
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)
+  transition: all vars.$transition cubic-bezier(0.215, 0.61, 0.355, 1)
   border-radius: calc(vars.$border-radius * 2)
   text-decoration: none
   max-width: calc(50% - vars.$padding-4x)

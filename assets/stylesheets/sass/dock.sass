@@ -59,7 +59,7 @@ $badge-max-width: 12rem
     align-items: center
     justify-content: center
     border: vars.$border-thickness solid vars.$primary-button-color
-    transition: background 0.25s ease-in-out
+    transition: background vars.$transition-half ease-in-out
 
     svg
       // Make 'X' icon in close button 75% smaller than button ($microtip-font-size * 0.75)
@@ -155,7 +155,7 @@ footer
     left: 50%
     box-sizing: border-box
     transform: translate3d(-50%, 0, 0)
-    transition: all var(--microtip-transition-duration, .18s) var(--microtip-transition-easing, ease-in-out) var(--microtip-transition-delay, 0s)
+    transition: all vars.$transition-half ease-in-out 0s
 
   &::before
     background-size: 100% auto !important

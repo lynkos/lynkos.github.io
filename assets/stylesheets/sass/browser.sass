@@ -54,7 +54,7 @@ $header-color: rgb(56, 58, 55)
 
         &:hover
           background-color: rgba(255, 255, 255, 0.1)
-          transition: background .5s ease
+          transition: background vars.$transition ease
 
         &.inactive
           color: #707070
@@ -134,7 +134,7 @@ $header-color: rgb(56, 58, 55)
         &:hover
           background: rgba(255, 255, 255, 0.15)
           cursor: vars.$pointer-cursor
-          transition: background .5s ease
+          transition: background vars.$transition ease
 
         .beginning
           width: 11rem
@@ -168,7 +168,7 @@ $header-color: rgb(56, 58, 55)
             color: vars.$font-color !important
 
       .rotate0, .rotate90, .item-content, .hidden-content
-        transition: all 0.5s ease
+        transition: all vars.$transition ease
 
       .item-content, .hidden-content
         overflow: hidden

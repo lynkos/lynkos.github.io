@@ -17,7 +17,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
   height: auto
   box-shadow: vars.$menu-shadow
   cursor: vars.$default-cursor
-  transition: opacity 0.25s
+  transition: opacity vars.$transition-half
   @include mix.disable-select()
 
   &:before, ul &-submenu:before
