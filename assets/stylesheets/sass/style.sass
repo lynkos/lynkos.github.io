@@ -23,7 +23,7 @@ html, body, header, footer
 
 main
   overflow: auto
-  height: 100vh
+  height: 100%
   flex: auto
 
 // Default cursor for most elements
@@ -42,8 +42,8 @@ a
 #main-content
   position: fixed
   top: vars.$menubar-height
-  width: 100%
-  height: calc(100% - vars.$menubar-height)
+  width: 100vw
+  height: calc(100vh - vars.$menubar-height)
 
 // Scrollbar for modern browsers
 @supports (scrollbar-width: auto)
