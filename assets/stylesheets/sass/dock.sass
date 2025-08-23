@@ -21,6 +21,7 @@ $microtip-font-size: 1.35rem
 $microtip-bg-color: rgba(47, 48, 46, .88) // When updating this var, manually modify SVG fill as well
 $badge-max-height: calc((2 * $dock-padding) + vars.$dock-icon-size) //10rem
 $badge-max-width: 12rem
+$badge-opacity: 0.57
 
 // Default (dark mode) colors for 'Not by AI' badge
 :root
@@ -35,13 +36,16 @@ $badge-max-width: 12rem
     --badge-background: #FFF
     --badge-stroke: #000
 
-// Not by AI badge
-#not-ai
+// 'Not by AI' badge
+#not-ai, #not-ai-container
   height: auto
   width: auto
-  display: flex
-  max-height: $badge-max-height
   max-width: $badge-max-width
+  max-height: $badge-max-height
+
+#not-ai
+  display: flex
+  margin-left: calc(vars.$padding-one-and-half + vars.$border-thickness) // Original padding + close button left offset + button border thickness
 
   &-close
     position: absolute
@@ -71,15 +75,12 @@ $badge-max-width: 12rem
       border: vars.$border-thickness solid vars.$secondary-button-color
 
   &-container
-    margin: 0 calc(vars.$padding-2x + vars.$border-thickness) // Original padding + close button left offset + button border thickness
-    max-height: $badge-max-height
-    max-width: $badge-max-width
-    width: auto
-    height: auto
+    opacity: $badge-opacity
     align-self: center // Center vertically
+    transition: opacity vars.$transition-half ease-in-out
 
-    a
-      max-width: $badge-max-width // Prevent link from extending past badge
+    &:hover
+      opacity: 1.0
 
 // Separates apps and trash
 .dock-divider
