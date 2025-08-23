@@ -42,7 +42,9 @@
 </details>
 
 ## Features
-> [!NOTE]
+> [!IMPORTANT]
+> **Mail** app (aka email functionality aka contact form) is currently disabled and will be re-enabled after I troubleshoot, debug, + fix the server-side script
+> 
 > Additional features are still in development
 > 
 > Current features are actively being optimized and improved
@@ -52,11 +54,11 @@ Includes (but is not limited to):
   * Supported on both desktop and mobile
   * Click red button in upper-left corner to close window
   * Click green button in upper-left corner to maximize window
-* **Mail**
-  * Send me an email directly, without leaving the site!
-  * Includes reCAPTCHA to prevent spam
-  * Your email and message are required
-  * Subject is optional
+* ~~**Mail**~~
+  * ~~Send me an email directly, without leaving the site!~~
+  * ~~Includes reCAPTCHA to prevent spam~~
+  * ~~Your email and message are required~~
+  * ~~Subject is optional~~
 * **iTerm**
   * Inspired by terminal (specifically iTerm)
   * Timestamp (i.e. displays date and time when site is loaded)
