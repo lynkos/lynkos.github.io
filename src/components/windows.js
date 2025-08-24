@@ -16,9 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const dock = document.getElementById("dock");
     const macTerminal = document.getElementById("mac-terminal");
     const windowDims = { };
+    const computedStyle = getComputedStyle(document.documentElement);
+    const cursor = computedStyle.cursor;
 
     // Max height = calc(100vh - ($menubar-height + $dock-icon-size + (3 * $padding))) = calc(100vh - 9rem)
-    const remToPx = 9 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convert 9rem to px
+    const remToPx = 9 * parseFloat(computedStyle.fontSize); // Convert 9rem to px
     const errorMargin = 3; // Include to account for calc discrepancies (i.e. few px off)
     const maxHeight = window.innerHeight - remToPx - errorMargin; // Lower bound of max height
     // No upper bound since oversized window should still be on top instead of center
@@ -87,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Calculate menubar height (3rem) and convert to px
         // Used to subtract from vertical position to take menubar height into account
         //const dockHeight = dock.offsetHeight;
-        const menubarHeight = 36.5; // 3 * parseFloat(getComputedStyle(document.documentElement).fontSize); = 3rem --> px
+        const menubarHeight = 36.5; // 3 * parseFloat(computedStyle.fontSize); = 3rem --> px
 
         // IF window height >= max height, place at top (sub menubar height)
         if (document.querySelector(win).offsetHeight >= maxHeight) centerWindow(win, "top-" + menubarHeight, "top");
@@ -205,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Make windows draggable and bring to front on drag
     function makeDraggable(selector) {
         $(selector).draggable({
-            //cursor: "default",
+            cursor: cursor,
             handle: ".handle",
             cancel: ".cancel, .icons",
             start: function() {
@@ -494,7 +496,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 positionWindow(".trash-dialogue");
     
                 $(dialog).draggable({
-                    //cursor: "default",
+                    cursor: cursor,
                     cancel: ".alert-btn",
                     start: function () {
                         bringToFront(this);
@@ -549,7 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Make folder and file icons draggable
     $(".btn").draggable({
-        //cursor: "default",
+        cursor: cursor,
         cancel: false,
         containment: "#main-content",
         distance: 0
