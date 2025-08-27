@@ -314,6 +314,8 @@ Includes (but is not limited to):
 
 > [!NOTE]
 > [`prod`](https://github.com/lynkos/lynkos.github.io/tree/prod) is used for production
+> 
+> All mail-related files have been removed from this branch (see [Line #99 in `gh-pages.yml`](.github/workflows/gh-pages.yml#L99)) till the "Mail" app (aka contact form) is fixed
 
 <details open>
   <summary><a title="Prod branch" href="https://github.com/lynkos/lynkos.github.io/tree/prod"><code>prod</code></a> branch</summary>
@@ -328,7 +330,6 @@ Includes (but is not limited to):
 │   │   │   ├── github.svg
 │   │   │   ├── iterm.webp
 │   │   │   ├── launchpad.webp
-│   │   │   ├── mail.webp
 │   │   │   ├── notes.webp
 │   │   │   ├── preview.webp
 │   │   │   ├── safari.webp
@@ -367,7 +368,6 @@ Includes (but is not limited to):
 │   │       ├── dock.css
 │   │       ├── jquery-ui.css
 │   │       ├── launchpad.css
-│   │       ├── mail.css
 │   │       ├── menubar.css
 │   │       ├── notes.css
 │   │       ├── preflight.css
@@ -381,7 +381,6 @@ Includes (but is not limited to):
 │   ├── components/
 │   │   ├── 404.js
 │   │   ├── calculator.js
-│   │   ├── email.js
 │   │   ├── notes.js
 │   │   ├── preview.js
 │   │   ├── text-edit.js

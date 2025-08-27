@@ -558,7 +558,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Make some windows resizeable
-    $("#mac-terminal, #email, #notes, #browser, .preview, .resume").resizable({
+    // TODO: Add #email once mail app (aka contact form) is fixed
+    $("#mac-terminal, #notes, #browser, .preview, .resume").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
@@ -597,9 +598,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open terminal
     openWindow("#iTermDockIcon", "#mac-terminal", "inline-block");
 
-    // Open mail
-    //openWindow("#mailDockIcon", "#email");
-
     // Open about me
     openWindow("#textEditDockIcon", "#text-edit");
 
@@ -630,9 +628,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Launch terminal
     launchApp("#itermLaunch", "#mac-terminal", "#iTermDockIcon", "inline-block");
 
-    // Launch mail
-    //launchApp("#mailLaunch", "#email", "#mailDockIcon");
-
     // Launch about me
     launchApp("#textLaunch", "#text-edit", "#textEditDockIcon");
 
@@ -647,9 +642,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Close terminal
     closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
-
-    // Close mail
-    closeWindow(".email-header__op-icon--red", "#email", "#mailDockIcon");
 
     // Close about me
     closeWindow(".text-edit-header__op-icon--red", "#text-edit", "#textEditDockIcon");
@@ -675,9 +667,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Maximize Safari browser
     maximizeWindow(".browser-buttons-icon--green", "#browser");
 
-    // Maximize mail
-    maximizeWindow(".email-header__op-icon--green", "#email");
-
     // Maximize projects
     maximizeWindow(".buttons-icon--green", "#notes");
 
@@ -689,4 +678,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Maximize about me
     //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
+
+    // TODO: UNCOMMENT THE FOLLOWING ONCE MAIL APP (AKA CONTACT FORM) IS FIXED
+
+    // Maximize mail
+    //maximizeWindow(".email-header__op-icon--green", "#email");
+
+    // Close mail
+    //closeWindow(".email-header__op-icon--red", "#email", "#mailDockIcon");
+
+    // Launch mail
+    //launchApp("#mailLaunch", "#email", "#mailDockIcon");
+
+    // Open mail
+    //openWindow("#mailDockIcon", "#email");
 });

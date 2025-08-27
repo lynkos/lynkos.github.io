@@ -11,9 +11,11 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <meta charset="utf-8">
     <title>Lynkos</title>
 
+    <!-- TODO: Uncomment once "Mail" app is fixed -->
+    <!-- <link rel="preload" as="style" href="/assets/stylesheets/css/mail.css" onload="this.onload=null;this.rel='stylesheet'"> -->
+
     <link rel="preload" as="style" href="/assets/stylesheets/css/preview.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/calculator.css" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="/assets/stylesheets/css/mail.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/text-edit.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/notes.css" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style" href="/assets/stylesheets/css/launchpad.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,7 +29,10 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <noscript>
       <link rel="stylesheet" href="/assets/stylesheets/css/preview.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/calculator.css">
-      <link rel="stylesheet" href="/assets/stylesheets/css/mail.css">
+
+      <!-- TODO: Uncomment once "Mail" app is fixed -->
+      <!-- <link rel="stylesheet" href="/assets/stylesheets/css/mail.css"> -->
+
       <link rel="stylesheet" href="/assets/stylesheets/css/text-edit.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/notes.css">
       <link rel="stylesheet" href="/assets/stylesheets/css/launchpad.css">
@@ -67,7 +72,10 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
     <link rel="preload" as="image" href="/assets/img/apps/iterm.webp">
     <link rel="preload" as="image" href="/assets/img/apps/launchpad.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/mail.webp">
+
+    <!-- TODO: Uncomment once "Mail" app is fixed -->
+    <!-- <link rel="preload" as="image" href="/assets/img/apps/mail.webp"> -->
+
     <link rel="preload" as="image" href="/assets/img/apps/notes.webp">
     <link rel="preload" as="image" href="/assets/img/apps/safari.webp">
     <link rel="preload" as="image" href="/assets/img/apps/text-edit.webp">
@@ -901,7 +909,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbx8I8BI2KW2kkHmf4apq4o8qRW5Z7MqP_5kenyjCdWqL7tPJJ2JJdaLLDZvw12QedGB/exec">
+        <!-- TODO: Uncomment once "Mail" app is fixed -->
+        <!-- <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbx8I8BI2KW2kkHmf4apq4o8qRW5Z7MqP_5kenyjCdWqL7tPJJ2JJdaLLDZvw12QedGB/exec">
           <div id="email" class="windows">
             <div class="email-header handle">
               <div class="email-header__op">
@@ -909,6 +918,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--yellow cancel"></span>
                 <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--green cancel"></span>
               </div>
+              <div id="cf-turnstile"></div>
               <div class="g-recaptcha" data-theme="dark" data-callback="callback" data-sitekey="6Lcd6rIqAAAAAOabj0rba6jICI-HqlQr8A1uNSBt"></div>
               <button id="send-btn" class="cancel" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
@@ -924,7 +934,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             
             <textarea class="body" name="message" placeholder="Compose your message here, complete the captcha above, then click the paper plane button in the upper-right corner to send me your message. This window will automatically close once your message is sent, which may take a few seconds." required></textarea>
           </div>
-        </form>
+        </form> -->
 
         <div id="notes" class="windows">
           <div class="body">
@@ -3589,7 +3599,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
-              <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail (WIP)</a>
+              <!-- Temporarily hide "Mail" app / Contact form while it's being fixed -->
+              <!-- <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail (WIP)</a> -->
+              
               <a role="button" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
               <a role="button" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
               <a role="button" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
@@ -3650,13 +3662,24 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
       <div id="dock">
         <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
-        <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail (WIP)" data-microtip-position="top"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div>
+
+        <!-- Temporarily hide "Mail" app / Contact form while it's being fixed -->
+        <!-- <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail" data-microtip-position="top"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div> -->
+        
         <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
         <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
         <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
         <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
         <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
         <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
+        
+        <!-- Temporarily replace "Mail" app (while it's being fixed) in dock with link to my blog... -->
+        <div role="tooltip" tabindex="0" id="blogDockIcon" class="icon" aria-label="Blog" data-microtip-position="top">
+          <a target="_blank" href="https://blog.lynkos.dev">
+            <img style="width:95%;padding-left:.25rem" src="/assets/img/favicons/favicon.svg" class="icon" draggable="false" fetchpriority="high" alt="Blog">
+          </a>
+        </div>
+        
         <div class="dock-divider"></div>
         <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
@@ -3678,11 +3701,16 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <script src="/dist/utilities/timestamp.js"></script>
     <script src="/dist/components/notes.js" defer></script>
     <script src="/dist/components/text-edit.js" defer></script>
-    <script data-cfasync="false" src="/dist/components/email.js" defer></script>
+
+    <!-- TODO: Uncomment once "Mail" app is fixed -->
+    <!-- <script data-cfasync="false" src="/dist/components/email.js" defer></script> -->
+    
     <script src="/dist/components/preview.js" defer></script>
     <script src="/dist/components/calculator.js" defer></script>
     <script src="/dist/utilities/context-menu.js" defer></script>
-    <script>
+
+    <!-- TODO: Uncomment once "Mail" app is fixed -->
+    <!-- <script>
       // Make launchpad searchable
       function filterLaunchpad() {
         const input = document.getElementById("launchInput"),
@@ -3713,6 +3741,33 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         let content = document.querySelector(`${item}-content`);
         content.classList.toggle("hidden-content");
       }
-    </script>
+
+      // IIFE (creates isolated scope)
+      (function() {
+        // Reveal hidden elements once page loads to avoid FOUC
+        function revealHiddenElements() {
+          // Find all elements with the 'hidden' class
+          const hiddenElements = document.querySelectorAll('.hidden');
+          
+          // Convert NodeList to Array for better browser compatibility
+          Array.from(hiddenElements).forEach(function(element, index) {
+            // Add a slight stagger effect for visual appeal
+            setTimeout(function() {
+              element.classList.add('reveal');
+            }, index * 50); // 50ms delay between each element
+          });
+        }
+        
+        // Multiple trigger points for maximum reliability
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', revealHiddenElements);
+        } else { // Document is already loaded
+          revealHiddenElements();
+        }
+        
+        // Safety net: reveal after 2.5 seconds regardless
+        setTimeout(revealHiddenElements, 2500);
+      })();
+    </script> -->
   </body>
 </html>
