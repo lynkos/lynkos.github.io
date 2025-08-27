@@ -3709,8 +3709,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <script src="/dist/components/calculator.js" defer></script>
     <script src="/dist/utilities/context-menu.js" defer></script>
 
-    <!-- TODO: Uncomment once "Mail" app is fixed -->
-    <!-- <script>
+    <script>
       // Make launchpad searchable
       function filterLaunchpad() {
         const input = document.getElementById("launchInput"),
@@ -3726,12 +3725,6 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         }
       }
 
-      // Allow user to send message after successfully completing reCAPTCHA
-      function callback() {
-        const sendButton = document.getElementById("send-btn");
-        sendButton.disabled = false;
-      }
-
       // Toggle skills content
       toggleContent = (item) => {
         let arrow = document.querySelector(`${item}-trigger > i`);
@@ -3741,33 +3734,6 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         let content = document.querySelector(`${item}-content`);
         content.classList.toggle("hidden-content");
       }
-
-      // IIFE (creates isolated scope)
-      (function() {
-        // Reveal hidden elements once page loads to avoid FOUC
-        function revealHiddenElements() {
-          // Find all elements with the 'hidden' class
-          const hiddenElements = document.querySelectorAll('.hidden');
-          
-          // Convert NodeList to Array for better browser compatibility
-          Array.from(hiddenElements).forEach(function(element, index) {
-            // Add a slight stagger effect for visual appeal
-            setTimeout(function() {
-              element.classList.add('reveal');
-            }, index * 50); // 50ms delay between each element
-          });
-        }
-        
-        // Multiple trigger points for maximum reliability
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', revealHiddenElements);
-        } else { // Document is already loaded
-          revealHiddenElements();
-        }
-        
-        // Safety net: reveal after 2.5 seconds regardless
-        setTimeout(revealHiddenElements, 2500);
-      })();
-    </script> -->
+    </script>
   </body>
 </html>
