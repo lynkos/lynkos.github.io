@@ -76,12 +76,14 @@ svg
   max-width: $badge-max-width
   max-height: $badge-max-height
   padding: $padding 0
+  cursor: vars.$pointer-cursor
 
 *
   position: relative
 
 html
   min-height: 100%
+  cursor: vars.$default-cursor
 
 body, html
   margin: 0
@@ -265,7 +267,6 @@ button
 
 .titlebar
   margin: 6px 8px
-  cursor: default
   display: flex
   flex-direction: row
   align-items: center
@@ -312,6 +313,7 @@ button
     appearance: none
     transition: background-color 125ms ease-in-out, box-shadow 125ms ease-out
     box-shadow: 0 0 0 1px rgba(white, 0.5) inset
+    cursor: vars.$default-cursor
 
     &:hover, &:focus
       outline: 0 none
@@ -394,7 +396,7 @@ button
   background-color: #3c83c6
 
 .windows00
-  cursor: pointer
+  cursor: vars.$pointer-cursor
   outline: 0 none
   position: relative
   font-weight: 600
@@ -410,6 +412,9 @@ button
   background-image: $button-gradient
   border: 1.5px solid #447dbc
   box-shadow: rgba(66, 140, 240, 0.4) 0px 10px 16px
+
+  a
+    cursor: vars.$pointer-cursor
 
   &::before
     content: ""
