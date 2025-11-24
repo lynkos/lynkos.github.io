@@ -1,10 +1,15 @@
-version: 2
+version: 3
 updates:
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
     interval: "daily"
-  labels:
-  - "CI/CD"
   commit-message:
-    prefix: ci
+    prefix: GitHub Actions
+
+- package-ecosystem: "npm"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  commit-message:
+    prefix: npm
