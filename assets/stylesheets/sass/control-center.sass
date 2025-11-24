@@ -1,0 +1,227 @@
+// Copyright © 2024 – 2025 Kiran Brahmatewari. All rights reserved.
+//
+// This work is licensed under the terms of the MIT license.
+// Refer to https://opensource.org/licenses/MIT for a copy.
+
+@use "variables" as vars
+@use "mixins" as mix
+
+$control-center-width: 360px
+$icon-size: 1rem
+$spacing: vars.$padding-one-and-half
+$control-center-background: rgba(0, 0, 0, 0.15)
+$tile-background: rgba(0, 0, 0, 0.1)
+$tile-shadow: 0 2px 6px rgba(0, 0, 0, 0.2)
+$border-radius: vars.$border-radius
+$primary-color: vars.$menubar-font-color
+$secondary-color: rgba(255, 255, 255, 0.7)
+$accent-color: vars.$secondary-button-color
+
+/* Control Center Container - This creates the main panel with glassmorphism effect */
+.control
+    &-center
+        width: $control-center-width
+        background: $control-center-background
+        backdrop-filter: blur(20px)
+        border-radius: 20px
+        border: 1px solid rgba(255, 255, 255, 0.2)
+        padding: $spacing
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
+        transform: translateY(-20px)
+        opacity: 0
+        animation: slideIn vars.$transition ease-out forwards
+
+    /* Grid Layout - This creates a sophisticated layout with different sized sections */
+    &-grid
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: repeat(2, auto)
+        gap: $spacing
+        @include mix.disable-select()
+
+@keyframes slideIn
+    to
+        transform: translateY(0)
+        opacity: 1
+
+/* Right column - focus and hotspot controls with mixed layout */
+.focus-controls, .connectivity-column
+    display: flex
+    flex-direction: column
+    gap: $spacing
+    height: 100%
+
+/* Left column - connectivity controls stacked vertically with equal distribution */
+.connectivity-column
+    justify-content: center
+    
+    /* Make connectivity tiles expand to fill available space equally */
+    .control-tile
+        flex: 1 // Each tile gets equal share of available space
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+/* Do Not Disturb takes up proportional space to balance with connectivity tiles */
+#dnd-tile
+    flex: 2 // Takes twice the space of each bottom tile, creating visual balance
+    display: flex
+    flex-direction: row
+
+/* Bottom row of right column - side-by-side smaller controls */
+.bottom-row
+    display: flex
+    gap: $spacing
+    
+    .control-tile
+        flex: 1
+
+/* Individual Control Tiles - Each represents a system function */
+.control
+    &-tile
+        background: $tile-background
+        box-shadow: $tile-shadow
+        border-radius: $border-radius
+        padding: $spacing
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        cursor: vars.$pointer-cursor
+        transition: all vars.$transition-half ease
+        position: relative
+        overflow: hidden
+        
+        &.active
+            background: $accent-color
+            color: $primary-color
+            
+            .control-icon
+                color: $primary-color
+                
+        /* Large tiles span two columns for important controls */
+        &.large
+            grid-column: span 2
+            display: flex
+            align-items: center
+            justify-content: space-between
+
+    /* Icons and Labels - Visual representation of each control */
+    &-icon, &-label
+        color: $primary-color
+
+    &-icon
+        // font-size: 24px
+        transition: all vars.$transition-half ease
+        // background: red
+        // text-align: center
+        // width: 30px
+        // height: 30px
+        // border-radius: 50%
+        
+    &-label
+        font-size: 13px
+        font-weight: 500
+        //line-height: 1.2
+
+/* Custom styled range slider */
+.slider    
+    width: 100%
+    border-radius: 9px
+    background: rgba(255, 255, 255, 0.3)
+    outline: none
+    -webkit-appearance: none
+    appearance: none
+
+    &::-webkit-slider-thumb
+        -webkit-appearance: none
+        appearance: none
+        width: 18px
+        height: 18px
+        border-radius: 50%
+        background: white
+        cursor: vars.$pointer-cursor
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2)
+        transition: all vars.$transition-half ease
+
+    &::-moz-range-thumb
+        width: 18px
+        height: 18px
+        border-radius: 50%
+        background: white
+        cursor: vars.$pointer-cursor
+        border: none
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2)
+
+    /* Brightness and Volume Sliders - Interactive range controls */
+    &-container
+        @include mix.disable-select()
+        background: $tile-background
+        box-shadow: $tile-shadow
+        border-radius: $border-radius
+        padding: $spacing
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        margin-bottom: $spacing
+
+    &-header
+        display: flex
+        align-items: center
+        margin-bottom: $spacing
+
+    &-icon
+        font-size: $icon-size
+        color: $primary-color
+        margin-right: 8px
+
+    &-label
+        font-size: 13px
+        font-weight: 500
+        color: $primary-color
+
+/* WiFi, Bluetooth, Airdrop status indicators */
+.connection-status, #wifi-tile, #bluetooth-tile, #airdrop-tile
+    display: flex
+
+.status-text
+    font-size: 11px
+    color: $secondary-color
+
+/* Music control panel */
+.music
+    &-controls
+        background: $tile-background
+        box-shadow: $tile-shadow
+        border-radius: $border-radius
+        padding: $spacing
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        text-align: center
+        @include mix.disable-select()
+
+    &-title
+        font-size: 14px
+        font-weight: 600
+        color: $primary-color
+
+    &-artist
+        font-size: 12px
+        color: $secondary-color
+
+    &-buttons
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: calc($spacing * 2)
+
+    &-btn
+        background: none
+        border: none
+        color: $primary-color
+        font-size: $icon-size
+        cursor: vars.$pointer-cursor
+        border-radius: 50%
+        transition: all vars.$transition-half ease
+
+        &.play
+            font-size: calc($icon-size * 6 / 5) //24px
+
+i
+    font-size: $icon-size
+    height: $icon-size
+    width: $icon-size
