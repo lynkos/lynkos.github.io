@@ -102,6 +102,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <link rel="stylesheet" href="/assets/stylesheets/css/terminal.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/dock.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/menubar.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/sticky-note.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" referrerpolicy="no-referrer" crossorigin="anonymous"></script>
     <script src="/dist/lib/jquery-ui.js"></script>
@@ -3619,6 +3620,17 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             </nav>
           </div>
         </div>
+
+        <div id="sticky-note" class="windows hidden">
+          <div id="sticky-note-bar" class="handle">
+            <div id="sticky-note-close" onclick="document.getElementById('sticky-note').style.display = 'none'" role="button" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
+          </div>
+
+          <div id="sticky-note-body">
+            <p style="font-weight:bold"><a href="https://notbyai.fyi" target="_blank" title="Developed by a human, not by AI">Not by AI</a></p>
+            <p>Hello World</p>
+          </div>
+        </div>
       </main>
     </div>
 
@@ -3629,8 +3641,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <path fill="currentColor" d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"/>
           </svg>
         </button>
-        <a href="https://notbyai.fyi" target="_blank" title="Developed by a human, not by AI">
-          <svg id="not-ai" viewBox="0 0 131 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <button id="not-ai" role="button" tabindex="0" title="Developed by a human, not by AI">
+          <svg viewBox="0 0 131 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M116 0.5C124.008 0.5 130.5 6.99187 130.5 15V41.5H15C6.99187 41.5 0.5 35.0081 0.5 27V0.5H116Z" fill="var(--badge-background)" stroke="var(--badge-stroke)"/>
             <path d="M27.8497 24.1575C24.3836 26.9643 19.4266 26.9643 15.9605 24.1575L17.3007 22.5026C19.9854 24.6766 23.8248 24.6766 26.5095 22.5026L27.8497 24.1575Z" fill="var(--badge-fill)"/>
             <path d="M17.404 17.6365V20.5134H19.5336V17.6365H17.404Z" fill="var(--badge-fill)"/>
@@ -3661,7 +3674,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <path d="M112.809 9.98438C113.455 9.98438 113.896 10.2174 114.13 10.6846C114.256 10.9361 114.318 11.2749 114.318 11.7002V14.9033H113.479V11.5605C113.478 11.2402 113.397 11.0202 113.235 10.9004C113.077 10.7806 112.882 10.7207 112.651 10.7207C112.334 10.7207 112.06 10.8274 111.829 11.04C111.602 11.2527 111.488 11.6076 111.488 12.1045V14.9033H110.666V11.7627C110.666 11.4364 110.627 11.1985 110.549 11.0488C110.426 10.8243 110.197 10.712 109.862 10.7119C109.557 10.7119 109.278 10.8299 109.026 11.0664C108.778 11.303 108.653 11.7316 108.653 12.3516V14.9033H107.845V10.0918H108.645V10.7744C108.836 10.5379 109.01 10.3656 109.166 10.2578C109.432 10.0753 109.735 9.98438 110.073 9.98438C110.456 9.98442 110.765 10.0782 110.998 10.2666C111.13 10.3744 111.25 10.5336 111.357 10.7432C111.537 10.4856 111.749 10.2956 111.991 10.1729C112.234 10.0471 112.506 9.98439 112.809 9.98438Z" fill="var(--badge-fill)"/>
             <path d="M122.326 9.98438C123.009 9.98441 123.47 10.2221 123.71 10.6982C123.842 10.9587 123.907 11.3315 123.907 11.8164V14.9033H123.085V11.8711C123.085 11.5777 123.042 11.3408 122.955 11.1611C122.811 10.8617 122.55 10.7119 122.173 10.7119C121.981 10.7119 121.824 10.7316 121.701 10.7705C121.48 10.8364 121.285 10.9676 121.117 11.165C120.983 11.3236 120.895 11.4886 120.853 11.6592C120.814 11.8269 120.794 12.0684 120.794 12.3828V14.9033H119.985V10.0918H120.754V10.7744C120.981 10.4931 121.222 10.2907 121.477 10.168C121.731 10.0452 122.015 9.98438 122.326 9.98438Z" fill="var(--badge-fill)"/>
           </svg>
-        </a>
+        </button>
       </div>
 
       <div id="dock">
@@ -3688,6 +3701,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
       
+      <!-- Needed to keep footer aligned (aka 'Not by AI' on left and dock in middle). Since I'm using flex, I need a 3rd element (aka the next line) to correctly auto-position footer -->
       <div style="display:none"></div>
     </footer>
 

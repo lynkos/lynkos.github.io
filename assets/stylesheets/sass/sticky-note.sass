@@ -1,0 +1,42 @@
+@use "variables" as vars
+
+$sticky-note-width: 22rem
+$sticky-note-background: #FDF3A6
+$sticky-note-bar-background: #FCE760
+$sticky-note-border: vars.$border-thickness solid #C0A947
+$sticky-bar-height: 1.2rem
+
+#sticky-note
+    min-width: $sticky-note-width
+    box-shadow: vars.$box-shadow
+    overflow: hidden
+    display: none
+    position: absolute
+    background: $sticky-note-background
+    color: #000
+    width: $sticky-note-width
+    border: $sticky-note-border
+
+    &-bar
+        position: relative
+        height: $sticky-bar-height
+        width: 100%
+        border-bottom: $sticky-note-border
+        background: $sticky-note-bar-background
+
+    &-close:before
+        content: ""
+        cursor: vars.$pointer-cursor
+        position: absolute
+        top: vars.$padding-half
+        left: vars.$padding
+        height: vars.$padding
+        width: vars.$padding
+        background: linear-gradient(to bottom right, #D4CA54 0%, $sticky-note-bar-background 100%)
+        border: vars.$border-thickness solid #FCF38F
+        box-shadow: vars.$border-thickness vars.$border-thickness vars.$border-thickness #D4CA54
+        
+    &-body
+        height: auto
+        padding: vars.$padding
+        font-size: 1.3rem

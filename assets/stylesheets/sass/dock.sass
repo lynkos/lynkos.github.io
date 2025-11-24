@@ -39,12 +39,13 @@ $badge-opacity: 0.57
 // 'Not by AI' badge
 #not-ai, #not-ai-container
   height: auto
-  width: auto
   max-width: $badge-max-width
   max-height: $badge-max-height
 
 #not-ai
   display: flex
+  width: 20rem // 200px
+  cursor: vars.$pointer-cursor
   margin-left: calc(vars.$padding-one-and-half + vars.$border-thickness) // Original padding + close button left offset + button border thickness
 
   &-close
@@ -78,6 +79,7 @@ $badge-opacity: 0.57
     opacity: $badge-opacity
     align-self: center // Center vertically
     transition: opacity vars.$transition-half ease-in-out
+    width: auto
 
     &:hover
       opacity: 1.0
