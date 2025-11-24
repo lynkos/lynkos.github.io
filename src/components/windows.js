@@ -571,6 +571,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show wifi menu when wifi icon clicked
     showRightMenu("#wifi", "#wifi-menu", 0);
 
+    // Show control center menu when control center icon clicked
+    showRightMenu("#control-center", "#control-center-menu", 4);
+
     // Show apple menu when apple icon clicked
     showLeftMenu("#apple", "#apple-menu");
 
