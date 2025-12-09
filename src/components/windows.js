@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
         $(selector).draggable({
             cursor: cursor,
             handle: ".handle",
-            cancel: ".cancel, .icons",
+            cancel: ".cancel, .icons, #sticky-note-close",
             start: function() {
                 bringToFront(this);
             },
@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Make some windows resizeable
     // TODO: Add #email once mail app (aka contact form) is fixed
-    $("#mac-terminal, #notes, #browser, .preview, .resume").resizable({
+    $("#mac-terminal, #notes, #browser, .preview, .resume, #sticky-note").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
@@ -692,4 +692,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Open mail
     //openWindow("#mailDockIcon", "#email");
+
+    positionWindow("#sticky-note");
+
+    document.getElementById("not-ai").addEventListener("click", function() {
+        bringToFront("#sticky-note");
+        
+        document.getElementById("sticky-note").style.display = "block";
+
+        if (!document.getElementById("sticky-note").classList.contains("openWindow")) document.getElementById("sticky-note").classList.add("openWindow");
+
+        // Mark clicked window as opened
+        if (!document.getElementById("not-ai").classList.contains("open")) document.getElementById("not-ai").classList.add("open");
+    });
 });

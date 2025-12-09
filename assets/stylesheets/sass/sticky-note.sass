@@ -1,0 +1,49 @@
+@use "variables" as vars
+
+$sticky-note-width: 25rem
+$sticky-note-height: 6.5rem
+$sticky-note-max-width: 40rem
+$sticky-note-max-height: 20rem
+$sticky-note-background: #FDF3A6
+$sticky-note-bar-background: #FCE760
+$sticky-note-border: vars.$border-thickness solid #C0A947
+$sticky-bar-height: 1.2rem
+
+#sticky-note
+    min-width: $sticky-note-width
+    min-height: $sticky-note-height
+    max-width: $sticky-note-max-width
+    max-height: $sticky-note-max-height
+    box-shadow: vars.$box-shadow
+    overflow: hidden
+    display: none
+    position: absolute
+    background: $sticky-note-background
+    color: #000
+    width: $sticky-note-width
+    border: $sticky-note-border
+
+    &-bar
+        position: relative
+        cursor: vars.$default-cursor
+        height: $sticky-bar-height
+        width: 100%
+        border-bottom: $sticky-note-border
+        background: $sticky-note-bar-background
+
+    &-close:before
+        content: ""
+        cursor: vars.$pointer-cursor
+        position: absolute
+        top: vars.$padding-half
+        left: vars.$padding
+        height: vars.$padding
+        width: vars.$padding
+        background: linear-gradient(to bottom right, #D4CA54 0%, $sticky-note-bar-background 100%)
+        border: vars.$border-thickness solid #FCF38F
+        box-shadow: vars.$border-thickness vars.$border-thickness vars.$border-thickness #D4CA54
+        
+    &-body
+        height: auto
+        padding: vars.$padding
+        font-size: 1.3rem
