@@ -1,11 +1,14 @@
 @use "variables" as vars
 @use "mixins" as mix
 
+// TODO Refactor with Notes
+  
 $window-width: 55rem
 $sidebar-width: calc($window-width / 4)
 $min-sidebar-width: 17.1rem
 $header-height: 5rem
 $primary-background: rgba(32, 36, 31, 0.9)
+$secondary-background: rgb(30, 30, 30)
 $sidebar-background: rgba(32, 36, 31, 0.2)
 
 #music-app
@@ -67,3 +70,32 @@ $sidebar-background: rgba(32, 36, 31, 0.2)
           width: 100%
           border-radius: vars.$border-radius
           background-color: rgba(255, 255, 255, 0.15)
+
+    .main
+      flex: 1
+      overflow: auto
+
+      &-header
+        height: $header-height
+        padding: 0 vars.$padding-3x 0 vars.$padding-2x
+        width: 100%
+        background: $primary-background
+        display: flex
+        align-items: center
+        justify-content: space-between
+        backdrop-filter: blur(2rem)
+
+      &-body
+        height: calc(100% - $header-height)
+        background: $secondary-background
+        width: 100%
+        padding: vars.$padding vars.$padding-4x
+        overflow: auto
+        font-size: 1.4rem
+
+        h1
+          font-size: 2.25rem
+          font-weight: 700
+
+        img
+          width: 100%
