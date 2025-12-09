@@ -1,0 +1,69 @@
+@use "variables" as vars
+@use "mixins" as mix
+
+$window-width: 55rem
+$sidebar-width: calc($window-width / 4)
+$min-sidebar-width: 17.1rem
+$header-height: 5rem
+$primary-background: rgba(32, 36, 31, 0.9)
+$sidebar-background: rgba(32, 36, 31, 0.2)
+
+#music-app
+  flex-direction: column
+  align-content: stretch
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, vars.$height)
+  display: flex // Temp for testing
+
+  .body
+    color: white
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+    display: flex
+
+    .sidebar
+      width: $sidebar-width
+      min-width: $min-sidebar-width
+      height: 100%
+      border-right: vars.$border-thickness solid rgb(11, 11, 11)
+      @include mix.disable-select()
+
+      &-header
+        position: relative
+        padding: vars.$padding-2x vars.$padding-2x vars.$padding-2x vars.$padding-3x
+        height: $header-height
+        background: $sidebar-background
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .buttons
+          @include mix.buttons()
+
+      .content
+        background: $sidebar-background
+        overflow: auto
+        height: calc(100% - $header-height)
+        padding: 0 vars.$padding-2x
+
+        .subtitle
+          font-size: 1.2rem
+          padding: vars.$padding 0
+          font-weight: 700
+          color: rgb(147, 148, 146)
+        
+        .text
+          color: white
+          font-size: 1.3rem
+          line-height: 1.75rem
+          width: 100%
+          position: relative
+          padding: vars.$padding 0 vars.$padding vars.$padding-3x
+
+          i
+            color: vars.$secondary-button-color
+
+        .active
+          width: 100%
+          border-radius: vars.$border-radius
+          background-color: rgba(255, 255, 255, 0.15)

@@ -103,7 +103,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <link rel="stylesheet" href="/assets/stylesheets/css/dock.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/menubar.css">
     <link rel="stylesheet" href="/assets/stylesheets/css/sticky-note.css">
-
+    
+    <link rel="stylesheet" href="/assets/stylesheets/css/music-app.css">
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" referrerpolicy="no-referrer" crossorigin="anonymous"></script>
     <script src="/dist/lib/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -941,9 +943,61 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </form> -->
 
+        <div id="music-app" class="windows">
+          <div class="body">
+            <aside class="sidebar">
+              <div class="sidebar-header handle">
+                <div class="buttons">
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--red cancel"></span>
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--yellow cancel"></span>
+                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--green cancel"></span>
+                </div>
+              </div>
+
+              <div class="content">
+                <div class="subtitle">Apple Music</div>
+                <div class="text">
+                  <i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i>&nbsp;&nbsp;Listen Now
+                </div>
+              
+                <div class="text">
+                  <i alt="Radio icon" class="fas fa-signal" aria-hidden="true"></i>&nbsp;&nbsp;Radio
+                </div>
+
+                <div class="subtitle">Library</div>
+                <div class="text">
+                  <i alt="Recently added icon" class="far fa-clock" aria-hidden="true"></i>&nbsp;&nbsp;Recently Added
+                </div>
+
+                <div class="text">
+                  <i alt="Artists icon" class="fas fa-microphone" aria-hidden="true"></i>&nbsp;&nbsp;Artists
+                </div>
+
+                <div class="text">
+                  <i alt="Albums icon" class="fas fa-compact-disc" aria-hidden="true"></i>&nbsp;&nbsp;Albums
+                </div>
+
+                <div class="text">
+                  <i alt="Songs icon" class="fas fa-music" aria-hidden="true"></i>&nbsp;&nbsp;Songs
+                </div>
+
+                <div class="subtitle">Store</div>
+                <div class="text">
+                  <i alt="iTunes Store icon" class="far fa-star" aria-hidden="true"></i>&nbsp;&nbsp;iTunes Store
+                </div>
+
+                <div class="subtitle">Playlists</div>
+                <div class="text active">
+                  <i alt="Playlists icon" class="far fa-square" aria-hidden="true"></i>&nbsp;&nbsp;All Playlists
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
         <div id="notes" class="windows">
           <div class="body">
-            <div class="sidebar">
+            <aside class="sidebar">
               <div class="sidebar-header handle">
                 <div class="buttons">
                   <span role="button" tabindex="0" class="buttons-icon buttons-icon--red cancel"></span>
@@ -1196,7 +1250,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   </li>
                 </ul>
               </div>
-            </div>
+            </aside>
 
             <div class="main">
               <div class="main-header handle">
