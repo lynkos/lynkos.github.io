@@ -65,9 +65,13 @@
         vec2 res = vec2(0.);
         float scale = 8.;
 
-        for (int j = 0; j < 200; j++) {
-          uv = rotate(uv, 1.);
-          sine_acc = rotate(sine_acc, 1.);
+        float cos_rot = cos(1.);
+        float sin_rot = sin(1.);
+        mat2 rotation_matrix = mat2(cos_rot, sin_rot, -sin_rot, cos_rot);
+
+        for (int j = 0; j < 50; j++) {
+          uv = rotation_matrix * uv;
+          sine_acc = rotation_matrix * sine_acc;
           vec2 layer = uv * scale + float(j) + sine_acc - t;
           sine_acc += sin(layer);
           res += (.5 + .5 * cos(layer)) / scale;
