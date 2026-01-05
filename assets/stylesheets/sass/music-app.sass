@@ -1,11 +1,12 @@
 @use "variables" as vars
 @use "mixins" as mix
+@use "sass:math"
 
 // TODO Refactor with Notes
   
 $window-width: 75rem
 $window-height: 50rem
-$sidebar-width: calc($window-width / 4)
+$sidebar-width: math.div($window-width, 4)
 $min-sidebar-width: 17.1rem
 $header-height: 5rem
 $num-columns: 2
@@ -15,6 +16,14 @@ $primary-background: rgba(32, 36, 31, 0.9)
 $secondary-background: rgb(30, 30, 30)
 $sidebar-background: rgba(32, 36, 31, 0.2)
 $sidebar-title-color: rgb(147, 148, 146)
+$underline-color: rgba(147, 148, 146, 0.4)
+$track-color: $sidebar-title-color
+$active-track-color: vars.$secondary-button-color
+$thumb-color: $primary-background
+$thumb-border-color: $sidebar-title-color
+$thumb-size: $icon-size
+$track-height: 0.9rem
+$track-border-radius: 0.25rem
 
 #music-app
   flex-direction: column
@@ -80,9 +89,8 @@ $sidebar-title-color: rgb(147, 148, 146)
       flex: 1
       overflow: auto
 
-      .c-playback // &-header
+      .c-playback
         height: $header-height
-        //padding: 0 vars.$padding
         width: 100%
         background: $primary-background
         display: grid // flex
@@ -91,7 +99,7 @@ $sidebar-title-color: rgb(147, 148, 146)
         backdrop-filter: blur(2rem)
         grid-template-columns: 0.7fr 1.1fr 1fr
         //max-width: 1500px
-        border-bottom: 1px solid #e8e8e8
+        border-bottom: vars.$border-thickness-half solid $underline-color
         
         i
           color: $sidebar-title-color
@@ -105,6 +113,7 @@ $sidebar-title-color: rgb(147, 148, 146)
           align-items: center
           justify-self: center
           grid-gap: vars.$padding-2x
+          padding: 0 vars.$padding-one-and-half
                 
           &__group
             display: grid
@@ -112,7 +121,7 @@ $sidebar-title-color: rgb(147, 148, 146)
             grid-gap: vars.$padding-one-and-half
 
         &__lcd
-          background-color: #dedede
+          background-color: $sidebar-title-color
           padding: vars.$padding 0
           border-radius: vars.$border-radius
           // overflow: hidden
@@ -123,7 +132,7 @@ $sidebar-title-color: rgb(147, 148, 146)
                 
           i
             font-size: calc($icon-size * 1.5)
-            color: #8a8a8e
+            color: white
 
         &__user
           display: flex
@@ -143,85 +152,105 @@ $sidebar-title-color: rgb(147, 148, 146)
       .c-input-slider
         display: flex
         align-items: center
+        @include mix.disable-select()
 
         input[type=range]
           width: 100% // auto
           //max-width: 10rem
+          background: transparent
           -webkit-appearance: none
           padding: 0 vars.$padding
+          @include mix.disable-select()
+
+          &::-moz-focus-outer
+            border: 0
           
           &:focus
-            outline: none
+            outline: 0 // none
 
             &::-webkit-slider-runnable-track
-              background: #367ebd
-
-            &::-ms-fill-lower
-              background: #3071a9
+              background: $track-color
             
             &::-ms-fill-upper
-              background: #367ebd
-            
-          &::-webkit-slider-runnable-track
-            width: 100%
-            height: 8.4px
-            cursor: pointer
-            background: $sidebar-title-color
-            border-radius: 1.3px
-            border: 0.2px solid #010101
-          
-          &::-webkit-slider-thumb
-            border: 1px solid $sidebar-title-color
-            height: $icon-size
-            width: $icon-size
-            border-radius: 100%
-            background: $primary-background
-            cursor: pointer
-            -webkit-appearance: none
-            margin-top: calc($icon-size / -3.5)
+              background: $track-color
 
-          &::-moz-range-track
-            width: 100%
-            height: 8.4px
-            cursor: pointer
-            animate: 0.2s
-            background: #3071a9
-            border-radius: 1.3px
-          
+            &::-ms-fill-lower
+              background: $track-color
+            
+          &:focus-visible
+            outline: vars.$border-thickness solid $thumb-border-color
+            outline-offset: vars.$border-thickness
+                    
           &::-moz-range-thumb
-            height: $icon-size
-            width: $icon-size
-            border: 1px solid $sidebar-title-color
-            border-radius: 100%
-            background: $primary-background
-            cursor: pointer
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            
+            &:hover
+              background: $thumb-color
+          
+          &::-ms-thumb
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            margin-top: math.div($track-height, 4)
+
+            &:hover
+              background: $thumb-color
+
+          &::-webkit-slider-thumb
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            -webkit-appearance: none
+            margin-top: calc((#{$track-height} - #{$thumb-size}) / 2)
+
+            &:hover
+              background: $thumb-color
+              
+          &::-webkit-slider-runnable-track
+            @include mix.track()
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+          
+          &::-moz-range-track
+            @include mix.track()
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
           
           &::-ms-track
-            width: 100%
-            height: $icon-size
-            cursor: pointer
+            @include mix.track()
             animate: 0.2s
             background: transparent
             border-color: transparent
-            border-width: 16px 0
+            border-width: math.div($thumb-size, 2) 0
             color: transparent
-          
-          &::-ms-fill-lower
-            background: #2a6495
-            border-radius: 2.6px
-          
+                    
           &::-ms-fill-upper
-            background: #3071a9
-            border-radius: 2.6px
-          
-          &::-ms-thumb
-            border: 1px solid #000000
-            height: $icon-size
-            width: $icon-size
-            border-radius: 100%
-            background: #ffffff
-            cursor: pointer
+            background: $track-color
+            border-radius: $track-border-radius
 
+            &:active
+              background: $active-track-color
+
+          &::-ms-fill-lower
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+
+          &:disabled
+            opacity: 0.5
+
+            &::-webkit-slider-thumb,
+            &::-moz-range-thumb,
+            &::-ms-thumb,
+            &::-webkit-slider-runnable-track,
+            &::-ms-fill-lower,
+            &::-ms-fill-upper
+              cursor: not-allowed
+    
       &-body
         height: calc(100% - $header-height)
         background: $secondary-background
@@ -233,6 +262,12 @@ $sidebar-title-color: rgb(147, 148, 146)
         h1
           font-size: 2.25rem
           font-weight: 700
+
+        hr
+          border: 0
+          height: vars.$border-thickness-half
+          background-color: $underline-color
+          margin-bottom: vars.$padding-2x
 
         img
           width: 100%
