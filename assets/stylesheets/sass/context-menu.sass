@@ -2,7 +2,7 @@
 @use "variables" as vars
 
 $context-menu-width: 20rem
-$margin-edge: calc(vars.$padding + vars.$padding-quarter)
+$margin-edge: vars.$padding // calc(vars.$padding + vars.$padding-quarter)
 
 .context-menu
   pointer-events: none
@@ -13,7 +13,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
 
   &:before, ul &-submenu:before
     content: ""
-    padding: vars.$padding-quarter
+    padding: $margin-edge // vars.$padding-quarter
     background: vars.$menu-background
     backdrop-filter: blur(2.75rem)
     height: 100%
@@ -24,7 +24,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
   &-item
     position: relative
     margin: 0
-    padding: 0 vars.$padding
+    padding: 0 $margin-edge // 0 vars.$padding
     white-space: nowrap
 
     &:first-child
@@ -72,7 +72,7 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
 
   & .context-menu
     top: calc($margin-edge * -1)
-    left: calc($context-menu-width - vars.$padding)
+    left: calc($context-menu-width - $margin-edge) // - vars.$padding
 
   &-show
     opacity: 1
