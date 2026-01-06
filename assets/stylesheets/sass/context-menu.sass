@@ -6,19 +6,10 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
 
 .context-menu
   pointer-events: none
-  display: block
-  position: absolute
   opacity: 0
   margin: 0
-  font-size: vars.$menubar-font-size
-  font-family: vars.$font-family
-  z-index: 1
-  width: $context-menu-width
-  height: auto
-  box-shadow: vars.$menu-shadow
-  cursor: vars.$default-cursor
   transition: opacity vars.$transition-half
-  @include mix.disable-select()
+  @include mix.menu-dropdown($context-menu-width, auto, block, absolute, transparent)
 
   &:before, ul &-submenu:before
     content: ""
@@ -29,7 +20,6 @@ $margin-edge: calc(vars.$padding + vars.$padding-quarter)
     width: 100%
     position: absolute
     border-radius: vars.$menu-border-radius
-    @include mix.window-border()
 
   &-item
     position: relative

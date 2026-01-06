@@ -68,6 +68,11 @@
         width: auto
         height: calc(vars.$menubar-icon-size + 0.1rem)
 
+#playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu, #file-menu
+  top: vars.$menubar-height
+  backdrop-filter: blur(2.75rem)
+  padding: vars.$padding-half
+
 #playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
   @include mix.menu-dropdown()
 
