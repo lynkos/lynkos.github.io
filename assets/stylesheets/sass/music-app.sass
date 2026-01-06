@@ -5,7 +5,7 @@
 // TODO Refactor with Notes
   
 $window-width: 75rem
-$min-window-width: 65rem
+$min-window-width: 55rem
 $window-height: 50rem
 $min-window-height: 43rem
 $sidebar-width: math.div($window-width, 5)
@@ -53,6 +53,11 @@ $search-width: 13rem
       border-right: vars.$border-thickness solid rgb(11, 11, 11)
       backdrop-filter: blur(2.75rem)
       @include mix.disable-select()
+
+      // Prevent sidebar from shrinking too much on smaller screens
+      @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+        width: math.div($window-width, 4.5)
+        min-width: math.div($window-width, 4.5)
 
       &-header
         position: relative
