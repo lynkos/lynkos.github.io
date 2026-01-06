@@ -82,6 +82,10 @@ Includes (but is not limited to):
     * Multiplication (**×**)
     * Division (**÷**)
     * Modulus (**%**)
+* **Apple Music**
+  * Browse my public Spotify playlists
+  * Click on any playlist to open it in Spotify
+  * Note: Ironically, I use Spotify instead of Apple Music
 * **Menubar**
   * Real-time **Clock** (i.e. displays date and time)
   * Click the play icon in the upper-right corner of the menubar to open **Music Player** and see what I am/was listening to
