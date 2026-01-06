@@ -947,47 +947,39 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           <div class="body">
             <aside class="sidebar">
               <div class="sidebar-header handle">
-                <div class="buttons">
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--red cancel"></span>
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--yellow cancel"></span>
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--green cancel"></span>
+                <div class="music-buttons">
+                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--red cancel"></span>
+                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--yellow cancel"></span>
+                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--green cancel"></span>
                 </div>
               </div>
 
               <div class="content">
                 <div class="search-bar" title=""><input type="text" placeholder="Search" alt="Search bar"></div>
-
                 <div class="subtitle">Apple Music</div>
                 <div class="text">
                   <i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i>&nbsp;&nbsp;Listen Now
                 </div>
-              
                 <div class="text">
                   <i alt="Radio icon" class="fas fa-signal" aria-hidden="true"></i>&nbsp;&nbsp;Radio
                 </div>
-
                 <div class="subtitle">Library</div>
                 <div class="text">
                   <i alt="Recently added icon" class="far fa-clock" aria-hidden="true"></i>&nbsp;&nbsp;Recently Added
                 </div>
-
                 <div class="text">
                   <i alt="Artists icon" class="fas fa-microphone" aria-hidden="true"></i>&nbsp;&nbsp;Artists
                 </div>
-
                 <div class="text">
                   <i alt="Albums icon" class="fas fa-compact-disc" aria-hidden="true"></i>&nbsp;&nbsp;Albums
                 </div>
-
                 <div class="text">
                   <i alt="Songs icon" class="fas fa-music" aria-hidden="true"></i>&nbsp;&nbsp;Songs
                 </div>
-
                 <div class="subtitle">Store</div>
                 <div class="text">
                   <i alt="iTunes Store icon" class="far fa-star" aria-hidden="true"></i>&nbsp;&nbsp;iTunes Store
                 </div>
-
                 <div class="subtitle">Playlists</div>
                 <div class="text active">
                   <i alt="Playlists icon" class="fas fa-border-all" aria-hidden="true"></i>&nbsp;&nbsp;All Playlists
@@ -1038,6 +1030,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       </div>
                     </div>
                   </article>
+
                   <article class="artwork" style="--img: url(https://www.channel4.com/media/images/Channel4/c4-news/2014/July/09/09_eminem2014_r_w.jpg);">
                     <div class="artwork__bg"></div>
                     <div class="artwork__details">
@@ -1047,7 +1040,6 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       </div>
                     </div>
                   </article>
-
                 </section>
               </div>
             </div>
@@ -3723,6 +3715,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
               <a role="button" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
               <a role="button" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
               <a role="button" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
+              <a role="button" tabindex="0" class="icon-music launch" id="musicLaunch"><img src="/assets/img/apps/music.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Music"> Music</a>
               <a role="button" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
               <a role="button" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
               <a role="button" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
@@ -3799,6 +3792,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
         <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
         <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="tooltip" tabindex="0" id="musicDockIcon" class="icon" aria-label="Music" data-microtip-position="top"><img src="/assets/img/apps/music.webp" draggable="false" fetchpriority="high" alt="Music"></div>
         <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
         <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
         <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>

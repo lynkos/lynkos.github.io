@@ -5,7 +5,9 @@
 // TODO Refactor with Notes
   
 $window-width: 75rem
+$min-window-width: vars.$min-width
 $window-height: 50rem
+$min-window-height: 43rem
 $sidebar-width: math.div($window-width, 5)
 $min-sidebar-width: 16rem
 $header-height: 5rem
@@ -34,8 +36,7 @@ $search-width: 13rem
 #music-app
   flex-direction: column
   align-content: stretch
-  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height)
-  display: flex // Temp for testing
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height, $min-window-width, $min-window-height)
 
   .body
     color: white
@@ -61,7 +62,7 @@ $search-width: 13rem
         align-items: center
         justify-content: space-between
 
-        .buttons
+        .music-buttons
           @include mix.buttons()
 
       .content
