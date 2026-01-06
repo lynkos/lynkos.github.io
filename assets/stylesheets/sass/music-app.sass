@@ -1,3 +1,11 @@
+// Copyright © 2024 – 2025 Kiran Brahmatewari.
+//
+// Modification of original work by Mark Eriksson.
+// (https://codepen.io/Markshall/pen/abdEbjg)
+//
+// This work is licensed under the terms of the MIT license.
+// Refer to https://opensource.org/licenses/MIT for a copy.
+
 @use "variables" as vars
 @use "mixins" as mix
 @use "sass:math"
@@ -6,29 +14,19 @@
   
 // DIMENSIONS
 $window-width: 85rem
-$min-window-width: 55rem
-$window-height: 50rem
-$min-window-height: 20rem
 $sidebar-width: math.div($window-width, 5)
-$min-sidebar-width: 16rem
 $header-height: 5rem
 $num-columns: 4
-$artwork-size: 10rem
 $icon-size: 1.5rem
 $track-height: 0.75rem
 $track-border-radius: 0.25rem
-$search-height: 2.5rem
-$search-width: 13rem
 $thumb-size: $icon-size
 
 // COLORS
 $header-background: rgb(27, 27, 27)
-$content-background: rgb(35, 35, 35)
 $sidebar-background: rgba(32, 36, 31, 0.25)
 $sidebar-title-color: rgb(147, 148, 146)
 $underline-color: rgba(147, 148, 146, 0.4)
-$apple-bg-color: rgb(61, 61, 61)
-$apple-color: rgb(140, 140, 140)
 $track-color: rgb(97, 97, 97)
 $play-color: rgb(66, 66, 66)
 $shuffle-color: rgb(124, 124, 124)
@@ -39,8 +37,7 @@ $thumb-border-color: $track-color
 #music-app
   flex-direction: column
   align-content: stretch
-  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height, $min-window-width, $min-window-height)
-  display: flex // temp
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, 50rem, 55rem, 20rem)
 
   .body
     color: white
@@ -52,14 +49,14 @@ $thumb-border-color: $track-color
     // SIDEBAR
     .sidebar
       width: $sidebar-width
-      min-width: $min-sidebar-width
+      min-width: 16rem
       height: 100%
       border-right: vars.$border-thickness solid rgb(11, 11, 11)
       backdrop-filter: blur(2.75rem)
       @include mix.disable-select()
 
       // Prevent sidebar from shrinking too much on smaller screens
-      @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+      @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
         width: math.div($window-width, 4.5)
         min-width: math.div($window-width, 4.5)
 
@@ -82,7 +79,7 @@ $thumb-border-color: $track-color
         padding: 0 vars.$padding-2x
 
         .search-bar
-          @include mix.searchbar(100%, $search-height, rgba(255, 255, 255, 0.1), 1.2rem, vars.$padding, white)
+          @include mix.searchbar(100%, 2.5rem, rgba(255, 255, 255, 0.1), 1.2rem, vars.$padding, white)
           margin-bottom: vars.$padding
 
         .subtitle
@@ -141,6 +138,7 @@ $thumb-border-color: $track-color
           padding: 0 vars.$padding-2x
           grid-gap: vars.$padding-2x
 
+        // PLAYBACK CONTROLS
         &__controls
           width: 100%
                 
@@ -149,16 +147,18 @@ $thumb-border-color: $track-color
             grid-template-columns: 1fr 1fr 1fr
             grid-gap: vars.$padding-2x
 
+        // APPLE LCD DISPLAY
         &__lcd
-          background-color: $apple-bg-color
+          background-color: rgb(61, 61, 61)
           padding: vars.$padding 0
-          border-radius: math.div(vars.$border-radius, 2)
+          border-radius: math.div(vars.$border-radius, 1.5)
           overflow: hidden
                 
           i
             font-size: calc($icon-size * 1.5)
-            color: $apple-color
+            color: rgb(140, 140, 140)
 
+        // TALK AND LIST ICONS IN RIGHT
         &__user__toggle
           appearance: none
           border: 0
@@ -171,11 +171,12 @@ $thumb-border-color: $track-color
           i
             color: $shuffle-color !important
 
+        // SHUFFLE AND REPEAT ICONS
         &__random, &__repeat
           color: $shuffle-color !important
           font-size: math.div($icon-size, 1.25) !important
 
-      // VOLUME SLIDER
+      // VOLUME BAR: SLIDER WITH VOLUME ICONS
       .c-input-slider
         display: flex
         align-items: center
@@ -185,6 +186,7 @@ $thumb-border-color: $track-color
           color: $play-color !important
           font-size: math.div($icon-size, 1.25) !important
 
+        // SLIDER INPUT STYLES
         input[type=range]
           width: 100% // auto
           max-width: 10rem
@@ -285,9 +287,9 @@ $thumb-border-color: $track-color
       // PLAYLIST AREA
       &-body
         height: calc(100% - $header-height)
-        background: $content-background
+        background: rgb(35, 35, 35)
         width: 100%
-        padding: 0 vars.$padding-4x vars.$padding-half vars.$padding-4x
+        padding: vars.$padding-half vars.$padding-3x
         overflow: auto
         font-size: 1.4rem
 
@@ -307,10 +309,9 @@ $thumb-border-color: $track-color
         .playlist
           height: 100%
           position: relative
-          // Subtract space above (margin-top) playlist name from playlist padding for consistency
-          // vars.padding-2x - vars.padding = vars.padding
-          padding: vars.$padding-one-and-half vars.$padding-one-and-half vars.$padding vars.$padding-one-and-half
           border-radius: vars.$border-radius
+          // Subtract space above (margin-top) playlist name from playlist padding for consistency
+          padding: vars.$padding-one-and-half vars.$padding-one-and-half vars.$padding vars.$padding-one-and-half
 
           &-row
             &:first-of-type
@@ -328,19 +329,12 @@ $thumb-border-color: $track-color
           &:hover
             background: rgba(255, 255, 255, 0.1)
 
-          &-hidden
-            visibility: hidden
-            pointer-events: none
-
-            &:hover
-              background: transparent
-
           &-cover
             border-radius: vars.$border-radius
             background: var(--img) no-repeat center
             background-size: cover
             object-fit: cover
-            height: 100% // $artwork-size
+            height: 100%
             width: 100%
             aspect-ratio: 1 / 1
             flex-grow: 1
@@ -357,7 +351,7 @@ $thumb-border-color: $track-color
             @media screen and (max-width: vars.$width-threshold)
               font-size: 0.9rem
 
-            @media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
+            @media screen and (max-width: calc(vars.$width-threshold - (1 * vars.$threshold-diff)))
               font-size: 0.85rem
 
           &-row
