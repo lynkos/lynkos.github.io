@@ -3838,6 +3838,18 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
+        <div class="trash-dialogue">
+          <div class="pp-body">
+            <img src="/assets/img/system/trash.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
+            <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
+            <div class="hint">You can't undo this action.</div>
+            <div class="actions">
+              <input class="alert-btn" type="button" value="Cancel">
+              <input onclick="changeImage()" class="alert-btn confirm" type="button" value="Empty Trash">
+            </div>
+          </div>
+        </div>
+
         <div id="sticky-note" class="windows hidden">
           <div id="sticky-note-bar" class="handle">
             <div id="sticky-note-close" onclick="document.getElementById('sticky-note').style.display = 'none'" role="button" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
