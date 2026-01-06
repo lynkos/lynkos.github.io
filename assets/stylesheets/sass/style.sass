@@ -11,12 +11,21 @@ $folder-dim: 6rem
 $scrollbar-color-thumb: rgba(255, 255, 255, 0.35)
 $scrollbar-color-track: rgba(255, 255, 255, 0.075)
 $scrollbar-width: 0.75rem
+$font-size: 60%
 
 :root, body
   background-attachment: fixed
 
 html
   font-size: 60%
+
+  // Responsive font sizing / scaling
+  @for $i from 0 through 6
+    @media screen and (max-width: calc(vars.$width-threshold - ($i * vars.$threshold-diff)))
+      font-size: calc(55% - ($i * 5%))
+
+  @media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
+    font-size: 24%
 
 html, body, header, footer
   width: 100%
@@ -150,35 +159,3 @@ body
   color: vars.$font-color
   margin: vars.$padding vars.$padding-2x
   border-bottom: vars.$border-thickness-half solid vars.$font-color
-
-@media screen and (max-width: vars.$width-threshold)
-  html
-    font-size: 55%
-
-@media screen and (max-width: calc(vars.$width-threshold - vars.$threshold-diff))
-  html
-    font-size: 50%
-
-@media screen and (max-width: calc(vars.$width-threshold - (2 * vars.$threshold-diff)))
-  html
-    font-size: 45%
-
-@media screen and (max-width: calc(vars.$width-threshold - (3 * vars.$threshold-diff)))
-  html
-    font-size: 40%
-
-@media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
-  html
-    font-size: 35%
-
-@media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
-  html
-    font-size: 30%
-    
-@media screen and (max-width: calc(vars.$width-threshold - (6 * vars.$threshold-diff)))
-  html
-    font-size: 25%
-
-@media screen and (max-width: calc(vars.$width-threshold - (7 * vars.$threshold-diff)))
-  html
-    font-size: 24%

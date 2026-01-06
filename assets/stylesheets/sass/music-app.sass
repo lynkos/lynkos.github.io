@@ -1,0 +1,363 @@
+// Copyright © 2024 – 2025 Kiran Brahmatewari.
+//
+// Modification of original work by Mark Eriksson.
+// (https://codepen.io/Markshall/pen/abdEbjg)
+//
+// This work is licensed under the terms of the MIT license.
+// Refer to https://opensource.org/licenses/MIT for a copy.
+
+@use "variables" as vars
+@use "mixins" as mix
+@use "sass:math"
+
+// TODO Refactor with Notes
+  
+// DIMENSIONS
+$window-width: 85rem
+$sidebar-width: math.div($window-width, 5)
+$header-height: 5rem
+$num-columns: 4
+$icon-size: 1.5rem
+$track-height: 0.75rem
+$track-border-radius: 0.25rem
+$thumb-size: $icon-size
+
+// COLORS
+$header-background: rgb(27, 27, 27)
+$sidebar-background: rgba(32, 36, 31, 0.25)
+$sidebar-title-color: rgb(147, 148, 146)
+$underline-color: rgba(147, 148, 146, 0.4)
+$track-color: rgb(97, 97, 97)
+$play-color: rgb(66, 66, 66)
+$shuffle-color: rgb(124, 124, 124)
+$active-track-color: vars.$secondary-button-color
+$thumb-color: $header-background
+$thumb-border-color: $track-color
+
+#music-app
+  flex-direction: column
+  align-content: stretch
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, 50rem, 55rem, 20rem)
+
+  .body
+    color: white
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+    display: flex
+
+    // SIDEBAR
+    .sidebar
+      width: $sidebar-width
+      min-width: 16rem
+      height: 100%
+      border-right: vars.$border-thickness solid rgb(11, 11, 11)
+      backdrop-filter: blur(2.75rem)
+      @include mix.disable-select()
+
+      // Prevent sidebar from shrinking too much on smaller screens
+      @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+        width: math.div($window-width, 4.5)
+        min-width: math.div($window-width, 4.5)
+
+      &-header
+        position: relative
+        padding: vars.$padding-2x vars.$padding-2x vars.$padding-2x vars.$padding-3x
+        height: $header-height
+        background: $sidebar-background
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .music-buttons
+          @include mix.buttons()
+
+      .content
+        background: $sidebar-background
+        overflow: auto
+        height: calc(100% - $header-height)
+        padding: 0 vars.$padding-2x
+
+        .search-bar
+          @include mix.searchbar(100%, 2.5rem, rgba(255, 255, 255, 0.1), 1.2rem, vars.$padding, white)
+          margin-bottom: vars.$padding
+
+        .subtitle
+          font-size: 1.2rem
+          padding: vars.$padding 0
+          font-weight: 700
+          color: $sidebar-title-color
+        
+        .text
+          color: white
+          font-size: 1.3rem
+          line-height: 1.75rem
+          width: 100%
+          position: relative
+          padding: vars.$padding 0 vars.$padding vars.$padding-3x
+
+          i
+            color: vars.$secondary-button-color
+
+        .playlist-icon i
+          color: $sidebar-title-color
+        
+        .active
+          width: 100%
+          border-radius: vars.$border-radius
+          background-color: rgba(255, 255, 255, 0.15)
+
+    .main
+      flex: 1
+      overflow: auto
+
+      // HEADER / TOPBAR / PLAYBACK CONTROLS
+      .c-playback
+        height: $header-height
+        width: 100%
+        background: $header-background
+        display: grid
+        align-items: center
+        justify-content: space-between
+        grid-template-columns: 0.7fr 1.1fr 1fr
+        border-bottom: vars.$border-thickness-half solid $underline-color
+        
+        i
+          color: $play-color
+          font-size: $icon-size
+
+        i, &__lcd
+          text-align: center
+
+        &__controls, &__lcd, &__user
+          display: flex
+          justify-content: center
+          align-items: center
+
+        &__controls, &__user
+          padding: 0 vars.$padding-2x
+          grid-gap: vars.$padding-2x
+
+        // PLAYBACK CONTROLS
+        &__controls
+          width: 100%
+                
+          &__group
+            display: grid
+            grid-template-columns: 1fr 1fr 1fr
+            grid-gap: vars.$padding-2x
+
+        // APPLE LCD DISPLAY
+        &__lcd
+          background-color: rgb(61, 61, 61)
+          padding: vars.$padding 0
+          border-radius: math.div(vars.$border-radius, 1.5)
+          overflow: hidden
+                
+          i
+            font-size: calc($icon-size * 1.5)
+            color: rgb(140, 140, 140)
+
+        // TALK AND LIST ICONS IN RIGHT
+        &__user__toggle
+          appearance: none
+          border: 0
+          background: transparent
+          display: flex
+          align-items: center
+          justify-content: center
+          grid-gap: vars.$padding-2x
+
+          i
+            color: $shuffle-color !important
+
+        // SHUFFLE AND REPEAT ICONS
+        &__random, &__repeat
+          color: $shuffle-color !important
+          font-size: math.div($icon-size, 1.25) !important
+
+      // VOLUME BAR: SLIDER WITH VOLUME ICONS
+      .c-input-slider
+        display: flex
+        align-items: center
+        @include mix.disable-select()
+
+        i
+          color: $play-color !important
+          font-size: math.div($icon-size, 1.25) !important
+
+        // SLIDER INPUT STYLES
+        input[type=range]
+          width: 100% // auto
+          max-width: 10rem
+          background: transparent
+          -webkit-appearance: none
+          padding: 0 vars.$padding
+          @include mix.disable-select()
+
+          &::-moz-focus-outer
+            border: 0
+          
+          &:focus
+            outline: 0 // none
+
+            &::-webkit-slider-runnable-track
+              background: $track-color
+            
+            &::-ms-fill-upper
+              background: $track-color
+
+            &::-ms-fill-lower
+              background: $track-color
+            
+          &:focus-visible
+            outline: vars.$border-thickness solid $thumb-border-color
+            outline-offset: vars.$border-thickness
+                    
+          &::-moz-range-thumb
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            
+            &:hover
+              background: $thumb-color
+          
+          &::-ms-thumb
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            margin-top: math.div($track-height, 4)
+
+            &:hover
+              background: $thumb-color
+
+          &::-webkit-slider-thumb
+            @include mix.thumb($thumb-color, $thumb-border-color, $thumb-size)
+            -webkit-appearance: none
+            margin-top: calc((#{$track-height} - #{$thumb-size}) / 2)
+
+            &:hover
+              background: $thumb-color
+              
+          &::-webkit-slider-runnable-track
+            @include mix.track($track-height)
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+          
+          &::-moz-range-track
+            @include mix.track($track-height)
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+          
+          &::-ms-track
+            @include mix.track($track-height)
+            animate: 0.2s
+            background: transparent
+            border-color: transparent
+            border-width: math.div($thumb-size, 2) 0
+            color: transparent
+                    
+          &::-ms-fill-upper
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+
+          &::-ms-fill-lower
+            background: $track-color
+            border-radius: $track-border-radius
+
+            &:active
+              background: $active-track-color
+
+          &:disabled
+            opacity: 0.5
+
+            &::-webkit-slider-thumb,
+            &::-moz-range-thumb,
+            &::-ms-thumb,
+            &::-webkit-slider-runnable-track,
+            &::-ms-fill-lower,
+            &::-ms-fill-upper
+              cursor: not-allowed
+    
+      // PLAYLIST AREA
+      &-body
+        height: calc(100% - $header-height)
+        background: rgb(35, 35, 35)
+        width: 100%
+        padding: vars.$padding-half vars.$padding-3x
+        overflow: auto
+        font-size: 1.4rem
+
+        h1
+          font-size: 2.25rem
+          font-weight: 700
+
+        hr
+          border: 0
+          height: vars.$border-thickness-half
+          background-color: $underline-color
+          margin-bottom: vars.$padding-half
+
+        img
+          width: 100%
+
+        .playlist
+          height: 100%
+          position: relative
+          border-radius: vars.$border-radius
+          // Subtract space above (margin-top) playlist name from playlist padding for consistency
+          padding: vars.$padding-one-and-half vars.$padding-one-and-half vars.$padding vars.$padding-one-and-half
+
+          &-row
+            &:first-of-type
+              margin-top: 0 !important
+
+            &:last-of-type
+              margin-bottom: 0 !important
+
+          &:first-of-type
+            margin-left: 0 !important
+          
+          &:last-of-type
+            margin-right: 0 !important
+
+          &:hover
+            background: rgba(255, 255, 255, 0.1)
+
+          &-cover
+            border-radius: vars.$border-radius
+            background: var(--img) no-repeat center
+            background-size: cover
+            object-fit: cover
+            height: 100%
+            width: 100%
+            aspect-ratio: 1 / 1
+            flex-grow: 1
+
+          &-details
+            text-align: center
+            margin-top: vars.$padding
+            font-size: 1rem
+            width: 100%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+            @media screen and (max-width: vars.$width-threshold)
+              font-size: 0.9rem
+
+            @media screen and (max-width: calc(vars.$width-threshold - (1 * vars.$threshold-diff)))
+              font-size: 0.85rem
+
+          &-row
+            display: flex
+            justify-content: space-between
+            align-items: center
+            
+            .playlist
+              width: calc(100% / $num-columns)

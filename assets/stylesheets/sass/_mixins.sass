@@ -247,3 +247,20 @@
         width: $img-size
         height: $img-size
         margin-right: $spacing
+
+@mixin track($track-height, $track-width: 100%)
+    cursor: vars.$default-cursor
+    height: $track-height
+    transition: all .2s ease
+    width: $track-width
+    @include disable-select()
+
+@mixin thumb($thumb-color, $border-color, $thumb-size)
+    background: $thumb-color
+    border: vars.$border-thickness solid $border-color
+    border-radius: 100%
+    box-sizing: border-box
+    cursor: vars.$default-cursor
+    height: $thumb-size
+    width: $thumb-size
+    @include disable-select()

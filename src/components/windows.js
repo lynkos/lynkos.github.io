@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Make some windows resizeable
     // TODO: Add #email once mail app (aka contact form) is fixed
-    $("#mac-terminal, #notes, #browser, .preview, .resume, #sticky-note").resizable({
+    $("#mac-terminal, #notes, #browser, .preview, .resume, #sticky-note, #music-app").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
@@ -559,6 +559,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open calculator
     openWindow("#calcDockIcon", "#calc", "inline-block");
     
+    // Open music app
+    openWindow("#musicDockIcon", "#music-app");
+
     // Open trash dialogue
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
     
@@ -585,6 +588,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Launch calculator
     launchApp("#calculatorLaunch", "#calc", "#calcDockIcon", "inline-block");
+    
+    // Launch music app
+    launchApp("#musicLaunch", "#music-app", "#musicDockIcon");
 
     // Close terminal
     closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
@@ -600,6 +606,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Close calculator
     closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
+    
+    // Close music app
+    closeWindow(".music-buttons-icon--red", "#music-app", "#musicDockIcon");
 
     // Close preview
     closeWindow(".preview-header__op-icon--red", ".preview", "#previewDockIcon");
@@ -624,6 +633,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Maximize resume
     maximizeWindow(".resume-header__op-icon--green", ".resume");
+    
+    // Maximize music app
+    maximizeWindow(".music-buttons-icon--green", "#music-app");
 
     // Maximize about me
     //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
