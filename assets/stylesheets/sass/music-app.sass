@@ -11,8 +11,8 @@ $min-window-height: 43rem
 $sidebar-width: math.div($window-width, 5)
 $min-sidebar-width: 16rem
 $header-height: 5rem
-$num-columns: 2
-$artwork-height: 250px
+$num-columns: 4
+$artwork-size: 10rem
 $icon-size: 1.5rem
 $header-background: rgb(27, 27, 27)
 $content-background: rgb(35, 35, 35)
@@ -37,6 +37,7 @@ $search-width: 13rem
   flex-direction: column
   align-content: stretch
   @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height, $min-window-width, $min-window-height)
+  display: flex // temp
 
   .body
     color: white
@@ -289,42 +290,29 @@ $search-width: 13rem
 
         .artworks
           display: grid
+          flex-direction: row
           grid-template-columns: repeat($num-columns, 1fr)
-          gap: vars.$padding-2x
-      
-        .artwork
-          border-radius: vars.$border-radius
-          overflow: hidden
-          position: relative
-          height: $artwork-height
-        
-          &__bg
-            height: 100%
-            width: 100%
-            background: var(--img) no-repeat center
-            background-size: cover
-        
-          &__details
-            position: absolute
-            overflow: hidden
-            width: 100%
-            text-align: center
-            background-color: rgba(255, 255, 255, 0.5)
-            backdrop-filter: blur(1rem)
-            bottom: 0
-            padding: vars.$padding-4x 0
-            border-radius: 0 0 vars.$border-radius vars.$border-radius
-        
-            &-inner
-              width: 100%
-              display: flex
-              align-items: center
-              flex-direction: column
-              justify-content: center
-        
-          &-artist
-            font-weight: 500
-            letter-spacing: 0.05rem
-        
-          &-song
-            font-weight: 300
+          // gap: vars.$padding
+          // height: 100%
+          // width: 100%
+
+          .artwork
+            position: relative
+            padding: vars.$padding-2x
+            border-radius: vars.$border-radius
+            
+            &:hover
+              background: rgba(255, 255, 255, 0.1)
+
+            &__bg
+              border-radius: vars.$border-radius
+              background: var(--img) no-repeat center
+              background-size: cover
+              height: $artwork-size
+              width: $artwork-size
+
+            &__details
+              width: $artwork-size //100%
+              text-align: center
+              padding-top: vars.$padding
+              font-size: 1rem
