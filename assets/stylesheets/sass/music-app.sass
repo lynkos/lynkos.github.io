@@ -5,7 +5,7 @@
 // TODO Refactor with Notes
   
 $window-width: 75rem
-$min-window-width: vars.$min-width
+$min-window-width: 65rem
 $window-height: 50rem
 $min-window-height: 43rem
 $sidebar-width: math.div($window-width, 5)
@@ -288,31 +288,52 @@ $search-width: 13rem
         img
           width: 100%
 
-        .artworks
-          display: grid
-          flex-direction: row
-          grid-template-columns: repeat($num-columns, 1fr)
-          // gap: vars.$padding
-          // height: 100%
-          // width: 100%
+        .playlist
+          // background: green
+          margin: vars.$padding-half
+          height: 100%
+          position: relative
+          // Subtract space above (margin-top) playlist name from playlist padding for consistency
+          // vars.padding-2x - vars.padding = vars.padding
+          padding: vars.$padding-2x vars.$padding-2x vars.$padding vars.$padding-2x
+          border-radius: vars.$border-radius
 
-          .artwork
-            position: relative
-            padding: vars.$padding-2x
-            border-radius: vars.$border-radius
-            
+          // &-row
+          //   border: 1px solid red
+
+          &:first-of-type
+            margin-left: 0 !important
+          
+          &:last-of-type
+            margin-right: 0 !important
+
+          &:hover
+            background: rgba(255, 255, 255, 0.1)
+
+          &-hidden
+            visibility: hidden
+            pointer-events: none
+
             &:hover
-              background: rgba(255, 255, 255, 0.1)
+              background: transparent
 
-            &__bg
-              border-radius: vars.$border-radius
-              background: var(--img) no-repeat center
-              background-size: cover
-              height: $artwork-size
-              width: $artwork-size
+          &-cover
+            border-radius: vars.$border-radius
+            background: var(--img) no-repeat center
+            background-size: cover
+            height: $artwork-size
+            width: 100% //$artwork-size
 
-            &__details
-              width: $artwork-size //100%
-              text-align: center
-              padding-top: vars.$padding
-              font-size: 1rem
+          &-details
+            text-align: center
+            margin-top: vars.$padding
+            font-size: 0.75rem
+            width: 100%
+
+        .playlist-row
+          display: flex
+          justify-content: space-between
+          align-items: center
+          
+          .playlist
+            width: calc(100% / $num-columns)
