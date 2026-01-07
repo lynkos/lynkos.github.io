@@ -88,8 +88,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function positionWindow(win) {
         // Calculate menubar height (3rem) and convert to px
         // Used to subtract from vertical position to take menubar height into account
-        //const dockHeight = dock.offsetHeight;
-        const menubarHeight = 48; // 3 * parseFloat(computedStyle.fontSize); = 3rem --> px
+        // let dockHeight = dock.offsetHeight;
+        let menubarHeight = 36.5; //3 * parseFloat(computedStyle.fontSize); // = 3rem --> px
 
         // IF window height >= max height, place at top (sub menubar height)
         if (document.querySelector(win).offsetHeight >= maxHeight) centerWindow(win, "top-" + menubarHeight, "top");
