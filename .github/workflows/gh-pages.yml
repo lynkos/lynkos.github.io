@@ -97,7 +97,7 @@ jobs:
           publish_branch: prod
 
           # TODO: Remove 'assets/img/apps/mail.webp,dist/components/email.js' from exclude_assets once "Mail" app is fixed
-          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.webp,assets/stylesheets/sass,assets/img/apps/mail.webp,dist/components/email.js'
+          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.webp,assets/stylesheets/sass,assets/stylesheets/css/components,assets/img/apps/mail.webp,dist/components/email.js'
           publish_dir: .
           cname: lynkos.dev
           disable_nojekyll: true
