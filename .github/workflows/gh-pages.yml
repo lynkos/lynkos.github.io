@@ -96,8 +96,8 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: prod
 
-          # TODO: Remove 'assets/stylesheets/css/mail.css,assets/img/apps/mail.webp,dist/components/email.js' from exclude_assets once "Mail" app is fixed
-          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.webp,assets/stylesheets/sass,assets/stylesheets/css/mail.css,assets/img/apps/mail.webp,dist/components/email.js'
+          # TODO: Remove 'assets/img/apps/mail.webp,dist/components/email.js' from exclude_assets once "Mail" app is fixed
+          exclude_assets: '.github,.gitignore,README.md,LICENSE.md,node_modules,src,package.json,package-lock.json,assets/img/misc/pipeline.webp,assets/stylesheets/sass,assets/img/apps/mail.webp,dist/components/email.js'
           publish_dir: .
           cname: lynkos.dev
           disable_nojekyll: true
