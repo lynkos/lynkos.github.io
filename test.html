@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>macOS Sequoia Control Center</title>
+    <link rel="preload" as="style" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" onload="this.onload=null;this.rel='stylesheet'" referrerpolicy="no-referrer">
+    <!-- Fallback for preload if there's no JavaScript -->
+    <noscript>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" referrerpolicy="no-referrer">
+    </noscript>
+    <link rel="stylesheet" href="/assets/stylesheets/css/control-center.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-center">
+        <!-- Main Control Grid - Organized by function and visual hierarchy -->
+        <div class="control-grid">
+            <!-- Left Column - Connectivity Controls (WiFi, Bluetooth, AirDrop) -->
+            <div class="connectivity-column control-tile">
+                <!-- WiFi Control - Manages wireless connectivity -->
+                <div id="wifi-tile">
+                    <div class="control-icon"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></div>
+                    <div style="margin-left: 10px;">
+                        <div class="control-label">Wi-Fi</div>
+                        <div class="connection-status">
+                            <div class="status-text">Lynkos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bluetooth Control - Manages device pairing and connectivity -->
+                <div id="bluetooth-tile">
+                    <div class="control-icon"><i alt="Bluetooth icon" class="fab fa-bluetooth" aria-hidden="true"></i></div>
+                    <div style="margin-left: 10px;">
+                        <div class="control-label">Bluetooth</div>
+                        <div class="connection-status">
+                            <div class="status-text">On</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AirDrop - File sharing between Apple devices -->
+                <div id="airdrop-tile">
+                    <div class="control-icon"><i alt="Bullseye icon" class="fas fa-bullseye" aria-hidden="true"></i></div>
+                    <div style="margin-left: 10px;">
+                        <div class="control-label">AirDrop</div>
+                        <div class="connection-status">
+                            <div class="status-text">Contacts Only</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Focus and Sharing Controls -->
+            <div class="focus-controls">
+                <!-- Do Not Disturb - Focus mode management (takes full width) -->
+                <div class="control-tile" id="dnd-tile">
+                    <div class="control-icon"><i alt="Moon icon" class="fas fa-moon" aria-hidden="true"></i></div>
+                    <div class="control-label" style="align-self: center;">Do Not Disturb</div>
+                </div>
+
+                <!-- Bottom Row - Stage Manager and Screen Mirroring side-by-side -->
+                <div class="bottom-row">
+                    <!-- Stage Manager -->
+                    <div class="control-tile" id="hotspot-tile" style="text-align:center">
+                        <div class="control-icon"><i alt="Square icon" class="far fa-square" aria-hidden="true"></i></div>
+                        <div class="control-label" style="font-size: 11px;">Stage Manager</div>
+                    </div>
+
+                    <!-- Screen Mirroring - Display output to external screens -->
+                    <div class="control-tile" id="mirror-tile" style="text-align:center">
+                        <div class="control-icon"><i alt="Display icon" class="fas fa-display" aria-hidden="true"></i></div>
+                        <div class="control-label" style="font-size: 11px;">Screen Mirroring</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brightness Control Slider - System-wide display brightness -->
+        <div class="slider-container">
+            <div class="slider-header">
+                <div class="slider-icon"><i alt="Sun icon" class="fas fa-sun" aria-hidden="true"></i></div>
+                <div class="slider-label">Display</div>
+            </div>
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="70"
+                class="slider"
+                id="brightness-slider"
+            >
+        </div>
+
+        <!-- Volume Control Slider - Audio output level -->
+        <div class="slider-container">
+            <div class="slider-header">
+                <div class="slider-icon"><i alt="Headphones icon" class="fas fa-headphones" aria-hidden="true"></i></div>
+                <div class="slider-label">Sound</div>
+            </div>
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                class="slider"
+                id="volume-slider"
+            >
+        </div>
+
+        <!-- Music Controls - Now playing interface -->
+        <div class="music-controls">
+            <div class="music-title">Bohemian Rhapsody</div>
+            <div class="music-artist">Queen</div>
+            <div class="music-buttons">
+                <button class="music-btn" id="prev-btn">⏮</button>
+                <button class="music-btn play" id="play-btn">⏸</button>
+                <button class="music-btn" id="next-btn">⏭</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Control Center JavaScript - This handles all the interactive behaviors
+        
+        // State management - We track the current state of each control
+        const controlState = {
+            wifi: true,
+            bluetooth: true,
+            airdrop: false,
+            hotspot: false,
+            dnd: false,
+            mirror: false,
+            isPlaying: false,
+            brightness: 70,
+            volume: 50
+        };
+
+        // Initialize all event listeners when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeControls();
+            initializeSliders();
+        });
+
+        // Control tile toggle functionality - This manages the on/off states
+        function initializeControls() {
+            const controls = ['wifi', 'bluetooth', 'airdrop', 'hotspot', 'dnd', 'mirror'];            
+        }
+
+        // Toggle control state and update visual appearance
+        function toggleControl(controlName) {
+            controlState[controlName] = !controlState[controlName];
+            const tile = document.getElementById(`${controlName}-tile`);
+            
+            if (controlState[controlName]) {
+                tile.classList.add('active');
+                // Update status text for connectivity controls
+                updateConnectionStatus(controlName, 'Connected');
+            } else {
+                tile.classList.remove('active');
+                updateConnectionStatus(controlName, 'Off');
+            }
+            
+            // Provide haptic-like feedback through brief animation
+            tile.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                tile.style.transform = '';
+            }, 100);
+        }
+
+        // Update connection status indicators
+        function updateConnectionStatus(controlName, status) {
+            const tile = document.getElementById(`${controlName}-tile`);
+            const statusText = tile.querySelector('.status-text');
+            if (statusText) statusText.textContent = status;
+        }
+
+        // Slider controls for brightness and volume
+        function initializeSliders() {
+            const brightnessSlider = document.getElementById('brightness-slider');
+            const volumeSlider = document.getElementById('volume-slider');
+
+            // Brightness slider with real-time feedback
+            brightnessSlider.addEventListener('input', function() {
+                controlState.brightness = this.value;
+                // Visual feedback - slightly adjust the control center opacity
+                const controlCenter = document.querySelector('.control-center');
+                const opacity = 0.8 + (this.value / 100) * 0.2;
+                controlCenter.style.background = `rgba(255, 255, 255, ${0.15 * opacity})`;
+            });
+
+            // Volume slider with audio-like visual feedback
+            volumeSlider.addEventListener('input', function() {
+                controlState.volume = this.value;
+            });
+        }
+    </script>
+</body>
+</html>
