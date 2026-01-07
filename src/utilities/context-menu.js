@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
     contextMenuContainer.innerHTML = `<ul class="context-menu">
     <li class="context-menu-item"><button type="button" class="context-menu-btn">New Folder</button></li>
 
-    <li class="context-menu-item divider"></li>
+    <li class="context-menu-item"><hr></li>
 
     <li class="context-menu-item"><button type="button" class="context-menu-btn">Get Info</button></li>
     <li class="context-menu-item"><button type="button" class="context-menu-btn">Change Wallpaper…</button></li>
     <li class="context-menu-item"><button type="button" class="context-menu-btn">Edit Widgets…</button></li>
 
-    <li class="context-menu-item divider"></li>
+    <li class="context-menu-item"><hr></li>
 
     <li class="context-menu-item"><button type="button" class="context-menu-btn">Use Stacks</button></li>
 
@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <button type="button" class="context-menu-btn">Sort By <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i></button>
     <ul class="context-menu context-menu-submenu" style="width:16rem">
         <li class="context-menu-item"><button type="button" class="context-menu-btn">&nbsp;&nbsp;&nbsp; None</button></li>
-        <li class="context-menu-item divider"></li>
+        <li class="context-menu-item"><hr></li>
         <li class="context-menu-item"><button type="button" class="context-menu-btn">&nbsp;&nbsp;&nbsp; Snap to Grid</button></li>
-        <li class="context-menu-item divider"></li>
+        <li class="context-menu-item"><hr></li>
         <li class="context-menu-item"><button type="button" class="context-menu-btn">&nbsp;&nbsp;&nbsp; Name</button></li>
         <li class="context-menu-item"><button type="button" class="context-menu-btn">✓ Kind</button></li>
         <li class="context-menu-item"><button type="button" class="context-menu-btn">&nbsp;&nbsp;&nbsp; Shared By</button></li>
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <li class="context-menu-item"><button type="button" class="context-menu-btn">Show View Options</button></li>
 
-    <li class="context-menu-item divider"></li>
+    <li class="context-menu-item"><hr></li>
 
     <li class="context-menu-item context-menu-item-submenu">
     <button type="button" class="context-menu-btn">Import from iPhone <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i></button>
