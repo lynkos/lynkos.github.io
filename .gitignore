@@ -1,5 +1,6 @@
 .vscode/
 test*
+!test.html
 node_modules/
 dist/*
 !dist/lib
