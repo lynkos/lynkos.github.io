@@ -610,11 +610,12 @@ Refer to https://opensource.org/licenses/MIT for a copy.
               <div class="body__row">
                 <pre>This website is still under construction.
 
+-a   open Music app to view my playlists
 -b   background is interactive: click/tap anywhere
 -c   right click to view context menu
 -d   folders, files, and windows are draggable
 -l   open Launchpad to view more apps/links
--m   open Music app to view my playlists
+-m   open Mail app to contact me
 -n   open Notes app to see some of my projects
 -o   double-click/tap any desktop file to open
 -p   menubar is interactive: click/tap any menu
@@ -3801,9 +3802,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
-              <!-- Temporarily hide "Mail" app / Contact form while it's being fixed -->
-              <!-- <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail (WIP)</a> -->
-              
+              <!-- Temporarily add href to "Mail" app while its content form is being fixed -->
+              <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch" href="mailto:admin@lynkos.dev"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
               <a role="button" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
               <a role="button" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
               <a role="button" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
@@ -3890,9 +3890,13 @@ Refer to https://opensource.org/licenses/MIT for a copy.
       <div id="dock">
         <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
 
-        <!-- Temporarily hide "Mail" app / Contact form while it's being fixed -->
-        <!-- <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail" data-microtip-position="top"><img src="/assets/img/apps/mail.webp" draggable="false" fetchpriority="high" alt="Mail"></div> -->
-        
+        <!-- Temporarily replace "Mail" contact form (while it's being fixed) in dock with link to my email -->
+        <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail" data-microtip-position="top">
+          <a href="mailto:admin@lynkos.dev">
+            <img src="/assets/img/apps/mail.webp" class="icon" draggable="false" fetchpriority="high" alt="Mail">
+          </a>
+        </div>
+
         <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
         <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
         <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
@@ -3900,14 +3904,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
         <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
         <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
-        
-        <!-- Temporarily replace "Mail" app (while it's being fixed) in dock with link to my blog... -->
-        <div role="tooltip" tabindex="0" id="blogDockIcon" class="icon" aria-label="Blog" data-microtip-position="top">
-          <a target="_blank" href="https://blog.lynkos.dev">
-            <img style="width:95%;padding-left:.25rem" src="/assets/img/favicons/favicon.svg" class="icon" draggable="false" fetchpriority="high" alt="Blog">
-          </a>
-        </div>
-        
+                
         <div class="dock-divider"></div>
         <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
