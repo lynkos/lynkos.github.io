@@ -36,6 +36,7 @@ $thumb-border-color: $track-color
   flex-direction: column
   align-content: stretch
   @include mix.window(rgba(42, 45, 41, 0.6), $window-width, 50rem, 55rem, 20rem)
+  display: flex // temp
 
   .body
     color: white
@@ -150,14 +151,26 @@ $thumb-border-color: $track-color
 
         // APPLE LCD DISPLAY
         &__lcd
-          background-color: rgb(61, 61, 61)
-          padding: vars.$padding 0
+          background-color: rgb(109, 109, 109)
           border-radius: math.div(vars.$border-radius, 1.5)
           overflow: hidden
-                
-          i
-            font-size: calc($icon-size * 1.5)
-            color: rgb(140, 140, 140)
+
+          &-apple
+            background: rgb(61, 61, 61)
+            padding: vars.$padding
+            width: 100%
+
+            i
+              font-size: calc($icon-size * 1.5)
+              color: rgb(140, 140, 140)
+
+          &-music
+            padding: vars.$padding vars.$padding-2x
+            width: fit-content
+
+            i
+              font-size: calc($icon-size * 1.15)
+              color: rgb(147, 147, 147)
 
         // TALK AND LIST ICONS IN RIGHT
         &__user__toggle
