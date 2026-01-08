@@ -439,6 +439,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("mouseup", function(event) {    
         if (event.target === launchpadNav || event.target === launchContent) closeLaunchpad();
     });
+
+    // Position sticky note
+    positionWindow("#sticky-note");
     
     // Position terminal
     positionWindow("#mac-terminal");
@@ -654,7 +657,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open mail
     //openWindow("#mailDockIcon", "#email");
 
-    positionWindow("#sticky-note");
+    // TODO: Delete the mailDockIcon bounce effect once mail app (aka contact form) is fixed,
+    // since it's already included in openWindow function
+
+    document.getElementById("mailDockIcon").addEventListener("click", function() {
+        $("#mailDockIcon").effect("bounce", { times: 3 }, 600);
+    });
 
     document.getElementById("not-ai").addEventListener("click", function() {
         bringToFront("#sticky-note");
