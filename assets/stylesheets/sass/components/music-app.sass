@@ -94,6 +94,9 @@ $thumb-border-color: $track-color
           position: relative
           padding: vars.$padding 0 vars.$padding vars.$padding-3x
 
+          &:last-of-type
+            margin-bottom: vars.$padding-2x
+
           i
             color: vars.$secondary-button-color
 
@@ -309,7 +312,7 @@ $thumb-border-color: $track-color
           position: relative
           border-radius: vars.$border-radius
           // Subtract space above (margin-top) playlist name from playlist padding for consistency
-          padding: vars.$padding-one-and-half vars.$padding-one-and-half vars.$padding vars.$padding-one-and-half
+          padding: vars.$padding-2x vars.$padding-2x vars.$padding vars.$padding-2x
 
           &-row
             &:first-of-type
