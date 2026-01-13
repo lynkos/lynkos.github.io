@@ -44,6 +44,7 @@ $sticky-bar-height: 1.2rem
         box-shadow: vars.$border-thickness vars.$border-thickness vars.$border-thickness #D4CA54
         
     &-body
-        height: auto
+        height: calc(100% - $sticky-bar-height)
         padding: vars.$padding
         font-size: 1.3rem
+        overflow: auto
