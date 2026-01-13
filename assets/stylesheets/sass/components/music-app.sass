@@ -12,6 +12,9 @@
   
 // DIMENSIONS
 $window-width: 80rem
+$window-height: 50rem
+$min-window-width: 55rem
+$min-window-height: 20rem
 $sidebar-width: math.div($window-width, 5)
 $header-height: 5rem
 $num-columns: 4
@@ -19,6 +22,7 @@ $icon-size: 1.5rem
 $track-height: 0.75rem
 $track-border-radius: 0.25rem
 $thumb-size: $icon-size
+$sidebar-font-size: 1.2rem
 
 // COLORS
 $header-background: rgb(27, 27, 27)
@@ -35,7 +39,12 @@ $thumb-border-color: $track-color
 #music-app
   flex-direction: column
   align-content: stretch
-  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, 50rem, 55rem, 20rem)
+  @include mix.window(rgba(42, 45, 41, 0.6), $window-width, $window-height, $min-window-width, $min-window-height)
+
+  // Decrease window size on smaller screens
+  @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+    height: calc($window-height * 0.95)
+    min-height: calc($min-window-height * 0.95)
 
   .body
     color: white
@@ -81,15 +90,16 @@ $thumb-border-color: $track-color
           margin-bottom: vars.$padding
 
         .subtitle
-          font-size: 1.2rem
+          font-size: calc($sidebar-font-size - 0.1rem)
           padding: vars.$padding 0
           font-weight: 700
           color: $sidebar-title-color
-        
+
         .text
           color: white
-          font-size: 1.3rem
-          line-height: 1.75rem
+          font-size: $sidebar-font-size
+          border-radius: vars.$border-radius
+          line-height: calc($sidebar-font-size * 1.3)
           width: 100%
           position: relative
           padding: vars.$padding 0 vars.$padding vars.$padding-3x
@@ -104,8 +114,6 @@ $thumb-border-color: $track-color
           color: $sidebar-title-color
         
         .active
-          width: 100%
-          border-radius: vars.$border-radius
           background-color: rgba(255, 255, 255, 0.15)
 
     .main
@@ -153,6 +161,7 @@ $thumb-border-color: $track-color
           background-color: rgb(109, 109, 109)
           border-radius: math.div(vars.$border-radius, 1.5)
           overflow: hidden
+          //max-width: 37.5rem
 
           &-apple
             background: rgb(61, 61, 61)
@@ -202,7 +211,7 @@ $thumb-border-color: $track-color
         // SLIDER INPUT STYLES
         input[type=range]
           width: 100% // auto
-          max-width: 10rem
+          max-width: 15rem
           min-width: 6rem
           background: transparent
           -webkit-appearance: none
@@ -305,7 +314,6 @@ $thumb-border-color: $track-color
         width: 100%
         padding: vars.$padding-half vars.$padding-3x
         overflow: auto
-        font-size: 1.4rem
 
         h1
           font-size: 2.25rem
@@ -343,30 +351,25 @@ $thumb-border-color: $track-color
           &:hover
             background: rgba(255, 255, 255, 0.1)
 
+          &-cover, &-details
+            width: 100%
+
           &-cover
             border-radius: vars.$border-radius
             background: var(--img) no-repeat center
             background-size: cover
             object-fit: cover
             height: 100%
-            width: 100%
             aspect-ratio: 1 / 1
             flex-grow: 1
 
           &-details
             text-align: center
             margin-top: vars.$padding
-            font-size: 1rem
-            width: 100%
+            font-size: calc($sidebar-font-size * 0.9)
             overflow: hidden
             text-overflow: ellipsis
             white-space: nowrap
-
-            @media screen and (max-width: vars.$width-threshold)
-              font-size: 0.9rem
-
-            @media screen and (max-width: calc(vars.$width-threshold - (1 * vars.$threshold-diff)))
-              font-size: 0.85rem
 
           &-row
             display: flex
