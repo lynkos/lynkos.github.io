@@ -102,14 +102,14 @@ Includes (but is not limited to):
   * Clicking "Empty Trash" button will empty the trash (i.e. replace the trash icon with an empty trash icon and produce a sound effect)
 * **Dock**
   * Clicking/opening any unopened app produces a bouncing effect
-* **Context Menu**
-  * Right-click anywhere (except menubar) to open context menu
-  * Desktop only; not supported on mobile
 * **Cursors**
   * Default: Default cursor
   * Pointer: Hover over links
   * Text: Hover over input fields
   * Crosshair: Hover over preview image
+* ~~**Context Menu**~~
+  * ~~Right-click anywhere (except menubar) to open context menu~~
+  * ~~Desktop only; not supported on mobile~~
 
 ## Requirements
 - [x] [npm](https://docs.npmjs.com/getting-started)

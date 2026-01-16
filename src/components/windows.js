@@ -178,12 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (launchContent) launchContent.style.zIndex = (maxZIndex + 3).toString();
 
                     // Make sure dock is always on top
-                    if (dock) dock.style.zIndex = (maxZIndex + 4).toString();
-                    
-                    // Make sure context menu is always on top
-                    document.querySelectorAll(".context-menu").forEach(el => {
-                        el.style.zIndex = (maxZIndex + 5).toString();
-                    });
+                    if (dock) dock.style.zIndex = (maxZIndex + 4).toString();                    
                 }
             }
             

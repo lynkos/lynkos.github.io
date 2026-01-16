@@ -19,22 +19,6 @@
     transform-origin: center
     transform: scale($scale)
 
-@mixin menu-dropdown($width: 22rem, $height: auto, $display: none, $position: fixed, $background: vars.$menu-background)
-  display: $display
-  position: $position
-  // font-weight: 500 // Uncomment when anti-aliasing enabled
-  font-size: vars.$menubar-font-size
-  font-family: vars.$font-family
-  z-index: 1
-  width: $width
-  height: $height
-  background: $background
-  border-radius: vars.$menu-border-radius
-  box-shadow: vars.$menu-shadow
-  cursor: vars.$default-cursor
-  @include window-border()
-  @include disable-select()
-
 @mixin searchbar($width, $height, $background, $font-size, $padding, $icon-color)
     width: $width
     height: $height

@@ -72,12 +72,25 @@
   top: vars.$menubar-height
   backdrop-filter: blur(2.75rem)
   padding: vars.$padding-half
+  display: none
+  position: fixed
+  // font-weight: 500 // Uncomment when anti-aliasing enabled
+  font-size: vars.$menubar-font-size
+  font-family: vars.$font-family
+  z-index: 1
+  height: auto
+  background: vars.$menu-background
+  border-radius: vars.$menu-border-radius
+  box-shadow: vars.$menu-shadow
+  cursor: vars.$default-cursor
+  @include mix.window-border()
+  @include mix.disable-select()
 
 #playlist, #wifi-menu, #apple-menu, #finder-menu, #edit-menu, #view-menu, #go-menu, #window-menu, #help-menu
-  @include mix.menu-dropdown()
+  width: 22rem
 
 #file-menu
-  @include mix.menu-dropdown(24rem)
+  width: 24rem
 
 .position-title
   display: flex
@@ -200,3 +213,8 @@
 
 .selected-menu
   background-color: rgba(255, 255, 255, 0.2)
+
+.divider
+  color: vars.$font-color
+  margin: vars.$padding vars.$padding-2x
+  border-bottom: vars.$border-thickness-half solid vars.$font-color
