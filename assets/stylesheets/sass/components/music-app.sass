@@ -351,6 +351,10 @@ $thumb-border-color: $track-color
           &:hover
             background: rgba(255, 255, 255, 0.1)
 
+            .playlist-cover-button i
+              background: vars.$secondary-button-color
+              opacity: 1
+
           &-cover, &-details
             width: 100%
 
@@ -360,8 +364,23 @@ $thumb-border-color: $track-color
             background-size: cover
             object-fit: cover
             height: 100%
+            display: flex
             aspect-ratio: 1 / 1
             flex-grow: 1
+
+            &-button
+              width: 100%
+              justify-content: flex-end
+              align-self: flex-end
+              display: flex
+
+              i
+                font-size: math.div($icon-size, 1.25)
+                margin: vars.$padding-half
+                padding: vars.$padding-2x
+                border-radius: 100%
+                opacity: 0
+                transition: background 0.3s ease, opacity 0.3s ease
 
           &-details
             text-align: center
