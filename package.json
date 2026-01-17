@@ -5,7 +5,7 @@
         "build:prefix": "postcss assets/stylesheets/css/*.css --replace --use autoprefixer --no-map",
         "build:css": "sass --quiet --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
         "build:js": "babel src --out-dir dist --no-comments",
-        "build:html": "html-minifier --input-dir . --output-dir . --file-ext html --remove-comments --collapse-whitespace --minify-js false --minify-css false",
+        "build:html": "html-minifier --input-dir . --output-dir . --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css true",
         "build": "npm run build:js & npm run build:html & (npm run build:css && npm run build:prefix)",
         "dev:js": "nodemon --watch src --ignore dist --exec babel src --out-dir dist --ext js,json --presets=@babel/preset-env",
         "dev:css": "sass --verbose --watch --no-source-map --style=compressed assets/stylesheets/sass:assets/stylesheets/css",
