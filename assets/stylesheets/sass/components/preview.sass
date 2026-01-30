@@ -10,20 +10,23 @@ $preview-height: 40rem
 $preview-width: 50rem
 $preview-min-width: 45rem
 $preview-min-height: vars.$min-height
+$preview-max-width: 60rem
+$preview-max-height: 65rem
 $resume-height: 55rem
-$resume-width: 75rem
+$resume-width: 60rem
 $resume-min-width: 45rem
 $resume-min-height: 20rem
+$resume-max-width: 90rem
 $header-height: 5rem
 $icon-size: 1.5rem
 $icon-dim: calc($icon-size + 1rem)
 $header-color: rgb(56, 57, 56)
 
 .preview
-    @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height, $preview-min-width, $preview-min-height)
+    @include mix.window(rgb(40, 40, 40), $preview-width, $preview-height, $preview-min-width, $preview-min-height, $preview-max-width, $preview-max-height)
 
 .resume
-    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height)
+    @include mix.window(rgb(40, 40, 40), $resume-width, $resume-height, $resume-min-width, $resume-min-height, $resume-max-width)
 
 .preview, .resume
     font-family: vars.$font-family
