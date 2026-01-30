@@ -655,9 +655,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // TODO: Delete the mailDockIcon bounce effect once mail app (aka contact form) is fixed,
     // since it's already included in openWindow function
 
-    document.getElementById("mailDockIcon").addEventListener("click", function() {
-        $("#mailDockIcon").effect("bounce", { times: 3 }, 600);
-    });
+    // Temporary bounce effect for mail icon in dock, since I commented it (i.e. "Mail" icon in dock) out in index.html
+    // document.getElementById("mailDockIcon").addEventListener("click", function() {
+    //     $("#mailDockIcon").effect("bounce", { times: 3 }, 600);
+    // });
 
     document.getElementById("not-ai").addEventListener("click", function() {
         bringToFront("#sticky-note");
