@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // No need to increase z-index if already in front
         if (!elementObj.classList.contains("inFront")) {
-            // Get all windows and trash dialogue
-            const allWindows = [...document.querySelectorAll(".windows, .trash-dialogue")];
+            // Get all windows, trash dialogue, and sticky note
+            const allWindows = [...document.querySelectorAll(".windows, .trash-dialogue, #sticky-note")];
             
             // Process each window and get z-indices
             const zIndices = allWindows.map(function(win) {
@@ -238,8 +238,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Bounce effect for dock icons
                 if (!iconElement.classList.contains("open")) {
                     // Bounce effect, if window is not already open
-                    // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
-                    if (dockIcon !== "#previewDockIcon") $(dockIcon).effect("bounce", { times: 3 }, 600);
+                    // Ignore #previewDockIcon since it can only initially be opened via desktop, not dock
+                    // Ignore #not-ai since it's sticky note, which doesn't bounce
+                    if (dockIcon !== "#previewDockIcon" && dockIcon !== "#not-ai") $(dockIcon).effect("bounce", { times: 3 }, 600);
         
                     // Mark clicked window as opened
                     iconElement.classList.add("open");
@@ -434,9 +435,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("mouseup", function(event) {    
         if (event.target === launchpadNav || event.target === launchContent) closeLaunchpad();
     });
-
-    // Position sticky note
-    positionWindow("#sticky-note");
     
     // Position terminal
     positionWindow("#mac-terminal");
@@ -451,7 +449,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // Apply draggable to all existing windows
-    makeDraggable(".windows");
+    makeDraggable(".windows, #sticky-note");
 
     // Make launchpad apps sortable
     $("#launchNav").sortable();
@@ -562,6 +560,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Open trash dialogue
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
+
+    // Open sticky note
+    openWindow("#not-ai", "#sticky-note", "block");
     
     // Open about me when double-clicking or tapping `about.rtf`
     openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
@@ -617,6 +618,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close trash dialogue
     closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
 
+    // Close sticky note
+    closeWindow("#sticky-note-close", "#sticky-note", "#not-ai");
+
     // Maximize terminal
     maximizeWindow(".header__op-icon--green", "#mac-terminal");
 
@@ -635,6 +639,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Maximize music app
     maximizeWindow(".music-buttons-icon--green", "#music-app");
 
+    // TODO: UNCOMMENT THE FOLLOWING ONCE TEXTEDIT (AKA ABOUT ME) APP'S RULER IS MADE DYNAMIC (I.E. ADJUSTS ON RESIZE)
     // Maximize about me
     //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
 
@@ -659,15 +664,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // document.getElementById("mailDockIcon").addEventListener("click", function() {
     //     $("#mailDockIcon").effect("bounce", { times: 3 }, 600);
     // });
-
-    document.getElementById("not-ai").addEventListener("click", function() {
-        bringToFront("#sticky-note");
-        
-        document.getElementById("sticky-note").style.display = "block";
-
-        if (!document.getElementById("sticky-note").classList.contains("openWindow")) document.getElementById("sticky-note").classList.add("openWindow");
-
-        // Mark clicked window as opened
-        if (!document.getElementById("not-ai").classList.contains("open")) document.getElementById("not-ai").classList.add("open");
-    });
 });
