@@ -452,8 +452,19 @@ document.addEventListener("DOMContentLoaded", function() {
     makeDraggable(".windows, #sticky-note");
 
     // Make launchpad apps sortable
-    $("#launchNav").sortable();
-    $("#launchNav").disableSelection();
+    $("#launchNav").sortable({
+        cursor: cursor,
+    });
+
+    // Make playlists in music sidebar sortable
+    $(".custom-playlists-sortable").sortable({
+        axis: "y",
+        containment: "parent",
+        cursor: cursor,
+        opacity: 0.5,
+        scroll: true,
+        scrollSpeed: 10
+    });
 
     // Empty trash
     document.querySelector(".confirm").addEventListener("click", function(event) {

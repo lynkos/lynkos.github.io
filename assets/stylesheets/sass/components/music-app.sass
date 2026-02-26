@@ -24,6 +24,12 @@ $track-border-radius: 0.25rem
 $thumb-size: $icon-size
 $sidebar-font-size: 1.2rem
 
+// SIDEBAR PADDING
+$music-section-text-padding: vars.$padding
+$music-section-subtitle-padding: vars.$padding-half
+$music-section-container-padding: vars.$padding //vars.$padding-one-and-half
+$music-section-search-padding: $music-section-text-padding //vars.$padding-one-and-half
+
 // COLORS
 $header-background: rgb(27, 27, 27)
 $sidebar-background: rgba(32, 36, 31, 0.25)
@@ -87,11 +93,17 @@ $thumb-border-color: $track-color
 
         .search-bar
           @include mix.searchbar(100%, 2.5rem, rgba(255, 255, 255, 0.1), 1.2rem, vars.$padding, white)
-          margin-bottom: vars.$padding
+          margin-bottom: $music-section-search-padding
+          
+        .section-container
+          padding-top: $music-section-container-padding
+
+          &:last-of-type
+            padding-bottom: $music-section-text-padding
 
         .subtitle
           font-size: calc($sidebar-font-size - 0.1rem)
-          padding: vars.$padding 0
+          padding: $music-section-subtitle-padding 0
           font-weight: 700
           color: $sidebar-title-color
 
@@ -102,16 +114,34 @@ $thumb-border-color: $track-color
           line-height: calc($sidebar-font-size * 1.3)
           width: 100%
           position: relative
-          padding: vars.$padding 0 vars.$padding vars.$padding-3x
-
-          &:last-of-type
-            margin-bottom: vars.$padding-2x
+          padding: $music-section-text-padding 0 $music-section-text-padding vars.$padding-two-and-half
 
           i
             color: vars.$secondary-button-color
 
+          a
+            cursor: vars.$default-cursor
+
         .playlist-icon i
           color: $sidebar-title-color
+
+        .custom-playlist
+          display: flex
+          place-items: center
+          flex-direction: row
+          justify-content: start
+
+          img, svg
+            width: $sidebar-font-size
+            height: $sidebar-font-size
+          
+          .playlist-label
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+            display: block
+            min-width: 0
+            max-width: 100%
         
         .active
           background-color: rgba(255, 255, 255, 0.15)
