@@ -1,6 +1,6 @@
 /**
  * @license MIT
- * Copyright © 2024 – 2025 Kiran Brahmatewari.
+ * Copyright © 2024 – 2026 Kiran Brahmatewari.
  * 
  * Modification of original work `form-submission-handler.js`.
  * (https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/form-submission-handler.js)
