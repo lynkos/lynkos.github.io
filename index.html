@@ -91,6 +91,12 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" referrerpolicy="no-referrer" crossorigin="anonymous"></script>
     <script src="/dist/lib/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha384-MI/QivrbkVVJ89UOOdqJK/w6TLx0MllO/LsQi9KvvJFuRHGbYtsBvbGSM8JHKCS0" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  
+    <style type="text/css">
+      .hidden-content {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -117,7 +123,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <div id="main-content">
       <div id="particles-js"></div>
       <main>
-        <a id="playlist" class="menu-dropdown" target="_blank" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true">
+        <a id="playlist" role="menuitem" class="menu-dropdown hidden-content" target="_blank" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true">
           <div class="playlist-player">
             <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=2d2d2d&interchange=true&bar_color=ffffff&bar_color_cover=true" loading="lazy" fetchpriority="low" alt="Spotify playlist">  
           </div>
@@ -666,7 +672,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="calc" class="windows">
+        <div id="calc" class="windows hidden-content">
           <div class="calc-header handle">
             <div class="calc-header__op">
               <span role="button" aria-pressed="false" aria-label="Close" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
@@ -717,7 +723,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="text-edit" class="windows">
+        <div id="text-edit" class="windows hidden-content">
           <div class="text-edit-header handle">
             <div class="text-edit-header__op">
               <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"></span>
@@ -899,7 +905,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
         <!-- TODO: Uncomment once "Mail" app is fixed -->
         <!-- <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbx8I8BI2KW2kkHmf4apq4o8qRW5Z7MqP_5kenyjCdWqL7tPJJ2JJdaLLDZvw12QedGB/exec">
-          <div id="email" class="windows">
+          <div id="email" class="windows hidden-content">
             <div class="email-header handle">
               <div class="email-header__op">
                 <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="email-header__op-icon email-header__op-icon--red cancel"></span>
@@ -924,7 +930,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </form> -->
 
-        <div id="music-app" class="windows">
+        <div id="music-app" class="windows hidden-content">
           <div class="body">
             <aside class="sidebar">
               <div class="sidebar-header handle">
@@ -1308,7 +1314,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="notes" class="windows">
+        <div id="notes" class="windows hidden-content">
           <div class="body">
             <aside class="sidebar">
               <div class="sidebar-header handle">
@@ -2003,7 +2009,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="browser" class="windows">
+        <div id="browser" class="windows hidden-content">
           <div class="top handle">
             <div class="browser-buttons">
               <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="browser-buttons-icon browser-buttons-icon--red cancel"></span>
@@ -3926,7 +3932,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div class="preview windows">
+        <div class="preview windows hidden-content">
           <div class="preview-header handle">
             <div class="preview-header__op">
               <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="preview-header__op-icon preview-header__op-icon--red cancel"></span>
@@ -3949,7 +3955,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div class="resume windows">
+        <div class="resume windows hidden-content">
           <div class="resume-header handle">
             <div class="resume-header__op">
               <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="resume-header__op-icon resume-header__op-icon--red cancel"></span>
@@ -3972,7 +3978,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="launchpad">
+        <div id="launchpad" class="hidden-content">
           <div id="launch-content">
             <div class="search" tabindex="0" role="searchbox" aria-placeholder="Search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
@@ -3994,7 +4000,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div class="trash-dialogue">
+        <div class="trash-dialogue hidden-content">
           <div class="pp-body">
             <img src="/assets/img/system/trash.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
             <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
@@ -4006,7 +4012,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="sticky-note">
+        <div id="sticky-note" class="hidden-content">
           <div id="sticky-note-bar" class="handle">
             <div id="sticky-note-close" role="button" aria-pressed="false" aria-label="Close" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
           </div>
