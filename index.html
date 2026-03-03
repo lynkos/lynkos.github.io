@@ -15,12 +15,10 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
     <link rel="preload" as="image" href="/assets/img/apps/iterm.webp">
     <link rel="preload" as="image" href="/assets/img/apps/launchpad.webp">
-    <link rel="preload" as="image" href="/assets/img/apps/mail.webp">
     <link rel="preload" as="image" href="/assets/img/apps/notes.webp">
     <link rel="preload" as="image" href="/assets/img/apps/safari.webp">
     <link rel="preload" as="image" href="/assets/img/apps/text-edit.webp">
     <link rel="preload" as="image" href="/assets/img/apps/music.webp">
-    <link rel="preload" as="image" href="/assets/img/icons/control-center.svg">
     <link rel="preload" as="image" href="/assets/img/icons/terminal.svg">
     <link rel="preload" as="image" href="/assets/img/misc/profile.webp">
     <link rel="preload" as="image" href="/assets/img/system/blue-folder.webp">
@@ -102,7 +100,12 @@ Refer to https://opensource.org/licenses/MIT for a copy.
   <body>
     <header id="menu-bar" role="menubar">
       <div class="left">
-        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="apple" class="menus apple menu-ico" aria-label="Apple"><i alt="Apple icon" class="fab fa-apple" aria-hidden="true"></i></span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="apple" class="menus apple menu-ico" aria-label="Apple">
+          <svg alt="Apple icon" draggable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <!-- Manually set `fill` to vars.$menubar-font-color -->
+            <path fill="rgba(255, 255, 255, 0.95)" d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+        </span>
         <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="finder" class="menus active">Finder</span>
         <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="file" class="menus">File</span>
         <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="edit" class="menus">Edit</span>
@@ -113,9 +116,24 @@ Refer to https://opensource.org/licenses/MIT for a copy.
       </div>
 
       <div class="right">
-        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="play" class="menus menu-ico" aria-label="Play"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
-        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="wifi" class="menus menu-ico" aria-label="WiFi"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
-        <span class="menus menu-ico" aria-label="Control Center"><img class="ctrl-ico" alt="Control center icon" src="/assets/img/icons/control-center.svg" draggable="false" fetchpriority="high"></span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="play" class="menus menu-ico" aria-label="Play">
+          <svg alt="Play icon" draggable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!-- Manually set `fill` to vars.$menubar-font-color -->
+            <path fill="rgba(255, 255, 255, 0.95)" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM212.5 147.5c-7.4-4.5-16.7-4.7-24.3-.5S176 159.3 176 168l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88zM298 256l-74 45.2 0-90.4 74 45.2z"/>
+          </svg>
+        </span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="wifi" class="menus menu-ico" aria-label="WiFi">
+          <svg alt="WiFi icon" draggable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <!-- Manually set `fill` to vars.$menubar-font-color -->
+            <path fill="rgba(255, 255, 255, 0.95)" d="M288 96c-90.9 0-173.2 36-233.7 94.6-12.7 12.3-33 12-45.2-.7s-12-33 .7-45.2C81.7 74.9 179.9 32 288 32S494.3 74.9 566.3 144.7c12.7 12.3 13 32.6 .7 45.2s-32.6 13-45.2 .7C461.2 132 378.9 96 288 96zM240 432a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM168 326.2c-11.7 13.3-31.9 14.5-45.2 2.8s-14.5-31.9-2.8-45.2C161 237.4 221.1 208 288 208s127 29.4 168 75.8c11.7 13.3 10.4 33.5-2.8 45.2s-33.5 10.4-45.2-2.8C378.6 292.9 335.8 272 288 272s-90.6 20.9-120 54.2z"/>
+          </svg>
+        </span>
+        <span class="menus menu-ico" aria-label="Control Center">
+          <svg alt="Control center icon" draggable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
+            <!-- Manually set `fill` to vars.$menubar-font-color -->
+            <path fill="rgba(255, 255, 255, 0.95)" d="M7.5 13h14a5.5 5.5 0 0 0 0-11h-14a5.5 5.5 0 0 0 0 11Zm0-9h14a3.5 3.5 0 0 1 0 7h-14a3.5 3.5 0 0 1 0-7Zm0 6A2.5 2.5 0 1 0 5 7.5 2.5 2.5 0 0 0 7.5 10Zm14 6h-14a5.5 5.5 0 0 0 0 11h14a5.5 5.5 0 0 0 0-11Zm1.434 8a2.5 2.5 0 1 1 2.5-2.5 2.5 2.5 0 0 1-2.5 2.5Z"/>
+          </svg>
+        </span>
         <span id="menutime" class="menus menu-time"></span>
       </div>
     </header>

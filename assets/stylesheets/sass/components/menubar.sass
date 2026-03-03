@@ -46,9 +46,9 @@
   .left
     padding-left: vars.$padding
 
-    .apple i
-      font-size: calc(vars.$menubar-icon-size * 1.4)
-      line-height: 1.2
+    .apple svg
+      width: auto
+      height: calc(vars.$menubar-icon-size * 1.3)
 
     .active
       font-weight: bold
@@ -64,7 +64,7 @@
       padding: calc(((vars.$menubar-height - vars.$menubar-icon-size + vars.$padding) / 2) - vars.$padding) vars.$padding
 
     .menu-ico, .ctrl-ico
-      img
+      svg
         width: auto
         height: calc(vars.$menubar-icon-size + 0.1rem)
 
