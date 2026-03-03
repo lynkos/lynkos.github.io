@@ -94,22 +94,22 @@ Refer to https://opensource.org/licenses/MIT for a copy.
   </head>
 
   <body>
-    <header id="menu-bar">
+    <header id="menu-bar" role="menubar">
       <div class="left">
-        <span role="button" tabindex="0" aria-expanded="false" id="apple" class="menus apple menu-ico"><i alt="Apple icon" class="fab fa-apple" aria-hidden="true"></i></span>
-        <span role="button" tabindex="0" aria-expanded="false" id="finder" class="menus active">Finder</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="file" class="menus">File</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="edit" class="menus">Edit</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="view" class="menus">View</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="go" class="menus">Go</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="window" class="menus">Window</span>
-        <span role="button" tabindex="0" aria-expanded="false" id="help" class="menus">Help</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="apple" class="menus apple menu-ico" aria-label="Apple"><i alt="Apple icon" class="fab fa-apple" aria-hidden="true"></i></span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="finder" class="menus active">Finder</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="file" class="menus">File</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="edit" class="menus">Edit</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="view" class="menus">View</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="go" class="menus">Go</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="window" class="menus">Window</span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="help" class="menus">Help</span>
       </div>
 
       <div class="right">
-        <span role="button" tabindex="0" aria-expanded="false" id="play" class="menus menu-ico"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
-        <span role="button" tabindex="0" aria-expanded="false" id="wifi" class="menus menu-ico"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
-        <span class="menus menu-ico"><img class="ctrl-ico" alt="Control center icon" src="/assets/img/icons/control-center.svg" draggable="false" fetchpriority="high"></span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="play" class="menus menu-ico" aria-label="Play"><i alt="Play icon" class="far fa-circle-play" aria-hidden="true"></i></span>
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="wifi" class="menus menu-ico" aria-label="WiFi"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></span>
+        <span class="menus menu-ico" aria-label="Control Center"><img class="ctrl-ico" alt="Control center icon" src="/assets/img/icons/control-center.svg" draggable="false" fetchpriority="high"></span>
         <span id="menutime" class="menus menu-time"></span>
       </div>
     </header>
@@ -135,440 +135,440 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
           <div class="divider"></div>
           <div class="subtitle">Personal Hotspot</div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Link icon" class="fas fa-link icon" aria-hidden="true"></i>&nbsp; Lynkos</div>
             <div class="mini-icon"><i alt="Signal bars icon" class="fas fa-signal" aria-hidden="true"></i> <span style="font-weight:500">5G</span> <i alt="Full battery icon" class="fas fa-battery-full" aria-hidden="true"></i></div>
           </div>
           <div class="divider"></div>
           <div class="subtitle">Known Network</div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="WiFi icon" class="fas fa-wifi icon-selected" aria-hidden="true"></i>&nbsp; Lynkos</div>
             <i alt="Lock icon" class="fas fa-lock mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="position-title select-subtitle">
+          <div class="position-title select-subtitle" role="menuitem">
             <div>Other Networks</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider-last"></div>
-          <div class="option">Wi-Fi Settings…</div>
+          <div class="option" role="menuitem">Wi-Fi Settings…</div>
         </div>
 
         <div id="apple-menu" class="menu-dropdown">
-          <div class="option">About This Mac</div>
+          <div class="option" role="menuitem">About This Mac</div>
           <div class="divider"></div>
-          <div class="option">System Settings…</div>
-          <div class="option">App Store</div>
+          <div class="option" role="menuitem">System Settings…</div>
+          <div class="option" role="menuitem">App Store</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Recent Items</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Force Quit…</div>
             <div class="mini-icon">⌥ ⌘ ⎋</div>
           </div>
           <div class="divider"></div>
-          <div class="option">Sleep</div>
-          <div class="option">Restart…</div>
-          <div class="option">Shut Down…</div>
+          <div class="option" role="menuitem">Sleep</div>
+          <div class="option" role="menuitem">Restart…</div>
+          <div class="option" role="menuitem">Shut Down…</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Lock Screen</div>
             <div class="mini-icon">⌃ ⌘ Q</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Log Out Lynkos…</div>
             <div class="mini-icon">⇧ ⌘ Q</div>
           </div>
         </div>
 
         <div id="finder-menu" class="menu-dropdown">
-          <div class="option">About Finder</div>
+          <div class="option" role="menuitem">About Finder</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Settings…</div>
             <div class="mini-icon">⌘ ,</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Empty Trash…</div>
             <div class="mini-icon">⇧ ⌘ ⌫</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Services</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Hide Finder</div>
             <div class="mini-icon">⌘ H</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Hide Others</div>
             <div class="mini-icon">⌥ ⌘ H</div>
           </div>
-          <div class="option disabled">Show All</div>
+          <div class="option disabled" role="menuitem">Show All</div>
         </div>
 
         <div id="file-menu" class="menu-dropdown">
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>New Finder Window</div>
             <div class="mini-icon">⌘ N</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>New Folder</div>
             <div class="mini-icon">⇧ ⌘ N</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>New Folder with Selection</div>
             <div class="mini-icon">⌃ ⌘ N</div>
           </div>
-          <div class="option">New Smart Folder</div>
-          <div class="position-title option">
+          <div class="option" role="menuitem">New Smart Folder</div>
+          <div class="position-title option" role="menuitem">
             <div>New Tab</div>
             <div class="mini-icon">⌘ T</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Open</div>
             <div class="mini-icon">⌘ O</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Open With</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Close Window</div>
             <div class="mini-icon">⌘ W</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Get Info</div>
             <div class="mini-icon">⌘ I</div>
           </div>
-          <div class="option disabled">Rename</div>
-          <div class="option disabled">Compress</div>
-          <div class="position-title disabled">
+          <div class="option disabled" role="menuitem">Rename</div>
+          <div class="option disabled" role="menuitem">Compress</div>
+          <div class="position-title disabled" role="menuitem">
             <div>Duplicate</div>
             <div class="mini-icon">⌘ D</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Make Alias</div>
             <div class="mini-icon">⌃ ⌘ A</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Quick Look</div>
             <div class="mini-icon">⌘ Y</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Print</div>
             <div class="mini-icon">⌘ P</div>
           </div>
           <div class="divider"></div>
-          <div class="option disabled">Share…</div>
+          <div class="option disabled" role="menuitem">Share…</div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Show Original</div>
             <div class="mini-icon">⌘ R</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Add to Sidebar</div>
             <div class="mini-icon">⌃ ⌘ T</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Move to Trash</div>
             <div class="mini-icon">⌘ ⌫</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Eject</div>
             <div class="mini-icon">⌃ ⌘ E</div>
           </div>
           <div class="divider"></div>
-          <div class="option disabled">Tags…</div>
+          <div class="option disabled" role="menuitem">Tags…</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Find</div>
             <div class="mini-icon">⌘ F</div>
           </div>
         </div>
 
         <div id="edit-menu" class="menu-dropdown">
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Undo</div>
             <div class="mini-icon">⌘ Z</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Redo</div>
             <div class="mini-icon">⇧ ⌘ Z</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Cut</div>
             <div class="mini-icon">⌘ X</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Copy</div>
             <div class="mini-icon">⌘ C</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Paste</div>
             <div class="mini-icon">⌘ V</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Select All</div>
             <div class="mini-icon">⌘ A</div>
           </div>
           <div class="divider"></div>
-          <div class="option">Show Clipboard</div>
+          <div class="option" role="menuitem">Show Clipboard</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Writing Tools</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>AutoFill</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Start Diction</div>
             <i alt="Microphone icon" class="fas fa-microphone mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Emoji & Symbols</div>
             <i alt="Globe icon" class="fas fa-globe mini-icon" aria-hidden="true"></i>
           </div>
         </div>
 
         <div id="view-menu" class="menu-dropdown">
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>as Icons</div>
             <div class="mini-icon">⌘ 1</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>as List</div>
             <div class="mini-icon">⌘ 2</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>as Columns</div>
             <div class="mini-icon">⌘ 3</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>as Gallery</div>
             <div class="mini-icon">⌘ 4</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Use Stacks</div>
             <div class="mini-icon">⌃ ⌘ O</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Sort By</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="option disabled">Clean Up</div>
-          <div class="position-title disabled">
+          <div class="option disabled" role="menuitem">Clean Up</div>
+          <div class="position-title disabled" role="menuitem">
             <div>Clean Up By</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Tab Bar</div>
             <div class="mini-icon">⇧ ⌘ T</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Show All Tabs</div>
             <div class="mini-icon">⇧ ⌘ \</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Sidebar</div>
             <div class="mini-icon">⌃ ⌘ S</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Preview</div>
             <div class="mini-icon">⇧ ⌘ P</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Toolbar</div>
             <div class="mini-icon">⌥ ⌘ T</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Path Bar</div>
             <div class="mini-icon">⌥ ⌘ P</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Hide Status Bar</div>
             <div class="mini-icon">⌘ /</div>
           </div>
           <div class="divider"></div>
-          <div class="option disabled">Customize Toolbar…</div>
+          <div class="option disabled" role="menuitem">Customize Toolbar…</div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Show View Options</div>
             <div class="mini-icon">⌘ J</div>
           </div>
-          <div class="option disabled">Show Preview Options</div>
+          <div class="option disabled" role="menuitem">Show Preview Options</div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Enter Full Screen</div>
             <div class="mini-icon"><i alt="Globe icon" class="fas fa-globe" aria-hidden="true"></i> F</div>
           </div>
         </div>
 
         <div id="go-menu" class="menu-dropdown">
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Back</div>
             <div class="mini-icon">⌘ [</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Forward</div>
             <div class="mini-icon">⌘ ]</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Enclosing Folder</div>
             <div class="mini-icon">⌘ ▲</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Clock icon" class="fas fa-clock" aria-hidden="true"></i> &nbsp; Recents</div>
             <div class="mini-icon">⇧ ⌘ F</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="File icon" class="fas fa-file" aria-hidden="true"></i> &nbsp;&nbsp; Documents</div>
             <div class="mini-icon">⇧ ⌘ O</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Desktop icon" class="fas fa-desktop" aria-hidden="true"></i> &nbsp; Desktop</div>
             <div class="mini-icon">⇧ ⌘ D</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Downloads icon" class="fas fa-circle-down" aria-hidden="true"></i> &nbsp; Downloads</div>
             <div class="mini-icon">⌥ ⌘ L</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Home icon" class="fas fa-home" aria-hidden="true"></i> &nbsp; Home</div>
             <div class="mini-icon">⇧ ⌘ H</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Book icon" class="fas fa-book" aria-hidden="true"></i> &nbsp; Library</div>
             <div class="mini-icon">⇧ ⌘ L</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Laptop icon" class="fas fa-laptop" aria-hidden="true"></i>&nbsp; Computer</div>
             <div class="mini-icon">⇧ ⌘ C</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Bullseye icon" class="fas fa-bullseye" aria-hidden="true"></i> &nbsp; AirDrop</div>
             <div class="mini-icon">⇧ ⌘ R</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Globe icon" class="fas fa-globe" aria-hidden="true"></i> &nbsp; Network</div>
             <div class="mini-icon">⇧ ⌘ K</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Cloud icon" class="fas fa-cloud" aria-hidden="true"></i>&nbsp; iCloud Drive</div>
             <div class="mini-icon">⇧ ⌘ I</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Open folder icon" class="fas fa-folder-open" aria-hidden="true"></i>&nbsp; Shared</div>
             <div class="mini-icon">⇧ ⌘ S</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="A letter icon" class="fas fa-a" aria-hidden="true"></i> &nbsp; Applications</div>
             <div class="mini-icon">⇧ ⌘ A</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div><i alt="Screwdriver wrench icon" class="fas fa-screwdriver-wrench" aria-hidden="true"></i>&nbsp; Utilities</div>
             <div class="mini-icon">⇧ ⌘ U</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Recent Folders</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Go to Folder…</div>
             <div class="mini-icon">⇧ ⌘ G</div>
           </div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Connect to Server…</div>
             <div class="mini-icon">⌘ K</div>
           </div>
         </div>
 
         <div id="window-menu" class="menu-dropdown">
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Minimize</div>
             <div class="mini-icon">⌘ M</div>
           </div>
-          <div class="option disabled">Zoom</div>
-          <div class="position-title disabled">
+          <div class="option disabled" role="menuitem">Zoom</div>
+          <div class="position-title disabled" role="menuitem">
             <div>Fill</div>
             <div class="mini-icon">⌃ <i alt="Globe icon" class="fas fa-globe" aria-hidden="true"></i> F</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Center</div>
             <div class="mini-icon">⌃ <i alt="Globe icon" class="fas fa-globe" aria-hidden="true"></i> C</div>
           </div>
           <div class="divider"></div>
-          <div class="position-title option">
+          <div class="position-title option" role="menuitem">
             <div>Move & Resize</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Full Screen Tile</div>
             <i alt="Right chevron icon" class="fas fa-chevron-right mini-icon" aria-hidden="true"></i>
           </div>
           <div class="divider"></div>
-          <div class="option disabled">Remove Window from Set</div>
-          <div class="position-title">
+          <div class="option disabled" role="menuitem">Remove Window from Set</div>
+          <div class="position-title" role="menuitem">
             <div>Cycle Through Windows</div>
             <div class="mini-icon">⌘ `</div>
           </div>
-          <div class="option disabled">Show Progress Window</div>
+          <div class="option disabled" role="menuitem">Show Progress Window</div>
           <div class="divider"></div>
-          <div class="option">Bring All to Front</div>
+          <div class="option" role="menuitem">Bring All to Front</div>
           <div class="divider"></div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Show Previous Tab</div>
             <div class="mini-icon">⌃ ⇧ ⇥</div>
           </div>
-          <div class="position-title disabled">
+          <div class="position-title disabled" role="menuitem">
             <div>Show Next Tab</div>
             <div class="mini-icon">⌃ ⇥</div>
           </div>
-          <div class="option disabled">Move Tab to New Window</div>
-          <div class="option disabled">Merge All Windows</div>
+          <div class="option disabled" role="menuitem">Move Tab to New Window</div>
+          <div class="option disabled" role="menuitem">Merge All Windows</div>
         </div>
 
         <div id="help-menu" class="menu-dropdown">
           <input class="searchbar" type="text" placeholder="Search" alt="Search bar">
-          <div class="option">Mac User Guide</div>
-          <div class="option">Tips for Your Mac</div>
+          <div class="option" role="menuitem">Mac User Guide</div>
+          <div class="option" role="menuitem">Tips for Your Mac</div>
         </div>
 
         <div class="folder">
-          <button class="folder-button btn">
+          <button class="folder-button btn" tabindex="0">
             <img src="/assets/img/system/blue-folder.webp" draggable="true" fetchpriority="high" alt="Blue folder icon">
             <span>src</span>
           </button>
 
-          <button class="folder-button btn" id="aboutFile">
+          <button class="folder-button btn" id="aboutFile" tabindex="0">
             <img src="/assets/img/system/rtf-icon.webp" draggable="true" fetchpriority="high" alt=".rtf file icon">
             <span>about.rtf</span>
           </button>
 
-          <button class="folder-button btn" id="profilePic">
+          <button class="folder-button btn" id="profilePic" tabindex="0">
             <img src="/assets/img/misc/profile.webp" class="image" draggable="true" fetchpriority="high" alt="Profile picture">
             <span>profile.jpg</span>
           </button>
 
-          <button class="folder-button btn" id="resumeFile">
+          <button class="folder-button btn" id="resumeFile" tabindex="0">
             <img src="/assets/img/system/pdf.webp" draggable="true" fetchpriority="high" alt=".pdf file icon">
             <span>resume.pdf</span>
           </button>
@@ -577,9 +577,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div id="mac-terminal" class="windows openWindow inFront">
           <div class="header handle">
             <div class="header__op">
-              <span role="button" tabindex="0" class="header__op-icon header__op-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="header__op-icon header__op-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="header__op-icon header__op-icon--green cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Close" tabindex="0" class="header__op-icon header__op-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Minimize" tabindex="0" class="header__op-icon header__op-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Maximize" tabindex="0" class="header__op-icon header__op-icon--green cancel"></span>
             </div>
 
             <div class="header__title"><img src="/assets/img/icons/terminal.svg" draggable="false" fetchpriority="high" alt="iTerm icon">-bash</div>
@@ -669,9 +669,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div id="calc" class="windows">
           <div class="calc-header handle">
             <div class="calc-header__op">
-              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="calc-header__op-icon calc-header__op-icon--grey cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Close" tabindex="0" class="calc-header__op-icon calc-header__op-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Minimize" tabindex="0" class="calc-header__op-icon calc-header__op-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" aria-label="Maximize" tabindex="0" class="calc-header__op-icon calc-header__op-icon--grey cancel"></span>
             </div>
             <div class="calc-header__empty"></div>
           </div>
@@ -682,9 +682,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         
           <div class="calc-buttons">
-            <a role="button" tabindex="0" class="button clear light-grey">AC</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button clear light-grey">AC</a>
         
-            <a role="button" tabindex="0" class="button val equal light-grey" href="*-1">
+            <a role="button" aria-pressed="false" tabindex="0" class="button val equal light-grey" href="*-1">
               <button class="invert-button">
                 <sup>+</sup>
                 <span>/</span>
@@ -692,94 +692,94 @@ Refer to https://opensource.org/licenses/MIT for a copy.
               </button>
             </a>
         
-            <a role="button" tabindex="0" class="button val light-grey" href="%">%</a>
-            <a role="button" tabindex="0" class="button val yellow" href="/">÷</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val light-grey" href="%">%</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val yellow" href="/">÷</a>
         
-            <a role="button" tabindex="0" class="button val dark-grey" href="7">7</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="8">8</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="9">9</a>
-            <a role="button" tabindex="0" class="button val yellow" href="*">×</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="7">7</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="8">8</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="9">9</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val yellow" href="*">×</a>
         
-            <a role="button" tabindex="0" class="button val dark-grey" href="4">4</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="5">5</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="6">6</a>
-            <a role="button" tabindex="0" class="button val yellow" href="-">−</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="4">4</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="5">5</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="6">6</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val yellow" href="-">−</a>
         
-            <a role="button" tabindex="0" class="button val dark-grey" href="1">1</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="2">2</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="3">3</a>
-            <a role="button" tabindex="0" class="button val yellow" href="+">+</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="1">1</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="2">2</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="3">3</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val yellow" href="+">+</a>
         
-            <a role="button" tabindex="0" class="button dark-grey"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
-            <a role="button" tabindex="0" class="button val dark-grey" href="0">0</a>
-            <a role="button" tabindex="0" class="button val dark-grey" href=".">.</a>
-            <a role="button" tabindex="0" class="button equal yellow">=</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button dark-grey"><i class="fas fa-calculator" alt="Calculator icon" aria-hidden="true"></i></a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href="0">0</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button val dark-grey" href=".">.</a>
+            <a role="button" aria-pressed="false" tabindex="0" class="button equal yellow">=</a>
           </div>
         </div>
 
         <div id="text-edit" class="windows">
           <div class="text-edit-header handle">
             <div class="text-edit-header__op">
-              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="text-edit-header__op-icon text-edit-header__op-icon--grey cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="text-edit-header__op-icon text-edit-header__op-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="text-edit-header__op-icon text-edit-header__op-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="text-edit-header__op-icon text-edit-header__op-icon--grey cancel"></span>
             </div>
             <div class="text-edit-header__title"><img src="/assets/img/system/rtf-icon.webp" alt="RTF Icon" loading="lazy" fetchpriority="low" draggable="false">about.rtf</div>
             <div class="text-edit-header__empty"></div>
           </div>
 
           <div class="styles">
-            <div class="drop">
-              <select id="fontFamily" title="Choose the typeface" class="drop--styles drop--element">
-                <option selected>Helvetica</option>
-                <option>Arial</option>
-                <option>Verdana</option>
-                <option>Times New Roman</option>
-                <option>Courier New</option>
-                <option>Garamond</option>
-                <option>Tahoma</option>
+            <div class="drop" aria-label="Text Formatting">
+              <select id="fontFamily" aria-label="Font Family" title="Choose the typeface" class="drop--styles drop--element" role="listbox" aria-multiselectable="false" aria-expanded="false">
+                <option aria-selected="true" role="option" selected>Helvetica</option>
+                <option aria-selected="false" role="option">Arial</option>
+                <option aria-selected="false" role="option">Verdana</option>
+                <option aria-selected="false" role="option">Times New Roman</option>
+                <option aria-selected="false" role="option">Courier New</option>
+                <option aria-selected="false" role="option">Garamond</option>
+                <option aria-selected="false" role="option">Tahoma</option>
               </select>
 
-              <select id="fontSize" title="Set the font size" class="drop--styles drop--element">
-                <option>10</option>
-                <option selected>12</option>
-                <option>14</option>
-                <option>16</option>
-                <option>18</option>
-                <option>20</option>
-                <option>24</option>
-                <option>28</option>
-                <option>32</option>
-                <option>36</option>
+              <select id="fontSize" aria-label="Text Size" title="Set the font size" class="drop--styles drop--element" role="listbox" aria-multiselectable="false" aria-expanded="false">
+                <option aria-selected="false" role="option">10</option>
+                <option aria-selected="true" role="option" selected>12</option>
+                <option aria-selected="false" role="option">14</option>
+                <option aria-selected="false" role="option">16</option>
+                <option aria-selected="false" role="option">18</option>
+                <option aria-selected="false" role="option">20</option>
+                <option aria-selected="false" role="option">24</option>
+                <option aria-selected="false" role="option">28</option>
+                <option aria-selected="false" role="option">32</option>
+                <option aria-selected="false" role="option">36</option>
               </select>
             
-              <input tabindex="0" id="colorPicker" value="#FFFFFF" type="color" title="Click to choose the text color">
+              <input tabindex="0" id="colorPicker" value="#FFFFFF" aria-label="Text Color" type="color" title="Click to choose the text color" role="select" aria-expanded="false">
             
-              <div class="drop--decorations drop--element">
-                <i role="button" tabindex="0" alt="Bold button" title="Bold text" id="bold-btn" class="fas fa-bold" aria-hidden="true"></i>
-                <i role="button" tabindex="0" alt="Italic button" title="Italicize text" id="italic-btn" class="fas fa-italic" aria-hidden="true"></i>
-                <i role="button" tabindex="0" alt="Underline button" title="Underline text" id="underline-btn" class="fas fa-underline" aria-hidden="true"></i>
+              <div class="drop--decorations drop--element" role="toolbar" aria-label="Text Decorations">
+                <i role="button" aria-pressed="false" tabindex="0" alt="Bold button" title="Bold text" id="bold-btn" class="fas fa-bold" aria-hidden="true"></i>
+                <i role="button" aria-pressed="false" tabindex="0" alt="Italic button" title="Italicize text" id="italic-btn" class="fas fa-italic" aria-hidden="true"></i>
+                <i role="button" aria-pressed="false" tabindex="0" alt="Underline button" title="Underline text" id="underline-btn" class="fas fa-underline" aria-hidden="true"></i>
               </div>
 
-              <div class="drop--alignments drop--element">
-                <i role="button" tabindex="0" alt="Align left button" title="Align text to the left" id="left-btn" class="fa fa-align-left" aria-hidden="true"></i>
-                <i role="button" tabindex="0" alt="Align center button" title="Center text" id="center-btn" class="fa fa-align-center" aria-hidden="true"></i>
-                <i role="button" tabindex="0" alt="Align right button" title="Align text to the right" id="right-btn" class="fa fa-align-right" aria-hidden="true"></i>
-                <i role="button" tabindex="0" alt="Align justify button" title="Justify text" id="justify-btn" class="fa fa-align-justify" aria-hidden="true"></i>
+              <div class="drop--alignments drop--element" role="toolbar" aria-label="Text Alignment">
+                <i role="button" aria-pressed="false" tabindex="0" alt="Align left button" title="Align text to the left" id="left-btn" class="fa fa-align-left" aria-hidden="true"></i>
+                <i role="button" aria-pressed="false" tabindex="0" alt="Align center button" title="Center text" id="center-btn" class="fa fa-align-center" aria-hidden="true"></i>
+                <i role="button" aria-pressed="false" tabindex="0" alt="Align right button" title="Align text to the right" id="right-btn" class="fa fa-align-right" aria-hidden="true"></i>
+                <i role="button" aria-pressed="false" tabindex="0" alt="Align justify button" title="Justify text" id="justify-btn" class="fa fa-align-justify" aria-hidden="true"></i>
               </div>
 
-              <select id="lineHeight" title="Line and paragraph spacing" class="drop--styles drop--element">
-                <option>1.0</option>
-                <option>1.1</option>
-                <option>1.2</option>
-                <option>1.3</option>
-                <option>1.4</option>
-                <option selected>1.5</option>
-                <option>1.6</option>
-                <option>1.7</option>
-                <option>1.8</option>
-                <option>1.9</option>
-                <option>2.0</option>
+              <select id="lineHeight" title="Line and paragraph spacing" class="drop--styles drop--element" role="listbox" aria-multiselectable="false" aria-expanded="false" aria-label="Text Spacing">
+                <option aria-selected="false" role="option">1.0</option>
+                <option aria-selected="false" role="option">1.1</option>
+                <option aria-selected="false" role="option">1.2</option>
+                <option aria-selected="false" role="option">1.3</option>
+                <option aria-selected="false" role="option">1.4</option>
+                <option aria-selected="true" role="option" selected>1.5</option>
+                <option aria-selected="false" role="option">1.6</option>
+                <option aria-selected="false" role="option">1.7</option>
+                <option aria-selected="false" role="option">1.8</option>
+                <option aria-selected="false" role="option">1.9</option>
+                <option aria-selected="false" role="option">2.0</option>
               </select>
             </div>
           </div>
@@ -902,13 +902,13 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           <div id="email" class="windows">
             <div class="email-header handle">
               <div class="email-header__op">
-                <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--red cancel"></span>
-                <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--yellow cancel"></span>
-                <span role="button" tabindex="0" class="email-header__op-icon email-header__op-icon--green cancel"></span>
+                <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="email-header__op-icon email-header__op-icon--red cancel"></span>
+                <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="email-header__op-icon email-header__op-icon--yellow cancel"></span>
+                <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="email-header__op-icon email-header__op-icon--green cancel"></span>
               </div>
               <div id="cf-turnstile"></div>
               <div class="g-recaptcha" data-theme="dark" data-callback="callback" data-sitekey="6Lcd6rIqAAAAAOabj0rba6jICI-HqlQr8A1uNSBt"></div>
-              <button id="send-btn" class="cancel" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              <button id="send-btn" aria-pressed="false" class="cancel" type="submit" onclick="google.script.run.processForm(this.parentNode.parentNode.parentNode)" title="Send message" disabled="disabled"><i alt="Paper plane icon" class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
 
             <div class="middle">
@@ -929,14 +929,14 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <aside class="sidebar">
               <div class="sidebar-header handle">
                 <div class="music-buttons">
-                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--red cancel"></span>
-                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--yellow cancel"></span>
-                  <span role="button" tabindex="0" class="music-buttons-icon music-buttons-icon--green cancel"></span>
+                  <span role="button" aria-pressed="false" aria-label="Close" tabindex="0" class="music-buttons-icon music-buttons-icon--red cancel"></span>
+                  <span role="button" aria-pressed="false" aria-label="Minimize" tabindex="0" class="music-buttons-icon music-buttons-icon--yellow cancel"></span>
+                  <span role="button" aria-pressed="false" aria-label="Maximize" tabindex="0" class="music-buttons-icon music-buttons-icon--green cancel"></span>
                 </div>
               </div>
 
               <div class="content">
-                <div class="search-bar"><input type="text" placeholder="Search" alt="Search bar"></div>
+                <div class="search-bar" role="searchbox" aria-placeholder="Search"><input type="text" placeholder="Search" alt="Search bar"></div>
                 
                 <div class="section-container">
                   <div class="subtitle">Apple Music</div>
@@ -1095,7 +1095,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <div class="c-playback__user__vol">
                     <div class="c-input-slider">
                       <i alt="Volume down icon" class="fas fa-volume-low" aria-hidden="true"></i>
-                      <input type="range" name="Volume" value="75" min="0" max="100" aria-label="Volume slider">
+                      <input type="range" name="Volume" value="75" min="0" max="100" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-label="Volume slider">
                       <i alt="Volume up icon" class="fas fa-volume-high" aria-hidden="true"></i>
                     </div>
                   </div>
@@ -1313,9 +1313,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <aside class="sidebar">
               <div class="sidebar-header handle">
                 <div class="buttons">
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--red cancel"></span>
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--yellow cancel"></span>
-                  <span role="button" tabindex="0" class="buttons-icon buttons-icon--green cancel"></span>
+                  <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="buttons-icon buttons-icon--red cancel"></span>
+                  <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="buttons-icon buttons-icon--yellow cancel"></span>
+                  <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="buttons-icon buttons-icon--green cancel"></span>
                 </div>
 
                 <div><i class="fas fa-list icons" title="View notes as list" alt="List icon" aria-hidden="true"></i><i class="fas fa-border-all icons" title="View notes as gallery" alt="Gallery icon" aria-hidden="true"></i></div>
@@ -1572,7 +1572,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <i class="fas fa-list-check icons" alt="Checklist icon" title="Make a checklist" aria-hidden="true"></i>
                 <i class="fas fa-table icons" alt="Table icon" title="Add a table" aria-hidden="true"></i>
                 <i class="fas fa-arrow-up-from-bracket icons" alt="Share icon" title="Share this note" aria-hidden="true"></i>
-                <div class="search-bar cancel" title="Quickly find notes and attachments"><input type="text" placeholder="Search" alt="Search bar"></div>
+                <div class="search-bar cancel" role="searchbox" aria-placeholder="Search" title="Quickly find notes and attachments"><input type="text" placeholder="Search" alt="Search bar"></div>
               </div>
 
               <div class="main-body">
@@ -1581,9 +1581,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/algae-detection" title="Link to AI project's repository on GitHub">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a role="button" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" target="_blank" title="Link to Google Colab notebook" class="links-btn"><i alt="Code icon" class="fas fa-code" aria-hidden="true"></i> Colab Notebook</a>
-                      <a role="button" href="https://github.com/lynkos/algae-detection" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" target="_blank" title="Link to Google Colab notebook" class="links-btn"><i alt="Code icon" class="fas fa-code" aria-hidden="true"></i> Colab Notebook</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/algae-detection" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Designed and developed a system that uses custom AI (i.e. computer vision) and a camera to quickly detect and identify species of harmful algae in real-time (livestream/video); i.e. object detection using convolutional neural networks (CNNs)</li>
@@ -1599,8 +1599,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/grovers-algorithm" title="Link to Quantum Search Algorithm repository on GitHub">Quantum Search Algorithm</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://blog.lynkos.dev/posts/grover-full" target="_blank" title="Link to accompanying blog post" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Blog Post</a>
-                      <a role="button" href="https://github.com/lynkos/grovers-algorithm" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://blog.lynkos.dev/posts/grover-full" target="_blank" title="Link to accompanying blog post" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Blog Post</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/grovers-algorithm" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <img loading="lazy" fetchpriority="low" src="https://raw.githubusercontent.com/lynkos/grovers-algorithm/main/assets/circuits/grover.png" alt="Quantum circuit for Grover's Algorithm">
                     <ul>
@@ -1615,7 +1615,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/downloader" title="Link to web scraper's repository on GitHub">Web Scraper</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/downloader" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/downloader" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Simple web scraper to download media from websites</li>
@@ -1630,8 +1630,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/lynkos.github.io" title="Link to GitHub repository">lynkos.github.io</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://lynkos.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a role="button" href="https://github.com/lynkos/lynkos.github.io" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://lynkos.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/lynkos.github.io" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>macOS Sequoia-inspired personal website</p><br>
                     <img loading="lazy" fetchpriority="low" src="/assets/img/misc/demo.webp" alt="Screenshot of home page"><br>
@@ -1659,8 +1659,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/DishpitDev/Slopify" title="Link to GitHub repository">Slopify</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://slopify.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a role="button" href="https://github.com/DishpitDev/Slopify" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://slopify.dev" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/DishpitDev/Slopify" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>The ideomotor effect of software</li>
@@ -1674,8 +1674,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/zenkitty" title="Link to GitHub repository">ZenKitty</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://lynkos.dev/zenkitty" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a role="button" href="https://github.com/lynkos/zenkitty" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://lynkos.dev/zenkitty" target="_blank" title="Link to website" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/zenkitty" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Human-Computer Interaction project</p>
                   </div>
@@ -1686,7 +1686,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/hllywluis/bim-assistant" title="Link to GitHub repository">Intelligent Building Information Modeling (BIM) Virtual Assistant</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/hllywluis/bim-assistant" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/hllywluis/bim-assistant" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Developed front-end of web app for BIM models that allows users to:</p>
                     <ul>
@@ -1702,7 +1702,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/dns-lookup" title="Link to GitHub repository">DNS Lookup</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/dns-lookup" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/dns-lookup" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>The goal of this project is to practice UDP socket programing and understand binary packet structures by developing a simplified DNS lookup client</li>
@@ -1717,7 +1717,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/web-status-monitor" title="Link to GitHub repository">Web Status Monitor</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/web-status-monitor" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/web-status-monitor" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This project develops a web status monitor (simplified version of uptimerobot.com) to practice web programming and understand the web related protocols: HTTP and TLS/SSL</li>
@@ -1733,7 +1733,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/simple-mpi" title="Link to GitHub repository">Simple MPI</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/simple-mpi" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/simple-mpi" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This program counts the number of prime numbers between 1 to <code>MAX_CONST</code> inclusive using MPI (parallel programming)</li>
@@ -1749,7 +1749,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/BST" title="Link to GitHub repository">BST</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/BST" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/BST" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>Sorts all words in an input file (or from standard input) and prints the sorted words to an output file (or standard output)</li>
@@ -1766,7 +1766,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/simple-shell" title="Link to GitHub repository">Simple Shell</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/simple-shell" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/simple-shell" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <ul>
                       <li>This program is an extension of <code>myshell.c</code> with pipelines + I/O redirection functionality</li>
@@ -1783,7 +1783,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/Endians" title="Link to GitHub repository">Endians</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/Endians" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/Endians" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Program I wrote in high school that converts a given integer to little-endian and/or big-endian</p>
                   </div>
@@ -1794,7 +1794,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lericemautech/Q-SECURE" title="Link to GitHub repository">Q-SECURE: Quantum-Secure Protocol</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lericemautech/Q-SECURE" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lericemautech/Q-SECURE" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Implementation of multi-party computation (MPC), a quantum-resistant cryptographic algorithm, with custom client-server software to securely compute the product of <code>N</code> massive matrices</p><br>
                     <img loading="lazy" fetchpriority="low" src="/assets/img/misc/mpc.webp" alt="System design of MPC"><br>
@@ -1812,7 +1812,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://lynkos420.blogspot.com" title="Link to blog">Capture the Flag</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://lynkos420.blogspot.com" target="_blank" title="Link to blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://lynkos420.blogspot.com" target="_blank" title="Link to blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
                     </div>
                     <p>Some of my solutions to certain CTF puzzles/problems</p>
                   </div>
@@ -1823,7 +1823,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" title="Link to GitHub Gist">Conda Shortcuts</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" target="_blank" title="Link to blog" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8" target="_blank" title="Link to blog" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Shell script to automate the following:</p>
                     <ul>
@@ -1844,8 +1844,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://blog.lynkos.dev" title="Link to my blog">Blog</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://blog.lynkos.dev" target="_blank" title="Link to my blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
-                      <a role="button" href="https://github.com/lynkos/blog" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://blog.lynkos.dev" target="_blank" title="Link to my blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/blog" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>My personal blog</p>
                   </div>
@@ -1856,7 +1856,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/translate-me" title="Link to GitHub repository">TranslateMe</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/translate-me" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/translate-me" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>iOS app that translates between languages and allows users to store and delete their translations</p>
                     <br>
@@ -1880,7 +1880,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/trivia" title="Link to GitHub repository">Trivia</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/trivia" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/trivia" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>iOS app that challenges users with trivia questions spanning a variety of categories, formats, and difficulties</p>
                     <br>
@@ -1910,7 +1910,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/flashcard" title="Link to GitHub repository">Flashcard</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/flashcard" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/flashcard" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>iOS app that allows users to play a simple memory game</p>
                     <br>
@@ -1938,7 +1938,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/i-miss-python/xpense" title="Link to GitHub repository">Xpense</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/i-miss-python/xpense" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/i-miss-python/xpense" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Simple iOS app that tracks expenses</p>
                     <br>
@@ -1967,7 +1967,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/high-school-code" title="Link to GitHub repository">High School Code</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/high-school-code" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/high-school-code" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Archive containing my code for competitive programming problems during high school.</p>
                   </div>
@@ -1978,7 +1978,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/configs" title="Link to GitHub repository">Configs</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://github.com/lynkos/configs" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/configs" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Collection of my config files.</p>
                   </div>
@@ -1989,8 +1989,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   <h1 class="project-title"><a target="_blank" href="https://blog.lynkos.dev/posts/play-windows-games" title="Link to blog post">How to Run Windows Games and Programs on Mac</a></h1>
                   <div class="project-body">
                     <div class="links">
-                      <a role="button" href="https://blog.lynkos.dev/posts/play-windows-games" target="_blank" title="Link to blog post" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Blog Post</a>
-                      <a role="button" href="https://github.com/lynkos/configs/blob/main/Scripts/gaming_funcs.sh" target="_blank" title="Link source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
+                      <a role="button" aria-pressed="false" href="https://blog.lynkos.dev/posts/play-windows-games" target="_blank" title="Link to blog post" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Blog Post</a>
+                      <a role="button" aria-pressed="false" href="https://github.com/lynkos/configs/blob/main/Scripts/gaming_funcs.sh" target="_blank" title="Link source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
                     <p>Technical guide about running Windows programs + playing Windows games on macOS with Wine + Game Porting Toolkit (GPTk), DXMT, DXVK, MoltenVK, and more.</p><br>
                     <p>For example, the following screenshot shows Palworld, a Windows game, running on MacBook Pro M3 Max using these tools (namely Wine + DXMT).</p><br>
@@ -2006,9 +2006,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div id="browser" class="windows">
           <div class="top handle">
             <div class="browser-buttons">
-              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="browser-buttons-icon browser-buttons-icon--green cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="browser-buttons-icon browser-buttons-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="browser-buttons-icon browser-buttons-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="browser-buttons-icon browser-buttons-icon--green cancel"></span>
               <div class="left">
                 <span class="icons" title="Show sidebar"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
                 <span class="inactive icons" title="Show the previous page"><i class="fa fa-angle-left" alt="Back icon" aria-hidden="true"></i></span>
@@ -2028,7 +2028,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <h1>Skills</h1>
             <h2>Languages</h2>
             <section class="section">
-              <div role="button" tabindex="0" aria-expanded="false" id="python" class="row" onclick="toggleContent('#python')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="python" class="row" onclick="toggleContent('#python')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Python logo" class="fab fa-python"></i> 
                   <h3 class="heading">Python</h3>
@@ -2053,7 +2053,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="java" class="row" onclick="toggleContent('#java')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="java" class="row" onclick="toggleContent('#java')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Java logo" class="fab fa-java"></i>
                   <h3 class="heading">Java</h3>
@@ -2078,7 +2078,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="html" class="row" onclick="toggleContent('#html')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="html" class="row" onclick="toggleContent('#html')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="HTML logo" class="fab fa-html5"></i>
                   <h3 class="heading">HTML</h3>
@@ -2102,7 +2102,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="css" class="row" onclick="toggleContent('#css')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="css" class="row" onclick="toggleContent('#css')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="CSS logo" class="fab fa-css"></i>
                   <h3 class="heading">CSS</h3>
@@ -2127,7 +2127,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="jquery" class="row" onclick="toggleContent('#jquery')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="jquery" class="row" onclick="toggleContent('#jquery')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="jQuery logo" src="https://cdn.simpleicons.org/jquery">
                   <h3 class="heading">jQuery</h3>
@@ -2152,7 +2152,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="javascript" class="row" onclick="toggleContent('#javascript')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="javascript" class="row" onclick="toggleContent('#javascript')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JavaScript logo" src="https://cdn.simpleicons.org/javascript">
                   <h3 class="heading">JavaScript</h3>
@@ -2177,7 +2177,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="c" class="row" onclick="toggleContent('#c')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="c" class="row" onclick="toggleContent('#c')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C logo" src="https://cdn.simpleicons.org/c">
                   <h3 class="heading">C</h3>
@@ -2202,7 +2202,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="cpp" class="row" onclick="toggleContent('#cpp')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="cpp" class="row" onclick="toggleContent('#cpp')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C++ logo" src="https://cdn.simpleicons.org/cplusplus">
                   <h3 class="heading">C++</h3>
@@ -2227,7 +2227,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="latex" class="row" onclick="toggleContent('#latex')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="latex" class="row" onclick="toggleContent('#latex')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LaTeX logo" src="https://cdn.simpleicons.org/latex">
                   <h3 class="heading">LaTeX</h3>
@@ -2252,7 +2252,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="json" class="row" onclick="toggleContent('#json')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="json" class="row" onclick="toggleContent('#json')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JSON logo" src="https://cdn.simpleicons.org/json">
                   <h3 class="heading">JSON</h3>
@@ -2277,7 +2277,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="yaml" class="row" onclick="toggleContent('#yaml')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="yaml" class="row" onclick="toggleContent('#yaml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="YAML logo" src="https://cdn.simpleicons.org/yaml">
                   <h3 class="heading">YAML</h3>
@@ -2302,7 +2302,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="terraform" class="row" onclick="toggleContent('#terraform')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="terraform" class="row" onclick="toggleContent('#terraform')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform">
                   <h3 class="heading">Terraform</h3>
@@ -2327,7 +2327,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="uml" class="row" onclick="toggleContent('#uml')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="uml" class="row" onclick="toggleContent('#uml')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="UML logo" src="https://cdn.simpleicons.org/uml">
                   <h3 class="heading">UML</h3>
@@ -2352,7 +2352,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="r" class="row" onclick="toggleContent('#r')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="r" class="row" onclick="toggleContent('#r')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="R logo" src="https://cdn.simpleicons.org/r">
                   <h3 class="heading">R</h3>
@@ -2377,7 +2377,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="markdown" class="row" onclick="toggleContent('#markdown')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="markdown" class="row" onclick="toggleContent('#markdown')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Markdown logo" class="fab fa-markdown"></i>
                   <h3 class="heading">Markdown</h3>
@@ -2402,7 +2402,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="jinja" class="row" onclick="toggleContent('#jinja')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="jinja" class="row" onclick="toggleContent('#jinja')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jinja logo" src="https://cdn.simpleicons.org/jinja">
                   <h3 class="heading">Jinja</h3>
@@ -2427,7 +2427,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="mysql" class="row" onclick="toggleContent('#mysql')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="mysql" class="row" onclick="toggleContent('#mysql')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql">
                   <h3 class="heading">MySQL</h3>
@@ -2452,7 +2452,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="swift" class="row" onclick="toggleContent('#swift')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="swift" class="row" onclick="toggleContent('#swift')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Swift logo" class="fab fa-swift"></i>
                   <h3 class="heading">Swift</h3>
@@ -2477,7 +2477,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="fsharp" class="row" onclick="toggleContent('#fsharp')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="fsharp" class="row" onclick="toggleContent('#fsharp')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="F# logo" src="https://cdn.simpleicons.org/fsharp">
                   <h3 class="heading">F#</h3>
@@ -2505,7 +2505,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
             <h2>Tools</h2>
             <section class="section">
-              <div role="button" tabindex="0" aria-expanded="false" id="git" class="row" onclick="toggleContent('#git')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="git" class="row" onclick="toggleContent('#git')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Git logo" class="fab fa-git-alt"></i> 
                   <h3 class="heading">Git</h3>
@@ -2530,7 +2530,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
               
-              <div role="button" tabindex="0" aria-expanded="false" id="bash" class="row" onclick="toggleContent('#bash')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="bash" class="row" onclick="toggleContent('#bash')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bash logo" src="https://cdn.simpleicons.org/gnubash">
                   <h3 class="heading">Bash</h3>
@@ -2555,7 +2555,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="zsh" class="row" onclick="toggleContent('#zsh')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="zsh" class="row" onclick="toggleContent('#zsh')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Zsh logo" src="https://cdn.simpleicons.org/zsh">
                   <h3 class="heading">Zsh</h3>
@@ -2580,7 +2580,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="confluence" class="row" onclick="toggleContent('#confluence')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="confluence" class="row" onclick="toggleContent('#confluence')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Confluence logo" class="fab fa-confluence"></i> 
                   <h3 class="heading">Confluence</h3>
@@ -2605,7 +2605,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="docker" class="row" onclick="toggleContent('#docker')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="docker" class="row" onclick="toggleContent('#docker')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Docker logo" class="fab fa-docker"></i> 
                   <h3 class="heading">Docker</h3>
@@ -2630,7 +2630,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="jira" class="row" onclick="toggleContent('#jira')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="jira" class="row" onclick="toggleContent('#jira')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Jira logo" class="fab fa-jira"></i> 
                   <h3 class="heading">Jira Software</h3>
@@ -2655,7 +2655,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="vim" class="row" onclick="toggleContent('#vim')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="vim" class="row" onclick="toggleContent('#vim')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Vim logo" src="https://cdn.simpleicons.org/vim">
                   <h3 class="heading">Vim</h3>
@@ -2680,7 +2680,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="jupyter" class="row" onclick="toggleContent('#jupyter')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="jupyter" class="row" onclick="toggleContent('#jupyter')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jupyter logo" src="https://cdn.simpleicons.org/jupyter">
                   <h3 class="heading">Jupyter</h3>
@@ -2705,7 +2705,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="conda" class="row" onclick="toggleContent('#conda')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="conda" class="row" onclick="toggleContent('#conda')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Anaconda logo" src="https://cdn.simpleicons.org/anaconda">
                   <h3 class="heading">Conda</h3>
@@ -2730,7 +2730,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="vmware" class="row" onclick="toggleContent('#vmware')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="vmware" class="row" onclick="toggleContent('#vmware')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="VMWare logo" src="https://cdn.simpleicons.org/vmware">
                   <h3 class="heading">VMWare Fusion</h3>
@@ -2755,7 +2755,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="grafana" class="row" onclick="toggleContent('#grafana')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="grafana" class="row" onclick="toggleContent('#grafana')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Grafana logo" src="https://cdn.simpleicons.org/grafana">
                   <h3 class="heading">Grafana</h3>
@@ -2780,7 +2780,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="wine" class="row" onclick="toggleContent('#wine')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="wine" class="row" onclick="toggleContent('#wine')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="WINE logo" src="https://cdn.simpleicons.org/wine">
                   <h3 class="heading">WINE</h3>
@@ -2805,7 +2805,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="homebrew" class="row" onclick="toggleContent('#homebrew')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="homebrew" class="row" onclick="toggleContent('#homebrew')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Homebrew logo" src="https://cdn.simpleicons.org/homebrew">
                   <h3 class="heading">Homebrew</h3>
@@ -2830,7 +2830,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="github" class="row" onclick="toggleContent('#github')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="github" class="row" onclick="toggleContent('#github')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="GitHub logo" class="fab fa-github"></i> 
                   <h3 class="heading">GitHub</h3>
@@ -2855,7 +2855,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="githubactions" class="row" onclick="toggleContent('#githubactions')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="githubactions" class="row" onclick="toggleContent('#githubactions')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Actions logo" src="https://cdn.simpleicons.org/githubactions">
                   <h3 class="heading">GitHub Actions</h3>
@@ -2880,7 +2880,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="githubpages" class="row" onclick="toggleContent('#githubpages')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="githubpages" class="row" onclick="toggleContent('#githubpages')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="GitHub Pages logo" class="fab fa-square-github"></i> 
                   <h3 class="heading">GitHub Pages</h3>
@@ -2905,7 +2905,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="hf" class="row" onclick="toggleContent('#hf')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="hf" class="row" onclick="toggleContent('#hf')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Hugging Face logo" src="https://cdn.simpleicons.org/huggingface">
                   <h3 class="heading">Hugging Face</h3>
@@ -2930,7 +2930,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="xcode" class="row" onclick="toggleContent('#xcode')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="xcode" class="row" onclick="toggleContent('#xcode')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Node.js logo" src="https://cdn.simpleicons.org/xcode">
                   <h3 class="heading">Xcode</h3>
@@ -2955,7 +2955,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="obsidian" class="row" onclick="toggleContent('#obsidian')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="obsidian" class="row" onclick="toggleContent('#obsidian')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Obsidian logo" src="https://cdn.simpleicons.org/obsidian">
                   <h3 class="heading">Obsidian</h3>
@@ -2980,7 +2980,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="nodejs" class="row" onclick="toggleContent('#nodejs')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="nodejs" class="row" onclick="toggleContent('#nodejs')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Node.js logo" class="fab fa-node-js"></i>
                   <h3 class="heading">Node.js</h3>
@@ -3005,7 +3005,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="nodemon" class="row" onclick="toggleContent('#nodemon')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="nodemon" class="row" onclick="toggleContent('#nodemon')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Nodemon logo" src="https://cdn.simpleicons.org/nodemon">
                   <h3 class="heading">Nodemon</h3>
@@ -3030,7 +3030,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="cloudflare" class="row" onclick="toggleContent('#cloudflare')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="cloudflare" class="row" onclick="toggleContent('#cloudflare')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Cloudflare logo" class="fab fa-cloudflare"></i>
                   <h3 class="heading">Cloudflare</h3>
@@ -3055,7 +3055,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="wireshark" class="row" onclick="toggleContent('#wireshark')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="wireshark" class="row" onclick="toggleContent('#wireshark')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Wireshark logo" src="https://cdn.simpleicons.org/wireshark">
                   <h3 class="heading">Wireshark</h3>
@@ -3080,7 +3080,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="cmake" class="row" onclick="toggleContent('#cmake')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="cmake" class="row" onclick="toggleContent('#cmake')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="CMake logo" src="https://cdn.simpleicons.org/cmake">
                   <h3 class="heading">CMake</h3>
@@ -3105,7 +3105,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="make" class="row" onclick="toggleContent('#make')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="make" class="row" onclick="toggleContent('#make')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Make logo" src="https://cdn.simpleicons.org/make">
                   <h3 class="heading">Make</h3>
@@ -3130,7 +3130,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="oci" class="row" onclick="toggleContent('#oci')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="oci" class="row" onclick="toggleContent('#oci')">
                 <div class="beginning">
                   <svg viewBox="0 0 32 21" xmlns="http://www.w3.org/2000/svg">
                     <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z" />
@@ -3157,7 +3157,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="bitwarden" class="row" onclick="toggleContent('#bitwarden')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="bitwarden" class="row" onclick="toggleContent('#bitwarden')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bitwarden logo" src="https://cdn.simpleicons.org/bitwarden">
                   <h3 class="heading">Bitwarden</h3>
@@ -3185,7 +3185,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
             <h2>Frameworks</h2>
             <section class="section">
-              <div role="button" tabindex="0" aria-expanded="false" id="qiskit" class="row" onclick="toggleContent('#qiskit')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="qiskit" class="row" onclick="toggleContent('#qiskit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Qiskit logo" src="https://cdn.simpleicons.org/qiskit">
                   <h3 class="heading">Qiskit</h3>
@@ -3210,7 +3210,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="numpy" class="row" onclick="toggleContent('#numpy')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="numpy" class="row" onclick="toggleContent('#numpy')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="NumPy logo" src="https://cdn.simpleicons.org/numpy">
                   <h3 class="heading">NumPy</h3>
@@ -3235,7 +3235,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="pytorch" class="row" onclick="toggleContent('#pytorch')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="pytorch" class="row" onclick="toggleContent('#pytorch')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyTorch logo" src="https://cdn.simpleicons.org/pytorch">
                   <h3 class="heading">PyTorch</h3>
@@ -3260,7 +3260,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="tensorflow" class="row" onclick="toggleContent('#tensorflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="TensorFlow logo" src="https://cdn.simpleicons.org/tensorflow">
                   <h3 class="heading">TensorFlow</h3>
@@ -3285,7 +3285,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="keras" class="row" onclick="toggleContent('#keras')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="keras" class="row" onclick="toggleContent('#keras')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Keras logo" src="https://cdn.simpleicons.org/keras">
                   <h3 class="heading">Keras</h3>
@@ -3310,7 +3310,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="sympy" class="row" onclick="toggleContent('#sympy')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="sympy" class="row" onclick="toggleContent('#sympy')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SymPy logo" src="https://cdn.simpleicons.org/sympy">
                   <h3 class="heading">SymPy</h3>
@@ -3335,7 +3335,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="maven" class="row" onclick="toggleContent('#maven')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="maven" class="row" onclick="toggleContent('#maven')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Maven logo" src="https://cdn.simpleicons.org/apachemaven">
                   <h3 class="heading">Maven</h3>
@@ -3360,7 +3360,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="junit" class="row" onclick="toggleContent('#junit')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="junit" class="row" onclick="toggleContent('#junit')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JUnit logo" src="https://cdn.simpleicons.org/junit5">
                   <h3 class="heading">JUnit</h3>
@@ -3385,7 +3385,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="sass" class="row" onclick="toggleContent('#sass')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="sass" class="row" onclick="toggleContent('#sass')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="SASS logo" class="fab fa-sass"></i>
                   <h3 class="heading">SASS</h3>
@@ -3410,7 +3410,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="roboflow" class="row" onclick="toggleContent('#roboflow')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="roboflow" class="row" onclick="toggleContent('#roboflow')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Roboflow logo" src="https://cdn.simpleicons.org/roboflow">
                   <h3 class="heading">Roboflow</h3>
@@ -3435,7 +3435,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="arduino" class="row" onclick="toggleContent('#arduino')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="arduino" class="row" onclick="toggleContent('#arduino')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Arduino logo" src="https://cdn.simpleicons.org/arduino">
                   <h3 class="heading">Arduino</h3>
@@ -3460,7 +3460,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="espressif" class="row" onclick="toggleContent('#espressif')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="espressif" class="row" onclick="toggleContent('#espressif')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Espressif logo" src="https://cdn.simpleicons.org/espressif">
                   <h3 class="heading">Espressif</h3>
@@ -3485,7 +3485,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="platformio" class="row" onclick="toggleContent('#platformio')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="platformio" class="row" onclick="toggleContent('#platformio')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PlatformIO logo" src="https://cdn.simpleicons.org/platformio">
                   <h3 class="heading">PlatformIO</h3>
@@ -3510,7 +3510,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="colab" class="row" onclick="toggleContent('#colab')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="colab" class="row" onclick="toggleContent('#colab')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Colab logo" src="https://cdn.simpleicons.org/googlecolab">
                   <h3 class="heading">Google Colab</h3>
@@ -3535,7 +3535,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="opencv" class="row" onclick="toggleContent('#opencv')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="opencv" class="row" onclick="toggleContent('#opencv')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenCV logo" src="https://cdn.simpleicons.org/opencv">
                   <h3 class="heading">OpenCV</h3>
@@ -3560,7 +3560,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="jekyll" class="row" onclick="toggleContent('#jekyll')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="jekyll" class="row" onclick="toggleContent('#jekyll')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jekyll logo" src="https://cdn.simpleicons.org/jekyll">
                   <h3 class="heading">Jekyll</h3>
@@ -3585,7 +3585,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="babel" class="row" onclick="toggleContent('#babel')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="babel" class="row" onclick="toggleContent('#babel')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Babel logo" src="https://cdn.simpleicons.org/babel">
                   <h3 class="heading">Babel</h3>
@@ -3610,7 +3610,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="llvm" class="row" onclick="toggleContent('#llvm')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="llvm" class="row" onclick="toggleContent('#llvm')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LLVM logo" src="https://cdn.simpleicons.org/llvm">
                   <h3 class="heading">LLVM</h3>
@@ -3635,7 +3635,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="mlx" class="row" onclick="toggleContent('#mlx')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="mlx" class="row" onclick="toggleContent('#mlx')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="MLX logo" class="fab fa-apple"></i> 
                   <h3 class="heading">MLX</h3>
@@ -3660,7 +3660,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="llamacpp" class="row" onclick="toggleContent('#llamacpp')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="llamacpp" class="row" onclick="toggleContent('#llamacpp')">
                 <div class="beginning">
                   <svg viewBox="0 0 264 264" xmlns="http://www.w3.org/2000/svg">
                     <path d="M229.665 157.022C226.791 157.022 224.362 157.022 221.452 157.022C221.452 159.886 221.452 162.638 221.452 165.386C221.452 169.439 218.221 172.725 214.168 172.725V172.725C210.115 172.725 206.775 169.439 206.775 165.386C206.775 162.694 206.775 159.931 206.775 157.051C201.473 157.051 201.438 157.051 196.384 157.051C196.384 152.118 196.384 147.629 196.384 142.792C201.292 142.792 201.341 142.792 206.498 142.792C206.498 139.997 206.498 137.292 206.498 134.581C206.498 130.483 209.802 127.161 213.9 127.161V127.161C217.998 127.161 221.337 130.483 221.337 134.581C221.337 137.217 221.337 139.869 221.337 142.601C223.866 142.601 226.276 142.601 228.674 142.601C232.657 142.601 235.885 145.829 235.885 149.812C235.885 150.141 235.885 150.471 235.885 150.802C235.885 154.238 233.1 157.023 229.665 157.022V157.022Z" />
@@ -3692,7 +3692,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
             <h2>Operating Systems</h2>
             <section class="section">
-              <div role="button" tabindex="0" aria-expanded="false" id="macos" class="row" onclick="toggleContent('#macos')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="macos" class="row" onclick="toggleContent('#macos')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Apple logo" class="fab fa-apple"></i>
                   <h3 class="heading">macOS</h3>
@@ -3717,7 +3717,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="ubuntu" class="row" onclick="toggleContent('#ubuntu')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="ubuntu" class="row" onclick="toggleContent('#ubuntu')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="Ubuntu logo" class="fab fa-ubuntu"></i>
                   <h3 class="heading">Ubuntu</h3>
@@ -3742,7 +3742,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="windows" class="row" onclick="toggleContent('#windows')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="windows" class="row" onclick="toggleContent('#windows')">
                 <div class="beginning">
                   <i alt="Windows logo" class="fab fa-windows" aria-hidden="true"></i>
                   <h3 class="heading">Windows</h3>
@@ -3770,7 +3770,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
             <h2>Large Language Models (LLMs)</h2>
             <section class="section">
-              <div role="button" tabindex="0" aria-expanded="false" id="copilot" class="row" onclick="toggleContent('#copilot')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="copilot" class="row" onclick="toggleContent('#copilot')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Copilot logo" src="https://cdn.simpleicons.org/githubcopilot">
                   <h3 class="heading">GitHub Copilot</h3>
@@ -3795,7 +3795,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="claude" class="row" onclick="toggleContent('#claude')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="claude" class="row" onclick="toggleContent('#claude')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Claude logo" src="https://cdn.simpleicons.org/claude">
                   <h3 class="heading">Claude</h3>
@@ -3820,7 +3820,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="deepseek" class="row" onclick="toggleContent('#deepseek')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="deepseek" class="row" onclick="toggleContent('#deepseek')">
                 <div class="beginning">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
                     <path fill="none" d="M0,0H150V150H0V0Z"/>
@@ -3848,7 +3848,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="gemini" class="row" onclick="toggleContent('#gemini')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="gemini" class="row" onclick="toggleContent('#gemini')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Gemini logo" src="https://cdn.simpleicons.org/googlegemini">
                   <h3 class="heading">Google Gemini</h3>
@@ -3873,7 +3873,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="llama" class="row" onclick="toggleContent('#llama')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="llama" class="row" onclick="toggleContent('#llama')">
                 <div class="beginning">
                   <img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LLaMA logo" src="https://cdn.simpleicons.org/meta">
                   <h3 class="heading">LLaMA</h3>
@@ -3898,7 +3898,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <p>This section is still a work in progress. Please check back later!</p>
               </div>
 
-              <div role="button" tabindex="0" aria-expanded="false" id="chatgpt" class="row" onclick="toggleContent('#chatgpt')">
+              <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="chatgpt" class="row" onclick="toggleContent('#chatgpt')">
                 <div class="beginning">
                   <i aria-hidden="true" alt="OpenAI logo" class="fab fa-openai"></i> 
                   <h3 class="heading">ChatGPT</h3>
@@ -3929,18 +3929,18 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div class="preview windows">
           <div class="preview-header handle">
             <div class="preview-header__op">
-              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="preview-header__op-icon preview-header__op-icon--green cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="preview-header__op-icon preview-header__op-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="preview-header__op-icon preview-header__op-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="preview-header__op-icon preview-header__op-icon--green cancel"></span>
             </div>
             <span class="preview-header-icons cancel" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
             <span class="preview-header-title">profile.jpg</span>
             <span class="preview-header-icons cancel" title="Show the Inspector"><i class="fas fa-circle-info" alt="Info icon" aria-hidden="true"></i></span>
-            <span role="button" tabindex="0" id="zoomOut" class="preview-header-icons cancel" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
-            <span role="button" tabindex="0" id="zoomIn" class="preview-header-icons cancel" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
+            <span role="button" aria-pressed="false" tabindex="0" id="zoomOut" class="preview-header-icons cancel" title="Scale document down"><i class="fa fa-search-minus" alt="Zoom out icon" aria-hidden="true"></i></span>
+            <span role="button" aria-pressed="false" tabindex="0" id="zoomIn" class="preview-header-icons cancel" title="Scale document up"><i class="fa fa-search-plus" alt="Zoom in icon" aria-hidden="true"></i></span>
             <span class="preview-header-icons cancel" title="Share the document"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
             <span class="inactive preview-header-icons cancel" title="Highlights and notes"><i class="fas fa-highlighter" alt="Highlighter icon" aria-hidden="true"></i></span>
-            <span role="button" tabindex="0" id="rotate" class="preview-header-icons cancel" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
+            <span role="button" aria-pressed="false" tabindex="0" id="rotate" class="preview-header-icons cancel" title="Rotate Left"><i class="fas fa-rotate-left" alt="Rotate left icon" aria-hidden="true"></i></span>
             <span class="preview-header-icons cancel" title="Show markup tool"><i class="fas fa-pen-nib" alt="Pen icon" aria-hidden="true"></i></span>
             <span class="inactive preview-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
@@ -3952,9 +3952,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         <div class="resume windows">
           <div class="resume-header handle">
             <div class="resume-header__op">
-              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--red cancel"></span>
-              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--yellow cancel"></span>
-              <span role="button" tabindex="0" class="resume-header__op-icon resume-header__op-icon--green cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="resume-header__op-icon resume-header__op-icon--red cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="resume-header__op-icon resume-header__op-icon--yellow cancel"></span>
+              <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="resume-header__op-icon resume-header__op-icon--green cancel"></span>
             </div>
             <span class="resume-header-icons cancel" title="Choose sidebar display"><i class="fa fa-list-alt" alt="Sidebar icon" aria-hidden="true"></i></span>
             <span class="resume-header-title">resume.pdf</span>
@@ -3974,22 +3974,22 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
         <div id="launchpad">
           <div id="launch-content">
-            <div class="search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
+            <div class="search" tabindex="0" role="searchbox" aria-placeholder="Search"><input type="search" id="launchInput" onkeyup="filterLaunchpad()" placeholder="Search" title="Type in an app name"></div>
 
             <nav id="launchNav">
               <!-- Temporarily add href to "Mail" app while its content form is being fixed -->
-              <a role="button" tabindex="0" class="icon-mail launch" id="mailLaunch" href="mailto:admin@lynkos.dev"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
-              <a role="button" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
-              <a role="button" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
-              <a role="button" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
-              <a role="button" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
-              <a role="button" tabindex="0" class="icon-music launch" id="musicLaunch"><img src="/assets/img/apps/music.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Music"> Music</a>
-              <a role="button" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
-              <a role="button" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
-              <a role="button" tabindex="0" class="icon-blog launch" target="_blank" href="https://blog.lynkos.dev" draggable="false"><img src="/assets/img/favicons/favicon.svg" draggable="true" loading="lazy" fetchpriority="low" alt="Blog"> Blog</a>
-              <a role="button" tabindex="0" class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
-              <a role="button" tabindex="0" class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
-              <a role="button" tabindex="0" class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-mail launch" id="mailLaunch" href="mailto:admin@lynkos.dev"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-music launch" id="musicLaunch"><img src="/assets/img/apps/music.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Music"> Music</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-blog launch" target="_blank" href="https://blog.lynkos.dev" draggable="false"><img src="/assets/img/favicons/favicon.svg" draggable="true" loading="lazy" fetchpriority="low" alt="Blog"> Blog</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
             </nav>
           </div>
         </div>
@@ -4000,15 +4000,15 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
             <div class="hint">You can't undo this action.</div>
             <div class="actions">
-              <input class="alert-btn" type="button" value="Cancel">
-              <input onclick="changeImage()" class="alert-btn confirm" type="button" value="Empty Trash">
+              <input class="alert-btn" type="button" role="button" aria-pressed="false" tabindex="0" value="Cancel">
+              <input onclick="changeImage()" class="alert-btn confirm" tabindex="0" type="button" value="Empty Trash">
             </div>
           </div>
         </div>
 
         <div id="sticky-note">
           <div id="sticky-note-bar" class="handle">
-            <div id="sticky-note-close" role="button" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
+            <div id="sticky-note-close" role="button" aria-pressed="false" aria-label="Close" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
           </div>
 
           <div id="sticky-note-body">
@@ -4025,13 +4025,13 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
     <footer>
       <div id="not-ai-container">
-        <button id="not-ai-close" onclick="document.getElementById('not-ai-container').style.visibility = 'hidden'" role="button" tabindex="0" aria-hidden="true" title="Close badge">
+        <button id="not-ai-close" aria-pressed="false" onclick="document.getElementById('not-ai-container').style.visibility = 'hidden'" role="button" aria-pressed="false" aria-label="Close" tabindex="0" aria-hidden="true" title="Close badge">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
             <path fill="currentColor" d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"/>
           </svg>
         </button>
         
-        <button id="not-ai" role="button" tabindex="0" title="Developed by a human, not by AI">
+        <button id="not-ai" aria-pressed="false" role="button" aria-pressed="false" tabindex="0" aria-label="Open Not by AI" title="Developed by a human, not by AI">
           <svg viewBox="0 0 131 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M116 0.5C124.008 0.5 130.5 6.99187 130.5 15V41.5H15C6.99187 41.5 0.5 35.0081 0.5 27V0.5H116Z" fill="#000" stroke="#ACACAC"/>
             <path d="M27.8497 24.1575C24.3836 26.9643 19.4266 26.9643 15.9605 24.1575L17.3007 22.5026C19.9854 24.6766 23.8248 24.6766 26.5095 22.5026L27.8497 24.1575Z" fill="#FFF"/>
