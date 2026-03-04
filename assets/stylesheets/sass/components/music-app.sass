@@ -69,9 +69,9 @@ $thumb-border-color: $track-color
       @include mix.disable-select()
 
       // Prevent sidebar from shrinking too much on smaller screens
-      @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
-        width: math.div($window-width, 4.5)
-        min-width: math.div($window-width, 4.5)
+      @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+        width: math.div($window-width, 5)
+        min-width: math.div($window-width, 5)
 
       &-header
         position: relative
