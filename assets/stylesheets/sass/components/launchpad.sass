@@ -71,9 +71,15 @@ $max-per-row: 4
           text-align: center
           text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
 
-          img
+          img, svg
             width: $icon-size
             height: $icon-size
+
+          svg
+            padding: vars.$padding-one-and-half
+
+          .blog-icon
+            padding: vars.$padding
 
           &:active
             filter: brightness(75%)
