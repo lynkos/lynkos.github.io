@@ -1354,7 +1354,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <div class="year"><i class="fas fa-thumbtack" alt="Thumbtack icon" aria-hidden="true"></i>&nbsp;&nbsp;Pinned</div>
 
                 <ul class="child-nav">
-                  <li tabindex="0" class="project-name" data-id="project-24">
+                  <li tabindex="0" class="active project-name" data-id="project-24">
                     <div class="text" data-id="project-24">
                       <p class="name" data-id="project-24">How to Run Windows Games and Programs on Mac</p>
                       <div class="bottom" data-id="project-24">
@@ -1363,11 +1363,20 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                     </div>
                   </li>
 
-                  <li tabindex="0" class="active project-name" data-id="project-1">
+                  <li tabindex="0" class="project-name" data-id="project-17">
+                    <div class="text" data-id="project-17">
+                      <p class="name" data-id="project-17">Blog</p>
+                      <div class="bottom" data-id="project-17">
+                        <span class="day" data-id="project-17">2/3/25</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-17">My personal blog</span>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li tabindex="0" class="project-name" data-id="project-1">
                     <div class="text" data-id="project-1">
                       <p class="name" data-id="project-1">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</p>
                       <div class="bottom" data-id="project-1">
-                        <span class="day" data-id="project-1">1/1/24</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-1">Designed and developed a system that uses custom AI (i.e. computer vision) and a camera to quickly detect and identify species of harmful algae in real-time (livestream/video); i.e. object detection using convolutional neural networks (CNNs)</span>
+                        <span class="day" data-id="project-1">1/1/24</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-1">Detect and identify different species of harmful algae within natural water in real-time with AI and a camera (i.e., ESP32-CAM, smartphone, or webcam).</span>
                       </div>
                     </div>
                   </li>
@@ -1448,15 +1457,6 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       <p class="name" data-id="project-20">Flashcard</p>
                       <div class="bottom" data-id="project-20">
                         <span class="day" data-id="project-20">3/26/25</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-20">iOS app that allows users to play a simple memory game</span>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li tabindex="0" class="project-name" data-id="project-17">
-                    <div class="text" data-id="project-17">
-                      <p class="name" data-id="project-17">Blog</p>
-                      <div class="bottom" data-id="project-17">
-                        <span class="day" data-id="project-17">2/3/25</span>&nbsp;&nbsp;<span class="note-preview" data-id="project-17">My personal blog</span>
                       </div>
                     </div>
                   </li>
@@ -1617,7 +1617,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
               </div>
 
               <div class="main-body">
-                <div id="project-1" class="active project">
+                <div id="project-1" class="project">
                   <div class="date">January 1, 2024 at 9:00</div>
                   <h1 class="project-title"><a target="_blank" href="https://github.com/lynkos/algae-detection" title="Link to AI project's repository on GitHub">Using AI and a Low-Cost Camera to Detect Harmful Algae in Natural Water</a></h1>
                   <div class="project-body">
@@ -1626,12 +1626,15 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       <a role="button" aria-pressed="false" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" target="_blank" title="Link to Google Colab notebook" class="links-btn"><i alt="Code icon" class="fas fa-code" aria-hidden="true"></i> Colab Notebook</a>
                       <a role="button" aria-pressed="false" href="https://github.com/lynkos/algae-detection" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
+                    <p>Detect and identify different species of harmful algae within natural water in real-time with AI and a camera (i.e., ESP32-CAM, smartphone, or webcam).</p><br>
+                    <img loading="lazy" fetchpriority="low" src="https://raw.githubusercontent.com/lynkos/algae-detection/main/assets/misc/demo.gif" alt="Demo video"><br>
                     <ul>
                       <li>Designed and developed a system that uses custom AI (i.e. computer vision) and a camera to quickly detect and identify species of harmful algae in real-time (livestream/video); i.e. object detection using convolutional neural networks (CNNs)</li>
                       <li>Integrated various fine-tuned algae detection models (i.e. custom AI) with (1) ESP32-CAM (low-cost development board with camera, WiFi, and Bluetooth modules) attached to a Nikon microscope's eyepiece via a 3D printed lens attachment, (2) iPhone, and (3) webcam as camera options</li>
                       <li>Lead and managed team of 3 senior computer science undergrads</li>
                       <li>Wrote in-depth, beginner-friendly Google Colab tutorial that details the entire process of training, validating, inferencing, exporting, and deploying the custom AI model; tutorial also goes over dataset annotation, preprocessing, and augmentation</li>
-                    </ul>
+                    </ul><br>
+                    <img loading="lazy" fetchpriority="low" src="https://raw.githubusercontent.com/lynkos/algae-detection/main/assets/misc/microscope.jpg" alt="Microscope">
                   </div>
                 </div>
 
@@ -1643,7 +1646,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       <a role="button" aria-pressed="false" href="https://blog.lynkos.dev/posts/grover-full" target="_blank" title="Link to accompanying blog post" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Blog Post</a>
                       <a role="button" aria-pressed="false" href="https://github.com/lynkos/grovers-algorithm" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
-                    <img loading="lazy" fetchpriority="low" src="https://raw.githubusercontent.com/lynkos/grovers-algorithm/main/assets/circuits/grover.png" alt="Quantum circuit for Grover's Algorithm">
+                    <img loading="lazy" fetchpriority="low" src="https://raw.githubusercontent.com/lynkos/grovers-algorithm/main/assets/circuits/grover.png" alt="Quantum circuit for Grover's Algorithm"><br>
                     <ul>
                       <li>Created <code>n</code>-qubit quantum program searching for <code>m</code> target(s) in an unsorted database</li>
                       <li>Resulted in quadratic speedup over classical/naïve search algorithms</li>
@@ -1888,7 +1891,20 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                       <a role="button" aria-pressed="false" href="https://blog.lynkos.dev" target="_blank" title="Link to my blog" class="links-btn"><i alt="Link icon" class="fas fa-link" aria-hidden="true"></i> Website</a>
                       <a role="button" aria-pressed="false" href="https://github.com/lynkos/blog" target="_blank" title="Link to source code on GitHub" class="links-btn"><i alt="GitHub icon" class="fab fa-github" aria-hidden="true"></i> Source Code</a>
                     </div>
-                    <p>My personal blog</p>
+                    <p>My personal blog</p><br>
+                    <p>This is a fork of <a href="https://github.com/cotes2020/jekyll-theme-chirpy" title="Link to jekyll-theme-chirpy GitHub repository"><code>jekyll-theme-chirpy</code></a> that has been <strong>heavily modified</strong> to include:</p>
+                    <ul>
+                      <li><a href="https://github.com/lynkos/blog/blob/main/_plugins/graph-generator.rb" target="_blank" title="Link to graph view plugin">Graph view plugin</a></li>
+                      <li><a href="https://github.com/lynkos/blog/blob/main/_plugins/tabs.rb" target="_blank" title="Link to tabbed container plugin">Tabbed container plugin</a></li>
+                      <li><a href="https://github.com/lynkos/blog/blob/main/_plugins/gallery.rb" target="_blank" title="Link to gallery slideshow plugin">Gallery slideshow plugin</a></li>
+                      <li><a href="https://github.com/lynkos/blog/blob/main/_javascript/modules/components/link-preview.js" target="_blank" title="Link to link preview script">Link preview</a></li>
+                      <li><a href="https://blog.lynkos.dev/posts/blogging-setup#setup-image-proxy" target="_blank" title="Link to custom image proxy instructions">Image proxy</a> (e.g. for Twitter/X links)</li>
+                      <li><a href="https://github.com/lynkos/blog/blob/main/_plugins/fix-anchor-links.rb" target="_blank" title="Link to Jekyll plugin">Jekyll plugin to fix malformed Markdown links</a></li>
+                      <li>Auto-generates <code>CNAME</code> and <code>.nojekyll</code> files during <a href="https://github.com/lynkos/blog/blob/main/.github/workflows/pages-deploy.yml" target="_blank" title="Link to deployment workflow">build and deployment</a></li>
+                      <li>Custom "Important" prompt</li>
+                      <li>Custom <code>details</code> styling</li>
+                      <li>And more</li>
+                    </ul>
                   </div>
                 </div>
 
@@ -2025,7 +2041,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                   </div>
                 </div>
 
-                <div id="project-24" class="project">
+                <div id="project-24" class="active project">
                   <div class="date">March 19, 2025 at 20:59</div>
                   <h1 class="project-title"><a target="_blank" href="https://blog.lynkos.dev/posts/play-windows-games" title="Link to blog post">How to Run Windows Games and Programs on Mac</a></h1>
                   <div class="project-body">

@@ -179,12 +179,6 @@ $blockquote-thickness: calc(vars.$border-thickness-2x * 2.5)
             img
                 width: 100%
 
-            blockquote
-                border-left: $blockquote-thickness solid vars.$secondary-font-color
-                padding-left: vars.$padding-2x
-                color: vars.$secondary-font-color
-                font-style: italic
-
 .project
     display: none
 
@@ -198,6 +192,11 @@ $blockquote-thickness: calc(vars.$border-thickness-2x * 2.5)
     &-body
         font-size: 1.3rem
 
+        p, ol, ul, blockquote
+            a
+                color: vars.$primary-button-color
+                text-decoration: underline
+
         ol, ul
             padding-left: 1.75rem
 
@@ -206,6 +205,12 @@ $blockquote-thickness: calc(vars.$border-thickness-2x * 2.5)
 
         ol
             list-style-type: decimal
+
+        blockquote
+            border-left: $blockquote-thickness solid vars.$secondary-font-color
+            padding-left: vars.$padding-2x
+            color: vars.$secondary-font-color
+            font-style: italic
 
 .active
     display: block
