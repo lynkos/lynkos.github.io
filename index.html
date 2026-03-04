@@ -138,7 +138,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     </header>
   
     <div id="main-content">
-      <div id="particles-js"></div>
+      <div id="particles-js" oncontextmenu="return false"></div>
       <main>
         <a id="playlist" role="menuitem" class="menu-dropdown hidden-content" target="_blank" href="https://spotify-github-profile.kittinanx.com/api/view?uid=kiwi2mii&redirect=true">
           <div class="playlist-player">
@@ -577,22 +577,22 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
         <div class="folder">
           <button class="folder-button btn" tabindex="0">
-            <img src="/assets/img/system/blue-folder.webp" draggable="true" fetchpriority="high" alt="Blue folder icon">
+            <img src="/assets/img/system/blue-folder.webp" oncontextmenu="return false" draggable="true" fetchpriority="high" alt="Blue folder icon">
             <span>src</span>
           </button>
 
           <button class="folder-button btn" id="aboutFile" tabindex="0">
-            <img src="/assets/img/system/rtf-icon.webp" draggable="true" fetchpriority="high" alt=".rtf file icon">
+            <img src="/assets/img/system/rtf-icon.webp" oncontextmenu="return false" draggable="true" fetchpriority="high" alt=".rtf file icon">
             <span>about.rtf</span>
           </button>
 
           <button class="folder-button btn" id="profilePic" tabindex="0">
-            <img src="/assets/img/misc/profile.webp" class="image" draggable="true" fetchpriority="high" alt="Profile picture">
+            <img class="image" src="/assets/img/misc/profile.webp" oncontextmenu="return false" draggable="true" fetchpriority="high" alt="Profile picture">
             <span>profile.jpg</span>
           </button>
 
           <button class="folder-button btn" id="resumeFile" tabindex="0">
-            <img src="/assets/img/system/pdf.webp" draggable="true" fetchpriority="high" alt=".pdf file icon">
+            <img src="/assets/img/system/pdf.webp" oncontextmenu="return false" draggable="true" fetchpriority="high" alt=".pdf file icon">
             <span>resume.pdf</span>
           </button>
         </div>
@@ -4025,7 +4025,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <span class="inactive preview-header-icons cancel" title="Search documents and file names for text"><i class="fas fa-magnifying-glass" alt="Magnifying glass icon" aria-hidden="true"></i></span>
           </div>
           <div class="preview-body">
-            <img id="fullProfilePic" src="/assets/img/misc/profile.webp" loading="lazy" fetchpriority="low" draggable="false" alt="Profile picture">
+            <img id="fullProfilePic" src="/assets/img/misc/profile.webp" oncontextmenu="return false" loading="lazy" fetchpriority="low" draggable="false" alt="Profile picture">
           </div>
         </div>
 
@@ -4058,25 +4058,25 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
             <nav id="launchNav">
               <!-- Temporarily add href to "Mail" app while its content form is being fixed -->
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-mail launch" id="mailLaunch" href="mailto:admin@lynkos.dev"><img src="/assets/img/apps/mail.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-music launch" id="musicLaunch"><img src="/assets/img/apps/music.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Music"> Music</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-blog launch" target="_blank" href="https://blog.lynkos.dev" draggable="false"><img src="/assets/img/favicons/favicon.svg" draggable="true" loading="lazy" fetchpriority="low" alt="Blog"> Blog</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
-              <a role="button" aria-pressed="false" tabindex="0" class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-mail launch" id="mailLaunch" href="mailto:admin@lynkos.dev"><img src="/assets/img/apps/mail.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Mail"> Mail</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-safari launch" id="safariLaunch"><img src="/assets/img/apps/safari.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Safari"> Safari</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-notes launch" id="notesLaunch"><img src="/assets/img/apps/notes.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Notes"> Notes</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-textedit launch" id="textLaunch"><img src="/assets/img/apps/text-edit.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="TextEdit"> TextEdit</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-iterm launch" id="itermLaunch"><img src="/assets/img/apps/iterm.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="iTerm"> iTerm</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-music launch" id="musicLaunch"><img src="/assets/img/apps/music.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Music"> Music</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-github launch" target="_blank" href="https://github.com/lynkos" draggable="false"><img src="/assets/img/apps/github.svg" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="GitHub"> GitHub</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-blog launch" target="_blank" href="https://blog.lynkos.dev" draggable="false"><img src="/assets/img/favicons/favicon.svg" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Blog"> Blog</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-spotify launch" target="_blank" href="https://open.spotify.com/user/kiwi2mii" draggable="false"><img src="/assets/img/apps/spotify.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Spotify"> Spotify</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-steam launch" target="_blank" href="https://steamcommunity.com/id/overanalyse" draggable="false"><img src="/assets/img/apps/steam.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Steam"> Steam</a>
+              <a role="button" aria-pressed="false" tabindex="0" class="icon-discord launch" target="_blank" href="https://discordapp.com/users/359420623929212929" draggable="false"><img src="/assets/img/apps/discord.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Discord"> Discord</a>
             </nav>
           </div>
         </div>
 
         <div class="trash-dialogue hidden-content">
           <div class="pp-body">
-            <img src="/assets/img/system/trash.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
+            <img src="/assets/img/system/trash.webp" oncontextmenu="return false" draggable="false" loading="lazy" fetchpriority="low" alt="Icon of a filled trash can">
             <div class="warning">Are you sure you want to permanantly erase the items in the Trash?</div>
             <div class="hint">You can't undo this action.</div>
             <div class="actions">
@@ -4147,26 +4147,26 @@ Refer to https://opensource.org/licenses/MIT for a copy.
       </div>
 
       <div id="dock">
-        <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" draggable="false" fetchpriority="high" alt="Launchpad"></div>
+        <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Launchpad"></div>
 
         <!-- Temporarily replace "Mail" contact form (while it's being fixed) in dock with link to my email -->
         <!-- Comment out "Mail" icon in dock since it takes up too much space (when calc & preview are open) -->
         <!-- <div role="tooltip" tabindex="0" id="mailDockIcon" class="icon" aria-label="Mail" data-microtip-position="top">
           <a href="mailto:admin@lynkos.dev">
-            <img src="/assets/img/apps/mail.webp" class="icon" draggable="false" fetchpriority="high" alt="Mail">
+            <img src="/assets/img/apps/mail.webp" class="icon" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Mail">
           </a>
         </div> -->
 
-        <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" draggable="false" fetchpriority="high" alt="Safari"></div>
-        <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" draggable="false" fetchpriority="high" alt="Notes"></div>
-        <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" draggable="false" fetchpriority="high" alt="TextEdit"></div>
-        <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" draggable="false" fetchpriority="high" alt="iTerm"></div>
-        <div role="tooltip" tabindex="0" id="musicDockIcon" class="icon" aria-label="Music" data-microtip-position="top"><img src="/assets/img/apps/music.webp" draggable="false" fetchpriority="high" alt="Music"></div>
-        <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
-        <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position="top"><img src="/assets/img/apps/preview.webp" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
+        <div role="tooltip" tabindex="0" id="safariDockIcon" class="icon" aria-label="Safari" data-microtip-position="top"><img src="/assets/img/apps/safari.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Safari"></div>
+        <div role="tooltip" tabindex="0" id="notesDockIcon" class="icon" aria-label="Notes" data-microtip-position="top"><img src="/assets/img/apps/notes.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Notes"></div>
+        <div role="tooltip" tabindex="0" id="textEditDockIcon" class="icon" aria-label="TextEdit" data-microtip-position="top"><img style="height:4rem !important;image-rendering:smooth" src="/assets/img/apps/text-edit.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="TextEdit"></div>
+        <div role="tooltip" tabindex="0" id="iTermDockIcon" class="icon open" aria-label="iTerm" data-microtip-position="top"><img src="/assets/img/apps/iterm.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="iTerm"></div>
+        <div role="tooltip" tabindex="0" id="musicDockIcon" class="icon" aria-label="Music" data-microtip-position="top"><img src="/assets/img/apps/music.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Music"></div>
+        <div role="tooltip" tabindex="0" id="calcDockIcon" style="display:none" class="icon" aria-label="Calculator" data-microtip-position="top"><img src="/assets/img/apps/calc.webp" oncontextmenu="return false" draggable="false" loading="lazy" fetchpriority="low" alt="Calculator"></div>
+        <div role="tooltip" tabindex="0" id="previewDockIcon" style="display:none" class="icon" aria-label="Preview" data-microtip-position]="top"><img src="/assets/img/apps/preview.webp" oncontextmenu="return false" draggable="false" loading="lazy" fetchpriority="low" alt="Preview"></div>
                 
         <div class="dock-divider"></div>
-        <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" src="/assets/img/system/trash.webp" draggable="false" fetchpriority="high" alt="Trash"></div>
+        <div role="tooltip" tabindex="0" id="trash-icon" class="icon" aria-label="Trash" data-microtip-position="top"><img id="trash" src="/assets/img/system/trash.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Trash"></div>
       </div>
       
       <!-- Needed to keep footer aligned (aka 'Not by AI' on left and dock in middle). Since I'm using flex, I need a 3rd element (aka the next line) to correctly auto-position footer -->
