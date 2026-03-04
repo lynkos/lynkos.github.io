@@ -19,6 +19,7 @@ $icon-size: 1.5rem
 $icon-dim: calc($icon-size + 1rem)
 $primary-background: rgba(32, 36, 31, 0.9)
 $secondary-background: rgb(30, 30, 30)
+$blockquote-thickness: calc(vars.$border-thickness-2x * 2.5)
 
 #notes
   flex-direction: column
@@ -177,6 +178,12 @@ $secondary-background: rgb(30, 30, 30)
 
             img
                 width: 100%
+
+            blockquote
+                border-left: $blockquote-thickness solid vars.$secondary-font-color
+                padding-left: vars.$padding-2x
+                color: vars.$secondary-font-color
+                font-style: italic
 
 .project
     display: none
