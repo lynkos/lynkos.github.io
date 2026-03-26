@@ -249,7 +249,18 @@ button
   justify-content: space-between
   padding: 6px
   padding-top: 0
+  cursor: vars.$handopen-cursor
   @include mix.disable-select()
+
+  .is-pointer-down &, .is-dragging &
+    cursor: vars.$handgrabbing-cursor
+
+  & .handle
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
 
   &-text
     color: #000
@@ -263,6 +274,7 @@ button
     border: 1px solid #0000004d
     border-radius: 0 0 5px 5px
     border-top: 0
+    cursor: vars.$default-cursor
     display: flex
 
     & button

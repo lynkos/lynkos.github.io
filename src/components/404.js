@@ -121,9 +121,11 @@ function setupEvents() {
     window.addEventListener("pointermove", e => {
         updateMousePosition(e.clientX, e.clientY);
     });
+
     window.addEventListener("touchmove", e => {
         updateMousePosition(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
     });
+
     window.addEventListener("click", e => {
         updateMousePosition(e.clientX, e.clientY);
     });
@@ -133,3 +135,11 @@ function setupEvents() {
         pointer.tY = eY;
     }
 }
+
+new Draggabilly(".window", {
+    containment: "body",
+    handle: [
+        document.querySelector(".handle"),
+        document.querySelector(".title-bar-text")
+    ]
+});
