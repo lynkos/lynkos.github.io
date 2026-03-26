@@ -1,0 +1,22 @@
+{
+  "name": "Lynkos: Error 404",
+  "short_name": "Lynkos: 404",
+  "description": "404 Error Page for Kiran Brahmatewari's macOS-inspired personal website",
+  "icons": [
+    {
+      "src": "/assets/img/favicons-404/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/img/favicons-404/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#116359",
+  "background_color": "#116359",
+  "display": "standalone"
+}
