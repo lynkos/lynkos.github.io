@@ -127,7 +127,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <path fill="rgba(255, 255, 255, 0.95)" d="M288 96c-90.9 0-173.2 36-233.7 94.6-12.7 12.3-33 12-45.2-.7s-12-33 .7-45.2C81.7 74.9 179.9 32 288 32S494.3 74.9 566.3 144.7c12.7 12.3 13 32.6 .7 45.2s-32.6 13-45.2 .7C461.2 132 378.9 96 288 96zM240 432a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM168 326.2c-11.7 13.3-31.9 14.5-45.2 2.8s-14.5-31.9-2.8-45.2C161 237.4 221.1 208 288 208s127 29.4 168 75.8c11.7 13.3 10.4 33.5-2.8 45.2s-33.5 10.4-45.2-2.8C378.6 292.9 335.8 272 288 272s-90.6 20.9-120 54.2z"/>
           </svg>
         </span>
-        <span role="button" aria-pressed="false" tabindex="0" class="menus menu-ico" aria-label="Control Center">
+        <span role="button" aria-pressed="false" tabindex="0" aria-haspopup="true" aria-expanded="false" id="control-center" class="menus menu-ico" aria-label="Control Center">
           <svg alt="Control center icon" draggable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
             <!-- Manually set `fill` to vars.$menubar-font-color -->
             <path fill="rgba(255, 255, 255, 0.95)" d="M7.5 13h14a5.5 5.5 0 0 0 0-11h-14a5.5 5.5 0 0 0 0 11Zm0-9h14a3.5 3.5 0 0 1 0 7h-14a3.5 3.5 0 0 1 0-7Zm0 6A2.5 2.5 0 1 0 5 7.5 2.5 2.5 0 0 0 7.5 10Zm14 6h-14a5.5 5.5 0 0 0 0 11h14a5.5 5.5 0 0 0 0-11Zm1.434 8a2.5 2.5 0 1 1 2.5-2.5 2.5 2.5 0 0 1-2.5 2.5Z"/>
@@ -175,6 +175,71 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
           <div class="divider-last"></div>
           <div class="option" role="menuitem">Wi-Fi Settings…</div>
+        </div>
+
+        <div id="control-center-menu" class="menu-dropdown">
+          <div id="control-center-grid">
+            <div id="wifi-bluetooth-airdrop" class="control-tile">
+              <div id="wifi-tile" class="connection-tile">
+                <div class="control-icon"><i alt="WiFi icon" class="fas fa-wifi" aria-hidden="true"></i></div>
+                <div class="connection-text">
+                  <div class="control-label">Wi-Fi</div>
+                  <div class="connection-status">
+                    <div class="status-text">Lynkos</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="bluetooth-tile" class="connection-tile">
+                <div class="control-icon"><i alt="Bluetooth icon" class="fab fa-bluetooth" aria-hidden="true"></i></div>
+                <div class="connection-text">
+                  <div class="control-label">Bluetooth</div>
+                  <div class="connection-status">
+                    <div class="status-text">On</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="airdrop-tile" class="connection-tile">
+                <div class="control-icon"><i alt="Bullseye icon" class="fas fa-bullseye" aria-hidden="true"></i></div>
+                <div class="connection-text">
+                  <div class="control-label">AirDrop</div>
+                  <div class="connection-status">
+                    <div class="status-text">Contacts Only</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="focus-sharing">
+              <div class="control-tile" id="dnd">
+                <div class="control-icon"><i alt="Moon icon" class="fas fa-moon" aria-hidden="true"></i></div>
+                <div class="control-label">Do Not Disturb</div>
+              </div>
+
+              <div class="bottom-row">
+                <div class="control-tile sharing-tile" id="stage-manager">
+                  <div class="control-icon"><i alt="Square icon" class="far fa-square" aria-hidden="true"></i></div>
+                  <div class="control-label-sharing">Stage Manager</div>
+                </div>
+
+                <div class="control-tile sharing-tile" id="airplay">
+                  <div class="control-icon"><i alt="Display icon" class="fas fa-display" aria-hidden="true"></i></div>
+                  <div class="control-label-sharing">Screen Mirroring</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div id="display">
+            Display
+          </div>
+          <div id="sound">
+            Sound
+          </div>
+          <div id="music">
+            Music
+          </div>
         </div>
 
         <div id="apple-menu" class="menu-dropdown">

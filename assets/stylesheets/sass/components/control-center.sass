@@ -1,0 +1,128 @@
+// Copyright © 2024 – 2026 Kiran Brahmatewari. All rights reserved.
+//
+// This work is licensed under the terms of the MIT license.
+// Refer to https://opensource.org/licenses/MIT for a copy.
+
+@use "variables" as vars
+@use "mixins" as mix
+
+$control-center-width: 35rem
+$icon-size: 1.5rem
+$spacing: vars.$padding-one-and-half
+$control-center-background: rgba(0, 0, 0, 0.15)
+$tile-background: rgba(0, 0, 0, 0.1)
+$tile-shadow: 0 2px 6px rgba(0, 0, 0, 0.2)
+$border-radius: vars.$border-radius
+$primary-color: vars.$menubar-font-color
+$secondary-color: rgba(255, 255, 255, 0.7)
+$accent-color: vars.$secondary-button-color
+
+#control-center-menu
+    width: $control-center-width
+    background: $control-center-background
+    backdrop-filter: blur(20px)
+    padding: $spacing
+
+#control-center-grid
+    display: grid
+    gap: $spacing
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: repeat(2, auto)
+    @include mix.disable-select()
+
+#wifi-bluetooth-airdrop
+    display: flex
+    flex-direction: column
+    gap: $spacing
+    height: 100%
+    justify-content: center
+
+.connection-tile, #dnd
+    align-items: center
+
+.control
+    &-tile
+        background: $tile-background
+        box-shadow: $tile-shadow
+        border-radius: $border-radius
+        padding: $spacing
+        border: 1px solid rgba(255, 255, 255, 0.1)
+        cursor: vars.$pointer-cursor
+        transition: all vars.$transition-half ease
+        position: relative
+        overflow: hidden
+        
+        &.active
+            background: $accent-color
+            color: $primary-color
+            
+            .control-icon
+                color: $primary-color
+                
+    &-icon, &-label
+        color: $primary-color
+
+    &-icon
+        font-size: $icon-size
+        padding: $icon-size
+        transition: all vars.$transition-half ease
+        background: $accent-color
+        text-align: center
+        width: $icon-size
+        height: $icon-size
+        border-radius: 50%
+        align-items: center
+        justify-content: center
+        display: flex
+        
+    &-label
+        font-size: 1.25rem
+        font-weight: 700
+        //line-height: 1.2
+
+        &-sharing
+            font-size: 11px
+            margin-top: $spacing
+            color: $secondary-color
+    
+#dnd .control-label, .connection-text
+    margin-left: 1rem
+
+.sharing-tile
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+#dnd
+    flex: 2
+    display: flex
+    flex-direction: row
+
+.connection-status, #wifi-tile, #bluetooth-tile, #airdrop-tile
+    display: flex
+
+.status-text
+    font-size: 11px
+    color: $secondary-color
+
+.bottom-row
+    display: flex
+    gap: $spacing
+    
+    .control-tile
+        flex: 1
+
+#focus-sharing, #wifi-bluetooth-airdrop
+    display: flex
+    flex-direction: column
+    gap: $spacing
+    height: 100%
+
+#stage-manager, #airplay
+    text-align: center
+
+i
+    font-size: $icon-size
+    height: $icon-size
+    width: $icon-size
