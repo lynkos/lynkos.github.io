@@ -1338,14 +1338,40 @@ Refer to https://opensource.org/licenses/MIT for a copy.
 
         <div id="notes" class="windows hidden-content">
           <div class="body">
-            <aside class="sidebar">
-              <div class="sidebar-header handle">
+            <aside class="collapsible-sidebar">
+              <div class="collapsible-sidebar-header handle">
                 <div class="buttons">
                   <span role="button" aria-pressed="false" tabindex="0" aria-label="Close" class="buttons-icon buttons-icon--red cancel"></span>
                   <span role="button" aria-pressed="false" tabindex="0" aria-label="Minimize" class="buttons-icon buttons-icon--yellow cancel"></span>
                   <span role="button" aria-pressed="false" tabindex="0" aria-label="Maximize" class="buttons-icon buttons-icon--green cancel"></span>
                 </div>
 
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path fill="currentColor" d="M448 448l-192 0 0-384 192 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64zM64 64l144 0 0 384-144 0c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64zm8 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0zM48 240c0 13.3 10.7 24 24 24l64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0c-13.3 0-24 10.7-24 24zm24 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0z"/>
+                </svg>
+              </div>
+
+              <div class="content">
+                <div class="text">
+                  <i alt="Quick Notes icon" class="fas fa-note-sticky" aria-hidden="true"></i>&nbsp;&nbsp;Quick Notes
+                </div>
+                <div class="subtitle">iCloud</div>
+                <div class="-sortable">
+                  <div class="text active-item">
+                    <i alt="Projects icon" class="fas fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Projects
+                  </div>
+                  <div class="text">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path fill="currentColor" d="M256 8.144c-141.152 0-256 114.848-256 256C0 369.456 66.016 465.36 164.224 502.768c4.096 1.632 8.704 1.376 12.672-.544 3.968-1.952 6.976-5.408 8.288-9.632l48-153.28c2.272-7.264-.864-15.136-7.52-18.784C204.896 309.072 192 287.472 192 264.144c0-35.296 28.704-64 64-64s64 28.704 64 64c0 23.328-12.896 44.928-33.664 56.416-6.656 3.648-9.824 11.52-7.52 18.784l48 153.28c1.312 4.224 4.32 7.68 8.288 9.632a16.23 16.23 0 0 0 6.976 1.6c1.92 0 3.872-.352 5.696-1.056C446.016 465.36 512 369.456 512 264.144c0-141.152-114.848-256-256-256z"></path>
+                    </svg>
+                    &nbsp;&nbsp;Open Source
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <aside class="sidebar">
+              <div class="sidebar-header handle">
                 <div><i class="fas fa-list icons" title="View notes as list" alt="List icon" aria-hidden="true"></i><i class="fas fa-border-all icons" title="View notes as gallery" alt="Gallery icon" aria-hidden="true"></i></div>
                 <i class="fas fa-trash-can icons" title="Delete" alt="Trash icon" aria-hidden="true"></i>
               </div>
@@ -1354,7 +1380,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <div class="year"><i class="fas fa-thumbtack" alt="Thumbtack icon" aria-hidden="true"></i>&nbsp;&nbsp;Pinned</div>
 
                 <ul class="child-nav">
-                  <li tabindex="0" class="active project-name" data-id="project-24">
+                  <li tabindex="0" class="active-item project-name" data-id="project-24">
                     <div class="text" data-id="project-24">
                       <p class="name" data-id="project-24">How to Run Windows Games and Programs on Mac</p>
                       <div class="bottom" data-id="project-24">
