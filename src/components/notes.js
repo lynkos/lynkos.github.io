@@ -7,17 +7,36 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Highlight clicked nav item
-    document.querySelectorAll(".sidebar .child-nav li").forEach(function(element) {
-        element.addEventListener("click", function() {
-            document.querySelectorAll(".child-nav li").forEach(function(element) {
-                element.classList.remove("active-item");
+    // function highlightSelectedItem(containerSelector, itemSelector) {
+    //     document.querySelectorAll(`${containerSelector} ${itemSelector}`).forEach(element => {
+    //         element.addEventListener("click", function(e) {
+    //             const item = e.target.closest(itemSelector);
+    //             if (!item) return;
+    //             element.querySelectorAll(itemSelector).forEach(el => el.classList.remove("active-item"));
+    //             item.classList.add("active-item");
+    //         });
+    //     });
+    // }
+    
+    // Highlight clicked item
+    function highlightSelectedItem(containerSelector, itemSelector) {
+        document.querySelectorAll(`${containerSelector} ${itemSelector}`).forEach(function(element) {
+            element.addEventListener("click", function() {
+                document.querySelectorAll(itemSelector).forEach(function(element) {
+                    element.classList.remove("active-item");
+                });
+                
+                document.querySelector(containerSelector).classList.remove("active-item");
+                if (!this.classList.contains("active-item")) this.classList.add("active-item");
             });
-            
-            document.querySelector(".sidebar").classList.remove("active-item");
-            if (!this.classList.contains("active-item")) this.classList.add("active-item");
         });
-    });
+    }
+
+    // Highlight clicked nav item in sidebar
+    highlightSelectedItem(".sidebar .child-nav", "li");
+
+    // Highlight clicked nav item in collapsible sidebar
+    highlightSelectedItem(".collapsible-sidebar .content", ".text");
 
     // Make selected project in Notes sidebar active and all others inactive
     var selectProject = function(element) {
