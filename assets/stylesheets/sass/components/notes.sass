@@ -51,22 +51,11 @@ $collapsible-sidebar-font-size: 1.5rem
             transition: background vars.$transition-2x
 
     .collapsible-sidebar
-        width: 17rem
-        min-width: 10rem //$min-sidebar-width
-        height: 100%
-        border-right: vars.$border-thickness solid rgb(11, 11, 11)
-        @include mix.disable-select()
+        width: 14rem
+        //min-width: $min-sidebar-width
 
         &-header
-            position: relative
-            padding: vars.$padding-2x vars.$padding-2x vars.$padding-2x vars.$padding-3x
-            height: $header-height
-            // border-bottom: vars.$border-thickness solid rgb(11, 11, 11)
-            background: $primary-background
-            display: flex
-            align-items: center
             justify-content: flex-start
-            backdrop-filter: blur(2rem)
 
             .buttons
                 @include mix.buttons()
@@ -76,11 +65,8 @@ $collapsible-sidebar-font-size: 1.5rem
                 width: calc($icon-size * 1.25)
                 color: $icon-color
                 margin-left: vars.$padding-4x
-        
+                
         .content
-            background: rgb(32, 36, 31) // Primary background w/o blur + opacity
-            overflow: auto
-            height: calc(100% - $header-height)
             padding: 0 vars.$padding-2x
 
             .subtitle
@@ -92,10 +78,8 @@ $collapsible-sidebar-font-size: 1.5rem
             .text
                 @include mix.sidebar-item(calc($collapsible-sidebar-font-size * 0.8), $collapsible-sidebar-font-size, vars.$padding, calc($collapsible-sidebar-font-size * 0.9))
                 display: inline-flex
-
-    .sidebar
-        width: $sidebar-width
-        min-width: $min-sidebar-width
+    
+    .sidebar, .collapsible-sidebar
         height: 100%
         border-right: vars.$border-thickness solid rgb(11, 11, 11)
         @include mix.disable-select()
@@ -108,7 +92,6 @@ $collapsible-sidebar-font-size: 1.5rem
             background: $primary-background
             display: flex
             align-items: center
-            justify-content: space-between
             backdrop-filter: blur(2rem)
 
         .content
@@ -116,19 +99,22 @@ $collapsible-sidebar-font-size: 1.5rem
             overflow: auto
             height: calc(100% - $header-height)
 
-            .title, .year
-                font-weight: 700
-                color: rgb(147, 148, 146)
+    .sidebar
+        width: $sidebar-width
+        min-width: $min-sidebar-width
 
+        &-header
+            justify-content: space-between
+
+        .content
             .title
-                font-size: 0.9rem
+                @include mix.subtitle(0.9rem, rgb(147, 148, 146))
 
             .year
+                @include mix.subtitle(1.2rem, rgb(147, 148, 146), vars.$padding 0 vars.$padding vars.$padding-2x)
                 position: sticky
                 top: 0
                 z-index: 1
-                font-size: 1.2rem
-                padding: vars.$padding 0 vars.$padding vars.$padding-2x
                 border-bottom: vars.$border-thickness solid rgba(255, 255, 255, 0.15)
                 background: $primary-background
                 backdrop-filter: blur(5rem)
