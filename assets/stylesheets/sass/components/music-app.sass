@@ -102,23 +102,11 @@ $thumb-border-color: $track-color
             padding-bottom: $music-section-text-padding
 
         .subtitle
-          font-size: calc($sidebar-font-size - 0.1rem)
-          padding: $music-section-subtitle-padding 0
-          font-weight: 700
-          color: $sidebar-title-color
-
+          @include mix.subtitle(calc($sidebar-font-size - 0.1rem), $music-section-subtitle-padding 0, $sidebar-title-color)
+          
         .text
-          color: white
-          font-size: $sidebar-font-size
-          border-radius: vars.$border-radius
-          line-height: calc($sidebar-font-size * 1.3)
-          width: 100%
-          position: relative
-          padding: $music-section-text-padding 0 $music-section-text-padding vars.$padding-two-and-half
-
-          i
-            color: vars.$secondary-button-color
-
+          @include mix.sidebar-item($sidebar-font-size, calc($sidebar-font-size * 1.3), $music-section-text-padding 0 $music-section-text-padding vars.$padding-two-and-half)
+          
           a
             cursor: vars.$default-cursor
 

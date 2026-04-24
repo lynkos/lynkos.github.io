@@ -246,3 +246,28 @@
     height: $thumb-size
     width: $thumb-size
     @include disable-select()
+
+@mixin subtitle($font-size, $padding, $color)
+    font-size: $font-size
+    padding: $padding
+    font-weight: 700
+    color: $color
+
+@mixin sidebar-item($font-size, $line-height, $padding, $icon-size: $font-size, $icon-color: vars.$secondary-button-color, $color: white, $border-radius: vars.$border-radius, $width: 100%)
+    color: $color
+    font-size: $font-size
+    border-radius: $border-radius
+    line-height: $line-height
+    width: $width
+    position: relative
+    padding: $padding
+
+    i, svg
+        color: $icon-color
+
+    i
+        font-size: $icon-size
+
+    svg
+        width: $icon-size
+        height: $icon-size
