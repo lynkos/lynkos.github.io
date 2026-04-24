@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".sidebar .child-nav li").forEach(function(element) {
         element.addEventListener("click", function() {
             document.querySelectorAll(".child-nav li").forEach(function(element) {
-                element.classList.remove("active");
+                element.classList.remove("active-item");
             });
             
-            document.querySelector(".sidebar").classList.remove("active");
-            if (!this.classList.contains("active")) this.classList.add("active");
+            document.querySelector(".sidebar").classList.remove("active-item");
+            if (!this.classList.contains("active-item")) this.classList.add("active-item");
         });
     });
 
