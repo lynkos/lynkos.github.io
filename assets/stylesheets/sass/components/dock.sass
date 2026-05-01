@@ -22,52 +22,53 @@ $badge-max-height: calc((2 * $dock-padding) + vars.$dock-icon-size) //10rem
 $badge-width: 10rem
 $badge-opacity: 0.57
 
+// NOTE: Temporarily hide `not-by-ai` badge
 // 'Not by AI' badge
-#not-ai, #not-ai-container
-  height: auto
-  max-height: $badge-max-height
+// #not-ai, #not-ai-container
+//   height: auto
+//   max-height: $badge-max-height
 
-#not-ai
-  display: flex
-  width: $badge-width
-  cursor: vars.$pointer-cursor
+// #not-ai
+//   display: flex
+//   width: $badge-width
+//   cursor: vars.$pointer-cursor
 
-  &-close
-    position: absolute
-    top: calc($microtip-font-size / 1.75) //0
-    left: vars.$padding
-    width: $microtip-font-size
-    height: $microtip-font-size
-    background: vars.$secondary-button-color
-    color: vars.$menubar-font-color
-    font-size: $microtip-font-size
-    line-height: $microtip-font-size
-    border-radius: 50%
-    cursor: vars.$pointer-cursor
-    display: flex
-    align-items: center
-    justify-content: center
-    border: vars.$border-thickness solid vars.$primary-button-color
-    transition: background vars.$transition-half ease-in-out
+//   &-close
+//     position: absolute
+//     top: calc($microtip-font-size / 1.75) //0
+//     left: vars.$padding
+//     width: $microtip-font-size
+//     height: $microtip-font-size
+//     background: vars.$secondary-button-color
+//     color: vars.$menubar-font-color
+//     font-size: $microtip-font-size
+//     line-height: $microtip-font-size
+//     border-radius: 50%
+//     cursor: vars.$pointer-cursor
+//     display: flex
+//     align-items: center
+//     justify-content: center
+//     border: vars.$border-thickness solid vars.$primary-button-color
+//     transition: background vars.$transition-half ease-in-out
 
-    svg
-      // Make 'X' icon in close button 75% smaller than button ($microtip-font-size * 0.75)
-      width: 75%
-      height: 75%
+//     svg
+//       // Make 'X' icon in close button 75% smaller than button ($microtip-font-size * 0.75)
+//       width: 75%
+//       height: 75%
 
-    &:hover
-      background: vars.$primary-button-color
-      border: vars.$border-thickness solid vars.$secondary-button-color
+//     &:hover
+//       background: vars.$primary-button-color
+//       border: vars.$border-thickness solid vars.$secondary-button-color
 
-  &-container
-    opacity: $badge-opacity
-    align-self: center // Center vertically
-    transition: opacity vars.$transition-half ease-in-out
-    width: min-content
-    margin: 0 calc(vars.$padding-one-and-half + vars.$border-thickness) // Original padding + close button left offset + button border thickness
+//   &-container
+//     opacity: $badge-opacity
+//     align-self: center // Center vertically
+//     transition: opacity vars.$transition-half ease-in-out
+//     width: min-content
+//     margin: 0 calc(vars.$padding-one-and-half + vars.$border-thickness) // Original padding + close button left offset + button border thickness
 
-    &:hover
-      opacity: 1.0
+//     &:hover
+//       opacity: 1.0
 
 // Separates apps and trash
 .dock-divider

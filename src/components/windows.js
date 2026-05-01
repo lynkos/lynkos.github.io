@@ -572,8 +572,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Open trash dialogue
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
 
+    // NOTE: Temporarily hide sticky note for `not-by-ai` badge
     // Open sticky note
-    openWindow("#not-ai", "#sticky-note", "block");
+    // openWindow("#not-ai", "#sticky-note", "block");
     
     // Open about me when double-clicking or tapping `about.rtf`
     openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
@@ -629,8 +630,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close trash dialogue
     closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
 
+    // NOTE: Temporarily hide sticky note for `not-by-ai` badge
     // Close sticky note
-    closeWindow("#sticky-note-close", "#sticky-note", "#not-ai");
+    // closeWindow("#sticky-note-close", "#sticky-note", "#not-ai");
 
     // Maximize terminal
     maximizeWindow(".header__op-icon--green", "#mac-terminal");

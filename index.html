@@ -4139,7 +4139,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           </div>
         </div>
 
-        <div id="sticky-note" class="hidden-content">
+        <!-- NOTE: Temporarily hide sticky note for `not-by-ai` badge -->
+        <!-- <div id="sticky-note" class="hidden-content">
           <div id="sticky-note-bar" class="handle">
             <div id="sticky-note-close" role="button" aria-pressed="false" aria-label="Close" tabindex="0" aria-hidden="true" title="Close sticky note"></div>
           </div>
@@ -4152,12 +4153,16 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <br>
             <p>My opinion is too nuanced to fit in this sticky note, so I plan on detailing it in a future <a href="https://blog.lynkos.dev" target="_blank" title="My personal blog">blog</a> post.</p>
           </div>
-        </div>
+        </div> -->
       </main>
     </div>
 
     <footer>
-      <div id="not-ai-container">
+      <!-- NOTE: Use empty div while `not-by-ai` badge is hidden to keep footer aligned -->
+      <div></div>
+
+      <!-- NOTE: Temporarily hide `not-by-ai` badge -->
+      <!-- <div id="not-ai-container">
         <button id="not-ai-close" oncontextmenu="return false" aria-pressed="false" onclick="document.getElementById('not-ai-container').style.visibility = 'hidden'" role="button" aria-pressed="false" aria-label="Close" tabindex="0" aria-hidden="true" title="Close badge">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
             <path fill="currentColor" d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"/>
@@ -4197,7 +4202,7 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <path d="M122.326 9.98438C123.009 9.98441 123.47 10.2221 123.71 10.6982C123.842 10.9587 123.907 11.3315 123.907 11.8164V14.9033H123.085V11.8711C123.085 11.5777 123.042 11.3408 122.955 11.1611C122.811 10.8617 122.55 10.7119 122.173 10.7119C121.981 10.7119 121.824 10.7316 121.701 10.7705C121.48 10.8364 121.285 10.9676 121.117 11.165C120.983 11.3236 120.895 11.4886 120.853 11.6592C120.814 11.8269 120.794 12.0684 120.794 12.3828V14.9033H119.985V10.0918H120.754V10.7744C120.981 10.4931 121.222 10.2907 121.477 10.168C121.731 10.0452 122.015 9.98438 122.326 9.98438Z" fill="#FFF"/>
           </svg>
         </button>
-      </div>
+      </div> -->
 
       <div id="dock">
         <div role="tooltip" tabindex="0" id="open-menu" class="icon" aria-label="Launchpad" data-microtip-position="top"><img src="/assets/img/apps/launchpad.webp" oncontextmenu="return false" draggable="false" fetchpriority="high" alt="Launchpad"></div>
