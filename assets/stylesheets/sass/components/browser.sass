@@ -141,6 +141,16 @@ $header-color: rgb(56, 58, 55)
           gap: vars.$padding-2x
           align-items: center
 
+          @for $i from 0 through 3
+            @media screen and (max-width: calc(vars.$width-threshold - ($i * vars.$threshold-diff)))
+              width: 11.5rem
+
+          @media screen and (max-width: calc(vars.$width-threshold - (4 * vars.$threshold-diff)))
+            width: 11.75rem
+
+          @media screen and (max-width: calc(vars.$width-threshold - (5 * vars.$threshold-diff)))
+            width: 12rem
+
         img, svg
           width: $icon-dim
           height: $icon-dim
