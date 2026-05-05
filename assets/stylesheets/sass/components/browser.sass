@@ -113,6 +113,7 @@ $header-color: rgb(56, 58, 55)
 
     h2
       font-size: calc($font-size + 0.6rem)
+      margin-bottom: vars.$padding
 
     .section
       padding-bottom: vars.$padding-2x
@@ -124,17 +125,31 @@ $header-color: rgb(56, 58, 55)
         place-items: center
         display: flex
 
+      .skill-entry, .row
+        border-radius: calc(vars.$border-radius * 1.5)
+
+      .skill-entry
+        border: vars.$border-thickness solid rgba(255, 255, 255, 0.1)
+
+        &:not(:last-child)
+          margin-bottom: vars.$padding
+
       .row
         padding: vars.$padding-2x
         flex-direction: row
         justify-content: space-between
-        border-radius: calc(vars.$border-radius * 1.5)
+        background: rgba(255, 255, 255, 0.05)
         @include mix.disable-select()
 
         &:hover
-          background: rgba(255, 255, 255, 0.15)
+          background: rgba(255, 255, 255, 0.1)
           cursor: vars.$pointer-cursor
           transition: background vars.$transition ease
+
+        // Round only bottom corners of skill title when expanded
+        &:has(+ .item-content:not(.hidden-content))
+          border-radius: calc(vars.$border-radius * 1.5) calc(vars.$border-radius * 1.5) 0 0
+          background: rgba(255, 255, 255, 0.1)
 
         .beginning
           width: 11rem
@@ -186,8 +201,10 @@ $header-color: rgb(56, 58, 55)
       .item-content
         color: vars.$font-color
         padding: vars.$padding
+        background: rgba(255, 255, 255, 0.05)
         height: auto
         font-size: $font-size
+        border-radius: 0 0 calc(vars.$border-radius * 1.5) calc(vars.$border-radius * 1.5)
         flex-direction: column
 
         a
@@ -233,8 +250,10 @@ $header-color: rgb(56, 58, 55)
       #latex
         color: #008080
       
-      #json, #markdown, #copilot
-        color: #000000
+      #json, #markdown, #copilot, #ollama
+        // Actual logo color is black (#000), but using
+        // white (#FFF) so it's visible on dark bg
+        color: #FFFFFF
       
       #yaml
         color: #CB171E
