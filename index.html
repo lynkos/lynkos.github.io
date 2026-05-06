@@ -4821,103 +4821,75 @@ Refer to https://opensource.org/licenses/MIT for a copy.
     <script src="/dist/components/calculator.js" defer></script>
 
     <script>
-      // Make launchpad searchable
+      // --- Helper Functions ---
+      const getText = (element, selector, attr = "textContent") =>
+        element?.querySelector(selector)?.[attr]?.trim().toLowerCase() ?? "";
+
+      // --- Launchpad Search ---
       function filterLaunchpad() {
-        const input = document.getElementById("launchInput"),
-              filter = input.value.toLowerCase();
+        const filter = document.getElementById("launchInput").value.toLowerCase();
 
         document.querySelectorAll("#launchNav .launch").forEach(app => {
-          let appName = "";
-
-          const img = app.querySelector("img[alt]");
-          if (img) appName = img.alt;
-
-          else {
-            const svg = app.querySelector("svg[alt]");
-            if (svg) appName = svg.getAttribute("alt");
-          }
-
+          const appName = getText(app, "img[alt]", "alt") || getText(app, "svg[alt]", "alt");
           app.style.display = appName.toLowerCase().includes(filter) ? "" : "none";
         });
       }
 
-      // Make skills searchable
+      // --- Skills Search ---
       function filterBrowser() {
-        const input = document.getElementById("browserInput"),
-              filter = input.value.toLowerCase();
+        const filter = document.getElementById("browserInput").value.toLowerCase();
 
-        // Search/filter skills
+        // Filter skills
         document.querySelectorAll(".skill-entry").forEach(skill => {
-          let skillHeading = skill.querySelector(".heading");
-          let skillName = skillHeading ? skillHeading.textContent : "";
-
-          skill.style.display = skillName.toLowerCase().includes(filter) ? "" : "none";
+          skill.style.display = getText(skill, ".heading").includes(filter) ? "" : "none";
         });
 
         // Hide section headings IFF ALL their skills are hidden
         document.querySelectorAll("#browser .inside h2").forEach(h2 => {
-          let section = h2.nextElementSibling;
-          if (!section || !section.classList.contains("section")) return;
-          
-          let anyVisibleSkills = Array.from(section.querySelectorAll(".skill-entry")).some(skill => skill.style.display !== "none");
-
-          if (anyVisibleSkills) {
-            section.style.display = "";
-            h2.style.display = "";
-          } else {
-            section.style.display = "none";
-            h2.style.display = "none";
-          }
+          const section = h2.nextElementSibling;
+          if (!section?.classList.contains("section")) return;
+          const anyVisible = Array.from(section.querySelectorAll(".skill-entry"))
+            .some(skill => skill.style.display !== "none");
+          section.style.display = h2.style.display = anyVisible ? "" : "none";
         });
       }
 
-      // Original sort order for skills in each section
-      document.querySelectorAll("#browser .inside .section").forEach(section => {
+      // --- Skills Sorting ---
+      const sections = document.querySelectorAll("#browser .inside .section");
+      sections.forEach(section => {
         section._originalOrder = Array.from(section.querySelectorAll(".skill-entry"));
       });
 
-      // Sorting mode: 0 = Ascending, 1 = Descending, 2 = Original
-      let sortMode = 0;
+      let sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 
-      // Sort skills
       function sortSkills() {
-        document.querySelectorAll("#browser .inside .section").forEach(section => {
+        sections.forEach(section => {
           let skills = Array.from(section.querySelectorAll(".skill-entry"));
-
           if (sortMode === 0) { // Ascending
-            skills.sort((a, b) => {
-              const nameA = a.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
-              const nameB = b.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
-              return nameA.localeCompare(nameB);
-            });
+            skills.sort((a, b) =>
+              getText(a, ".heading").localeCompare(getText(b, ".heading"))
+            );
           } else if (sortMode === 1) { // Descending
-            skills.sort((a, b) => {
-              const nameA = a.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
-              const nameB = b.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
-              return nameB.localeCompare(nameA);
-            });
-          } else if (sortMode === 2) { // Original order
+            skills.sort((a, b) =>
+              getText(b, ".heading").localeCompare(getText(a, ".heading"))
+            );
+          } else { // Original
             skills = section._originalOrder.slice();
           }
-
           skills.forEach(skill => section.appendChild(skill));
         });
-
-        // Cycle sort mode
         sortMode = (sortMode + 1) % 3;
       }
 
-      // Toggle skills content
-      toggleContent = (item) => {
-        let arrow = document.querySelector(`${item}-trigger > i`);
-        arrow.classList.toggle("rotate0");
-        arrow.classList.toggle("rotate90");
-        
-        let content = document.querySelector(`${item}-content`);
-        content.classList.toggle("hidden-content");
-      }
+      // --- Toggle Skill Description ---
+      const toggleContent = item => {
+        const arrow = document.querySelector(`${item}-trigger > i`);
+        arrow?.classList.toggle("rotate0");
+        arrow?.classList.toggle("rotate90");
+        document.querySelector(`${item}-content`)?.classList.toggle("hidden-content");
+      };
 
-      // Timestamp
+      // --- Timestamp ---
       const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
       const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
 
