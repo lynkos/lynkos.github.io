@@ -2159,8 +2159,8 @@ Refer to https://opensource.org/licenses/MIT for a copy.
                 <span class="inactive icons" title="Show the next page"><i class="fa fa-angle-right" alt="Forward icon" aria-hidden="true"></i></span>
               </div>
             </div>
-            <div class="address cancel">
-              <input type="text" value="file:///Users/lynkos/Documents/skills.html" title="Browser search bar" editable="true" spellcheck="false" autocomplete="off">
+            <div class="address cancel" tabindex="0" role="searchbox" aria-placeholder="Search">
+              <input type="search" id="browserInput" onkeyup="filterBrowser()" placeholder="Search or enter skill name" spellcheck="false" autocomplete="off" editable="true" aria-label="Search or enter skill name">
             </div>
             <div class="right">
               <span class="icons" title="Share"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
@@ -4833,6 +4833,36 @@ Refer to https://opensource.org/licenses/MIT for a copy.
           if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
           else apps[i].style.display = "none";
         }
+      }
+
+      // Make skills searchable
+      function filterBrowser() {
+        const input = document.getElementById("browserInput"),
+              filter = input.value.toLowerCase();
+
+        // Search/filter skills
+        document.querySelectorAll(".skill-entry").forEach(skill => {
+          let skillHeading = skill.querySelector(".heading");
+          let skillName = skillHeading ? skillHeading.textContent : "";
+
+          skill.style.display = skillName.toLowerCase().includes(filter) ? "" : "none";
+        });
+
+        // Hide section headings IFF ALL their skills are hidden
+        document.querySelectorAll("#browser .inside h2").forEach(h2 => {
+          let section = h2.nextElementSibling;
+          if (!section || !section.classList.contains("section")) return;
+          
+          let anyVisibleSkills = Array.from(section.querySelectorAll(".skill-entry")).some(skill => skill.style.display !== "none");
+
+          if (anyVisibleSkills) {
+            section.style.display = "";
+            h2.style.display = "";
+          } else {
+            section.style.display = "none";
+            h2.style.display = "none";
+          }
+        });
       }
 
       // Toggle skills content

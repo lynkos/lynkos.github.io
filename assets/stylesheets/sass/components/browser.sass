@@ -73,24 +73,11 @@ $header-color: rgb(56, 58, 55)
             color: white
 
     .address
-      background: none
       line-height: $font-size
-      border: vars.$border-thickness solid rgba(255, 255, 255, 0.25)
-      width: 29rem
-      font-size: $font-size
-      border-radius: vars.$border-radius
+      @include mix.searchbar(29rem, $icon-dim, rgba(0, 0, 0, 0.25), $font-size, vars.$padding-2x, vars.$font-color)
 
       >
         input
-          cursor: vars.$text-cursor
-          font-size: $font-size
-          line-height: $font-size
-          height: 100%
-          width: 100%
-          padding: 0 vars.$padding
-          color: white
-          background: none
-          position: relative
           text-align: center
 
           &:focus
