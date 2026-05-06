@@ -2165,7 +2165,9 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             <div class="right">
               <span class="icons" title="Share"><i class="fas fa-arrow-up-from-bracket" alt="Share icon" aria-hidden="true"></i></span>
               <span class="icons" title="New Tab"><i class="fas fa-plus" icon="Plus icon" aria-hidden="true"></i></span>
-              <span class="icons" title="Show tab overview"><i class="far fa-square" alt="Square icon" aria-hidden="true"></i></span>
+              <span role="button" aria-pressed="false" tabindex="0" onclick="sortSkills()" id="sort-skills" class="icons" aria-label="Sort skills" title="Sort skills">
+                <i class="fas fa-sort" alt="Sort icon" aria-hidden="true"></i>
+              </span>
             </div>
           </div>
           <div class="inside">
@@ -4827,12 +4829,12 @@ Refer to https://opensource.org/licenses/MIT for a copy.
         document.querySelectorAll("#launchNav .launch").forEach(app => {
           let appName = "";
 
-          const img = app.querySelector('img[alt]');
+          const img = app.querySelector("img[alt]");
           if (img) appName = img.alt;
 
           else {
-            const svg = app.querySelector('svg[alt]');
-            if (svg) appName = svg.getAttribute('alt');
+            const svg = app.querySelector("svg[alt]");
+            if (svg) appName = svg.getAttribute("alt");
           }
 
           app.style.display = appName.toLowerCase().includes(filter) ? "" : "none";
@@ -4867,6 +4869,42 @@ Refer to https://opensource.org/licenses/MIT for a copy.
             h2.style.display = "none";
           }
         });
+      }
+
+      // Original sort order for skills in each section
+      document.querySelectorAll("#browser .inside .section").forEach(section => {
+        section._originalOrder = Array.from(section.querySelectorAll(".skill-entry"));
+      });
+
+      // Sorting mode: 0 = Ascending, 1 = Descending, 2 = Original
+      let sortMode = 0;
+
+      // Sort skills
+      function sortSkills() {
+        document.querySelectorAll("#browser .inside .section").forEach(section => {
+          let skills = Array.from(section.querySelectorAll(".skill-entry"));
+
+          if (sortMode === 0) { // Ascending
+            skills.sort((a, b) => {
+              const nameA = a.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
+              const nameB = b.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
+              return nameA.localeCompare(nameB);
+            });
+          } else if (sortMode === 1) { // Descending
+            skills.sort((a, b) => {
+              const nameA = a.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
+              const nameB = b.querySelector(".heading")?.textContent.trim().toLowerCase() || "";
+              return nameB.localeCompare(nameA);
+            });
+          } else if (sortMode === 2) { // Original order
+            skills = section._originalOrder.slice();
+          }
+
+          skills.forEach(skill => section.appendChild(skill));
+        });
+
+        // Cycle sort mode
+        sortMode = (sortMode + 1) % 3;
       }
 
       // Toggle skills content

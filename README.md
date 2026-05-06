@@ -62,7 +62,8 @@ Includes (but is not limited to):
   * Timestamp (i.e. displays date and time when site is loaded)
 * **Safari**
   * Click on any skill to toggle its description
-  * Interactive address bar
+  * Filter/search skills by typing in the searchbar
+  * Sort skills in ascending/descending/original order by clicking the sort button
 * **Notes**
   * View various projects in sidebar
 * **TextEdit**
