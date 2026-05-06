@@ -5,15 +5,14 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
+const rotate = document.getElementById("rotate");
+const zoomIn = document.getElementById("zoomIn");
+const zoomOut = document.getElementById("zoomOut");
+const fullProfilePic = document.getElementById("fullProfilePic");
+var angle = 0;
+var zoom = 1;
 
-document.addEventListener("DOMContentLoaded", function() {
-    const rotate = document.getElementById("rotate");
-    const zoomIn = document.getElementById("zoomIn");
-    const zoomOut = document.getElementById("zoomOut");
-    const fullProfilePic = document.getElementById("fullProfilePic");
-    var angle = 0;
-    var zoom = 1;
-
+export function initPreview() {
     // Rotate picture in `profile.webp` preview
     rotate.addEventListener("click", function() {
         angle = (angle - 90) % 360;
@@ -48,4 +47,4 @@ document.addEventListener("DOMContentLoaded", function() {
             fullProfilePic.style.webkitTransform = transformValue;
         });
     });
-});
+}

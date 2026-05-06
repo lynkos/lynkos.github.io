@@ -5,8 +5,7 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
-
-document.addEventListener("DOMContentLoaded", function() {
+export function initNotes() {
     // Highlight clicked nav item
     document.querySelectorAll(".sidebar .child-nav li").forEach(function(element) {
         element.addEventListener("click", function() {
@@ -36,4 +35,4 @@ document.addEventListener("DOMContentLoaded", function() {
             selectProject(event.target)
         });
     });
-});
+}

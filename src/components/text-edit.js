@@ -5,21 +5,20 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
+const align = [ "left", "center", "right", "justify" ];
+const style = [ "bold", "italic", "underline" ];
+const textBody = document.querySelector(".text-body");
 
-document.addEventListener("DOMContentLoaded", function() {
-    const align = [ "left", "center", "right", "justify" ];
-    const style = [ "bold", "italic", "underline" ];
-    const textBody = document.querySelector(".text-body");
+// Remove classes in element
+function removeClasses(selector, classes) {
+    const element = document.querySelector(selector);
 
-    // Remove classes in element
-    function removeClasses(selector, classes) {
-        const element = document.querySelector(selector);
-
-        for (let i = 0; i < classes.length; i++) {
-            if (element.classList.contains(classes[i])) element.classList.remove(classes[i]);
-        }
+    for (let i = 0; i < classes.length; i++) {
+        if (element.classList.contains(classes[i])) element.classList.remove(classes[i]);
     }
+}
 
+export function initTextEdit() {
     // Toggle style in TextEdit
     style.forEach(element => {
         document.getElementById(`${element}-btn`).addEventListener("click", function() {
@@ -54,4 +53,4 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("lineHeight").addEventListener("change", function() {
         textBody.style.lineHeight = this.value;
     }); 
-});
+}

@@ -5,17 +5,16 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
+const OPS = [ "*", "/", "+", "-", "%" ];
+const screen = document.querySelector(".screen");
+const outcome = document.querySelector(".outcome");
 
-document.addEventListener("DOMContentLoaded", function() {
-  const OPS = [ "*", "/", "+", "-", "%" ];
-  const screen = document.querySelector(".screen");
-  const outcome = document.querySelector(".outcome");
+function opsEnd(input) {
+  const lastChar = input[input.length - 1];
+  return OPS.includes(lastChar);
+}
 
-  function opsEnd(input) {
-    const lastChar = input[input.length - 1];
-    return OPS.includes(lastChar);
-  }
-
+export function initCalculator() {
   document.querySelectorAll(".val").forEach(button => {
     button.addEventListener("click", function(event) {
       event.preventDefault();
@@ -62,4 +61,4 @@ document.addEventListener("DOMContentLoaded", function() {
     outcome.value = "";
     screen.innerHTML = "";
   });
-});
+}
