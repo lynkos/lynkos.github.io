@@ -4678,7 +4678,6 @@ Refer to https://opensource.org/licenses/MIT for a copy.
               <a role="button" aria-pressed="false" tabindex="0" class="icon-calculator launch" id="calculatorLaunch"><img src="/assets/img/apps/calc.webp" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Calculator"> Calculator</a>
               <a role="button" aria-pressed="false" tabindex="0" class="icon-blog launch" target="_blank" href="https://blog.lynkos.dev" draggable="false"><img class="blog-icon" src="https://blog.lynkos.dev/assets/img/favicons/favicon.svg" oncontextmenu="return false" draggable="true" loading="lazy" fetchpriority="low" alt="Blog"> Blog</a>
               <a role="button" aria-pressed="false" tabindex="0" class="icon-linkedin launch" target="_blank" href="https://www.linkedin.com/in/kiran-brahmatewari" draggable="false">
-                <?xml version="1.0" ?>
                 <svg viewBox="0 0 72 72" oncontextmenu="return false" xmlns="http://www.w3.org/2000/svg" draggable="true" alt="LinkedIn">
                   <g fill="none" fill-rule="evenodd">
                     <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/>
@@ -4823,16 +4822,21 @@ Refer to https://opensource.org/licenses/MIT for a copy.
       // Make launchpad searchable
       function filterLaunchpad() {
         const input = document.getElementById("launchInput"),
-              filter = input.value.toLowerCase(),
-              nav = document.getElementById("launchNav");
+              filter = input.value.toLowerCase();
 
-        var apps = nav.getElementsByTagName("a"), appName;
+        document.querySelectorAll("#launchNav .launch").forEach(app => {
+          let appName = "";
 
-        for (let i = 0; i < apps.length; i++) {
-          appName = apps[i].getElementsByTagName("img")[0].alt;
-          if (appName.toLowerCase().indexOf(filter) > -1) apps[i].style.display = "";
-          else apps[i].style.display = "none";
-        }
+          const img = app.querySelector('img[alt]');
+          if (img) appName = img.alt;
+
+          else {
+            const svg = app.querySelector('svg[alt]');
+            if (svg) appName = svg.getAttribute('alt');
+          }
+
+          app.style.display = appName.toLowerCase().includes(filter) ? "" : "none";
+        });
       }
 
       // Make skills searchable
