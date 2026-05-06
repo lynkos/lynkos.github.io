@@ -103,10 +103,8 @@ $header-color: rgb(56, 58, 55)
       margin-bottom: vars.$padding
 
     .section
-      padding-bottom: vars.$padding-2x
-
-      &:last-of-type
-        padding-bottom: 0
+      &:not(:last-of-type)
+        padding-bottom: vars.$padding-2x
       
       .row .arrow, .item-content, .row, .row .stars, .row .beginning
         place-items: center
