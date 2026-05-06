@@ -1,1 +1,1 @@
-import{cursor}from"../common.js";export function initMusic(){$(".custom-playlists-sortable").sortable({axis:"y",containment:"parent",cursor:cursor,opacity:.5,scroll:!0,scrollSpeed:10})}
+import{cursor,sortOpacity,sortSpeed}from"../common.js";export function initMusic(){$(".custom-playlists-sortable").sortable({axis:"y",containment:"parent",cursor:cursor,opacity:sortOpacity,scroll:!0,scrollSpeed:sortSpeed})}
