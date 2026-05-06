@@ -8,6 +8,7 @@
 import { cursor, getText, sortOpacity, sortSpeed } from "../common.js";
 
 var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
+var isSorting = false;
 const browserInput = document.getElementById("browserInput");
 const sortSkill = document.getElementById("sort-skills");
 const skillSections = document.querySelectorAll("#browser .inside .section");
@@ -51,10 +52,13 @@ function sortSkills() {
 
 // Show/hide skill description
 const toggleContent = item => {
-    const arrow = document.querySelector(`${item}-trigger > i`);
-    arrow?.classList.toggle("rotate0");
-    arrow?.classList.toggle("rotate90");
-    document.querySelector(`${item}-content`)?.classList.toggle("hidden-content");
+    // Prevent toggling content when sorting
+    if (!isSorting) {
+        const arrow = document.querySelector(`${item}-trigger > i`);
+        arrow?.classList.toggle("rotate0");
+        arrow?.classList.toggle("rotate90");
+        document.querySelector(`${item}-content`)?.classList.toggle("hidden-content");
+    }
 };
 
 export function initBrowser() {
@@ -70,7 +74,9 @@ export function initBrowser() {
         handle: ".row",
         opacity: sortOpacity,
         scroll: true,
-        scrollSpeed: sortSpeed
+        scrollSpeed: sortSpeed,
+        start: function() { isSorting = true; },
+        stop: function() { setTimeout(() => { isSorting = false; }, 0); }
     }).on("sortupdate", function() {
         // Update original order after sorting
         this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));
