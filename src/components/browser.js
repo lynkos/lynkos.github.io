@@ -5,7 +5,7 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
-import { cursor, getText } from "../common.js";
+import { cursor, getText, sortOpacity, sortSpeed } from "../common.js";
 
 var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 const browserInput = document.getElementById("browserInput");
@@ -68,9 +68,9 @@ export function initBrowser() {
         containment: "parent",
         cursor: cursor,
         handle: ".row",
-        opacity: 0.5,
+        opacity: sortOpacity,
         scroll: true,
-        scrollSpeed: 10
+        scrollSpeed: sortSpeed
     }).on("sortupdate", function() {
         // Update original order after sorting
         this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));

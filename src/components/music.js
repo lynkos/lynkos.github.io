@@ -6,7 +6,7 @@
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
 
-import { cursor } from "../common.js";
+import { cursor, sortOpacity, sortSpeed } from "../common.js";
 
 export function initMusic() {
     // Make playlists in music sidebar sortable
@@ -14,8 +14,8 @@ export function initMusic() {
         axis: "y",
         containment: "parent",
         cursor: cursor,
-        opacity: 0.5,
+        opacity: sortOpacity,
         scroll: true,
-        scrollSpeed: 10
+        scrollSpeed: sortSpeed
     });
 }

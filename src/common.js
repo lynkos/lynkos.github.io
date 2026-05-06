@@ -20,6 +20,8 @@ export const launchpad = document.getElementById("launchpad");
 export const launchContent = document.getElementById("launch-content");
 export const launchpadNav = document.getElementById("launchNav");
 export const fadeMs = 350;
+export const sortOpacity = 0.5;
+export const sortSpeed = 10;
 export const cursor = computedStyle.cursor;
 export const getText = (element, selector, attr = "textContent") =>
     element?.querySelector(selector)?.[attr]?.trim().toLowerCase() ?? "";
