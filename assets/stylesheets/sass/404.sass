@@ -19,7 +19,7 @@
 @use "components/mixins" as mix
 @use "sass:color"
 
-$width: 20rem
+$width: 22rem
 $height: auto
 $padding: vars.$padding
 
@@ -144,7 +144,7 @@ canvas#neuro
   color: #FFF
   padding: 0.25rem 1rem
   text-align: center
-  font-size: 1rem
+  font-size: 1.25rem
   vertical-align: middle
   white-space: nowrap
   text-overflow: ellipsis
@@ -210,12 +210,16 @@ button
     background: $content-bg
     border: 1px solid $window-border-color
     box-shadow: 0 0 0 1px #fff9
-    margin: 6px
-    margin-top: 0
-    padding: 6px
-    padding-top: 10px
+    margin: 0 6px 6px 6px
     text-align: center
     border-radius: 2px
+
+    .button-container
+      padding: 1.5rem 1rem 1.75rem 1rem
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 1rem
 
   &:after
     -webkit-backdrop-filter: blur(4px)
