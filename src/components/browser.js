@@ -12,6 +12,8 @@ var isSorting = false;
 const browserInput = document.getElementById("browserInput");
 const sortSkill = document.getElementById("sort-skills");
 const skillSections = document.querySelectorAll("#browser .inside .section");
+const instructions = document.querySelector(".browser-instructions");
+const noSkillsMsg = document.getElementById("no-matching-skills");
 
 // Skills search
 function filterBrowser() {
@@ -28,6 +30,22 @@ function filterBrowser() {
         .some(skill => skill.style.display !== "none");
         section.style.display = h2.style.display = anyVisible ? "" : "none";
     });
+
+    // Hide browser instructions ONLY when filtering
+    if (instructions) {
+        instructions.style.display = browserInput.value ? "none" : "";
+    }
+
+    // Show "No skills matching..." if none found
+    if (noSkillsMsg) {
+        const filterQuery = browserInput.value;
+        const anyVisible = Array.from(document.querySelectorAll(".skill-entry"))
+            .some(skill => skill.style.display !== "none");
+        if (!anyVisible && filterQuery) {
+            noSkillsMsg.innerHTML = `No skills matching "${filterQuery}" found.<br>Please try a different search term.`;
+            noSkillsMsg.style.display = "";
+        } else noSkillsMsg.style.display = "none";
+    }
 }
 
 // Skills sorting
