@@ -97,10 +97,16 @@ html
   min-height: 100%
   cursor: vars.$default-cursor
 
+  // Responsive scaling
+  @for $i from 0 through 3
+    @media screen and (max-width: calc(360px - ($i * 30px)))
+      font-size: calc(95% - ($i * 10%))
+
 body, html
   margin: 0
   padding: 0
   height: 100%
+
 
 body
   background-color: $dark-water
