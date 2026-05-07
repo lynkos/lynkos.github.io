@@ -88,6 +88,10 @@ export function initBrowser() {
 
     if (sortSkill) {
         sortSkill.addEventListener("click", sortSkills);
+        sortSkill.addEventListener("touchend", function(event) {
+            event.preventDefault();
+            sortSkills();
+        });
     }
 
     window.toggleContent = toggleContent;
