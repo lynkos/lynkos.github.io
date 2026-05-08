@@ -76,8 +76,8 @@ export function bringToFront(element) {
     
     // No need to increase z-index if already in front
     if (!elementObj.classList.contains("inFront")) {
-        // Get all windows, trash dialogue, and sticky note
-        const allWindows = [...document.querySelectorAll(".windows, .trash-dialogue, #sticky-note")];
+        // Get all windows and trash dialogue
+        const allWindows = [...document.querySelectorAll(".windows, .trash-dialogue")];
         
         // Process each window and get z-indices
         const zIndices = allWindows.map(function(win) {

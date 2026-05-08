@@ -30,10 +30,6 @@ $button-gradient-start: #1b5a9b
 $button-gradient-end: #6cbfff
 $button-gradient: linear-gradient(to bottom, $button-gradient-start, $button-gradient-end)
 
-$badge-max-height: calc((2 * $padding) + vars.$dock-icon-size) //10rem
-$badge-max-width: 12rem
-$badge-opacity: 0.57
-
 $content-bg: #f0f0f0
 $window-panel-bg: #4580c4
 $window-panel-glass: linear-gradient(135deg, #fff5 70px, transparent 100px), linear-gradient(225deg, #fff5 70px, transparent 100px), linear-gradient(54deg, #0002 0 4%, #6661 6% 6%, #0002 8% 10%, #0002 15% 16%, #aaa1 17% 18%, #0002 23% 24%, #bbb2 25% 26%, #0002 31% 33%, #0002 34% 34.5%, #bbb2 36% 40%, #0002 41% 41.5%, #bbb2 44% 45%, #bbb2 46% 47%, #0002 48% 49%, #0002 50% 50.5%, #0002 56% 56.5%, #bbb2 57% 63%, #0002 67% 69%, #bbb2 69.5% 70%, #0002 73.5% 74%, #bbb2 74.5% 79%, #0002 80% 84%, #aaa2 85% 86%, #0002 87%, #bbb1 90%) left center/100vw 100vh no-repeat fixed
@@ -46,49 +42,6 @@ $close-icon: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAKCAYAAABi8
 $icon-border: inset 0 0 0 1px #fffa
 $icon-bg: linear-gradient(#ffffff80, #ffffff4d 45%, #0000001a 50%, #0000001a 75%, #ffffff80)
 $close-icon-bg: radial-gradient(circle at -60% 50%, #0007 5% 10%, #0000 50%), radial-gradient(circle at 160% 50%, #0007 5% 10%, #0000 50%), linear-gradient(#e0a197e5, #cf796a 25% 50%, #d54f36 50%)
-
-// NOT BY AI BADGE STYLING
-.gradient
-  &-start
-    stop-color: $button-gradient-start
-
-  &-end
-    stop-color: $button-gradient-end
-
-.gloss
-  &-start
-    stop-color: rgba(255, 255, 255, 0.5)
-
-  &-end
-    stop-color: rgba(255, 255, 255, 0)
-
-.gloss-2
-  &-start
-    stop-color: rgba(255, 255, 255, 0.2)
-
-  &-end
-    stop-color: rgba(255, 255, 255, 0)
-
-svg
-  --badge-font-color: #FFF
-  --badge-stroke-color: #447dbc
-
-  &:hover
-    --badge-font-color: #FFF
-    --badge-stroke-color: #366dab
-
-  &:active
-    --badge-font-color: #FFF
-    --badge-stroke-color: #447dbc
-
-// 'Not by AI' badge
-#not-ai
-  height: auto
-  width: auto
-  max-width: $badge-max-width
-  max-height: $badge-max-height
-  padding: $padding 0
-  cursor: vars.$pointer-cursor
 
 *
   position: relative
@@ -106,7 +59,6 @@ body, html
   margin: 0
   padding: 0
   height: 100%
-
 
 body
   background-color: $dark-water

@@ -19,7 +19,7 @@ function makeDraggable(selector) {
     $(selector).draggable({
         cursor: cursor,
         handle: ".handle",
-        cancel: ".cancel, .icons, #sticky-note-close",
+        cancel: ".cancel, .icons",
         start: function() {
             bringToFront(this);
         },
@@ -54,8 +54,7 @@ function openWindow(dockIcon, win, displayType = "flex") {
             if (!iconElement.classList.contains("open")) {
                 // Bounce effect, if window is not already open
                 // Ignore #previewDockIcon since it can only initially be opened via desktop, not dock
-                // Ignore #not-ai since it's sticky note, which doesn't bounce
-                if (dockIcon !== "#previewDockIcon" && dockIcon !== "#not-ai") $(dockIcon).effect("bounce", { times: 3 }, 600);
+                if (dockIcon !== "#previewDockIcon") $(dockIcon).effect("bounce", { times: 3 }, 600);
     
                 // Mark clicked window as opened
                 iconElement.classList.add("open");
@@ -144,14 +143,14 @@ export function initWindows() {
 
     // Make some windows resizeable
     // TODO: Add #email once mail app (aka contact form) is fixed
-    $("#mac-terminal, #notes, #browser, .preview, .resume, #sticky-note, #music-app").resizable({
+    $("#mac-terminal, #notes, #browser, .preview, .resume, #music-app").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
     });
 
     // Apply draggable to all existing windows
-    makeDraggable(".windows, #sticky-note");
+    makeDraggable(".windows");
 
     // Empty trash
     document.querySelector(".confirm").addEventListener("click", function(event) {
@@ -199,10 +198,6 @@ export function initWindows() {
 
     // Open trash dialogue
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
-
-    // NOTE: Temporarily hide sticky note for `not-by-ai` badge
-    // Open sticky note
-    // openWindow("#not-ai", "#sticky-note", "block");
     
     // Close terminal
     closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
@@ -230,10 +225,6 @@ export function initWindows() {
     
     // Close trash dialogue
     closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
-
-    // NOTE: Temporarily hide sticky note for `not-by-ai` badge
-    // Close sticky note
-    // closeWindow("#sticky-note-close", "#sticky-note", "#not-ai");
 
     // Maximize terminal
     maximizeWindow(".header__op-icon--green", "#mac-terminal");
