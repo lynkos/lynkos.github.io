@@ -5,7 +5,7 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
-import { cursor, getText, sortOpacity, sortSpeed } from "../common.js";
+import { getText, sortOpacity, sortSpeed } from "../common.js";
 
 var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 var isSorting = false;
@@ -14,6 +14,7 @@ const sortSkill = document.getElementById("sort-skills");
 const skillSections = document.querySelectorAll("#browser .inside .section");
 const instructions = document.querySelector(".browser-instructions");
 const noSkillsMsg = document.getElementById("no-matching-skills");
+const draggingCursor = getComputedStyle(document.querySelector(".skill-entry")).getPropertyValue("--dragging-cursor").trim() || "grabbing";
 
 // Skills search
 function filterBrowser() {
@@ -88,7 +89,7 @@ export function initBrowser() {
     $(".section").sortable({
         axis: "y",
         containment: "parent",
-        cursor: cursor,
+        cursor: draggingCursor,
         handle: ".row",
         opacity: sortOpacity,
         scroll: true,
