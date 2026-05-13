@@ -9,10 +9,12 @@
  * @param {string} containerId - ID of the container to append to
  */
 export function Skill(name, value, icon, color, description, containerId) {
-
-  // --- Derive a safe, lowercase ID from the name ---
   // e.g. "OpenSSL" → "openssl", "Node.js" → "nodejs"
-  const id = name.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const normalizedName = String(name ?? "").toLowerCase().trim();
+  const id =
+    normalizedName === "c++"
+      ? "cpp"
+      : normalizedName.replace(/[^a-z0-9]+/g, "");
 
 
   // --- Build the 10-star row ---
@@ -32,8 +34,6 @@ export function Skill(name, value, icon, color, description, containerId) {
     ...Array(emptyCount).fill(empty),
   ].join("\n      "); // indented to match surrounding markup
 
-
-  // --- Assemble the full HTML block ---
   const html = `
   <div class="skill-entry">
     <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false"
@@ -65,7 +65,6 @@ export function Skill(name, value, icon, color, description, containerId) {
   }
   styleEl.textContent += `\n#${id} { color: ${color}; }`;
 
-  // --- Mount the HTML into the page ---
   const container = document.getElementById(`skills-container-${containerId}`);
   if (!container) {
     console.warn(`Skill("${name}"): no skills-container-#${containerId} container found in the DOM.`);
