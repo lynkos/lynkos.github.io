@@ -11,14 +11,21 @@ var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 var isSorting = false;
 const browserInput = document.getElementById("browserInput");
 const sortSkill = document.getElementById("sort-skills");
+//const skillSections = document.querySelectorAll("#browser .inside .section .skills-container");
 const skillSections = document.querySelectorAll("#browser .inside .section");
 const instructions = document.querySelector(".browser-instructions");
 const noSkillsMsg = document.getElementById("no-matching-skills");
-const draggingCursor = getComputedStyle(document.querySelector(".skill-entry")).getPropertyValue("--dragging-cursor").trim() || "grabbing";
+// const draggingCursor = getComputedStyle(document.querySelector("#browser .inside .section .skills-container .skill-entry")).getPropertyValue("--dragging-cursor").trim() || "grabbing";
+
+const skillEntryEl = document.querySelector("#browser .inside .section .skills-container .skill-entry");
+const draggingCursor = skillEntryEl
+  ? getComputedStyle(skillEntryEl).getPropertyValue("--dragging-cursor").trim() || "grabbing"
+  : "grabbing";
 
 // Skills search
 function filterBrowser() {
     // Filter skills
+    //    document.querySelectorAll("#browser .inside .section .skills-container .skill-entry").forEach(skill => {
     document.querySelectorAll(".skill-entry").forEach(skill => {
         skill.style.display = getText(skill, ".heading").includes(browserInput.value.toLowerCase()) ? "" : "none";
     });
@@ -26,6 +33,8 @@ function filterBrowser() {
     // Hide section headings IFF ALL their skills are hidden
     document.querySelectorAll("#browser .inside h2").forEach(h2 => {
         const section = h2.nextElementSibling;
+        //        const section = h2.nextElementSibling?.firstElementChild;
+
         if (!section?.classList.contains("section")) return;
         const anyVisible = Array.from(section.querySelectorAll(".skill-entry"))
         .some(skill => skill.style.display !== "none");
@@ -86,7 +95,7 @@ export function initBrowser() {
     });
 
     // Make skills sortable
-    $(".section").sortable({
+    $(".skills-container").sortable({
         axis: "y",
         containment: "parent",
         cursor: draggingCursor,
