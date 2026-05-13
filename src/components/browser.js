@@ -11,7 +11,6 @@ var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 var isSorting = false;
 const browserInput = document.getElementById("browserInput");
 const sortSkill = document.getElementById("sort-skills");
-//const skillSections = document.querySelectorAll("#browser .inside .section .skills-container");
 const skillSections = document.querySelectorAll("#browser .inside .section");
 const instructions = document.querySelector(".browser-instructions");
 const noSkillsMsg = document.getElementById("no-matching-skills");
@@ -20,19 +19,18 @@ const draggingCursor = skillSections[0] ? getComputedStyle(skillSections[0]).get
 // Skills search
 function filterBrowser() {
     // Filter skills
-    //    document.querySelectorAll("#browser .inside .section .skills-container .skill-entry").forEach(skill => {
-    document.querySelectorAll(".skill-entry").forEach(skill => {
+    document.querySelectorAll(".skills-container .skill-entry").forEach(skill => {
         skill.style.display = getText(skill, ".heading").includes(browserInput.value.toLowerCase()) ? "" : "none";
     });
 
     // Hide section headings IFF ALL their skills are hidden
     document.querySelectorAll("#browser .inside h2").forEach(h2 => {
         const section = h2.nextElementSibling;
-        //        const section = h2.nextElementSibling?.firstElementChild;
-
         if (!section?.classList.contains("section")) return;
-        const anyVisible = Array.from(section.querySelectorAll(".skill-entry"))
-        .some(skill => skill.style.display !== "none");
+        const skillsContainer = section.querySelector(".skills-container");
+        if (!skillsContainer) return;
+        const anyVisible = Array.from(skillsContainer.querySelectorAll(".skill-entry"))
+            .some(skill => skill.style.display !== "none");
         section.style.display = h2.style.display = anyVisible ? "" : "none";
     });
 
@@ -44,7 +42,7 @@ function filterBrowser() {
     // Show "No skills matching..." if none found
     if (noSkillsMsg) {
         const filterQuery = browserInput.value;
-        const anyVisible = Array.from(document.querySelectorAll(".skill-entry"))
+        const anyVisible = Array.from(document.querySelectorAll(".skills-container .skill-entry"))
             .some(skill => skill.style.display !== "none");
         if (!anyVisible && filterQuery) {
             noSkillsMsg.innerHTML = `No skills matching "${filterQuery}" found.<br>Please try a different search term.`;
@@ -56,7 +54,9 @@ function filterBrowser() {
 // Skills sorting
 function sortSkills() {
     skillSections.forEach(section => {
-        let skills = Array.from(section.querySelectorAll(".skill-entry"));
+        const skillsContainer = section.querySelector(".skills-container");
+        if (!skillsContainer) return;
+        let skills = Array.from(skillsContainer.querySelectorAll(".skill-entry"));
         if (sortMode === 0) { // Ascending
             skills.sort((a, b) =>
                 getText(a, ".heading").localeCompare(getText(b, ".heading"))
@@ -66,9 +66,9 @@ function sortSkills() {
                 getText(b, ".heading").localeCompare(getText(a, ".heading"))
             );
         } else { // Original
-            skills = section._originalOrder.slice();
+            skills = skillsContainer._originalOrder.slice();
         }
-        skills.forEach(skill => section.appendChild(skill));
+        skills.forEach(skill => skillsContainer.appendChild(skill));
     });
     sortMode = (sortMode + 1) % 3;
 }
@@ -86,25 +86,27 @@ const toggleContent = item => {
 
 export function initBrowser() {
     skillSections.forEach(section => {
-        section._originalOrder = Array.from(section.querySelectorAll(".skill-entry"));
+        const skillsContainer = section.querySelector(".skills-container");
+        if (skillsContainer) {
+            skillsContainer._originalOrder = Array.from(skillsContainer.querySelectorAll(".skill-entry"));
+            // Make skills sortable
+            $(skillsContainer).sortable({
+                axis: "y",
+                containment: "parent",
+                cursor: draggingCursor,
+                handle: ".row",
+                opacity: sortOpacity,
+                scroll: true,
+                scrollSpeed: sortSpeed,
+                start: function() { isSorting = true; },
+                stop: function() { setTimeout(() => { isSorting = false; }, 0); }
+            }).on("sortupdate", function() {
+                // Update original order after sorting
+                this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));
+            });
+        }
     });
 
-    // Make skills sortable
-    $(".skills-container").sortable({
-        axis: "y",
-        containment: "parent",
-        cursor: draggingCursor,
-        handle: ".row",
-        opacity: sortOpacity,
-        scroll: true,
-        scrollSpeed: sortSpeed,
-        start: function() { isSorting = true; },
-        stop: function() { setTimeout(() => { isSorting = false; }, 0); }
-    }).on("sortupdate", function() {
-        // Update original order after sorting
-        this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));
-    });
-    
     if (browserInput) {
         browserInput.addEventListener("keyup", filterBrowser);
     }
