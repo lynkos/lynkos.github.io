@@ -1,5 +1,82 @@
-// filepath: src/components/skills.js
-import { Skill } from "./skill.js";
+/**
+ * @license MIT
+ * Copyright © 2026 Kiran Brahmatewari. All rights reserved.
+ * 
+ * This work is licensed under the terms of the MIT license.
+ * Refer to https://opensource.org/licenses/MIT for a copy.
+ */
+
+const filled = `<i aria-hidden="true" alt="Filled star icon" class="fas fa-star"></i>`;
+const half   = `<i aria-hidden="true" alt="Half-filled star icon" class="fas fa-star-half-stroke"></i>`;
+const empty  = `<i aria-hidden="true" alt="Empty star icon" class="far fa-star"></i>`;
+
+/**
+ * Creates and injects a skill entry into the skills container.
+ *
+ * @param {string} name        - Display name (also used to derive the element ID)
+ * @param {number} value       - Proficiency from 0–10 in 0.5 increments
+ * @param {string} icon        - Raw HTML string: inline SVG, <img>, or <i> (FontAwesome/SimpleIcons)
+ * @param {string} color       - CSS color string applied to the entry's ID selector
+ * @param {string} description - Inner HTML for the description paragraph
+ * @param {string} containerId - ID of the container to append to
+ */
+function Skill(name, value, icon, color, description, containerId) {
+  // e.g. "OpenSSL" → "openssl", "Node.js" → "nodejs", "C++" → "cpp"
+  const normalizedName = String(name ?? "").toLowerCase().trim();
+  const id =
+    normalizedName === "c++"
+      ? "cpp"
+      : normalizedName.replace(/[^a-z0-9]+/g, "");
+
+  // --- Build the 10-star row ---
+  const fullCount  = Math.floor(value);
+  const hasHalf    = (value % 1) === 0.5;
+  const emptyCount = 10 - fullCount - (hasHalf ? 1 : 0);
+
+  const stars = [
+    ...Array(fullCount).fill(filled),
+    ...(hasHalf ? [half] : []),
+    ...Array(emptyCount).fill(empty),
+  ].join("\n      "); // indented to match surrounding markup
+
+  const html = `
+  <div class="skill-entry">
+    <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false"
+        id="${id}" class="row" onclick="toggleContent('#${id}')">
+      <div class="beginning">
+        ${icon}
+        <h3 class="heading">${name}</h3>
+      </div>
+      <div class="stars">
+        ${stars}
+      </div>
+      <div id="${id}-trigger" class="arrow">
+        <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
+      </div>
+    </div>
+    <div id="${id}-content" class="hidden-content item-content">
+      <p>${description}</p>
+    </div>
+  </div>`.trim();
+
+  // --- Inject the color rule into a shared <style> block ---
+  // We reuse one <style id="skill-colors"> element so we don't
+  // litter the <head> with a new tag on every call.
+  let styleEl = document.getElementById("skill-colors");
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = "skill-colors";
+    document.head.appendChild(styleEl);
+  }
+  styleEl.textContent += `\n#${id} { color: ${color}; }`;
+
+  const container = document.getElementById(`skills-container-${containerId}`);
+  if (!container) {
+    console.warn(`Skill("${name}"): no skills-container-#${containerId} container found in the DOM.`);
+    return;
+  }
+  container.insertAdjacentHTML("beforeend", html);
+}
 
 export function initSkills() {
     // LANGUAGES
@@ -16,7 +93,7 @@ export function initSkills() {
         "Java",
         8,
         '<i aria-hidden="true" alt="Java logo" class="fab fa-java"></i>',
-        "#007396",
+        "#f89820",
         "My first real programming language. I learned it at age 14, when I took AP Computer Science in high school. I used it extensively during high school; namely during high school programming competitions (I was part of the Computer Science / Programming Club), Capture the Flag competitions, and AP Computer Science coursework. I've also used it in college courses along with internship projects at Oracle (OCI).",
         "languages"
     );
@@ -34,7 +111,7 @@ export function initSkills() {
         "CSS",
         9.5,
         '<img aria-hidden="true" alt="CSS logo" src="https://cdn.simpleicons.org/css">',
-        "#1572B6",
+        "#663399",
         "One of the languages that inspired me to take Computer Science seriously in high school and ultimately got me into software engineering. I was 12 when I used it to <a href=\"https://github.com/lynkos/old-tumblr-themes\" target=\"_blank\">create Tumblr themes</a>. I now use it extensively for many of my personal projects.",
         "languages"
     );
@@ -48,7 +125,7 @@ export function initSkills() {
         "languages"
     );
 
-Skill(
+    Skill(
         "TypeScript",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="TypeScript logo" src="https://cdn.simpleicons.org/typescript">`,
@@ -57,7 +134,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "jQuery",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="jQuery logo" src="https://cdn.simpleicons.org/jquery">`,
@@ -66,7 +143,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "C",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C logo" src="https://cdn.simpleicons.org/c">`,
@@ -75,7 +152,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "C++",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="C++ logo" src="https://cdn.simpleicons.org/cplusplus">`,
@@ -84,7 +161,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "LaTeX",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LaTeX logo" src="https://cdn.simpleicons.org/latex">`,
@@ -93,7 +170,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "JSON",
         9,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JSON logo" src="https://cdn.simpleicons.org/json/white">`,
@@ -102,7 +179,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "YAML",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="YAML logo" src="https://cdn.simpleicons.org/yaml">`,
@@ -111,16 +188,16 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "Terraform",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform">`,
-        "#623CE4",
+        "#844FBA",
         `Used during my internships at Oracle (OCI).`,
         "languages"
     );
 
-Skill(
+    Skill(
         "UML",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="UML logo" src="https://cdn.simpleicons.org/uml">`,
@@ -129,7 +206,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "R",
         3,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="R logo" src="https://cdn.simpleicons.org/r">`,
@@ -138,16 +215,16 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "Markdown",
         10,
-        `<i aria-hidden="true" alt="Markdown logo" class="fab fa-markdown"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Markdown logo" src="https://cdn.simpleicons.org/markdown/white">`,
         "#FFF",
         `Used extensively for technical documentation and writing, particularly for my personal projects, blogs posts, and technical documentation. Also used during my internships at Oracle (OCI).`,
         "languages"
     );
 
-Skill(
+    Skill(
         "Jinja",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jinja logo" src="https://cdn.simpleicons.org/jinja">`,
@@ -156,7 +233,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "SQL",
         5,
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250"> <ellipse cx="120" cy="50" ry="35" rx="85"></ellipse> <path d="M35 50v150a85 35 1 1 0 170 0V50M35 100a85 35 1 1 0 170 0M35 150a85 35 1 1 0 170 0"></path> </svg>`,
@@ -165,7 +242,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "MySQL",
         3.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql">`,
@@ -174,7 +251,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "SQLite",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SQLite logo" src="https://cdn.simpleicons.org/sqlite">`,
@@ -183,16 +260,16 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "Swift",
         5.5,
-        `<i aria-hidden="true" alt="Swift logo" class="fab fa-swift"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Swift logo" src="https://cdn.simpleicons.org/swift">`,
         "#F05138",
         `Used for my Mobile App Development course.`,
         "languages"
     );
 
-Skill(
+    Skill(
         "Ruby",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Ruby logo" src="https://cdn.simpleicons.org/ruby">`,
@@ -201,7 +278,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "XML",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="XML logo" src="https://cdn.simpleicons.org/xml">`,
@@ -210,7 +287,7 @@ Skill(
         "languages"
     );
 
-Skill(
+    Skill(
         "F#",
         2,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="F# logo" src="https://cdn.simpleicons.org/fsharp">`,
@@ -220,16 +297,16 @@ Skill(
     );
 
     // TOOLS
-Skill(
+    Skill(
         "Git",
         9.5,
-        `<i aria-hidden="true" alt="Git logo" class="fab fa-git-alt"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Git logo" src="https://cdn.simpleicons.org/git">`,
         "#F05032",
         `Extensively used for version control in all my projects (personal, professional, and academic). I've been using it since 2014.`,
         "tools"
     );
 
-Skill(
+    Skill(
         "Bash",
         8.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bash logo" src="https://cdn.simpleicons.org/gnubash">`,
@@ -238,7 +315,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Zsh",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Zsh logo" src="https://cdn.simpleicons.org/zsh">`,
@@ -247,34 +324,34 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Confluence",
         9.5,
-        `<i aria-hidden="true" alt="Confluence logo" class="fab fa-confluence"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Confluence logo" src="https://cdn.simpleicons.org/confluence">`,
         "#172B4D",
         `Used during my internships at Oracle (OCI).`,
         "tools"
     );
 
-Skill(
+    Skill(
         "Docker",
         4.5,
-        `<i aria-hidden="true" alt="Docker logo" class="fab fa-docker"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Docker logo" src="https://cdn.simpleicons.org/docker">`,
         "#2496ED",
         `Used for some personal projects.`,
         "tools"
     );
 
-Skill(
+    Skill(
         "Jira",
         9,
-        `<i aria-hidden="true" alt="Jira logo" class="fab fa-jira"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jira logo" src="https://cdn.simpleicons.org/jira">`,
         "#0052CC",
         `Used during my internships at Oracle (OCI).`,
         "tools"
     );
 
-Skill(
+    Skill(
         "Jupyter",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jupyter logo" src="https://cdn.simpleicons.org/jupyter">`,
@@ -283,7 +360,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Conda",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Anaconda logo" src="https://cdn.simpleicons.org/anaconda">`,
@@ -292,16 +369,16 @@ Skill(
         "tools"
     );
 
-Skill(
-        "VMWare Fusion",
+    Skill(
+        "VMware Fusion",
         4.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="VMWare logo" src="https://cdn.simpleicons.org/vmware">`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="VMware logo" src="https://cdn.simpleicons.org/vmware">`,
         "#607078",
         `Used for my work on post-quantum cybersecurity.`,
         "tools"
     );
 
-Skill(
+    Skill(
         "Grafana",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Grafana logo" src="https://cdn.simpleicons.org/grafana">`,
@@ -310,7 +387,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "WINE",
         5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="WINE logo" src="https://cdn.simpleicons.org/wine">`,
@@ -319,7 +396,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Homebrew",
         9,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Homebrew logo" src="https://cdn.simpleicons.org/homebrew">`,
@@ -328,7 +405,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "GitHub",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub logo" src="https://cdn.simpleicons.org/github">`,
@@ -337,7 +414,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "GitHub Actions",
         9,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Actions logo" src="https://cdn.simpleicons.org/githubactions">`,
@@ -346,7 +423,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "GitHub Pages",
         9.5,
         `<i aria-hidden="true" alt="GitHub Pages logo" class="fab fa-square-github"></i>`,
@@ -355,7 +432,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Hugging Face",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Hugging Face logo" src="https://cdn.simpleicons.org/huggingface">`,
@@ -364,7 +441,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Xcode",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Node.js logo" src="https://cdn.simpleicons.org/xcode">`,
@@ -373,7 +450,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Obsidian",
         9,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Obsidian logo" src="https://cdn.simpleicons.org/obsidian">`,
@@ -382,7 +459,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Node.js",
         6.5,
         `<i aria-hidden="true" alt="Node.js logo" class="fab fa-node-js"></i>`,
@@ -391,7 +468,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Nodemon",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Nodemon logo" src="https://cdn.simpleicons.org/nodemon">`,
@@ -400,7 +477,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Cloudflare",
         7,
         `<i aria-hidden="true" alt="Cloudflare logo" class="fab fa-cloudflare"></i>`,
@@ -409,7 +486,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Wireshark",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Wireshark logo" src="https://cdn.simpleicons.org/wireshark">`,
@@ -418,7 +495,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "CMake",
         3.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="CMake logo" src="https://cdn.simpleicons.org/cmake">`,
@@ -427,7 +504,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Make",
         3.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Make logo" src="https://cdn.simpleicons.org/make">`,
@@ -436,7 +513,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Bitwarden",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bitwarden logo" src="https://cdn.simpleicons.org/bitwarden">`,
@@ -445,7 +522,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Prometheus",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Prometheus logo" src="https://cdn.simpleicons.org/prometheus">`,
@@ -454,7 +531,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Firebase",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Firebase logo" src="https://cdn.simpleicons.org/firebase">`,
@@ -463,7 +540,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Yubikey",
         8.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Yubico logo" src="https://cdn.simpleicons.org/yubico">`,
@@ -472,7 +549,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Mermaid",
         2.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Mermaid logo" src="https://cdn.simpleicons.org/mermaid">`,
@@ -481,7 +558,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Google Cloud",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Cloud logo" src="https://cdn.simpleicons.org/googlecloud">`,
@@ -490,7 +567,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Oracle Cloud",
         7.5,
         `<svg viewBox="0 0 32 21" xmlns="http://www.w3.org/2000/svg"> <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z"></path> </svg>`,
@@ -499,7 +576,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Bitbucket",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bitbucket logo" src="https://cdn.simpleicons.org/bitbucket">`,
@@ -508,7 +585,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Microsoft Office",
         10,
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.59 64.356"> <path d="M.5 51.615V13.098L34.572.506l18.517 5.926v51.85l-18.517 5.58zl34.072 4.102V10.878L12.35 16.064v30.368z"></path> </svg>`,
@@ -517,7 +594,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "OpenSSH",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenSSH logo" src="https://cdn.simpleicons.org/openbsd">`,
@@ -526,7 +603,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "OpenSSL",
         3.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenSSL logo" src="https://cdn.simpleicons.org/openssl">`,
@@ -535,7 +612,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "draw.io",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="draw.io logo" src="https://cdn.simpleicons.org/diagramsdotnet">`,
@@ -544,7 +621,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Loom",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Loom logo" src="https://cdn.simpleicons.org/loom">`,
@@ -553,7 +630,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Atlassian",
         8,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Atlassian logo" src="https://cdn.simpleicons.org/atlassian">`,
@@ -562,7 +639,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "Zoom",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Zoom logo" src="https://cdn.simpleicons.org/zoom">`,
@@ -571,7 +648,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "FileZilla",
         7,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="FileZilla logo" src="https://cdn.simpleicons.org/filezilla">`,
@@ -580,7 +657,7 @@ Skill(
         "tools"
     );
 
-Skill(
+    Skill(
         "iTerm",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="iTerm logo" src="https://cdn.simpleicons.org/iterm2/white">`,
@@ -590,7 +667,7 @@ Skill(
     );
 
     // FRAMEWORKS
-Skill(
+    Skill(
         "Qiskit",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Qiskit logo" src="https://cdn.simpleicons.org/qiskit">`,
@@ -599,7 +676,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "NumPy",
         8,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="NumPy logo" src="https://cdn.simpleicons.org/numpy">`,
@@ -608,7 +685,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "PyTorch",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyTorch logo" src="https://cdn.simpleicons.org/pytorch">`,
@@ -617,7 +694,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "TensorFlow",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="TensorFlow logo" src="https://cdn.simpleicons.org/tensorflow">`,
@@ -626,7 +703,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Keras",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Keras logo" src="https://cdn.simpleicons.org/keras">`,
@@ -635,7 +712,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "SymPy",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SymPy logo" src="https://cdn.simpleicons.org/sympy">`,
@@ -644,7 +721,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Maven",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Maven logo" src="https://cdn.simpleicons.org/apachemaven">`,
@@ -653,7 +730,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "JUnit",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JUnit logo" src="https://cdn.simpleicons.org/junit5">`,
@@ -662,7 +739,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "SASS",
         9.5,
         `<i aria-hidden="true" alt="SASS logo" class="fab fa-sass"></i>`,
@@ -671,7 +748,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Roboflow",
         8,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Roboflow logo" src="https://cdn.simpleicons.org/roboflow">`,
@@ -680,7 +757,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Arduino",
         5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Arduino logo" src="https://cdn.simpleicons.org/arduino">`,
@@ -689,7 +766,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Espressif",
         5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Espressif logo" src="https://cdn.simpleicons.org/espressif">`,
@@ -698,7 +775,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "PlatformIO",
         5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PlatformIO logo" src="https://cdn.simpleicons.org/platformio">`,
@@ -707,7 +784,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Google Colab",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Colab logo" src="https://cdn.simpleicons.org/googlecolab">`,
@@ -716,7 +793,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "OpenCV",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenCV logo" src="https://cdn.simpleicons.org/opencv">`,
@@ -725,7 +802,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Jekyll",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jekyll logo" src="https://cdn.simpleicons.org/jekyll">`,
@@ -734,7 +811,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Babel",
         4.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Babel logo" src="https://cdn.simpleicons.org/babel">`,
@@ -743,7 +820,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "LLVM",
         2.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LLVM logo" src="https://cdn.simpleicons.org/llvm">`,
@@ -752,7 +829,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "MLX",
         3,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Apple logo" src="https://cdn.simpleicons.org/apple/D4D4D4">`,
@@ -761,7 +838,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "LLaMA.cpp",
         3,
         `<svg viewBox="0 0 264 264" xmlns="http://www.w3.org/2000/svg"> <path d="M229.665 157.022C226.791 157.022 224.362 157.022 221.452 157.022C221.452 159.886 221.452 162.638 221.452 165.386C221.452 169.439 218.221 172.725 214.168 172.725V172.725C210.115 172.725 206.775 169.439 206.775 165.386C206.775 162.694 206.775 159.931 206.775 157.051C201.473 157.051 201.438 157.051 196.384 157.051C196.384 152.118 196.384 147.629 196.384 142.792C201.292 142.792 201.341 142.792 206.498 142.792C206.498 139.997 206.498 137.292 206.498 134.581C206.498 130.483 209.802 127.161 213.9 127.161V127.161C217.998 127.161 221.337 130.483 221.337 134.581C221.337 137.217 221.337 139.869 221.337 142.601C223.866 142.601 226.276 142.601 228.674 142.601C232.657 142.601 235.885 145.829 235.885 149.812C235.885 150.141 235.885 150.471 235.885 150.802C235.885 154.238 233.1 157.023 229.665 157.022V157.022Z"></path> <path d="M153.094 142.863C155.969 142.864 158.398 142.864 161.307 142.864C161.307 140 161.307 137.248 161.307 134.5C161.307 130.447 164.538 127.161 168.591 127.161V127.161C172.644 127.161 175.984 130.446 175.984 134.499C175.984 137.192 175.984 139.955 175.984 142.835C181.287 142.835 181.314 142.835 186.368 142.835C186.368 147.768 186.368 152.257 186.368 157.093C181.46 157.093 181.419 157.093 176.262 157.093C176.262 159.889 176.262 162.594 176.262 165.305C176.262 169.403 172.957 172.725 168.86 172.725V172.725C164.762 172.725 161.422 169.403 161.422 165.305C161.422 162.669 161.422 160.017 161.422 157.285C158.893 157.285 156.484 157.285 154.085 157.285C150.103 157.285 146.874 154.056 146.874 150.074C146.874 149.745 146.874 149.415 146.874 149.083C146.874 145.648 149.659 142.863 153.094 142.863V142.863Z"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M142.114 45.2382C144.949 46.6406 144.087 48.6771 143.291 50.4754C143.001 51.1309 142.713 51.7881 142.424 52.4456C140.823 56.0975 139.217 59.7593 137.254 63.2122C134.69 67.7245 133.969 72.1034 134.718 76.425C135.779 76.6467 136.846 76.8782 137.916 77.1194C140.063 69.1673 143.313 61.8666 150.34 56.3784C154.237 53.3347 158.881 52.5295 163.741 53.4167C166.806 53.9761 167.354 55.1539 165.72 57.7847C165.608 57.9647 165.496 58.1449 165.384 58.3252C163.881 60.7487 162.364 63.1964 160.522 65.3492C155.705 70.9818 156.079 76.8613 159.133 83.0193C159.817 83.2456 160.5 83.4751 161.183 83.7078C172.683 87.6287 177.516 100.775 172.451 111.819L169.949 117.273C153.793 109.863 135.437 103.1 119.57 100.817C119.293 100.777 118.925 100.719 118.479 100.649C112.549 99.7223 92.8929 96.6489 91.0237 104.451L91.0191 104.47C90.054 108.427 90.9132 112.361 91.78 116.33C92.9307 121.599 94.095 126.93 91.0237 132.458C88.0952 137.729 82.3817 140.345 76.8738 142.335C75.8854 142.692 74.8542 143.051 73.7966 143.419C63.0234 147.168 49.5058 151.871 50.5002 165.426C51.8566 183.916 76.7213 188.107 92.8753 190.83C93.4693 190.93 94.0515 191.028 94.6203 191.125C104.41 192.791 114.831 190.226 125.131 187.691C134.359 185.419 143.49 183.171 151.981 184.013C161.451 184.952 168.196 189.989 174.294 194.543C179.765 198.629 184.717 202.327 190.651 202.327C197.695 202.327 202.659 200.151 206.23 198.585C209.02 197.362 210.959 196.512 212.374 197.365C215.601 199.308 206.98 221.281 190.651 221.281C182.127 221.281 175.694 218.458 169.545 215.76C163.916 213.289 158.524 210.923 151.981 210.923C146.86 210.923 140.616 212.768 133.299 214.929C121.058 218.545 105.818 223.046 87.8198 221.281C59.0636 218.46 16.4933 202.541 14.1171 170.151C12.1175 142.894 41.5744 124.106 64.291 117.009C61.6175 103.844 63.224 90.9669 73.8515 81.7137C80.3917 76.0193 89.2057 73.9986 96.7861 73.2898C101.748 72.8258 107.118 72.8441 112.689 73.2406C114.024 67.1837 116.323 61.4235 119.904 56.2059C125.156 48.5519 132.354 44.5736 142.114 45.2382ZM164.455 97.0679C164.455 100.146 161.96 102.641 158.882 102.641C155.804 102.641 153.308 100.146 153.308 97.0679C153.308 93.9899 155.804 91.4946 158.882 91.4946C161.96 91.4946 164.455 93.9899 164.455 97.0679Z"></path> </svg>`,
@@ -770,7 +847,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Mockito",
         6.5,
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"> <g> <path d="M16.45 15.68h2.57v9.09h-2.57z"></path> <path d="m10.22 10.34 6.24 5.6h2.55l6.24-5.6zm2.14 16.09 4.46-2.18h1.83l4.47 2.18z"></path> </g> <path fill="#626b7c" d="M17.74 0a17.74 17.74 0 1 0 17.73 17.74A17.74 17.74 0 0 0 17.74 0m11.69 20.85a2.8 2.8 0 0 0-1.74 3.77 2.81 2.81 0 0 1-3.88 3.59 2.8 2.8 0 0 0-3.91 1.43 2.8 2.8 0 0 1-5.27-.21 2.81 2.81 0 0 0-3.78-1.74 2.8 2.8 0 0 1-3.58-3.88 2.81 2.81 0 0 0-1.44-3.91A2.8 2.8 0 0 1 6 14.63a2.81 2.81 0 0 0 1.75-3.78 2.8 2.8 0 0 1 3.88-3.58 2.8 2.8 0 0 0 3.9-1.44 2.8 2.8 0 0 1 5.32.17 2.8 2.8 0 0 0 3.77 1.75 2.81 2.81 0 0 1 3.59 3.88 2.79 2.79 0 0 0 1.43 3.9 2.8 2.8 0 0 1-.21 5.32"></path> </svg>`,
@@ -779,7 +856,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Nuxt.js",
         5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Nuxt.js logo" src="https://cdn.simpleicons.org/nuxt">`,
@@ -788,7 +865,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "YOLO",
         7,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="YOLO logo" src="https://cdn.simpleicons.org/yolo">`,
@@ -797,7 +874,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Spring",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Spring logo" src="https://cdn.simpleicons.org/spring">`,
@@ -806,7 +883,7 @@ Skill(
         "frameworks"
     );
 
-Skill(
+    Skill(
         "Spring Boot",
         6,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Spring Boot logo" src="https://cdn.simpleicons.org/springboot">`,
@@ -816,7 +893,7 @@ Skill(
     );
 
     // OPERATING SYSTEMS
-Skill(
+    Skill(
         "macOS",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Apple logo" src="https://cdn.simpleicons.org/apple/D4D4D4">`,
@@ -825,7 +902,7 @@ Skill(
         "operating-systems"
     );
 
-Skill(
+    Skill(
         "Ubuntu",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Ubuntu logo" src="https://cdn.simpleicons.org/ubuntu">`,
@@ -834,7 +911,7 @@ Skill(
         "operating-systems"
     );
 
-Skill(
+    Skill(
         "Windows",
         6,
         `<i alt="Windows logo" class="fab fa-windows" aria-hidden="true"></i>`,
@@ -843,7 +920,7 @@ Skill(
         "operating-systems"
     );
 
-Skill(
+    Skill(
         "Linux",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Linux logo" src="https://cdn.simpleicons.org/linux">`,
@@ -853,7 +930,7 @@ Skill(
     );
 
     // LARGE LANGUAGE MODELS
-Skill(
+    Skill(
         "GitHub Copilot",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Copilot logo" src="https://cdn.simpleicons.org/githubcopilot/white">`,
@@ -862,7 +939,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "Claude",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Claude logo" src="https://cdn.simpleicons.org/claude">`,
@@ -871,7 +948,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "DeepSeek",
         10,
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"> <path fill="none" d="M0,0H150V150H0V0Z"></path> <path d="M147.87,34.82c-1.48-.72-2.11,.65-2.97,1.35-.3,.23-.54,.52-.79,.79-2.16,2.3-4.68,3.82-7.97,3.64-4.81-.27-8.92,1.24-12.55,4.92-.77-4.54-3.34-7.25-7.24-8.99-2.04-.9-4.11-1.81-5.54-3.77-1-1.4-1.27-2.96-1.77-4.49-.32-.93-.64-1.87-1.7-2.03-1.16-.18-1.61,.79-2.07,1.6-1.82,3.32-2.52,6.98-2.45,10.68,.16,8.33,3.68,14.97,10.67,19.69,.79,.54,1,1.08,.75,1.87-.48,1.63-1.04,3.21-1.54,4.83-.32,1.04-.79,1.26-1.91,.81-3.84-1.6-7.15-3.97-10.08-6.84-4.97-4.81-9.47-10.12-15.07-14.27-1.32-.97-2.63-1.87-4-2.73-5.72-5.55,.75-10.12,2.25-10.66,1.57-.56,.54-2.51-4.52-2.48-5.06,.02-9.69,1.72-15.59,3.97-.86,.34-1.77,.59-2.7,.79-5.36-1.02-10.92-1.24-16.73-.59-10.94,1.22-19.68,6.39-26.1,15.22-7.72,10.61-9.53,22.67-7.31,35.25,2.34,13.25,9.1,24.23,19.5,32.81,10.78,8.9,23.2,13.25,37.36,12.42,8.6-.5,18.18-1.65,28.99-10.79,2.72,1.35,5.58,1.9,10.33,2.3,3.65,.34,7.17-.18,9.9-.74,4.27-.9,3.97-4.86,2.43-5.58-12.51-5.83-9.76-3.45-12.26-5.37,6.36-7.52,15.94-15.33,19.68-40.65,.29-2.01,.05-3.27,0-4.9-.02-.99,.2-1.38,1.34-1.49,3.13-.36,6.17-1.22,8.97-2.75,8.1-4.43,11.37-11.7,12.14-20.41,.11-1.33-.02-2.71-1.43-3.41ZM77.25,113.27c-12.12-9.53-18-12.67-20.43-12.53-2.27,.14-1.86,2.73-1.36,4.43,.52,1.67,1.2,2.82,2.16,4.29,.66,.97,1.11,2.42-.66,3.5-3.9,2.42-10.69-.81-11.01-.97-7.9-4.65-14.5-10.79-19.16-19.19-4.49-8.08-7.1-16.76-7.54-26.01-.11-2.24,.54-3.03,2.77-3.43,2.93-.54,5.95-.66,8.88-.23,12.37,1.81,22.9,7.34,31.73,16.1,5.04,4.99,8.85,10.95,12.78,16.78,4.18,6.19,8.67,12.08,14.39,16.91,2.02,1.69,3.63,2.98,5.18,3.93-4.65,.52-12.42,.63-17.73-3.57h0Zm5.81-37.37c0-.99,.79-1.78,1.79-1.78,.23,0,.43,.04,.61,.11,.25,.09,.48,.23,.66,.43,.32,.32,.5,.77,.5,1.24,0,.99-.79,1.78-1.79,1.78s-1.77-.79-1.77-1.78h0Zm18.05,9.26c-1.16,.47-2.32,.88-3.43,.93-1.73,.09-3.61-.61-4.63-1.47-1.59-1.33-2.72-2.08-3.2-4.4-.2-.99-.09-2.53,.09-3.41,.41-1.9-.05-3.12-1.38-4.22-1.09-.9-2.47-1.15-4-1.15-.57,0-1.09-.25-1.48-.45-.64-.32-1.16-1.11-.66-2.08,.16-.32,.93-1.08,1.11-1.22,2.07-1.17,4.45-.79,6.65,.09,2.04,.84,3.59,2.37,5.81,4.54,2.27,2.62,2.68,3.34,3.97,5.31,1.02,1.54,1.95,3.12,2.59,4.92,.39,1.13-.11,2.05-1.45,2.62h0Z"></path> </svg>`,
@@ -880,7 +957,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "Google Gemini",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Gemini logo" src="https://cdn.simpleicons.org/googlegemini">`,
@@ -889,7 +966,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "LLaMA",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="LLaMA logo" src="https://cdn.simpleicons.org/meta">`,
@@ -898,7 +975,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "ChatGPT",
         10,
         `<i aria-hidden="true" alt="OpenAI logo" class="fab fa-openai"></i>`,
@@ -907,7 +984,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "Ollama",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Ollama logo" src="https://cdn.simpleicons.org/ollama/white">`,
@@ -916,7 +993,7 @@ Skill(
         "llms"
     );
 
-Skill(
+    Skill(
         "Perplexity",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Perplexity logo" src="https://cdn.simpleicons.org/perplexity">`,
@@ -926,7 +1003,7 @@ Skill(
     );
 
     // EDITORS
-Skill(
+    Skill(
         "Visual Studio Code",
         10,
         `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"> <g stroke-width="0"></g> <g stroke-linecap="round" stroke-linejoin="round"></g> <path d="M30.865 3.448 24.282.281a1.99 1.99 0 0 0-2.276.385L9.397 12.171 3.902 8.004a1.33 1.33 0 0 0-1.703.073L.439 9.681a1.33 1.33 0 0 0-.005 1.969L5.2 15.999.434 20.348a1.33 1.33 0 0 0 .005 1.969l1.76 1.604a1.33 1.33 0 0 0 1.703.073l5.495-4.172 12.615 11.51a1.98 1.98 0 0 0 2.271.385l6.589-3.172a1.99 1.99 0 0 0 1.13-1.802V5.248c0-.766-.443-1.469-1.135-1.802zm-6.86 19.818L14.432 16l9.573-7.266z"></path> </svg>`,
@@ -935,7 +1012,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "Vim",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Vim logo" src="https://cdn.simpleicons.org/vim">`,
@@ -944,7 +1021,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "IntelliJ IDEA",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="IntelliJ IDEA logo" src="https://cdn.simpleicons.org/intellijidea/white">`,
@@ -953,7 +1030,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "PyCharm",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyCharm logo" src="https://cdn.simpleicons.org/pycharm/white">`,
@@ -962,7 +1039,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "WebStorm",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="WebStorm logo" src="https://cdn.simpleicons.org/webstorm/white">`,
@@ -971,7 +1048,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "Eclipse",
         5.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Eclipse logo" src="https://cdn.simpleicons.org/eclipseide">`,
@@ -980,7 +1057,7 @@ Skill(
         "editors"
     );
 
-Skill(
+    Skill(
         "Sublime Text",
         3.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Sublime Text logo" src="https://cdn.simpleicons.org/sublimetext">`,
