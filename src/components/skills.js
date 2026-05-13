@@ -331,7 +331,7 @@ Skill(
 Skill(
         "GitHub",
         10,
-        `<i aria-hidden="true" alt="GitHub logo" class="fab fa-github"></i>`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub logo" src="https://cdn.simpleicons.org/github">`,
         null,
         `My most used platform for version control and collaboration since 2014.`,
         "tools"

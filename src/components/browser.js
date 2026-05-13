@@ -15,12 +15,7 @@ const sortSkill = document.getElementById("sort-skills");
 const skillSections = document.querySelectorAll("#browser .inside .section");
 const instructions = document.querySelector(".browser-instructions");
 const noSkillsMsg = document.getElementById("no-matching-skills");
-// const draggingCursor = getComputedStyle(document.querySelector("#browser .inside .section .skills-container .skill-entry")).getPropertyValue("--dragging-cursor").trim() || "grabbing";
-
-const skillEntryEl = document.querySelector("#browser .inside .section .skills-container .skill-entry");
-const draggingCursor = skillEntryEl
-  ? getComputedStyle(skillEntryEl).getPropertyValue("--dragging-cursor").trim() || "grabbing"
-  : "grabbing";
+const draggingCursor = skillSections[0] ? getComputedStyle(skillSections[0]).getPropertyValue("--dragging-cursor").trim() : "grabbing";
 
 // Skills search
 function filterBrowser() {

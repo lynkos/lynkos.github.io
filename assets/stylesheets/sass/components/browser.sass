@@ -115,6 +115,8 @@ $header-color: rgb(56, 58, 55)
         margin: 0 0.25rem
 
     .section
+      --dragging-cursor: #{vars.$handgrabbing-cursor}
+
       &:not(:last-of-type)
         padding-bottom: vars.$padding-2x
       
@@ -126,8 +128,6 @@ $header-color: rgb(56, 58, 55)
         border-radius: calc(vars.$border-radius * 1.5)
 
       .skill-entry
-        --dragging-cursor: #{vars.$handgrabbing-cursor}
-        
         border: vars.$border-thickness solid rgba(255, 255, 255, 0.1)
 
         &:not(:last-child)
@@ -249,7 +249,7 @@ $header-color: rgb(56, 58, 55)
       #latex
         color: #008080
       
-      #json, #markdown, #copilot, #ollama, #intellij, #pycharm, #webstorm, #iterm
+      #json, #markdown, #copilot, #ollama, #intellijidea, #pycharm, #webstorm, #iterm
         // Actual logo color is black (#000), but using
         // white (#FFF) so it's visible on dark bg
         color: #FFFFFF
@@ -275,7 +275,7 @@ $header-color: rgb(56, 58, 55)
       #git
         color: #F05032
 
-      #github
+      #githubcopilot
         color: #181717
 
       #bash
@@ -299,7 +299,7 @@ $header-color: rgb(56, 58, 55)
       #conda
         color: #44A833
 
-      #vmware
+      #vmwarefusion
         color: #607078
 
       #grafana
@@ -341,7 +341,7 @@ $header-color: rgb(56, 58, 55)
       #platformio
         color: #FE7A16
       
-      #colab
+      #googlecolab
         color: #F9AB00
       
       #opencv
@@ -362,16 +362,16 @@ $header-color: rgb(56, 58, 55)
       #windows
         color: #00A4EF
 
-      #fsharp
+      #f
         color: #378BBA
 
-      #hf
+      #huggingface
         color: #FFD21E
 
       #wine
         color: #800000
 
-      #gemini
+      #googlegemini
         color: #8E75B2
 
       #cmake
@@ -410,7 +410,7 @@ $header-color: rgb(56, 58, 55)
         svg
           fill: #4D6BFE
 
-      #oci
+      #oraclecloud
         color: #C74634
 
         svg
@@ -452,7 +452,7 @@ $header-color: rgb(56, 58, 55)
       #prometheus
         color: #E6522C
 
-      #yubico
+      #yubikey
         color: #84BD00
 
       #sqlite
@@ -467,13 +467,13 @@ $header-color: rgb(56, 58, 55)
       #ruby
         color: #CC342D
 
-      #gcp
+      #googlecloud
         color: #4285F4
 
       #bitbucket
         color: #0052CC
 
-      #ms-office
+      #microsoftoffice
         color: #eb3c00
         
         svg
@@ -515,7 +515,7 @@ $header-color: rgb(56, 58, 55)
       #zoom
         color: #0B5CFF
 
-      #nuxt
+      #nuxtjs
         color: #00DC82
 
       #yolo
@@ -524,7 +524,7 @@ $header-color: rgb(56, 58, 55)
       #spring, #springboot
         color: #6DB33F
 
-      #vscode
+      #visualstudiocode
         color: #007ACC
 
         svg
@@ -533,7 +533,7 @@ $header-color: rgb(56, 58, 55)
       #eclipse
         color: #2C2255
 
-      #sublime
+      #sublimetext
         color: #FF9800
 
       #linux
@@ -544,3 +544,6 @@ $header-color: rgb(56, 58, 55)
 
       #perplexity
         color: #1FB8CD
+
+      #github
+        color: #181717
