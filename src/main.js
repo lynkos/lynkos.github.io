@@ -19,7 +19,6 @@ import { initWindows } from "./components/windows.js";
 import { initSkills } from "./components/skills.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    initBrowser();
     initCalculator();
     initDesktop();
     initLaunchpad();
@@ -31,4 +30,5 @@ document.addEventListener("DOMContentLoaded", function() {
     initTimestamp();
     initWindows();
     initSkills();
+    initBrowser();
 });

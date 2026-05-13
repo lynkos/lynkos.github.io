@@ -71,10 +71,7 @@ function Skill(name, value, icon, color, description, containerId) {
   styleEl.textContent += `\n#${id} { color: ${color}; }`;
 
   const container = document.getElementById(`skills-container-${containerId}`);
-  if (!container) {
-    console.warn(`Skill("${name}"): no skills-container-#${containerId} container found in the DOM.`);
-    return;
-  }
+  if (!container) return;
   container.insertAdjacentHTML("beforeend", html);
 }
 
