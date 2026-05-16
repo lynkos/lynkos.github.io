@@ -53,7 +53,7 @@ function filterLaunchpad() {
 
 export function initLaunchpad() {
     // Toggle launchpad on click
-    document.getElementById("open-menu").addEventListener("click", function() {
+    document.getElementById("launchpadDockIcon").addEventListener("click", function() {
         if (launchpad.classList.contains("shown") && launchpad.classList.contains("start")) closeLaunchpad();
         else openLaunchpad();
     });

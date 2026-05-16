@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
     initTextEdit();
     initTimestamp();
     initWindows();
+
+    // Skills should be initialized before browser
     initSkills();
     initBrowser();
 });
