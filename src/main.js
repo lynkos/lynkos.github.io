@@ -16,9 +16,9 @@ import { initPreview } from "./components/preview.js";
 import { initTextEdit } from "./components/text-edit.js";
 import { initTimestamp } from "./utilities/timestamp.js";
 import { initWindows } from "./components/windows.js";
+import { initSkills } from "./components/skills.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    initBrowser();
     initCalculator();
     initDesktop();
     initLaunchpad();
@@ -29,4 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
     initTextEdit();
     initTimestamp();
     initWindows();
+    initSkills();
+    initBrowser();
 });
