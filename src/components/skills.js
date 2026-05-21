@@ -665,6 +665,42 @@ export function initSkills() {
 
     // FRAMEWORKS
     Skill(
+        "React",
+        5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="React logo" src="https://cdn.simpleicons.org/react">`,
+        "#61DAFB",
+        `Used for some of my coursework, such as my Capstone I project.`,
+        "frameworks"
+    );
+
+    Skill(
+        "Vue.js",
+        5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Vue.js logo" src="https://cdn.simpleicons.org/vuedotjs">`,
+        "#4FC08D",
+        `Used for some of my coursework, such as my Capstone I project.`,
+        "frameworks"
+    );
+
+    Skill(
+        "Bootstrap",
+        7.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Bootstrap logo" src="https://cdn.simpleicons.org/bootstrap">`,
+        "#7952B3",
+        `Used for some of my coursework, such as my Capstone I project.`,
+        "frameworks"
+    );
+
+    Skill(
+        "Tailwind",
+        7,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Tailwind logo" src="https://cdn.simpleicons.org/tailwindcss">`,
+        "#06B6D4",
+        `Used for some of my personal projects.`,
+        "frameworks"
+    );
+
+    Skill(
         "Qiskit",
         7.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Qiskit logo" src="https://cdn.simpleicons.org/qiskit">`,
