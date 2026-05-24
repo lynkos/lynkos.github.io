@@ -25,7 +25,7 @@ export function initNotes() {
         for (let j = 0; j < projectInfo.length; ++j)
             projectInfo[j].classList.remove("active");
 
-        var project = document.querySelector("#" + element.dataset.id);
+        var project = document.getElementById(element.dataset.id);
         project.classList.add("active");
     }
 
@@ -35,4 +35,18 @@ export function initNotes() {
             selectProject(event.target)
         });
     });
+
+    // Automatically activate the first li .project-name and its project
+    const firstProjectName = document.querySelector("li.project-name");
+
+    if (firstProjectName) {
+        firstProjectName.classList.add("active");
+
+        // Add 'active' to the corresponding project
+        const id = firstProjectName.dataset.id;
+        if (id) {
+            const project = document.getElementById(id);
+            if (project) project.classList.add("active");
+        }
+    }
 }
