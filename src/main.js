@@ -13,11 +13,11 @@ import { initMenubar } from "./components/menubar.js";
 import { initMusic } from "./components/music.js";
 import { initNotes } from "./components/notes.js";
 import { initPreview } from "./components/preview.js";
-import { initProjects } from "./components/projects.js";
+import { initProjects } from "./utilities/projects.js";
 import { initTextEdit } from "./components/text-edit.js";
 import { initTimestamp } from "./utilities/timestamp.js";
 import { initWindows } from "./components/windows.js";
-import { initSkills } from "./components/skills.js";
+import { initSkills } from "./utilities/skills.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     initCalculator();
@@ -25,8 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
     initLaunchpad();
     initMenubar();
     initMusic();
+
+    // Projects should be initialized before notes
     initProjects();
     initNotes();
+    
     initPreview();
     initTextEdit();
     initTimestamp();
