@@ -16,7 +16,9 @@ const instructions = document.querySelector(".browser-instructions");
 const noSkillsMsg = document.getElementById("no-matching-skills");
 const draggingCursor = skillSections[0] ? getComputedStyle(skillSections[0]).getPropertyValue("--dragging-cursor").trim() : "grabbing";
 
-// Skills search
+/**
+ * Skills search: Filter skills based on search input
+ */
 function filterBrowser() {
     // Filter skills
     document.querySelectorAll(".skills-container .skill-entry").forEach(skill => {
@@ -25,13 +27,11 @@ function filterBrowser() {
 
     // Hide section headings IFF ALL their skills are hidden
     document.querySelectorAll("#browser .inside h2").forEach(h2 => {
-        const section = h2.nextElementSibling;
-        if (!section?.classList.contains("section")) return;
-        const skillsContainer = section.querySelector(".skills-container");
-        if (!skillsContainer) return;
+        const skillsContainer = h2.nextElementSibling;
+        if (!skillsContainer?.classList.contains("section")) return;
         const anyVisible = Array.from(skillsContainer.querySelectorAll(".skill-entry"))
             .some(skill => skill.style.display !== "none");
-        section.style.display = h2.style.display = anyVisible ? "" : "none";
+        skillsContainer.style.display = h2.style.display = anyVisible ? "" : "none";
     });
 
     // Hide browser instructions ONLY when filtering
@@ -51,12 +51,12 @@ function filterBrowser() {
     }
 }
 
-// Skills sorting
+/** 
+ * Skills sorting
+ */
 function sortSkills() {
     skillSections.forEach(section => {
-        const skillsContainer = section.querySelector(".skills-container");
-        if (!skillsContainer) return;
-        let skills = Array.from(skillsContainer.querySelectorAll(".skill-entry"));
+        let skills = Array.from(section.querySelectorAll(".skill-entry"));
         if (sortMode === 0) { // Ascending
             skills.sort((a, b) =>
                 getText(a, ".heading").localeCompare(getText(b, ".heading"))
@@ -66,14 +66,16 @@ function sortSkills() {
                 getText(b, ".heading").localeCompare(getText(a, ".heading"))
             );
         } else { // Original
-            skills = skillsContainer._originalOrder.slice();
+            skills = section._originalOrder.slice();
         }
-        skills.forEach(skill => skillsContainer.appendChild(skill));
+        skills.forEach(skill => section.appendChild(skill));
     });
     sortMode = (sortMode + 1) % 3;
 }
 
-// Show/hide skill description
+/**
+ * Show/hide skill description
+ */
 const toggleContent = item => {
     // Prevent toggling content when sorting
     if (!isSorting) {
@@ -84,27 +86,28 @@ const toggleContent = item => {
     }
 };
 
+/**
+ * Initialize browser functionality
+ */
 export function initBrowser() {
     skillSections.forEach(section => {
-        const skillsContainer = section.querySelector(".skills-container");
-        if (skillsContainer) {
-            skillsContainer._originalOrder = Array.from(skillsContainer.querySelectorAll(".skill-entry"));
-            // Make skills sortable
-            $(skillsContainer).sortable({
-                axis: "y",
-                containment: "parent",
-                cursor: draggingCursor,
-                handle: ".row",
-                opacity: sortOpacity,
-                scroll: true,
-                scrollSpeed: sortSpeed,
-                start: function() { isSorting = true; },
-                stop: function() { setTimeout(() => { isSorting = false; }, 0); }
-            }).on("sortupdate", function() {
-                // Update original order after sorting
-                this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));
-            });
-        }
+        section._originalOrder = Array.from(section.querySelectorAll(".skill-entry"));
+        
+        // Make skills sortable
+        $(section).sortable({
+            axis: "y",
+            containment: "parent",
+            cursor: draggingCursor,
+            handle: ".row",
+            opacity: sortOpacity,
+            scroll: true,
+            scrollSpeed: sortSpeed,
+            start: function() { isSorting = true; },
+            stop: function() { setTimeout(() => { isSorting = false; }, 0); }
+        }).on("sortupdate", function() {
+            // Update original order after sorting
+            this._originalOrder = Array.from(this.querySelectorAll(".skill-entry"));
+        });
     });
 
     if (browserInput) {
