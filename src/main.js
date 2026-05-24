@@ -13,6 +13,7 @@ import { initMenubar } from "./components/menubar.js";
 import { initMusic } from "./components/music.js";
 import { initNotes } from "./components/notes.js";
 import { initPreview } from "./components/preview.js";
+import { initProjects } from "./components/projects.js";
 import { initTextEdit } from "./components/text-edit.js";
 import { initTimestamp } from "./utilities/timestamp.js";
 import { initWindows } from "./components/windows.js";
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initLaunchpad();
     initMenubar();
     initMusic();
+    initProjects();
     initNotes();
     initPreview();
     initTextEdit();
