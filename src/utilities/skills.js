@@ -80,7 +80,7 @@ export function initSkills() {
     Skill(
         "Python",
         9.5,
-        '<img aria-hidden="true" alt="Python logo" src="https://cdn.simpleicons.org/python">',
+        '<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Python logo" src="https://cdn.simpleicons.org/python">',
         "#3776AB",
         "My best and most used programming language. I've been using it for over 6 years and have built numerous projects (personal, professional, and academic) with it.",
         "languages"
@@ -98,7 +98,7 @@ export function initSkills() {
     Skill(
         "HTML",
         9.5,
-        '<img aria-hidden="true" alt="HTML logo" src="https://cdn.simpleicons.org/html5">',
+        '<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="HTML logo" src="https://cdn.simpleicons.org/html5">',
         "#E34F26",
         "One of the languages that inspired me to take Computer Science seriously in high school and ultimately got me into software engineering. I was 12 when I used it to <a href=\"https://github.com/lynkos/old-tumblr-themes\" target=\"_blank\">create Tumblr themes</a>. I now use it extensively for many of my personal projects.",
         "languages"
@@ -107,7 +107,7 @@ export function initSkills() {
     Skill(
         "CSS",
         9.5,
-        '<img aria-hidden="true" alt="CSS logo" src="https://cdn.simpleicons.org/css">',
+        '<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="CSS logo" src="https://cdn.simpleicons.org/css">',
         "#663399",
         "One of the languages that inspired me to take Computer Science seriously in high school and ultimately got me into software engineering. I was 12 when I used it to <a href=\"https://github.com/lynkos/old-tumblr-themes\" target=\"_blank\">create Tumblr themes</a>. I now use it extensively for many of my personal projects.",
         "languages"
@@ -116,7 +116,7 @@ export function initSkills() {
     Skill(
         "JavaScript",
         7.5,
-        '<img aria-hidden="true" alt="JavaScript logo" src="https://cdn.simpleicons.org/javascript">',
+        '<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="JavaScript logo" src="https://cdn.simpleicons.org/javascript">',
         "#F7DF1E",
         "One of the languages that inspired me to take Computer Science seriously in high school and ultimately got me into software engineering. I was 12 when I used it to <a href=\"https://github.com/lynkos/old-tumblr-themes\" target=\"_blank\">create Tumblr themes</a>. I now use it extensively for many of my personal projects.",
         "languages"
