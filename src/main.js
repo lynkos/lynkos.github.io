@@ -9,6 +9,7 @@ import { initBrowser } from "./components/browser.js";
 import { initCalculator } from "./components/calculator.js";
 import { initDesktop } from "./components/desktop.js";
 import { initLaunchpad } from "./components/launchpad.js";
+import { initMenus } from "./components/menu.js";
 import { initMenubar } from "./components/menubar.js";
 import { initMusic } from "./components/music.js";
 import { initNotes } from "./components/notes.js";
@@ -20,10 +21,17 @@ import { initWindows } from "./components/windows.js";
 import { initSkills } from "./utilities/skills.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    initCalculator();
-    initDesktop();
-    initLaunchpad();
+    initTimestamp();
+    
+    // Menus should be initialized before menubar
+    initMenus();
     initMenubar();
+
+    initDesktop();
+
+    initCalculator();
+    initLaunchpad();
+
     initMusic();
 
     // Projects should be initialized before notes
@@ -32,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     initPreview();
     initTextEdit();
-    initTimestamp();
+    
     initWindows();
 
     // Skills should be initialized before browser
