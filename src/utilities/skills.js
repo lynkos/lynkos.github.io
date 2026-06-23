@@ -21,58 +21,56 @@ const empty  = `<i aria-hidden="true" alt="Empty star icon" class="far fa-star">
  * @param {string} containerId - ID of the container to append to
  */
 function Skill(name, value, icon, color, description, containerId) {
-  // e.g. "OpenSSL" → "openssl", "Node.js" → "nodejs", "C++" → "cpp"
-  const normalizedName = String(name ?? "").toLowerCase().trim();
-  const id =
+    // e.g. "OpenSSL" → "openssl", "Node.js" → "nodejs", "C++" → "cpp"
+    const normalizedName = String(name ?? "").toLowerCase().trim();
+    const id =
     normalizedName === "c++"
-      ? "cpp"
-      : normalizedName.replace(/[^a-z0-9]+/g, "");
+        ? "cpp"
+        : normalizedName.replace(/[^a-z0-9]+/g, "");
 
-  // --- Build the 10-star row ---
-  const fullCount  = Math.floor(value);
-  const hasHalf    = (value % 1) === 0.5;
-  const emptyCount = 10 - fullCount - (hasHalf ? 1 : 0);
+    // --- Build the 10-star row ---
+    const fullCount  = Math.floor(value);
+    const hasHalf    = (value % 1) === 0.5;
+    const emptyCount = 10 - fullCount - (hasHalf ? 1 : 0);
 
-  const stars = [
-    ...Array(fullCount).fill(filled),
-    ...(hasHalf ? [half] : []),
-    ...Array(emptyCount).fill(empty),
-  ].join("\n      "); // indented to match surrounding markup
+    const stars = [
+        ...Array(fullCount).fill(filled),
+        ...(hasHalf ? [half] : []),
+        ...Array(emptyCount).fill(empty),
+    ].join("\n      ");
 
-  const html = `
-  <div class="skill-entry">
-    <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false"
-        id="${id}" class="row" onclick="toggleContent('#${id}')">
-      <div class="beginning">
+    const html = `<div class="skill-entry">
+    <div role="button" aria-pressed="false" tabindex="0" aria-expanded="false" id="${id}" class="row" onclick="toggleContent('#${id}')">
+        <div class="beginning">
         ${icon}
         <h3 class="heading">${name}</h3>
-      </div>
-      <div class="stars">
-        ${stars}
-      </div>
-      <div id="${id}-trigger" class="arrow">
-        <i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i>
-      </div>
+        </div>
+        <div class="stars">${stars}</div>
+        <div id="${id}-trigger" class="arrow"><i aria-hidden="true" alt="Arrow icon" class="fas fa-chevron-right rotate0"></i></div>
     </div>
-    <div id="${id}-content" class="hidden-content item-content">
-      <p>${description}</p>
-    </div>
-  </div>`.trim();
+    <div id="${id}-content" class="hidden-content item-content"><p>${description}</p></div>
+    </div>`.trim();
 
-  // --- Inject the color rule into a shared <style> block ---
-  // We reuse one <style id="skill-colors"> element so we don't
-  // litter the <head> with a new tag on every call.
-  let styleEl = document.getElementById("skill-colors");
-  if (!styleEl) {
-    styleEl = document.createElement("style");
-    styleEl.id = "skill-colors";
-    document.head.appendChild(styleEl);
-  }
-  styleEl.textContent += `\n#${id} { color: ${color}; }`;
+    // --- Inject the color rule into a shared <style> block ---
+    // We reuse one <style id="skill-colors"> element so we don't
+    // litter the <head> with a new tag on every call.
+    let styleEl = document.getElementById("skill-colors");
+    if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = "skill-colors";
+        document.head.appendChild(styleEl);
+    }
 
-  const container = document.getElementById(`skills-container-${containerId}`);
-  if (!container) return;
-  container.insertAdjacentHTML("beforeend", html);
+    let css = `\n#${id} { color: ${color}; }`;
+    if (icon.trim().startsWith("<svg")) {
+        css += `\n#${id} svg { fill: ${color}; }`;
+    }
+
+    styleEl.textContent += css;
+
+    const container = document.getElementById(`skills-container-${containerId}`);
+    if (!container) return;
+    container.insertAdjacentHTML("beforeend", html);
 }
 
 export function initSkills() {
