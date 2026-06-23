@@ -184,15 +184,6 @@ export function initSkills() {
     );
 
     Skill(
-        "Terraform",
-        4.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform">`,
-        "#844FBA",
-        `Used during my internships at Oracle (OCI).`,
-        "languages"
-    );
-
-    Skill(
         "UML",
         4,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="UML logo" src="https://cdn.simpleicons.org/uml">`,
@@ -225,33 +216,6 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Jinja logo" src="https://cdn.simpleicons.org/jinja">`,
         "#B41717",
         `Used during my internships at Oracle (OCI).`,
-        "languages"
-    );
-
-    Skill(
-        "SQL",
-        5,
-        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250"> <ellipse cx="120" cy="50" ry="35" rx="85"></ellipse> <path d="M35 50v150a85 35 1 1 0 170 0V50M35 100a85 35 1 1 0 170 0M35 150a85 35 1 1 0 170 0"></path> </svg>`,
-        "#df6c20",
-        `This includes any Structured Query Language (SQL), including MySQL, SQLite, and SQL.`,
-        "languages"
-    );
-
-    Skill(
-        "MySQL",
-        3.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql">`,
-        "#4479A1",
-        `Used during my internships at Oracle (OCI).`,
-        "languages"
-    );
-
-    Skill(
-        "SQLite",
-        4.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SQLite logo" src="https://cdn.simpleicons.org/sqlite">`,
-        "#003B57",
-        `Used for minor projects.`,
         "languages"
     );
 
@@ -325,15 +289,6 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Confluence logo" src="https://cdn.simpleicons.org/confluence">`,
         "#172B4D",
         `Used during my internships at Oracle (OCI).`,
-        "tools"
-    );
-
-    Skill(
-        "Docker",
-        4.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Docker logo" src="https://cdn.simpleicons.org/docker">`,
-        "#2496ED",
-        `Used for some personal projects.`,
         "tools"
     );
 
@@ -428,15 +383,6 @@ export function initSkills() {
     );
 
     Skill(
-        "Hugging Face",
-        6.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Hugging Face logo" src="https://cdn.simpleicons.org/huggingface">`,
-        "#FFD21E",
-        `Used for my personal project on LLMs. Mainly for research and development purposes.`,
-        "tools"
-    );
-
-    Skill(
         "Xcode",
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Node.js logo" src="https://cdn.simpleicons.org/xcode">`,
@@ -469,15 +415,6 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Nodemon logo" src="https://cdn.simpleicons.org/nodemon">`,
         "#76D04B",
         `Used for the development of this website.`,
-        "tools"
-    );
-
-    Skill(
-        "Cloudflare",
-        7,
-        `<i aria-hidden="true" alt="Cloudflare logo" class="fab fa-cloudflare"></i>`,
-        "#F38020",
-        `Used for the development of this website and my blog.`,
         "tools"
     );
 
@@ -527,15 +464,6 @@ export function initSkills() {
     );
 
     Skill(
-        "Firebase",
-        5.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Firebase logo" src="https://cdn.simpleicons.org/firebase">`,
-        "#DD2C00",
-        `Used to store and manage translations for my <a target="_blank" href="https://github.com/lynkos/translate-me" title="Link to my Translation App GitHub">Translation App</a>.`,
-        "tools"
-    );
-
-    Skill(
         "Yubikey",
         8.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Yubico logo" src="https://cdn.simpleicons.org/yubico">`,
@@ -550,33 +478,6 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Mermaid logo" src="https://cdn.simpleicons.org/mermaid">`,
         "#FF3670",
         `Used for one of my blog posts.`,
-        "tools"
-    );
-
-    Skill(
-        "Google Cloud",
-        4.5,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Cloud logo" src="https://cdn.simpleicons.org/googlecloud">`,
-        "#4285F4",
-        `Used for one of my undergrad elective courses.`,
-        "tools"
-    );
-
-    Skill(
-        "Oracle Cloud",
-        8.5,
-        `<svg viewBox="0 0 5254.9 3058.46" xmlns="http://www.w3.org/2000/svg"><path d="M2742.165 938.37c300.95 111.58 71.87 106.78 364.64-10.71 264.74-106.24 639.03-68.27 850.87 126.66 236.96 218.04 162.83 225.55 243.98 316.88l111.14-2.29c810.23 8.27 930.24 974.67 443.67 1341.15-201.66 151.88-324.64 172.69-632.61 172.69h-2923.09c-498.08 0-928.42-379.92-950.98-905.14-21.72-505.44 402.31-957.08 883.32-969.08l2.63 273.1c54.4 29.74 196.64 74.65 266.27 89.66-37.29-267.53-25.64-459.98 102-668.75 310.04-507.13 974.73-589.21 1377.93-228.48 42.44 37.97 164.6 155.86 188.47 225.35-28.85 22.82-136.34 76.78-177.2 102.88-33 21.07-51.41 29.53-79.53 53.79-39.07 33.7-54.51 35.48-71.52 82.29zm-1563.63-143.72c-128.51.87-193.47-18.51-327.56 8.97-675.58 138.49-1034.35 943.19-756.27 1589.47 131.95 306.67 414.26 586.75 796.81 649.5 159.73 26.2 1196.6 11.21 1442.91 11.21 240.15 0 2016.5 12.97 2164.64-4.41 587.72-68.96 909.51-781.81 682.88-1342.17-76.53-189.21-182.3-309.33-315.39-404.97-67.63-48.6-150.87-89.32-248.05-121.11-124.21-40.62-189.81-31.77-330.98-34.11-66.83-166.85-220.07-297.38-371.71-383.44-213.26-121.03-341.64-127.81-616.63-122.19-221.69-417.95-618.89-676-1121.96-637.65-395.12 30.12-778.21 299.54-928.31 632.15-16.82 37.26-48.99 127.24-70.39 158.75z"/></svg>`,
-        "#C74634",
-        `Used during my internships at Oracle (OCI).`,
-        "tools"
-    );
-
-    Skill(
-        "Oracle Database",
-        7,
-        `<svg viewBox="0 0 32 21" fill="#C74634" xmlns="http://www.w3.org/2000/svg"> <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z"></path> </svg>`,
-        "#C74634",
-        `Used during my internships at Oracle (OCI).`,
         "tools"
     );
 
@@ -622,15 +523,6 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="draw.io logo" src="https://cdn.simpleicons.org/diagramsdotnet">`,
         "#F08705",
         `Used for all of my internship projects and certain personal projects.`,
-        "tools"
-    );
-
-    Skill(
-        "MongoDB",
-        7,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MongoDB logo" src="https://cdn.simpleicons.org/mongodb">`,
-        "#47A248",
-        `Used for coursework.`,
         "tools"
     );
 
@@ -706,7 +598,16 @@ export function initSkills() {
         "tools"
     );
 
-    // FRAMEWORKS
+    Skill(
+        ".env",
+        10,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt=".env logo" src="https://cdn.simpleicons.org/dotenv">`,
+        "#ECD53F",
+        `Use for environment variable management and storing secrets.`,
+        "tools"
+    );
+
+    // FRAMEWORKS & LIBRARIES
     Skill(
         "React",
         5,
@@ -968,6 +869,107 @@ export function initSkills() {
         "frameworks"
     );
 
+    // DATABASES & STORAGE
+    Skill(
+        "SQL",
+        5,
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250"> <ellipse cx="120" cy="50" ry="35" rx="85"></ellipse> <path d="M35 50v150a85 35 1 1 0 170 0V50M35 100a85 35 1 1 0 170 0M35 150a85 35 1 1 0 170 0"></path> </svg>`,
+        "#df6c20",
+        `This includes any Structured Query Language (SQL), including MySQL, SQLite, and SQL.`,
+        "databases"
+    );
+
+    Skill(
+        "MySQL",
+        3.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MySQL logo" src="https://cdn.simpleicons.org/mysql">`,
+        "#4479A1",
+        `Used during my internships at Oracle (OCI).`,
+        "databases"
+    );
+
+    Skill(
+        "SQLite",
+        4.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="SQLite logo" src="https://cdn.simpleicons.org/sqlite">`,
+        "#003B57",
+        `Used for minor projects.`,
+        "databases"
+    );
+
+    Skill(
+        "Firebase",
+        5.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Firebase logo" src="https://cdn.simpleicons.org/firebase">`,
+        "#DD2C00",
+        `Used to store and manage translations for my <a target="_blank" href="https://github.com/lynkos/translate-me" title="Link to my Translation App GitHub">Translation App</a>.`,
+        "databases"
+    );
+
+    Skill(
+        "MongoDB",
+        7,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MongoDB logo" src="https://cdn.simpleicons.org/mongodb">`,
+        "#47A248",
+        `Used for coursework.`,
+        "databases"
+    );
+
+    Skill(
+        "Oracle Database",
+        7,
+        `<svg viewBox="0 0 32 21" xmlns="http://www.w3.org/2000/svg"> <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z"></path> </svg>`,
+        "#C74634",
+        `Used during my internships at Oracle (OCI).`,
+        "databases"
+    );
+
+    // CLOUD & INFRASTRUCTURE
+    Skill(
+        "Terraform",
+        6.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Terraform logo" src="https://cdn.simpleicons.org/terraform">`,
+        "#844FBA",
+        `Used during my internships at Oracle (OCI).`,
+        "cloud"
+    );
+
+    Skill(
+        "Docker",
+        4.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Docker logo" src="https://cdn.simpleicons.org/docker">`,
+        "#2496ED",
+        `Used for some personal projects.`,
+        "cloud"
+    );
+
+    Skill(
+        "Google Cloud",
+        4.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Google Cloud logo" src="https://cdn.simpleicons.org/googlecloud">`,
+        "#4285F4",
+        `Used for one of my undergrad elective courses.`,
+        "cloud"
+    );
+
+    Skill(
+        "Oracle Cloud",
+        8.5,
+        `<svg viewBox="0 0 5254.9 3058.46" xmlns="http://www.w3.org/2000/svg"><path d="M2742.165 938.37c300.95 111.58 71.87 106.78 364.64-10.71 264.74-106.24 639.03-68.27 850.87 126.66 236.96 218.04 162.83 225.55 243.98 316.88l111.14-2.29c810.23 8.27 930.24 974.67 443.67 1341.15-201.66 151.88-324.64 172.69-632.61 172.69h-2923.09c-498.08 0-928.42-379.92-950.98-905.14-21.72-505.44 402.31-957.08 883.32-969.08l2.63 273.1c54.4 29.74 196.64 74.65 266.27 89.66-37.29-267.53-25.64-459.98 102-668.75 310.04-507.13 974.73-589.21 1377.93-228.48 42.44 37.97 164.6 155.86 188.47 225.35-28.85 22.82-136.34 76.78-177.2 102.88-33 21.07-51.41 29.53-79.53 53.79-39.07 33.7-54.51 35.48-71.52 82.29zm-1563.63-143.72c-128.51.87-193.47-18.51-327.56 8.97-675.58 138.49-1034.35 943.19-756.27 1589.47 131.95 306.67 414.26 586.75 796.81 649.5 159.73 26.2 1196.6 11.21 1442.91 11.21 240.15 0 2016.5 12.97 2164.64-4.41 587.72-68.96 909.51-781.81 682.88-1342.17-76.53-189.21-182.3-309.33-315.39-404.97-67.63-48.6-150.87-89.32-248.05-121.11-124.21-40.62-189.81-31.77-330.98-34.11-66.83-166.85-220.07-297.38-371.71-383.44-213.26-121.03-341.64-127.81-616.63-122.19-221.69-417.95-618.89-676-1121.96-637.65-395.12 30.12-778.21 299.54-928.31 632.15-16.82 37.26-48.99 127.24-70.39 158.75z"/></svg>`,
+        "#C74634",
+        `Used during my internships at Oracle (OCI).`,
+        "cloud"
+    );
+
+    Skill(
+        "Cloudflare",
+        7,
+        `<i aria-hidden="true" alt="Cloudflare logo" class="fab fa-cloudflare"></i>`,
+        "#F38020",
+        `Used for the development of this website and my blog.`,
+        "cloud"
+    );
+
     // OPERATING SYSTEMS
     Skill(
         "macOS",
@@ -1057,6 +1059,15 @@ export function initSkills() {
         `<i aria-hidden="true" alt="OpenAI logo" class="fab fa-openai"></i>`,
         "#412991",
         `Occasionally used for general questions and coding assistance.`,
+        "llms"
+    );
+
+    Skill(
+        "Hugging Face",
+        6.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Hugging Face logo" src="https://cdn.simpleicons.org/huggingface">`,
+        "#FFD21E",
+        `Used for my personal project on LLMs. Mainly for research and development purposes.`,
         "llms"
     );
 
