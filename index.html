@@ -1268,7 +1268,18 @@ Refer to https://opensource.org/licenses/MIT for a copy.
       <span></span>
       <span></span>
     </div> -->
-  
+
+    <script type="text/javascript">
+      const clock = document.querySelector("#menutime");
+
+      function time() {
+        clock.textContent = (new Date()).toLocaleTimeString("en-us", { hour12: false });
+      }
+
+      time();
+      setInterval(time, 1000);
+    </script>
+
     <script id="rendered-js" src="/dist/utilities/particles.js"></script>
     <script src="/dist/main.js" type="module" defer></script>
 

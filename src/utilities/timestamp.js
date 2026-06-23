@@ -7,7 +7,6 @@
  */
 const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
-const delay = 1000; // 1 second
 
 function initializeTimestamp() {
     let date = new Date();
@@ -18,15 +17,6 @@ function initializeTimestamp() {
     return weekDay.concat(" ", month, " ", day, " ", time);
 }
 
-function currentTimestamp() {
-    let date = new Date();
-    return date.toLocaleTimeString("en-us", { hour12: false });
-}
-
-function updateTimestamp() {
-    document.querySelector("#menutime").textContent = currentTimestamp();
-}
-
 function randomInt(min, max) {
     let minCeiled = Math.ceil(min);
     let maxFloored = Math.floor(max);
@@ -34,8 +24,5 @@ function randomInt(min, max) {
 }
 
 export function initTimestamp() {
-    setInterval(updateTimestamp, delay);
-    updateTimestamp();
-
     document.getElementById("timestamp").innerHTML = "Last login: ".concat(initializeTimestamp(), " on ttys00", randomInt(0, 6));
 }
