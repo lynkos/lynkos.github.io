@@ -566,8 +566,17 @@ export function initSkills() {
 
     Skill(
         "Oracle Cloud",
-        7.5,
-        `<svg viewBox="0 0 32 21" xmlns="http://www.w3.org/2000/svg"> <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z"></path> </svg>`,
+        8.5,
+        `<svg viewBox="0 0 5254.9 3058.46" xmlns="http://www.w3.org/2000/svg"><path d="M2742.165 938.37c300.95 111.58 71.87 106.78 364.64-10.71 264.74-106.24 639.03-68.27 850.87 126.66 236.96 218.04 162.83 225.55 243.98 316.88l111.14-2.29c810.23 8.27 930.24 974.67 443.67 1341.15-201.66 151.88-324.64 172.69-632.61 172.69h-2923.09c-498.08 0-928.42-379.92-950.98-905.14-21.72-505.44 402.31-957.08 883.32-969.08l2.63 273.1c54.4 29.74 196.64 74.65 266.27 89.66-37.29-267.53-25.64-459.98 102-668.75 310.04-507.13 974.73-589.21 1377.93-228.48 42.44 37.97 164.6 155.86 188.47 225.35-28.85 22.82-136.34 76.78-177.2 102.88-33 21.07-51.41 29.53-79.53 53.79-39.07 33.7-54.51 35.48-71.52 82.29zm-1563.63-143.72c-128.51.87-193.47-18.51-327.56 8.97-675.58 138.49-1034.35 943.19-756.27 1589.47 131.95 306.67 414.26 586.75 796.81 649.5 159.73 26.2 1196.6 11.21 1442.91 11.21 240.15 0 2016.5 12.97 2164.64-4.41 587.72-68.96 909.51-781.81 682.88-1342.17-76.53-189.21-182.3-309.33-315.39-404.97-67.63-48.6-150.87-89.32-248.05-121.11-124.21-40.62-189.81-31.77-330.98-34.11-66.83-166.85-220.07-297.38-371.71-383.44-213.26-121.03-341.64-127.81-616.63-122.19-221.69-417.95-618.89-676-1121.96-637.65-395.12 30.12-778.21 299.54-928.31 632.15-16.82 37.26-48.99 127.24-70.39 158.75z"/></svg>`,
+        "#C74634",
+        `Used during my internships at Oracle (OCI).`,
+        "tools"
+    );
+
+    Skill(
+        "Oracle Database",
+        7,
+        `<svg viewBox="0 0 32 21" fill="#C74634" xmlns="http://www.w3.org/2000/svg"> <path d="m9.9 20.1c-5.5 0-9.9-4.4-9.9-9.9s4.4-9.9 9.9-9.9h11.6c5.5 0 9.9 4.4 9.9 9.9s-4.4 9.9-9.9 9.9zm11.3-3.5c3.6 0 6.4-2.9 6.4-6.4 0-3.6-2.9-6.4-6.4-6.4h-11c-3.6 0-6.4 2.9-6.4 6.4s2.9 6.4 6.4 6.4z"></path> </svg>`,
         "#C74634",
         `Used during my internships at Oracle (OCI).`,
         "tools"
@@ -619,6 +628,24 @@ export function initSkills() {
     );
 
     Skill(
+        "MongoDB",
+        7,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="MongoDB logo" src="https://cdn.simpleicons.org/mongodb">`,
+        "#47A248",
+        `Used for coursework.`,
+        "tools"
+    );
+
+    Skill(
+        "Postman",
+        5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Postman logo" src="https://cdn.simpleicons.org/postman">`,
+        "#FF6C37",
+        `Used for coursework.`,
+        "tools"
+    );
+
+    Skill(
         "Loom",
         9.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Loom logo" src="https://cdn.simpleicons.org/loom">`,
@@ -655,11 +682,29 @@ export function initSkills() {
     );
 
     Skill(
-        "iTerm",
+        "iTerm2",
         10,
-        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="iTerm logo" src="https://cdn.simpleicons.org/iterm2/white">`,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="iTerm2 logo" src="https://cdn.simpleicons.org/iterm2/white">`,
         "#FFF",
         `My preferred terminal emulator.`,
+        "tools"
+    );
+
+    Skill(
+        "PyPi",
+        6,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="PyPi logo" src="https://cdn.simpleicons.org/pypi">`,
+        "#3775A9",
+        `Use PyPi with Python.`,
+        "tools"
+    );
+
+    Skill(
+        "Slack",
+        10,
+        `<i aria-hidden="true" alt="Slack logo" class="fab fa-slack"></i>`,
+        "#4A154B",
+        `Used extensively for communication with my team, mentor, org, and fellow interns during my internships at Oracle (OCI).`,
         "tools"
     );
 
@@ -967,7 +1012,7 @@ export function initSkills() {
         "GitHub Copilot",
         10,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="GitHub Copilot logo" src="https://cdn.simpleicons.org/githubcopilot/white">`,
-        "#181717",
+        "#FFF",
         `Occasionally used for coding assistance.`,
         "llms"
     );
@@ -1022,7 +1067,7 @@ export function initSkills() {
         6.5,
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Ollama logo" src="https://cdn.simpleicons.org/ollama/white">`,
         "#FFF",
-        `This section is still a work in progress. Please check back later!`,
+        `Used for personal projects and experiments.`,
         "llms"
     );
 
@@ -1032,6 +1077,15 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Perplexity logo" src="https://cdn.simpleicons.org/perplexity">`,
         "#1FB8CD",
         `Don't use as frequently as other LLMs, but when I do use it, it's on my phone.`,
+        "llms"
+    );
+
+    Skill(
+        "OpenCode",
+        7.5,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="OpenCode logo" src="https://cdn.simpleicons.org/opencode/white">`,
+        "#FFF",
+        `Used for personal projects and experiments.`,
         "llms"
     );
 
@@ -1096,6 +1150,15 @@ export function initSkills() {
         `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="Sublime Text logo" src="https://cdn.simpleicons.org/sublimetext">`,
         "#FF9800",
         `Used a few times, but not my preferred editor.`,
+        "editors"
+    );
+
+    Skill(
+        "RStudio",
+        4,
+        `<img aria-hidden="true" loading="lazy" fetchpriority="low" alt="RStudio logo" src="https://cdn.simpleicons.org/rstudioide">`,
+        "#75AADB",
+        `Used for personal projects and experiments involving data analysis and statistical computing.`,
         "editors"
     );
 }
