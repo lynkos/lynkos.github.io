@@ -1,8 +1,8 @@
 @use "variables" as vars
 @use "mixins" as mix
 
-$height: 45.5rem
-$width: 43rem
+$height: 40rem
+$width: 41rem
 $min-width: 40rem
 $min-height: 14rem
 $window-padding: 1.4rem
@@ -10,6 +10,8 @@ $cursor-blink: 1s
 $terminal-color: #0d2a34
 $arrow-color: #40E800
 $username-color: #56F2E6
+$host-color: #2D9CDB
+$dir-color: #EB5757
 
 #mac-terminal
   font-family: vars.$terminal-font
@@ -60,17 +62,11 @@ $username-color: #56F2E6
       &-accent
         color: vars.$secondary-font-color
 
-      &-git
-        &--label
-          color: #2D9CDB
-        &--branch
-          color: #EB5757
-        &--branch-detail
-          color: #F2C94C
-        &--branch-time
-          color: #27AE60
-        &--author
-          color: #2D9CDB
+      &-host
+        color: $host-color
+
+      &-dir
+        color: $dir-color
       
       &-result
         margin-left: vars.$padding-2x
