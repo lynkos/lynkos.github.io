@@ -116,6 +116,14 @@ function maximizeWindow(win, maximizeBtn = `${win}-maximize`) {
     });
 }
 
+// Set behavior for traffic light buttons (close, minimize, maximize) of a window
+function setTrafficLights(win, dockIcon, displayType = "flex", closeBtn = `${win}-close`, maximizeBtn = `${win}-maximize`) {
+    openWindow(dockIcon, win, displayType);
+    closeWindow(win, dockIcon, closeBtn);
+    // TODO: REMOVE THE FOLLOWING LOGIC FOR "#text-edit" ONCE TEXTEDIT (AKA ABOUT ME) APP'S RULER IS MADE DYNAMIC (I.E. ADJUSTS ON RESIZE)
+    if ((win !== "#calc") && (win !== "#text-edit")) maximizeWindow(win, maximizeBtn);
+}
+
 export function initWindows() {
     // Position terminal
     positionWindow("#mac-terminal");
@@ -171,92 +179,40 @@ export function initWindows() {
         trashIcon.parentNode.replaceChild(newTrashIcon, trashIcon);
     });
 
-    // Open terminal
-    openWindow("#iTermDockIcon", "#mac-terminal", "inline-block");
+    // Terminal traffic light buttons
+    setTrafficLights("#mac-terminal", "#iTermDockIcon", "inline-block");
 
-    // Open about me
-    openWindow("#textEditDockIcon", "#text-edit");
+    // TextEdit traffic light buttons
+    setTrafficLights("#text-edit", "#textEditDockIcon");
 
-    // Open projects
-    openWindow("#notesDockIcon", "#notes");
+    // Notes (aka projects) traffic light buttons
+    setTrafficLights("#notes", "#notesDockIcon");
 
-    // Open safari
-    openWindow("#safariDockIcon", "#browser");
+    // Safari traffic light buttons
+    setTrafficLights("#browser", "#safariDockIcon");
 
-    // Open preview
-    openWindow("#previewDockIcon", "#preview");
+    // Preview traffic light buttons
+    setTrafficLights("#preview", "#previewDockIcon");
 
-    // Open resume
-    openWindow("#previewDockIcon", "#resume");
+    // Resume traffic light buttons
+    setTrafficLights("#resume", "#previewDockIcon");
 
-    // Open calculator
-    openWindow("#calcDockIcon", "#calc", "inline-block");
+    // Calculator traffic light buttons
+    setTrafficLights("#calc", "#calcDockIcon", "inline-block");
+
+    // Music app traffic light buttons
+    setTrafficLights("#music-app", "#musicDockIcon");
     
-    // Open music app
-    openWindow("#musicDockIcon", "#music-app");
-
     // Open trash dialogue
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
-    
-    // Close terminal
-    closeWindow("#mac-terminal", "#iTermDockIcon");
-
-    // Close about me
-    closeWindow("#text-edit", "#textEditDockIcon");
-
-    // Close projects
-    closeWindow("#notes", "#notesDockIcon");
-
-    // Close safari
-    closeWindow("#browser", "#safariDockIcon");
-
-    // Close calculator
-    closeWindow("#calc", "#calcDockIcon");
-    
-    // Close music app
-    closeWindow("#music-app", "#musicDockIcon");
-
-    // Close preview
-    closeWindow("#preview", "#previewDockIcon");
-
-    // Close resume
-    closeWindow("#resume", "#previewDockIcon");
-    
+            
     // Close trash dialogue
     closeWindow(".trash-dialogue", "#trash-icon", ".alert-btn");
-
-    // Maximize terminal
-    maximizeWindow("#mac-terminal");
-
-    // Maximize Safari browser
-    maximizeWindow("#browser");
-
-    // Maximize projects
-    maximizeWindow("#notes");
-
-    // Maximize preview
-    maximizeWindow("#preview");
-
-    // Maximize resume
-    maximizeWindow("#resume");
     
-    // Maximize music app
-    maximizeWindow("#music-app");
-
-    // TODO: UNCOMMENT THE FOLLOWING ONCE TEXTEDIT (AKA ABOUT ME) APP'S RULER IS MADE DYNAMIC (I.E. ADJUSTS ON RESIZE)
-    // Maximize about me
-    //maximizeWindow("#text-edit");
-
     // TODO: UNCOMMENT THE FOLLOWING ONCE MAIL APP (AKA CONTACT FORM) IS FIXED
 
-    // Maximize mail
-    //maximizeWindow("#email");
-
-    // Close mail
-    //closeWindow("#email", "#mailDockIcon");
-
-    // Open mail
-    //openWindow("#mailDockIcon", "#email");
+    // Mail traffic light buttons
+    //setTrafficLights("#email", "#mailDockIcon");
 
     // TODO: Delete the mailDockIcon bounce effect once mail app (aka contact form) is fixed,
     // since it's already included in openWindow function
