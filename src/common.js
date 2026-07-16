@@ -86,9 +86,9 @@ export function bringToFront(element) {
                 // If current element is a window
                 if (win.classList.contains("windows")) {
                     // Make its buttons inactive
-                    win.style.setProperty("--red", "rgba(255, 255, 255, 0.2)");
-                    win.style.setProperty("--yellow", "rgba(255, 255, 255, 0.2)");
-                    if (!(win.id === "text-edit" || win.id === "calc")) win.style.setProperty("--green", "rgba(255, 255, 255, 0.2)");
+                    win.style.setProperty("--red", "rgba(255, 255, 255, 0.2)"); // vars.$disabled-grey
+                    win.style.setProperty("--yellow", "rgba(255, 255, 255, 0.2)"); // vars.$disabled-grey
+                    if (!(win.id === "text-edit" || win.id === "calc")) win.style.setProperty("--green", "rgba(255, 255, 255, 0.2)"); // vars.$disabled-grey
                 }
 
                 // If current element is trash dialogue
@@ -137,9 +137,9 @@ export function bringToFront(element) {
         // If given element is a window
         if (elementObj.classList.contains("windows")) {
             // Make its buttons active
-            elementObj.style.setProperty("--red", "#ed6a5e");
-            elementObj.style.setProperty("--yellow", "#f5bf4f");
-            if (!(elementObj.id === "text-edit" || elementObj.id === "calc")) elementObj.style.setProperty("--green", "#62c554");
+            elementObj.style.setProperty("--red", "#ed6a5e"); // vars.$close-red
+            elementObj.style.setProperty("--yellow", "#f5bf4f"); // vars.$minimize-yellow
+            if (!(elementObj.id === "text-edit" || elementObj.id === "calc")) elementObj.style.setProperty("--green", "#62c554"); // vars.$maximize-green
         }
         
         // If given element is trash dialogue

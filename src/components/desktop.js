@@ -67,8 +67,8 @@ export function initDesktop() {
     openDesktopFile("#aboutFile", "#textEditDockIcon", "#text-edit", true);
 
     // Open resume when double-clicking or tapping `resume.pdf`
-    openDesktopFile("#resumeFile", "#previewDockIcon", ".resume");
+    openDesktopFile("#resumeFile", "#previewDockIcon", "#resume");
 
     // Open preview when double-clicking or tapping `profile.webp`
-    openDesktopFile("#profilePic", "#previewDockIcon", ".preview");
+    openDesktopFile("#profilePic", "#previewDockIcon", "#preview");
 }

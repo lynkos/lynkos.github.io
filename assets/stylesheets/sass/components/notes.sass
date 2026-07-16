@@ -64,8 +64,8 @@ $blockquote-thickness: calc(vars.$border-thickness-2x * 2.5)
             justify-content: space-between
             backdrop-filter: blur(2rem)
 
-            .buttons
-                @include mix.buttons()
+            #notes-buttons
+                @include mix.traffic-lights()
 
         .content
             background: rgb(32, 36, 31) // Primary background w/o blur + opacity
