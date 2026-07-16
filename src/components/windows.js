@@ -45,7 +45,7 @@ function openWindow(dockIcon, win, displayType = "flex") {
         bringToFront(win);
 
         // Ignore preview and resume since they can only be opened via desktop (not dock)
-        if (win !== ".preview" && win !== ".resume") {
+        if (win !== "#preview" && win !== "#resume") {
             windowElement.style.display = displayType;
         
             if (!windowElement.classList.contains("openWindow")) windowElement.classList.add("openWindow");
@@ -64,7 +64,7 @@ function openWindow(dockIcon, win, displayType = "flex") {
 }
 
 // Close window
-function closeWindow(closeBtn, win, dockIcon) {
+function closeWindow(win, dockIcon, closeBtn = `${win}-close`) {
     document.querySelector(closeBtn).addEventListener("click", function() {
         const windowElement = document.querySelector(win);
         const dockIconElement = document.querySelector(dockIcon);
@@ -76,15 +76,15 @@ function closeWindow(closeBtn, win, dockIcon) {
 
         // Make sure preview dock icon ONLY disappears if both `profile.webp` and `resume.pdf` are closed
         if ((dockIcon === "#calcDockIcon") || (dockIcon === "#previewDockIcon" && 
-            !(document.querySelector(".preview").classList.contains("openWindow") || 
-                document.querySelector(".resume").classList.contains("openWindow")))) {
+            !(document.querySelector("#preview").classList.contains("openWindow") || 
+                document.querySelector("#resume").classList.contains("openWindow")))) {
                 $(dockIcon).fadeOut(150);
         }
     });
 }
 
 // Maximize window
-function maximizeWindow(maximizeBtn, win) {
+function maximizeWindow(win, maximizeBtn = `${win}-maximize`) {
     document.querySelector(maximizeBtn).addEventListener("click", function() {
         const windowElement = document.querySelector(win);
 
@@ -142,8 +142,7 @@ export function initWindows() {
     });
 
     // Make some windows resizeable
-    // TODO: Add #email once mail app (aka contact form) is fixed
-    $("#mac-terminal, #notes, #browser, .preview, .resume, #music-app").resizable({
+    $(".resizable-windows").resizable({
         containment: "#main-content",
         handles: "n, e, s, w, ne, nw, se, sw",
         animate: true
@@ -185,10 +184,10 @@ export function initWindows() {
     openWindow("#safariDockIcon", "#browser");
 
     // Open preview
-    openWindow("#previewDockIcon", ".preview");
+    openWindow("#previewDockIcon", "#preview");
 
     // Open resume
-    openWindow("#previewDockIcon", ".resume");
+    openWindow("#previewDockIcon", "#resume");
 
     // Open calculator
     openWindow("#calcDockIcon", "#calc", "inline-block");
@@ -200,61 +199,61 @@ export function initWindows() {
     openWindow("#trash-icon", ".trash-dialogue", "inline-block");
     
     // Close terminal
-    closeWindow(".header__op-icon--red", "#mac-terminal", "#iTermDockIcon");
+    closeWindow("#mac-terminal", "#iTermDockIcon");
 
     // Close about me
-    closeWindow(".text-edit-header__op-icon--red", "#text-edit", "#textEditDockIcon");
+    closeWindow("#text-edit", "#textEditDockIcon");
 
     // Close projects
-    closeWindow(".buttons-icon--red", "#notes", "#notesDockIcon");
+    closeWindow("#notes", "#notesDockIcon");
 
     // Close safari
-    closeWindow(".browser-buttons-icon--red", "#browser", "#safariDockIcon");
+    closeWindow("#browser", "#safariDockIcon");
 
     // Close calculator
-    closeWindow(".calc-header__op-icon--red", "#calc", "#calcDockIcon");
+    closeWindow("#calc", "#calcDockIcon");
     
     // Close music app
-    closeWindow(".music-buttons-icon--red", "#music-app", "#musicDockIcon");
+    closeWindow("#music-app", "#musicDockIcon");
 
     // Close preview
-    closeWindow(".preview-header__op-icon--red", ".preview", "#previewDockIcon");
+    closeWindow("#preview", "#previewDockIcon");
 
     // Close resume
-    closeWindow(".resume-header__op-icon--red", ".resume", "#previewDockIcon");
+    closeWindow("#resume", "#previewDockIcon");
     
     // Close trash dialogue
-    closeWindow(".alert-btn", ".trash-dialogue", "#trash-icon");
+    closeWindow(".trash-dialogue", "#trash-icon", ".alert-btn");
 
     // Maximize terminal
-    maximizeWindow(".header__op-icon--green", "#mac-terminal");
+    maximizeWindow("#mac-terminal");
 
     // Maximize Safari browser
-    maximizeWindow(".browser-buttons-icon--green", "#browser");
+    maximizeWindow("#browser");
 
     // Maximize projects
-    maximizeWindow(".buttons-icon--green", "#notes");
+    maximizeWindow("#notes");
 
     // Maximize preview
-    maximizeWindow(".preview-header__op-icon--green", ".preview");
+    maximizeWindow("#preview");
 
     // Maximize resume
-    maximizeWindow(".resume-header__op-icon--green", ".resume");
+    maximizeWindow("#resume");
     
     // Maximize music app
-    maximizeWindow(".music-buttons-icon--green", "#music-app");
+    maximizeWindow("#music-app");
 
     // TODO: UNCOMMENT THE FOLLOWING ONCE TEXTEDIT (AKA ABOUT ME) APP'S RULER IS MADE DYNAMIC (I.E. ADJUSTS ON RESIZE)
     // Maximize about me
-    //maximizeWindow(".text-edit-header__op-icon--green", "#text-edit");
+    //maximizeWindow("#text-edit");
 
     // TODO: UNCOMMENT THE FOLLOWING ONCE MAIL APP (AKA CONTACT FORM) IS FIXED
 
     // Maximize mail
-    //maximizeWindow(".email-header__op-icon--green", "#email");
+    //maximizeWindow("#email");
 
     // Close mail
-    //closeWindow(".email-header__op-icon--red", "#email", "#mailDockIcon");
+    //closeWindow("#email", "#mailDockIcon");
 
     // Open mail
     //openWindow("#mailDockIcon", "#email");

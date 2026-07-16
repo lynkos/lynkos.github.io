@@ -1,5 +1,8 @@
 // Copyright © 2024 – 2026 Kiran Brahmatewari. All rights reserved.
 //
+// Traffic lights are a modification of original work by atdrago.
+// (https://codepen.io/atdrago/pen/yezrBR)
+//
 // This work is licensed under the terms of the MIT license.
 // Refer to https://opensource.org/licenses/MIT for a copy.
 
@@ -111,16 +114,48 @@
     box-shadow: vars.$box-shadow
     @include window-border()
 
-@mixin buttons($button-dim: vars.$window-icons-dim)
+@mixin traffic-lights($button-dim: vars.$window-icons-dim)
     display: flex
     align-items: center
 
-    &-icon
-        width: $button-dim
+    &:hover, &:active
+        > .traffic-light-close
+            background-color: vars.$close-red
+
+            &:active:hover
+                background-color: vars.$close-red-active
+
+        > .traffic-light-minimize
+            background-color: vars.$minimize-yellow
+
+            &:active:hover 
+                background-color: vars.$minimize-yellow-active
+
+        > .traffic-light-maximize
+            background-color: vars.$maximize-green
+
+            &:active:hover
+                background-color: vars.$maximize-green-active
+
+    > .traffic-light
+        &:before, &:after
+            visibility: hidden
+
+    &:hover, &:active
+        > .traffic-light
+            &:before, &:after
+                visibility: visible
+
+    .traffic-light
+        border-radius: 100%
+        padding: 0
         height: $button-dim
+        width: $button-dim
+        border: vars.$border-thickness solid rgba(0, 0, 0, 0.06)
+        box-sizing: border-box
         position: relative
-        border-radius: 50%
-        @include disable-select()
+        outline: none
+        @include disable-select()        
 
         @for $i from 1 through 7
             @media screen and (max-width: calc(vars.$width-threshold - ($i * vars.$threshold-diff)))
@@ -134,12 +169,6 @@
             right: 0
             bottom: 0
             margin: auto
-            opacity: 0
-
-        &:hover
-            &:before, &:after
-                top: 0
-                opacity: 1
 
         &:not(:last-child)
             margin-right: vars.$windows-icons-spacing
@@ -148,61 +177,56 @@
                 @media screen and (max-width: calc(vars.$width-threshold - ($i * vars.$threshold-diff)))
                     margin-right: calc(vars.$windows-icons-spacing * (1 + ($i * 0.05)))
 
-        &--red, &--yellow, &--green
+        &-close, &-minimize, &-maximize
             &:before
                 // Icon positioning in traffic light buttons
-                $traffic-btn-line-height: calc($button-dim * 1.05)
-                $traffic-btn-font-size: calc($button-dim * 0.8)
-
+                $traffic-btn-icon-size: calc($button-dim * 0.75)
+                display: inline-flex
+                align-items: center
+                justify-content: center
                 text-align: center
                 font-family: "Font Awesome 7 Free"
                 font-weight: 600
-                line-height: $traffic-btn-line-height
-                font-size: $traffic-btn-font-size
+                font-size: $traffic-btn-icon-size
+                line-height: $traffic-btn-icon-size
 
                 @for $i from 1 through 7
                     @media screen and (max-width: calc(vars.$width-threshold - ($i * vars.$threshold-diff)))
-                        line-height: calc($traffic-btn-line-height * (1 + ($i * 0.05)))
-                        font-size: calc($traffic-btn-font-size * (1 + ($i * 0.05)))
+                        font-size: calc($traffic-btn-icon-size * (1 + ($i * 0.05)))
+                        line-height: calc($traffic-btn-icon-size * (1 + ($i * 0.05)))
 
-        &--red
-            background: var(--red, #ed6a5e)
-
-            &:hover
-                background: #ed6a5e
-                
-            &:active
-                background: #f09389
+        &-close
+            background-color: var(--red, vars.$close-red)
 
             &:before
+                color: vars.$close-red-icon
                 content: "\f00d"
-                color: rgb(142, 27, 18)
-                        
-        &--yellow
-            background: var(--yellow, #f5bf4f)
 
-            &:hover
-                background: #f5bf4f
+            &:active:hover:before
+                color: vars.$close-red-icon-active
 
-            &:active
-                background: #fcea74
+        &-minimize
+            background-color: var(--yellow, vars.$minimize-yellow)
 
             &:before
+                color: vars.$minimize-yellow-icon
                 content: "\f068"
-                color: rgb(169, 114, 41)
 
-        &--green
-            background: var(--green, #62c554)
+            &:active:hover:before
+                color: vars.$minimize-yellow-icon-active
+                
+        &-maximize
+            background-color: var(--green, vars.$maximize-green)
 
-            &:hover
-                background: #62c554
-
-            &:active
-                background: #85ef7d
-                    
             &:before
+                color: vars.$maximize-green-icon
                 content: "\f067"
-                color: rgb(41, 96, 24)
+
+            &:active:hover:before
+                color: vars.$maximize-green-icon-active
+
+        &-grey
+            background-color: var(--grey, vars.$disabled-grey)
 
 @mixin header($bg-color: none, $height: vars.$header-height, $padding: 2rem 1.4rem 1.4rem 1.4rem, $button-dim: vars.$window-icons-dim)
     position: relative
@@ -214,8 +238,8 @@
     justify-content: space-between
     cursor: vars.$default-cursor
 
-    &__op
-        @include buttons($button-dim)
+    &__buttons
+        @include traffic-lights($button-dim)
 
 @mixin header-title($img-size, $spacing, $font-size: 1.36rem)
     color: vars.$font-color

@@ -47,7 +47,7 @@ $min-width: 47rem
   .justify
     text-align: justify
 
-  .text-edit-header
+  &-header
     @include mix.header($header-color, 3rem)
 
     &__title
@@ -55,10 +55,6 @@ $min-width: 47rem
 
     &__empty
       @include mix.header-spacing()
-
-    // Temporarily grey out (aka "disable") "maximize" button while dynamic [ruler] sizing is still in development
-    &__op-icon--grey
-      background: rgba(255, 255, 255, 0.2)
               
   .styles, .rule
     @include mix.disable-select()

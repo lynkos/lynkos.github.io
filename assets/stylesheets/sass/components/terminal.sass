@@ -17,7 +17,7 @@ $dir-color: #EB5757
   font-family: vars.$terminal-font
   @include mix.window($terminal-color, $width, $height, $min-width, $min-height)
 
-  .header
+  &-header
     @include mix.header(none, vars.$header-height, 0 $window-padding)
 
     &__title
