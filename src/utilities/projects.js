@@ -714,6 +714,15 @@ export function initProjects() {
                 Link("Source Code", "https://github.com/lynkos/zenkitty", "fab fa-github", "Link to source code on GitHub")
             ],
             "<p>Human-Computer Interaction project</p>"
+        ),
+
+        Note(
+            "Jobomation",
+            "08/10/2026 14:39",
+            [
+                Link("Source Code", "https://github.com/lynkos/jobomation", "fab fa-github", "Link to source code on GitHub")
+            ],
+            "<p>Local-first job discovery, scraping, and application management tool</p>"
         )
     ]);
 }
