@@ -14,7 +14,7 @@ const initWindowDims = { };
 // you may be unknowingly storing references to a very large number of nodes,
 // which can overwhelm the memory capabilities of your users' devices.
 
-// Make windows draggable and bring to front on drag
+/** Make windows draggable and bring to front on drag */
 function makeDraggable(selector) {
     $(selector).draggable({
         cursor: cursor,
@@ -30,7 +30,7 @@ function makeDraggable(selector) {
     });
 }
 
-// Open window/app via dock
+/** Open window/app via dock */
 function openWindow(dockIcon, win, displayType = "flex") {
     // Position window when first opened
     // Ignore #previewDockIcon since it can only initially be opened via desktop (not dock)
@@ -63,7 +63,7 @@ function openWindow(dockIcon, win, displayType = "flex") {
     });
 }
 
-// Close window
+/** Close window */
 function closeWindow(win, dockIcon, closeBtn = `${win}-close`) {
     document.querySelector(closeBtn).addEventListener("click", function() {
         const windowElement = document.querySelector(win);
@@ -83,7 +83,7 @@ function closeWindow(win, dockIcon, closeBtn = `${win}-close`) {
     });
 }
 
-// Maximize window
+/** Maximize window */
 function maximizeWindow(win, maximizeBtn = `${win}-maximize`) {
     document.querySelector(maximizeBtn).addEventListener("click", function() {
         const windowElement = document.querySelector(win);
@@ -116,7 +116,7 @@ function maximizeWindow(win, maximizeBtn = `${win}-maximize`) {
     });
 }
 
-// Set behavior for traffic light buttons (close, minimize, maximize) of a window
+/** Set behavior for traffic light buttons (close, minimize, maximize) of a window */
 function setTrafficLights(win, dockIcon, displayType = "flex", closeBtn = `${win}-close`, maximizeBtn = `${win}-maximize`) {
     openWindow(dockIcon, win, displayType);
     closeWindow(win, dockIcon, closeBtn);
@@ -124,6 +124,7 @@ function setTrafficLights(win, dockIcon, displayType = "flex", closeBtn = `${win
     if ((win !== "#calc") && (win !== "#text-edit")) maximizeWindow(win, maximizeBtn);
 }
 
+/** Initialize windows */
 export function initWindows() {
     // Position terminal
     positionWindow("#mac-terminal");

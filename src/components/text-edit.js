@@ -9,7 +9,7 @@ const align = [ "left", "center", "right", "justify" ];
 const style = [ "bold", "italic", "underline" ];
 const textBody = document.querySelector(".text-body");
 
-// Remove classes in element
+/** Remove classes in element */
 function removeClasses(selector, classes) {
     const element = document.querySelector(selector);
 
@@ -18,6 +18,7 @@ function removeClasses(selector, classes) {
     }
 }
 
+/** Initialize TextEdit */
 export function initTextEdit() {
     // Toggle style in TextEdit
     style.forEach(element => {

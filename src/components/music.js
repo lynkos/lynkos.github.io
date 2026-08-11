@@ -20,6 +20,9 @@ function Playlist(name, url, cover) {
     _playlists.push({ name, url, cover });
 }
 
+/**
+ * Renders playlist grid and sidebar links
+ */
 function renderPlaylists() {
     // Inject playlist grid into <section class="main-body">
     const section = document.querySelector("section.main-body");
@@ -71,6 +74,7 @@ function renderPlaylists() {
     } else console.warn("renderPlaylists: #sortable-spotify-playlists not found in the DOM.");
 }
 
+/** Initialize Music */
 export function initMusic() {
     Playlist(
         "🌸💖🎀💋🍬",

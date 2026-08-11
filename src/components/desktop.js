@@ -7,7 +7,7 @@
  */
 import { bringToFront, cursor, initPosition } from "../common.js";
 
-// Show file when clicking on desktop icon
+/** Show file when clicking on desktop icon */
 function showDesktopFile(dockIcon, win, inDock) {
     const windowElement = document.querySelector(win);
     const dockIconElement = document.querySelector(dockIcon);
@@ -30,7 +30,7 @@ function showDesktopFile(dockIcon, win, inDock) {
     }
 }
 
-// Open Desktop file when double-clicking or tapping its icon
+/** Open Desktop file when double-clicking or tapping its icon */
 function openDesktopFile(file, dockIcon, win, inDock = false) {
     // Only position window when first opened
     initPosition(file, win, "dblclick");
@@ -54,6 +54,7 @@ function openDesktopFile(file, dockIcon, win, inDock = false) {
     });
 }
 
+/** Initialize Desktop */
 export function initDesktop() {
     // Make folder and file icons draggable
     $(".btn").draggable({

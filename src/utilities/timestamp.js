@@ -8,7 +8,8 @@
 const days = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
 
-function initializeTimestamp() {
+/** Generate Timestamp */
+function generateTimestamp() {
     let date = new Date();
     let weekDay = days[date.getDay()];
     let day = date.getDate();
@@ -17,12 +18,14 @@ function initializeTimestamp() {
     return weekDay.concat(" ", month, " ", day, " ", time);
 }
 
+/** Generate a random integer between min and max (inclusive) */
 function randomInt(min, max) {
     let minCeiled = Math.ceil(min);
     let maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // Min and max are inclusive
 }
 
+/** Initialize Timestamp */
 export function initTimestamp() {
-    document.getElementById("timestamp").innerHTML = "Last login: ".concat(initializeTimestamp(), " on ttys00", randomInt(0, 6));
+    document.getElementById("timestamp").innerHTML = "Last login: ".concat(generateTimestamp(), " on ttys00", randomInt(0, 6));
 }

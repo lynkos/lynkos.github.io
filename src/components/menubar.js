@@ -7,8 +7,13 @@
  */
 import { bringToFront } from "../common.js";
 
-// Show menu when icon clicked
 // TODO Improve toggle logic
+/**
+ * Shows the menu when the icon is clicked
+ * @param {string} menubarBtn - The selector for the menubar button.
+ * @param {string} menu - The selector for the menu.
+ * @param {number} offset - The horizontal offset for positioning the menu.
+ */
 function showMenu(menubarBtn, menu, offset) {
     const menubarElement = document.querySelector(menubarBtn);
     const menuElement = document.querySelector(menu);
@@ -44,16 +49,27 @@ function showMenu(menubarBtn, menu, offset) {
     });
 }
 
-// Show right menu when icon clicked
+/**
+ * Shows right menu when icon is clicked
+ * @param {string} menubarBtn - Menubar button selector
+ * @param {string} menu - Menu selector
+ * @param {number} offset - Horizontal offset for menu position
+ */
 function showRightMenu(menubarBtn, menu, offset) {
     showMenu(menubarBtn, menu, offset + $(menubarBtn).width() - $(menu).width());
 }
 
-// Show left menu when icon clicked
+/**
+ * Shows left menu when icon is clicked
+ * @param {string} menubarBtn - Menubar button selector
+ * @param {string} menu - Menu selector
+ */
+
 function showLeftMenu(menubarBtn, menu) {
     showMenu(menubarBtn, menu, 0);
 }
 
+/** Initialize menubar */
 export function initMenubar() {
     // Show playlist when play icon clicked
     showRightMenu("#play", "#playlist", 4);

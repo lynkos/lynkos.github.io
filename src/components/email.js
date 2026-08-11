@@ -16,7 +16,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-  // get all data in form and return object
+  /** Get all data in form and return object */
   function getFormData(form) {
     var elements = form.elements;
     var honeypot;
@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
     return { data: formData, honeypot: honeypot };
   }
 
-  function handleFormSubmit(event) {  // handles form submit without any jquery
+  /** Handle form submit with AJAX */
+  function handleFormSubmit(event) {
     loadingCursor(); // Show spinner while sending email
     event.preventDefault(); // Submitting via xhr below
     var form = event.target;
@@ -116,14 +117,14 @@ document.addEventListener("DOMContentLoaded", function() {
     xhr.send(encoded);
   }
 
-  // Show spinner while sending email
+  /** Show spinner cursor while sending email */
   function loadingCursor() {
     document.body.style.cursor = "none";
     $(".loader").show();
     document.addEventListener("mousemove", moveMouse);
   };
 
-  // Revert cursor to normal once sent
+  /** Revert cursor to normal once sent */
   function revertCursor() {
     // Manually set cursor to custom SASS var $default-cursor in _variables.sass
     document.body.style.cursor = "url('data:image/svg+xml,%3Csvg%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate%2810%207%29%22%3E%3Cpath%20d%3D%22m6.148%2018.473%201.863-1.003%201.615-.839-2.568-4.816h4.332l-11.379-11.408v16.015l3.316-3.221z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22m6.431%2017%201.765-.941-2.775-5.202h3.604l-8.025-8.043v11.188l2.53-2.442z%22%20fill%3D%22%23000%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') 8 8, url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAzklEQVR42u3Urw6BYRTH8TNFsCmYILyCCXhVReEa/ImCqlDNPXADNm5BUlzDW2iC5iWR/Hv2Nf9GfZ6nmPmVX/vs7GzniPzzq8G1BXzydoA6b62mQFWwIlBClfOGnAVgRTwAoWZKvIAbcdmQtQCEOhdfm/gEjIg3ECFFih74ZLSBNEIRYI6Hx5SIFtBhTwxhAi2DJXZhxbCP4KLWhLQBljiED1sHYQw9XWBB4t7tEUKS446oHhB/dlCtygw4QdP0KhrAjIL5XQYo/T/09+cKvoKuaQOYhRoAAAAASUVORK5CYII=') 8 8, default"; // = auto;
@@ -131,13 +132,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.removeEventListener("mousemove", moveMouse);
   };
 
+  /** Move custom cursor with mouse */
   function moveMouse(e) {
     var cursor = document.querySelector(".loader");
     cursor.style.left = e.clientX + "px";
     cursor.style.top = e.clientY + "px";
   }
   
-  // Bind to the submit event of our form
+  /** Bind to the submit event of our form */
   function loaded() {
     var forms = document.querySelectorAll("form.gform");
     for (let i = 0; i < forms.length; i++) {
@@ -147,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.addEventListener("DOMContentLoaded", loaded, false);
 
+  /** Disable all buttons after form submission */
   function disableAllButtons(form) {
     var buttons = form.querySelectorAll("button");
     for (let i = 0; i < buttons.length; i++) {
@@ -154,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Load script
+  /** Load script */
   function loadScript(url, defer = false, async = false) {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -164,12 +167,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(script);
   }
 
-  // Load Toastify if not already loaded
+  /** Load Toastify if not already loaded */
   function loadToastify() {
     loadScript("https://cdn.jsdelivr.net/npm/toastify-js");
   }
 
-  // Load reCAPTCHA when mail form is opened (i.e. mail icon is clicked)
+  /** Load reCAPTCHA when mail form is opened (i.e. mail icon is clicked) */
   function loadRecaptcha() {
     loadScript("https://www.google.com/recaptcha/api.js");
 

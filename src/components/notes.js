@@ -5,6 +5,8 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
+
+/** Initialize Notes */
 export function initNotes() {
     // Highlight clicked nav item
     document.querySelectorAll(".sidebar .child-nav li").forEach(function(element) {

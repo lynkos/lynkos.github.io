@@ -73,6 +73,7 @@ function Skill(name, value, icon, color, description, containerId) {
     container.insertAdjacentHTML("beforeend", html);
 }
 
+/** Initialize Skills */
 export function initSkills() {
     // LANGUAGES
     Skill(

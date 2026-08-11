@@ -9,7 +9,7 @@ import { bringToFront, closeLaunchpad, cursor, fadeMs, getText, initPosition, la
 
 const launchInput = document.getElementById("launchInput");
 
-// Open launchpad
+/** Open launchpad */
 function openLaunchpad() {        
     // Set up fade transition
     $("#menu-bar").fadeOut(fadeMs);
@@ -22,7 +22,7 @@ function openLaunchpad() {
     launchpadNav.classList.add("scale-down");
 }
 
-// Open app via launchpad
+/** Open app via launchpad */
 function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
     // Position window when first opened
     initPosition(launchIcon, win, "click");
@@ -41,7 +41,7 @@ function launchApp(launchIcon, win, dockIcon, displayType = "flex") {
     });
 }
 
-// --- Launchpad Search ---
+/** Launchpad Search */ 
 function filterLaunchpad() {
     const filter = launchInput.value.toLowerCase();
 
@@ -51,6 +51,7 @@ function filterLaunchpad() {
     });
 }
 
+/** Initialize Launchpad */
 export function initLaunchpad() {
     // Toggle launchpad on click
     document.getElementById("launchpadDockIcon").addEventListener("click", function() {

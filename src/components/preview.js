@@ -12,6 +12,7 @@ const fullProfilePic = document.getElementById("fullProfilePic");
 var angle = 0;
 var zoom = 1;
 
+/** Initialize Preview */
 export function initPreview() {
     // Rotate picture in `profile.webp` preview
     rotate.addEventListener("click", function() {

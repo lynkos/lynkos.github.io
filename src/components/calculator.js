@@ -9,11 +9,13 @@ const OPS = [ "*", "/", "+", "-", "%" ];
 const screen = document.querySelector(".screen");
 const outcome = document.querySelector(".outcome");
 
+/** Check if the last character of the input is an operator */
 function opsEnd(input) {
   const lastChar = input[input.length - 1];
   return OPS.includes(lastChar);
 }
 
+/** Initialize Calculator */
 export function initCalculator() {
   document.querySelectorAll(".val").forEach(button => {
     button.addEventListener("click", function(event) {

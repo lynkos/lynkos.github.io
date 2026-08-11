@@ -26,7 +26,7 @@ export const cursor = computedStyle.cursor;
 export const getText = (element, selector, attr = "textContent") =>
     element?.querySelector(selector)?.[attr]?.trim().toLowerCase() ?? "";
 
-// Center windows
+/** Center windows */
 export function centerWindow(win, my, at = "center") {
     $(win).position({
         my: my,
@@ -36,7 +36,7 @@ export function centerWindow(win, my, at = "center") {
     });
 }
 
-// Position window based off dims
+/** Position window based off dims */
 export function positionWindow(win) {
     // Calculate menubar height (3rem) and convert to px
     // Used to subtract from vertical position to take menubar height into account
@@ -50,7 +50,7 @@ export function positionWindow(win) {
     else centerWindow(win, "center center-" + menubarHeight);
 }
 
-// ONLY auto-position window when first opened; this is to avoid calculating for windows that might never be opened
+/** ONLY auto-position window when first opened; this is to avoid calculating for windows that might never be opened */
 export function initPosition(icon, win, eventType) {
     // Ignore terminal since it's already positioned on load
     if (win !== "#mac-terminal") {
@@ -69,7 +69,7 @@ export function initPosition(icon, win, eventType) {
     }
 }
 
-// Bring clicked window to front
+/** Bring clicked window to front */
 export function bringToFront(element) {
     // Convert selector string to element if needed
     const elementObj = typeof element === "string" ? document.querySelector(element) : element;
@@ -151,7 +151,7 @@ export function bringToFront(element) {
     }
 }
 
-// Close launchpad
+/** Close launchpad */
 export function closeLaunchpad() {
     // Remove start, add end
     launchpad.classList.remove("start");
