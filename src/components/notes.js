@@ -5,9 +5,13 @@
  * This work is licensed under the terms of the MIT license.
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
+import { initProjects } from "../utilities/projects.js";
 
 /** Initialize Notes */
 export function initNotes() {
+    // Projects MUST be initialized before notes
+    initProjects();
+
     // Highlight clicked nav item
     document.querySelectorAll(".sidebar .child-nav li").forEach(function(element) {
         element.addEventListener("click", function() {

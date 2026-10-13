@@ -6,6 +6,7 @@
  * Refer to https://opensource.org/licenses/MIT for a copy.
  */
 import { getText, sortOpacity, sortSpeed } from "../common.js";
+import { initSkills } from "../utilities/skills.js";
 
 var sortMode = 0; // 0 = Ascending, 1 = Descending, 2 = Original
 var isSorting = false;
@@ -90,6 +91,9 @@ const toggleContent = item => {
  * Initialize browser functionality
  */
 export function initBrowser() {
+    // Skills MUST be initialized before browser
+    initSkills();
+    
     skillSections.forEach(section => {
         section._originalOrder = Array.from(section.querySelectorAll(".skill-entry"));
         
